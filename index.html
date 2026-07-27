@@ -1,824 +1,1595 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product & Volume</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:           #f4f3ef;
-      --surface:      #ffffff;
-      --dark:         #1a1a28;
-      --dark-mid:     #2c2c40;
-      --gold:         #b8943c;
-      --gold-light:   #f5edd8;
-      --text:         #1a1a28;
-      --text-2:       #5a5a72;
-      --text-3:       #9a9ab0;
-      --border:       rgba(0,0,0,0.07);
+      --white:        #ffffff;
+      --off-white:    #f7f8fa;
+      --gray-100:     #f3f4f6;
+      --gray-200:     #e5e7eb;
+      --gray-300:     #d1d5db;
+      --gray-400:     #9ca3af;
+      --gray-500:     #6b7280;
+      --gray-600:     #4b5563;
+      --gray-800:     #1f2937;
+      --navy:         #1B2A4A;
+      --navy-hover:   #243459;
+      --green:        #2D7F4E;
+      --green-mid:    #38a169;
+      --green-light:  #e8f5ee;
+      --purple:       #6b46a0;
+      --purple-light: #f0eafb;
+      --blue:         #2563eb;
+      --blue-light:   #eff6ff;
+      --amber:        #b45309;
+      --amber-light:  #fffbeb;
+      --red:          #dc2626;
+      --shadow-xs:    0 1px 2px rgba(0,0,0,0.05);
       --shadow-sm:    0 1px 4px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
-      --shadow-md:    0 4px 16px rgba(0,0,0,0.09), 0 1px 4px rgba(0,0,0,0.05);
-      --radius:       14px;
+      --shadow:       0 4px 16px rgba(0,0,0,0.09), 0 1px 4px rgba(0,0,0,0.05);
+      --shadow-lg:    0 8px 28px rgba(0,0,0,0.13), 0 2px 8px rgba(0,0,0,0.06);
+      --radius-sm:    8px;
+      --radius:       12px;
+      --radius-lg:    18px;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-    html, body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--off-white);
+      color: var(--gray-800);
       min-height: 100vh;
-      max-width: 520px;
-      margin: 0 auto;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* ── Header ── */
-    header {
-      background: var(--dark);
-      padding: 18px 18px 14px;
+    /* ─── HEADER ─── */
+    #site-header {
+      background: var(--navy);
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.25);
     }
 
-    .header-row {
+    .header-top {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 12px;
     }
 
     .logo {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 18px;
-      font-weight: 600;
-      color: #fff;
-      letter-spacing: 0.01em;
-    }
-
-    .logo-dot { color: var(--gold); }
-
-    .sync-badge {
-      font-size: 10px;
-      font-weight: 500;
-      color: rgba(255,255,255,0.35);
-      letter-spacing: 0.02em;
-    }
-
-    .search-wrap { position: relative; }
-
-    .search-icon {
-      position: absolute;
-      left: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 13px;
-      pointer-events: none;
-      opacity: 0.4;
-    }
-
-    #searchInput {
-      width: 100%;
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 10px;
-      padding: 10px 14px 10px 36px;
-      font-size: 13.5px;
-      font-family: 'Inter', sans-serif;
       color: white;
-      outline: none;
-      transition: background 0.2s, border-color 0.2s;
-    }
-
-    #searchInput:focus {
-      background: rgba(255,255,255,0.13);
-      border-color: rgba(184,148,60,0.5);
-    }
-
-    #searchInput::placeholder { color: rgba(255,255,255,0.3); }
-
-    /* ── Tabs ── */
-    .tabs {
-      display: flex;
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 90px;
-      z-index: 90;
-    }
-
-    .tab-btn {
-      flex: 1;
-      padding: 14px 8px;
-      text-align: center;
-      font-size: 13px;
-      font-weight: 600;
-      font-family: 'Inter', sans-serif;
-      color: var(--text-3);
-      cursor: pointer;
-      border-bottom: 2px solid transparent;
-      margin-bottom: -1px;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
       user-select: none;
-      transition: color 0.15s;
+    }
+    .logo em {
+      font-style: normal;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      margin: 0 3px;
+    }
+    .logo .brand-tag {
+      font-size: 11px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.4);
+      margin-left: 8px;
+      letter-spacing: 0;
     }
 
-    .tab-btn.active {
-      color: var(--dark);
-      border-bottom-color: var(--gold);
-    }
+    .header-actions { display: flex; align-items: center; gap: 10px; }
 
-    /* ── Main ── */
+    .lang-btn {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.85);
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.18s;
+      letter-spacing: 0.3px;
+    }
+    .lang-btn:hover { background: rgba(255,255,255,0.2); }
+    .lang-btn.zh-active { background: rgba(255,255,255,0.15); }
+
+    /* .cat-nav / .cat-tab replaced by .primary-nav / .secondary-nav system */
+
+    /* ─── CATEGORY HERO ─── */
+    .cat-hero {
+      background: white;
+      border-bottom: 1px solid var(--gray-200);
+      padding: 28px 24px;
+      display: none;
+    }
+    .cat-hero.visible { display: block; }
+    .cat-hero-inner { max-width: 1280px; margin: 0 auto; }
+    .cat-hero-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .cat-hero h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .cat-hero p {
+      font-size: 14px;
+      color: var(--gray-500);
+      max-width: 700px;
+      line-height: 1.65;
+    }
+    /* Category accent colors for hero */
+    .hero-nutrition .cat-hero-label { color: var(--green); }
+    .hero-beauty    .cat-hero-label { color: var(--purple); }
+    .hero-care      .cat-hero-label { color: var(--blue); }
+    .hero-home      .cat-hero-label { color: var(--amber); }
+
+    /* ─── MAIN + GRID ─── */
     main {
-      padding: 18px 16px 40px;
-      min-height: 60vh;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 32px 24px 48px;
     }
 
-    /* ── Loading ── */
-    .loading {
-      text-align: center;
-      padding: 72px 20px;
-      color: var(--text-3);
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+    }
+    .section-count {
+      font-size: 13px;
+      color: var(--gray-400);
     }
 
-    .spinner {
-      width: 28px;
-      height: 28px;
-      border: 2px solid var(--border);
-      border-top-color: var(--gold);
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    /* ─── PRODUCT CARD ─── */
+    .p-card {
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow 0.2s, transform 0.18s;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--gray-200);
+    }
+    .p-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+    }
+    .p-card:active { transform: translateY(-1px); }
+
+    /* Image area */
+    .p-img {
+      height: 155px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .p-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .p-img-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      height: 100%;
+    }
+    .p-initial {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      font-weight: 800;
+      background: rgba(255,255,255,0.85);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .p-brand-small {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.65;
+    }
+
+    /* Category theme backgrounds */
+    .theme-nutrition .p-img { background: linear-gradient(135deg, #e0f2ea 0%, #c8e8d9 100%); }
+    .theme-nutrition .p-initial { color: var(--green); }
+    .theme-nutrition .p-brand-small { color: var(--green); }
+
+    .theme-beauty .p-img { background: linear-gradient(135deg, #ede9f7 0%, #ddd2f0 100%); }
+    .theme-beauty .p-initial { color: var(--purple); }
+    .theme-beauty .p-brand-small { color: var(--purple); }
+
+    .theme-care .p-img { background: linear-gradient(135deg, #dbeafe 0%, #c3d7f8 100%); }
+    .theme-care .p-initial { color: var(--blue); }
+    .theme-care .p-brand-small { color: var(--blue); }
+
+    .theme-home .p-img { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); }
+    .theme-home .p-initial { color: var(--amber); }
+    .theme-home .p-brand-small { color: var(--amber); }
+
+    /* Card body */
+    .p-body {
+      padding: 14px 16px 0;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .p-brand {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .theme-nutrition .p-brand { color: var(--green); }
+    .theme-beauty    .p-brand { color: var(--purple); }
+    .theme-care      .p-brand { color: var(--blue); }
+    .theme-home      .p-brand { color: var(--amber); }
+
+    .p-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--gray-800);
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+    .p-tagline {
+      font-size: 12.5px;
+      color: var(--gray-500);
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    /* Card footer pricing */
+    .p-pricing {
+      padding: 10px 16px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--gray-100);
+      margin-top: 12px;
+    }
+    .p-price-col {}
+    .p-price-label {
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 2px;
+    }
+    .p-price-ibo {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--gray-800);
+      line-height: 1;
+    }
+    .p-price-retail {
+      font-size: 11px;
+      color: var(--gray-400);
+      text-decoration: line-through;
+      margin-top: 2px;
+    }
+    .p-pv-badge {
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: var(--green);
+      color: white;
+      white-space: nowrap;
+    }
+    .p-pv-badge.dim { background: var(--gray-300); }
+
+    /* ─── MODAL ─── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,20,35,0.55);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal {
+      background: white;
+      border-radius: var(--radius-lg);
+      max-width: 560px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(16px) scale(0.98);
+      transition: transform 0.22s;
+    }
+    .modal-overlay.open .modal { transform: translateY(0) scale(1); }
+
+    .modal-imgbar {
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .modal-imgbar img { width: 100%; height: 100%; object-fit: cover; }
+    .modal-imgbar-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .modal-initial {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      font-weight: 800;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    }
+    .modal-brand-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.65;
+    }
+    .theme-nutrition .modal-imgbar { background: linear-gradient(135deg, #d1ead9 0%, #b8dfc8 100%); }
+    .theme-nutrition .modal-initial { color: var(--green); }
+    .theme-nutrition .modal-brand-tag { color: var(--green); }
+    .theme-beauty    .modal-imgbar { background: linear-gradient(135deg, #ddd3f1 0%, #cbbde9 100%); }
+    .theme-beauty    .modal-initial { color: var(--purple); }
+    .theme-beauty    .modal-brand-tag { color: var(--purple); }
+    .theme-care      .modal-imgbar { background: linear-gradient(135deg, #c7d9f8 0%, #afc8f5 100%); }
+    .theme-care      .modal-initial { color: var(--blue); }
+    .theme-care      .modal-brand-tag { color: var(--blue); }
+    .theme-home      .modal-imgbar { background: linear-gradient(135deg, #fde68a 0%, #fcd34d 100%); }
+    .theme-home      .modal-initial { color: var(--amber); }
+    .theme-home      .modal-brand-tag { color: var(--amber); }
+
+    .modal-close {
+      position: absolute;
+      top: 12px; right: 14px;
+      background: rgba(0,0,0,0.2);
+      border: none;
+      color: white;
+      width: 28px; height: 28px;
       border-radius: 50%;
-      animation: spin 0.75s linear infinite;
-      margin: 0 auto 16px;
+      font-size: 18px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+    }
+    .modal-close:hover { background: rgba(0,0,0,0.4); }
+
+    .modal-head {
+      padding: 18px 22px 0;
+    }
+    .modal-brand-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .theme-nutrition .modal-brand-label { color: var(--green); }
+    .theme-beauty    .modal-brand-label { color: var(--purple); }
+    .theme-care      .modal-brand-label { color: var(--blue); }
+    .theme-home      .modal-brand-label { color: var(--amber); }
+
+    .modal-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--gray-800);
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+    .modal-tagline {
+      font-size: 13px;
+      color: var(--gray-500);
+      margin-bottom: 16px;
     }
 
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* ── Category grid ── */
-    .cat-grid {
+    .modal-pricing-row {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 10px;
+      background: var(--gray-100);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      margin: 0 22px 18px;
+    }
+    .modal-price-cell { text-align: center; }
+    .modal-price-lbl {
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 4px;
+    }
+    .modal-price-val {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--gray-800);
+    }
+    .modal-price-val.pv { color: var(--green); }
+    .modal-price-val.retail {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--gray-400);
+      text-decoration: line-through;
+    }
+    .modal-price-val.na { color: var(--gray-300); font-size: 16px; }
+
+    .modal-body { padding: 0 22px 22px; }
+
+    .modal-section { margin-bottom: 16px; }
+    .modal-section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 6px;
+    }
+    .modal-section-text {
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.65;
     }
 
-    .cat-card {
-      background: var(--surface);
-      border-radius: var(--radius);
-      padding: 18px 8px 14px;
-      text-align: center;
-      cursor: pointer;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.15s, box-shadow 0.15s;
-      user-select: none;
-    }
-
-    .cat-card:active {
-      transform: scale(0.95);
-      box-shadow: none;
-    }
-
-    .cat-emoji { font-size: 28px; margin-bottom: 8px; }
-
-    .cat-label {
-      font-size: 10.5px;
-      font-weight: 600;
-      color: var(--text-2);
-      line-height: 1.35;
-      letter-spacing: 0.01em;
-    }
-
-    /* ── View header ── */
-    .view-hd {
+    .modal-footer {
       display: flex;
-      align-items: center;
       gap: 10px;
-      margin-bottom: 16px;
+      margin-top: 20px;
     }
-
-    .back-btn {
-      background: var(--surface);
-      border: none;
-      border-radius: 8px;
-      padding: 8px 13px;
-      font-size: 12.5px;
+    .btn-notion {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--navy);
+      color: white;
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
       font-weight: 600;
-      font-family: 'Inter', sans-serif;
-      color: var(--text-2);
-      cursor: pointer;
-      box-shadow: var(--shadow-sm);
-      flex-shrink: 0;
+      text-decoration: none;
       transition: background 0.15s;
     }
+    .btn-notion:hover { background: var(--navy-hover); }
+    .btn-notion svg { width: 14px; height: 14px; flex-shrink: 0; }
 
-    .back-btn:active { background: var(--bg); }
-
-    .view-title {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.2;
-    }
-
-    /* ── Intro callout ── */
-    .intro-box {
-      background: var(--gold-light);
-      border-left: 3px solid var(--gold);
-      border-radius: 0 10px 10px 0;
-      padding: 13px 15px;
-      font-size: 12.5px;
-      color: var(--text-2);
-      line-height: 1.7;
-      margin-bottom: 16px;
-    }
-
-    /* ── Product cards ── */
-    .product-card {
-      background: var(--surface);
-      border-radius: var(--radius);
-      padding: 15px 16px;
-      margin-bottom: 10px;
-      cursor: pointer;
-      box-shadow: var(--shadow-sm);
-      transition: box-shadow 0.15s, transform 0.1s;
-      user-select: none;
-    }
-
-    .product-card:active {
-      box-shadow: none;
-      transform: scale(0.99);
-    }
-
-    .product-card.no-detail { cursor: default; }
-
-    .product-name {
-      font-size: 13.5px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 5px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 6px;
-    }
-
-    .arrow-tag {
-      font-size: 16px;
-      color: var(--gold);
-      flex-shrink: 0;
-      line-height: 1.2;
-    }
-
-    .product-adv {
-      font-size: 12px;
-      color: var(--text-2);
-      line-height: 1.6;
-      margin-bottom: 10px;
-    }
-
-    .badges {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .badge {
-      font-size: 11px;
-      font-weight: 500;
-      padding: 3px 9px;
-      border-radius: 100px;
-      background: var(--bg);
-      color: var(--text-2);
-    }
-
-    .badge.pv {
-      background: var(--gold-light);
-      color: #7a5c10;
-    }
-
-    /* ── Strategy grid ── */
-    .strat-card {
-      background: var(--surface);
-      border-radius: var(--radius);
-      padding: 16px 16px;
-      margin-bottom: 10px;
-      cursor: pointer;
-      box-shadow: var(--shadow-sm);
-      border-left: 3px solid var(--gold);
-      transition: box-shadow 0.15s, transform 0.1s;
-      user-select: none;
-    }
-
-    .strat-card:active {
-      box-shadow: none;
-      transform: scale(0.99);
-    }
-
-    .strat-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 3px;
-    }
-
-    .strat-sub {
-      font-size: 12px;
-      color: var(--text-3);
-    }
-
-    /* ── Strategy table ── */
-    .table-wrap {
-      overflow-x: auto;
-      margin-top: 14px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-sm);
-      background: var(--surface);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 12px;
-      min-width: 480px;
-    }
-
-    th {
-      background: var(--dark);
-      color: rgba(255,255,255,0.85);
-      padding: 11px 12px;
-      text-align: left;
-      font-size: 10.5px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    td {
-      padding: 11px 12px;
-      border-bottom: 1px solid var(--bg);
-      color: var(--text-2);
-      vertical-align: top;
-      line-height: 1.55;
-    }
-
-    tr:last-child td { border-bottom: none; }
-
-    td.linked {
-      color: var(--dark);
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: underline;
-      text-decoration-color: var(--gold);
-      text-underline-offset: 2px;
-    }
-
-    /* ── Modal (bottom sheet) ── */
-    #modalOverlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(10,10,20,0.6);
-      z-index: 200;
-      align-items: flex-end;
-      backdrop-filter: blur(2px);
-    }
-
-    #modalOverlay.open { display: flex; }
-
-    .modal-sheet {
-      background: var(--surface);
-      border-radius: 22px 22px 0 0;
-      width: 100%;
-      max-height: 87vh;
-      overflow-y: auto;
-      padding: 6px 22px 48px;
-      animation: slideUp 0.3s cubic-bezier(0.32, 0.72, 0, 1);
-    }
-
-    @keyframes slideUp {
-      from { transform: translateY(100%); }
-      to   { transform: translateY(0); }
-    }
-
-    .modal-handle {
-      width: 32px;
-      height: 3px;
-      background: var(--border);
-      border-radius: 2px;
-      margin: 14px auto 20px;
-    }
-
-    #modalTitle {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 20px;
-      line-height: 1.3;
-    }
-
-    /* Detail sections */
-    .d-callout {
-      background: var(--gold-light);
-      border-left: 3px solid var(--gold);
-      border-radius: 0 10px 10px 0;
-      padding: 14px 16px;
-      margin-bottom: 18px;
-      font-size: 13px;
-      color: var(--text-2);
-      line-height: 1.7;
-    }
-
-    .d-h1, .d-h2 {
-      font-size: 13.5px;
-      font-weight: 700;
-      color: var(--text);
-      margin: 22px 0 9px;
-      letter-spacing: 0.01em;
-      text-transform: uppercase;
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      color: var(--gold);
-    }
-
-    .d-h3 {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
-      margin: 16px 0 6px;
-    }
-
-    .d-para {
-      font-size: 13px;
-      line-height: 1.75;
-      color: var(--text-2);
-      margin-bottom: 10px;
-    }
-
-    .d-bullet {
-      font-size: 13px;
-      line-height: 1.65;
-      color: var(--text-2);
-      padding-left: 16px;
-      position: relative;
-      margin-bottom: 7px;
-    }
-
-    .d-bullet::before {
-      content: '—';
-      position: absolute;
-      left: 0;
-      color: var(--gold);
-      font-weight: 400;
-    }
-
-    .d-quote {
-      background: var(--bg);
-      border-left: 2px solid var(--gold);
-      border-radius: 0 8px 8px 0;
-      padding: 12px 14px;
-      font-size: 12.5px;
-      font-style: italic;
-      color: var(--text-2);
-      margin: 12px 0;
-      line-height: 1.7;
-    }
-
-    .no-detail-note {
-      color: var(--text-3);
-      font-size: 13px;
+    /* ─── CALCULATOR SECTION ─── */
+    .calc-section {
+      background: white;
+      border-top: 1px solid var(--gray-200);
+      padding: 52px 24px;
       text-align: center;
-      padding: 32px 0;
     }
-
-    /* ── Search results ── */
-    .search-hd {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--text-3);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 12px;
-    }
-
-    .sr-item {
-      background: var(--surface);
-      border-radius: var(--radius);
-      padding: 13px 15px;
+    .calc-inner { max-width: 520px; margin: 0 auto; }
+    .calc-section h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--gray-800);
       margin-bottom: 8px;
-      cursor: pointer;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.1s;
     }
-
-    .sr-item:active { transform: scale(0.98); }
-
-    .sr-name {
-      font-size: 13.5px;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .sr-cat {
-      font-size: 11.5px;
-      color: var(--text-3);
-      margin-top: 2px;
-    }
-
-    .no-results {
-      text-align: center;
-      padding: 56px 20px;
-      color: var(--text-3);
+    .calc-section .calc-sub {
       font-size: 14px;
+      color: var(--gray-500);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+    .calc-coming {
+      border: 2px dashed var(--gray-200);
+      border-radius: var(--radius);
+      padding: 36px 24px;
+      color: var(--gray-400);
+      font-size: 14px;
+    }
+    .calc-coming .calc-icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    .calc-milestone {
+      margin-top: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy);
+      padding: 20px 24px;
+      text-align: center;
+      color: rgba(255,255,255,0.35);
+      font-size: 12px;
+      letter-spacing: 0.2px;
+    }
+
+    /* ─── EMPTY STATE ─── */
+    .empty-state {
+      grid-column: 1 / -1;
+      padding: 60px 24px;
+      text-align: center;
+      color: var(--gray-400);
+    }
+    .empty-state p { font-size: 15px; }
+
+    /* ─── PRIMARY NAV (mode selector) ─── */
+    .primary-nav {
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .primary-nav-scroll {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      gap: 0;
+    }
+    .primary-tab {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      padding: 12px 22px;
+      cursor: pointer;
+      white-space: nowrap;
+      position: relative;
+      transition: color 0.18s;
+      letter-spacing: 0.2px;
+    }
+    .primary-tab::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 22px; right: 22px;
+      height: 2px;
+      background: #93c5fd;
+      border-radius: 2px 2px 0 0;
+      transform: scaleX(0);
+      transition: transform 0.18s;
+    }
+    .primary-tab:hover { color: rgba(255,255,255,0.85); }
+    .primary-tab.active { color: white; }
+    .primary-tab.active::after { transform: scaleX(1); }
+
+    /* ─── SECONDARY NAV (contextual sub-tabs) ─── */
+    .secondary-nav {
+      background: rgba(0,0,0,0.2);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: none;
+    }
+    .secondary-nav.visible { display: block; }
+    .secondary-nav-scroll {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .secondary-nav-scroll::-webkit-scrollbar { display: none; }
+    .secondary-tab {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.45);
+      padding: 9px 18px;
+      cursor: pointer;
+      white-space: nowrap;
+      position: relative;
+      transition: color 0.18s;
+    }
+    .secondary-tab::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 18px; right: 18px;
+      height: 2px;
+      background: white;
+      border-radius: 2px 2px 0 0;
+      transform: scaleX(0);
+      transition: transform 0.18s;
+    }
+    .secondary-tab:hover { color: rgba(255,255,255,0.8); }
+    .secondary-tab.active { color: white; }
+    .secondary-tab.active::after { transform: scaleX(1); }
+
+    /* ─── PRODUCT IMAGE FIX ─── */
+    .p-img img { object-fit: contain !important; padding: 8px; background: white; }
+    .modal-imgbar img { object-fit: contain !important; padding: 12px; background: white; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .product-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
+    }
+    @media (max-width: 600px) {
+      .header-top { padding: 0 16px; }
+      main { padding: 20px 16px 36px; }
+      .product-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .p-img { height: 120px; }
+      .p-name { font-size: 13.5px; }
+      .p-pricing { padding: 8px 12px 10px; }
+      .p-price-ibo { font-size: 15px; }
+      .modal { max-height: 92vh; }
+      .modal-pricing-row { padding: 12px 10px; }
+      .modal-price-val { font-size: 16px; }
+    }
+    @media (max-width: 360px) {
+      .product-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="header-row">
-      <div class="logo">Product <span class="logo-dot">&</span> Volume</div>
-      <div class="sync-badge" id="syncBadge">Loading…</div>
+<!-- ─────── HEADER ─────── -->
+<header id="site-header">
+  <div class="header-top">
+    <div class="logo">
+      Product <em>&</em> Volume
     </div>
-    <div class="search-wrap">
-      <span class="search-icon">🔍</span>
-      <input id="searchInput" type="text" placeholder="Search products, strategies…" autocomplete="off" />
-    </div>
-  </header>
-
-  <nav class="tabs">
-    <div class="tab-btn active" id="tab-products"   onclick="switchTab('products')">🌿 Products</div>
-    <div class="tab-btn"        id="tab-strategies"  onclick="switchTab('strategies')">📊 Strategies</div>
-  </nav>
-
-  <main id="main"></main>
-
-  <!-- Bottom sheet modal -->
-  <div id="modalOverlay" onclick="handleOverlayClick(event)">
-    <div class="modal-sheet">
-      <div class="modal-handle"></div>
-      <div id="modalTitle"></div>
-      <div id="modalBody"></div>
+    <div class="header-actions">
+      <button class="lang-btn" id="lang-toggle-btn" onclick="toggleLang()">EN / 中</button>
     </div>
   </div>
 
-  <script>
-    // ─── State ────────────────────────────────────────────────────────────────
-    let DATA = null;
-    let tab   = 'products';
-    let view  = 'grid';
-    let slug  = null;
+  <!-- Primary: mode selector -->
+  <nav class="primary-nav" role="navigation" aria-label="View mode">
+    <div class="primary-nav-scroll">
+      <button class="primary-tab active" id="vtab-category" onclick="setViewMode('category')">By Category</button>
+      <button class="primary-tab" id="vtab-painpoint" onclick="setViewMode('painpoint')">By Pain Point</button>
+      <button class="primary-tab" id="vtab-strategy" onclick="setViewMode('strategy')">Volume Strategy</button>
+    </div>
+  </nav>
 
-    // ─── Boot ─────────────────────────────────────────────────────────────────
-    const main = document.getElementById('main');
+  <!-- Secondary: category tabs (visible by default) -->
+  <nav class="secondary-nav visible" id="cat-secondary-nav" aria-label="Product categories">
+    <div class="secondary-nav-scroll">
+      <button class="secondary-tab cat-tab active" data-cat="all">All Products</button>
+      <button class="secondary-tab cat-tab" data-cat="nutrition">Nutrition</button>
+      <button class="secondary-tab cat-tab" data-cat="beauty">Beauty</button>
+      <button class="secondary-tab cat-tab" data-cat="care">Personal Care</button>
+      <button class="secondary-tab cat-tab" data-cat="home">Home</button>
+    </div>
+  </nav>
 
-    main.innerHTML = '<div class="loading"><div class="spinner"></div>Loading…</div>';
+  <!-- Secondary: pain point tabs (hidden by default) -->
+  <nav class="secondary-nav" id="painpoint-secondary-nav" aria-label="Pain points">
+    <div class="secondary-nav-scroll" id="painpoint-chips"></div>
+  </nav>
 
-    fetch('data/products.json')
-      .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-      .then(data => {
-        DATA = data;
-        const d = new Date(data.lastUpdated);
-        document.getElementById('syncBadge').textContent =
-          'Synced ' + d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-        render();
-      })
-      .catch(() => {
-        main.innerHTML = '<div class="no-results">⚠️ Could not load data.<br><small>Run the GitHub Action to generate data/products.json</small></div>';
-        document.getElementById('syncBadge').textContent = 'No data';
-      });
+  <!-- Secondary: strategy tabs (hidden by default) -->
+  <nav class="secondary-nav" id="strategy-secondary-nav" aria-label="Volume strategies">
+    <div class="secondary-nav-scroll" id="strategy-chips"></div>
+  </nav>
+</header>
 
-    // ─── Tab switch ───────────────────────────────────────────────────────────
-    function switchTab(t) {
-      tab  = t;
-      view = 'grid';
-      slug = null;
-      document.getElementById('tab-products').classList.toggle('active',  t === 'products');
-      document.getElementById('tab-strategies').classList.toggle('active', t === 'strategies');
-      document.getElementById('searchInput').value = '';
-      render();
-    }
+<!-- ─────── CATEGORY HERO ─────── -->
+<div id="cat-hero" class="cat-hero">
+  <div class="cat-hero-inner">
+    <div class="cat-hero-label" id="hero-label"></div>
+    <h2 id="hero-title"></h2>
+    <p id="hero-intro"></p>
+  </div>
+</div>
 
-    // ─── Search ───────────────────────────────────────────────────────────────
-    document.getElementById('searchInput').addEventListener('input', e => {
-      const q = e.target.value.trim();
-      if (q.length >= 2) renderSearch(q.toLowerCase());
-      else render();
-    });
+<!-- ─────── PRODUCT GRID ─────── -->
+<main>
+  <div class="section-header">
+    <span class="section-title" id="grid-label">All Products</span>
+    <span class="section-count" id="grid-count"></span>
+  </div>
+  <div class="product-grid" id="product-grid"></div>
+</main>
 
-    // ─── Router ───────────────────────────────────────────────────────────────
-    function render() {
-      if (!DATA) return;
-      if (tab === 'products') {
-        view === 'grid' ? renderCatGrid() : renderCatDetail(slug);
-      } else {
-        view === 'grid' ? renderStratGrid() : renderStratDetail(slug);
-      }
-    }
+<!-- ─────── PV CALCULATOR ─────── -->
+<section class="calc-section">
+  <div class="calc-inner">
+    <h2>PV Calculator</h2>
+    <p class="calc-sub">Select products and see total PV, IBO cost, and retail value — helps you plan customer orders and team volume.</p>
+    <div class="calc-coming">
+      <div class="calc-icon">🧮</div>
+      <div>Calculator coming in the next update</div>
+      <div class="calc-milestone">
+        <span>🎯</span> Platinum target: 7,500 PV / month
+      </div>
+    </div>
+  </div>
+</section>
 
-    function navTo(newView, newSlug) {
-      view = newView;
-      slug = newSlug;
-      render();
-      window.scrollTo(0, 0);
-    }
+<!-- ─────── FOOTER ─────── -->
+<footer>
+  IBO Reference Tool &nbsp;·&nbsp; Not for public distribution
+</footer>
 
-    function goBack() { navTo('grid', null); }
+<!-- ─────── MODAL ─────── -->
+<div class="modal-overlay" id="modal-overlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modal" role="dialog" aria-modal="true">
+    <div class="modal-imgbar" id="modal-imgbar">
+      <div class="modal-imgbar-placeholder" id="modal-img-placeholder">
+        <div class="modal-initial" id="modal-initial"></div>
+        <div class="modal-brand-tag" id="modal-brand-tag"></div>
+      </div>
+      <img id="modal-img" src="" alt="" style="display:none">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-head">
+      <div class="modal-brand-label" id="modal-brand-label"></div>
+      <div class="modal-title" id="modal-title"></div>
+      <div class="modal-tagline" id="modal-tagline"></div>
+    </div>
+    <div class="modal-pricing-row" id="modal-pricing-row">
+      <div class="modal-price-cell">
+        <div class="modal-price-lbl">IBO Price</div>
+        <div class="modal-price-val" id="modal-ibo-val"></div>
+      </div>
+      <div class="modal-price-cell">
+        <div class="modal-price-lbl">PV</div>
+        <div class="modal-price-val pv" id="modal-pv-val"></div>
+      </div>
+      <div class="modal-price-cell">
+        <div class="modal-price-lbl">Retail</div>
+        <div class="modal-price-val retail" id="modal-retail-val"></div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <div class="modal-section-label">Key Advantage</div>
+        <div class="modal-section-text" id="modal-advantage"></div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-label">Who Needs This</div>
+        <div class="modal-section-text" id="modal-who"></div>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-label">How to Share the Story</div>
+        <div class="modal-section-text" id="modal-how"></div>
+      </div>
+      <div class="modal-footer" id="modal-footer"></div>
+    </div>
+  </div>
+</div>
 
-    // ─── Category grid ────────────────────────────────────────────────────────
-    function renderCatGrid() {
-      const cards = DATA.categories.map(c => {
-        const emoji = extractEmoji(c.title);
-        const label = c.title.replace(/^\p{Emoji_Presentation}\s*/u, '').replace(/^\p{Emoji}\s*/u, '');
-        return `<div class="cat-card" onclick="navTo('detail','${c.slug}')">
-          <div class="cat-emoji">${emoji}</div>
-          <div class="cat-label">${esc(label)}</div>
-        </div>`;
-      }).join('');
-      main.innerHTML = `<div class="cat-grid">${cards}</div>`;
-    }
+<script>
+/* ════════════════════════════════════════════════
+   PRODUCT DATA
+   To add a real product image: set imageUrl to the
+   direct image URL (e.g. from amway.com CDN).
+   Pricing: exact IBO/Retail/PV from amway.com.
+   ════════════════════════════════════════════════ */
 
-    // ─── Category detail ──────────────────────────────────────────────────────
-    function renderCatDetail(s) {
-      const cat = DATA.categories.find(c => c.slug === s);
-      if (!cat) return goBack();
+/* ════════════════════════════════════════════════
+   PAIN POINT DATA
+   ════════════════════════════════════════════════ */
+const PAIN_POINTS = {
+  energy:   { label:'Energy & Fatigue',  labelZh:'能量与疲劳',   emoji:'🔋', products:['double-x','vitamin-b','plant-protein','cal-mag-d'] },
+  sleep:    { label:'Sleep',             labelZh:'睡眠',          emoji:'💤', products:['cal-mag-d','omega','vitamin-b'] },
+  muscle:   { label:'Muscle Gain',       labelZh:'增肌',          emoji:'💪', products:['plant-protein','omega','vitamin-c','vitamin-b','cal-mag-d'] },
+  weight:   { label:'Weight Loss',       labelZh:'减重',          emoji:'⚖️', products:['plant-protein','double-x','omega'] },
+  hair:     { label:'Hair Loss',         labelZh:'脱发',          emoji:'🦱', products:['satinique-purifying','satinique-smooth','vitamin-b','omega','cal-mag-d'] },
+  acne:     { label:'Acne & Skin',       labelZh:'痘痘与皮肤',   emoji:'🧴', products:['vitamin-c','vitamin-e','omega','hydra-v','youth-xtend','gh-spf50'] },
+  heart:    { label:'Heart & BP',        labelZh:'心脏与血压',   emoji:'❤️', products:['vitamin-e','omega','cal-mag-d','espring'] },
+  immunity: { label:'Immunity',          labelZh:'免疫力',        emoji:'🛡️', products:['vitamin-c','double-x','omega'] },
+  brain:    { label:'Brain & Focus',     labelZh:'大脑专注',     emoji:'🧠', products:['omega','vitamin-b','double-x'] },
+  aging:    { label:'Anti-Aging',        labelZh:'抗衰老',        emoji:'✨', products:['vitamin-c','vitamin-e','omega','youth-xtend','gh-spf50'] },
+  clean:    { label:'Clean Home',        labelZh:'健康家居',     emoji:'🏠', products:['loc','sa8','atmosphere-sky','atmosphere-mini','espring'] },
+  oral:     { label:'Oral Health',       labelZh:'口腔健康',     emoji:'🦷', products:['glister-toothpaste','glister-toothbrush','glister-spray','glister-floss'] },
+};
 
-      const intro = cat.intro
-        ? `<div class="intro-box">${esc(cat.intro)}</div>` : '';
+/* ════════════════════════════════════════════════
+   VOLUME STRATEGY DATA
+   ════════════════════════════════════════════════ */
+const VOL_STRATEGIES = {
+  morning:  { label:'Morning Routine',     labelZh:'晨间例程',   emoji:'🌅', desc:'~60 PV/month on Ditto', descZh:'Ditto约60 PV/月', products:['double-x','vitamin-c','plant-protein','glister-toothpaste','glister-toothbrush','glister-spray','omega'] },
+  athletic: { label:'Active & Athletic',   labelZh:'运动健身',   emoji:'🏃', desc:'Performance + recovery stack', descZh:'运动表现与恢复组合', products:['plant-protein','omega','cal-mag-d','vitamin-c','double-x'] },
+  health:   { label:'Health Concerns',     labelZh:'健康问题',   emoji:'💊', desc:'Root-cause nutritional stack', descZh:'根因营养组合', products:['double-x','vitamin-c','vitamin-b','vitamin-e','omega','cal-mag-d'] },
+  family:   { label:'Family & Household',  labelZh:'家庭',        emoji:'👨‍👩‍👧', desc:'~$200-400/month potential', descZh:'每月约$200-400潜力', products:['double-x','vitamin-c','omega','glister-toothpaste','satinique-purifying','loc','sa8','espring','atmosphere-mini'] },
+};
 
-      const cards = cat.rows.map(row => {
-        const adv    = row.cells[1] || '';
-        const pv     = row.cells[4] || '';
-        const ibo    = row.cells[5] || '';
-        const retail = row.cells[6] || '';
+const CATS = {
+  nutrition: {
+    label: 'Nutrition', labelZh: '营养补充',
+    theme: 'nutrition',
+    intro: "Nutrilite — the world's #1 selling vitamin and supplement brand. The only global brand that grows, harvests, and processes its own certified organic farm plants. Your body absorbs plant-based nutrients far more effectively than synthetic replicas.",
+    introZh: 'Nutrilite —— 全球销量第一的维生素和营养补充品品牌。唯一一个在自家有机认证农场种植、收割、加工原料的全球品牌。身体对植物来源的营养素吸收效率远高于合成原料。'
+  },
+  beauty: {
+    label: 'Beauty', labelZh: '美容护肤',
+    theme: 'beauty',
+    intro: "Artistry — consistently ranked in the top 5 premium beauty brands globally. Backed by the same plant science as Nutrilite. Skin is the body's largest organ and responds to the same nutritional principles.",
+    introZh: 'Artistry —— 全球美妆品牌前五。与 Nutrilite 同一套植物科学背书。皮肤是人体最大的器官，对营养的反应方式与内部器官相同。'
+  },
+  care: {
+    label: 'Personal Care', labelZh: '个人护理',
+    theme: 'care',
+    intro: 'Plant-based personal care built for daily routines. Glister oral care, Satinique hair care, and g&h body care — all sulfate-free, family-safe, and grounded in science.',
+    introZh: '基于植物成分的日常护理产品。Glister 口腔护理、Satinique 护发和 g&h 身体护理——全部无硫酸盐、适合全家使用，科学配方。'
+  },
+  home: {
+    label: 'Home', labelZh: '家居',
+    theme: 'home',
+    intro: "Science-backed home solutions. From the world's #1 selling home water treatment system to medical-grade air filtration — built to protect the family environment at every level.",
+    introZh: '以科学为基础的家居解决方案。从全球销量第一的家用净水系统到医疗级空气净化——全方位守护家庭环境。'
+  }
+};
 
-        const pvBadge  = pv     ? `<span class="badge pv">PV ${esc(pv)}</span>` : '';
-        const iboBadge = ibo    ? `<span class="badge">IBO ${esc(ibo)}</span>`   : '';
-        const retBadge = retail ? `<span class="badge">Retail ${esc(retail)}</span>` : '';
+const PRODUCTS = [
+  // ── NUTRITION ─────────────────────────────────
+  {
+    id:'double-x', cat:'nutrition', brand:'Nutrilite',
+    name:'Double X Multivitamin',
+    nameZh:'Double X 复合维生素',
+    tagline:'22 nutrients from 29 plant sources',
+    taglineZh:'来自29种植物的22种营养素',
+    iboPrice:57.60, retailPrice:64.00, pv:16.79,
+    imageUrl:'https://www.amway.com/medias/123364-en-US-690px-01?context=bWFzdGVyfHJvb3R8MTAwNDc0fGltYWdlL3BuZ3xoZDEvaGYwLzk0NDY3MTc4ODIzOTgucG5nfDQ5NmQ3NzU2NDdjOTk4ZjJlMGQxNGQ0OGU0NWE0NjkzOWEwZDE1YjA5ZWQ0Nzg3NDU3ZDVmNWU1MjUwMzlhMGE',
+    notionId:'e4a6a81b-738c-44da-b801-87cada8f6260',
+    advantage:'450mg plant nutrients vs. 0mg in leading competitors. 22 vitamins + minerals from 22 fruits, vegetables, and herbs including Rosemary, Turmeric, and Quercetin. World\'s #1 selling vitamin.',
+    advantageZh:'450mg植物营养素，竞品中含量为0。22种维生素和矿物质来自迷迭香、姜黄、槲皮素等22种果蔬草本。全球销量第一的维生素产品。',
+    who:'Everyone — especially those not eating diverse whole foods. Foundation product for all other supplements.',
+    whoZh:'所有人——尤其是饮食不均衡的人。是其他营养品的基础。',
+    how:'Compare labels: "How many plant nutrients does your current vitamin have? Zero. This has 450mg from 22 real food sources." Ask what vegetables they ate that day.',
+    howZh:'对比标签："你现在吃的维生素有多少植物营养素？零。我们有来自22种真实食物的450mg。"问他们今天吃了什么蔬菜。'
+  },
+  {
+    id:'vitamin-c', cat:'nutrition', brand:'Nutrilite',
+    name:'Vitamin C Extended Release',
+    nameZh:'维生素C缓释片',
+    tagline:'7-hour continuous antioxidant protection',
+    taglineZh:'7小时持续抗氧化保护',
+    iboPrice:48.60, retailPrice:54.00, pv:14.17,
+    imageUrl:'https://www.amway.com/medias/109747-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w0NTI0MDN8aW1hZ2UvcG5nfGltYWdlcy9oMWEvaGEzLzk0NDk4ODA1MTg2ODYucG5nfDhhMzQ4NmUzNWUwODM2ZGYzODQ2MDk0YWQ4ODQxMThjMmUwYTlmZDBlYWIyMzFhYzBlZDc2YmFkOTcyNzY1MGE',
+    notionId:'35aab838-314d-40cc-a93b-d8788f32ee06',
+    advantage:'Patented 7-hour extended release — the only organic plant-based Vitamin C with continuous delivery. Sourced from Acerola Cherry, which has 50x more Vitamin C than an orange. No competitor matches this.',
+    advantageZh:'专利7小时缓释技术——唯一采用有机植物来源维生素C连续释放的产品。原料来自针叶樱桃，维生素C含量是橙子的50倍。',
+    who:'Everyone. Especially high-stress people, frequent travelers, those in polluted environments, and active individuals.',
+    whoZh:'所有人。尤其是高压力人群、频繁出行者、处于污染环境者，以及运动人群。',
+    how:'Antioxidant demo: iodine + starch chip turns black (oxidation). Drops of Vitamin C clear the black. "That\'s exactly what it does to free radicals in your bloodstream."',
+    howZh:'抗氧化演示：碘液+淀粉片变黑（氧化反应）。滴入维生素C后变清澈。"这就是它在你血液中对自由基做的事。"'
+  },
+  {
+    id:'vitamin-b', cat:'nutrition', brand:'Nutrilite',
+    name:'Vitamin B Dual-Action',
+    nameZh:'维生素B双效片',
+    tagline:'All 8 B vitamins. Instant + 8-hour release.',
+    taglineZh:'8种B族维生素，即释+8小时缓释',
+    iboPrice:34.20, retailPrice:38.00, pv:9.97,
+    imageUrl:'https://www.amway.com/medias/110171-en-US-690px-01?context=bWFzdGVyfGltYWdlc3cyODQxMDJ8aW1hZ2UvcG5nfGltYWdlcy9oYjIvaDQ4Lzk0NDgxNjk0MzkyNjIucG5nfGY1NGI2MDQyZjVhZTliZTBkOWRlMWVhODRkOWYwYTEzNGNhZWRmMTgyZGMwYTYzMTdiZTc1ZmM2NjU1NWIwYzM',
+    notionId:'491ebabe-85f5-4337-8315-20a60785db8d',
+    advantage:'All 8 essential B vitamins in one tablet. Half dissolves instantly for immediate effect, half releases over 8 hours for sustained support. Water-soluble — impossible to overdose.',
+    advantageZh:'一片含全部8种必需B族维生素。一半即释立即起效，另一半8小时缓慢释放。水溶性，不存在过量风险。',
+    who:'People needing sustained energy. Those with skin conditions like eczema or psoriasis. Active people who burn through B vitamins faster.',
+    whoZh:'需要持续能量的人群。湿疹或银屑病患者。运动量大、B族维生素消耗快的人。',
+    how:'"B vitamins are the enzymes that convert food into energy. When they\'re depleted, your metabolism slows, your brain fogs, your workout suffers." Energy + skin story together.',
+    howZh:'"B族维生素是把食物转化为能量的酶。当它们耗尽时，你的代谢就会减慢，大脑会模糊，运动表现会下降。" 能量+皮肤双线故事。'
+  },
+  {
+    id:'vitamin-e', cat:'nutrition', brand:'Nutrilite',
+    name:'Chewable Vitamin E',
+    nameZh:'咀嚼型维生素E',
+    tagline:'Cell-membrane penetration with Lecithin',
+    taglineZh:'卵磷脂助力穿透细胞膜',
+    iboPrice:38.70, retailPrice:43.00, pv:11.28,
+    imageUrl:'https://www.amway.com/medias/A4042-en-US-690px-01?context=bWFzdGVyfGltYWdlc3wzMTI0MTJ8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2g1MS9oYmUvOTY3NjQwNjY4NTcyNi9BNDA0Mi1lbi1VUy02OTBweC0wMXwzNGQwYmQ2ODc2MzljZGE3Y2I5ZDIxNTc3NzE0MGEyNzRlZTE0N2Y1MDVkZWM3YmEwZWYwOTFhYmY4YWFjYjFk',
+    notionId:'721f50e7-46e7-4c55-9cff-5df0c3bfad19',
+    advantage:'Contains Lecithin — the same phospholipid material as cell membranes — enabling Vitamin E to pass THROUGH cell walls and antioxidize inside cells. Also helps clear lipid buildup in blood vessels.',
+    advantageZh:'含卵磷脂——与细胞膜相同的磷脂成分——使维生素E能穿透细胞壁在细胞内部发挥抗氧化作用。同时有助于清除血管中的脂质积累。',
+    who:'Anyone with high blood pressure, high cholesterol, or family history of cardiovascular disease. Anyone over 35. Active people on higher-fat diets.',
+    whoZh:'高血压、高胆固醇、有心血管疾病家族史的人。35岁以上人群。高脂饮食的运动人群。',
+    how:'Oil-in-water demo: drop Vitamin E capsule into oil, watch it absorb. "That\'s what it does inside your blood vessels — clears the buildup that causes arterial stiffness."',
+    howZh:'油水演示：将维生素E滴入油中，观察它如何被吸收。"这就是它在血管内做的事——清除导致动脉硬化的脂质积累。"'
+  },
+  {
+    id:'omega', cat:'nutrition', brand:'Nutrilite',
+    name:'Advanced Omega',
+    nameZh:'高级欧米伽',
+    tagline:'3x absorption. Friend of the Sea certified.',
+    taglineZh:'吸收率提升3倍，获得海洋之友认证',
+    iboPrice:36.00, retailPrice:40.00, pv:10.50,
+    imageUrl:'https://www.amway.com/medias/126136-en-US-690px-01?context=bWFzdGVyfGltYWdlc3wxMDExNTF8aW1hZ2UvcG5nfGltYWdlcy9oMzAvaDA0Lzk0OTUyNDI1NzE4MDYucG5nfDYzMWY1NDJmNjhhMDMyNGUxODkwODAwNDFhZDIxMjJmYjUzODlkYjZjZmY4YzFkMDRlNTNlMzI1OTA0ZDMzODI',
+    notionId:'621b8e29-627f-476f-9695-6f0177801681',
+    advantage:'rTG (re-esterified triglyceride) form provides 3x better absorption than standard fish oil. Friend of the Sea certified for sustainability. White Chia Seed ALA from Nutrilite organic farms. Reduced fishy aftertaste.',
+    advantageZh:'rTG（重酯化甘油三酯）形式的吸收率比普通鱼油高3倍。获得海洋之友可持续发展认证。白奇亚籽ALA来自Nutrilite有机农场。腥味明显减少。',
+    who:'Everyone — your body cannot synthesize Omega-3s. Heart, brain, skin, joint health. Athletes for recovery. Pregnant women.',
+    whoZh:'所有人——人体无法自行合成Omega-3。心脏、大脑、皮肤、关节健康。运动员恢复期。孕妇。',
+    how:'"Do you eat fatty fish three times a week? Most people don\'t — and chronic inflammation quietly fills that gap. Omega-3 is your daily anti-inflammatory."',
+    howZh:'"你每周吃三次富含脂肪的鱼吗？大多数人做不到——慢性炎症就悄悄填满了这个空缺。Omega-3是你每日的抗炎利器。"'
+  },
+  {
+    id:'cal-mag-d', cat:'nutrition', brand:'Nutrilite',
+    name:'Cal Mag D',
+    nameZh:'钙镁D复合片',
+    tagline:'Marine-sourced magnesium. 2x absorption.',
+    taglineZh:'海洋来源镁，吸收率提升2倍',
+    iboPrice:38.70, retailPrice:43.00, pv:11.28,
+    imageUrl:null,
+    notionId:null,
+    advantage:'Triple-blend magnesium sourced from the Dead Sea and Irish seawater absorbs 2x better than standard magnesium. Supports 300+ bodily processes including ATP synthesis, nerve function, and sleep regulation.',
+    advantageZh:'来自死海和爱尔兰海水的三重混合镁，吸收率是普通镁的2倍。支持300多个身体过程，包括ATP合成、神经功能和睡眠调节。',
+    who:'Most adults are deficient. Anyone with poor sleep, muscle cramps, high stress, headaches, heart palpitations, or high blood pressure.',
+    whoZh:'大多数成年人都缺镁。睡眠不好、肌肉抽筋、压力大、头痛、心悸或高血压的人。',
+    how:'"You\'d need to eat 15 cups of spinach every day to get enough magnesium from food. Magnesium deficiency directly causes smooth muscle spasms in blood vessels — a direct mechanism for hypertension."',
+    howZh:'"你每天需要吃15杯菠菜才能从食物中获得足够的镁。缺镁直接导致血管平滑肌痉挛——这是高血压的直接机制。"'
+  },
+  {
+    id:'plant-protein', cat:'nutrition', brand:'Nutrilite',
+    name:'Organics Plant Protein',
+    nameZh:'有机植物蛋白粉',
+    tagline:'21g complete protein. USDA Organic.',
+    taglineZh:'21g完整蛋白质，USDA有机认证',
+    iboPrice:45.90, retailPrice:51.00, pv:13.38,
+    imageUrl:'https://www.amway.com/medias/125921-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w1NDc5MjN8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2hmNS9oMzgvMTAyNjMxODAxMTU5OTgvMTI1OTIxLWVuLVVTLTY5MHB4LTAxfDIxNDAxNzg3MjY2OTIzNDU4NzM5YmZkZDFhNGQ4NGQzOWI4OTA1ODQzNDA1OGIzODZhOWRkOWIyNTIyNDE1MmY',
+    notionId:'d56f2c1b-dba1-491f-a510-36ab19520038',
+    advantage:'All 9 essential amino acids in one serving. 21g protein from Brown Rice + Peas + White Chia from certified organic Nutrilite farms. USDA Organic certified. No soy, gluten, dairy, or artificial sweeteners.',
+    advantageZh:'一份含全部9种必需氨基酸。21g蛋白质来自Nutrilite有机认证农场的糙米、豌豆和白奇亚籽。USDA有机认证。无大豆、麸质、乳制品或人工甜味剂。',
+    who:'People who skip breakfast. Anyone wanting to build muscle, manage weight, or maintain adequate protein on a plant-based diet.',
+    whoZh:'跳过早餐的人。想要增肌、控制体重或在植物性饮食中保持蛋白质摄入充足的人。',
+    how:'"Most people skip breakfast or have toast. Your brain needs protein in the morning — no protein means compromised cognitive function for hours. Replace breakfast with this shake and the difference is immediate."',
+    howZh:'"大多数人跳过早餐或只吃吐司。大脑早晨需要蛋白质——没有蛋白质意味着数小时的认知功能下降。用这款奶昔替代早餐，你马上就能感受到差别。"'
+  },
 
-        const hasDetail = !!row.detailId;
-        const clickAttr = hasDetail
-          ? `onclick="openDetail('${row.detailId}','${escJs(row.name)}')"` : '';
+  // ── BEAUTY ────────────────────────────────────
+  {
+    id:'hydra-v', cat:'beauty', brand:'Artistry',
+    name:'Hydra-V Collection',
+    nameZh:'水活盈润系列',
+    tagline:'Deep hydration with hyaluronic acid',
+    taglineZh:'玻尿酸深层补水',
+    iboPrice:null, retailPrice:null, pv:null,
+    imageUrl:null,
+    notionId:null,
+    advantage:'Hyaluronic acid + multi-layer plant botanical complex. Lightweight layering system suitable for all skin types and all climates. Clinically tested for 24-hour hydration retention.',
+    advantageZh:'玻尿酸+多层植物植物精华复合物。轻盈的分层系统，适合所有肤质和气候。经临床测试可保湿24小时。',
+    who:'Dry skin. Anyone over 25 noticing dehydration lines. All climates, especially dry or cold environments.',
+    whoZh:'干性皮肤。25岁以上开始注意到脱水细纹的人。所有气候，尤其是干燥或寒冷环境。',
+    how:'"Skin hydration isn\'t just cosmetic — dehydrated skin accelerates aging and creates the environment for deeper issues. Run Irene\'s skin assessment first to identify the right starting point."',
+    howZh:'"皮肤补水不只是美容问题——脱水肌肤会加速老化，为更深层的皮肤问题创造条件。先做Irene的皮肤评估，找到最适合你的起点。"'
+  },
+  {
+    id:'youth-xtend', cat:'beauty', brand:'Artistry',
+    name:'Youth Xtend Collection',
+    nameZh:'焕颜亮肤系列',
+    tagline:'Clinical anti-aging. Retinol + peptides.',
+    taglineZh:'临床级抗衰。视黄醇+多肽复合物。',
+    iboPrice:null, retailPrice:null, pv:null,
+    imageUrl:null,
+    notionId:null,
+    advantage:'Retinol + Vitamin C + peptide complex. Clinically tested efficacy comparable to premium department store anti-aging lines at $200–400+ per piece.',
+    advantageZh:'视黄醇+维生素C+多肽复合物。经临床测试，功效可与百货公司200-400美元以上的抗衰系列媲美。',
+    who:'Anyone 30+ concerned about fine lines or skin laxity. People with sun damage. Anyone with an anti-aging focus.',
+    whoZh:'30岁以上担心细纹或皮肤松弛的人。有日晒损伤的人。注重抗衰的人群。',
+    how:'"Department store anti-aging creams at $100–200 per jar — Artistry competes on clinical efficacy at IBO pricing. And ours is built on the same plant science as Nutrilite."',
+    howZh:'"百货公司抗衰面霜要100-200美元一瓶——Artistry以同等临床效果，用IBO价格竞争。而且我们的配方基于与Nutrilite相同的植物科学。"'
+  },
+  {
+    id:'intense-skincare', cat:'beauty', brand:'Artistry',
+    name:'Intense Skincare Collection',
+    nameZh:'密集修护系列',
+    tagline:'Anti-aging + hydration + brightening in one',
+    taglineZh:'抗衰+补水+提亮三合一',
+    iboPrice:null, retailPrice:null, pv:null,
+    imageUrl:null,
+    notionId:null,
+    advantage:'Broad-spectrum plant extract complex. Combines anti-aging, deep hydration, and brightening effects in one simplified line. Reduces the need for multiple products.',
+    advantageZh:'广谱植物提取物复合配方。一套产品同时实现抗衰、深层补水和提亮效果。减少多品类堆叠的需要。',
+    who:'General adult skincare. Anyone wanting a simplified, high-quality routine over multiple budget products.',
+    whoZh:'普通成人护肤需求。想用一套高质量产品代替多款平价产品的人。',
+    how:'"One quality line that does everything vs. five cheap products that each do one thing mediocrely. Ask Irene to do a skin assessment first."',
+    howZh:'"一套高质量产品做好所有事，优于五款各司其职但效果平平的平价产品。先让Irene做皮肤评估。"'
+  },
 
-        return `<div class="product-card${hasDetail ? '' : ' no-detail'}" ${clickAttr}>
-          <div class="product-name">
-            <span>${esc(row.name)}</span>
-            ${hasDetail ? '<span class="arrow-tag">›</span>' : ''}
-          </div>
-          ${adv ? `<div class="product-adv">${esc(adv)}</div>` : ''}
-          <div class="badges">${pvBadge}${iboBadge}${retBadge}</div>
-        </div>`;
-      }).join('') || '<div class="no-results">No products listed</div>';
+  // ── PERSONAL CARE ────────────────────────────
+  {
+    id:'glister-toothpaste', cat:'care', brand:'Glister',
+    name:'Multi-Action Toothpaste',
+    nameZh:'多效护理牙膏',
+    tagline:'Protects enamel. Enamel does not grow back.',
+    taglineZh:'保护牙釉质。牙釉质不会再生。',
+    iboPrice:6.98, retailPrice:7.75, pv:2.03,
+    imageUrl:'https://www.amway.com/medias/124106-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w0MTQ3OXxpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaGFlL2hjMC85NTE4MTY3MDMxODM4LzEyNDEwNi1lbi1VUy02OTBweC0wMXwzZjk1MTcxYjIxMTcyMDdmYTY4NTJkNjE0MmU4NzRmYzU5ZTk4MTQ1NTBjOWE3NmVjOTZlZGExNWM3YzcwNWZm',
+    notionId:'be2d39ea-5234-4e2e-9041-eb393ef042ee',
+    advantage:'Round silica particles — vs. angular abrasive sand in competing toothpastes — clean without grinding enamel. Enamel is irreplaceable. Multi-action formula whitens, freshens, protects, and strengthens in one.',
+    advantageZh:'圆形二氧化硅颗粒——vs.竞品中有棱角的磨砂颗粒——清洁的同时不磨损牙釉质。牙釉质不可再生。多效配方一步完成美白、清新、保护和强化。',
+    who:'Anyone who wants to protect their teeth long-term. Especially those who love sweets, hot/cold foods, or are 30+.',
+    whoZh:'任何想要长期保护牙齿的人。尤其是爱吃甜食、对冷热敏感，或30岁以上的人。',
+    how:'Demo: squeeze both toothpastes on colored paper, rub 60x, wipe clean — Glister leaves no color. Competing brands leave a black streak. "That residue would be on your enamel."',
+    howZh:'演示：将两款牙膏分别涂在有色纸上，摩擦60次后擦拭——Glister不留任何颜色。竞品留下黑色痕迹。"那些痕迹就是对你牙釉质的磨损。"'
+  },
+  {
+    id:'glister-toothbrush', cat:'care', brand:'Glister',
+    name:'Advanced Power Toothbrush',
+    nameZh:'高效电动牙刷',
+    tagline:'UV sanitizer + 5 modes + 3–6 month battery',
+    taglineZh:'UV杀菌+5种模式+3-6个月续航',
+    iboPrice:157.50, retailPrice:175.00, pv:45.92,
+    imageUrl:'https://www.amway.com/medias/127705-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w2NTAyMXxpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaDBkL2gyNy85ODgyMjkzNzMxMzU4LzEyNzcwNS1lbi1VUy02OTBweC0wMXxmODFkMDM1MWZhZTRiOGRmNzRjNzJiM2NlZDI1OTFlOTQ0NmIyZDE4MjIwYmQ1MzVkNjk0YjY4ZjVmYTBkNTEx',
+    notionId:'476d6f51-6591-4af2-815e-88b96b5caccc',
+    advantage:'5 cleaning modes for different needs. Built-in UV sanitizer kills 99.9% of bacteria on the brush head between uses. Battery lasts 3–6 months vs. competitors\' 2–4 weeks. No competitor offers this combination.',
+    advantageZh:'5种清洁模式满足不同需求。内置UV杀菌灯，使用间隙杀灭刷头99.9%的细菌。续航3-6个月，竞品仅2-4周。无竞品提供同等组合。',
+    who:'Anyone wanting dentist-level oral care at home. People prone to gum issues. Tech-savvy customers who appreciate quality tools.',
+    whoZh:'希望在家实现专业洁牙效果的人。容易出现牙龈问题的人。重视优质工具的人。',
+    how:'Compare specs vs. Oral-B or Philips Sonicare ($200+). "Ours includes UV sanitizer — the ONLY brush on the market with this. And the battery lasts 3–6 months, not weeks."',
+    howZh:'与欧乐-B或飞利浦（$200+）对比规格。"我们的刷头有UV杀菌——市场上唯一一款。电池续航3-6个月，不是几周。"'
+  },
+  {
+    id:'glister-spray', cat:'care', brand:'Glister',
+    name:'Mouth Refresher Spray',
+    nameZh:'口气清新喷雾',
+    tagline:'Organic mint. Instant fresh breath anywhere.',
+    taglineZh:'有机薄荷。随时随地即刻清新。',
+    iboPrice:6.53, retailPrice:7.25, pv:1.90,
+    imageUrl:'https://www.amway.com/medias/124111-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w0MTYxOHxpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaGQyL2hhNC85NTE4MTY3ODgzODA2LzEyNDExMS1lbi1VUy02OTBweC0wMXw1YzM4NjU2YTRjNTVhOGIwNWMyM2I5NDI1YjQ2MjQ5ZGUyNTgxOGE3OTZlMDRmYjY4ZDM1YmJkOGVjOWY0NTRh',
+    notionId:'006beb90-17a3-4786-96ac-496ea22e4156',
+    advantage:'Organic mint-based formula. No artificial sweeteners or harsh alcohol. Portable. Immediate sensory benefit makes it the single easiest demo product in the entire lineup.',
+    advantageZh:'有机薄荷配方。无人工甜味剂或刺激性酒精。便携。即时的感官效果使其成为整个产品线中最容易演示的产品。',
+    who:'Everyone. Perfect first product for new customers — low price, zero barrier, instant experience.',
+    whoZh:'所有人。是新客户的完美第一款产品——价格低、无门槛、即时体验。',
+    how:'Spray it mid-conversation and offer to them. "One spray and you\'re immediately fresh — and it\'s organic, no artificial anything." Best door-opener in the line.',
+    howZh:'对话中途使用后递给对方。"一喷立刻清新——而且是有机的，没有任何人工成分。"是整个产品线最好用的破冰产品。'
+  },
+  {
+    id:'glister-floss', cat:'care', brand:'Glister',
+    name:'Multi-Action Dental Floss',
+    nameZh:'多效牙线',
+    tagline:'Naturally derived wax. Doesn\'t snap mid-use.',
+    taglineZh:'天然蜡涂层，不易断裂。',
+    iboPrice:11.26, retailPrice:12.50, pv:3.29,
+    imageUrl:'https://www.amway.com/medias/124112-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w2OTg1MnxpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaGU2L2g1Yy8xMDE1MjA3NzY1NjA5NC8xMjQxMTItZW4tVVMtNjkwcHgtMDF8NTkyZmNlY2M4Zjk1NTQ2YjRmMmMyMDI1M2ZhOWUwYTFhNGZkZTNlNzkzMTAxYzBhYmMwYWQ1Njg3MzJjYjFhNQ',
+    notionId:'9970a64c-8124-4090-a511-5611237a7615',
+    advantage:'Flat-ribbon design glides through tight contacts without shredding. Naturally derived wax coating provides smooth glide and resist breakage. Noticeably stronger than standard floss.',
+    advantageZh:'扁丝设计在牙缝间轻松滑动不起毛。天然蜡涂层提供顺滑感并抵抗断裂。比普通牙线明显更结实。',
+    who:'Anyone with tight teeth. People who\'ve given up flossing because it snaps. Best bundled with toothpaste and spray.',
+    whoZh:'牙缝较紧的人。因为牙线易断而放弃使用的人。与牙膏和喷雾搭配效果最好。',
+    how:'"Feel how flat it is — that\'s how it slides instead of snaps. The wax is naturally derived. One less reason to skip flossing."',
+    howZh:'"感受一下它有多扁平——这就是它能滑过而不断裂的原因。蜡是天然来源的。少一个不用牙线的理由。"'
+  },
+  {
+    id:'satinique-purifying', cat:'care', brand:'Satinique',
+    name:'Purifying Shampoo',
+    nameZh:'净化洗发水',
+    tagline:'Sulfate-free. Removes 28% excess scalp oil.',
+    taglineZh:'无硫酸盐。一次洗发减少28%头皮油脂。',
+    iboPrice:13.50, retailPrice:15.00, pv:3.94,
+    imageUrl:'https://www.amway.com/medias/126460-en-US-690px-01?context=bWFzdGVyfGltYWdlc3wxMTIzMTF8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2g1MS9oMGYvOTk1ODg3OTQyODYzOC8xMjY0NjAtZW4tVVMtNjkwcHgtMDF8MTQyZjU3NjI4MmUyZTcwNDFiYzNhMjE1NzA3MTVhMjg5YmI1NDhkMDU0ZDFhN2E0NGM5NDk5MjQxODc0OTE5NQ',
+    notionId:'65b1604d-585c-4290-ad66-b4529a9c3ffd',
+    advantage:'Plant-based and sulfate-free. Burns clean with no residue vs. commercial shampoos that leave toxic black char. Clinically removes 28% excess oil in one wash. Safe for color-treated hair.',
+    advantageZh:'植物性、无硫酸盐。燃烧无残留，vs.商业洗发水燃烧留下有毒黑色残渣。临床证明一次洗发减少28%多余油脂。适合染色发。',
+    who:'Oily scalps, dandruff, or product buildup. Active people who sweat frequently. High-stress professionals with scalp issues.',
+    whoZh:'油性头皮、头皮屑或产品堆积。频繁出汗的运动人群。有头皮问题的高压力专业人士。',
+    how:'Aluminum foil burn demo: commercial shampoo leaves black residue; Satinique evaporates clean. "70% of the skin on your head is scalp. Treat it like skin."',
+    howZh:'铝箔燃烧演示：商业洗发水留下黑色残留；Satinique干净燃尽。"你头部70%的皮肤是头皮。像对待皮肤一样对待它。"'
+  },
+  {
+    id:'satinique-smooth', cat:'care', brand:'Satinique',
+    name:'Smooth Moisture Shampoo',
+    nameZh:'顺滑保湿洗发水',
+    tagline:'13x smoother. Pumpkin Seed Oil formula.',
+    taglineZh:'顺滑度提升13倍。南瓜籽油配方。',
+    iboPrice:13.50, retailPrice:15.00, pv:3.94,
+    imageUrl:'https://www.amway.com/medias/126449-en-US-690px-01?context=bWFzdGVyfGltYWdlc3wxMDk3MTF8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2gzOS9oYzkvOTk1MzgwOTk4OTY2Mi8xMjY0NDktZW4tVVMtNjkwcHgtMDF8YjVmMDY4ZTE0NGMzMGJhM2ZjZGQ5NmJmNjY2NjU0Y2E4MzE5MTdhZTkzMjViMGNjN2I4MGY5YWU4YTc5ZDk0Yg',
+    notionId:'778705a9-05de-4f85-af25-d6acdfb0208c',
+    advantage:'Pumpkin Seed Oil conditions, smooths, and adds shine. Clinically proven hair 13x smoother after use. Vegan formula with no sulfates, dyes, or mineral oils. Registered with The Vegan Society.',
+    advantageZh:'南瓜籽油调理、顺滑并增加光泽。经临床证明使用后头发顺滑度提升13倍。纯素配方，无硫酸盐、染料或矿物油。获素食协会认证。',
+    who:'Dry or frizzy hair. Color-treated hair. Anyone wanting manageable, shiny hair without heavy residue.',
+    whoZh:'干燥或毛躁的头发。染色发。想要柔顺有光泽、不留残留的人。',
+    how:'"Most conditioners coat hair with silicones that temporarily smooth — then build up over time. This nourishes the actual hair structure. You feel it after one wash."',
+    howZh:'"大多数护发素用硅酮暂时顺滑头发——然后随时间堆积。这款产品滋养真正的发丝结构。一次洗发就能感受到差别。"'
+  },
+  {
+    id:'gh-body-lotion', cat:'care', brand:'g&h',
+    name:'Nourish+ Body Lotion',
+    nameZh:'滋养+身体乳',
+    tagline:'24-hour hydration. Shea butter. Non-greasy.',
+    taglineZh:'24小时保湿。乳木果油。不油腻。',
+    iboPrice:14.18, retailPrice:15.75, pv:4.13,
+    imageUrl:null,
+    notionId:null,
+    advantage:'Shea butter + plant extracts with clinically tested 24-hour moisture retention. Absorbs quickly without greasy residue. Plant-derived ingredients, no harsh sulfates or artificial fragrances.',
+    advantageZh:'乳木果油+植物提取物，经临床测试可保湿24小时。快速吸收，不留油腻感。植物成分，无强硫酸盐或人工香料。',
+    who:'Dry skin. Anyone in dry or cold climates. Easy daily routine product for the whole family.',
+    whoZh:'干性皮肤。处于干燥或寒冷气候的人。适合全家的日常护理产品。',
+    how:'"Most body lotions are 80% water and fragrance. g&h deposits actual moisture-binding actives into the skin. It\'s why your skin still feels soft the next morning."',
+    howZh:'"大多数身体乳80%是水和香料。g&h将真正的保湿活性成分沉积到皮肤中。这就是为什么第二天早上皮肤依然柔软的原因。"'
+  },
+  {
+    id:'gh-spf50', cat:'care', brand:'g&h',
+    name:'Protect+ SPF 50 Body Lotion',
+    nameZh:'防护+SPF50身体乳',
+    tagline:'Broad-spectrum UVA/UVB. No white cast.',
+    taglineZh:'广谱UVA/UVB防护。无白霜。',
+    iboPrice:25.20, retailPrice:28.00, pv:7.35,
+    imageUrl:null,
+    notionId:null,
+    advantage:'Broad-spectrum UVA + UVB protection combined with deep moisturizing benefits. Lightweight formula with no white cast — unlike most high-SPF products. Plant-derived ingredients.',
+    advantageZh:'广谱UVA+UVB防护，同时具有深层保湿功效。轻盈配方，无白霜——不像大多数高SPF产品。植物成分。',
+    who:'Anyone who goes outdoors regularly. Anti-aging focus (UV is the #1 cause of visible skin aging). People with fair skin or history of sun damage.',
+    whoZh:'经常户外活动的人。注重抗衰（紫外线是导致皮肤可见老化的首要原因）。皮肤较白或有日晒损伤史的人。',
+    how:'"80% of visible skin aging comes from UV exposure, not chronological age. Daily SPF is the single highest-ROI anti-aging step — more impactful than any cream or serum."',
+    howZh:'"80%的皮肤可见老化来自紫外线照射，而非年龄本身。每日使用SPF是抗衰效益最高的单一步骤——比任何面霜或精华的效果都更显著。"'
+  },
 
-      main.innerHTML = `
-        <div class="view-hd">
-          <button class="back-btn" onclick="goBack()">← Back</button>
-          <div class="view-title">${esc(cat.title)}</div>
+  // ── HOME ──────────────────────────────────────
+  {
+    id:'loc', cat:'home', brand:'Amway Home',
+    name:'L.O.C. Multi-Purpose Cleaner',
+    nameZh:'全能清洁剂',
+    tagline:'Concentrated 1:50. 40+ year track record.',
+    taglineZh:'1:50稀释浓缩。40年以上市场验证。',
+    iboPrice:11.25, retailPrice:12.50, pv:3.28,
+    imageUrl:null,
+    notionId:null,
+    advantage:'Highly concentrated — one bottle replaces 10+ standard all-purpose cleaners when diluted 1:50. Biodegradable and septic-safe. No chlorine fumes, no ammonia — family and pet safe. 40+ years on market.',
+    advantageZh:'高度浓缩——1:50稀释后一瓶可替代10+瓶普通全能清洁剂。可生物降解、对化粪池安全。无氯气烟雾、无氨——家庭和宠物友好。40+年市场验证。',
+    who:'Families with children or pets. Anyone concerned about chemical fume exposure at home. Eco-conscious buyers wanting to reduce single-use plastic.',
+    whoZh:'有孩子或宠物的家庭。担心家中化学烟雾的人。希望减少一次性塑料使用的环保消费者。',
+    how:'"One bottle of LOC concentrate replaces 10+ bottles of all-purpose cleaner. No chlorine, no ammonia — you can clean the kitchen counters while kids are eating lunch."',
+    howZh:'"一瓶LOC浓缩液可替代10+瓶全能清洁剂。无氯、无氨——孩子在旁边吃饭时也可以放心清洁厨房台面。"'
+  },
+  {
+    id:'sa8', cat:'home', brand:'Amway Home',
+    name:'SA8 Powder Laundry Detergent',
+    nameZh:'SA8洗衣粉',
+    tagline:'PETA + NSF certified. Works cold. Zero residue.',
+    taglineZh:'PETA+NSF双认证。冷水有效。零残留。',
+    iboPrice:47.70, retailPrice:53.00, pv:13.90,
+    imageUrl:null,
+    notionId:null,
+    advantage:'PETA and NSF certified. Works effectively in cold water, saving energy. No optical brighteners (which cause skin irritation). Biodegradable. Rinses completely clean — no detergent residue left in fabric.',
+    advantageZh:'PETA和NSF双认证。冷水中有效，节省能源。无荧光增白剂（会刺激皮肤）。可生物降解。彻底漂净——织物中无洗涤剂残留。',
+    who:'Sensitive skin. Families with babies or eczema. Anyone with HE machines. People who want clean laundry without chemical residue against their skin all day.',
+    whoZh:'敏感皮肤。有婴儿或湿疹患者的家庭。高效洗衣机用户。不希望衣物留有化学残留接触皮肤的人。',
+    how:'"Most detergents leave residue in fabric — that residue touches your skin all day. SA8 rinses completely clean. Critical for sensitive skin, eczema, and especially babies."',
+    howZh:'"大多数洗涤剂在织物中留有残留——这些残留全天接触你的皮肤。SA8彻底漂净。对敏感皮肤、湿疹患者，尤其是婴儿至关重要。"'
+  },
+  {
+    id:'atmosphere-sky', cat:'home', brand:'Atmosphere',
+    name:'Sky Air Purifier',
+    nameZh:'Sky空气净化器',
+    tagline:'465 sq ft. 10-stage. 99.99% particle removal.',
+    taglineZh:'465平方英尺。10级过滤。99.99%颗粒去除。',
+    iboPrice:1539.00, retailPrice:1710.00, pv:448.69,
+    imageUrl:null,
+    notionId:null,
+    advantage:'HEPA + activated carbon + UV-C in a 10-stage filtration system. Removes 99.99% of airborne particles including viruses, bacteria, VOCs, allergens, and PM2.5. Covers 465 sq ft.',
+    advantageZh:'10级过滤系统融合HEPA+活性炭+UV-C技术。去除99.99%空气中的颗粒物，包括病毒、细菌、挥发性有机物、过敏原和PM2.5。覆盖465平方英尺。',
+    who:'Families with allergies or asthma. Pet owners. Urban residents in high-pollution areas. Anyone who seals their home for climate control.',
+    whoZh:'有过敏或哮喘的家庭。宠物主人。高污染城市居民。任何密封住宅进行气候控制的人。',
+    how:'"EPA data: indoor air is 2–5x more polluted than outdoor air. We seal our homes for energy efficiency — and trap everything inside. Pet dander, cooking fumes, VOCs, mold spores."',
+    howZh:'"EPA数据：室内空气的污染程度是室外的2-5倍。我们为了节能而密封住宅——同时也把一切都关在里面。宠物皮屑、烹饪烟雾、挥发性有机物、霉菌孢子。"'
+  },
+  {
+    id:'atmosphere-mini', cat:'home', brand:'Atmosphere',
+    name:'Mini Air Purifier',
+    nameZh:'Mini空气净化器',
+    tagline:'200 sq ft. Same 10-stage technology.',
+    taglineZh:'200平方英尺。同款10级技术。',
+    iboPrice:819.00, retailPrice:910.00, pv:238.78,
+    imageUrl:null,
+    notionId:null,
+    advantage:'Same 10-stage filtration technology as the Sky in a compact form factor. Ideal for bedroom, nursery, or office. Quieter operation for sleep environments.',
+    advantageZh:'与Sky相同的10级过滤技术，外形更紧凑。适合卧室、婴儿房或办公室。更安静，适合睡眠环境。',
+    who:'Bedroom air quality focus. Nursery and infant safety. Apartment dwellers. Anyone wanting air purification on a desk or nightstand.',
+    whoZh:'关注卧室空气质量。婴儿房和婴幼儿安全。公寓居住者。希望在桌面或床头放置净化器的人。',
+    how:'"The bedroom is where you spend 8 hours a night. If you\'re going to purify one room, it should be where you sleep. Especially critical with a newborn."',
+    howZh:'"卧室是你每晚待8小时的地方。如果只净化一个房间，应该从你睡觉的地方开始。有新生儿时尤为重要。"'
+  },
+  {
+    id:'espring', cat:'home', brand:'eSpring',
+    name:'UV-C Water Purifier',
+    nameZh:'UV-C净水器',
+    tagline:'World\'s #1 home water system. 140+ contaminants.',
+    taglineZh:'全球销量第一家用净水系统。去除140+污染物。',
+    iboPrice:1169.10, retailPrice:1299.00, pv:340.85,
+    imageUrl:null,
+    notionId:null,
+    advantage:'UV-C technology kills 99.99% of bacteria and viruses (unlike carbon-only filters). Carbon block removes 140+ contaminants. Retains beneficial minerals (unlike reverse osmosis). NSF 42, 53, and 55 certified.',
+    advantageZh:'UV-C技术杀灭99.99%细菌和病毒（不同于纯碳过滤）。碳块去除140+污染物。保留有益矿物质（不同于反渗透）。NSF 42、53、55三重认证。',
+    who:'Families with young children. Bottled water buyers (pays for itself in under 2 years). Anyone in areas with aging infrastructure or known water quality concerns.',
+    whoZh:'有幼儿的家庭。购买瓶装水的人（不到2年即可回本）。居住在管道老化地区或已知水质问题地区的人。',
+    how:'"Brita filters chlorine taste — but it does NOT kill bacteria or viruses. Reverse osmosis removes everything including minerals, wastes 3–4 gallons per gallon purified, and requires a tank. eSpring solves all of this."',
+    howZh:'"Brita过滤氯气味道——但不能杀灭细菌或病毒。反渗透去除所有物质包括矿物质，每净化一加仑水浪费3-4加仑，还需要储水桶。eSpring解决了所有这些问题。"'
+  },
+  {
+    id:'icook-set', cat:'home', brand:'iCook',
+    name:'19-Piece Collection',
+    nameZh:'19件套厨具套装',
+    tagline:'316L surgical-grade steel. No PFAS. Lifetime guarantee.',
+    taglineZh:'316L外科级钢材。无PFAS。终身保修。',
+    iboPrice:1382.40, retailPrice:1536.00, pv:403.03,
+    imageUrl:null,
+    notionId:null,
+    advantage:'316L surgical-grade stainless steel — same material used in medical implants. No PFAS coatings (linked to thyroid disruption, immune suppression, and cancer). Vapor-seal lid cooks at lower temperature, preserving 80%+ of water-soluble vitamins.',
+    advantageZh:'316L外科级不锈钢——与医疗植入物相同的材质。无PFAS涂层（与甲状腺功能紊乱、免疫抑制和癌症相关）。蒸汽密封盖以更低温度烹饪，保留80%以上水溶性维生素。',
+    who:'Anyone currently using non-stick cookware (PFAS exposure concern). Families who invest in supplements — iCook ensures the nutrients aren\'t cooked out.',
+    whoZh:'目前使用不粘锅的人（PFAS暴露风险）。在营养品上有投入的家庭——iCook确保营养素不在烹饪中流失。',
+    how:'"You\'re spending $100+/month on supplements — but PFAS from non-stick pans is endocrine-disrupting, and boiling destroys 40–60% of Vitamin C and B vitamins. iCook addresses both."',
+    howZh:'"你每月花100+美元买营养品——但不粘锅的PFAS正在干扰内分泌系统，而水煮会破坏40-60%的维生素C和B族维生素。iCook同时解决这两个问题。"'
+  }
+];
+
+/* ════════════════════════════════════════════════
+   STATE & LANGUAGE
+   ════════════════════════════════════════════════ */
+let currentCat = 'all';
+let currentLang = 'en'; // 'en' | 'zh'
+let viewMode = 'category'; // 'category' | 'painpoint' | 'strategy'
+let currentPainPoint = 'energy';
+let currentStrategy = 'morning';
+
+function toggleLang() {
+  currentLang = currentLang === 'en' ? 'zh' : 'en';
+  const btn = document.getElementById('lang-toggle-btn');
+  btn.classList.toggle('zh-active', currentLang === 'zh');
+  btn.textContent = currentLang === 'en' ? 'EN / 中' : '中 / EN';
+  if (viewMode === 'category') {
+    renderGrid(currentCat);
+    updateHero(currentCat);
+  } else if (viewMode === 'painpoint') {
+    renderPainPointChips();
+    renderPainPointGrid(currentPainPoint);
+  } else {
+    renderStrategyChips();
+    renderStrategyGrid(currentStrategy);
+  }
+}
+
+function t(enStr, zhStr) {
+  return currentLang === 'zh' && zhStr ? zhStr : enStr;
+}
+
+/* ════════════════════════════════════════════════
+   FORMATTING
+   ════════════════════════════════════════════════ */
+function fmtPrice(n) {
+  if (n === null || n === undefined) return '—';
+  if (n >= 1000) return '$' + n.toLocaleString('en-US', { maximumFractionDigits: 0 });
+  return '$' + n.toFixed(2);
+}
+
+function fmtPv(n) {
+  if (n === null || n === undefined) return '—';
+  return n % 1 === 0 ? n.toString() : n.toFixed(2);
+}
+
+/* ════════════════════════════════════════════════
+   CATEGORY HERO
+   ════════════════════════════════════════════════ */
+function updateHero(cat) {
+  const hero = document.getElementById('cat-hero');
+  if (cat === 'all') {
+    hero.classList.remove('visible');
+    hero.className = 'cat-hero';
+    return;
+  }
+  const c = CATS[cat];
+  document.getElementById('hero-label').textContent = t(c.label, c.labelZh);
+  document.getElementById('hero-title').textContent = t(c.label, c.labelZh);
+  document.getElementById('hero-intro').textContent = t(c.intro, c.introZh);
+  hero.className = `cat-hero visible hero-${c.theme}`;
+}
+
+/* ════════════════════════════════════════════════
+   CARD RENDERING
+   ════════════════════════════════════════════════ */
+function cardHtml(p) {
+  const theme = CATS[p.cat]?.theme || 'nutrition';
+  const initial = p.brand.charAt(0);
+  const imgSection = p.imageUrl
+    ? `<img src="${p.imageUrl}" alt="${p.name}" loading="lazy"
+            onerror="this.style.display='none';this.parentElement.querySelector('.p-img-placeholder').style.display='flex'">`
+    : '';
+  const placeholderDisplay = p.imageUrl ? 'display:none' : '';
+
+  const pvBadge = p.pv !== null
+    ? `<div class="p-pv-badge">${fmtPv(p.pv)} PV</div>`
+    : `<div class="p-pv-badge dim">—</div>`;
+
+  return `
+    <div class="p-card theme-${theme}" onclick="openModal('${p.id}')" role="button" tabindex="0"
+         onkeydown="if(event.key==='Enter')openModal('${p.id}')">
+      <div class="p-img">
+        ${imgSection}
+        <div class="p-img-placeholder" style="${placeholderDisplay}">
+          <div class="p-initial">${initial}</div>
+          <div class="p-brand-small">${p.brand}</div>
         </div>
-        ${intro}${cards}`;
-    }
-
-    // ─── Strategy grid ────────────────────────────────────────────────────────
-    function renderStratGrid() {
-      const cards = DATA.strategies.map(s => {
-        const count = s.rows?.length || 0;
-        return `<div class="strat-card" onclick="navTo('detail','${s.slug}')">
-          <div class="strat-title">${esc(s.title)}</div>
-          <div class="strat-sub">${count} entr${count === 1 ? 'y' : 'ies'}</div>
-        </div>`;
-      }).join('');
-      main.innerHTML = cards;
-    }
-
-    // ─── Strategy detail ──────────────────────────────────────────────────────
-    function renderStratDetail(s) {
-      const strat = DATA.strategies.find(x => x.slug === s);
-      if (!strat) return goBack();
-
-      const intro = strat.intro
-        ? `<div class="intro-box">${esc(strat.intro)}</div>` : '';
-
-      const headers = strat.columns || [];
-      const rows    = strat.rows    || [];
-
-      const theadCells = headers.map(h => `<th>${esc(h)}</th>`).join('');
-
-      const tbodyRows = rows.map(row => {
-        const cells = row.cells.map((cell, i) => {
-          if (i === 0 && row.detailId) {
-            return `<td class="linked" onclick="openDetail('${row.detailId}','${escJs(row.name)}')">${esc(cell)}</td>`;
-          }
-          return `<td>${esc(cell)}</td>`;
-        }).join('');
-        return `<tr>${cells}</tr>`;
-      }).join('') || `<tr><td colspan="${headers.length}" style="text-align:center;color:var(--text-3)">No data</td></tr>`;
-
-      main.innerHTML = `
-        <div class="view-hd">
-          <button class="back-btn" onclick="goBack()">← Back</button>
-          <div class="view-title">${esc(strat.title)}</div>
+      </div>
+      <div class="p-body">
+        <div class="p-brand">${p.brand}</div>
+        <div class="p-name">${t(p.name, p.nameZh)}</div>
+        <div class="p-tagline">${t(p.tagline, p.taglineZh)}</div>
+      </div>
+      <div class="p-pricing">
+        <div class="p-price-col">
+          <div class="p-price-label">IBO Price</div>
+          <div class="p-price-ibo">${fmtPrice(p.iboPrice)}</div>
+          ${p.retailPrice ? `<div class="p-price-retail">Retail ${fmtPrice(p.retailPrice)}</div>` : ''}
         </div>
-        ${intro}
-        <div class="table-wrap">
-          <table>
-            <thead><tr>${theadCells}</tr></thead>
-            <tbody>${tbodyRows}</tbody>
-          </table>
-        </div>`;
-    }
+        ${pvBadge}
+      </div>
+    </div>`;
+}
 
-    // ─── Product detail modal ─────────────────────────────────────────────────
-    function openDetail(pageId, name) {
-      const sections = DATA.productDetails?.[pageId];
-      document.getElementById('modalTitle').textContent = name;
+/* ════════════════════════════════════════════════
+   GRID
+   ════════════════════════════════════════════════ */
+function renderGrid(cat) {
+  const products = cat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.cat === cat);
+  const grid = document.getElementById('product-grid');
+  const label = document.getElementById('grid-label');
+  const count = document.getElementById('grid-count');
 
-      if (!sections || sections.length === 0) {
-        document.getElementById('modalBody').innerHTML =
-          '<div class="no-detail-note">No detail page available.</div>';
-      } else {
-        document.getElementById('modalBody').innerHTML = sections.map(renderSection).join('');
-      }
+  if (cat === 'all') {
+    label.textContent = t('All Products', '全部产品');
+  } else {
+    label.textContent = t(CATS[cat]?.label, CATS[cat]?.labelZh) || cat;
+  }
+  count.textContent = `${products.length} ${t('products', '款产品')}`;
 
-      document.getElementById('modalOverlay').classList.add('open');
-    }
+  if (products.length === 0) {
+    grid.innerHTML = '<div class="empty-state"><p>No products in this category yet.</p></div>';
+    return;
+  }
+  grid.innerHTML = products.map(cardHtml).join('');
+}
 
-    function renderSection(s) {
-      const t = esc(s.text);
-      switch (s.type) {
-        case 'callout':   return `<div class="d-callout">${t}</div>`;
-        case 'heading_1': return `<div class="d-h1">${t}</div>`;
-        case 'heading_2': return `<div class="d-h2">${t}</div>`;
-        case 'heading_3': return `<div class="d-h3">${t}</div>`;
-        case 'paragraph': return `<div class="d-para">${t}</div>`;
-        case 'bullet':    return `<div class="d-bullet">${t}</div>`;
-        case 'quote':     return `<div class="d-quote">${t}</div>`;
-        default: return '';
-      }
-    }
+/* ════════════════════════════════════════════════
+   MODAL
+   ════════════════════════════════════════════════ */
+function openModal(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  if (!p) return;
 
-    function handleOverlayClick(e) {
-      if (e.target === document.getElementById('modalOverlay')) {
-        document.getElementById('modalOverlay').classList.remove('open');
-      }
-    }
+  const theme = CATS[p.cat]?.theme || 'nutrition';
 
-    // ─── Search ───────────────────────────────────────────────────────────────
-    function renderSearch(q) {
-      const hits = [];
+  // Image bar
+  const imgbar = document.getElementById('modal-imgbar');
+  imgbar.className = `modal-imgbar theme-${theme}`;
+  document.getElementById('modal-initial').textContent = p.brand.charAt(0);
+  document.getElementById('modal-brand-tag').textContent = p.brand;
 
-      for (const cat of (DATA.categories || [])) {
-        for (const row of (cat.rows || [])) {
-          const haystack = [row.name, ...row.cells].join(' ').toLowerCase();
-          if (haystack.includes(q)) hits.push({ row, source: cat.title, type: 'product' });
-        }
-      }
+  const mImg = document.getElementById('modal-img');
+  const mPlaceholder = document.getElementById('modal-img-placeholder');
+  if (p.imageUrl) {
+    mImg.src = p.imageUrl;
+    mImg.alt = p.name;
+    mImg.style.display = '';
+    mPlaceholder.style.display = 'none';
+    mImg.onerror = () => { mImg.style.display='none'; mPlaceholder.style.display='flex'; };
+  } else {
+    mImg.style.display = 'none';
+    mPlaceholder.style.display = 'flex';
+  }
 
-      for (const strat of (DATA.strategies || [])) {
-        for (const row of (strat.rows || [])) {
-          const haystack = [row.name, ...row.cells].join(' ').toLowerCase();
-          if (haystack.includes(q) && !hits.find(h => h.row.name === row.name)) {
-            hits.push({ row, source: strat.title, type: 'strategy' });
-          }
-        }
-      }
+  // Head
+  const brandLabel = document.getElementById('modal-brand-label');
+  brandLabel.className = `modal-brand-label theme-${theme}`;
+  brandLabel.textContent = p.brand;
+  document.getElementById('modal-title').textContent = t(p.name, p.nameZh);
+  document.getElementById('modal-tagline').textContent = t(p.tagline, p.taglineZh);
 
-      if (hits.length === 0) {
-        main.innerHTML = `<div class="no-results">No results for "<strong>${esc(q)}</strong>"</div>`;
-        return;
-      }
+  // Pricing
+  document.getElementById('modal-ibo-val').textContent = fmtPrice(p.iboPrice);
+  const pvEl = document.getElementById('modal-pv-val');
+  pvEl.textContent = fmtPv(p.pv);
+  pvEl.className = p.pv ? 'modal-price-val pv' : 'modal-price-val na';
+  const retailEl = document.getElementById('modal-retail-val');
+  retailEl.textContent = fmtPrice(p.retailPrice);
+  retailEl.className = p.retailPrice ? 'modal-price-val retail' : 'modal-price-val na';
 
-      const items = hits.map(({ row, source }) => {
-        const hasDetail = !!row.detailId;
-        const click = hasDetail ? `openDetail('${row.detailId}','${escJs(row.name)}')` : '';
-        return `<div class="sr-item" ${click ? `onclick="${click}"` : ''}>
-          <div class="sr-name">${esc(row.name)}</div>
-          <div class="sr-cat">${esc(source)}</div>
-        </div>`;
-      }).join('');
+  // Body
+  document.getElementById('modal-advantage').textContent = t(p.advantage, p.advantageZh);
+  document.getElementById('modal-who').textContent = t(p.who, p.whoZh);
+  document.getElementById('modal-how').textContent = t(p.how, p.howZh);
 
-      main.innerHTML = `
-        <div class="search-hd">${hits.length} result${hits.length !== 1 ? 's' : ''}</div>
-        ${items}`;
-    }
+  // Footer
+  const footer = document.getElementById('modal-footer');
+  if (p.notionId) {
+    const url = `https://www.notion.so/${p.notionId.replace(/-/g, '')}`;
+    footer.innerHTML = `<a class="btn-notion" href="${url}" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+      </svg>
+      ${t('Full Product Profile', '查看完整产品档案')}
+    </a>`;
+  } else {
+    footer.innerHTML = '';
+  }
 
-    // ─── Utilities ────────────────────────────────────────────────────────────
-    function esc(s) {
-      if (!s) return '';
-      return String(s)
-        .replace(/&/g, '&amp;').replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-    }
+  // Open overlay
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
 
-    function escJs(s) {
-      return (s || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'");
-    }
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
 
-    function extractEmoji(title) {
-      const m = title.match(/^(\p{Emoji_Presentation}|\p{Emoji}️)/u);
-      return m ? m[0] : '📦';
-    }
-  </script>
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+/* ════════════════════════════════════════════════
+   VIEW MODE SWITCHING
+   ════════════════════════════════════════════════ */
+function setViewMode(mode) {
+  viewMode = mode;
+
+  // Primary tabs
+  document.querySelectorAll('.primary-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('vtab-' + mode).classList.add('active');
+
+  // Secondary navs
+  document.getElementById('cat-secondary-nav').classList.toggle('visible', mode === 'category');
+  document.getElementById('painpoint-secondary-nav').classList.toggle('visible', mode === 'painpoint');
+  document.getElementById('strategy-secondary-nav').classList.toggle('visible', mode === 'strategy');
+
+  // Hero only in category mode
+  if (mode !== 'category') {
+    document.getElementById('cat-hero').className = 'cat-hero';
+  }
+
+  if (mode === 'category') {
+    renderGrid(currentCat);
+    updateHero(currentCat);
+  } else if (mode === 'painpoint') {
+    renderPainPointChips();
+    renderPainPointGrid(currentPainPoint);
+  } else {
+    renderStrategyChips();
+    renderStrategyGrid(currentStrategy);
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ════════════════════════════════════════════════
+   PAIN POINT RENDERING
+   ════════════════════════════════════════════════ */
+function renderPainPointChips() {
+  document.getElementById('painpoint-chips').innerHTML =
+    Object.entries(PAIN_POINTS).map(([key, pp]) =>
+      `<button class="secondary-tab${key === currentPainPoint ? ' active' : ''}"
+         onclick="selectPainPoint('${key}')">${t(pp.label, pp.labelZh)}</button>`
+    ).join('');
+}
+
+function selectPainPoint(key) {
+  currentPainPoint = key;
+  renderPainPointChips();
+  renderPainPointGrid(key);
+}
+
+function renderPainPointGrid(key) {
+  const pp = PAIN_POINTS[key];
+  const products = pp.products.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
+  document.getElementById('grid-label').textContent = `${pp.emoji} ${t(pp.label, pp.labelZh)}`;
+  document.getElementById('grid-count').textContent = `${products.length} ${t('products', '款产品')}`;
+  document.getElementById('product-grid').innerHTML = products.length
+    ? products.map(cardHtml).join('')
+    : '<div class="empty-state"><p>No products found.</p></div>';
+}
+
+/* ════════════════════════════════════════════════
+   STRATEGY RENDERING
+   ════════════════════════════════════════════════ */
+function renderStrategyChips() {
+  document.getElementById('strategy-chips').innerHTML =
+    Object.entries(VOL_STRATEGIES).map(([key, s]) =>
+      `<button class="secondary-tab${key === currentStrategy ? ' active' : ''}"
+         onclick="selectStrategy('${key}')">${t(s.label, s.labelZh)}</button>`
+    ).join('');
+}
+
+function selectStrategy(key) {
+  currentStrategy = key;
+  renderStrategyChips();
+  renderStrategyGrid(key);
+}
+
+function renderStrategyGrid(key) {
+  const s = VOL_STRATEGIES[key];
+  const products = s.products.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
+  document.getElementById('grid-label').textContent = `${s.emoji} ${t(s.label, s.labelZh)}`;
+  document.getElementById('grid-count').textContent = t(s.desc, s.descZh);
+  document.getElementById('product-grid').innerHTML = products.length
+    ? products.map(cardHtml).join('')
+    : '<div class="empty-state"><p>No products found.</p></div>';
+}
+
+/* ════════════════════════════════════════════════
+   NAV TABS
+   ════════════════════════════════════════════════ */
+document.querySelectorAll('.cat-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    currentCat = btn.dataset.cat;
+    document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    updateHero(currentCat);
+    renderGrid(currentCat);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+/* ════════════════════════════════════════════════
+   INIT
+   ════════════════════════════════════════════════ */
+renderGrid('all');
+</script>
 </body>
 </html>
