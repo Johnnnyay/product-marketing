@@ -314,7 +314,6 @@
     .p-price-retail {
       font-size: 11px;
       color: var(--gray-400);
-      text-decoration: line-through;
       margin-top: 2px;
     }
     .p-pv-badge {
@@ -482,7 +481,6 @@
       font-size: 15px;
       font-weight: 500;
       color: var(--gray-400);
-      text-decoration: line-through;
     }
     .modal-price-val.na { color: var(--gray-300); font-size: 16px; }
 
@@ -676,6 +674,99 @@
     .p-img img { object-fit: contain !important; padding: 8px; background: white; }
     .modal-imgbar img { object-fit: contain !important; padding: 12px; background: white; }
 
+    /* ─── HEADER CALC WIDGET ─── */
+    .header-calc {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 20px;
+      padding: 5px 6px 5px 14px;
+      color: white;
+      font-size: 12.5px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .header-calc.visible { display: flex; }
+    .header-calc-onetime {
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.65);
+      border-left: 1px solid rgba(255,255,255,0.2);
+      padding-left: 8px;
+    }
+    .header-calc-clear {
+      background: rgba(255,255,255,0.12);
+      border: none;
+      color: rgba(255,255,255,0.8);
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 4px 10px;
+      border-radius: 14px;
+      transition: background 0.15s;
+      margin-left: 2px;
+    }
+    .header-calc-clear:hover { background: rgba(255,255,255,0.22); color: white; }
+
+    /* ─── CARD SELECTION ─── */
+    .p-card.selected {
+      box-shadow: 0 0 0 2px var(--green), var(--shadow-sm);
+    }
+    .p-add-btn {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.28);
+      border: 1.5px solid rgba(255,255,255,0.5);
+      color: white;
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s, transform 0.1s;
+      z-index: 2;
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+    }
+    .p-add-btn:hover { background: rgba(0,0,0,0.5); transform: scale(1.12); }
+    .p-add-btn.selected {
+      background: var(--green);
+      border-color: var(--green);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    /* ─── DAILY COST ─── */
+    .p-price-ibo-row {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .p-daily-cost {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--green-mid);
+    }
+    .p-onetime-tag {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--amber);
+      background: var(--amber-light);
+      padding: 1px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.2px;
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
       .product-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
@@ -706,6 +797,11 @@
       Product <em>&</em> Volume
     </div>
     <div class="header-actions">
+      <div class="header-calc" id="header-calc">
+        <span id="header-calc-monthly"></span>
+        <span class="header-calc-onetime" id="header-calc-onetime" style="display:none"></span>
+        <button class="header-calc-clear" onclick="clearCalc()">✕ Clear</button>
+      </div>
       <button class="lang-btn" id="lang-toggle-btn" onclick="toggleLang()">EN / 中</button>
     </div>
   </div>
@@ -758,21 +854,6 @@
   </div>
   <div class="product-grid" id="product-grid"></div>
 </main>
-
-<!-- ─────── PV CALCULATOR ─────── -->
-<section class="calc-section">
-  <div class="calc-inner">
-    <h2>PV Calculator</h2>
-    <p class="calc-sub">Select products and see total PV, IBO cost, and retail value — helps you plan customer orders and team volume.</p>
-    <div class="calc-coming">
-      <div class="calc-icon">🧮</div>
-      <div>Calculator coming in the next update</div>
-      <div class="calc-milestone">
-        <span>🎯</span> Platinum target: 7,500 PV / month
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ─────── FOOTER ─────── -->
 <footer>
@@ -861,6 +942,39 @@ const VOL_STRATEGIES = {
   athletic: { label:'Active & Athletic',   labelZh:'运动健身',   emoji:'🏃', desc:'Performance + recovery stack', descZh:'运动表现与恢复组合', products:['plant-protein','omega','cal-mag-d','vitamin-c','double-x'] },
   health:   { label:'Health Concerns',     labelZh:'健康问题',   emoji:'💊', desc:'Root-cause nutritional stack', descZh:'根因营养组合', products:['double-x','vitamin-c','vitamin-b','vitamin-e','omega','cal-mag-d'] },
   family:   { label:'Family & Household',  labelZh:'家庭',        emoji:'👨‍👩‍👧', desc:'~$200-400/month potential', descZh:'每月约$200-400潜力', products:['double-x','vitamin-c','omega','glister-toothpaste','satinique-purifying','loc','sa8','espring','atmosphere-mini'] },
+};
+
+/* ════════════════════════════════════════════════
+   PRODUCT USAGE METADATA
+   daysSupply: how many days ONE unit lasts at standard dosage (null = one-time)
+   oneTime: true for big durable purchases (shown separately in calculator)
+   Sources: Notion product pages + amway.com label data
+   ════════════════════════════════════════════════ */
+const PRODUCT_META = {
+  'double-x':           { daysSupply: 31,  oneTime: false }, // 31-day strip supply
+  'vitamin-c':          { daysSupply: 45,  oneTime: false }, // 90 tabs, 2/day (morning + evening)
+  'vitamin-b':          { daysSupply: 120, oneTime: false }, // 120 tabs, 1/day
+  'vitamin-e':          { daysSupply: 60,  oneTime: false }, // 60 softgels, 1/day
+  'omega':              { daysSupply: 30,  oneTime: false }, // 90 softgels, 3/day (confirmed)
+  'cal-mag-d':          { daysSupply: 30,  oneTime: false }, // 60 tabs, 2/day
+  'plant-protein':      { daysSupply: 15,  oneTime: false }, // 15 servings, 1/day (confirmed) → 2 bags/mo
+  'hydra-v':            { daysSupply: 60,  oneTime: false },
+  'youth-xtend':        { daysSupply: 60,  oneTime: false },
+  'intense-skincare':   { daysSupply: 60,  oneTime: false },
+  'glister-toothpaste': { daysSupply: 60,  oneTime: false }, // ~2 months per tube
+  'glister-toothbrush': { daysSupply: null,oneTime: true  }, // one-time purchase
+  'glister-spray':      { daysSupply: 45,  oneTime: false },
+  'glister-floss':      { daysSupply: 60,  oneTime: false },
+  'satinique-purifying':{ daysSupply: 60,  oneTime: false },
+  'satinique-smooth':   { daysSupply: 60,  oneTime: false },
+  'gh-body-lotion':     { daysSupply: 60,  oneTime: false },
+  'gh-spf50':           { daysSupply: 45,  oneTime: false },
+  'loc':                { daysSupply: 120, oneTime: false }, // concentrated 1:50, lasts ~4 months
+  'sa8':                { daysSupply: 60,  oneTime: false }, // large bag, ~60 loads
+  'atmosphere-sky':     { daysSupply: null,oneTime: true  },
+  'atmosphere-mini':    { daysSupply: null,oneTime: true  },
+  'espring':            { daysSupply: null,oneTime: true  },
+  'icook-set':          { daysSupply: null,oneTime: true  },
 };
 
 const CATS = {
@@ -1351,6 +1465,9 @@ function updateHero(cat) {
 function cardHtml(p) {
   const theme = CATS[p.cat]?.theme || 'nutrition';
   const initial = p.brand.charAt(0);
+  const meta = PRODUCT_META[p.id] || {};
+  const qty = calcSelections[p.id] || 0;
+
   const imgSection = p.imageUrl
     ? `<img src="${p.imageUrl}" alt="${p.name}" loading="lazy"
             onerror="this.style.display='none';this.parentElement.querySelector('.p-img-placeholder').style.display='flex'">`
@@ -1361,8 +1478,21 @@ function cardHtml(p) {
     ? `<div class="p-pv-badge">${fmtPv(p.pv)} PV</div>`
     : `<div class="p-pv-badge dim">—</div>`;
 
+  // Daily cost or one-time tag
+  let costTag = '';
+  if (meta.oneTime) {
+    costTag = `<span class="p-onetime-tag">One-time</span>`;
+  } else if (p.iboPrice && meta.daysSupply) {
+    costTag = `<span class="p-daily-cost">${fmtPrice(p.iboPrice / meta.daysSupply)}/day</span>`;
+  }
+
+  // + button
+  const addLabel = qty > 0 ? `×${qty}` : '+';
+  const addClass = qty > 0 ? 'p-add-btn selected' : 'p-add-btn';
+
   return `
-    <div class="p-card theme-${theme}" onclick="openModal('${p.id}')" role="button" tabindex="0"
+    <div class="p-card theme-${theme}${qty > 0 ? ' selected' : ''}" id="card-${p.id}"
+         onclick="openModal('${p.id}')" role="button" tabindex="0"
          onkeydown="if(event.key==='Enter')openModal('${p.id}')">
       <div class="p-img">
         ${imgSection}
@@ -1370,6 +1500,9 @@ function cardHtml(p) {
           <div class="p-initial">${initial}</div>
           <div class="p-brand-small">${p.brand}</div>
         </div>
+        <button class="${addClass}" id="add-btn-${p.id}"
+                onclick="toggleSelect('${p.id}',event)"
+                aria-label="Add to calculator">${addLabel}</button>
       </div>
       <div class="p-body">
         <div class="p-brand">${p.brand}</div>
@@ -1379,7 +1512,10 @@ function cardHtml(p) {
       <div class="p-pricing">
         <div class="p-price-col">
           <div class="p-price-label">IBO Price</div>
-          <div class="p-price-ibo">${fmtPrice(p.iboPrice)}</div>
+          <div class="p-price-ibo-row">
+            <span class="p-price-ibo">${fmtPrice(p.iboPrice)}</span>
+            ${costTag}
+          </div>
           ${p.retailPrice ? `<div class="p-price-retail">Retail ${fmtPrice(p.retailPrice)}</div>` : ''}
         </div>
         ${pvBadge}
@@ -1570,6 +1706,95 @@ function renderStrategyGrid(key) {
   document.getElementById('product-grid').innerHTML = products.length
     ? products.map(cardHtml).join('')
     : '<div class="empty-state"><p>No products found.</p></div>';
+}
+
+/* ════════════════════════════════════════════════
+   CALCULATOR
+   ════════════════════════════════════════════════ */
+const calcSelections = {};   // { productId: qty (1-3) }
+
+function toggleSelect(id, event) {
+  event.stopPropagation();   // don't open modal
+  const current = calcSelections[id] || 0;
+  const next = current >= 3 ? 0 : current + 1;
+  if (next === 0) {
+    delete calcSelections[id];
+  } else {
+    calcSelections[id] = next;
+  }
+
+  // Update button label/state
+  const btn = document.getElementById('add-btn-' + id);
+  const card = document.getElementById('card-' + id);
+  if (btn) {
+    btn.textContent = next > 0 ? '×' + next : '+';
+    btn.className   = next > 0 ? 'p-add-btn selected' : 'p-add-btn';
+  }
+  if (card) {
+    if (next > 0) card.classList.add('selected');
+    else card.classList.remove('selected');
+  }
+
+  updateCalcWidget();
+}
+
+function clearCalc() {
+  Object.keys(calcSelections).forEach(k => delete calcSelections[k]);
+  // Reset all buttons and cards
+  document.querySelectorAll('.p-add-btn').forEach(btn => {
+    btn.textContent = '+';
+    btn.className = 'p-add-btn';
+  });
+  document.querySelectorAll('.p-card.selected').forEach(card => {
+    card.classList.remove('selected');
+  });
+  updateCalcWidget();
+}
+
+function updateCalcWidget() {
+  let monthlyTotal = 0;
+  let pvTotal      = 0;
+  const onetimeItems = [];
+
+  Object.entries(calcSelections).forEach(([id, qty]) => {
+    const p    = PRODUCTS.find(x => x.id === id);
+    const meta = PRODUCT_META[id] || {};
+    if (!p) return;
+
+    if (meta.oneTime) {
+      // Collect one-time purchases separately
+      onetimeItems.push({ name: p.name, price: p.iboPrice * qty, qty });
+    } else if (p.iboPrice && meta.daysSupply) {
+      // Monthly cost = price * (30 / daysSupply) * qty
+      monthlyTotal += p.iboPrice * (30 / meta.daysSupply) * qty;
+    } else if (p.iboPrice) {
+      // Fallback: assume 30-day supply
+      monthlyTotal += p.iboPrice * qty;
+    }
+
+    if (p.pv) pvTotal += p.pv * (meta.oneTime ? qty : (30 / (meta.daysSupply || 30)) * qty);
+  });
+
+  const widget  = document.getElementById('header-calc');
+  const monthly = document.getElementById('header-calc-monthly');
+  const onetime = document.getElementById('header-calc-onetime');
+
+  const hasItems = Object.keys(calcSelections).length > 0;
+  if (!hasItems) {
+    widget.classList.remove('visible');
+    return;
+  }
+
+  widget.classList.add('visible');
+  monthly.textContent = '~$' + monthlyTotal.toFixed(0) + '/mo · ' + Math.round(pvTotal) + ' PV';
+
+  if (onetimeItems.length > 0) {
+    const onetimeTotal = onetimeItems.reduce((s, i) => s + i.price, 0);
+    onetime.textContent = '+$' + onetimeTotal.toFixed(0) + ' one-time';
+    onetime.style.display = 'inline';
+  } else {
+    onetime.style.display = 'none';
+  }
 }
 
 /* ════════════════════════════════════════════════
