@@ -1,0 +1,11 @@
+{
+  "name": "levelup-product-reference",
+  "version": "1.0.0",
+  "description": "levelup2026 IBO product reference site",
+  "scripts": {
+    "fetch": "node scripts/fetch-notion.js"
+  },
+  "dependencies": {
+    "@notionhq/client": "^2.2.15"
+  }
+}

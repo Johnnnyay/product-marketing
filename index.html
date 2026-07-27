@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>levelup2026 | Product Reference</title>
+  <style>
+    :root {
+      --navy: #0d2b56;
+      --navy-mid: #1a3f7a;
+      --gold: #f59e0b;
+      --gold-pale: #fef3c7;
+      --white: #ffffff;
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-400: #94a3b8;
+      --gray-500: #64748b;
+      --gray-700: #334155;
+      --gray-800: #1e293b;
+      --green: #059669;
+      --radius: 12px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+    html, body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--gray-50);
+      color: var(--gray-800);
+      min-height: 100vh;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--navy);
+      padding: 14px 16px 12px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .logo {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .logo span { color: var(--gold); }
+
+    .sync-badge {
+      font-size: 10px;
+      color: rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.08);
+      padding: 3px 8px;
+      border-radius: 100px;
+    }
+
+    .search-wrap {
+      position: relative;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 11px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    #searchInput {
+      width: 100%;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 9px;
+      padding: 9px 12px 9px 34px;
+      font-size: 14px;
+      color: white;
+      outline: none;
+      transition: background 0.2s;
+    }
+
+    #searchInput:focus { background: rgba(255,255,255,0.18); }
+    #searchInput::placeholder { color: rgba(255,255,255,0.4); }
+
+    /* ── Tabs ── */
+    .tabs {
+      display: flex;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      position: sticky;
+      top: 82px;
+      z-index: 90;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 13px 8px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray-400);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -1px;
+      user-select: none;
+      transition: color 0.15s;
+    }
+
+    .tab-btn.active {
+      color: var(--navy);
+      border-bottom-color: var(--gold);
+    }
+
+    /* ── Main ── */
+    main {
+      padding: 16px;
+      padding-bottom: 32px;
+      min-height: 60vh;
+    }
+
+    /* ── Loading ── */
+    .loading {
+      text-align: center;
+      padding: 64px 20px;
+      color: var(--gray-400);
+    }
+
+    .spinner {
+      width: 30px;
+      height: 30px;
+      border: 3px solid var(--gray-200);
+      border-top-color: var(--navy);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin: 0 auto 14px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Category grid ── */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+    }
+
+    .cat-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 14px 8px;
+      text-align: center;
+      cursor: pointer;
+      border: 1px solid var(--gray-200);
+      transition: transform 0.15s, box-shadow 0.15s;
+      user-select: none;
+    }
+
+    .cat-card:active { transform: scale(0.95); }
+
+    .cat-emoji { font-size: 26px; margin-bottom: 6px; }
+
+    .cat-label {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--gray-700);
+      line-height: 1.35;
+    }
+
+    /* ── View header (back + title) ── */
+    .view-hd {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .back-btn {
+      background: var(--gray-100);
+      border: none;
+      border-radius: 8px;
+      padding: 7px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .back-btn:active { background: var(--gray-200); }
+
+    .view-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--gray-800);
+      line-height: 1.2;
+    }
+
+    /* ── Intro callout ── */
+    .intro-box {
+      background: linear-gradient(135deg, #eef2ff, #e0f2fe);
+      border-radius: 10px;
+      padding: 13px 14px;
+      font-size: 12.5px;
+      color: var(--gray-700);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    /* ── Product cards ── */
+    .product-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 13px 14px;
+      margin-bottom: 9px;
+      border: 1px solid var(--gray-200);
+      cursor: pointer;
+      transition: background 0.1s;
+      user-select: none;
+    }
+
+    .product-card:active { background: var(--gray-50); }
+
+    .product-card.no-detail { cursor: default; }
+
+    .product-name {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: flex-start;
+      gap: 4px;
+    }
+
+    .arrow-tag {
+      font-size: 11px;
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .product-adv {
+      font-size: 12px;
+      color: var(--gray-500);
+      line-height: 1.55;
+      margin-bottom: 8px;
+    }
+
+    .badges {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 9px;
+      border-radius: 100px;
+      background: var(--gray-100);
+      color: var(--gray-600);
+    }
+
+    .badge.pv { background: var(--gold-pale); color: #92400e; }
+
+    /* ── Strategy grid ── */
+    .strat-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 15px 14px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      border: 1px solid var(--gray-200);
+      border-left: 4px solid var(--gold);
+      transition: background 0.1s;
+      user-select: none;
+    }
+
+    .strat-card:active { background: var(--gray-50); }
+
+    .strat-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+
+    .strat-sub {
+      font-size: 12px;
+      color: var(--gray-400);
+    }
+
+    /* ── Strategy table view ── */
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 12px;
+      border-radius: var(--radius);
+      border: 1px solid var(--gray-200);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      min-width: 480px;
+    }
+
+    th {
+      background: var(--navy);
+      color: rgba(255,255,255,0.9);
+      padding: 10px 10px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 10px;
+      border-bottom: 1px solid var(--gray-100);
+      color: var(--gray-700);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: var(--gray-50); }
+
+    td.linked {
+      color: var(--navy);
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* ── Product detail modal (bottom sheet) ── */
+    #modalOverlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 200;
+      align-items: flex-end;
+    }
+
+    #modalOverlay.open { display: flex; }
+
+    .modal-sheet {
+      background: var(--white);
+      border-radius: 20px 20px 0 0;
+      width: 100%;
+      max-height: 87vh;
+      overflow-y: auto;
+      padding: 8px 20px 40px;
+      animation: slideUp 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to   { transform: translateY(0);   opacity: 1; }
+    }
+
+    .modal-handle {
+      width: 36px;
+      height: 4px;
+      background: var(--gray-200);
+      border-radius: 2px;
+      margin: 12px auto 18px;
+    }
+
+    #modalTitle {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--gray-800);
+      margin-bottom: 18px;
+      line-height: 1.25;
+    }
+
+    /* Detail section styles */
+    .d-callout {
+      background: var(--gold-pale);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 13px 14px;
+      margin-bottom: 16px;
+      font-size: 13px;
+      color: var(--gray-700);
+      line-height: 1.6;
+    }
+
+    .d-h1, .d-h2 {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 20px 0 8px;
+      padding-bottom: 4px;
+      border-bottom: 2px solid var(--gold-pale);
+    }
+
+    .d-h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gray-700);
+      margin: 14px 0 6px;
+    }
+
+    .d-para {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--gray-700);
+      margin-bottom: 10px;
+    }
+
+    .d-bullet {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--gray-700);
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+
+    .d-bullet::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .d-quote {
+      background: var(--gray-50);
+      border-left: 3px solid var(--gray-200);
+      border-radius: 0 6px 6px 0;
+      padding: 11px 13px;
+      font-size: 12.5px;
+      font-style: italic;
+      color: var(--gray-500);
+      margin: 10px 0;
+    }
+
+    .no-detail-note {
+      color: var(--gray-400);
+      font-size: 13px;
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    /* ── Search results ── */
+    .search-hd {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gray-400);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+
+    .sr-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      border: 1px solid var(--gray-200);
+      transition: background 0.1s;
+    }
+
+    .sr-item:active { background: var(--gray-50); }
+
+    .sr-name {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .sr-cat {
+      font-size: 11.5px;
+      color: var(--gray-400);
+      margin-top: 2px;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 48px 20px;
+      color: var(--gray-400);
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-row">
+      <div class="logo">levelup<span>2026</span> Reference</div>
+      <div class="sync-badge" id="syncBadge">Loading...</div>
+    </div>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input id="searchInput" type="text" placeholder="Search products..." autocomplete="off" />
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <div class="tab-btn active" id="tab-products"  onclick="switchTab('products')">🌿 Products</div>
+    <div class="tab-btn"        id="tab-strategies" onclick="switchTab('strategies')">📊 Strategies</div>
+  </nav>
+
+  <main id="main"></main>
+
+  <!-- Bottom sheet modal -->
+  <div id="modalOverlay" onclick="handleOverlayClick(event)">
+    <div class="modal-sheet">
+      <div class="modal-handle"></div>
+      <div id="modalTitle"></div>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    // ─── State ────────────────────────────────────────────────────────────────
+    let DATA = null;
+    let tab   = 'products';  // 'products' | 'strategies'
+    let view  = 'grid';      // 'grid' | 'detail'
+    let slug  = null;
+
+    // ─── Boot ─────────────────────────────────────────────────────────────────
+    const main = document.getElementById('main');
+
+    main.innerHTML = '<div class="loading"><div class="spinner"></div>Loading product data…</div>';
+
+    fetch('data/products.json')
+      .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(data => {
+        DATA = data;
+        const d = new Date(data.lastUpdated);
+        document.getElementById('syncBadge').textContent =
+          'Synced ' + d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+        render();
+      })
+      .catch(() => {
+        main.innerHTML = '<div class="no-results">⚠️ Could not load data.<br><small>Run the GitHub Action to generate data/products.json</small></div>';
+        document.getElementById('syncBadge').textContent = 'No data';
+      });
+
+    // ─── Tab switch ───────────────────────────────────────────────────────────
+    function switchTab(t) {
+      tab  = t;
+      view = 'grid';
+      slug = null;
+      document.getElementById('tab-products').classList.toggle('active',  t === 'products');
+      document.getElementById('tab-strategies').classList.toggle('active', t === 'strategies');
+      document.getElementById('searchInput').value = '';
+      render();
+    }
+
+    // ─── Search ───────────────────────────────────────────────────────────────
+    document.getElementById('searchInput').addEventListener('input', e => {
+      const q = e.target.value.trim();
+      if (q.length >= 2) renderSearch(q.toLowerCase());
+      else render();
+    });
+
+    // ─── Router ───────────────────────────────────────────────────────────────
+    function render() {
+      if (!DATA) return;
+      if (tab === 'products') {
+        view === 'grid' ? renderCatGrid() : renderCatDetail(slug);
+      } else {
+        view === 'grid' ? renderStratGrid() : renderStratDetail(slug);
+      }
+    }
+
+    function navTo(newView, newSlug) {
+      view = newView;
+      slug = newSlug;
+      render();
+      window.scrollTo(0, 0);
+    }
+
+    function goBack() { navTo('grid', null); }
+
+    // ─── Category grid ────────────────────────────────────────────────────────
+    function renderCatGrid() {
+      const cards = DATA.categories.map(c => {
+        const emoji = extractEmoji(c.title);
+        const label = c.title.replace(/^\p{Emoji_Presentation}\s*/u, '').replace(/^\p{Emoji}\s*/u, '');
+        return `<div class="cat-card" onclick="navTo('detail','${c.slug}')">
+          <div class="cat-emoji">${emoji}</div>
+          <div class="cat-label">${esc(label)}</div>
+        </div>`;
+      }).join('');
+      main.innerHTML = `<div class="cat-grid">${cards}</div>`;
+    }
+
+    // ─── Category detail ──────────────────────────────────────────────────────
+    function renderCatDetail(s) {
+      const cat = DATA.categories.find(c => c.slug === s);
+      if (!cat) return goBack();
+
+      const intro = cat.intro
+        ? `<div class="intro-box">${esc(cat.intro)}</div>` : '';
+
+      // Map column indices (standard category table)
+      // Col 0: name, 1: advantage, 2: who, 3: how to share, 4: PV, 5: IBO, 6: retail
+      const cards = cat.rows.map(row => {
+        const adv    = row.cells[1] || '';
+        const who    = row.cells[2] || '';
+        const pv     = row.cells[4] || '';
+        const ibo    = row.cells[5] || '';
+        const retail = row.cells[6] || '';
+
+        const pvBadge  = pv     ? `<span class="badge pv">PV ${esc(pv)}</span>` : '';
+        const iboBadge = ibo    ? `<span class="badge">IBO ${esc(ibo)}</span>`   : '';
+        const retBadge = retail ? `<span class="badge">Retail ${esc(retail)}</span>` : '';
+
+        const hasDetail = !!row.detailId;
+        const clickAttr = hasDetail
+          ? `onclick="openDetail('${row.detailId}','${escJs(row.name)}')"` : '';
+
+        return `<div class="product-card${hasDetail ? '' : ' no-detail'}" ${clickAttr}>
+          <div class="product-name">
+            ${esc(row.name)}${hasDetail ? '<span class="arrow-tag">›</span>' : ''}
+          </div>
+          ${adv ? `<div class="product-adv">${esc(adv)}</div>` : ''}
+          <div class="badges">${pvBadge}${iboBadge}${retBadge}</div>
+        </div>`;
+      }).join('') || '<div class="no-results">No products listed</div>';
+
+      main.innerHTML = `
+        <div class="view-hd">
+          <button class="back-btn" onclick="goBack()">← Back</button>
+          <div class="view-title">${esc(cat.title)}</div>
+        </div>
+        ${intro}${cards}`;
+    }
+
+    // ─── Strategy grid ────────────────────────────────────────────────────────
+    function renderStratGrid() {
+      const cards = DATA.strategies.map(s => {
+        const count = s.rows?.length || 0;
+        return `<div class="strat-card" onclick="navTo('detail','${s.slug}')">
+          <div class="strat-title">${esc(s.title)}</div>
+          <div class="strat-sub">${count} entr${count === 1 ? 'y' : 'ies'}</div>
+        </div>`;
+      }).join('');
+      main.innerHTML = cards;
+    }
+
+    // ─── Strategy detail ──────────────────────────────────────────────────────
+    function renderStratDetail(s) {
+      const strat = DATA.strategies.find(x => x.slug === s);
+      if (!strat) return goBack();
+
+      const intro = strat.intro
+        ? `<div class="intro-box">${esc(strat.intro)}</div>` : '';
+
+      const headers = strat.columns || [];
+      const rows    = strat.rows    || [];
+
+      const theadCells = headers.map(h => `<th>${esc(h)}</th>`).join('');
+
+      const tbodyRows = rows.map(row => {
+        const cells = row.cells.map((cell, i) => {
+          if (i === 0 && row.detailId) {
+            return `<td class="linked" onclick="openDetail('${row.detailId}','${escJs(row.name)}')">${esc(cell)}</td>`;
+          }
+          return `<td>${esc(cell)}</td>`;
+        }).join('');
+        return `<tr>${cells}</tr>`;
+      }).join('') || `<tr><td colspan="${headers.length}" style="text-align:center;color:var(--gray-400)">No data</td></tr>`;
+
+      main.innerHTML = `
+        <div class="view-hd">
+          <button class="back-btn" onclick="goBack()">← Back</button>
+          <div class="view-title">${esc(strat.title)}</div>
+        </div>
+        ${intro}
+        <div class="table-wrap">
+          <table>
+            <thead><tr>${theadCells}</tr></thead>
+            <tbody>${tbodyRows}</tbody>
+          </table>
+        </div>`;
+    }
+
+    // ─── Product detail modal ─────────────────────────────────────────────────
+    function openDetail(pageId, name) {
+      const sections = DATA.productDetails?.[pageId];
+
+      document.getElementById('modalTitle').textContent = name;
+
+      if (!sections || sections.length === 0) {
+        document.getElementById('modalBody').innerHTML =
+          '<div class="no-detail-note">No detail page available for this product.</div>';
+      } else {
+        document.getElementById('modalBody').innerHTML =
+          sections.map(renderSection).join('');
+      }
+
+      document.getElementById('modalOverlay').classList.add('open');
+    }
+
+    function renderSection(s) {
+      const t = esc(s.text);
+      switch (s.type) {
+        case 'callout':   return `<div class="d-callout">💡 ${t}</div>`;
+        case 'heading_1': return `<div class="d-h1">${t}</div>`;
+        case 'heading_2': return `<div class="d-h2">${t}</div>`;
+        case 'heading_3': return `<div class="d-h3">${t}</div>`;
+        case 'paragraph': return `<div class="d-para">${t}</div>`;
+        case 'bullet':    return `<div class="d-bullet">${t}</div>`;
+        case 'quote':     return `<div class="d-quote">${t}</div>`;
+        default: return '';
+      }
+    }
+
+    function handleOverlayClick(e) {
+      if (e.target === document.getElementById('modalOverlay')) {
+        document.getElementById('modalOverlay').classList.remove('open');
+      }
+    }
+
+    // ─── Search ───────────────────────────────────────────────────────────────
+    function renderSearch(q) {
+      const hits = [];
+
+      for (const cat of (DATA.categories || [])) {
+        for (const row of (cat.rows || [])) {
+          const haystack = [row.name, ...row.cells].join(' ').toLowerCase();
+          if (haystack.includes(q)) {
+            hits.push({ row, source: cat.title, type: 'product' });
+          }
+        }
+      }
+
+      for (const strat of (DATA.strategies || [])) {
+        for (const row of (strat.rows || [])) {
+          const haystack = [row.name, ...row.cells].join(' ').toLowerCase();
+          if (haystack.includes(q) && !hits.find(h => h.row.name === row.name)) {
+            hits.push({ row, source: strat.title, type: 'strategy' });
+          }
+        }
+      }
+
+      if (hits.length === 0) {
+        main.innerHTML = `<div class="no-results">No results for "<strong>${esc(q)}</strong>"</div>`;
+        return;
+      }
+
+      const items = hits.map(({ row, source }) => {
+        const hasDetail = !!row.detailId;
+        const click = hasDetail
+          ? `openDetail('${row.detailId}','${escJs(row.name)}')`
+          : '';
+        return `<div class="sr-item" ${click ? `onclick="${click}"` : ''}>
+          <div class="sr-name">${esc(row.name)}</div>
+          <div class="sr-cat">${esc(source)}</div>
+        </div>`;
+      }).join('');
+
+      main.innerHTML = `
+        <div class="search-hd">${hits.length} result${hits.length !== 1 ? 's' : ''}</div>
+        ${items}`;
+    }
+
+    // ─── Utilities ────────────────────────────────────────────────────────────
+    function esc(s) {
+      if (!s) return '';
+      return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function escJs(s) {
+      return (s || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+    }
+
+    function extractEmoji(title) {
+      const m = title.match(/^(\p{Emoji_Presentation}|\p{Emoji}️)/u);
+      return m ? m[0] : '📦';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,1973 @@
+{
+  "lastUpdated": "2026-07-27T01:32:31.198451+00:00",
+  "categories": [
+    {
+      "slug": "oral-care",
+      "title": "🦷 Oral Care",
+      "intro": "Oral care is the first product conversation most people have. Start with the toothpaste story — it's visual, demo-able, and scientifically solid. The mouth spray is the easiest customer-creator.",
+      "columns": [
+        "Product Name",
+        "Key Competitive Advantage",
+        "Who Needs This",
+        "How to Share the Story",
+        "PV",
+        "IBO Cost",
+        "Retail Cost"
+      ],
+      "rows": [
+        {
+          "name": "Glister Multi-Action Toothpaste",
+          "detailId": "be2d39ea-5234-4e2e-9041-eb393ef042ee",
+          "cells": [
+            "Glister Multi-Action Toothpaste",
+            "Round silica particles vs. angular sand in competitors — won't grind enamel. Enamel doesn't grow back.",
+            "Anyone who wants to protect teeth long-term. Especially people who love sweets, hot/cold foods, or are aging.",
+            "Demo: squeeze both toothpastes on colored paper, rub 60x, wipe — Glister leaves no color. Or feel smoothness through plastic bag.",
+            "~3",
+            "~$8",
+            "~$10"
+          ]
+        },
+        {
+          "name": "Glister Multi-Action Power Toothbrush",
+          "detailId": "476d6f51-6591-4af2-815e-88b96b5caccc",
+          "cells": [
+            "Glister Multi-Action Power Toothbrush",
+            "5 modes, UV sanitizer kills 99.9% of germs on brush head, battery lasts 3–6 months. No competitor matches this combo at this price.",
+            "Anyone who wants dentist-level oral care at home. Dental professionals recommend electric brushes for gum protection.",
+            "Compare specs + price vs. Oral-B/Philips flagship ($200+). Ours includes UV sanitizer. Battery life 3–6 months vs. competitor's weeks.",
+            "~15",
+            "$158",
+            "$175"
+          ]
+        },
+        {
+          "name": "Glister Mouth Refresher Spray",
+          "detailId": "006beb90-17a3-4786-96ac-496ea22e4156",
+          "cells": [
+            "Glister Mouth Refresher Spray",
+            "Organic, mint-based instant fresh breath. Portable. Easy conversation opener — can demo instantly anywhere.",
+            "Everyone. Great gift item. Easy first product for new customers (low price, immediate sensory benefit).",
+            "Spray it, offer to someone. \"One spray and you feel fresh, and it's organic.\" Best door-opener for new customers.",
+            "~2",
+            "~$9",
+            "~$11"
+          ]
+        },
+        {
+          "name": "Glister Multi-Action Dental Floss",
+          "detailId": "9970a64c-8124-4090-a511-5611237a7615",
+          "cells": [
+            "Glister Multi-Action Dental Floss",
+            "Flat-ribbon design glides easily, naturally derived wax coating resists shredding. Strong — doesn't break mid-use.",
+            "Anyone with tight teeth or who hates floss that snaps.",
+            "Compare breakage — let them feel the strength. Mention wax coating is naturally derived.",
+            "~1",
+            "~$8",
+            "~$10"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "hair-care",
+      "title": "💆 Hair Care",
+      "intro": "Hair health starts at the scalp — most people treat hair without understanding the scalp is skin. 70% of the skin on your head is scalp. The right shampoo protects your hair AND slows the factors that cause hair loss.",
+      "columns": [
+        "Product Name",
+        "Key Competitive Advantage",
+        "Who Needs This",
+        "How to Share the Story",
+        "PV",
+        "IBO Cost",
+        "Retail Cost"
+      ],
+      "rows": [
+        {
+          "name": "Satinique Purifying Shampoo",
+          "detailId": "65b1604d-585c-4290-ad66-b4529a9c3ffd",
+          "cells": [
+            "Satinique Purifying Shampoo",
+            "Plant-based, sulfate-free. When burned, evaporates cleanly (vs. toxic residue from commercial brands). Removes 28% excess oil in one wash.",
+            "People with oily scalps, dandruff, product buildup. Active people who sweat. High-stress professionals.",
+            "Aluminum foil burn demo: commercial shampoo leaves black residue; Satinique evaporates cleanly. Explain scalp = 70% of head skin.",
+            "~3",
+            "~$13",
+            "$15"
+          ]
+        },
+        {
+          "name": "Satinique Anti-Dandruff",
+          "detailId": null,
+          "cells": [
+            "Satinique Anti-Dandruff",
+            "Ginger extract provides antioxidant + soothing benefits. Prevents recurrence of flaking, not just treats symptoms.",
+            "Anyone with dandruff or itchy scalp.",
+            "Ask: 'Do you use Head & Shoulders? That masks symptoms with harsh chemicals. Ours treats the scalp environment.'",
+            "~3",
+            "~$13",
+            "$15"
+          ]
+        },
+        {
+          "name": "Satinique Smooth Moisture",
+          "detailId": "778705a9-05de-4f85-af25-d6acdfb0208c",
+          "cells": [
+            "Satinique Smooth Moisture",
+            "Pumpkin Seed Oil conditions, smooths and adds shine. Hair 13x smoother in testing. Vegan formula, no sulfates/dyes/mineral oils.",
+            "Dry or frizzy hair. Color-treated hair. People who want manageable, shiny hair without heavy products.",
+            "Let them feel the difference after one wash. No residue, no buildup. Connect to scalp health and hair loss prevention.",
+            "~3",
+            "~$13",
+            "$15"
+          ]
+        },
+        {
+          "name": "Satinique Intensive Repair",
+          "detailId": null,
+          "cells": [
+            "Satinique Intensive Repair",
+            "Deep repair for damaged or over-processed hair. Vegan formula, registered with The Vegan Society.",
+            "Anyone with bleached, heat-damaged, or chemically treated hair.",
+            "Story: hair is like a plant — needs the right nutrients at the root to grow strong.",
+            "~3",
+            "~$13",
+            "$15"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "body-sun",
+      "title": "🧴 Body & Sun Care",
+      "intro": "g&h body care + sun protection. Plant-derived, no harsh sulfates or artificial fragrance overload. Family-safe. Easiest upsell alongside hair care and oral care — complete the daily routine.",
+      "columns": [
+        "Product",
+        "Key Benefit",
+        "Who Needs This",
+        "How to Share",
+        "PV / Retail"
+      ],
+      "rows": [
+        {
+          "name": "g&h Nourishing Body Lotion",
+          "detailId": null,
+          "cells": [
+            "g&h Nourishing Body Lotion",
+            "Deep hydration. Shea butter + plant extracts. Absorbs without greasy residue.",
+            "Dry skin; anyone in dry/cold climates; post-shower routine",
+            "\"Most body lotions are 80% water and fragrance. g&h actually deposits moisture-binding ingredients.\"",
+            "~3 PV / ~$20"
+          ]
+        },
+        {
+          "name": "g&h Refreshing Body Wash",
+          "detailId": null,
+          "cells": [
+            "g&h Refreshing Body Wash",
+            "Gentle cleanse. Sulfate-free. Family-safe — no harsh stripping.",
+            "Families with children; sensitive skin; anyone with skin irritation",
+            "\"If your skin feels tight after showering, that's your skin barrier being stripped. Sulfate-free cleansing changes that.\"",
+            "~3 PV / ~$18"
+          ]
+        },
+        {
+          "name": "g&h Creamy Hand Lotion",
+          "detailId": null,
+          "cells": [
+            "g&h Creamy Hand Lotion",
+            "Fast-absorbing hand moisturizer. Non-greasy. For frequent hand washers.",
+            "Anyone who washes hands frequently; healthcare workers; office workers",
+            "\"Frequent hand washing destroys the skin's lipid barrier. This repairs it without the greasy film.\"",
+            "~2 PV / ~$12"
+          ]
+        },
+        {
+          "name": "Artistry SPF 50 Sunscreen",
+          "detailId": null,
+          "cells": [
+            "Artistry SPF 50 Sunscreen",
+            "Broad-spectrum UVA/UVB. Lightweight. No white cast.",
+            "Anyone who goes outdoors; anti-aging focus (UV is #1 cause of skin aging); fair skin types",
+            "\"80% of visible skin aging is from UV exposure, not chronological age. SPF daily is the highest-ROI anti-aging step.\"",
+            "~4 PV / ~$28"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "everyday-nutrition",
+      "title": "🌿 Everyday Nutrition",
+      "intro": "Why Nutrilite? It's the world's #1 selling vitamin brand and the ONLY global supplement brand that grows, harvests, and processes plants on its own certified organic farms. Our bodies are evolved to absorb plant-based nutrients, not synthetic lab replications.",
+      "columns": [
+        "Product Name",
+        "Key Competitive Advantage",
+        "Who Needs This",
+        "How to Share the Story",
+        "PV",
+        "IBO Cost",
+        "Retail Cost"
+      ],
+      "rows": [
+        {
+          "name": "🍒 Nutrilite Vitamin C Extended Release",
+          "detailId": "35aab838-314d-40cc-a93b-d8788f32ee06",
+          "cells": [
+            "🍒 Nutrilite Vitamin C Extended Release",
+            "Patent: only organic plant-based Vit C with 7-hour continuous release. Made from Acerola Cherry (50x more Vit C than orange). Closest Amazon competitor releases 3x at intervals.",
+            "Everyone, especially high-stress, active people, those in polluted environments. Anyone who wants sustained immunity.",
+            "Antioxidant demo: iodine + chip shows oxidation. Drops of Vit C clear the black — that's what it does to free radicals in your body.",
+            "~4",
+            "$19",
+            "$24"
+          ]
+        },
+        {
+          "name": "⚡ Nutrilite Vitamin B Dual-Action",
+          "detailId": "491ebabe-85f5-4337-8315-20a60785db8d",
+          "cells": [
+            "⚡ Nutrilite Vitamin B Dual-Action",
+            "8 essential B vitamins in one tablet: half dissolves instantly, half releases over 8 hours. Water-soluble — impossible to overdose.",
+            "People needing energy, faster metabolism, skin renewal. Active people. Those with skin conditions (eczema, psoriasis).",
+            "Energy story: when your metabolism is faster, you just feel more energetic. Skin story: doctors recommend high Vit B for chronic skin conditions.",
+            "~5",
+            "$32",
+            "$38"
+          ]
+        },
+        {
+          "name": "❤️ Nutrilite Chewable Vitamin E",
+          "detailId": "721f50e7-46e7-4c55-9cff-5df0c3bfad19",
+          "cells": [
+            "❤️ Nutrilite Chewable Vitamin E",
+            "Contains Lecithin — same material as cell walls — so Vitamin E can pass THROUGH cell membranes to antioxidize inside cells. Also absorbs oils in blood vessels.",
+            "Anyone with high blood pressure, high cholesterol, family history of cardiovascular disease. Active people eating high-fat diets.",
+            "Oil in water demo: drop Vitamin E into oil, watch it absorb. Explain how it clears blood vessels vs. what blood pressure meds do.",
+            "~5",
+            "$18",
+            "$20"
+          ]
+        },
+        {
+          "name": "🌿 Nutrilite Double X Multivitamin",
+          "detailId": "e4a6a81b-738c-44da-b801-87cada8f6260",
+          "cells": [
+            "🌿 Nutrilite Double X Multivitamin",
+            "450mg plant nutrients vs. 0mg in leading competitor brands. 22 vitamins + minerals from 22 fruits/vegetables/herbs including Rosemary, Turmeric, Quercetin. World's #1 selling vitamin.",
+            "Everyone — especially those not eating diverse whole foods. Foundation for all other supplements.",
+            "Compare label: how many plant nutrients does your current vitamin have? Zero. This has 450mg from 22 real food sources.",
+            "~10",
+            "$57",
+            "$66"
+          ]
+        },
+        {
+          "name": "🐟 Nutrilite Advanced Omega",
+          "detailId": "621b8e29-627f-476f-9695-6f0177801681",
+          "cells": [
+            "🐟 Nutrilite Advanced Omega",
+            "3x better absorption than regular fish oil. Clinically tested. Friend of the Sea certified. White Chia Seed ALA from Nutrilite organic farms. Reduced fishy aftertaste.",
+            "Everyone — body can't make Omega-3s itself. Heart, brain, skin, joint health. Athletes for recovery. Pregnant women.",
+            "Heart health: Omega-3s reduce triglycerides, inflammation. Brain: DHA is the building block of neural tissue.",
+            "~7",
+            "$34",
+            "$40"
+          ]
+        },
+        {
+          "name": "🪨 Nutrilite Magnesium",
+          "detailId": "3df99a31-f6ec-43e6-9c2f-b0e22b3391e4",
+          "cells": [
+            "🪨 Nutrilite Magnesium",
+            "Marine-sourced from Dead Sea and Irish seawater. Triple blend absorbs 2X better than standard magnesium. Supports 300+ bodily processes. Enhanced with Olive Fruit Extract.",
+            "Most adults are deficient. Anyone with poor sleep, muscle cramps, high stress, headaches, palpitations. Athletes.",
+            "Would you have to eat 15 cups of spinach every day to get enough magnesium from food? Magnesium supports sleep, stress response, heart rhythm, muscle function.",
+            "~5",
+            "$28",
+            "$34"
+          ]
+        },
+        {
+          "name": "🌱 Nutrilite Plant Protein",
+          "detailId": "d56f2c1b-dba1-491f-a510-36ab19520038",
+          "cells": [
+            "🌱 Nutrilite Plant Protein",
+            "All 9 essential amino acids. 21g from Brown Rice + Peas + Chia from certified organic Nutrilite farms. USDA Organic. No soy, gluten, dairy. Farm-traceable ingredients.",
+            "Skipping breakfast? Replace with a shake. Anyone wanting to build muscle, manage weight, or ensure adequate protein on plant-based diet.",
+            "Breakfast replacement story: your brain needs protein in the morning. No protein = jeopardized brain function.",
+            "~8",
+            "$35",
+            "$41"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "targeted-wellness",
+      "title": "❤️ Targeted Wellness",
+      "intro": "Targeted support for specific health concerns. Blood pressure, immunity, liver health, and sleep — each maps to specific nutritional deficiencies that Nutrilite products directly address. Framework: 损伤→修复→原料→营养素.",
+      "columns": [
+        "Product",
+        "Target Concern",
+        "Competitive Advantage",
+        "Who Needs This",
+        "How to Open the Conversation",
+        "PV / IBO / Retail"
+      ],
+      "rows": [
+        {
+          "name": "❤️ Nutrilite Chewable Vitamin E",
+          "detailId": "721f50e7-46e7-4c55-9cff-5df0c3bfad19",
+          "cells": [
+            "❤️ Nutrilite Chewable Vitamin E",
+            "Cardiovascular / arterial health",
+            "Fat-soluble antioxidant in cell membranes. Lecithin = 3x deeper penetration. Core for arterial fibrosis prevention.",
+            "Family history of heart disease; high cholesterol; blood pressure; 35+",
+            "\"Does anyone in your family have heart issues? Arterial damage starts in your 30s — it's silent for decades.\"",
+            "~3 PV / ~$16 / ~$20"
+          ]
+        },
+        {
+          "name": "🍒 Nutrilite Vitamin C Extended Release",
+          "detailId": "35aab838-314d-40cc-a93b-d8788f32ee06",
+          "cells": [
+            "🍒 Nutrilite Vitamin C Extended Release",
+            "Immunity / cancer prevention",
+            "Patent extended-release. Plant-based acerola cherry. Continuous 7-hr antioxidant protection.",
+            "Frequent illness; high stress; pollution exposure; anyone wanting immune support",
+            "\"How many times did you get sick last year? Vitamin C isn't just for colds — it's your immune cells' ammunition.\"",
+            "~4 PV / ~$19 / ~$24"
+          ]
+        },
+        {
+          "name": "🌿 Nutrilite Double X Multivitamin",
+          "detailId": "e4a6a81b-738c-44da-b801-87cada8f6260",
+          "cells": [
+            "🌿 Nutrilite Double X Multivitamin",
+            "General wellness / sub-health",
+            "22 nutrients from 29 plant concentrates. 450mg phytonutrients. Foundation for everyone.",
+            "Busy professionals; poor diet; anyone over 30",
+            "\"75% of people are in sub-health — reserves depleted but no symptoms yet. This is the foundation.\"",
+            "~11 PV / ~$54 / ~$66"
+          ]
+        },
+        {
+          "name": "🐟 Nutrilite Advanced Omega",
+          "detailId": "621b8e29-627f-476f-9695-6f0177801681",
+          "cells": [
+            "🐟 Nutrilite Advanced Omega",
+            "Inflammation / heart / brain",
+            "3x absorption (rTG form). Friend of the Sea certified. EPA+DHA for anti-inflammatory signaling.",
+            "Joint pain; cardiovascular risk; low fish consumption; mental clarity concerns",
+            "\"Do you eat fatty fish 3x a week? Most people don't — and chronic inflammation fills that gap.\"",
+            "~6 PV / ~$33 / ~$40"
+          ]
+        },
+        {
+          "name": "🪨 Nutrilite Magnesium",
+          "detailId": "3df99a31-f6ec-43e6-9c2f-b0e22b3391e4",
+          "cells": [
+            "🪨 Nutrilite Magnesium",
+            "Blood pressure / muscle / sleep",
+            "Marine-sourced (Dead Sea + Irish seawater). 2x absorption. 310mg elemental magnesium.",
+            "High blood pressure; muscle cramps; poor sleep; stress; leg cramps",
+            "\"Magnesium deficiency causes smooth muscle spasms in blood vessels — that's a direct mechanism for hypertension.\"",
+            "~5 PV / ~$28 / ~$34"
+          ]
+        },
+        {
+          "name": "🌱 Nutrilite Plant Protein",
+          "detailId": "d56f2c1b-dba1-491f-a510-36ab19520038",
+          "cells": [
+            "🌱 Nutrilite Plant Protein",
+            "Liver / metabolism / muscle repair",
+            "USDA Organic. 21g protein per serving. Liver requires protein for 500+ metabolic functions.",
+            "Low protein intake; liver health; weight management; post-workout recovery",
+            "\"Most people think protein is for gym-goers. But your liver needs protein to run 500 chemical reactions.\"",
+            "~6 PV / ~$34 / ~$41"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "sport-fitness",
+      "title": "⚡ Sport & Fitness",
+      "intro": "Performance nutrition for active people. Whether gym-goers, recreational athletes, or anyone trying to lose weight — these products support energy, recovery, and body composition.",
+      "columns": [
+        "Product",
+        "Role",
+        "Competitive Advantage",
+        "Who Needs This",
+        "How to Share",
+        "PV / IBO / Retail"
+      ],
+      "rows": [
+        {
+          "name": "🌱 Nutrilite Plant Protein",
+          "detailId": "d56f2c1b-dba1-491f-a510-36ab19520038",
+          "cells": [
+            "🌱 Nutrilite Plant Protein",
+            "Muscle repair / meal replacement",
+            "USDA Organic. 21g per serving. Complete amino acid profile. No artificial sweeteners.",
+            "Anyone who works out; weight management; skips breakfast; vegan/vegetarian",
+            "\"Protein isn't just for bodybuilders — your muscles repair at night and need protein to do it.\"",
+            "~6 PV / ~$34 / ~$41"
+          ]
+        },
+        {
+          "name": "🐟 Nutrilite Advanced Omega",
+          "detailId": "621b8e29-627f-476f-9695-6f0177801681",
+          "cells": [
+            "🐟 Nutrilite Advanced Omega",
+            "Recovery / anti-inflammation",
+            "3x absorption rTG form. EPA reduces post-workout inflammation. DHA supports cognitive focus.",
+            "Athletes; people with sore joints; anyone doing consistent training",
+            "\"Intense exercise creates oxidative stress. Omega-3 is your recovery tool.\"",
+            "~6 PV / ~$33 / ~$40"
+          ]
+        },
+        {
+          "name": "🌿 Nutrilite Double X Multivitamin",
+          "detailId": "e4a6a81b-738c-44da-b801-87cada8f6260",
+          "cells": [
+            "🌿 Nutrilite Double X Multivitamin",
+            "Energy / metabolic foundation",
+            "22 nutrients including full B-complex for energy metabolism. 450mg phytonutrients.",
+            "Everyone — but especially active people burning through B vitamins faster",
+            "\"B vitamins are the enzymes that convert food to energy. If they're depleted, your workout suffers.\"",
+            "~11 PV / ~$54 / ~$66"
+          ]
+        },
+        {
+          "name": "🪨 Nutrilite Magnesium",
+          "detailId": "3df99a31-f6ec-43e6-9c2f-b0e22b3391e4",
+          "cells": [
+            "🪨 Nutrilite Magnesium",
+            "Muscle function / cramp prevention",
+            "Marine-sourced, 2x absorption. Required for 300+ enzyme reactions including ATP synthesis (cellular energy).",
+            "Anyone with muscle cramps; people who sweat heavily (magnesium is lost in sweat)",
+            "\"Magnesium is the most common mineral deficiency in athletes. Your muscles can't contract and relax properly without it.\"",
+            "~5 PV / ~$28 / ~$34"
+          ]
+        },
+        {
+          "name": "🍒 Nutrilite Vitamin C Extended Release",
+          "detailId": "35aab838-314d-40cc-a93b-d8788f32ee06",
+          "cells": [
+            "🍒 Nutrilite Vitamin C Extended Release",
+            "Recovery / immune support",
+            "Patent extended-release. Exercise temporarily suppresses immunity — Vitamin C counteracts this.",
+            "Endurance athletes; anyone training hard; people who get sick after big events",
+            "\"Ever notice elite athletes get sick right after major competitions? That's immune suppression from peak exertion. Vitamin C prevents it.\"",
+            "~4 PV / ~$19 / ~$24"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "skincare",
+      "title": "✨ Skincare (Artistry)",
+      "intro": "Artistry — Amway's premium skincare brand. One of the top 5 premium beauty brands globally by sales. Backed by the same Nutrilite plant science. \"Skin is the body's largest organ — it responds to the same nutritional principles.\"",
+      "columns": [
+        "Line",
+        "Target Concern",
+        "Competitive Advantage",
+        "Who Needs This",
+        "Entry Conversation",
+        "Retail Range"
+      ],
+      "rows": [
+        {
+          "name": "Artistry Hydra-V",
+          "detailId": null,
+          "cells": [
+            "Artistry Hydra-V",
+            "Hydration / dry skin",
+            "Hyaluronic acid + plant botanicals. Lightweight layers. Suitable for all skin types.",
+            "Dry skin; anyone over 25 noticing dehydration lines; all climates especially dry/cold",
+            "\"Skin hydration isn't just cosmetic — dehydrated skin accelerates aging and creates the environment for deeper skin issues.\"",
+            "$40–120 per piece"
+          ]
+        },
+        {
+          "name": "Artistry Youth Xtend",
+          "detailId": null,
+          "cells": [
+            "Artistry Youth Xtend",
+            "Anti-aging / wrinkle reduction",
+            "Retinol + vitamin C + peptide complex. Clinically tested. Comparable to department store anti-aging lines.",
+            "Anyone 30+ concerned about fine lines; people with sun damage; anti-aging focus",
+            "\"Department store anti-aging creams at $100+ per jar — Artistry competes on clinical efficacy at IBO pricing.\"",
+            "$60–180 per piece"
+          ]
+        },
+        {
+          "name": "Artistry Intense Skincare",
+          "detailId": null,
+          "cells": [
+            "Artistry Intense Skincare",
+            "Multi-function / all-age",
+            "Broad-spectrum plant extract complex. Anti-aging + hydration + brightening.",
+            "General adult skincare; anyone wanting a simplified routine with one high-quality line",
+            "\"One quality line that does everything vs. five cheap products that each do one thing mediocrely.\"",
+            "$50–150 per piece"
+          ]
+        },
+        {
+          "name": "g&h Body Care",
+          "detailId": null,
+          "cells": [
+            "g&h Body Care",
+            "Body hydration / sensitive skin",
+            "Plant-derived. No harsh sulfates. Family-safe. Full body care line.",
+            "Sensitive skin; families; anyone switching from synthetic body washes",
+            "\"Same values as the household cleaners — plant-based, no sulfates, no artificial fragrance overload.\"",
+            "$15–35 per piece"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "cleaning",
+      "title": "🧹 Cleaning",
+      "intro": "Concentrated, plant-based household cleaners. LOC is a 40+ year legacy product. SA8 is the #1 certified laundry detergent in its category. Both are biodegradable, septic-safe, and highly concentrated.",
+      "columns": [
+        "Product",
+        "Use",
+        "Competitive Advantage",
+        "Who Needs This",
+        "How to Share",
+        "PV / Retail"
+      ],
+      "rows": [
+        {
+          "name": "LOC Multi-Purpose Cleaner",
+          "detailId": null,
+          "cells": [
+            "LOC Multi-Purpose Cleaner",
+            "All-purpose household cleaning",
+            "Concentrated (dilute 1:50 for light cleaning). Biodegradable. No harsh fumes. 40+ years on market.",
+            "Families with children or pets; anyone concerned about chemical exposure; eco-conscious buyers",
+            "\"One bottle of LOC concentrate replaces 10+ bottles of all-purpose cleaner. No chlorine fumes, no ammonia.\"",
+            "~3 PV / ~$18"
+          ]
+        },
+        {
+          "name": "SA8 Laundry Detergent",
+          "detailId": null,
+          "cells": [
+            "SA8 Laundry Detergent",
+            "Laundry, including HE machines",
+            "Certified by PETA and NSF. Works in cold water. No optical brighteners. Biodegradable.",
+            "Sensitive skin; families; anyone with eczema or skin allergies; HE machine owners",
+            "\"Most laundry detergents leave residue in fabric. SA8 rinses completely clean — important for sensitive skin, especially babies.\"",
+            "~5 PV / ~$28"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "air-purifier",
+      "title": "💨 Air Purifier",
+      "intro": "Atmosphere Sky and Mini — medical-grade air purification for home and office. The most defensible home product: indoor air is 2–5x more polluted than outdoor air according to the EPA.",
+      "columns": [
+        "Product",
+        "Coverage",
+        "Competitive Advantage",
+        "Who Needs This",
+        "How to Open",
+        "IBO / Retail"
+      ],
+      "rows": [
+        {
+          "name": "Atmosphere Sky",
+          "detailId": null,
+          "cells": [
+            "Atmosphere Sky",
+            "465 sq ft",
+            "HEPA + activated carbon + UV-C. 10-stage filtration. Removes 99.99% of airborne particles including viruses, bacteria, VOCs, allergens.",
+            "Families with allergies/asthma; pet owners; anyone in urban/polluted areas; home offices",
+            "\"EPA data: indoor air is 2–5x more polluted than outdoors. We seal our homes for efficiency — and trap everything inside.\"",
+            "~$1,398 / ~$1,710"
+          ]
+        },
+        {
+          "name": "Atmosphere Mini",
+          "detailId": null,
+          "cells": [
+            "Atmosphere Mini",
+            "200 sq ft",
+            "Same 10-stage technology in a compact form. Perfect for bedroom, nursery, or office desk.",
+            "Bedroom air quality; nursery; apartment dwellers; desk/office use",
+            "\"The bedroom is where you spend 8 hours a night. If you're going to purify one room, it should be where you sleep.\"",
+            "~$745 / ~$910"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "water-purifier",
+      "title": "💧 Water Purifier",
+      "intro": "eSpring UV-C Water Purifier — under-counter installation. UV-C technology kills 99.99% of bacteria and viruses. Carbon block filter removes 140+ contaminants. The #1 selling home water treatment system in the world (by units sold).",
+      "columns": [
+        "Product",
+        "Key Differentiator",
+        "vs. Brita",
+        "vs. RO",
+        "Who to Target",
+        "IBO / Retail"
+      ],
+      "rows": [
+        {
+          "name": "eSpring UV-C Water Purifier",
+          "detailId": null,
+          "cells": [
+            "eSpring UV-C Water Purifier",
+            "UV-C kills 99.99% of bacteria + viruses. Carbon block removes 140+ contaminants. Retains beneficial minerals. NSF 42/53/55 certified.",
+            "Brita uses granular carbon — reduces chlorine taste but does NOT kill bacteria or viruses. Not certified for pathogen removal.",
+            "RO removes everything including beneficial minerals. Wastes 3–4 gallons per 1 purified. Slow tank-based flow. eSpring is instant.",
+            "Families with young children; bottled water buyers (pays for itself in <2 years); areas with aging pipes",
+            "~$1,145 / ~$1,399"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "cookware",
+      "title": "🍳 Cookware",
+      "intro": "iCook — surgical-grade stainless steel cookware. No PFAS (Teflon). 316L medical-grade steel. Vapor-seal lid locks in nutrients during cooking. Backed by lifetime guarantee.",
+      "columns": [
+        "Product",
+        "Key Advantage",
+        "vs. Non-stick",
+        "Nutritional Benefit",
+        "Who to Target",
+        "IBO / Retail"
+      ],
+      "rows": [
+        {
+          "name": "iCook 19-piece Set",
+          "detailId": null,
+          "cells": [
+            "iCook 19-piece Set",
+            "316L surgical-grade stainless steel — same grade as medical implants. No coatings, no chemicals, nothing leaches into food.",
+            "Teflon/PFAS = 'forever chemicals' linked to thyroid dysfunction, immune suppression, cancer. EU has restricted PFAS in cookware.",
+            "Vapor-seal lid cooks at lower temp = 80%+ water-soluble vitamins preserved. Traditional boiling destroys 40–60% of Vitamin C and B vitamins.",
+            "People who care about non-toxic home; anyone who already uses quality supplements; families with young children",
+            "~$1,536 / ~$1,876"
+          ]
+        }
+      ]
+    }
+  ],
+  "strategies": [
+    {
+      "slug": "morning-routine",
+      "title": "🌅 Morning Routine (C2C)",
+      "intro": "The Morning Routine is the highest-frequency touchpoint for product sales. Everyone has one. These products replace what people already buy — same daily habits, higher quality, better outcomes. Total potential PV for a full morning routine customer: ~60 PV/month.",
+      "columns": [
+        "Product",
+        "Morning Use",
+        "Pain Point It Solves",
+        "Share Story",
+        "PV / Retail"
+      ],
+      "rows": [
+        {
+          "name": "🌿 Nutrilite Double X",
+          "detailId": "e4a6a81b-738c-44da-b801-87cada8f6260",
+          "cells": [
+            "🌿 Nutrilite Double X",
+            "Take with breakfast",
+            "Afternoon energy crash; poor diet quality; brain fog; sub-health",
+            "\"I used to hit a wall at 2pm every day. Turns out B vitamins power your energy metabolism — mine were depleted. Double X was the thing that changed it.\"",
+            "~11 PV / ~$66"
+          ]
+        },
+        {
+          "name": "🍒 Nutrilite Vitamin C",
+          "detailId": "35aab838-314d-40cc-a93b-d8788f32ee06",
+          "cells": [
+            "🍒 Nutrilite Vitamin C",
+            "Morning dose with breakfast",
+            "Frequent illness; high stress; urban pollution",
+            "\"I take one in the morning, one after dinner. Continuous antioxidant protection — immune cells stay armed all day.\"",
+            "~4 PV / ~$24"
+          ]
+        },
+        {
+          "name": "🐟 Nutrilite Advanced Omega",
+          "detailId": "621b8e29-627f-476f-9695-6f0177801681",
+          "cells": [
+            "🐟 Nutrilite Advanced Omega",
+            "With breakfast (fat helps absorption)",
+            "Joint stiffness in the morning; brain fog; low fish intake",
+            "\"My joints felt stiff in the morning until I added omega-3. Takes 4–6 weeks to build up — then you notice when you forget it.\"",
+            "~6 PV / ~$40"
+          ]
+        },
+        {
+          "name": "Glister Toothpaste",
+          "detailId": "be2d39ea-5234-4e2e-9041-eb393ef042ee",
+          "cells": [
+            "Glister Toothpaste",
+            "Brushing — morning and night",
+            "Sensitive teeth; wanting whiter teeth; avoiding artificial dyes",
+            "\"I switched to Glister 6 months ago. My hygienist asked what I changed because my enamel looked better.\"",
+            "~1 PV / ~$8"
+          ]
+        },
+        {
+          "name": "Glister Power Toothbrush",
+          "detailId": "476d6f51-6591-4af2-815e-88b96b5caccc",
+          "cells": [
+            "Glister Power Toothbrush",
+            "Morning brush",
+            "Surface stains; gum health; wanting professional-grade clean at home",
+            "\"The UV sanitizer means no bacteria sitting on the brush all night. 5 modes — the gum care mode changed how my gums feel.\"",
+            "~28 PV / ~$175"
+          ]
+        },
+        {
+          "name": "g&h Body Wash",
+          "detailId": null,
+          "cells": [
+            "g&h Body Wash",
+            "Shower routine",
+            "Dry skin; skin sensitivity to current body wash; wanting clean ingredients",
+            "\"I switched my whole shower routine to g&h. Same company as my supplements — same standards. Skin feels different.\"",
+            "~6 PV / ~$38"
+          ]
+        },
+        {
+          "name": "🌱 Nutrilite Plant Protein",
+          "detailId": "d56f2c1b-dba1-491f-a510-36ab19520038",
+          "cells": [
+            "🌱 Nutrilite Plant Protein",
+            "Breakfast shake / smoothie",
+            "Skipping breakfast; low protein; weight management",
+            "\"On busy mornings I don't have time for a full breakfast. 21g protein shake takes 2 minutes. Keeps me full until noon.\"",
+            "~6 PV / ~$41"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "active-athletic",
+      "title": "💪 Active & Athletic (C2C)",
+      "intro": "For gym-goers, weekend athletes, and anyone focused on performance or body composition. These products directly support energy, recovery, and muscle function. Performance people are already looking for an edge.",
+      "columns": [
+        "Product",
+        "Athletic Role",
+        "Why It Matters",
+        "Share Story",
+        "PV / Retail"
+      ],
+      "rows": [
+        {
+          "name": "🌱 Nutrilite Plant Protein",
+          "detailId": "d56f2c1b-dba1-491f-a510-36ab19520038",
+          "cells": [
+            "🌱 Nutrilite Plant Protein",
+            "Post-workout recovery",
+            "21g complete protein. USDA Organic. Muscle protein synthesis requires complete amino acid profile.",
+            "\"Post-workout I do a plant protein shake. Organic, no artificial sweeteners, 21g per serving. Muscles repair at night — they need the protein.\"",
+            "~6 PV / ~$41"
+          ]
+        },
+        {
+          "name": "🐟 Nutrilite Advanced Omega",
+          "detailId": "621b8e29-627f-476f-9695-6f0177801681",
+          "cells": [
+            "🐟 Nutrilite Advanced Omega",
+            "Inflammation management",
+            "EPA reduces post-exercise inflammation. Speeds recovery. Reduces DOMS (delayed onset muscle soreness).",
+            "\"I noticed I recover faster between workouts since adding omega-3. The research on EPA for exercise inflammation is solid.\"",
+            "~6 PV / ~$40"
+          ]
+        },
+        {
+          "name": "🪨 Nutrilite Magnesium",
+          "detailId": "3df99a31-f6ec-43e6-9c2f-b0e22b3391e4",
+          "cells": [
+            "🪨 Nutrilite Magnesium",
+            "Muscle function / cramp prevention",
+            "Required for ATP synthesis (cellular energy). Lost in sweat. Muscle cramps = classic magnesium deficiency.",
+            "\"If you get leg cramps during or after exercise, that's almost always magnesium. I had that problem — gone within a week of supplementing.\"",
+            "~5 PV / ~$34"
+          ]
+        },
+        {
+          "name": "🌿 Nutrilite Double X",
+          "detailId": "e4a6a81b-738c-44da-b801-87cada8f6260",
+          "cells": [
+            "🌿 Nutrilite Double X",
+            "Metabolic foundation",
+            "B vitamins power energy metabolism. Zinc for testosterone and recovery. Full micronutrient support.",
+            "\"Active people burn through B vitamins and minerals faster. The multi fills what your elevated metabolism demands.\"",
+            "~11 PV / ~$66"
+          ]
+        },
+        {
+          "name": "🍒 Nutrilite Vitamin C",
+          "detailId": "35aab838-314d-40cc-a93b-d8788f32ee06",
+          "cells": [
+            "🍒 Nutrilite Vitamin C",
+            "Immune support / recovery",
+            "Heavy training temporarily suppresses immunity. Vitamin C counteracts this and supports collagen (tendons, ligaments).",
+            "\"Collagen — your tendons and ligaments — requires Vitamin C to synthesize. Injury prevention isn't just training smart, it's feeding your connective tissue.\"",
+            "~4 PV / ~$24"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "health-concerns",
+      "title": "🏥 Health Concerns (C2C)",
+      "intro": "Products organized by specific health concern. Use this when someone presents with a specific symptom or condition. Connect the symptom to the nutritional root cause, then to the product. Lead with the science framework — then let them ask about the product.",
+      "columns": [
+        "Health Concern",
+        "Nutritional Root Cause",
+        "Product(s)",
+        "Opening Angle",
+        "Combined PV Potential"
+      ],
+      "rows": [
+        {
+          "name": "Low energy / fatigue",
+          "detailId": null,
+          "cells": [
+            "Low energy / fatigue",
+            "B vitamin depletion; iron deficiency; thyroid support; poor sleep",
+            "Double X + Vitamin B + Magnesium",
+            "\"Energy is chemistry. If the enzymes that convert food to energy (B vitamins) are depleted, no amount of sleep or coffee fixes it.\"",
+            "~18 PV"
+          ]
+        },
+        {
+          "name": "Blood pressure / heart health",
+          "detailId": null,
+          "cells": [
+            "Blood pressure / heart health",
+            "Arterial oxidative damage; magnesium deficiency (smooth muscle spasm); omega-3 deficiency",
+            "Vitamin E + Magnesium + Advanced Omega",
+            "\"Magnesium deficiency directly causes blood vessel spasms — that's a blood pressure mechanism, not a metaphor.\"",
+            "~16 PV"
+          ]
+        },
+        {
+          "name": "Frequent illness / immunity",
+          "detailId": null,
+          "cells": [
+            "Frequent illness / immunity",
+            "Vitamin C depletion; zinc deficiency; poor immune cell function",
+            "Vitamin C + Double X",
+            "\"Your immune cells literally burn through Vitamin C to kill pathogens. If you're always getting sick, your ammunition is low.\"",
+            "~15 PV"
+          ]
+        },
+        {
+          "name": "Skin conditions (eczema/acne)",
+          "detailId": null,
+          "cells": [
+            "Skin conditions (eczema/acne)",
+            "B vitamin deficiency; inflammation; microbiome imbalance; skin barrier damage",
+            "Vitamin B + Advanced Omega + g&h body care",
+            "\"Doctors prescribe high-dose Vitamin B for eczema. Omega-3 reduces the inflammatory signaling that triggers flare-ups.\"",
+            "~14 PV"
+          ]
+        },
+        {
+          "name": "Poor sleep / restlessness",
+          "detailId": null,
+          "cells": [
+            "Poor sleep / restlessness",
+            "Magnesium deficiency (GABA pathway); B6 deficiency (serotonin synthesis); stress hormones",
+            "Magnesium + Double X",
+            "\"Magnesium is required for GABA receptor function — that's the brain's main calming system. Deficiency = racing thoughts at night.\"",
+            "~16 PV"
+          ]
+        },
+        {
+          "name": "Joint pain / stiffness",
+          "detailId": null,
+          "cells": [
+            "Joint pain / stiffness",
+            "Omega-3 deficiency (inflammation); Vitamin C deficiency (collagen synthesis); magnesium",
+            "Advanced Omega + Vitamin C + Magnesium",
+            "\"Joint pain is usually inflammation + degraded connective tissue. Omega-3 addresses the inflammation; Vitamin C rebuilds the collagen.\"",
+            "~15 PV"
+          ]
+        },
+        {
+          "name": "Liver health / detox",
+          "detailId": null,
+          "cells": [
+            "Liver health / detox",
+            "B vitamin depletion; antioxidant deficiency; protein deficiency; alcohol burden",
+            "Double X + Vitamin C + Plant Protein",
+            "\"The liver runs 500 chemical reactions and needs B vitamins, antioxidants, and protein as raw materials. Most liver supplements ignore the protein requirement.\"",
+            "~21 PV"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "family-household",
+      "title": "👨‍👩‍👧 Family & Household (C2C)",
+      "intro": "Family customers have the highest lifetime value. One household can run $200–400/month in products across nutrition, personal care, and home. The conversation starts with the parent's own health, then naturally extends to kids, then to the home environment.",
+      "columns": [
+        "Product",
+        "Family Use Case",
+        "Why Families Specifically",
+        "Conversation Opener",
+        "PV / Retail"
+      ],
+      "rows": [
+        {
+          "name": "🌿 Nutrilite Double X",
+          "detailId": "e4a6a81b-738c-44da-b801-87cada8f6260",
+          "cells": [
+            "🌿 Nutrilite Double X",
+            "Foundation for parents",
+            "High-stress parenting depletes B vitamins and Vitamin C rapidly. Parents who aren't nourished can't sustain the demands.",
+            "\"What do you take for yourself? A lot of parents prioritize their kids' health but neglect their own. This is your foundation.\"",
+            "~11 PV / ~$66"
+          ]
+        },
+        {
+          "name": "🍒 Nutrilite Vitamin C",
+          "detailId": "35aab838-314d-40cc-a93b-d8788f32ee06",
+          "cells": [
+            "🍒 Nutrilite Vitamin C",
+            "Immunity for the whole family",
+            "Kids bring home pathogens constantly. Parents who are well-supplemented get sick less often — or recover faster.",
+            "\"My kids started school and I kept catching everything they brought home. Since adding Vitamin C I haven't had a single sick day.\"",
+            "~4 PV / ~$24"
+          ]
+        },
+        {
+          "name": "🐟 Nutrilite Advanced Omega",
+          "detailId": "621b8e29-627f-476f-9695-6f0177801681",
+          "cells": [
+            "🐟 Nutrilite Advanced Omega",
+            "Brain development (children)",
+            "DHA is the primary structural fat in a developing brain. Critical for focus, learning, and development.",
+            "\"DHA isn't optional for growing brains — it's structural. The question isn't whether kids need it, it's whether they're getting enough.\"",
+            "~6 PV / ~$40"
+          ]
+        },
+        {
+          "name": "Glister Oral Care",
+          "detailId": null,
+          "cells": [
+            "Glister Oral Care (full system)",
+            "Family oral care",
+            "No artificial dyes — safe for kids. Multi-action covers the whole family's needs in one product.",
+            "\"We switched the whole family to Glister. No arguing about which toothpaste for which kid — one clean formula for everyone.\"",
+            "~29 PV / ~$183"
+          ]
+        },
+        {
+          "name": "g&h Body Wash",
+          "detailId": null,
+          "cells": [
+            "g&h Body Wash",
+            "Family shower / bath",
+            "Sulfate-free — safe for children's sensitive skin. No artificial fragrance that triggers sensitivities.",
+            "\"My daughter had itchy skin after every bath until we switched. Turned out it was the sulfates in our body wash.\"",
+            "~3 PV / ~$18"
+          ]
+        },
+        {
+          "name": "LOC Multi-Purpose Cleaner",
+          "detailId": null,
+          "cells": [
+            "LOC Multi-Purpose Cleaner",
+            "Household cleaning (non-toxic)",
+            "No harsh fumes around children. One concentrate replaces multiple cleaners.",
+            "\"Kids crawl on floors I just cleaned. LOC is my peace of mind — no chlorine, no ammonia, no warning labels.\"",
+            "~3 PV / ~$18"
+          ]
+        },
+        {
+          "name": "SA8 Laundry Detergent",
+          "detailId": null,
+          "cells": [
+            "SA8 Laundry Detergent",
+            "Family laundry (sensitive skin)",
+            "No optical brighteners. Rinses completely clean. Key for kids with eczema or sensitive skin.",
+            "\"My son's eczema improved significantly when we changed laundry detergents. SA8 rinses out completely — no residue in the fabric.\"",
+            "~5 PV / ~$28"
+          ]
+        },
+        {
+          "name": "eSpring Water Purifier",
+          "detailId": null,
+          "cells": [
+            "eSpring Water Purifier",
+            "Clean water for everyone",
+            "UV-C kills pathogens. Carbon block removes 140+ contaminants. The water every family member drinks every day.",
+            "\"The most important thing your family consumes daily is water. Are you sure what's coming out of your tap is clean?\"",
+            "High PV / ~$1,399"
+          ]
+        },
+        {
+          "name": "Atmosphere Sky Air Purifier",
+          "detailId": null,
+          "cells": [
+            "Atmosphere Sky Air Purifier",
+            "Indoor air quality",
+            "Kids spend most time indoors. Indoor air 2–5x more polluted than outdoor. Allergies and asthma directly linked.",
+            "\"My daughter's pediatrician recommended an air purifier for her room. This is the one I researched and got — 10-stage filtration, UV-C.\"",
+            "High PV / ~$1,710"
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "b2c-direct",
+      "title": "🛍️ B2C — Direct Customer Sales",
+      "intro": "B2C: selling directly to end customers at retail price. Your IBO cost = your cost; retail = customer price. The margin is the difference. B2C volume counts toward your PV. High-converting when products solve a specific problem the customer already has.",
+      "columns": [
+        "Product",
+        "B2C Price Point",
+        "Best B2C Channel",
+        "Reorder Frequency",
+        "Margin per Unit",
+        "Best Conversation Opener"
+      ],
+      "rows": [
+        {
+          "name": "Glister Toothpaste",
+          "detailId": "be2d39ea-5234-4e2e-9041-eb393ef042ee",
+          "cells": [
+            "Glister Toothpaste",
+            "~$8",
+            "Friend circles; social events; gift with purchase",
+            "Monthly",
+            "~$1.50",
+            "\"Swap your toothpaste — same price as what you use now, better ingredients.\""
+          ]
+        },
+        {
+          "name": "🍒 Nutrilite Vitamin C",
+          "detailId": "35aab838-314d-40cc-a93b-d8788f32ee06",
+          "cells": [
+            "🍒 Nutrilite Vitamin C",
+            "~$24",
+            "Health conversations; cold/flu season; post-health assessment",
+            "Monthly",
+            "~$5",
+            "\"What do you take for immunity? This is the one with the extended-release patent — 7 hours of continuous protection.\""
+          ]
+        },
+        {
+          "name": "🐟 Nutrilite Advanced Omega",
+          "detailId": "621b8e29-627f-476f-9695-6f0177801681",
+          "cells": [
+            "🐟 Nutrilite Advanced Omega",
+            "~$40",
+            "Gym conversations; joint pain; parents of young children",
+            "Monthly",
+            "~$7",
+            "\"Do you take omega-3? This one has 3x the absorption of standard fish oil — rTG form, Friend of the Sea certified.\""
+          ]
+        },
+        {
+          "name": "🌱 Nutrilite Plant Protein",
+          "detailId": "d56f2c1b-dba1-491f-a510-36ab19520038",
+          "cells": [
+            "🌱 Nutrilite Plant Protein",
+            "~$41",
+            "Fitness communities; busy parents; meal replacement seekers",
+            "Monthly",
+            "~$7",
+            "\"What protein do you use? This is USDA Organic, 21g per serving, no artificial sweeteners. I use it every morning.\""
+          ]
+        },
+        {
+          "name": "Satinique",
+          "detailId": null,
+          "cells": [
+            "Satinique Hair Care",
+            "~$15–28",
+            "Friends who mention hair concerns; Irene's network; beauty-conscious people",
+            "Monthly",
+            "~$3–5",
+            "\"My hair changed when I switched to Satinique. Sulfate-free, actually moisturizes vs. just coating it.\""
+          ]
+        },
+        {
+          "name": "eSpring Water Purifier",
+          "detailId": null,
+          "cells": [
+            "eSpring Water Purifier",
+            "~$1,399",
+            "Families with young children; anyone drinking bottled water; health-conscious homeowners",
+            "Annual filter only",
+            "~$254",
+            "\"This pays for itself in 2 years vs. bottled water. UV-C kills 99.99% of pathogens — Brita doesn't.\""
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "b2b-professional",
+      "title": "🏢 B2B — Professional Channels",
+      "intro": "B2B: selling products through professional channels — gyms, salons, health practitioners, corporate wellness. Higher volume per relationship, but longer sales cycle. Best approached after you've built personal credibility with the products yourself.",
+      "columns": [
+        "Channel",
+        "Best Products",
+        "Value Proposition",
+        "How to Approach",
+        "Monthly PV Potential"
+      ],
+      "rows": [
+        {
+          "name": "Personal Trainers / Gyms",
+          "detailId": null,
+          "cells": [
+            "Personal Trainers / Gyms",
+            "Plant Protein, Omega, Magnesium, Double X",
+            "Trainers are trusted by clients for supplement recommendations. Amway has NSF certification (no banned substances) — safe for athletes.",
+            "\"Your clients ask you about supplements all the time. These are what I use and recommend — NSF certified, organic protein, clinically validated.\"",
+            "30–80 PV per trainer network"
+          ]
+        },
+        {
+          "name": "Hair Salons / Stylists",
+          "detailId": null,
+          "cells": [
+            "Hair Salons / Stylists",
+            "Satinique full line (750ml retail)",
+            "Stylists already sell retail products. Satinique at IBO pricing gives them margin. Sulfate-free = sellable to the sensitive-scalp clients they already have.",
+            "\"You already sell retail products. These are salon-grade, sulfate-free, plant-based. Your clients with color damage and dry scalp need exactly what Satinique addresses.\"",
+            "20–60 PV per salon"
+          ]
+        },
+        {
+          "name": "Estheticians / Facialists",
+          "detailId": null,
+          "cells": [
+            "Estheticians / Facialists",
+            "Artistry skincare, g&h, Satinique",
+            "Skin professionals credibly sell skincare. Artistry competes with department store brands on efficacy. Plant science angle differentiates.",
+            "\"Your clients trust you with their skin. Artistry is backed by the same nutritional science as Nutrilite — same plant-based philosophy, same quality standards.\"",
+            "30–100 PV per esthetician"
+          ]
+        },
+        {
+          "name": "Health Practitioners (RNs, NDs)",
+          "detailId": null,
+          "cells": [
+            "Health Practitioners (RNs, NDs)",
+            "Full nutrition line (Double X, Omegas, Targeted supplements)",
+            "Practitioners who recommend supplements influence patient behavior significantly. Nutrilite's NSF certification and clinical testing is the credibility anchor.",
+            "\"As a practitioner you already recommend supplements. Nutrilite is the #1 selling vitamin brand globally and NSF certified. Happy to show you the clinical data.\"",
+            "50–150+ PV per practitioner"
+          ]
+        },
+        {
+          "name": "Corporate Wellness Programs",
+          "detailId": null,
+          "cells": [
+            "Corporate Wellness Programs",
+            "Double X, Vitamin C, Omega, Protein, LOC, SA8",
+            "Companies spending on employee wellness often look for supplement partners. Bulk purchasing = significant volume. LOC + SA8 for office cleaning.",
+            "\"HR teams are always looking for differentiated wellness benefits. A corporate supplement program at IBO pricing for employees.\"",
+            "100–500+ PV per account"
+          ]
+        }
+      ]
+    }
+  ],
+  "productDetails": {
+    "35aab838-314d-40cc-a93b-d8788f32ee06": [
+      {
+        "type": "callout",
+        "text": "TLDR: Amway holds the PATENT on the ONLY organic, plant-based Vitamin C with 7-HOUR CONTINUOUS RELEASE. Made from Acerola Cherry — 50x more Vitamin C per gram than oranges. Your body's immune cells run on Vitamin C 24/7. Most supplements give you a spike. This gives you sustained protection."
+      },
+      {
+        "type": "heading_2",
+        "text": "Why Vitamin C Matters"
+      },
+      {
+        "type": "paragraph",
+        "text": "Free radicals are unstable molecules that damage DNA, cells, and tissue — they're produced by stress, pollution, UV light, and intense exercise. Vitamin C is the body's primary water-soluble antioxidant. It neutralizes free radicals before they cause damage."
+      },
+      {
+        "type": "paragraph",
+        "text": "Your immune cells (neutrophils and lymphocytes) actively pump Vitamin C inside themselves — concentrations are 80x higher inside immune cells than in blood plasma. When fighting an infection, these cells burn through Vitamin C rapidly. When reserves drop, killing power drops."
+      },
+      {
+        "type": "heading_2",
+        "text": "The Competitive Edge"
+      },
+      {
+        "type": "bullet",
+        "text": "Patent extended-release: Acerola Cherry concentrate coated for 7-hour continuous release — no other plant-based Vit C does this"
+      },
+      {
+        "type": "bullet",
+        "text": "Closest Amazon competitor releases 3 doses at timed intervals — gaps in protection. Our formula maintains continuous plasma levels."
+      },
+      {
+        "type": "bullet",
+        "text": "Made from Acerola Cherry grown on Nutrilite's own organic farms — same soil, same quality every batch"
+      },
+      {
+        "type": "bullet",
+        "text": "Chewable: better absorption than tablets, especially for older adults with lower stomach acid"
+      },
+      {
+        "type": "heading_2",
+        "text": "Demo — The Iodine Antioxidant Test"
+      },
+      {
+        "type": "paragraph",
+        "text": "Fill a glass with water. Add a few drops of iodine — it turns black (oxidized state). Add a crushed Vitamin C tablet — it clears instantly. That's exactly what Vitamin C does to free radicals in your bloodstream. Use this demo with anyone who asks how antioxidants work."
+      },
+      {
+        "type": "heading_2",
+        "text": "Who Needs This"
+      },
+      {
+        "type": "bullet",
+        "text": "High-stress professionals (cortisol burns through Vitamin C reserves rapidly)"
+      },
+      {
+        "type": "bullet",
+        "text": "Anyone in polluted cities (urban air pollution generates enormous free radical load)"
+      },
+      {
+        "type": "bullet",
+        "text": "Active people and athletes (intense exercise temporarily suppresses immunity)"
+      },
+      {
+        "type": "bullet",
+        "text": "Anyone who gets sick 2+ times per year"
+      },
+      {
+        "type": "bullet",
+        "text": "Smokers and people regularly exposed to secondhand smoke"
+      },
+      {
+        "type": "heading_2",
+        "text": "Pricing"
+      },
+      {
+        "type": "bullet",
+        "text": "PV: ~4 | IBO: $19 | Retail: $24 | Monthly reorder"
+      }
+    ],
+    "491ebabe-85f5-4337-8315-20a60785db8d": [
+      {
+        "type": "callout",
+        "text": "TLDR: 8 essential B vitamins in one tablet with DUAL-ACTION release — half dissolves instantly for immediate energy, half releases over 8 hours for sustained metabolism support. Water-soluble means your body uses what it needs and excretes the rest. Zero risk of overdose."
+      },
+      {
+        "type": "heading_2",
+        "text": "Why B Vitamins Matter"
+      },
+      {
+        "type": "paragraph",
+        "text": "B vitamins are coenzymes — they're required for every step of converting food into cellular energy (ATP). Without adequate B vitamins, your metabolism literally slows down. This is why B deficiency manifests as fatigue, brain fog, slow metabolism, and poor skin."
+      },
+      {
+        "type": "paragraph",
+        "text": "B vitamins are water-soluble and depleted daily by: stress (B5, B6), alcohol (B1, B12), poor diet, medications (metformin depletes B12), and simply being alive. Unlike fat-soluble vitamins, you cannot store large reserves."
+      },
+      {
+        "type": "heading_2",
+        "text": "Who Needs This"
+      },
+      {
+        "type": "bullet",
+        "text": "People who feel tired despite adequate sleep (metabolism inefficiency)"
+      },
+      {
+        "type": "bullet",
+        "text": "Anyone with skin conditions (eczema, psoriasis, acne) — doctors prescribe high-dose B vitamins for chronic skin conditions"
+      },
+      {
+        "type": "bullet",
+        "text": "People under high stress — cortisol response burns through B5 and B6"
+      },
+      {
+        "type": "bullet",
+        "text": "Anyone on vegetarian or vegan diet (B12 only exists in animal products)"
+      },
+      {
+        "type": "bullet",
+        "text": "Women on birth control (depletes B6 and folate significantly)"
+      },
+      {
+        "type": "heading_2",
+        "text": "The 8 B Vitamins and Their Roles"
+      },
+      {
+        "type": "bullet",
+        "text": "B1 (Thiamine): carbohydrate metabolism, nerve function"
+      },
+      {
+        "type": "bullet",
+        "text": "B2 (Riboflavin): energy production, skin cell renewal"
+      },
+      {
+        "type": "bullet",
+        "text": "B3 (Niacin): DNA repair, energy metabolism"
+      },
+      {
+        "type": "bullet",
+        "text": "B5 (Pantothenic Acid): stress hormone production, CoA synthesis"
+      },
+      {
+        "type": "bullet",
+        "text": "B6 (Pyridoxine): serotonin synthesis, immune function"
+      },
+      {
+        "type": "bullet",
+        "text": "B7 (Biotin): fatty acid synthesis, glucose metabolism, hair/nail health"
+      },
+      {
+        "type": "bullet",
+        "text": "B9 (Folate): DNA synthesis, cell division — critical for pregnancy"
+      },
+      {
+        "type": "bullet",
+        "text": "B12 (Cobalamin): nerve myelin sheath, red blood cell formation"
+      },
+      {
+        "type": "heading_2",
+        "text": "Pricing"
+      },
+      {
+        "type": "bullet",
+        "text": "PV: ~5 | IBO: $32 | Retail: $38 | Monthly reorder"
+      }
+    ],
+    "721f50e7-46e7-4c55-9cff-5df0c3bfad19": [
+      {
+        "type": "callout",
+        "text": "TLDR: Nutrilite Vitamin E contains LECITHIN — the same phospholipid that makes up cell membranes. This allows Vitamin E to pass THROUGH cell walls and antioxidize inside the cell. Most Vitamin E supplements can't penetrate cell membranes. This one can. Critical for cardiovascular protection."
+      },
+      {
+        "type": "heading_2",
+        "text": "Why Vitamin E + Lecithin"
+      },
+      {
+        "type": "paragraph",
+        "text": "Vitamin E is fat-soluble — it protects cell membranes from oxidative damage. But standard Vitamin E can only work on the outside of cell membranes. Lecithin is a phospholipid (the same material cell walls are made of), which acts as a carrier molecule that allows Vitamin E to penetrate directly into cells."
+      },
+      {
+        "type": "paragraph",
+        "text": "This matters most for cardiovascular health. LDL cholesterol is only dangerous when oxidized. Vitamin E inside arterial cells prevents the LDL oxidation that triggers plaque formation. It also helps clear existing oils and fats from blood vessel walls."
+      },
+      {
+        "type": "heading_2",
+        "text": "The Demo"
+      },
+      {
+        "type": "paragraph",
+        "text": "Drop a small amount of Vitamin E oil into a glass of water — it floats and doesn't mix. Now drop lecithin into the same glass — it emulsifies and blends the oil into the water. That's what lecithin does in the bloodstream: it helps fat-soluble Vitamin E move through the water-based blood and enter cells."
+      },
+      {
+        "type": "heading_2",
+        "text": "Who Needs This"
+      },
+      {
+        "type": "bullet",
+        "text": "Anyone with family history of heart disease or hypertension"
+      },
+      {
+        "type": "bullet",
+        "text": "People with high cholesterol — prevents LDL oxidation (the dangerous step)"
+      },
+      {
+        "type": "bullet",
+        "text": "Anyone over 35 — arterial oxidative damage accumulates silently for decades"
+      },
+      {
+        "type": "bullet",
+        "text": "High-fat diet eaters — more dietary fat = more oxidation risk in blood vessels"
+      },
+      {
+        "type": "bullet",
+        "text": "Active people — exercise generates significant oxidative stress"
+      },
+      {
+        "type": "heading_2",
+        "text": "Pricing"
+      },
+      {
+        "type": "bullet",
+        "text": "PV: ~5 | IBO: $18 | Retail: $20 | Monthly reorder"
+      }
+    ],
+    "e4a6a81b-738c-44da-b801-87cada8f6260": [
+      {
+        "type": "callout",
+        "text": "TLDR: The world's #1 selling vitamin brand. Double X contains 450mg of plant nutrients from 29 plant concentrates — competitors have ZERO. 22 vitamins and minerals including Rosemary, Turmeric, Quercetin. If you only take one supplement, this is it."
+      },
+      {
+        "type": "heading_2",
+        "text": "Why Most Multivitamins Fail"
+      },
+      {
+        "type": "paragraph",
+        "text": "Standard multivitamins contain synthetic vitamins — lab-replicated versions of nutrients that lack the phytonutrients, cofactors, and enzymes that make plant nutrients bioavailable. Your body has evolved over millions of years to absorb nutrients from whole food sources, not synthetic substitutes."
+      },
+      {
+        "type": "paragraph",
+        "text": "The biggest differentiator: 450mg of plant concentrates per serving. This includes antioxidants like Rosemary (anti-inflammatory), Turmeric (curcumin), and Quercetin (immune modulation). Competing multivitamins have 0mg of plant nutrients."
+      },
+      {
+        "type": "heading_2",
+        "text": "The Competitive Edge"
+      },
+      {
+        "type": "bullet",
+        "text": "22 vitamins and minerals from 22 different plant concentrates"
+      },
+      {
+        "type": "bullet",
+        "text": "450mg phytonutrients (antioxidants, flavonoids, carotenoids) vs. 0mg in leading brands"
+      },
+      {
+        "type": "bullet",
+        "text": "Nutrilite grows its own plants on certified organic farms — traceable from seed to tablet"
+      },
+      {
+        "type": "bullet",
+        "text": "NSF certified — independently tested for purity and potency"
+      },
+      {
+        "type": "bullet",
+        "text": "World's #1 selling vitamin brand by volume for 80+ years"
+      },
+      {
+        "type": "heading_2",
+        "text": "The Label Comparison Conversation"
+      },
+      {
+        "type": "paragraph",
+        "text": "\"Look at the back of your current vitamin. Find the plant nutrients section. How many milligrams does it list? For most brands, there's no section at all — because there are none. Double X has 450mg from 22 real food sources. Your body knows how to absorb these. It has no idea what to do with synthetic ascorbic acid.\""
+      },
+      {
+        "type": "heading_2",
+        "text": "Who Needs This"
+      },
+      {
+        "type": "bullet",
+        "text": "Everyone — but especially people eating fewer than 7–9 servings of fruits and vegetables daily (that's most people)"
+      },
+      {
+        "type": "bullet",
+        "text": "Busy professionals with inconsistent diets"
+      },
+      {
+        "type": "bullet",
+        "text": "People over 30 — metabolic demand for micronutrients increases with age"
+      },
+      {
+        "type": "bullet",
+        "text": "Foundation for anyone taking other Nutrilite supplements"
+      },
+      {
+        "type": "heading_2",
+        "text": "Pricing"
+      },
+      {
+        "type": "bullet",
+        "text": "PV: ~10 | IBO: $57 | Retail: $66 | Monthly reorder"
+      }
+    ],
+    "621b8e29-627f-476f-9695-6f0177801681": [
+      {
+        "type": "callout",
+        "text": "TLDR: 3X BETTER ABSORPTION than regular fish oil (rTG form vs. ethyl ester). Friend of the Sea certified from Antarctic waters. White Chia Seed ALA from Nutrilite's own organic farms. EPA reduces inflammation, DHA builds brain tissue. Every cell membrane needs omega-3."
+      },
+      {
+        "type": "heading_2",
+        "text": "Why Omega-3s Matter"
+      },
+      {
+        "type": "paragraph",
+        "text": "Omega-3 fatty acids (EPA and DHA) cannot be synthesized by the human body. They must come from diet. Every cell membrane in your body contains omega-3s — they regulate what passes in and out of cells. In the brain, DHA makes up 30% of the dry weight of the cerebral cortex."
+      },
+      {
+        "type": "paragraph",
+        "text": "EPA (eicosapentaenoic acid) is the primary anti-inflammatory omega-3 — it competes directly with arachidonic acid (the precursor to inflammatory prostaglandins). Higher EPA = lower baseline inflammation. This matters for heart disease, joint pain, skin conditions, and athletic recovery."
+      },
+      {
+        "type": "heading_2",
+        "text": "The Absorption Advantage"
+      },
+      {
+        "type": "paragraph",
+        "text": "Most fish oil is in ethyl ester form — a synthetic form created during processing that the body absorbs poorly. Advanced Omega uses the re-esterified triglyceride (rTG) form — the natural form found in fish. This has been shown in studies to be 3x more bioavailable than ethyl ester form."
+      },
+      {
+        "type": "heading_2",
+        "text": "Who Needs This"
+      },
+      {
+        "type": "bullet",
+        "text": "Anyone who does not eat cold-water fatty fish (salmon, mackerel, sardines) 2–3x per week"
+      },
+      {
+        "type": "bullet",
+        "text": "Athletes — EPA reduces post-exercise inflammation and speeds recovery"
+      },
+      {
+        "type": "bullet",
+        "text": "Anyone with joint pain or stiffness — omega-3 lubricates joints and reduces inflammatory cartilage breakdown"
+      },
+      {
+        "type": "bullet",
+        "text": "People focused on heart health — EPA+DHA reduce triglycerides and support healthy cholesterol ratios"
+      },
+      {
+        "type": "bullet",
+        "text": "Pregnant women — DHA is essential for fetal brain and eye development"
+      },
+      {
+        "type": "heading_2",
+        "text": "Pricing"
+      },
+      {
+        "type": "bullet",
+        "text": "PV: ~7 | IBO: $34 | Retail: $40 | Monthly reorder"
+      }
+    ],
+    "3df99a31-f6ec-43e6-9c2f-b0e22b3391e4": [
+      {
+        "type": "callout",
+        "text": "TLDR: Marine-sourced from Dead Sea and Irish seawater. Triple-blend absorbs 2X better than standard magnesium oxide. Supports 300+ enzyme reactions. Enhanced with Olive Fruit Extract. Most adults are chronically deficient — magnesium is the most overlooked essential mineral."
+      },
+      {
+        "type": "heading_2",
+        "text": "Why Magnesium Matters"
+      },
+      {
+        "type": "paragraph",
+        "text": "Magnesium is required for over 300 enzymatic reactions including ATP synthesis (cellular energy), DNA replication, protein synthesis, and neuromuscular function. It's the 4th most abundant mineral in the body and the most commonly deficient."
+      },
+      {
+        "type": "paragraph",
+        "text": "Modern food processing removes magnesium — refined grains, processed foods, and even filtered water strip it out. Stress depletes magnesium rapidly (cortisol response uses it up). Athletes lose it through sweat. The result: up to 80% of adults may be suboptimal."
+      },
+      {
+        "type": "heading_2",
+        "text": "The Blood Pressure Connection"
+      },
+      {
+        "type": "paragraph",
+        "text": "Smooth muscle cells in blood vessel walls require magnesium to relax. Magnesium deficiency causes these cells to stay contracted — creating blood vessel spasms that elevate blood pressure. This is a direct mechanism, not a correlation. Many cardiologists consider magnesium the most overlooked cardiovascular nutrient."
+      },
+      {
+        "type": "heading_2",
+        "text": "Three Forms = Better Absorption"
+      },
+      {
+        "type": "bullet",
+        "text": "Magnesium Citrate: high absorption, gentle on stomach"
+      },
+      {
+        "type": "bullet",
+        "text": "Magnesium Malate: supports energy production (malate is involved in the Krebs cycle)"
+      },
+      {
+        "type": "bullet",
+        "text": "Magnesium Glycinate: crosses the blood-brain barrier, supports sleep and neurological function"
+      },
+      {
+        "type": "heading_2",
+        "text": "Who Needs This"
+      },
+      {
+        "type": "bullet",
+        "text": "Anyone with poor sleep or difficulty falling asleep (magnesium supports GABA, the brain's calming neurotransmitter)"
+      },
+      {
+        "type": "bullet",
+        "text": "People with muscle cramps, especially at night or during exercise"
+      },
+      {
+        "type": "bullet",
+        "text": "Anyone with high blood pressure or cardiovascular concerns"
+      },
+      {
+        "type": "bullet",
+        "text": "High-stress individuals — cortisol response rapidly depletes magnesium reserves"
+      },
+      {
+        "type": "bullet",
+        "text": "Athletes — lost in sweat, critical for ATP synthesis during exercise"
+      },
+      {
+        "type": "heading_2",
+        "text": "Pricing"
+      },
+      {
+        "type": "bullet",
+        "text": "PV: ~5 | IBO: $28 | Retail: $34 | Monthly reorder"
+      }
+    ],
+    "d56f2c1b-dba1-491f-a510-36ab19520038": [
+      {
+        "type": "callout",
+        "text": "TLDR: USDA Organic. 21g of complete protein from Brown Rice + Peas + Chia grown on Nutrilite's certified organic farms. All 9 essential amino acids. No soy, gluten, dairy, or artificial sweeteners. Farm-traceable. Complete meal replacement in 2 minutes."
+      },
+      {
+        "type": "heading_2",
+        "text": "Why Protein in the Morning"
+      },
+      {
+        "type": "paragraph",
+        "text": "Protein is required for neurotransmitter production — dopamine, serotonin, and norepinephrine all require amino acids as raw materials. Skipping breakfast protein doesn't just affect muscle — it directly affects cognitive performance, mood, and mental focus for the first half of the day."
+      },
+      {
+        "type": "paragraph",
+        "text": "The liver performs over 500 biochemical functions and runs on protein. In the morning, after 8 hours of fasting, the liver's protein stores are depleted. A 21g protein shake within 30 minutes of waking replenishes this."
+      },
+      {
+        "type": "heading_2",
+        "text": "Why Plant Protein over Whey"
+      },
+      {
+        "type": "bullet",
+        "text": "No dairy — no lactose, no casein (the most common protein intolerance)"
+      },
+      {
+        "type": "bullet",
+        "text": "USDA Organic — no pesticides, no synthetic fertilizers"
+      },
+      {
+        "type": "bullet",
+        "text": "Brown rice + pea protein combination provides all 9 essential amino acids (complete profile)"
+      },
+      {
+        "type": "bullet",
+        "text": "Farm-traceable — Nutrilite grows and harvests the chia and other plant sources"
+      },
+      {
+        "type": "bullet",
+        "text": "No artificial sweeteners (stevia-based)"
+      },
+      {
+        "type": "heading_2",
+        "text": "The Protein Leverage Effect"
+      },
+      {
+        "type": "paragraph",
+        "text": "High-protein breakfast reduces appetite and caloric intake for the rest of the day. Studies show 21g+ protein at breakfast reduces afternoon snacking by 35% and reduces evening cravings. This isn't willpower — it's biochemistry."
+      },
+      {
+        "type": "heading_2",
+        "text": "Who Needs This"
+      },
+      {
+        "type": "bullet",
+        "text": "Anyone who skips breakfast or eats a carbohydrate-heavy breakfast (toast, cereal, etc.)"
+      },
+      {
+        "type": "bullet",
+        "text": "People trying to build muscle or maintain lean mass while losing fat"
+      },
+      {
+        "type": "bullet",
+        "text": "Vegans and vegetarians who struggle to reach 1g protein/lb body weight"
+      },
+      {
+        "type": "bullet",
+        "text": "Busy professionals who don't have time for a complete breakfast"
+      },
+      {
+        "type": "heading_2",
+        "text": "Pricing"
+      },
+      {
+        "type": "bullet",
+        "text": "PV: ~8 | IBO: $35 | Retail: $41 | Monthly reorder"
+      }
+    ],
+    "be2d39ea-5234-4e2e-9041-eb393ef042ee": [
+      {
+        "type": "callout",
+        "text": "TLDR: Multi-action in one tube: whitening + enamel strengthening + sensitivity protection + fresh breath. No artificial dyes. Fluoride formula. Made by the same company as Nutrilite — same quality standards. Round silica particles vs. sharp sand particles in most competitors."
+      },
+      {
+        "type": "heading_2",
+        "text": "Why the Silica Matters"
+      },
+      {
+        "type": "paragraph",
+        "text": "Most commercial toothpastes use angular silica particles — essentially fine sand — to create the abrasive 'scrubbing' action. Angular particles scratch tooth enamel microscopically over time. Enamel doesn't regenerate."
+      },
+      {
+        "type": "paragraph",
+        "text": "Glister uses round silica particles that clean without scratching. Under a microscope, the difference is obvious. The demo: squeeze both toothpastes on colored paper, rub 60 times, wipe clean. Glister leaves no color. Most commercial brands leave a gray residue — that's enamel particles."
+      },
+      {
+        "type": "heading_2",
+        "text": "The Demo Script"
+      },
+      {
+        "type": "quote",
+        "text": "\"Before I tell you about this, let me show you something. I'm going to squeeze a bit of your current toothpaste on this paper and a bit of Glister. I'll rub them both 60 times — same as two minutes of brushing. Now wipe it clean. See that gray? That's enamel. Enamel doesn't grow back. This is why what's in your toothpaste actually matters.\""
+      },
+      {
+        "type": "heading_2",
+        "text": "Who Needs This"
+      },
+      {
+        "type": "bullet",
+        "text": "Everyone — universal first product. Gateway to larger purchases."
+      },
+      {
+        "type": "bullet",
+        "text": "People with tooth sensitivity — round silica reduces the micro-abrasion that causes sensitivity"
+      },
+      {
+        "type": "bullet",
+        "text": "Coffee/tea drinkers who want whitening without harsh chemicals"
+      },
+      {
+        "type": "bullet",
+        "text": "Families — no artificial dyes, safe for children"
+      },
+      {
+        "type": "heading_2",
+        "text": "Pricing"
+      },
+      {
+        "type": "bullet",
+        "text": "PV: ~3 | IBO: ~$8 | Retail: ~$10 | Monthly reorder"
+      }
+    ],
+    "476d6f51-6591-4af2-815e-88b96b5caccc": [
+      {
+        "type": "callout",
+        "text": "TLDR: 5 cleaning modes + UV sanitizer in the charging base that kills 99.9% of bacteria on the brush head overnight. Battery life 3–6 months. No competitor at this price point offers UV sanitization. Made by the same company as Nutrilite."
+      },
+      {
+        "type": "heading_2",
+        "text": "Why the UV Sanitizer Is the Story"
+      },
+      {
+        "type": "paragraph",
+        "text": "A wet toothbrush head sitting in your bathroom for 12 hours between uses is a perfect bacterial incubator. Most electric toothbrushes have no mechanism to address this. The UV-C sanitizing charging base kills 99.9% of bacteria on the brush head with each charge cycle."
+      },
+      {
+        "type": "paragraph",
+        "text": "Dental professionals have long recommended UV sanitizers for patients with compromised immune systems. The Glister brush brings this to everyone."
+      },
+      {
+        "type": "heading_2",
+        "text": "The Comparison Conversation"
+      },
+      {
+        "type": "paragraph",
+        "text": "Compare with Oral-B Genius Pro or Philips Sonicare DiamondClean: both retail at $180–$200+, neither includes UV sanitization. Our power toothbrush at $158 IBO ($175 retail) includes 5 cleaning modes (daily clean, sensitive, whitening, gum care, deep clean) AND the UV sanitizing base. Battery life is 3–6 months vs. 2 weeks for most competitors."
+      },
+      {
+        "type": "heading_2",
+        "text": "Who Needs This"
+      },
+      {
+        "type": "bullet",
+        "text": "Anyone using a manual toothbrush — dental professionals universally recommend electric brushes for superior plaque removal"
+      },
+      {
+        "type": "bullet",
+        "text": "People with gum sensitivity or early gum disease — the gum care mode uses sonic vibration at lower intensity"
+      },
+      {
+        "type": "bullet",
+        "text": "Anyone concerned about oral bacteria — the UV sanitizer is the primary differentiator"
+      },
+      {
+        "type": "heading_2",
+        "text": "Pricing"
+      },
+      {
+        "type": "bullet",
+        "text": "PV: ~15 | IBO: $158 | Retail: $175"
+      }
+    ],
+    "006beb90-17a3-4786-96ac-496ea22e4156": [
+      {
+        "type": "callout",
+        "text": "TLDR: Organic, mint-based instant fresh breath spray. Portable. The easiest Amway product to demo on the spot — spray it, feel it, offer it to someone. Best door-opener for new customers. Low price point ($9 IBO), immediate sensory benefit."
+      },
+      {
+        "type": "heading_2",
+        "text": "Why the Spray"
+      },
+      {
+        "type": "paragraph",
+        "text": "The mouth spray is the best entry product for new customers: low price, immediate effect, completely demoable in any social context. Hand someone the spray, let them try it, and you have instant product experience — no explanation needed."
+      },
+      {
+        "type": "heading_2",
+        "text": "Opening the Door"
+      },
+      {
+        "type": "quote",
+        "text": "\"Here, try this — just one spray. Organic mint, super portable. I keep it in my bag. And honestly it's become the thing I give everyone.\" Then let them react. Most people love the immediate freshness and ask where to get it."
+      },
+      {
+        "type": "heading_2",
+        "text": "Who Needs This"
+      },
+      {
+        "type": "bullet",
+        "text": "Everyone — universal product, no demographic targeting needed"
+      },
+      {
+        "type": "bullet",
+        "text": "Great gift item — easy to include with any order"
+      },
+      {
+        "type": "bullet",
+        "text": "Coffee drinkers / smokers / anyone who wants on-the-go fresh breath"
+      },
+      {
+        "type": "heading_2",
+        "text": "Pricing"
+      },
+      {
+        "type": "bullet",
+        "text": "PV: ~2 | IBO: ~$9 | Retail: ~$11 | Monthly reorder"
+      }
+    ],
+    "9970a64c-8124-4090-a511-5611237a7615": [
+      {
+        "type": "callout",
+        "text": "TLDR: PTFE (polytetrafluoroethylene) flat-ribbon floss — glides between tight contacts without shredding or breaking. Naturally derived wax coating. Mint flavored. Doesn't snap mid-use. For anyone who has ever given up on floss because it breaks."
+      },
+      {
+        "type": "heading_2",
+        "text": "The Problem with Most Floss"
+      },
+      {
+        "type": "paragraph",
+        "text": "Most grocery store floss is nylon — it shreds and snaps between tight teeth, which is the number one reason people stop flossing. PTFE floss uses a single-filament structure that slides cleanly without shredding. The Glister floss uses naturally derived wax coating rather than synthetic wax."
+      },
+      {
+        "type": "heading_2",
+        "text": "The Easy Upsell"
+      },
+      {
+        "type": "paragraph",
+        "text": "Glister floss is the simplest upsell with a toothpaste purchase: low price (~$8 IBO), immediate sensory proof (let them feel the strength), and adds PV to every order. If someone already flosses, switching to Glister is a 30-second decision."
+      },
+      {
+        "type": "heading_2",
+        "text": "Pricing"
+      },
+      {
+        "type": "bullet",
+        "text": "PV: ~1 | IBO: ~$8 | Retail: ~$10 | Monthly reorder"
+      }
+    ],
+    "65b1604d-585c-4290-ad66-b4529a9c3ffd": [
+      {
+        "type": "callout",
+        "text": "TLDR: Plant-based, sulfate-free purifying shampoo. When burned on aluminum foil, it evaporates cleanly — commercial brands leave a toxic black residue. Removes 28% excess oil in one wash. Made by the company behind Nutrilite — same quality standards."
+      },
+      {
+        "type": "heading_2",
+        "text": "The Aluminum Foil Demo"
+      },
+      {
+        "type": "paragraph",
+        "text": "Put a small amount of commercial shampoo on aluminum foil. Hold it over a flame — it smokes and leaves a black toxic residue. Now do the same with Satinique — it evaporates cleanly. This is what the difference in ingredients looks like when exposed to heat. You put this in your hair every day."
+      },
+      {
+        "type": "heading_2",
+        "text": "The Scalp Science"
+      },
+      {
+        "type": "paragraph",
+        "text": "70% of the skin on your head is scalp — yet most people treat scalp with harsh sulfates designed for industrial degreasing. Sodium Lauryl Sulfate (SLS) strips all oils from the scalp, triggering compensatory oil overproduction — making oiliness worse over time. Satinique's plant-based surfactants clean without stripping."
+      },
+      {
+        "type": "heading_2",
+        "text": "Who Needs This"
+      },
+      {
+        "type": "bullet",
+        "text": "People with oily scalps or hair — sulfate-free stops the strip-overproduction cycle"
+      },
+      {
+        "type": "bullet",
+        "text": "Anyone with dandruff — scalp irritation from harsh detergents worsens dandruff"
+      },
+      {
+        "type": "bullet",
+        "text": "Active people who wash daily — gentler formula allows daily washing without damage"
+      },
+      {
+        "type": "bullet",
+        "text": "Anyone concerned about what they're putting on their body daily"
+      },
+      {
+        "type": "heading_2",
+        "text": "Pricing"
+      },
+      {
+        "type": "bullet",
+        "text": "PV: ~3 | IBO: ~$13 | Retail: $15 | Monthly reorder"
+      }
+    ],
+    "778705a9-05de-4f85-af25-d6acdfb0208c": [
+      {
+        "type": "callout",
+        "text": "TLDR: Pumpkin Seed Oil conditions and smooths — hair tested 13x smoother after use. Vegan formula, no sulfates, no synthetic dyes, no mineral oils. For dry, frizzy, or color-treated hair. No silicone coating — it actually binds moisture to the hair structure."
+      },
+      {
+        "type": "heading_2",
+        "text": "Why No Silicone"
+      },
+      {
+        "type": "paragraph",
+        "text": "Most 'moisturizing' shampoos coat hair with silicone — a synthetic polymer that feels soft but doesn't add moisture. Hair feels good initially but becomes dull and weighed down over time. Silicone coatings also prevent actual moisture from entering the hair shaft."
+      },
+      {
+        "type": "paragraph",
+        "text": "Satinique Smooth Moisture uses a humectant complex that binds water molecules to the hair structure, and smoothing polymers that align the cuticle without silicone. The result is genuinely moisturized hair rather than cosmetically coated hair."
+      },
+      {
+        "type": "heading_2",
+        "text": "Who Needs This"
+      },
+      {
+        "type": "bullet",
+        "text": "Dry or frizzy hair — the humectant system provides lasting moisture"
+      },
+      {
+        "type": "bullet",
+        "text": "Color-treated hair — sulfate-free means color lasts longer"
+      },
+      {
+        "type": "bullet",
+        "text": "Curly hair — moisture retention is critical for curl definition"
+      },
+      {
+        "type": "bullet",
+        "text": "Anyone who notices their hair looks dull despite using 'moisturizing' products"
+      },
+      {
+        "type": "heading_2",
+        "text": "Pricing"
+      },
+      {
+        "type": "bullet",
+        "text": "PV: ~3 | IBO: ~$13 | Retail: $15 | Monthly reorder"
+      }
+    ]
+  }
+}
