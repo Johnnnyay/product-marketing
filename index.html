@@ -767,6 +767,70 @@
       letter-spacing: 0.2px;
     }
 
+    /* ─── CALC PANEL + MODE BUTTON + SOLUTION HERO ─── */
+    .header-top { position: relative; }
+    .header-calc-summary {
+      background: none; border: none; color: white; font-family: inherit;
+      font-size: 12.5px; font-weight: 600; cursor: pointer; padding: 4px 2px 4px 8px;
+      display: flex; align-items: center; gap: 5px; white-space: nowrap;
+    }
+    .calc-caret { font-size: 9px; opacity: 0.7; }
+    .calc-panel {
+      display: none; position: absolute; top: 54px; right: 24px; z-index: 200;
+      background: white; border-radius: var(--radius); box-shadow: var(--shadow-lg);
+      width: 300px; padding: 14px 16px 12px; border: 1px solid var(--gray-200);
+    }
+    .calc-panel.open { display: block; }
+    .calc-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      font-size: 13px; color: var(--gray-600); padding: 5px 0;
+      border-bottom: 1px dashed var(--gray-200);
+    }
+    .calc-row.strong { color: var(--gray-800); font-weight: 700; font-size: 14px; }
+    .calc-row.pv span:last-child { color: var(--green); font-weight: 700; }
+    .calc-row.onetime span:last-child { color: var(--amber); font-weight: 600; }
+    .calc-row.ship { border-bottom: none; }
+    .calc-hint {
+      font-size: 11.5px; color: var(--green-mid); font-weight: 600;
+      padding: 6px 0 2px; text-align: right;
+    }
+    .calc-panel-actions {
+      display: flex; gap: 8px; margin-top: 10px;
+    }
+    .calc-panel-actions button {
+      flex: 1; background: var(--gray-100); border: 1px solid var(--gray-200);
+      border-radius: 8px; font-family: inherit; font-size: 12px; font-weight: 600;
+      color: var(--gray-600); padding: 8px 0; cursor: pointer; transition: background 0.15s;
+    }
+    .calc-panel-actions button:hover { background: var(--gray-200); }
+    .calc-panel-actions #calc-copy-btn { background: var(--green-light); color: var(--green); border-color: #cde9da; }
+    .calc-panel-actions #calc-copy-btn:hover { background: #d8efe2; }
+
+    .mode-btn {
+      background: none; border: none; color: rgba(255,255,255,0.45);
+      font-family: inherit; font-size: 14px; font-weight: 700; cursor: pointer;
+      padding: 6px 8px; border-radius: 16px; transition: color 0.15s, background 0.15s;
+      letter-spacing: 1px;
+    }
+    .mode-btn:hover { color: rgba(255,255,255,0.85); }
+    .mode-btn.ibo-on {
+      background: rgba(255,255,255,0.14); color: #ffd97a;
+      font-size: 11.5px; letter-spacing: 0.2px; padding: 6px 12px;
+    }
+
+    .hero-stack-btn {
+      margin-top: 14px; background: var(--green); color: white; border: none;
+      font-family: inherit; font-size: 13.5px; font-weight: 700; padding: 10px 20px;
+      border-radius: 22px; cursor: pointer; box-shadow: var(--shadow-sm);
+      transition: background 0.15s, transform 0.1s;
+    }
+    .hero-stack-btn:hover { background: var(--green-mid); transform: translateY(-1px); }
+
+    .footer-disclaimer {
+      max-width: 760px; margin: 0 auto; font-size: 11px; line-height: 1.6;
+      color: var(--gray-400); text-align: center; padding: 4px 16px 0;
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
       .product-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
@@ -798,42 +862,54 @@
     </div>
     <div class="header-actions">
       <div class="header-calc" id="header-calc">
-        <span id="header-calc-monthly"></span>
-        <span class="header-calc-onetime" id="header-calc-onetime" style="display:none"></span>
-        <button class="header-calc-clear" onclick="clearCalc()">✕ Clear</button>
+        <button class="header-calc-summary" id="header-calc-toggle" onclick="toggleCalcPanel()">
+          <span id="header-calc-summary"></span><span class="calc-caret">▾</span>
+        </button>
+        <button class="header-calc-clear" onclick="clearCalc()">✕</button>
       </div>
+      <button class="mode-btn" id="mode-btn" onclick="toggleBizMode()" title="Partner view">···</button>
       <button class="lang-btn" id="lang-toggle-btn" onclick="toggleLang()">EN / 中</button>
+    </div>
+    <!-- Calculator detail panel -->
+    <div class="calc-panel" id="calc-panel">
+      <div id="calc-rows"></div>
+      <div class="calc-panel-actions">
+        <button id="calc-copy-btn" onclick="copyShareLink()">🔗 Copy link</button>
+        <button onclick="clearCalc()">✕ Clear all</button>
+      </div>
     </div>
   </div>
 
-  <!-- Primary: mode selector -->
+  <!-- Primary: mode selector — Areas of Support is the default landing view -->
   <nav class="primary-nav" role="navigation" aria-label="View mode">
     <div class="primary-nav-scroll">
-      <button class="primary-tab active" id="vtab-category" onclick="setViewMode('category')">By Category</button>
-      <button class="primary-tab" id="vtab-painpoint" onclick="setViewMode('painpoint')">By Pain Point</button>
-      <button class="primary-tab" id="vtab-strategy" onclick="setViewMode('strategy')">Volume Strategy</button>
+      <button class="primary-tab active" id="vtab-area" onclick="setViewMode('area')">Areas of Support</button>
+      <button class="primary-tab" id="vtab-category" onclick="setViewMode('category')">By Category</button>
+      <button class="primary-tab" id="vtab-solution" onclick="setViewMode('solution')">Solutions</button>
     </div>
   </nav>
 
-  <!-- Secondary: category tabs (visible by default) -->
-  <nav class="secondary-nav visible" id="cat-secondary-nav" aria-label="Product categories">
+  <!-- Secondary: area chips (visible by default) -->
+  <nav class="secondary-nav visible" id="area-secondary-nav" aria-label="Areas of support">
+    <div class="secondary-nav-scroll" id="area-chips"></div>
+  </nav>
+
+  <!-- Secondary: category tabs -->
+  <nav class="secondary-nav" id="cat-secondary-nav" aria-label="Product categories">
     <div class="secondary-nav-scroll">
       <button class="secondary-tab cat-tab active" data-cat="all">All Products</button>
       <button class="secondary-tab cat-tab" data-cat="nutrition">Nutrition</button>
+      <button class="secondary-tab cat-tab" data-cat="sports">Sports & Energy</button>
       <button class="secondary-tab cat-tab" data-cat="beauty">Beauty</button>
       <button class="secondary-tab cat-tab" data-cat="care">Personal Care</button>
       <button class="secondary-tab cat-tab" data-cat="home">Home</button>
+      <button class="secondary-tab cat-tab" data-cat="solutions">Solutions</button>
     </div>
   </nav>
 
-  <!-- Secondary: pain point tabs (hidden by default) -->
-  <nav class="secondary-nav" id="painpoint-secondary-nav" aria-label="Pain points">
-    <div class="secondary-nav-scroll" id="painpoint-chips"></div>
-  </nav>
-
-  <!-- Secondary: strategy tabs (hidden by default) -->
-  <nav class="secondary-nav" id="strategy-secondary-nav" aria-label="Volume strategies">
-    <div class="secondary-nav-scroll" id="strategy-chips"></div>
+  <!-- Secondary: solution chips -->
+  <nav class="secondary-nav" id="solution-secondary-nav" aria-label="Solutions">
+    <div class="secondary-nav-scroll" id="solution-chips"></div>
   </nav>
 </header>
 
@@ -843,6 +919,7 @@
     <div class="cat-hero-label" id="hero-label"></div>
     <h2 id="hero-title"></h2>
     <p id="hero-intro"></p>
+    <div id="hero-extra"></div>
   </div>
 </div>
 
@@ -857,7 +934,14 @@
 
 <!-- ─────── FOOTER ─────── -->
 <footer>
-  IBO Reference Tool &nbsp;·&nbsp; Not for public distribution
+  <div class="footer-disclaimer">
+    These statements have not been evaluated by the Food and Drug Administration.
+    These products are not intended to diagnose, treat, cure, or prevent any disease.
+    Content on this page is general wellness education, not medical advice — always
+    consult a qualified health professional about personal health concerns.
+    Prices shown are estimates; final pricing is confirmed at amway.com. Shipping
+    estimate based on published Amway US rates (free ground shipping on orders $150+).
+  </div>
 </footer>
 
 <!-- ─────── MODAL ─────── -->
@@ -877,29 +961,29 @@
       <div class="modal-tagline" id="modal-tagline"></div>
     </div>
     <div class="modal-pricing-row" id="modal-pricing-row">
-      <div class="modal-price-cell">
-        <div class="modal-price-lbl">IBO Price</div>
+      <div class="modal-price-cell" id="modal-cell-1">
+        <div class="modal-price-lbl" id="modal-lbl-main">Price</div>
         <div class="modal-price-val" id="modal-ibo-val"></div>
       </div>
-      <div class="modal-price-cell">
-        <div class="modal-price-lbl">PV</div>
+      <div class="modal-price-cell" id="modal-cell-2">
+        <div class="modal-price-lbl" id="modal-lbl-2">Per day</div>
         <div class="modal-price-val pv" id="modal-pv-val"></div>
       </div>
-      <div class="modal-price-cell">
-        <div class="modal-price-lbl">Retail</div>
+      <div class="modal-price-cell" id="modal-cell-3">
+        <div class="modal-price-lbl" id="modal-lbl-3">Lasts</div>
         <div class="modal-price-val retail" id="modal-retail-val"></div>
       </div>
     </div>
     <div class="modal-body">
-      <div class="modal-section">
+      <div class="modal-section" id="modal-sec-advantage">
         <div class="modal-section-label">Key Advantage</div>
         <div class="modal-section-text" id="modal-advantage"></div>
       </div>
-      <div class="modal-section">
-        <div class="modal-section-label">Who Needs This</div>
+      <div class="modal-section" id="modal-sec-who">
+        <div class="modal-section-label">Who It's For</div>
         <div class="modal-section-text" id="modal-who"></div>
       </div>
-      <div class="modal-section">
+      <div class="modal-section" id="modal-sec-how">
         <div class="modal-section-label">How to Share the Story</div>
         <div class="modal-section-text" id="modal-how"></div>
       </div>
@@ -909,584 +993,2937 @@
 </div>
 
 <script>
-/* ════════════════════════════════════════════════
-   PRODUCT DATA
-   To add a real product image: set imageUrl to the
-   direct image URL (e.g. from amway.com CDN).
-   Pricing: exact IBO/Retail/PV from amway.com.
-   ════════════════════════════════════════════════ */
+/* Build-time data snapshot (live version fetched from data/products.json) */
+const FALLBACK = {
+ "lastUpdated": "2026-07-27",
+ "products": [
+  {
+   "id": "double-x-multivitamin-31-day-refill",
+   "item": "123842",
+   "name": "Double X Multivitamin 31-day Refill",
+   "nameZh": "双X综合营养片 31天装",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "22 vitamins & minerals plus phytonutrients from farm-grown plants",
+   "taglineZh": "22种维生素矿物质+植物营养素，农场种植",
+   "iboPrice": 57.6,
+   "retailPrice": 64,
+   "pv": 16.79,
+   "daysSupply": 31,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "energy",
+    "aging",
+    "immunity"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "double-x-multivitamin-10-day",
+   "item": "123364",
+   "name": "Double X Multivitamin 10-day",
+   "nameZh": "双X综合营养片 10天体验装",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Try the flagship multivitamin in a 10-day starter",
+   "taglineZh": "旗舰综合营养素10天体验装",
+   "iboPrice": 21.6,
+   "retailPrice": 24,
+   "pv": 6.3,
+   "daysSupply": 10,
+   "oneTime": false,
+   "imageUrl": "https://www.amway.com/medias/123364-en-US-690px-01?context=bWFzdGVyfHJvb3R8MTAwNDc0fGltYWdlL3BuZ3xoZDEvaGYwLzk0NDY3MTc4ODIzOTgucG5nfDQ5NmQ3NzU2NDdjOTk4ZjJlMGQxNGQ0OGU0NWE0NjkzOWEwZDE1YjA5ZWQ0Nzg3NDU3ZDVmNWU1MjUwMzlhMGE",
+   "areas": [
+    "energy",
+    "immunity"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "vitamin-c-extended-release-180ct",
+   "item": "109747",
+   "name": "Vitamin C Extended Release 180ct",
+   "nameZh": "维生素C缓释片 180粒",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "8-hour slow release from acerola cherries, no flush-out",
+   "taglineZh": "针叶樱桃来源，8小时缓释吸收",
+   "iboPrice": 48.6,
+   "retailPrice": 54,
+   "pv": 14.17,
+   "daysSupply": 90,
+   "oneTime": false,
+   "imageUrl": "https://www.amway.com/medias/109747-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w0NTI0MDN8aW1hZ2UvcG5nfGltYWdlcy9oMWEvaGEzLzk0NDk4ODA1MTg2ODYucG5nfDhhMzQ4NmUzNWUwODM2ZGYzODQ2MDk0YWQ4ODQxMThjMmUwYTlmZDBlYWIyMzFhYzBlZDc2YmFkOTcyNzY1MGE",
+   "areas": [
+    "immunity",
+    "skin",
+    "aging"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "vitamin-c-extended-release-60ct",
+   "item": "109745",
+   "name": "Vitamin C Extended Release 60ct",
+   "nameZh": "维生素C缓释片 60粒",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Same 8-hour release, smaller trial size",
+   "taglineZh": "同款缓释配方，小瓶体验装",
+   "iboPrice": 18,
+   "retailPrice": 20,
+   "pv": 5.25,
+   "daysSupply": 30,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "immunity",
+    "skin"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "vitamin-b-complex-120ct",
+   "item": "110171",
+   "name": "Vitamin B Complex 120ct",
+   "nameZh": "维生素B族 120粒",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Dual-action B for steady energy metabolism, 4-month supply",
+   "taglineZh": "双效B族，稳定能量代谢，可用4个月",
+   "iboPrice": 34.2,
+   "retailPrice": 38,
+   "pv": 9.97,
+   "daysSupply": 120,
+   "oneTime": false,
+   "imageUrl": "https://www.amway.com/medias/110171-en-US-690px-01?context=bWFzdGVyfGltYWdlc3cyODQxMDJ8aW1hZ2UvcG5nfGltYWdlcy9oYjIvaDQ4Lzk0NDgxNjk0MzkyNjIucG5nfGY1NGI2MDQyZjVhZTliZTBkOWRlMWVhODRkOWYwYTEzNGNhZWRmMTgyZGMwYTYzMTdiZTc1ZmM2NjU1NWIwYzM",
+   "areas": [
+    "energy",
+    "brain",
+    "sleep"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "vitamin-b-complex-30ct",
+   "item": "122971",
+   "name": "Vitamin B Complex 30ct",
+   "nameZh": "维生素B族 30粒",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "One-month B complex for energy support",
+   "taglineZh": "一个月装B族，能量支持",
+   "iboPrice": 11.48,
+   "retailPrice": 12.75,
+   "pv": 3.35,
+   "daysSupply": 30,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "energy",
+    "brain"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "vitamin-d",
+   "item": "119346",
+   "name": "Vitamin D",
+   "nameZh": "维生素D",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Sunshine vitamin for bones and immune support",
+   "taglineZh": "阳光维生素，骨骼与免疫支持",
+   "iboPrice": 26.1,
+   "retailPrice": 29,
+   "pv": 7.61,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "immunity",
+    "aging"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "vitamin-e-chewable",
+   "item": "A4042",
+   "name": "Vitamin E Chewable",
+   "nameZh": "天然维生素E咀嚼片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Antioxidant E with lecithin, chewable",
+   "taglineZh": "天然VE+卵磷脂，咀嚼型抗氧化",
+   "iboPrice": 38.7,
+   "retailPrice": 43,
+   "pv": 11.28,
+   "daysSupply": 60,
+   "oneTime": false,
+   "imageUrl": "https://www.amway.com/medias/A4042-en-US-690px-01?context=bWFzdGVyfGltYWdlc3wzMTI0MTJ8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2g1MS9oYmUvOTY3NjQwNjY4NTcyNi9BNDA0Mi1lbi1VUy02OTBweC0wMXwzNGQwYmQ2ODc2MzljZGE3Y2I5ZDIxNTc3NzE0MGEyNzRlZTE0N2Y1MDVkZWM3YmEwZWYwOTFhYmY4YWFjYjFk",
+   "areas": [
+    "aging",
+    "heart",
+    "skin"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "advanced-omega",
+   "item": "126136",
+   "name": "Advanced Omega",
+   "nameZh": "深海鱼油 Omega-3",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Triple-strength omega-3 for heart, brain and joints",
+   "taglineZh": "三倍浓缩Omega-3，护心健脑",
+   "iboPrice": 36,
+   "retailPrice": 40,
+   "pv": 10.5,
+   "daysSupply": 30,
+   "oneTime": false,
+   "imageUrl": "https://www.amway.com/medias/126136-en-US-690px-01?context=bWFzdGVyfGltYWdlc3wxMDExNTF8aW1hZ2UvcG5nfGltYWdlcy9oMzAvaDA0Lzk0OTUyNDI1NzE4MDYucG5nfDYzMWY1NDJmNjhhMDMyNGUxODkwODAwNDFhZDIxMjJmYjUzODlkYjZjZmY4YzFkMDRlNTNlMzI1OTA0ZDMzODI",
+   "areas": [
+    "heart",
+    "brain",
+    "skin",
+    "aging"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "calcium-magnesium-d",
+   "item": "110610",
+   "name": "Calcium Magnesium D",
+   "nameZh": "钙镁D片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Bone trio: calcium, magnesium and vitamin D",
+   "taglineZh": "钙+镁+D 骨骼铁三角",
+   "iboPrice": 38.7,
+   "retailPrice": 43,
+   "pv": 11.28,
+   "daysSupply": 30,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "sleep",
+    "muscle",
+    "aging"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "magnesium",
+   "item": "128032",
+   "name": "Magnesium",
+   "nameZh": "镁片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Calm muscles and nerves, evening-friendly",
+   "taglineZh": "放松肌肉与神经，晚间好伙伴",
+   "iboPrice": 30.6,
+   "retailPrice": 34,
+   "pv": 8.92,
+   "daysSupply": 30,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "sleep",
+    "muscle",
+    "heart"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "iron-folic-acid",
+   "item": "102046",
+   "name": "Iron & Folic Acid",
+   "nameZh": "铁质叶酸片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Iron plus folic acid for healthy blood",
+   "taglineZh": "补铁+叶酸，气血支持",
+   "iboPrice": 15.3,
+   "retailPrice": 17,
+   "pv": 4.46,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "energy"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "plant-protein-powder",
+   "item": "125921",
+   "name": "Plant Protein Powder",
+   "nameZh": "有机植物蛋白粉",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "21g organic tri-plant protein, smooth and creamy",
+   "taglineZh": "21克有机三重植物蛋白，顺滑好喝",
+   "iboPrice": 36.9,
+   "retailPrice": 41,
+   "pv": 10.76,
+   "daysSupply": 15,
+   "oneTime": false,
+   "imageUrl": "https://www.amway.com/medias/125921-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w1NDc5MjN8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2hmNS9oMzgvMTAyNjMxODAxMTU5OTgvMTI1OTIxLWVuLVVTLTY5MHB4LTAxfDIxNDAxNzg3MjY2OTIzNDU4NzM5YmZkZDFhNGQ4NGQzOWI4OTA1ODQzNDA1OGIzODZhOWRkOWIyNTIyNDE1MmY",
+   "areas": [
+    "muscle",
+    "weight",
+    "hair",
+    "energy"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "organics-all-in-one-bars",
+   "item": null,
+   "name": "Organics All-in-One Bars",
+   "nameZh": "有机全营养蛋白棒",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Organic protein bar, real-food snack replacement",
+   "taglineZh": "有机蛋白棒，健康代餐零食",
+   "iboPrice": 51.3,
+   "retailPrice": 57,
+   "pv": 14.96,
+   "daysSupply": 14,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "weight",
+    "muscle",
+    "energy"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "green-superfood",
+   "item": "125937",
+   "name": "Green Superfood",
+   "nameZh": "绿色超级食物粉",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Organic greens powder for daily veggie gaps",
+   "taglineZh": "有机绿色蔬菜粉，补足每日蔬菜缺口",
+   "iboPrice": 40.5,
+   "retailPrice": 45,
+   "pv": 11.81,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "digestion",
+    "weight",
+    "immunity"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "probiotic",
+   "item": "120571",
+   "name": "Probiotic",
+   "nameZh": "益生菌",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "6.3 billion CFU clinically studied strains for gut & immunity",
+   "taglineZh": "63亿活菌，肠道与免疫双支持",
+   "iboPrice": 38.7,
+   "retailPrice": 43,
+   "pv": 11.28,
+   "daysSupply": 30,
+   "oneTime": false,
+   "imageUrl": "https://www.amway.com/medias/120571-en-US-150px-01?context=bWFzdGVyfGltYWdlc3w3OTExfGltYWdlL3BuZ3xpbWFnZXMvaGNiL2g3OS85NDQ5ODgyOTEwNzUwLnBuZ3w5ZTAwODllMjZhNzc5NmJmYmYwZTU0ZDlkNTdjNjE2YWJjNzZjZTJjZWE2MTYyY2RmODE5YTJkOGNiMzQxYmM2",
+   "areas": [
+    "digestion",
+    "immunity",
+    "skin"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "digestive-enzyme",
+   "item": "A8903",
+   "name": "Digestive Enzyme",
+   "nameZh": "消化酶",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Plant-sourced enzymes to ease heavy meals",
+   "taglineZh": "植物来源消化酶，大餐救星",
+   "iboPrice": 35.1,
+   "retailPrice": 39,
+   "pv": 10.23,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "digestion"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "begin-daily-gi-primer",
+   "item": "127725",
+   "name": "Begin Daily GI Primer",
+   "nameZh": "Begin每日肠道启动粉",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "6-in-1 gut drink: fermented greens, prebiotics, enzymes",
+   "taglineZh": "六合一肠道饮：发酵绿蔬+益生元+酶",
+   "iboPrice": 70.2,
+   "retailPrice": 78,
+   "pv": 20.46,
+   "daysSupply": 30,
+   "oneTime": false,
+   "imageUrl": "https://www.amway.com/medias/127725-en-US-150px-01?context=bWFzdGVyfGltYWdlc3wyMjU0MHxpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaDk5L2hlMi85ODMyMDA0NjE2MjIyLzEyNzcyNS1lbi1VUy0xNTBweC0wMXwyZTZjYjVkYjBlOGJjYWY0ZGNjYTE0YjQ5YzEwYWUzZDFiZDU5MzAyY2E3ZTIxZTE5YTZlMjdjOTRhNGJjYjJk",
+   "areas": [
+    "digestion",
+    "weight",
+    "energy"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "sleep-gummies",
+   "item": "124506",
+   "name": "Sleep Gummies",
+   "nameZh": "甜梦睡眠软糖",
+   "brand": "n* by Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Melatonin-free botanical gummies for restful nights",
+   "taglineZh": "植物配方助眠软糖，无褪黑素依赖",
+   "iboPrice": 17.55,
+   "retailPrice": 19.5,
+   "pv": 5.12,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "sleep"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "go-shield",
+   "item": "124555",
+   "name": "Go Shield",
+   "nameZh": "免疫小卫士软糖",
+   "brand": "n* by Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Elderberry immunity gummies for on-the-go",
+   "taglineZh": "接骨木莓免疫软糖，随时防护",
+   "iboPrice": 19.8,
+   "retailPrice": 22,
+   "pv": 5.77,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "immunity"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "twist-tubes",
+   "item": "110855",
+   "name": "Twist Tubes",
+   "nameZh": "随身营养饮管",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Twist into water: immunity, joint or antioxidant",
+   "taglineZh": "拧入水中即饮：免疫/关节/抗氧化",
+   "iboPrice": 21.6,
+   "retailPrice": 24,
+   "pv": 6.29,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "immunity",
+    "energy"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "hair-skin-nail",
+   "item": "A7553",
+   "name": "Hair Skin Nail",
+   "nameZh": "秀发亮肤美甲片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Biotin, collagen and silicon for hair, skin & nails",
+   "taglineZh": "生物素+胶原+硅，由内养出好发好肤",
+   "iboPrice": 23.4,
+   "retailPrice": 26,
+   "pv": 6.82,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "hair",
+    "skin"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "lean-muscle",
+   "item": "100280",
+   "name": "Lean Muscle",
+   "nameZh": "瘦肌肉支持片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "CLA support for lean muscle with training",
+   "taglineZh": "CLA配方，训练期瘦体重支持",
+   "iboPrice": 46.8,
+   "retailPrice": 52,
+   "pv": 13.64,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "muscle",
+    "weight"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "men-s-pack",
+   "item": "123365",
+   "name": "Men's Pack",
+   "nameZh": "男士营养包",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Daily grab-and-go pack tailored for men",
+   "taglineZh": "男士每日随身营养包",
+   "iboPrice": 66.6,
+   "retailPrice": 74,
+   "pv": 19.42,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "energy",
+    "heart"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "women-s-pack",
+   "item": "123372",
+   "name": "Women's Pack",
+   "nameZh": "女士营养包",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Daily grab-and-go pack tailored for women",
+   "taglineZh": "女士每日随身营养包",
+   "iboPrice": 53.1,
+   "retailPrice": 59,
+   "pv": 15.48,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "energy",
+    "skin"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "clearguard-allergy",
+   "item": "102735",
+   "name": "ClearGuard Allergy",
+   "nameZh": "畅爽呼吸片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Seasonal comfort support for sensitive noses",
+   "taglineZh": "换季敏感鼻舒适支持",
+   "iboPrice": 24.3,
+   "retailPrice": 27,
+   "pv": 7.08,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "immunity"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "garlic-heart-care",
+   "item": "A5923",
+   "name": "Garlic Heart Care",
+   "nameZh": "大蒜精华片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Odor-controlled garlic for cardiovascular support",
+   "taglineZh": "无味大蒜精华，心血管支持",
+   "iboPrice": 28.8,
+   "retailPrice": 32,
+   "pv": 8.4,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "heart"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "liver-support",
+   "item": "A8084",
+   "name": "Liver Support",
+   "nameZh": "护肝片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Milk thistle blend for liver health",
+   "taglineZh": "奶蓟草配方，肝脏健康支持",
+   "iboPrice": 31.5,
+   "retailPrice": 35,
+   "pv": 9.18,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "digestion"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "memory-builder",
+   "item": "111106",
+   "name": "Memory Builder",
+   "nameZh": "记忆力支持片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Cistanche extract studied for memory support",
+   "taglineZh": "管花肉苁蓉萃取，记忆力支持",
+   "iboPrice": 37.8,
+   "retailPrice": 42,
+   "pv": 11.02,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "brain"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "prostate-health",
+   "item": "A8004",
+   "name": "Prostate Health",
+   "nameZh": "前列腺健康片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Saw palmetto and nettle root for men 40+",
+   "taglineZh": "锯棕榈+荨麻根，40+男士之选",
+   "iboPrice": 41.4,
+   "retailPrice": 46,
+   "pv": 12.07,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "aging"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "slimmetry",
+   "item": "117085",
+   "name": "Slimmetry",
+   "nameZh": "轻盈片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Green tea extract to support healthy weight efforts",
+   "taglineZh": "绿茶萃取，健康体重管理支持",
+   "iboPrice": 29.7,
+   "retailPrice": 33,
+   "pv": 8.66,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "weight"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "xs-energy-drinks-12-pack",
+   "item": "126883",
+   "name": "XS Energy Drinks 12-pack",
+   "nameZh": "XS能量饮料 12罐",
+   "brand": "XS",
+   "cat": "sports",
+   "tagline": "Zero sugar, B-vitamin energy that actually tastes good",
+   "taglineZh": "零糖B族能量饮，好喝不腻",
+   "iboPrice": 33.3,
+   "retailPrice": 37,
+   "pv": 9.7,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "energy"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "xs-energy-focus-60ct",
+   "item": null,
+   "name": "XS Energy + Focus 60ct",
+   "nameZh": "XS能量专注片 60粒",
+   "brand": "XS",
+   "cat": "sports",
+   "tagline": "Caffeine + nootropics tablet, energy without the can",
+   "taglineZh": "咖啡因+专注配方，片剂随身带",
+   "iboPrice": 36.9,
+   "retailPrice": 41,
+   "pv": 10.76,
+   "daysSupply": 30,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "energy",
+    "brain"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "xs-grass-fed-whey-protein",
+   "item": "128154",
+   "name": "XS Grass-Fed Whey Protein",
+   "nameZh": "XS草饲乳清蛋白",
+   "brand": "XS",
+   "cat": "sports",
+   "tagline": "25g grass-fed whey, third-party tested",
+   "taglineZh": "25克草饲乳清，第三方检测",
+   "iboPrice": 54.9,
+   "retailPrice": 61,
+   "pv": 16.01,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "muscle"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "xs-muscle-multiplier-eaas",
+   "item": "126753",
+   "name": "XS Muscle Multiplier (EAAs)",
+   "nameZh": "XS必需氨基酸",
+   "brand": "XS",
+   "cat": "sports",
+   "tagline": "9 essential amino acids for training recovery",
+   "taglineZh": "9种必需氨基酸，训练恢复加速",
+   "iboPrice": 45,
+   "retailPrice": 50,
+   "pv": 13.11,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "muscle"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "xs-pre-workout-boost",
+   "item": "316377",
+   "name": "XS Pre-Workout Boost",
+   "nameZh": "XS训练前激活粉",
+   "brand": "XS",
+   "cat": "sports",
+   "tagline": "Clean pre-workout push without the jitters",
+   "taglineZh": "干净爆发力，不心慌不掉线",
+   "iboPrice": 29.7,
+   "retailPrice": 33,
+   "pv": 8.66,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "muscle",
+    "energy"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "xs-post-workout-recovery",
+   "item": "316380",
+   "name": "XS Post-Workout Recovery",
+   "nameZh": "XS训练后恢复粉",
+   "brand": "XS",
+   "cat": "sports",
+   "tagline": "Refuel and rebuild right after training",
+   "taglineZh": "练后即时补充，修复肌肉",
+   "iboPrice": 29.7,
+   "retailPrice": 33,
+   "pv": 8.66,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "muscle"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "xs-ignite-thermogenic-powder",
+   "item": "127811",
+   "name": "XS Ignite Thermogenic Powder",
+   "nameZh": "XS燃动粉",
+   "brand": "XS",
+   "cat": "sports",
+   "tagline": "Thermogenic blend to fire up active days",
+   "taglineZh": "生热配方，燃动活力日",
+   "iboPrice": 39.6,
+   "retailPrice": 44,
+   "pv": 11.55,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "weight",
+    "energy"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "xs-protein-bars-12-pack",
+   "item": "110385",
+   "name": "XS Protein Bars 12-pack",
+   "nameZh": "XS蛋白棒 12支",
+   "brand": "XS",
+   "cat": "sports",
+   "tagline": "Protein snack bars for busy days",
+   "taglineZh": "忙碌日子的蛋白零食",
+   "iboPrice": 37.8,
+   "retailPrice": 42,
+   "pv": 11.02,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "muscle",
+    "weight"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "xs-rtd-protein-shakes-12-pack",
+   "item": "110370",
+   "name": "XS RTD Protein Shakes 12-pack",
+   "nameZh": "XS即饮蛋白奶昔 12瓶",
+   "brand": "XS",
+   "cat": "sports",
+   "tagline": "Ready-to-drink protein, zero prep",
+   "taglineZh": "开盖即饮蛋白，省时省事",
+   "iboPrice": 47.7,
+   "retailPrice": 53,
+   "pv": 13.91,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "muscle",
+    "weight"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "xs-protein-crisps",
+   "item": "110628",
+   "name": "XS Protein Crisps",
+   "nameZh": "XS蛋白脆片",
+   "brand": "XS",
+   "cat": "sports",
+   "tagline": "High-protein crunchy snack, BBQ flavor",
+   "taglineZh": "高蛋白脆片，解馋不长胖",
+   "iboPrice": 35.1,
+   "retailPrice": 39,
+   "pv": 10.23,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "weight"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "xs-cocowater-12-pack",
+   "item": "110631",
+   "name": "XS CocoWater 12-pack",
+   "nameZh": "XS椰子水 12罐",
+   "brand": "XS",
+   "cat": "sports",
+   "tagline": "Coconut water hydration with electrolytes",
+   "taglineZh": "椰子水电解质补水",
+   "iboPrice": 25.2,
+   "retailPrice": 28,
+   "pv": 7.35,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "energy",
+    "muscle"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "perfect-empowered-drinking-water",
+   "item": "285375",
+   "name": "Perfect Empowered Drinking Water",
+   "nameZh": "完美活力水",
+   "brand": "Perfect",
+   "cat": "sports",
+   "tagline": "Purified, oxygenated, pH-balanced water case",
+   "taglineZh": "净化富氧平衡水，整箱装",
+   "iboPrice": 46.8,
+   "retailPrice": 52,
+   "pv": 6.82,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "energy"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-hydrating-lotion-spf30",
+   "item": "123800",
+   "name": "Artistry Hydrating Lotion SPF30",
+   "nameZh": "雅姿保湿乳SPF30",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Daily hydration with SPF 30 protection",
+   "taglineZh": "日常保湿+SPF30防护",
+   "iboPrice": 40.5,
+   "retailPrice": 45,
+   "pv": 11.8,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-hydrating-day-lotion-spf30",
+   "item": null,
+   "name": "Artistry Hydrating Day Lotion SPF30",
+   "nameZh": "雅姿水润日霜SPF30",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Lightweight day lotion for thirsty skin",
+   "taglineZh": "轻盈日霜，干渴肌肤解渴",
+   "iboPrice": 36.9,
+   "retailPrice": 41,
+   "pv": 10.74,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-hydrating-eye-gel-cream",
+   "item": null,
+   "name": "Artistry Hydrating Eye Gel Cream",
+   "nameZh": "雅姿水润眼胶",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Cooling gel cream for tired eyes",
+   "taglineZh": "清凉眼胶，唤醒疲惫双眼",
+   "iboPrice": 36,
+   "retailPrice": 40,
+   "pv": 10.48,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "skin",
+    "aging"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-hydrating-system-bundle",
+   "item": null,
+   "name": "Artistry Hydrating System Bundle",
+   "nameZh": "雅姿水润三件套",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Complete hydrating routine: cleanse, tone, moisturize",
+   "taglineZh": "水润全套：洁面+爽肤+保湿",
+   "iboPrice": 90,
+   "retailPrice": 100,
+   "pv": 26.19,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-renewing-day-lotion-spf30",
+   "item": null,
+   "name": "Artistry Renewing Day Lotion SPF30",
+   "nameZh": "雅姿焕新日霜SPF30",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Renewing peptide day lotion with SPF",
+   "taglineZh": "胜肽焕新日霜+防晒",
+   "iboPrice": 66.6,
+   "retailPrice": 74,
+   "pv": 19.38,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "aging",
+    "skin"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-renewing-system-bundle",
+   "item": null,
+   "name": "Artistry Renewing System Bundle",
+   "nameZh": "雅姿焕新三件套",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Anti-aging renewal routine in one set",
+   "taglineZh": "抗老焕新全套方案",
+   "iboPrice": 129.6,
+   "retailPrice": 144,
+   "pv": 37.71,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "aging"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-firming-system-bundle",
+   "item": null,
+   "name": "Artistry Firming System Bundle",
+   "nameZh": "雅姿紧致三件套",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Firming routine for lift and bounce",
+   "taglineZh": "紧致提拉全套方案",
+   "iboPrice": 133.2,
+   "retailPrice": 148,
+   "pv": 38.76,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "aging"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-defying-serum",
+   "item": null,
+   "name": "Artistry Defying Serum",
+   "nameZh": "雅姿抗初老精华",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Phyto-peptide serum for early aging signs",
+   "taglineZh": "植物胜肽精华，狙击初老",
+   "iboPrice": 76.5,
+   "retailPrice": 85,
+   "pv": 22.27,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "aging"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-labs-illuminating-serum",
+   "item": null,
+   "name": "Artistry Labs Illuminating Serum",
+   "nameZh": "雅姿实验室亮采精华",
+   "brand": "Artistry Labs",
+   "cat": "beauty",
+   "tagline": "Clinical-grade brightening serum",
+   "taglineZh": "实验室级亮白精华",
+   "iboPrice": 99,
+   "retailPrice": 110,
+   "pv": 28.81,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "skin",
+    "aging"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-labs-retexturizing-serum",
+   "item": null,
+   "name": "Artistry Labs Retexturizing Serum",
+   "nameZh": "雅姿实验室焕肤精华",
+   "brand": "Artistry Labs",
+   "cat": "beauty",
+   "tagline": "Resurfacing serum for smoother texture",
+   "taglineZh": "焕肤精华，细腻肤质",
+   "iboPrice": 99,
+   "retailPrice": 110,
+   "pv": 28.81,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "skin",
+    "aging"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-labs-retexturizing-system",
+   "item": null,
+   "name": "Artistry Labs Retexturizing System",
+   "nameZh": "雅姿实验室焕肤仪",
+   "brand": "Artistry Labs",
+   "cat": "beauty",
+   "tagline": "At-home resurfacing device system",
+   "taglineZh": "居家焕肤仪器套装",
+   "iboPrice": 334.8,
+   "retailPrice": 372,
+   "pv": 97.43,
+   "daysSupply": null,
+   "oneTime": true,
+   "imageUrl": null,
+   "areas": [
+    "aging"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-longxevity-creams",
+   "item": null,
+   "name": "Artistry LongXevity Creams",
+   "nameZh": "雅姿长青焕颜霜",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Flagship longevity cream, soft or rich texture",
+   "taglineZh": "旗舰级长青面霜，轻润/丰润可选",
+   "iboPrice": 328.5,
+   "retailPrice": 365,
+   "pv": 95.59,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "aging"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-longxevity-eye-cream",
+   "item": null,
+   "name": "Artistry LongXevity Eye Cream",
+   "nameZh": "雅姿长青眼霜",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Premium eye cream for deep-set lines",
+   "taglineZh": "高端眼霜，深层细纹对策",
+   "iboPrice": 184.5,
+   "retailPrice": 205,
+   "pv": 53.69,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "aging"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-intensive-skincare-14-night-reset",
+   "item": null,
+   "name": "Artistry Intensive Skincare 14 Night Reset",
+   "nameZh": "雅姿14夜焕肤安瓶",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "14-night ampoule reset program",
+   "taglineZh": "14夜安瓶密集焕肤",
+   "iboPrice": 189,
+   "retailPrice": 210,
+   "pv": 54.99,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "aging",
+    "skin"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-everyday-skin-solution-bundle",
+   "item": null,
+   "name": "Artistry Everyday Skin Solution Bundle",
+   "nameZh": "雅姿每日护肤套装",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Daily skin essentials in one bundle",
+   "taglineZh": "每日护肤基础全套",
+   "iboPrice": 152.1,
+   "retailPrice": 169,
+   "pv": 44.26,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-signature-select-brightening-mask",
+   "item": null,
+   "name": "Artistry Signature Select Brightening Mask",
+   "nameZh": "雅姿亮采面膜",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Brightening treatment mask",
+   "taglineZh": "亮采焕白面膜",
+   "iboPrice": 42.3,
+   "retailPrice": 47,
+   "pv": 12.31,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-signature-select-purifying-mask",
+   "item": null,
+   "name": "Artistry Signature Select Purifying Mask",
+   "nameZh": "雅姿净澈面膜",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Deep-clean purifying mask for congested skin",
+   "taglineZh": "深层净澈，粉刺肌友好",
+   "iboPrice": 35.1,
+   "retailPrice": 39,
+   "pv": 10.21,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-signature-select-firming-mask",
+   "item": null,
+   "name": "Artistry Signature Select Firming Mask",
+   "nameZh": "雅姿紧致面膜",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Firming treatment mask",
+   "taglineZh": "紧致提拉面膜",
+   "iboPrice": 44.1,
+   "retailPrice": 49,
+   "pv": 12.83,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "aging"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-signature-select-polishing-mask",
+   "item": null,
+   "name": "Artistry Signature Select Polishing Mask",
+   "nameZh": "雅姿焕肤面膜",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Gentle polishing mask for smooth glow",
+   "taglineZh": "温和焕肤，透亮光泽",
+   "iboPrice": 35.1,
+   "retailPrice": 39,
+   "pv": 10.21,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-studio-spot-on-dots",
+   "item": null,
+   "name": "Artistry Studio Spot On Dots",
+   "nameZh": "雅姿痘痘贴",
+   "brand": "Artistry Studio",
+   "cat": "beauty",
+   "tagline": "Blemish patches that work overnight",
+   "taglineZh": "一夜见效痘痘贴",
+   "iboPrice": 24.3,
+   "retailPrice": 27,
+   "pv": 7.07,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-studio-done-with-zit",
+   "item": null,
+   "name": "Artistry Studio Done with Zit",
+   "nameZh": "雅姿祛痘凝胶",
+   "brand": "Artistry Studio",
+   "cat": "beauty",
+   "tagline": "Salicylic acid spot treatment",
+   "taglineZh": "水杨酸点涂祛痘",
+   "iboPrice": 27.9,
+   "retailPrice": 31,
+   "pv": 8.12,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-studio-eye-look-rested",
+   "item": null,
+   "name": "Artistry Studio Eye Look Rested",
+   "nameZh": "雅姿去浮肿眼霜",
+   "brand": "Artistry Studio",
+   "cat": "beauty",
+   "tagline": "De-puff and brighten tired morning eyes",
+   "taglineZh": "晨间去浮肿提亮眼周",
+   "iboPrice": 31.5,
+   "retailPrice": 35,
+   "pv": 9.17,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-men-face-wash",
+   "item": null,
+   "name": "Artistry Men Face Wash",
+   "nameZh": "雅姿男士洁面",
+   "brand": "Artistry Men",
+   "cat": "beauty",
+   "tagline": "Energizing face wash built for men's skin",
+   "taglineZh": "男士专属活力洁面",
+   "iboPrice": 27,
+   "retailPrice": 30,
+   "pv": 7.86,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "glister-toothpaste",
+   "item": "124106",
+   "name": "Glister Toothpaste",
+   "nameZh": "丽齿健多效牙膏",
+   "brand": "Glister",
+   "cat": "care",
+   "tagline": "Remineralizing multi-action toothpaste, concentrated formula",
+   "taglineZh": "多效修护牙膏，浓缩配方",
+   "iboPrice": 6.98,
+   "retailPrice": 7.75,
+   "pv": 2.03,
+   "daysSupply": 60,
+   "oneTime": false,
+   "imageUrl": "https://www.amway.com/medias/124106-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w0MTQ3OXxpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaGFlL2hjMC85NTE4MTY3MDMxODM4LzEyNDEwNi1lbi1VUy02OTBweC0wMXwzZjk1MTcxYjIxMTcyMDdmYTY4NTJkNjE0MmU4NzRmYzU5ZTk4MTQ1NTBjOWE3NmVjOTZlZGExNWM3YzcwNWZm",
+   "areas": [
+    "oral"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "glister-power-toothbrush",
+   "item": "127705",
+   "name": "Glister Power Toothbrush",
+   "nameZh": "丽齿健声波电动牙刷",
+   "brand": "Glister",
+   "cat": "care",
+   "tagline": "Sonic toothbrush with UV sanitizing base",
+   "taglineZh": "声波电动牙刷+UV消毒座",
+   "iboPrice": 157.5,
+   "retailPrice": 175,
+   "pv": 45.92,
+   "daysSupply": null,
+   "oneTime": true,
+   "imageUrl": "https://www.amway.com/medias/127705-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w2NTAyMXxpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaDBkL2gyNy85ODgyMjkzNzMxMzU4LzEyNzcwNS1lbi1VUy02OTBweC0wMXxmODFkMDM1MWZhZTRiOGRmNzRjNzJiM2NlZDI1OTFlOTQ0NmIyZDE4MjIwYmQ1MzVkNjk0YjY4ZjVmYTBkNTEx",
+   "areas": [
+    "oral"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "glister-refresher-spray",
+   "item": "124111",
+   "name": "Glister Refresher Spray",
+   "nameZh": "丽齿健清新喷雾",
+   "brand": "Glister",
+   "cat": "care",
+   "tagline": "Pocket breath refresher, sugar-free",
+   "taglineZh": "随身口气清新喷雾，无糖",
+   "iboPrice": 6.53,
+   "retailPrice": 7.25,
+   "pv": 1.9,
+   "daysSupply": 45,
+   "oneTime": false,
+   "imageUrl": "https://www.amway.com/medias/124111-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w0MTYxOHxpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaGQyL2hhNC85NTE4MTY3ODgzODA2LzEyNDExMS1lbi1VUy02OTBweC0wMXw1YzM4NjU2YTRjNTVhOGIwNWMyM2I5NDI1YjQ2MjQ5ZGUyNTgxOGE3OTZlMDRmYjY4ZDM1YmJkOGVjOWY0NTRh",
+   "areas": [
+    "oral"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "glister-floss-2-pack",
+   "item": "124112",
+   "name": "Glister Floss 2-pack",
+   "nameZh": "丽齿健牙线 2支装",
+   "brand": "Glister",
+   "cat": "care",
+   "tagline": "Smooth-glide floss two-pack",
+   "taglineZh": "顺滑牙线两支装",
+   "iboPrice": 11.26,
+   "retailPrice": 12.5,
+   "pv": 3.29,
+   "daysSupply": 60,
+   "oneTime": false,
+   "imageUrl": "https://www.amway.com/medias/124112-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w2OTg1MnxpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaGU2L2g1Yy8xMDE1MjA3NzY1NjA5NC8xMjQxMTItZW4tVVMtNjkwcHgtMDF8NTkyZmNlY2M4Zjk1NTQ2YjRmMmMyMDI1M2ZhOWUwYTFhNGZkZTNlNzkzMTAxYzBhYmMwYWQ1Njg3MzJjYjFhNQ",
+   "areas": [
+    "oral"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "glister-oral-rinse",
+   "item": null,
+   "name": "Glister Oral Rinse",
+   "nameZh": "丽齿健漱口水",
+   "brand": "Glister",
+   "cat": "care",
+   "tagline": "Alcohol-free rinse for all-day fresh mouth",
+   "taglineZh": "无酒精漱口水，全天清新",
+   "iboPrice": 12.6,
+   "retailPrice": 14,
+   "pv": 3.67,
+   "daysSupply": 45,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "oral"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "satinique-purifying-shampoo-280ml",
+   "item": "126460",
+   "name": "Satinique Purifying Shampoo 280ml",
+   "nameZh": "丝婷净化洗发水 280ml",
+   "brand": "Satinique",
+   "cat": "care",
+   "tagline": "Deep-clean scalp reset for oily roots",
+   "taglineZh": "头皮深层净化，油性发质救星",
+   "iboPrice": 13.5,
+   "retailPrice": 15,
+   "pv": 3.94,
+   "daysSupply": 45,
+   "oneTime": false,
+   "imageUrl": "https://www.amway.com/medias/126460-en-US-690px-01?context=bWFzdGVyfGltYWdlc3wxMTIzMTF8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2g1MS9oMGYvOTk1ODg3OTQyODYzOC8xMjY0NjAtZW4tVVMtNjkwcHgtMDF8MTQyZjU3NjI4MmUyZTcwNDFiYzNhMjE1NzA3MTVhMjg5YmI1NDhkMDU0ZDFhN2E0NGM5NDk5MjQxODc0OTE5NQ",
+   "areas": [
+    "hair"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "satinique-purifying-shampoo-750ml",
+   "item": "126461",
+   "name": "Satinique Purifying Shampoo 750ml",
+   "nameZh": "丝婷净化洗发水 750ml",
+   "brand": "Satinique",
+   "cat": "care",
+   "tagline": "Family-size purifying shampoo, 4-month supply",
+   "taglineZh": "家庭装净化洗发水，可用4个月",
+   "iboPrice": 25.2,
+   "retailPrice": 28,
+   "pv": 7.35,
+   "daysSupply": 120,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "hair"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "satinique-smooth-shampoo-280ml",
+   "item": "126449",
+   "name": "Satinique Smooth Shampoo 280ml",
+   "nameZh": "丝婷柔润洗发水 280ml",
+   "brand": "Satinique",
+   "cat": "care",
+   "tagline": "Smooth moisture for dry, frizzy hair",
+   "taglineZh": "柔润保湿，毛躁干发变顺滑",
+   "iboPrice": 13.5,
+   "retailPrice": 15,
+   "pv": 3.94,
+   "daysSupply": 45,
+   "oneTime": false,
+   "imageUrl": "https://www.amway.com/medias/126449-en-US-690px-01?context=bWFzdGVyfGltYWdlc3wxMDk3MTF8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2gzOS9oYzkvOTk1MzgwOTk4OTY2Mi8xMjY0NDktZW4tVVMtNjkwcHgtMDF8YjVmMDY4ZTE0NGMzMGJhM2ZjZGQ5NmJmNjY2NjU0Y2E4MzE5MTdhZTkzMjViMGNjN2I4MGY5YWU4YTc5ZDk0Yg",
+   "areas": [
+    "hair"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "satinique-smooth-conditioner",
+   "item": "126451",
+   "name": "Satinique Smooth Conditioner",
+   "nameZh": "丝婷柔润护发素",
+   "brand": "Satinique",
+   "cat": "care",
+   "tagline": "Detangling conditioner for silky finish",
+   "taglineZh": "顺滑护发素，丝滑收尾",
+   "iboPrice": 13.5,
+   "retailPrice": 15,
+   "pv": 3.94,
+   "daysSupply": 45,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "hair"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "g-h-nourish-body-wash",
+   "item": "125890",
+   "name": "g&h Nourish Body Wash",
+   "nameZh": "g&h滋养沐浴露",
+   "brand": "g&h",
+   "cat": "care",
+   "tagline": "Honey and shea gentle daily body wash",
+   "taglineZh": "蜂蜜乳木果温和沐浴",
+   "iboPrice": 13.05,
+   "retailPrice": 14.5,
+   "pv": 3.8,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "g-h-nourish-body-lotion",
+   "item": "125891",
+   "name": "g&h Nourish Body Lotion",
+   "nameZh": "g&h滋养身体乳",
+   "brand": "g&h",
+   "cat": "care",
+   "tagline": "24-hour moisture body lotion",
+   "taglineZh": "24小时保湿身体乳",
+   "iboPrice": 14.18,
+   "retailPrice": 15.75,
+   "pv": 4.13,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "g-h-protect-body-lotion-spf50",
+   "item": "125901",
+   "name": "g&h Protect Body Lotion SPF50",
+   "nameZh": "g&h防晒身体乳SPF50",
+   "brand": "g&h",
+   "cat": "care",
+   "tagline": "Broad-spectrum SPF 50 body protection",
+   "taglineZh": "SPF50广谱身体防晒",
+   "iboPrice": 25.2,
+   "retailPrice": 28,
+   "pv": 7.35,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "espring-water-purifier-chrome",
+   "item": "128212UC",
+   "name": "eSpring Water Purifier (Chrome)",
+   "nameZh": "益之源净水器（豪华龙头）",
+   "brand": "eSpring",
+   "cat": "home",
+   "tagline": "UV-C + carbon purification, designer faucet",
+   "taglineZh": "UV-C紫外线+活性炭，设计师龙头款",
+   "iboPrice": 1259.1,
+   "retailPrice": 1399,
+   "pv": 367.08,
+   "daysSupply": null,
+   "oneTime": true,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "espring-above-counter-unit",
+   "item": null,
+   "name": "eSpring Above Counter Unit",
+   "nameZh": "益之源净水器（台上型）",
+   "brand": "eSpring",
+   "cat": "home",
+   "tagline": "World's best-selling home water treatment brand",
+   "taglineZh": "全球销量领先家用净水品牌",
+   "iboPrice": 1169.1,
+   "retailPrice": 1299,
+   "pv": 340.85,
+   "daysSupply": null,
+   "oneTime": true,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "espring-uv-replacement-filter",
+   "item": null,
+   "name": "eSpring UV Replacement Filter",
+   "nameZh": "益之源UV滤芯",
+   "brand": "eSpring",
+   "cat": "home",
+   "tagline": "Annual replacement cartridge, one per year",
+   "taglineZh": "年度更换滤芯，一年一换",
+   "iboPrice": 252,
+   "retailPrice": 280,
+   "pv": 73.47,
+   "daysSupply": null,
+   "oneTime": true,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "espring-e3-carbon-filter",
+   "item": null,
+   "name": "eSpring e3 Carbon Filter",
+   "nameZh": "益之源e3碳滤芯",
+   "brand": "eSpring",
+   "cat": "home",
+   "tagline": "Carbon filter alternative cartridge",
+   "taglineZh": "碳滤芯替换装",
+   "iboPrice": 228.6,
+   "retailPrice": 254,
+   "pv": 66.65,
+   "daysSupply": null,
+   "oneTime": true,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "atmosphere-sky-air-purifier",
+   "item": "120539",
+   "name": "Atmosphere Sky Air Purifier",
+   "nameZh": "逸新空气净化器 Sky",
+   "brand": "Atmosphere",
+   "cat": "home",
+   "tagline": "HEPA purification for rooms up to 465 sq ft",
+   "taglineZh": "三重滤净，适用465平方英尺",
+   "iboPrice": 1539,
+   "retailPrice": 1710,
+   "pv": 448.69,
+   "daysSupply": null,
+   "oneTime": true,
+   "imageUrl": null,
+   "areas": [
+    "home",
+    "immunity"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "atmosphere-mini-air-purifier",
+   "item": "124746",
+   "name": "Atmosphere Mini Air Purifier",
+   "nameZh": "逸新空气净化器 Mini",
+   "brand": "Atmosphere",
+   "cat": "home",
+   "tagline": "Compact purifier for bedrooms up to 200 sq ft",
+   "taglineZh": "小巧机身，卧室净化之选",
+   "iboPrice": 819,
+   "retailPrice": 910,
+   "pv": 238.78,
+   "daysSupply": null,
+   "oneTime": true,
+   "imageUrl": null,
+   "areas": [
+    "home",
+    "immunity"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "atmosphere-carbon-filter-replacement",
+   "item": null,
+   "name": "Atmosphere Carbon Filter Replacement",
+   "nameZh": "逸新碳滤网替换装",
+   "brand": "Atmosphere",
+   "cat": "home",
+   "tagline": "Replacement carbon filter for Atmosphere units",
+   "taglineZh": "逸新替换碳滤网",
+   "iboPrice": 104.4,
+   "retailPrice": 116,
+   "pv": 30.44,
+   "daysSupply": null,
+   "oneTime": true,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "loc-multi-purpose-cleaner",
+   "item": "E0001",
+   "name": "LOC Multi-Purpose Cleaner",
+   "nameZh": "乐新多用途清洁剂",
+   "brand": "Amway Home",
+   "cat": "home",
+   "tagline": "Concentrated 1:50 cleaner, months per bottle",
+   "taglineZh": "1:50浓缩配方，一瓶用数月",
+   "iboPrice": 11.25,
+   "retailPrice": 12.5,
+   "pv": 3.28,
+   "daysSupply": 120,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "loc-multi-purpose-wipes",
+   "item": null,
+   "name": "LOC Multi-Purpose Wipes",
+   "nameZh": "乐新清洁湿巾",
+   "brand": "Amway Home",
+   "cat": "home",
+   "tagline": "Tough wipes for quick cleanups",
+   "taglineZh": "强力清洁湿巾",
+   "iboPrice": 13.73,
+   "retailPrice": 15.25,
+   "pv": 4,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "sa8-liquid-laundry",
+   "item": "110478",
+   "name": "SA8 Liquid Laundry",
+   "nameZh": "SA8浓缩洗衣液",
+   "brand": "Amway Home",
+   "cat": "home",
+   "tagline": "Concentrated, biodegradable, tough on stains",
+   "taglineZh": "浓缩可降解，去渍强力",
+   "iboPrice": 47.7,
+   "retailPrice": 53,
+   "pv": 13.9,
+   "daysSupply": 60,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "sa8-powder-laundry-detergent",
+   "item": null,
+   "name": "SA8 Powder Laundry Detergent",
+   "nameZh": "SA8浓缩洗衣粉",
+   "brand": "Amway Home",
+   "cat": "home",
+   "tagline": "Classic concentrated powder detergent",
+   "taglineZh": "经典浓缩洗衣粉",
+   "iboPrice": 47.7,
+   "retailPrice": 53,
+   "pv": 13.9,
+   "daysSupply": 60,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "dish-drops-dishwashing-liquid",
+   "item": null,
+   "name": "Dish Drops Dishwashing Liquid",
+   "nameZh": "碟新浓缩洗洁精",
+   "brand": "Amway Home",
+   "cat": "home",
+   "tagline": "Concentrated dish liquid, gentle on hands",
+   "taglineZh": "浓缩洗洁精，温和不伤手",
+   "iboPrice": 14.4,
+   "retailPrice": 16,
+   "pv": 4.2,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "amway-home-prewash-spray",
+   "item": null,
+   "name": "Amway Home Prewash Spray",
+   "nameZh": "衣物预洗喷雾",
+   "brand": "Amway Home",
+   "cat": "home",
+   "tagline": "Pre-treat stains before the wash",
+   "taglineZh": "洗前去渍喷雾",
+   "iboPrice": 16.65,
+   "retailPrice": 18.5,
+   "pv": 4.85,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "amway-home-fabric-softener",
+   "item": null,
+   "name": "Amway Home Fabric Softener",
+   "nameZh": "衣物柔顺剂",
+   "brand": "Amway Home",
+   "cat": "home",
+   "tagline": "Floral-scent fabric softener",
+   "taglineZh": "花香衣物柔顺剂",
+   "iboPrice": 12.61,
+   "retailPrice": 14,
+   "pv": 3.68,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "amway-home-all-fabric-bleach",
+   "item": null,
+   "name": "Amway Home All Fabric Bleach",
+   "nameZh": "彩漂粉",
+   "brand": "Amway Home",
+   "cat": "home",
+   "tagline": "Color-safe all-fabric bleach",
+   "taglineZh": "彩色衣物安全漂白",
+   "iboPrice": 15.75,
+   "retailPrice": 17.5,
+   "pv": 4.59,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "amway-home-glass-cleaner",
+   "item": null,
+   "name": "Amway Home Glass Cleaner",
+   "nameZh": "玻璃清洁剂",
+   "brand": "Amway Home",
+   "cat": "home",
+   "tagline": "Streak-free glass and surface cleaner",
+   "taglineZh": "玻璃清洁不留痕",
+   "iboPrice": 15.3,
+   "retailPrice": 17,
+   "pv": 4.46,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "pursue-disinfectant-spray",
+   "item": null,
+   "name": "Pursue Disinfectant Spray",
+   "nameZh": "消毒除臭喷雾",
+   "brand": "Amway Home",
+   "cat": "home",
+   "tagline": "Disinfect and deodorize in one spray",
+   "taglineZh": "消毒除臭二合一",
+   "iboPrice": 11.71,
+   "retailPrice": 13,
+   "pv": 3.42,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "amway-home-scrub-buds",
+   "item": null,
+   "name": "Amway Home Scrub Buds",
+   "nameZh": "百洁布",
+   "brand": "Amway Home",
+   "cat": "home",
+   "tagline": "Stainless scouring pads that last",
+   "taglineZh": "耐用不锈钢百洁布",
+   "iboPrice": 6.31,
+   "retailPrice": 7,
+   "pv": 1.84,
+   "daysSupply": null,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "icook-19-piece-cookware-set",
+   "item": "120231",
+   "name": "iCook 19-piece Cookware Set",
+   "nameZh": "安利皇后锅具 19件套",
+   "brand": "iCook",
+   "cat": "home",
+   "tagline": "316L surgical steel, vapor-seal cooking, lifetime guarantee",
+   "taglineZh": "316L医用钢，节能无水烹调，终身保用",
+   "iboPrice": 1382.4,
+   "retailPrice": 1536,
+   "pv": 403.03,
+   "daysSupply": null,
+   "oneTime": true,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "icook-5-piece-saute-set",
+   "item": null,
+   "name": "iCook 5-Piece Saute Set",
+   "nameZh": "皇后锅具煎炒5件套",
+   "brand": "iCook",
+   "cat": "home",
+   "tagline": "Most popular entry set for daily cooking",
+   "taglineZh": "最受欢迎入门套装",
+   "iboPrice": 422.1,
+   "retailPrice": 469,
+   "pv": 123.06,
+   "daysSupply": null,
+   "oneTime": true,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "icook-4-piece-saucepan-set",
+   "item": null,
+   "name": "iCook 4-Piece Saucepan Set",
+   "nameZh": "皇后锅具汤锅4件套",
+   "brand": "iCook",
+   "cat": "home",
+   "tagline": "Saucepan set for soups and sauces",
+   "taglineZh": "炖汤煮酱汤锅套装",
+   "iboPrice": 278.1,
+   "retailPrice": 309,
+   "pv": 81.08,
+   "daysSupply": null,
+   "oneTime": true,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "icook-4-piece-stock-pot",
+   "item": null,
+   "name": "iCook 4-Piece Stock Pot",
+   "nameZh": "皇后锅具深汤锅4件套",
+   "brand": "iCook",
+   "cat": "home",
+   "tagline": "4-quart stock pot set",
+   "taglineZh": "4夸脱深汤锅套装",
+   "iboPrice": 287.1,
+   "retailPrice": 319,
+   "pv": 83.7,
+   "daysSupply": null,
+   "oneTime": true,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "icook-6-piece-dutch-oven",
+   "item": null,
+   "name": "iCook 6-Piece Dutch Oven",
+   "nameZh": "皇后锅具荷兰锅6件套",
+   "brand": "iCook",
+   "cat": "home",
+   "tagline": "8-quart Dutch oven for family meals",
+   "taglineZh": "8夸脱家庭炖锅",
+   "iboPrice": 395.1,
+   "retailPrice": 439,
+   "pv": 115.19,
+   "daysSupply": null,
+   "oneTime": true,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "icook-9-5-nonstick-frypan",
+   "item": null,
+   "name": "iCook 9.5\" Nonstick Frypan",
+   "nameZh": "皇后锅具不粘煎锅 9.5寸",
+   "brand": "iCook",
+   "cat": "home",
+   "tagline": "PFAS-free nonstick with lid",
+   "taglineZh": "无PFAS不粘煎锅带盖",
+   "iboPrice": 206.1,
+   "retailPrice": 229,
+   "pv": 60.09,
+   "daysSupply": null,
+   "oneTime": true,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "icook-11-nonstick-frypan",
+   "item": null,
+   "name": "iCook 11\" Nonstick Frypan",
+   "nameZh": "皇后锅具不粘煎锅 11寸",
+   "brand": "iCook",
+   "cat": "home",
+   "tagline": "Large PFAS-free nonstick with lid",
+   "taglineZh": "大号无PFAS不粘煎锅",
+   "iboPrice": 251.1,
+   "retailPrice": 279,
+   "pv": 73.21,
+   "daysSupply": null,
+   "oneTime": true,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "icook-5-piece-knifeware-set",
+   "item": null,
+   "name": "iCook 5-Piece Knifeware Set",
+   "nameZh": "皇后刀具5件套",
+   "brand": "iCook",
+   "cat": "home",
+   "tagline": "Precision knife set with block",
+   "taglineZh": "精工刀具连刀座",
+   "iboPrice": 467.1,
+   "retailPrice": 519,
+   "pv": 136.19,
+   "daysSupply": null,
+   "oneTime": true,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "icook-multipurpose-shears",
+   "item": null,
+   "name": "iCook Multipurpose Shears",
+   "nameZh": "多功能厨剪",
+   "brand": "iCook",
+   "cat": "home",
+   "tagline": "Kitchen shears, great first iCook purchase",
+   "taglineZh": "多功能厨房剪，入门首选",
+   "iboPrice": 62.1,
+   "retailPrice": 69,
+   "pv": 18.11,
+   "daysSupply": null,
+   "oneTime": true,
+   "imageUrl": null,
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "begin-30-holistic-wellness-solution",
+   "item": "326778",
+   "name": "Begin 30 Holistic Wellness Solution",
+   "nameZh": "Begin 30全人健康方案",
+   "brand": "Nutrilite",
+   "cat": "solutions",
+   "tagline": "30-day gut-first wellness program: GI Primer + Protein x2 + Probiotic",
+   "taglineZh": "30天肠道优先健康计划：肠道启动粉+蛋白粉x2+益生菌",
+   "iboPrice": 182.7,
+   "retailPrice": 203,
+   "pv": 53.27,
+   "daysSupply": 30,
+   "oneTime": false,
+   "imageUrl": "https://www.amway.com/medias/326778-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w2NTg4OTZ8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2gxNC9oMzIvOTg5MDEyMjM5OTc3NC8zMjY3NzgtZW4tVVMtNjkwcHgtMDF8MzE3YmY3NjBkOTA5YTg4NWRmZTNjYzA0ZmFiMDJkYWQ1MWYzMTBjNWU2ZjQ1MzgyODgwNjkzNTQ5ZDMxMWMxMg",
+   "areas": [
+    "digestion",
+    "weight",
+    "energy"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "everyday-nutrition-solution",
+   "item": "318781",
+   "name": "Everyday Nutrition Solution",
+   "nameZh": "每日基础营养方案",
+   "brand": "Nutrilite",
+   "cat": "solutions",
+   "tagline": "The daily foundation: Double X + Plant Protein + Omega",
+   "taglineZh": "每日三件套：双X+植物蛋白+鱼油",
+   "iboPrice": 132.3,
+   "retailPrice": 147,
+   "pv": 38.58,
+   "daysSupply": 30,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "energy",
+    "immunity"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "sleep-stress-solution",
+   "item": "321893",
+   "name": "Sleep + Stress Solution",
+   "nameZh": "睡眠减压方案",
+   "brand": "Nutrilite",
+   "cat": "solutions",
+   "tagline": "Evening wind-down stack with Sweet Dreams gummies and calming botanicals",
+   "taglineZh": "晚间舒缓组合：睡眠软糖+舒缓植物配方",
+   "iboPrice": 167.85,
+   "retailPrice": 186.5,
+   "pv": 48.94,
+   "daysSupply": 30,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "sleep"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "healthy-aging-solution",
+   "item": "321548",
+   "name": "Healthy Aging Solution",
+   "nameZh": "健康抗龄方案",
+   "brand": "Nutrilite",
+   "cat": "solutions",
+   "tagline": "Turmeric, Cal Mag D, Garlic Heart Care and Vision Health together",
+   "taglineZh": "姜黄+钙镁D+大蒜精华+护眼组合",
+   "iboPrice": 128.7,
+   "retailPrice": 143,
+   "pv": 37.52,
+   "daysSupply": 30,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "aging",
+    "heart"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "energy-solution",
+   "item": null,
+   "name": "Energy Solution",
+   "nameZh": "活力能量方案",
+   "brand": "Nutrilite",
+   "cat": "solutions",
+   "tagline": "Daily stack built to fight the afternoon crash",
+   "taglineZh": "专为下午断电设计的能量组合",
+   "iboPrice": 137.7,
+   "retailPrice": 153,
+   "pv": 40.14,
+   "daysSupply": 30,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "energy"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "xs-fitness-jump-start-solution",
+   "item": null,
+   "name": "XS Fitness Jump Start Solution",
+   "nameZh": "XS健身启动方案",
+   "brand": "XS",
+   "cat": "solutions",
+   "tagline": "Protein + workout support to start training right",
+   "taglineZh": "蛋白+训练支持，开启健身计划",
+   "iboPrice": 159.3,
+   "retailPrice": 177,
+   "pv": 46.44,
+   "daysSupply": 30,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "muscle",
+    "energy"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "walking-to-bronze-bundle",
+   "item": null,
+   "name": "Walking to Bronze Bundle",
+   "nameZh": "Bronze起步套装",
+   "brand": "Nutrilite",
+   "cat": "solutions",
+   "tagline": "IBO starter bundle aligned to first milestone",
+   "taglineZh": "IBO起步套装，对齐首个里程碑",
+   "iboPrice": 197.1,
+   "retailPrice": 219,
+   "pv": 57.47,
+   "daysSupply": 30,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "energy"
+   ],
+   "iboOnly": true
+  }
+ ],
+ "areas": [
+  {
+   "id": "skin",
+   "name": "Acne & Skin",
+   "nameZh": "皮肤与痘痘",
+   "blurb": "Skin reflects what happens inside: gut balance, hydration, omega-3 intake, plus the right topical routine.",
+   "blurbZh": "皮肤是内在状态的镜子：肠道平衡、水分、Omega-3摄入，再配合正确的外用护理。"
+  },
+  {
+   "id": "energy",
+   "name": "Energy & Fatigue",
+   "nameZh": "精力与疲劳",
+   "blurb": "Constant tiredness is usually not laziness. It is often a signal that energy metabolism is short on raw materials like B vitamins, iron and quality protein, or that sleep debt is piling up.",
+   "blurbZh": "持续疲劳往往不是懒，而是身体能量代谢缺少原料（B族、铁、优质蛋白），或睡眠负债在累积。"
+  },
+  {
+   "id": "sleep",
+   "name": "Sleep & Stress",
+   "nameZh": "睡眠与压力",
+   "blurb": "The body repairs itself at night. When stress hormones stay high, minerals like magnesium get used up faster, and falling asleep gets harder. Support the wind-down, not just the knockout.",
+   "blurbZh": "身体的修复发生在夜里。压力激素偏高时，镁等矿物质消耗更快，入睡更难。要支持的是放松过程，而不是强行入睡。"
+  },
+  {
+   "id": "muscle",
+   "name": "Muscle & Fitness",
+   "nameZh": "增肌与运动表现",
+   "blurb": "Muscle is built in recovery, not in the gym. Repair needs protein as raw material, plus amino acids and minerals for the rebuild cycle.",
+   "blurbZh": "肌肉是在恢复中长出来的。修复需要蛋白质作为原料，加上氨基酸和矿物质支持重建。"
+  },
+  {
+   "id": "weight",
+   "name": "Weight Management",
+   "nameZh": "体重管理",
+   "blurb": "Sustainable weight change starts with steady blood sugar, enough protein and a healthy gut, not with eating as little as possible.",
+   "blurbZh": "可持续的体重管理，从稳定血糖、足量蛋白和健康肠道开始，而不是一味少吃。"
+  },
+  {
+   "id": "hair",
+   "name": "Hair Health",
+   "nameZh": "头发与脱发",
+   "blurb": "Hair is protein. Thinning and brittleness commonly reflect gaps in protein, biotin and scalp care working together.",
+   "blurbZh": "头发本质是蛋白质。稀疏易断常与蛋白质、生物素摄入不足及头皮护理有关。"
+  },
+  {
+   "id": "aging",
+   "name": "Healthy Aging",
+   "nameZh": "抗老与光泽",
+   "blurb": "Aging well is daily repair keeping pace with daily damage. Antioxidants and key nutrients are the raw materials of that repair.",
+   "blurbZh": "优雅变老=每日修复跟上每日损耗。抗氧化物和关键营养素就是修复的原料。"
+  },
+  {
+   "id": "heart",
+   "name": "Heart & Circulation",
+   "nameZh": "心血管健康",
+   "blurb": "Cardiovascular health builds silently over decades. Omega-3, magnesium and plant compounds support the maintenance work.",
+   "blurbZh": "心血管状态是几十年沉默累积的结果。Omega-3、镁和植物精华支持日常保养。"
+  },
+  {
+   "id": "immunity",
+   "name": "Immunity",
+   "nameZh": "免疫力",
+   "blurb": "A resilient immune system needs steady vitamin C and D, a healthy gut, and clean air and water at home.",
+   "blurbZh": "强韧免疫力需要稳定的维C维D、健康肠道，以及家中干净的空气和水。"
+  },
+  {
+   "id": "digestion",
+   "name": "Gut & Digestion",
+   "nameZh": "肠胃与消化",
+   "blurb": "Emerging science keeps pointing the same way: overall wellbeing begins in the gut microbiome.",
+   "blurbZh": "越来越多研究指向同一结论：整体健康始于肠道菌群。"
+  },
+  {
+   "id": "brain",
+   "name": "Focus & Memory",
+   "nameZh": "专注与记忆",
+   "blurb": "The brain runs on steady fuel: omega-3 fats, B vitamins, and blood sugar that does not spike and crash.",
+   "blurbZh": "大脑需要平稳供能：Omega-3、B族维生素，以及不过山车的血糖。"
+  },
+  {
+   "id": "oral",
+   "name": "Oral Care",
+   "nameZh": "口腔护理",
+   "blurb": "Oral health links to whole-body health. Daily mechanics plus the right products beat occasional deep cleans.",
+   "blurbZh": "口腔健康关联全身健康。每日到位的清洁胜过偶尔的深度处理。"
+  },
+  {
+   "id": "home",
+   "name": "Healthy Home",
+   "nameZh": "家庭健康环境",
+   "blurb": "What you drink, breathe and cook with every day quietly compounds. Upgrading the home environment is upgrading health.",
+   "blurbZh": "每天喝的水、呼吸的空气、做饭的锅具都在默默累积。升级居家环境就是升级健康。"
+  }
+ ],
+ "solutions": [
+  {
+   "id": "begin-30-holistic-wellness-solution",
+   "title": "Gut reset, 30 days",
+   "titleZh": "肠道重启30天",
+   "story": "Amway's official Begin 30 program: GI Primer + Plant Protein x2 + Probiotic, paired with the Wellbeing+ app. In Amway's study, 75% reported less fatigue and 70% of committed participants lost weight.",
+   "storyZh": "安利官方Begin 30计划：肠道启动粉+植物蛋白x2+益生菌，配合Wellbeing+打卡App。官方研究中75%参与者疲劳感下降。",
+   "contents": [
+    "begin-daily-gi-primer",
+    "plant-protein-powder",
+    "probiotic"
+   ]
+  },
+  {
+   "id": "everyday-nutrition-solution",
+   "title": "The daily foundation",
+   "titleZh": "每日营养地基",
+   "story": "Amway's official foundation stack: Double X multivitamin + Plant Protein + Advanced Omega. The three gaps almost everyone has, covered in one order.",
+   "storyZh": "官方基础组合：双X+植物蛋白+深海鱼油。一单补齐几乎人人都有的三大缺口。",
+   "contents": [
+    "double-x-multivitamin-31-day-refill",
+    "plant-protein-powder",
+    "advanced-omega"
+   ]
+  },
+  {
+   "id": "sleep-stress-solution",
+   "title": "Wind-down, rebuilt",
+   "titleZh": "晚间舒缓方案",
+   "story": "The official evening stack around Sweet Dreams gummies and calming botanicals. For the wired-but-tired pattern.",
+   "storyZh": "官方晚间组合，以甜梦软糖和舒缓植物配方为核心。专为身心俱疲却睡不着的状态设计。",
+   "contents": [
+    "sleep-gummies",
+    "magnesium"
+   ]
+  },
+  {
+   "id": "healthy-aging-solution",
+   "title": "Age on your terms",
+   "titleZh": "健康抗龄方案",
+   "story": "Official healthy-aging stack: turmeric, Cal Mag D, Garlic Heart Care and Vision Health. Maintenance for the long game.",
+   "storyZh": "官方抗龄组合：姜黄+钙镁D+大蒜精华+护眼配方。为长期健康做保养。",
+   "contents": [
+    "calcium-magnesium-d",
+    "garlic-heart-care"
+   ]
+  },
+  {
+   "id": "energy-solution",
+   "title": "Beat the 3pm crash",
+   "titleZh": "告别下午断电",
+   "story": "Official energy stack pairing foundational micronutrients with clean energy support.",
+   "storyZh": "官方能量组合：基础微量营养+干净能量支持。",
+   "contents": [
+    "vitamin-b-complex-120ct",
+    "double-x-multivitamin-31-day-refill"
+   ]
+  },
+  {
+   "id": "xs-fitness-jump-start-solution",
+   "title": "Training, jump-started",
+   "titleZh": "健身启动包",
+   "story": "XS protein plus workout support to launch a training habit properly.",
+   "storyZh": "XS蛋白+训练支持，正确开启训练习惯。",
+   "contents": [
+    "xs-grass-fed-whey-protein",
+    "xs-pre-workout-boost",
+    "xs-post-workout-recovery"
+   ]
+  },
+  {
+   "id": "artistry-everyday-skin-solution-bundle",
+   "title": "Skin, simplified",
+   "titleZh": "每日护肤方案",
+   "story": "Artistry's everyday routine in one bundle. The uncomplicated way to start real skincare.",
+   "storyZh": "雅姿每日护肤一套搞定。开始认真护肤的最简单方式。",
+   "contents": [
+    "artistry-hydrating-lotion-spf30"
+   ]
+  },
+  {
+   "id": "walking-to-bronze-bundle",
+   "title": "Bronze builder (IBO)",
+   "titleZh": "Bronze起步（IBO）",
+   "story": "IBO-facing starter bundle sized to the first business milestone. Shown in partner view only.",
+   "storyZh": "面向IBO的起步套装，对齐首个业务里程碑。仅合伙人视图显示。",
+   "contents": [
+    "double-x-multivitamin-31-day-refill",
+    "plant-protein-powder"
+   ]
+  }
+ ]
+};
 
-/* ════════════════════════════════════════════════
-   PAIN POINT DATA
-   ════════════════════════════════════════════════ */
-const PAIN_POINTS = {
-  energy:   { label:'Energy & Fatigue',  labelZh:'能量与疲劳',   emoji:'🔋', products:['double-x','vitamin-b','plant-protein','cal-mag-d'] },
-  sleep:    { label:'Sleep',             labelZh:'睡眠',          emoji:'💤', products:['cal-mag-d','omega','vitamin-b'] },
-  muscle:   { label:'Muscle Gain',       labelZh:'增肌',          emoji:'💪', products:['plant-protein','omega','vitamin-c','vitamin-b','cal-mag-d'] },
-  weight:   { label:'Weight Loss',       labelZh:'减重',          emoji:'⚖️', products:['plant-protein','double-x','omega'] },
-  hair:     { label:'Hair Loss',         labelZh:'脱发',          emoji:'🦱', products:['satinique-purifying','satinique-smooth','vitamin-b','omega','cal-mag-d'] },
-  acne:     { label:'Acne & Skin',       labelZh:'痘痘与皮肤',   emoji:'🧴', products:['vitamin-c','vitamin-e','omega','hydra-v','youth-xtend','gh-spf50'] },
-  heart:    { label:'Heart & BP',        labelZh:'心脏与血压',   emoji:'❤️', products:['vitamin-e','omega','cal-mag-d','espring'] },
-  immunity: { label:'Immunity',          labelZh:'免疫力',        emoji:'🛡️', products:['vitamin-c','double-x','omega'] },
-  brain:    { label:'Brain & Focus',     labelZh:'大脑专注',     emoji:'🧠', products:['omega','vitamin-b','double-x'] },
-  aging:    { label:'Anti-Aging',        labelZh:'抗衰老',        emoji:'✨', products:['vitamin-c','vitamin-e','omega','youth-xtend','gh-spf50'] },
-  clean:    { label:'Clean Home',        labelZh:'健康家居',     emoji:'🏠', products:['loc','sa8','atmosphere-sky','atmosphere-mini','espring'] },
-  oral:     { label:'Oral Health',       labelZh:'口腔健康',     emoji:'🦷', products:['glister-toothpaste','glister-toothbrush','glister-spray','glister-floss'] },
+const PRODUCT_DETAILS = {
+  'double-x-multivitamin-31-day-refill': {
+    advantage: '450mg plant nutrients vs. 0mg in leading competitors. 22 vitamins + minerals from 22 fruits, vegetables, and herbs including Rosemary, Turmeric, and Quercetin. World\'s #1 selling vitamin.',
+    advantageZh: '450mg植物营养素，竞品中含量为0。22种维生素和矿物质来自迷迭香、姜黄、槲皮素等22种果蔬草本。全球销量第一的维生素产品。',
+    who: 'Everyone — especially those not eating diverse whole foods. Foundation product for all other supplements.',
+    whoZh: '所有人——尤其是饮食不均衡的人。是其他营养品的基础。',
+    how: 'Compare labels: "How many plant nutrients does your current vitamin have? Zero. This has 450mg from 22 real food sources." Ask what vegetables they ate that day.',
+    howZh: '对比标签："你现在吃的维生素有多少植物营养素？零。我们有来自22种真实食物的450mg。"问他们今天吃了什么蔬菜。',
+    notionId: 'e4a6a81b-738c-44da-b801-87cada8f6260'
+  },
+  'vitamin-c-extended-release-180ct': {
+    advantage: 'Patented 7-hour extended release — the only organic plant-based Vitamin C with continuous delivery. Sourced from Acerola Cherry, which has 50x more Vitamin C than an orange. No competitor matches this.',
+    advantageZh: '专利7小时缓释技术——唯一采用有机植物来源维生素C连续释放的产品。原料来自针叶樱桃，维生素C含量是橙子的50倍。',
+    who: 'Everyone. Especially high-stress people, frequent travelers, those in polluted environments, and active individuals.',
+    whoZh: '所有人。尤其是高压力人群、频繁出行者、处于污染环境者，以及运动人群。',
+    how: 'Antioxidant demo: iodine + starch chip turns black (oxidation). Drops of Vitamin C clear the black. "That\'s exactly what it does to free radicals in your bloodstream."',
+    howZh: '抗氧化演示：碘液+淀粉片变黑（氧化反应）。滴入维生素C后变清澈。"这就是它在你血液中对自由基做的事。"',
+    notionId: '35aab838-314d-40cc-a93b-d8788f32ee06'
+  },
+  'vitamin-b-complex-120ct': {
+    advantage: 'All 8 essential B vitamins in one tablet. Half dissolves instantly for immediate effect, half releases over 8 hours for sustained support. Water-soluble — impossible to overdose.',
+    advantageZh: '一片含全部8种必需B族维生素。一半即释立即起效，另一半8小时缓慢释放。水溶性，不存在过量风险。',
+    who: 'People needing sustained energy. Those with skin conditions like eczema or psoriasis. Active people who burn through B vitamins faster.',
+    whoZh: '需要持续能量的人群。湿疹或银屑病患者。运动量大、B族维生素消耗快的人。',
+    how: '"B vitamins are the enzymes that convert food into energy. When they\'re depleted, your metabolism slows, your brain fogs, your workout suffers." Energy + skin story together.',
+    howZh: '"B族维生素是把食物转化为能量的酶。当它们耗尽时，你的代谢就会减慢，大脑会模糊，运动表现会下降。" 能量+皮肤双线故事。',
+    notionId: '491ebabe-85f5-4337-8315-20a60785db8d'
+  },
+  'vitamin-e-chewable': {
+    advantage: 'Contains Lecithin — the same phospholipid material as cell membranes — enabling Vitamin E to pass THROUGH cell walls and antioxidize inside cells. Also helps clear lipid buildup in blood vessels.',
+    advantageZh: '含卵磷脂——与细胞膜相同的磷脂成分——使维生素E能穿透细胞壁在细胞内部发挥抗氧化作用。同时有助于清除血管中的脂质积累。',
+    who: 'Anyone with high blood pressure, high cholesterol, or family history of cardiovascular disease. Anyone over 35. Active people on higher-fat diets.',
+    whoZh: '高血压、高胆固醇、有心血管疾病家族史的人。35岁以上人群。高脂饮食的运动人群。',
+    how: 'Oil-in-water demo: drop Vitamin E capsule into oil, watch it absorb. "That\'s what it does inside your blood vessels — clears the buildup that causes arterial stiffness."',
+    howZh: '油水演示：将维生素E滴入油中，观察它如何被吸收。"这就是它在血管内做的事——清除导致动脉硬化的脂质积累。"',
+    notionId: '721f50e7-46e7-4c55-9cff-5df0c3bfad19'
+  },
+  'advanced-omega': {
+    advantage: 'rTG (re-esterified triglyceride) form provides 3x better absorption than standard fish oil. Friend of the Sea certified for sustainability. White Chia Seed ALA from Nutrilite organic farms. Reduced fishy aftertaste.',
+    advantageZh: 'rTG（重酯化甘油三酯）形式的吸收率比普通鱼油高3倍。获得海洋之友可持续发展认证。白奇亚籽ALA来自Nutrilite有机农场。腥味明显减少。',
+    who: 'Everyone — your body cannot synthesize Omega-3s. Heart, brain, skin, joint health. Athletes for recovery. Pregnant women.',
+    whoZh: '所有人——人体无法自行合成Omega-3。心脏、大脑、皮肤、关节健康。运动员恢复期。孕妇。',
+    how: '"Do you eat fatty fish three times a week? Most people don\'t — and chronic inflammation quietly fills that gap. Omega-3 is your daily anti-inflammatory."',
+    howZh: '"你每周吃三次富含脂肪的鱼吗？大多数人做不到——慢性炎症就悄悄填满了这个空缺。Omega-3是你每日的抗炎利器。"',
+    notionId: '621b8e29-627f-476f-9695-6f0177801681'
+  },
+  'calcium-magnesium-d': {
+    advantage: 'Triple-blend magnesium sourced from the Dead Sea and Irish seawater absorbs 2x better than standard magnesium. Supports 300+ bodily processes including ATP synthesis, nerve function, and sleep regulation.',
+    advantageZh: '来自死海和爱尔兰海水的三重混合镁，吸收率是普通镁的2倍。支持300多个身体过程，包括ATP合成、神经功能和睡眠调节。',
+    who: 'Most adults are deficient. Anyone with poor sleep, muscle cramps, high stress, headaches, heart palpitations, or high blood pressure.',
+    whoZh: '大多数成年人都缺镁。睡眠不好、肌肉抽筋、压力大、头痛、心悸或高血压的人。',
+    how: '"You\'d need to eat 15 cups of spinach every day to get enough magnesium from food. Magnesium deficiency directly causes smooth muscle spasms in blood vessels — a direct mechanism for hypertension."',
+    howZh: '"你每天需要吃15杯菠菜才能从食物中获得足够的镁。缺镁直接导致血管平滑肌痉挛——这是高血压的直接机制。"'
+  },
+  'plant-protein-powder': {
+    advantage: 'All 9 essential amino acids in one serving. 21g protein from Brown Rice + Peas + White Chia from certified organic Nutrilite farms. USDA Organic certified. No soy, gluten, dairy, or artificial sweeteners.',
+    advantageZh: '一份含全部9种必需氨基酸。21g蛋白质来自Nutrilite有机认证农场的糙米、豌豆和白奇亚籽。USDA有机认证。无大豆、麸质、乳制品或人工甜味剂。',
+    who: 'People who skip breakfast. Anyone wanting to build muscle, manage weight, or maintain adequate protein on a plant-based diet.',
+    whoZh: '跳过早餐的人。想要增肌、控制体重或在植物性饮食中保持蛋白质摄入充足的人。',
+    how: '"Most people skip breakfast or have toast. Your brain needs protein in the morning — no protein means compromised cognitive function for hours. Replace breakfast with this shake and the difference is immediate."',
+    howZh: '"大多数人跳过早餐或只吃吐司。大脑早晨需要蛋白质——没有蛋白质意味着数小时的认知功能下降。用这款奶昔替代早餐，你马上就能感受到差别。"',
+    notionId: 'd56f2c1b-dba1-491f-a510-36ab19520038'
+  },
+  'artistry-hydrating-system-bundle': {
+    advantage: 'Hyaluronic acid + multi-layer plant botanical complex. Lightweight layering system suitable for all skin types and all climates. Clinically tested for 24-hour hydration retention.',
+    advantageZh: '玻尿酸+多层植物植物精华复合物。轻盈的分层系统，适合所有肤质和气候。经临床测试可保湿24小时。',
+    who: 'Dry skin. Anyone over 25 noticing dehydration lines. All climates, especially dry or cold environments.',
+    whoZh: '干性皮肤。25岁以上开始注意到脱水细纹的人。所有气候，尤其是干燥或寒冷环境。',
+    how: '"Skin hydration isn\'t just cosmetic — dehydrated skin accelerates aging and creates the environment for deeper issues. Run Irene\'s skin assessment first to identify the right starting point."',
+    howZh: '"皮肤补水不只是美容问题——脱水肌肤会加速老化，为更深层的皮肤问题创造条件。先做Irene的皮肤评估，找到最适合你的起点。"'
+  },
+  'artistry-renewing-system-bundle': {
+    advantage: 'Retinol + Vitamin C + peptide complex. Clinically tested efficacy comparable to premium department store anti-aging lines at $200–400+ per piece.',
+    advantageZh: '视黄醇+维生素C+多肽复合物。经临床测试，功效可与百货公司200-400美元以上的抗衰系列媲美。',
+    who: 'Anyone 30+ concerned about fine lines or skin laxity. People with sun damage. Anyone with an anti-aging focus.',
+    whoZh: '30岁以上担心细纹或皮肤松弛的人。有日晒损伤的人。注重抗衰的人群。',
+    how: '"Department store anti-aging creams at $100–200 per jar — Artistry competes on clinical efficacy at IBO pricing. And ours is built on the same plant science as Nutrilite."',
+    howZh: '"百货公司抗衰面霜要100-200美元一瓶——Artistry以同等临床效果，用IBO价格竞争。而且我们的配方基于与Nutrilite相同的植物科学。"'
+  },
+  'artistry-intensive-skincare-14-night-reset': {
+    advantage: 'Broad-spectrum plant extract complex. Combines anti-aging, deep hydration, and brightening effects in one simplified line. Reduces the need for multiple products.',
+    advantageZh: '广谱植物提取物复合配方。一套产品同时实现抗衰、深层补水和提亮效果。减少多品类堆叠的需要。',
+    who: 'General adult skincare. Anyone wanting a simplified, high-quality routine over multiple budget products.',
+    whoZh: '普通成人护肤需求。想用一套高质量产品代替多款平价产品的人。',
+    how: '"One quality line that does everything vs. five cheap products that each do one thing mediocrely. Ask Irene to do a skin assessment first."',
+    howZh: '"一套高质量产品做好所有事，优于五款各司其职但效果平平的平价产品。先让Irene做皮肤评估。"'
+  },
+  'glister-toothpaste': {
+    advantage: 'Round silica particles — vs. angular abrasive sand in competing toothpastes — clean without grinding enamel. Enamel is irreplaceable. Multi-action formula whitens, freshens, protects, and strengthens in one.',
+    advantageZh: '圆形二氧化硅颗粒——vs.竞品中有棱角的磨砂颗粒——清洁的同时不磨损牙釉质。牙釉质不可再生。多效配方一步完成美白、清新、保护和强化。',
+    who: 'Anyone who wants to protect their teeth long-term. Especially those who love sweets, hot/cold foods, or are 30+.',
+    whoZh: '任何想要长期保护牙齿的人。尤其是爱吃甜食、对冷热敏感，或30岁以上的人。',
+    how: 'Demo: squeeze both toothpastes on colored paper, rub 60x, wipe clean — Glister leaves no color. Competing brands leave a black streak. "That residue would be on your enamel."',
+    howZh: '演示：将两款牙膏分别涂在有色纸上，摩擦60次后擦拭——Glister不留任何颜色。竞品留下黑色痕迹。"那些痕迹就是对你牙釉质的磨损。"',
+    notionId: 'be2d39ea-5234-4e2e-9041-eb393ef042ee'
+  },
+  'glister-power-toothbrush': {
+    advantage: '5 cleaning modes for different needs. Built-in UV sanitizer kills 99.9% of bacteria on the brush head between uses. Battery lasts 3–6 months vs. competitors\' 2–4 weeks. No competitor offers this combination.',
+    advantageZh: '5种清洁模式满足不同需求。内置UV杀菌灯，使用间隙杀灭刷头99.9%的细菌。续航3-6个月，竞品仅2-4周。无竞品提供同等组合。',
+    who: 'Anyone wanting dentist-level oral care at home. People prone to gum issues. Tech-savvy customers who appreciate quality tools.',
+    whoZh: '希望在家实现专业洁牙效果的人。容易出现牙龈问题的人。重视优质工具的人。',
+    how: 'Compare specs vs. Oral-B or Philips Sonicare ($200+). "Ours includes UV sanitizer — the ONLY brush on the market with this. And the battery lasts 3–6 months, not weeks."',
+    howZh: '与欧乐-B或飞利浦（$200+）对比规格。"我们的刷头有UV杀菌——市场上唯一一款。电池续航3-6个月，不是几周。"',
+    notionId: '476d6f51-6591-4af2-815e-88b96b5caccc'
+  },
+  'glister-refresher-spray': {
+    advantage: 'Organic mint-based formula. No artificial sweeteners or harsh alcohol. Portable. Immediate sensory benefit makes it the single easiest demo product in the entire lineup.',
+    advantageZh: '有机薄荷配方。无人工甜味剂或刺激性酒精。便携。即时的感官效果使其成为整个产品线中最容易演示的产品。',
+    who: 'Everyone. Perfect first product for new customers — low price, zero barrier, instant experience.',
+    whoZh: '所有人。是新客户的完美第一款产品——价格低、无门槛、即时体验。',
+    how: 'Spray it mid-conversation and offer to them. "One spray and you\'re immediately fresh — and it\'s organic, no artificial anything." Best door-opener in the line.',
+    howZh: '对话中途使用后递给对方。"一喷立刻清新——而且是有机的，没有任何人工成分。"是整个产品线最好用的破冰产品。',
+    notionId: '006beb90-17a3-4786-96ac-496ea22e4156'
+  },
+  'glister-floss-2-pack': {
+    advantage: 'Flat-ribbon design glides through tight contacts without shredding. Naturally derived wax coating provides smooth glide and resist breakage. Noticeably stronger than standard floss.',
+    advantageZh: '扁丝设计在牙缝间轻松滑动不起毛。天然蜡涂层提供顺滑感并抵抗断裂。比普通牙线明显更结实。',
+    who: 'Anyone with tight teeth. People who\'ve given up flossing because it snaps. Best bundled with toothpaste and spray.',
+    whoZh: '牙缝较紧的人。因为牙线易断而放弃使用的人。与牙膏和喷雾搭配效果最好。',
+    how: '"Feel how flat it is — that\'s how it slides instead of snaps. The wax is naturally derived. One less reason to skip flossing."',
+    howZh: '"感受一下它有多扁平——这就是它能滑过而不断裂的原因。蜡是天然来源的。少一个不用牙线的理由。"',
+    notionId: '9970a64c-8124-4090-a511-5611237a7615'
+  },
+  'satinique-purifying-shampoo-280ml': {
+    advantage: 'Plant-based and sulfate-free. Burns clean with no residue vs. commercial shampoos that leave toxic black char. Clinically removes 28% excess oil in one wash. Safe for color-treated hair.',
+    advantageZh: '植物性、无硫酸盐。燃烧无残留，vs.商业洗发水燃烧留下有毒黑色残渣。临床证明一次洗发减少28%多余油脂。适合染色发。',
+    who: 'Oily scalps, dandruff, or product buildup. Active people who sweat frequently. High-stress professionals with scalp issues.',
+    whoZh: '油性头皮、头皮屑或产品堆积。频繁出汗的运动人群。有头皮问题的高压力专业人士。',
+    how: 'Aluminum foil burn demo: commercial shampoo leaves black residue; Satinique evaporates clean. "70% of the skin on your head is scalp. Treat it like skin."',
+    howZh: '铝箔燃烧演示：商业洗发水留下黑色残留；Satinique干净燃尽。"你头部70%的皮肤是头皮。像对待皮肤一样对待它。"',
+    notionId: '65b1604d-585c-4290-ad66-b4529a9c3ffd'
+  },
+  'satinique-smooth-shampoo-280ml': {
+    advantage: 'Pumpkin Seed Oil conditions, smooths, and adds shine. Clinically proven hair 13x smoother after use. Vegan formula with no sulfates, dyes, or mineral oils. Registered with The Vegan Society.',
+    advantageZh: '南瓜籽油调理、顺滑并增加光泽。经临床证明使用后头发顺滑度提升13倍。纯素配方，无硫酸盐、染料或矿物油。获素食协会认证。',
+    who: 'Dry or frizzy hair. Color-treated hair. Anyone wanting manageable, shiny hair without heavy residue.',
+    whoZh: '干燥或毛躁的头发。染色发。想要柔顺有光泽、不留残留的人。',
+    how: '"Most conditioners coat hair with silicones that temporarily smooth — then build up over time. This nourishes the actual hair structure. You feel it after one wash."',
+    howZh: '"大多数护发素用硅酮暂时顺滑头发——然后随时间堆积。这款产品滋养真正的发丝结构。一次洗发就能感受到差别。"',
+    notionId: '778705a9-05de-4f85-af25-d6acdfb0208c'
+  },
+  'g-h-nourish-body-lotion': {
+    advantage: 'Shea butter + plant extracts with clinically tested 24-hour moisture retention. Absorbs quickly without greasy residue. Plant-derived ingredients, no harsh sulfates or artificial fragrances.',
+    advantageZh: '乳木果油+植物提取物，经临床测试可保湿24小时。快速吸收，不留油腻感。植物成分，无强硫酸盐或人工香料。',
+    who: 'Dry skin. Anyone in dry or cold climates. Easy daily routine product for the whole family.',
+    whoZh: '干性皮肤。处于干燥或寒冷气候的人。适合全家的日常护理产品。',
+    how: '"Most body lotions are 80% water and fragrance. g&h deposits actual moisture-binding actives into the skin. It\'s why your skin still feels soft the next morning."',
+    howZh: '"大多数身体乳80%是水和香料。g&h将真正的保湿活性成分沉积到皮肤中。这就是为什么第二天早上皮肤依然柔软的原因。"'
+  },
+  'g-h-protect-body-lotion-spf50': {
+    advantage: 'Broad-spectrum UVA + UVB protection combined with deep moisturizing benefits. Lightweight formula with no white cast — unlike most high-SPF products. Plant-derived ingredients.',
+    advantageZh: '广谱UVA+UVB防护，同时具有深层保湿功效。轻盈配方，无白霜——不像大多数高SPF产品。植物成分。',
+    who: 'Anyone who goes outdoors regularly. Anti-aging focus (UV is the #1 cause of visible skin aging). People with fair skin or history of sun damage.',
+    whoZh: '经常户外活动的人。注重抗衰（紫外线是导致皮肤可见老化的首要原因）。皮肤较白或有日晒损伤史的人。',
+    how: '"80% of visible skin aging comes from UV exposure, not chronological age. Daily SPF is the single highest-ROI anti-aging step — more impactful than any cream or serum."',
+    howZh: '"80%的皮肤可见老化来自紫外线照射，而非年龄本身。每日使用SPF是抗衰效益最高的单一步骤——比任何面霜或精华的效果都更显著。"'
+  },
+  'loc-multi-purpose-cleaner': {
+    advantage: 'Highly concentrated — one bottle replaces 10+ standard all-purpose cleaners when diluted 1:50. Biodegradable and septic-safe. No chlorine fumes, no ammonia — family and pet safe. 40+ years on market.',
+    advantageZh: '高度浓缩——1:50稀释后一瓶可替代10+瓶普通全能清洁剂。可生物降解、对化粪池安全。无氯气烟雾、无氨——家庭和宠物友好。40+年市场验证。',
+    who: 'Families with children or pets. Anyone concerned about chemical fume exposure at home. Eco-conscious buyers wanting to reduce single-use plastic.',
+    whoZh: '有孩子或宠物的家庭。担心家中化学烟雾的人。希望减少一次性塑料使用的环保消费者。',
+    how: '"One bottle of LOC concentrate replaces 10+ bottles of all-purpose cleaner. No chlorine, no ammonia — you can clean the kitchen counters while kids are eating lunch."',
+    howZh: '"一瓶LOC浓缩液可替代10+瓶全能清洁剂。无氯、无氨——孩子在旁边吃饭时也可以放心清洁厨房台面。"'
+  },
+  'sa8-liquid-laundry': {
+    advantage: 'PETA and NSF certified. Works effectively in cold water, saving energy. No optical brighteners (which cause skin irritation). Biodegradable. Rinses completely clean — no detergent residue left in fabric.',
+    advantageZh: 'PETA和NSF双认证。冷水中有效，节省能源。无荧光增白剂（会刺激皮肤）。可生物降解。彻底漂净——织物中无洗涤剂残留。',
+    who: 'Sensitive skin. Families with babies or eczema. Anyone with HE machines. People who want clean laundry without chemical residue against their skin all day.',
+    whoZh: '敏感皮肤。有婴儿或湿疹患者的家庭。高效洗衣机用户。不希望衣物留有化学残留接触皮肤的人。',
+    how: '"Most detergents leave residue in fabric — that residue touches your skin all day. SA8 rinses completely clean. Critical for sensitive skin, eczema, and especially babies."',
+    howZh: '"大多数洗涤剂在织物中留有残留——这些残留全天接触你的皮肤。SA8彻底漂净。对敏感皮肤、湿疹患者，尤其是婴儿至关重要。"'
+  },
+  'atmosphere-sky-air-purifier': {
+    advantage: 'HEPA + activated carbon + UV-C in a 10-stage filtration system. Removes 99.99% of airborne particles including viruses, bacteria, VOCs, allergens, and PM2.5. Covers 465 sq ft.',
+    advantageZh: '10级过滤系统融合HEPA+活性炭+UV-C技术。去除99.99%空气中的颗粒物，包括病毒、细菌、挥发性有机物、过敏原和PM2.5。覆盖465平方英尺。',
+    who: 'Families with allergies or asthma. Pet owners. Urban residents in high-pollution areas. Anyone who seals their home for climate control.',
+    whoZh: '有过敏或哮喘的家庭。宠物主人。高污染城市居民。任何密封住宅进行气候控制的人。',
+    how: '"EPA data: indoor air is 2–5x more polluted than outdoor air. We seal our homes for energy efficiency — and trap everything inside. Pet dander, cooking fumes, VOCs, mold spores."',
+    howZh: '"EPA数据：室内空气的污染程度是室外的2-5倍。我们为了节能而密封住宅——同时也把一切都关在里面。宠物皮屑、烹饪烟雾、挥发性有机物、霉菌孢子。"'
+  },
+  'atmosphere-mini-air-purifier': {
+    advantage: 'Same 10-stage filtration technology as the Sky in a compact form factor. Ideal for bedroom, nursery, or office. Quieter operation for sleep environments.',
+    advantageZh: '与Sky相同的10级过滤技术，外形更紧凑。适合卧室、婴儿房或办公室。更安静，适合睡眠环境。',
+    who: 'Bedroom air quality focus. Nursery and infant safety. Apartment dwellers. Anyone wanting air purification on a desk or nightstand.',
+    whoZh: '关注卧室空气质量。婴儿房和婴幼儿安全。公寓居住者。希望在桌面或床头放置净化器的人。',
+    how: '"The bedroom is where you spend 8 hours a night. If you\'re going to purify one room, it should be where you sleep. Especially critical with a newborn."',
+    howZh: '"卧室是你每晚待8小时的地方。如果只净化一个房间，应该从你睡觉的地方开始。有新生儿时尤为重要。"'
+  },
+  'espring-water-purifier-chrome': {
+    advantage: 'UV-C technology kills 99.99% of bacteria and viruses (unlike carbon-only filters). Carbon block removes 140+ contaminants. Retains beneficial minerals (unlike reverse osmosis). NSF 42, 53, and 55 certified.',
+    advantageZh: 'UV-C技术杀灭99.99%细菌和病毒（不同于纯碳过滤）。碳块去除140+污染物。保留有益矿物质（不同于反渗透）。NSF 42、53、55三重认证。',
+    who: 'Families with young children. Bottled water buyers (pays for itself in under 2 years). Anyone in areas with aging infrastructure or known water quality concerns.',
+    whoZh: '有幼儿的家庭。购买瓶装水的人（不到2年即可回本）。居住在管道老化地区或已知水质问题地区的人。',
+    how: '"Brita filters chlorine taste — but it does NOT kill bacteria or viruses. Reverse osmosis removes everything including minerals, wastes 3–4 gallons per gallon purified, and requires a tank. eSpring solves all of this."',
+    howZh: '"Brita过滤氯气味道——但不能杀灭细菌或病毒。反渗透去除所有物质包括矿物质，每净化一加仑水浪费3-4加仑，还需要储水桶。eSpring解决了所有这些问题。"'
+  },
+  'icook-19-piece-cookware-set': {
+    advantage: '316L surgical-grade stainless steel — same material used in medical implants. No PFAS coatings (linked to thyroid disruption, immune suppression, and cancer). Vapor-seal lid cooks at lower temperature, preserving 80%+ of water-soluble vitamins.',
+    advantageZh: '316L外科级不锈钢——与医疗植入物相同的材质。无PFAS涂层（与甲状腺功能紊乱、免疫抑制和癌症相关）。蒸汽密封盖以更低温度烹饪，保留80%以上水溶性维生素。',
+    who: 'Anyone currently using non-stick cookware (PFAS exposure concern). Families who invest in supplements — iCook ensures the nutrients aren\'t cooked out.',
+    whoZh: '目前使用不粘锅的人（PFAS暴露风险）。在营养品上有投入的家庭——iCook确保营养素不在烹饪中流失。',
+    how: '"You\'re spending $100+/month on supplements — but PFAS from non-stick pans is endocrine-disrupting, and boiling destroys 40–60% of Vitamin C and B vitamins. iCook addresses both."',
+    howZh: '"你每月花100+美元买营养品——但不粘锅的PFAS正在干扰内分泌系统，而水煮会破坏40-60%的维生素C和B族维生素。iCook同时解决这两个问题。"'
+  }
 };
 
 /* ════════════════════════════════════════════════
-   VOLUME STRATEGY DATA
+   DATA LOADING
+   Live data: data/products.json (refreshed from Notion by GitHub Action).
+   FALLBACK below is a build-time snapshot for file:// use.
    ════════════════════════════════════════════════ */
-const VOL_STRATEGIES = {
-  morning:  { label:'Morning Routine',     labelZh:'晨间例程',   emoji:'🌅', desc:'~60 PV/month on Ditto', descZh:'Ditto约60 PV/月', products:['double-x','vitamin-c','plant-protein','glister-toothpaste','glister-toothbrush','glister-spray','omega'] },
-  athletic: { label:'Active & Athletic',   labelZh:'运动健身',   emoji:'🏃', desc:'Performance + recovery stack', descZh:'运动表现与恢复组合', products:['plant-protein','omega','cal-mag-d','vitamin-c','double-x'] },
-  health:   { label:'Health Concerns',     labelZh:'健康问题',   emoji:'💊', desc:'Root-cause nutritional stack', descZh:'根因营养组合', products:['double-x','vitamin-c','vitamin-b','vitamin-e','omega','cal-mag-d'] },
-  family:   { label:'Family & Household',  labelZh:'家庭',        emoji:'👨‍👩‍👧', desc:'~$200-400/month potential', descZh:'每月约$200-400潜力', products:['double-x','vitamin-c','omega','glister-toothpaste','satinique-purifying','loc','sa8','espring','atmosphere-mini'] },
-};
-
-/* ════════════════════════════════════════════════
-   PRODUCT USAGE METADATA
-   daysSupply: how many days ONE unit lasts at standard dosage (null = one-time)
-   oneTime: true for big durable purchases (shown separately in calculator)
-   Sources: Notion product pages + amway.com label data
-   ════════════════════════════════════════════════ */
-const PRODUCT_META = {
-  'double-x':           { daysSupply: 31,  oneTime: false }, // 31-day strip supply
-  'vitamin-c':          { daysSupply: 45,  oneTime: false }, // 90 tabs, 2/day (morning + evening)
-  'vitamin-b':          { daysSupply: 120, oneTime: false }, // 120 tabs, 1/day
-  'vitamin-e':          { daysSupply: 60,  oneTime: false }, // 60 softgels, 1/day
-  'omega':              { daysSupply: 30,  oneTime: false }, // 90 softgels, 3/day (confirmed)
-  'cal-mag-d':          { daysSupply: 30,  oneTime: false }, // 60 tabs, 2/day
-  'plant-protein':      { daysSupply: 15,  oneTime: false }, // 15 servings, 1/day (confirmed) → 2 bags/mo
-  'hydra-v':            { daysSupply: 60,  oneTime: false },
-  'youth-xtend':        { daysSupply: 60,  oneTime: false },
-  'intense-skincare':   { daysSupply: 60,  oneTime: false },
-  'glister-toothpaste': { daysSupply: 60,  oneTime: false }, // ~2 months per tube
-  'glister-toothbrush': { daysSupply: null,oneTime: true  }, // one-time purchase
-  'glister-spray':      { daysSupply: 45,  oneTime: false },
-  'glister-floss':      { daysSupply: 60,  oneTime: false },
-  'satinique-purifying':{ daysSupply: 60,  oneTime: false },
-  'satinique-smooth':   { daysSupply: 60,  oneTime: false },
-  'gh-body-lotion':     { daysSupply: 60,  oneTime: false },
-  'gh-spf50':           { daysSupply: 45,  oneTime: false },
-  'loc':                { daysSupply: 120, oneTime: false }, // concentrated 1:50, lasts ~4 months
-  'sa8':                { daysSupply: 60,  oneTime: false }, // large bag, ~60 loads
-  'atmosphere-sky':     { daysSupply: null,oneTime: true  },
-  'atmosphere-mini':    { daysSupply: null,oneTime: true  },
-  'espring':            { daysSupply: null,oneTime: true  },
-  'icook-set':          { daysSupply: null,oneTime: true  },
-};
+let PRODUCTS = FALLBACK.products;
+let AREAS = FALLBACK.areas;
+let SOLUTIONS = FALLBACK.solutions;
 
 const CATS = {
-  nutrition: {
-    label: 'Nutrition', labelZh: '营养补充',
-    theme: 'nutrition',
-    intro: "Nutrilite — the world's #1 selling vitamin and supplement brand. The only global brand that grows, harvests, and processes its own certified organic farm plants. Your body absorbs plant-based nutrients far more effectively than synthetic replicas.",
-    introZh: 'Nutrilite —— 全球销量第一的维生素和营养补充品品牌。唯一一个在自家有机认证农场种植、收割、加工原料的全球品牌。身体对植物来源的营养素吸收效率远高于合成原料。'
-  },
-  beauty: {
-    label: 'Beauty', labelZh: '美容护肤',
-    theme: 'beauty',
-    intro: "Artistry — consistently ranked in the top 5 premium beauty brands globally. Backed by the same plant science as Nutrilite. Skin is the body's largest organ and responds to the same nutritional principles.",
-    introZh: 'Artistry —— 全球美妆品牌前五。与 Nutrilite 同一套植物科学背书。皮肤是人体最大的器官，对营养的反应方式与内部器官相同。'
-  },
-  care: {
-    label: 'Personal Care', labelZh: '个人护理',
-    theme: 'care',
-    intro: 'Plant-based personal care built for daily routines. Glister oral care, Satinique hair care, and g&h body care — all sulfate-free, family-safe, and grounded in science.',
-    introZh: '基于植物成分的日常护理产品。Glister 口腔护理、Satinique 护发和 g&h 身体护理——全部无硫酸盐、适合全家使用，科学配方。'
-  },
-  home: {
-    label: 'Home', labelZh: '家居',
-    theme: 'home',
-    intro: "Science-backed home solutions. From the world's #1 selling home water treatment system to medical-grade air filtration — built to protect the family environment at every level.",
-    introZh: '以科学为基础的家居解决方案。从全球销量第一的家用净水系统到医疗级空气净化——全方位守护家庭环境。'
-  }
+  nutrition: { label:'Nutrition', labelZh:'营养补充', theme:'nutrition',
+    intro:"Nutrilite — the world's #1 selling vitamin and supplement brand, grown, harvested and processed on its own certified organic farms.",
+    introZh:'Nutrilite —— 全球销量第一的维生素与营养品牌，自有有机认证农场种植、收割、加工。' },
+  sports: { label:'Sports & Energy', labelZh:'运动能量', theme:'nutrition',
+    intro:'XS — zero-sugar energy and sports nutrition trusted by athletes. Fuel, train, recover.',
+    introZh:'XS —— 零糖能量与运动营养。补给、训练、恢复。' },
+  beauty: { label:'Beauty', labelZh:'美容护肤', theme:'beauty',
+    intro:'Artistry — consistently ranked among the top premium beauty brands globally, backed by the same plant science as Nutrilite.',
+    introZh:'Artistry —— 全球高端美妆品牌前列，与Nutrilite同源的植物科学。' },
+  care: { label:'Personal Care', labelZh:'个人护理', theme:'care',
+    intro:'Glister oral care, Satinique hair care and g&h body care. Plant-based, family-safe daily routines.',
+    introZh:'Glister口腔护理、Satinique护发、g&h身体护理。植物成分，全家适用。' },
+  home: { label:'Home', labelZh:'家居', theme:'home',
+    intro:"From the world's best-selling home water treatment system to medical-grade air filtration and 316L steel cookware.",
+    introZh:'从全球销量领先的家用净水系统，到医疗级空气净化与316L钢锅具。' },
+  solutions: { label:'Solutions', labelZh:'官方方案', theme:'nutrition',
+    intro:'Official Amway solution bundles: curated routines at a bundled price, ready for monthly auto-delivery.',
+    introZh:'安利官方方案套装：精选组合一单搞定，适合每月自动配送。' },
 };
 
-const PRODUCTS = [
-  // ── NUTRITION ─────────────────────────────────
-  {
-    id:'double-x', cat:'nutrition', brand:'Nutrilite',
-    name:'Double X Multivitamin',
-    nameZh:'Double X 复合维生素',
-    tagline:'22 nutrients from 29 plant sources',
-    taglineZh:'来自29种植物的22种营养素',
-    iboPrice:57.60, retailPrice:64.00, pv:16.79,
-    imageUrl:'https://www.amway.com/medias/123364-en-US-690px-01?context=bWFzdGVyfHJvb3R8MTAwNDc0fGltYWdlL3BuZ3xoZDEvaGYwLzk0NDY3MTc4ODIzOTgucG5nfDQ5NmQ3NzU2NDdjOTk4ZjJlMGQxNGQ0OGU0NWE0NjkzOWEwZDE1YjA5ZWQ0Nzg3NDU3ZDVmNWU1MjUwMzlhMGE',
-    notionId:'e4a6a81b-738c-44da-b801-87cada8f6260',
-    advantage:'450mg plant nutrients vs. 0mg in leading competitors. 22 vitamins + minerals from 22 fruits, vegetables, and herbs including Rosemary, Turmeric, and Quercetin. World\'s #1 selling vitamin.',
-    advantageZh:'450mg植物营养素，竞品中含量为0。22种维生素和矿物质来自迷迭香、姜黄、槲皮素等22种果蔬草本。全球销量第一的维生素产品。',
-    who:'Everyone — especially those not eating diverse whole foods. Foundation product for all other supplements.',
-    whoZh:'所有人——尤其是饮食不均衡的人。是其他营养品的基础。',
-    how:'Compare labels: "How many plant nutrients does your current vitamin have? Zero. This has 450mg from 22 real food sources." Ask what vegetables they ate that day.',
-    howZh:'对比标签："你现在吃的维生素有多少植物营养素？零。我们有来自22种真实食物的450mg。"问他们今天吃了什么蔬菜。'
-  },
-  {
-    id:'vitamin-c', cat:'nutrition', brand:'Nutrilite',
-    name:'Vitamin C Extended Release',
-    nameZh:'维生素C缓释片',
-    tagline:'7-hour continuous antioxidant protection',
-    taglineZh:'7小时持续抗氧化保护',
-    iboPrice:48.60, retailPrice:54.00, pv:14.17,
-    imageUrl:'https://www.amway.com/medias/109747-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w0NTI0MDN8aW1hZ2UvcG5nfGltYWdlcy9oMWEvaGEzLzk0NDk4ODA1MTg2ODYucG5nfDhhMzQ4NmUzNWUwODM2ZGYzODQ2MDk0YWQ4ODQxMThjMmUwYTlmZDBlYWIyMzFhYzBlZDc2YmFkOTcyNzY1MGE',
-    notionId:'35aab838-314d-40cc-a93b-d8788f32ee06',
-    advantage:'Patented 7-hour extended release — the only organic plant-based Vitamin C with continuous delivery. Sourced from Acerola Cherry, which has 50x more Vitamin C than an orange. No competitor matches this.',
-    advantageZh:'专利7小时缓释技术——唯一采用有机植物来源维生素C连续释放的产品。原料来自针叶樱桃，维生素C含量是橙子的50倍。',
-    who:'Everyone. Especially high-stress people, frequent travelers, those in polluted environments, and active individuals.',
-    whoZh:'所有人。尤其是高压力人群、频繁出行者、处于污染环境者，以及运动人群。',
-    how:'Antioxidant demo: iodine + starch chip turns black (oxidation). Drops of Vitamin C clear the black. "That\'s exactly what it does to free radicals in your bloodstream."',
-    howZh:'抗氧化演示：碘液+淀粉片变黑（氧化反应）。滴入维生素C后变清澈。"这就是它在你血液中对自由基做的事。"'
-  },
-  {
-    id:'vitamin-b', cat:'nutrition', brand:'Nutrilite',
-    name:'Vitamin B Dual-Action',
-    nameZh:'维生素B双效片',
-    tagline:'All 8 B vitamins. Instant + 8-hour release.',
-    taglineZh:'8种B族维生素，即释+8小时缓释',
-    iboPrice:34.20, retailPrice:38.00, pv:9.97,
-    imageUrl:'https://www.amway.com/medias/110171-en-US-690px-01?context=bWFzdGVyfGltYWdlc3cyODQxMDJ8aW1hZ2UvcG5nfGltYWdlcy9oYjIvaDQ4Lzk0NDgxNjk0MzkyNjIucG5nfGY1NGI2MDQyZjVhZTliZTBkOWRlMWVhODRkOWYwYTEzNGNhZWRmMTgyZGMwYTYzMTdiZTc1ZmM2NjU1NWIwYzM',
-    notionId:'491ebabe-85f5-4337-8315-20a60785db8d',
-    advantage:'All 8 essential B vitamins in one tablet. Half dissolves instantly for immediate effect, half releases over 8 hours for sustained support. Water-soluble — impossible to overdose.',
-    advantageZh:'一片含全部8种必需B族维生素。一半即释立即起效，另一半8小时缓慢释放。水溶性，不存在过量风险。',
-    who:'People needing sustained energy. Those with skin conditions like eczema or psoriasis. Active people who burn through B vitamins faster.',
-    whoZh:'需要持续能量的人群。湿疹或银屑病患者。运动量大、B族维生素消耗快的人。',
-    how:'"B vitamins are the enzymes that convert food into energy. When they\'re depleted, your metabolism slows, your brain fogs, your workout suffers." Energy + skin story together.',
-    howZh:'"B族维生素是把食物转化为能量的酶。当它们耗尽时，你的代谢就会减慢，大脑会模糊，运动表现会下降。" 能量+皮肤双线故事。'
-  },
-  {
-    id:'vitamin-e', cat:'nutrition', brand:'Nutrilite',
-    name:'Chewable Vitamin E',
-    nameZh:'咀嚼型维生素E',
-    tagline:'Cell-membrane penetration with Lecithin',
-    taglineZh:'卵磷脂助力穿透细胞膜',
-    iboPrice:38.70, retailPrice:43.00, pv:11.28,
-    imageUrl:'https://www.amway.com/medias/A4042-en-US-690px-01?context=bWFzdGVyfGltYWdlc3wzMTI0MTJ8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2g1MS9oYmUvOTY3NjQwNjY4NTcyNi9BNDA0Mi1lbi1VUy02OTBweC0wMXwzNGQwYmQ2ODc2MzljZGE3Y2I5ZDIxNTc3NzE0MGEyNzRlZTE0N2Y1MDVkZWM3YmEwZWYwOTFhYmY4YWFjYjFk',
-    notionId:'721f50e7-46e7-4c55-9cff-5df0c3bfad19',
-    advantage:'Contains Lecithin — the same phospholipid material as cell membranes — enabling Vitamin E to pass THROUGH cell walls and antioxidize inside cells. Also helps clear lipid buildup in blood vessels.',
-    advantageZh:'含卵磷脂——与细胞膜相同的磷脂成分——使维生素E能穿透细胞壁在细胞内部发挥抗氧化作用。同时有助于清除血管中的脂质积累。',
-    who:'Anyone with high blood pressure, high cholesterol, or family history of cardiovascular disease. Anyone over 35. Active people on higher-fat diets.',
-    whoZh:'高血压、高胆固醇、有心血管疾病家族史的人。35岁以上人群。高脂饮食的运动人群。',
-    how:'Oil-in-water demo: drop Vitamin E capsule into oil, watch it absorb. "That\'s what it does inside your blood vessels — clears the buildup that causes arterial stiffness."',
-    howZh:'油水演示：将维生素E滴入油中，观察它如何被吸收。"这就是它在血管内做的事——清除导致动脉硬化的脂质积累。"'
-  },
-  {
-    id:'omega', cat:'nutrition', brand:'Nutrilite',
-    name:'Advanced Omega',
-    nameZh:'高级欧米伽',
-    tagline:'3x absorption. Friend of the Sea certified.',
-    taglineZh:'吸收率提升3倍，获得海洋之友认证',
-    iboPrice:36.00, retailPrice:40.00, pv:10.50,
-    imageUrl:'https://www.amway.com/medias/126136-en-US-690px-01?context=bWFzdGVyfGltYWdlc3wxMDExNTF8aW1hZ2UvcG5nfGltYWdlcy9oMzAvaDA0Lzk0OTUyNDI1NzE4MDYucG5nfDYzMWY1NDJmNjhhMDMyNGUxODkwODAwNDFhZDIxMjJmYjUzODlkYjZjZmY4YzFkMDRlNTNlMzI1OTA0ZDMzODI',
-    notionId:'621b8e29-627f-476f-9695-6f0177801681',
-    advantage:'rTG (re-esterified triglyceride) form provides 3x better absorption than standard fish oil. Friend of the Sea certified for sustainability. White Chia Seed ALA from Nutrilite organic farms. Reduced fishy aftertaste.',
-    advantageZh:'rTG（重酯化甘油三酯）形式的吸收率比普通鱼油高3倍。获得海洋之友可持续发展认证。白奇亚籽ALA来自Nutrilite有机农场。腥味明显减少。',
-    who:'Everyone — your body cannot synthesize Omega-3s. Heart, brain, skin, joint health. Athletes for recovery. Pregnant women.',
-    whoZh:'所有人——人体无法自行合成Omega-3。心脏、大脑、皮肤、关节健康。运动员恢复期。孕妇。',
-    how:'"Do you eat fatty fish three times a week? Most people don\'t — and chronic inflammation quietly fills that gap. Omega-3 is your daily anti-inflammatory."',
-    howZh:'"你每周吃三次富含脂肪的鱼吗？大多数人做不到——慢性炎症就悄悄填满了这个空缺。Omega-3是你每日的抗炎利器。"'
-  },
-  {
-    id:'cal-mag-d', cat:'nutrition', brand:'Nutrilite',
-    name:'Cal Mag D',
-    nameZh:'钙镁D复合片',
-    tagline:'Marine-sourced magnesium. 2x absorption.',
-    taglineZh:'海洋来源镁，吸收率提升2倍',
-    iboPrice:38.70, retailPrice:43.00, pv:11.28,
-    imageUrl:null,
-    notionId:null,
-    advantage:'Triple-blend magnesium sourced from the Dead Sea and Irish seawater absorbs 2x better than standard magnesium. Supports 300+ bodily processes including ATP synthesis, nerve function, and sleep regulation.',
-    advantageZh:'来自死海和爱尔兰海水的三重混合镁，吸收率是普通镁的2倍。支持300多个身体过程，包括ATP合成、神经功能和睡眠调节。',
-    who:'Most adults are deficient. Anyone with poor sleep, muscle cramps, high stress, headaches, heart palpitations, or high blood pressure.',
-    whoZh:'大多数成年人都缺镁。睡眠不好、肌肉抽筋、压力大、头痛、心悸或高血压的人。',
-    how:'"You\'d need to eat 15 cups of spinach every day to get enough magnesium from food. Magnesium deficiency directly causes smooth muscle spasms in blood vessels — a direct mechanism for hypertension."',
-    howZh:'"你每天需要吃15杯菠菜才能从食物中获得足够的镁。缺镁直接导致血管平滑肌痉挛——这是高血压的直接机制。"'
-  },
-  {
-    id:'plant-protein', cat:'nutrition', brand:'Nutrilite',
-    name:'Organics Plant Protein',
-    nameZh:'有机植物蛋白粉',
-    tagline:'21g complete protein. USDA Organic.',
-    taglineZh:'21g完整蛋白质，USDA有机认证',
-    iboPrice:45.90, retailPrice:51.00, pv:13.38,
-    imageUrl:'https://www.amway.com/medias/125921-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w1NDc5MjN8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2hmNS9oMzgvMTAyNjMxODAxMTU5OTgvMTI1OTIxLWVuLVVTLTY5MHB4LTAxfDIxNDAxNzg3MjY2OTIzNDU4NzM5YmZkZDFhNGQ4NGQzOWI4OTA1ODQzNDA1OGIzODZhOWRkOWIyNTIyNDE1MmY',
-    notionId:'d56f2c1b-dba1-491f-a510-36ab19520038',
-    advantage:'All 9 essential amino acids in one serving. 21g protein from Brown Rice + Peas + White Chia from certified organic Nutrilite farms. USDA Organic certified. No soy, gluten, dairy, or artificial sweeteners.',
-    advantageZh:'一份含全部9种必需氨基酸。21g蛋白质来自Nutrilite有机认证农场的糙米、豌豆和白奇亚籽。USDA有机认证。无大豆、麸质、乳制品或人工甜味剂。',
-    who:'People who skip breakfast. Anyone wanting to build muscle, manage weight, or maintain adequate protein on a plant-based diet.',
-    whoZh:'跳过早餐的人。想要增肌、控制体重或在植物性饮食中保持蛋白质摄入充足的人。',
-    how:'"Most people skip breakfast or have toast. Your brain needs protein in the morning — no protein means compromised cognitive function for hours. Replace breakfast with this shake and the difference is immediate."',
-    howZh:'"大多数人跳过早餐或只吃吐司。大脑早晨需要蛋白质——没有蛋白质意味着数小时的认知功能下降。用这款奶昔替代早餐，你马上就能感受到差别。"'
-  },
-
-  // ── BEAUTY ────────────────────────────────────
-  {
-    id:'hydra-v', cat:'beauty', brand:'Artistry',
-    name:'Hydra-V Collection',
-    nameZh:'水活盈润系列',
-    tagline:'Deep hydration with hyaluronic acid',
-    taglineZh:'玻尿酸深层补水',
-    iboPrice:null, retailPrice:null, pv:null,
-    imageUrl:null,
-    notionId:null,
-    advantage:'Hyaluronic acid + multi-layer plant botanical complex. Lightweight layering system suitable for all skin types and all climates. Clinically tested for 24-hour hydration retention.',
-    advantageZh:'玻尿酸+多层植物植物精华复合物。轻盈的分层系统，适合所有肤质和气候。经临床测试可保湿24小时。',
-    who:'Dry skin. Anyone over 25 noticing dehydration lines. All climates, especially dry or cold environments.',
-    whoZh:'干性皮肤。25岁以上开始注意到脱水细纹的人。所有气候，尤其是干燥或寒冷环境。',
-    how:'"Skin hydration isn\'t just cosmetic — dehydrated skin accelerates aging and creates the environment for deeper issues. Run Irene\'s skin assessment first to identify the right starting point."',
-    howZh:'"皮肤补水不只是美容问题——脱水肌肤会加速老化，为更深层的皮肤问题创造条件。先做Irene的皮肤评估，找到最适合你的起点。"'
-  },
-  {
-    id:'youth-xtend', cat:'beauty', brand:'Artistry',
-    name:'Youth Xtend Collection',
-    nameZh:'焕颜亮肤系列',
-    tagline:'Clinical anti-aging. Retinol + peptides.',
-    taglineZh:'临床级抗衰。视黄醇+多肽复合物。',
-    iboPrice:null, retailPrice:null, pv:null,
-    imageUrl:null,
-    notionId:null,
-    advantage:'Retinol + Vitamin C + peptide complex. Clinically tested efficacy comparable to premium department store anti-aging lines at $200–400+ per piece.',
-    advantageZh:'视黄醇+维生素C+多肽复合物。经临床测试，功效可与百货公司200-400美元以上的抗衰系列媲美。',
-    who:'Anyone 30+ concerned about fine lines or skin laxity. People with sun damage. Anyone with an anti-aging focus.',
-    whoZh:'30岁以上担心细纹或皮肤松弛的人。有日晒损伤的人。注重抗衰的人群。',
-    how:'"Department store anti-aging creams at $100–200 per jar — Artistry competes on clinical efficacy at IBO pricing. And ours is built on the same plant science as Nutrilite."',
-    howZh:'"百货公司抗衰面霜要100-200美元一瓶——Artistry以同等临床效果，用IBO价格竞争。而且我们的配方基于与Nutrilite相同的植物科学。"'
-  },
-  {
-    id:'intense-skincare', cat:'beauty', brand:'Artistry',
-    name:'Intense Skincare Collection',
-    nameZh:'密集修护系列',
-    tagline:'Anti-aging + hydration + brightening in one',
-    taglineZh:'抗衰+补水+提亮三合一',
-    iboPrice:null, retailPrice:null, pv:null,
-    imageUrl:null,
-    notionId:null,
-    advantage:'Broad-spectrum plant extract complex. Combines anti-aging, deep hydration, and brightening effects in one simplified line. Reduces the need for multiple products.',
-    advantageZh:'广谱植物提取物复合配方。一套产品同时实现抗衰、深层补水和提亮效果。减少多品类堆叠的需要。',
-    who:'General adult skincare. Anyone wanting a simplified, high-quality routine over multiple budget products.',
-    whoZh:'普通成人护肤需求。想用一套高质量产品代替多款平价产品的人。',
-    how:'"One quality line that does everything vs. five cheap products that each do one thing mediocrely. Ask Irene to do a skin assessment first."',
-    howZh:'"一套高质量产品做好所有事，优于五款各司其职但效果平平的平价产品。先让Irene做皮肤评估。"'
-  },
-
-  // ── PERSONAL CARE ────────────────────────────
-  {
-    id:'glister-toothpaste', cat:'care', brand:'Glister',
-    name:'Multi-Action Toothpaste',
-    nameZh:'多效护理牙膏',
-    tagline:'Protects enamel. Enamel does not grow back.',
-    taglineZh:'保护牙釉质。牙釉质不会再生。',
-    iboPrice:6.98, retailPrice:7.75, pv:2.03,
-    imageUrl:'https://www.amway.com/medias/124106-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w0MTQ3OXxpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaGFlL2hjMC85NTE4MTY3MDMxODM4LzEyNDEwNi1lbi1VUy02OTBweC0wMXwzZjk1MTcxYjIxMTcyMDdmYTY4NTJkNjE0MmU4NzRmYzU5ZTk4MTQ1NTBjOWE3NmVjOTZlZGExNWM3YzcwNWZm',
-    notionId:'be2d39ea-5234-4e2e-9041-eb393ef042ee',
-    advantage:'Round silica particles — vs. angular abrasive sand in competing toothpastes — clean without grinding enamel. Enamel is irreplaceable. Multi-action formula whitens, freshens, protects, and strengthens in one.',
-    advantageZh:'圆形二氧化硅颗粒——vs.竞品中有棱角的磨砂颗粒——清洁的同时不磨损牙釉质。牙釉质不可再生。多效配方一步完成美白、清新、保护和强化。',
-    who:'Anyone who wants to protect their teeth long-term. Especially those who love sweets, hot/cold foods, or are 30+.',
-    whoZh:'任何想要长期保护牙齿的人。尤其是爱吃甜食、对冷热敏感，或30岁以上的人。',
-    how:'Demo: squeeze both toothpastes on colored paper, rub 60x, wipe clean — Glister leaves no color. Competing brands leave a black streak. "That residue would be on your enamel."',
-    howZh:'演示：将两款牙膏分别涂在有色纸上，摩擦60次后擦拭——Glister不留任何颜色。竞品留下黑色痕迹。"那些痕迹就是对你牙釉质的磨损。"'
-  },
-  {
-    id:'glister-toothbrush', cat:'care', brand:'Glister',
-    name:'Advanced Power Toothbrush',
-    nameZh:'高效电动牙刷',
-    tagline:'UV sanitizer + 5 modes + 3–6 month battery',
-    taglineZh:'UV杀菌+5种模式+3-6个月续航',
-    iboPrice:157.50, retailPrice:175.00, pv:45.92,
-    imageUrl:'https://www.amway.com/medias/127705-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w2NTAyMXxpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaDBkL2gyNy85ODgyMjkzNzMxMzU4LzEyNzcwNS1lbi1VUy02OTBweC0wMXxmODFkMDM1MWZhZTRiOGRmNzRjNzJiM2NlZDI1OTFlOTQ0NmIyZDE4MjIwYmQ1MzVkNjk0YjY4ZjVmYTBkNTEx',
-    notionId:'476d6f51-6591-4af2-815e-88b96b5caccc',
-    advantage:'5 cleaning modes for different needs. Built-in UV sanitizer kills 99.9% of bacteria on the brush head between uses. Battery lasts 3–6 months vs. competitors\' 2–4 weeks. No competitor offers this combination.',
-    advantageZh:'5种清洁模式满足不同需求。内置UV杀菌灯，使用间隙杀灭刷头99.9%的细菌。续航3-6个月，竞品仅2-4周。无竞品提供同等组合。',
-    who:'Anyone wanting dentist-level oral care at home. People prone to gum issues. Tech-savvy customers who appreciate quality tools.',
-    whoZh:'希望在家实现专业洁牙效果的人。容易出现牙龈问题的人。重视优质工具的人。',
-    how:'Compare specs vs. Oral-B or Philips Sonicare ($200+). "Ours includes UV sanitizer — the ONLY brush on the market with this. And the battery lasts 3–6 months, not weeks."',
-    howZh:'与欧乐-B或飞利浦（$200+）对比规格。"我们的刷头有UV杀菌——市场上唯一一款。电池续航3-6个月，不是几周。"'
-  },
-  {
-    id:'glister-spray', cat:'care', brand:'Glister',
-    name:'Mouth Refresher Spray',
-    nameZh:'口气清新喷雾',
-    tagline:'Organic mint. Instant fresh breath anywhere.',
-    taglineZh:'有机薄荷。随时随地即刻清新。',
-    iboPrice:6.53, retailPrice:7.25, pv:1.90,
-    imageUrl:'https://www.amway.com/medias/124111-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w0MTYxOHxpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaGQyL2hhNC85NTE4MTY3ODgzODA2LzEyNDExMS1lbi1VUy02OTBweC0wMXw1YzM4NjU2YTRjNTVhOGIwNWMyM2I5NDI1YjQ2MjQ5ZGUyNTgxOGE3OTZlMDRmYjY4ZDM1YmJkOGVjOWY0NTRh',
-    notionId:'006beb90-17a3-4786-96ac-496ea22e4156',
-    advantage:'Organic mint-based formula. No artificial sweeteners or harsh alcohol. Portable. Immediate sensory benefit makes it the single easiest demo product in the entire lineup.',
-    advantageZh:'有机薄荷配方。无人工甜味剂或刺激性酒精。便携。即时的感官效果使其成为整个产品线中最容易演示的产品。',
-    who:'Everyone. Perfect first product for new customers — low price, zero barrier, instant experience.',
-    whoZh:'所有人。是新客户的完美第一款产品——价格低、无门槛、即时体验。',
-    how:'Spray it mid-conversation and offer to them. "One spray and you\'re immediately fresh — and it\'s organic, no artificial anything." Best door-opener in the line.',
-    howZh:'对话中途使用后递给对方。"一喷立刻清新——而且是有机的，没有任何人工成分。"是整个产品线最好用的破冰产品。'
-  },
-  {
-    id:'glister-floss', cat:'care', brand:'Glister',
-    name:'Multi-Action Dental Floss',
-    nameZh:'多效牙线',
-    tagline:'Naturally derived wax. Doesn\'t snap mid-use.',
-    taglineZh:'天然蜡涂层，不易断裂。',
-    iboPrice:11.26, retailPrice:12.50, pv:3.29,
-    imageUrl:'https://www.amway.com/medias/124112-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w2OTg1MnxpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaGU2L2g1Yy8xMDE1MjA3NzY1NjA5NC8xMjQxMTItZW4tVVMtNjkwcHgtMDF8NTkyZmNlY2M4Zjk1NTQ2YjRmMmMyMDI1M2ZhOWUwYTFhNGZkZTNlNzkzMTAxYzBhYmMwYWQ1Njg3MzJjYjFhNQ',
-    notionId:'9970a64c-8124-4090-a511-5611237a7615',
-    advantage:'Flat-ribbon design glides through tight contacts without shredding. Naturally derived wax coating provides smooth glide and resist breakage. Noticeably stronger than standard floss.',
-    advantageZh:'扁丝设计在牙缝间轻松滑动不起毛。天然蜡涂层提供顺滑感并抵抗断裂。比普通牙线明显更结实。',
-    who:'Anyone with tight teeth. People who\'ve given up flossing because it snaps. Best bundled with toothpaste and spray.',
-    whoZh:'牙缝较紧的人。因为牙线易断而放弃使用的人。与牙膏和喷雾搭配效果最好。',
-    how:'"Feel how flat it is — that\'s how it slides instead of snaps. The wax is naturally derived. One less reason to skip flossing."',
-    howZh:'"感受一下它有多扁平——这就是它能滑过而不断裂的原因。蜡是天然来源的。少一个不用牙线的理由。"'
-  },
-  {
-    id:'satinique-purifying', cat:'care', brand:'Satinique',
-    name:'Purifying Shampoo',
-    nameZh:'净化洗发水',
-    tagline:'Sulfate-free. Removes 28% excess scalp oil.',
-    taglineZh:'无硫酸盐。一次洗发减少28%头皮油脂。',
-    iboPrice:13.50, retailPrice:15.00, pv:3.94,
-    imageUrl:'https://www.amway.com/medias/126460-en-US-690px-01?context=bWFzdGVyfGltYWdlc3wxMTIzMTF8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2g1MS9oMGYvOTk1ODg3OTQyODYzOC8xMjY0NjAtZW4tVVMtNjkwcHgtMDF8MTQyZjU3NjI4MmUyZTcwNDFiYzNhMjE1NzA3MTVhMjg5YmI1NDhkMDU0ZDFhN2E0NGM5NDk5MjQxODc0OTE5NQ',
-    notionId:'65b1604d-585c-4290-ad66-b4529a9c3ffd',
-    advantage:'Plant-based and sulfate-free. Burns clean with no residue vs. commercial shampoos that leave toxic black char. Clinically removes 28% excess oil in one wash. Safe for color-treated hair.',
-    advantageZh:'植物性、无硫酸盐。燃烧无残留，vs.商业洗发水燃烧留下有毒黑色残渣。临床证明一次洗发减少28%多余油脂。适合染色发。',
-    who:'Oily scalps, dandruff, or product buildup. Active people who sweat frequently. High-stress professionals with scalp issues.',
-    whoZh:'油性头皮、头皮屑或产品堆积。频繁出汗的运动人群。有头皮问题的高压力专业人士。',
-    how:'Aluminum foil burn demo: commercial shampoo leaves black residue; Satinique evaporates clean. "70% of the skin on your head is scalp. Treat it like skin."',
-    howZh:'铝箔燃烧演示：商业洗发水留下黑色残留；Satinique干净燃尽。"你头部70%的皮肤是头皮。像对待皮肤一样对待它。"'
-  },
-  {
-    id:'satinique-smooth', cat:'care', brand:'Satinique',
-    name:'Smooth Moisture Shampoo',
-    nameZh:'顺滑保湿洗发水',
-    tagline:'13x smoother. Pumpkin Seed Oil formula.',
-    taglineZh:'顺滑度提升13倍。南瓜籽油配方。',
-    iboPrice:13.50, retailPrice:15.00, pv:3.94,
-    imageUrl:'https://www.amway.com/medias/126449-en-US-690px-01?context=bWFzdGVyfGltYWdlc3wxMDk3MTF8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2gzOS9oYzkvOTk1MzgwOTk4OTY2Mi8xMjY0NDktZW4tVVMtNjkwcHgtMDF8YjVmMDY4ZTE0NGMzMGJhM2ZjZGQ5NmJmNjY2NjU0Y2E4MzE5MTdhZTkzMjViMGNjN2I4MGY5YWU4YTc5ZDk0Yg',
-    notionId:'778705a9-05de-4f85-af25-d6acdfb0208c',
-    advantage:'Pumpkin Seed Oil conditions, smooths, and adds shine. Clinically proven hair 13x smoother after use. Vegan formula with no sulfates, dyes, or mineral oils. Registered with The Vegan Society.',
-    advantageZh:'南瓜籽油调理、顺滑并增加光泽。经临床证明使用后头发顺滑度提升13倍。纯素配方，无硫酸盐、染料或矿物油。获素食协会认证。',
-    who:'Dry or frizzy hair. Color-treated hair. Anyone wanting manageable, shiny hair without heavy residue.',
-    whoZh:'干燥或毛躁的头发。染色发。想要柔顺有光泽、不留残留的人。',
-    how:'"Most conditioners coat hair with silicones that temporarily smooth — then build up over time. This nourishes the actual hair structure. You feel it after one wash."',
-    howZh:'"大多数护发素用硅酮暂时顺滑头发——然后随时间堆积。这款产品滋养真正的发丝结构。一次洗发就能感受到差别。"'
-  },
-  {
-    id:'gh-body-lotion', cat:'care', brand:'g&h',
-    name:'Nourish+ Body Lotion',
-    nameZh:'滋养+身体乳',
-    tagline:'24-hour hydration. Shea butter. Non-greasy.',
-    taglineZh:'24小时保湿。乳木果油。不油腻。',
-    iboPrice:14.18, retailPrice:15.75, pv:4.13,
-    imageUrl:null,
-    notionId:null,
-    advantage:'Shea butter + plant extracts with clinically tested 24-hour moisture retention. Absorbs quickly without greasy residue. Plant-derived ingredients, no harsh sulfates or artificial fragrances.',
-    advantageZh:'乳木果油+植物提取物，经临床测试可保湿24小时。快速吸收，不留油腻感。植物成分，无强硫酸盐或人工香料。',
-    who:'Dry skin. Anyone in dry or cold climates. Easy daily routine product for the whole family.',
-    whoZh:'干性皮肤。处于干燥或寒冷气候的人。适合全家的日常护理产品。',
-    how:'"Most body lotions are 80% water and fragrance. g&h deposits actual moisture-binding actives into the skin. It\'s why your skin still feels soft the next morning."',
-    howZh:'"大多数身体乳80%是水和香料。g&h将真正的保湿活性成分沉积到皮肤中。这就是为什么第二天早上皮肤依然柔软的原因。"'
-  },
-  {
-    id:'gh-spf50', cat:'care', brand:'g&h',
-    name:'Protect+ SPF 50 Body Lotion',
-    nameZh:'防护+SPF50身体乳',
-    tagline:'Broad-spectrum UVA/UVB. No white cast.',
-    taglineZh:'广谱UVA/UVB防护。无白霜。',
-    iboPrice:25.20, retailPrice:28.00, pv:7.35,
-    imageUrl:null,
-    notionId:null,
-    advantage:'Broad-spectrum UVA + UVB protection combined with deep moisturizing benefits. Lightweight formula with no white cast — unlike most high-SPF products. Plant-derived ingredients.',
-    advantageZh:'广谱UVA+UVB防护，同时具有深层保湿功效。轻盈配方，无白霜——不像大多数高SPF产品。植物成分。',
-    who:'Anyone who goes outdoors regularly. Anti-aging focus (UV is the #1 cause of visible skin aging). People with fair skin or history of sun damage.',
-    whoZh:'经常户外活动的人。注重抗衰（紫外线是导致皮肤可见老化的首要原因）。皮肤较白或有日晒损伤史的人。',
-    how:'"80% of visible skin aging comes from UV exposure, not chronological age. Daily SPF is the single highest-ROI anti-aging step — more impactful than any cream or serum."',
-    howZh:'"80%的皮肤可见老化来自紫外线照射，而非年龄本身。每日使用SPF是抗衰效益最高的单一步骤——比任何面霜或精华的效果都更显著。"'
-  },
-
-  // ── HOME ──────────────────────────────────────
-  {
-    id:'loc', cat:'home', brand:'Amway Home',
-    name:'L.O.C. Multi-Purpose Cleaner',
-    nameZh:'全能清洁剂',
-    tagline:'Concentrated 1:50. 40+ year track record.',
-    taglineZh:'1:50稀释浓缩。40年以上市场验证。',
-    iboPrice:11.25, retailPrice:12.50, pv:3.28,
-    imageUrl:null,
-    notionId:null,
-    advantage:'Highly concentrated — one bottle replaces 10+ standard all-purpose cleaners when diluted 1:50. Biodegradable and septic-safe. No chlorine fumes, no ammonia — family and pet safe. 40+ years on market.',
-    advantageZh:'高度浓缩——1:50稀释后一瓶可替代10+瓶普通全能清洁剂。可生物降解、对化粪池安全。无氯气烟雾、无氨——家庭和宠物友好。40+年市场验证。',
-    who:'Families with children or pets. Anyone concerned about chemical fume exposure at home. Eco-conscious buyers wanting to reduce single-use plastic.',
-    whoZh:'有孩子或宠物的家庭。担心家中化学烟雾的人。希望减少一次性塑料使用的环保消费者。',
-    how:'"One bottle of LOC concentrate replaces 10+ bottles of all-purpose cleaner. No chlorine, no ammonia — you can clean the kitchen counters while kids are eating lunch."',
-    howZh:'"一瓶LOC浓缩液可替代10+瓶全能清洁剂。无氯、无氨——孩子在旁边吃饭时也可以放心清洁厨房台面。"'
-  },
-  {
-    id:'sa8', cat:'home', brand:'Amway Home',
-    name:'SA8 Powder Laundry Detergent',
-    nameZh:'SA8洗衣粉',
-    tagline:'PETA + NSF certified. Works cold. Zero residue.',
-    taglineZh:'PETA+NSF双认证。冷水有效。零残留。',
-    iboPrice:47.70, retailPrice:53.00, pv:13.90,
-    imageUrl:null,
-    notionId:null,
-    advantage:'PETA and NSF certified. Works effectively in cold water, saving energy. No optical brighteners (which cause skin irritation). Biodegradable. Rinses completely clean — no detergent residue left in fabric.',
-    advantageZh:'PETA和NSF双认证。冷水中有效，节省能源。无荧光增白剂（会刺激皮肤）。可生物降解。彻底漂净——织物中无洗涤剂残留。',
-    who:'Sensitive skin. Families with babies or eczema. Anyone with HE machines. People who want clean laundry without chemical residue against their skin all day.',
-    whoZh:'敏感皮肤。有婴儿或湿疹患者的家庭。高效洗衣机用户。不希望衣物留有化学残留接触皮肤的人。',
-    how:'"Most detergents leave residue in fabric — that residue touches your skin all day. SA8 rinses completely clean. Critical for sensitive skin, eczema, and especially babies."',
-    howZh:'"大多数洗涤剂在织物中留有残留——这些残留全天接触你的皮肤。SA8彻底漂净。对敏感皮肤、湿疹患者，尤其是婴儿至关重要。"'
-  },
-  {
-    id:'atmosphere-sky', cat:'home', brand:'Atmosphere',
-    name:'Sky Air Purifier',
-    nameZh:'Sky空气净化器',
-    tagline:'465 sq ft. 10-stage. 99.99% particle removal.',
-    taglineZh:'465平方英尺。10级过滤。99.99%颗粒去除。',
-    iboPrice:1539.00, retailPrice:1710.00, pv:448.69,
-    imageUrl:null,
-    notionId:null,
-    advantage:'HEPA + activated carbon + UV-C in a 10-stage filtration system. Removes 99.99% of airborne particles including viruses, bacteria, VOCs, allergens, and PM2.5. Covers 465 sq ft.',
-    advantageZh:'10级过滤系统融合HEPA+活性炭+UV-C技术。去除99.99%空气中的颗粒物，包括病毒、细菌、挥发性有机物、过敏原和PM2.5。覆盖465平方英尺。',
-    who:'Families with allergies or asthma. Pet owners. Urban residents in high-pollution areas. Anyone who seals their home for climate control.',
-    whoZh:'有过敏或哮喘的家庭。宠物主人。高污染城市居民。任何密封住宅进行气候控制的人。',
-    how:'"EPA data: indoor air is 2–5x more polluted than outdoor air. We seal our homes for energy efficiency — and trap everything inside. Pet dander, cooking fumes, VOCs, mold spores."',
-    howZh:'"EPA数据：室内空气的污染程度是室外的2-5倍。我们为了节能而密封住宅——同时也把一切都关在里面。宠物皮屑、烹饪烟雾、挥发性有机物、霉菌孢子。"'
-  },
-  {
-    id:'atmosphere-mini', cat:'home', brand:'Atmosphere',
-    name:'Mini Air Purifier',
-    nameZh:'Mini空气净化器',
-    tagline:'200 sq ft. Same 10-stage technology.',
-    taglineZh:'200平方英尺。同款10级技术。',
-    iboPrice:819.00, retailPrice:910.00, pv:238.78,
-    imageUrl:null,
-    notionId:null,
-    advantage:'Same 10-stage filtration technology as the Sky in a compact form factor. Ideal for bedroom, nursery, or office. Quieter operation for sleep environments.',
-    advantageZh:'与Sky相同的10级过滤技术，外形更紧凑。适合卧室、婴儿房或办公室。更安静，适合睡眠环境。',
-    who:'Bedroom air quality focus. Nursery and infant safety. Apartment dwellers. Anyone wanting air purification on a desk or nightstand.',
-    whoZh:'关注卧室空气质量。婴儿房和婴幼儿安全。公寓居住者。希望在桌面或床头放置净化器的人。',
-    how:'"The bedroom is where you spend 8 hours a night. If you\'re going to purify one room, it should be where you sleep. Especially critical with a newborn."',
-    howZh:'"卧室是你每晚待8小时的地方。如果只净化一个房间，应该从你睡觉的地方开始。有新生儿时尤为重要。"'
-  },
-  {
-    id:'espring', cat:'home', brand:'eSpring',
-    name:'UV-C Water Purifier',
-    nameZh:'UV-C净水器',
-    tagline:'World\'s #1 home water system. 140+ contaminants.',
-    taglineZh:'全球销量第一家用净水系统。去除140+污染物。',
-    iboPrice:1169.10, retailPrice:1299.00, pv:340.85,
-    imageUrl:null,
-    notionId:null,
-    advantage:'UV-C technology kills 99.99% of bacteria and viruses (unlike carbon-only filters). Carbon block removes 140+ contaminants. Retains beneficial minerals (unlike reverse osmosis). NSF 42, 53, and 55 certified.',
-    advantageZh:'UV-C技术杀灭99.99%细菌和病毒（不同于纯碳过滤）。碳块去除140+污染物。保留有益矿物质（不同于反渗透）。NSF 42、53、55三重认证。',
-    who:'Families with young children. Bottled water buyers (pays for itself in under 2 years). Anyone in areas with aging infrastructure or known water quality concerns.',
-    whoZh:'有幼儿的家庭。购买瓶装水的人（不到2年即可回本）。居住在管道老化地区或已知水质问题地区的人。',
-    how:'"Brita filters chlorine taste — but it does NOT kill bacteria or viruses. Reverse osmosis removes everything including minerals, wastes 3–4 gallons per gallon purified, and requires a tank. eSpring solves all of this."',
-    howZh:'"Brita过滤氯气味道——但不能杀灭细菌或病毒。反渗透去除所有物质包括矿物质，每净化一加仑水浪费3-4加仑，还需要储水桶。eSpring解决了所有这些问题。"'
-  },
-  {
-    id:'icook-set', cat:'home', brand:'iCook',
-    name:'19-Piece Collection',
-    nameZh:'19件套厨具套装',
-    tagline:'316L surgical-grade steel. No PFAS. Lifetime guarantee.',
-    taglineZh:'316L外科级钢材。无PFAS。终身保修。',
-    iboPrice:1382.40, retailPrice:1536.00, pv:403.03,
-    imageUrl:null,
-    notionId:null,
-    advantage:'316L surgical-grade stainless steel — same material used in medical implants. No PFAS coatings (linked to thyroid disruption, immune suppression, and cancer). Vapor-seal lid cooks at lower temperature, preserving 80%+ of water-soluble vitamins.',
-    advantageZh:'316L外科级不锈钢——与医疗植入物相同的材质。无PFAS涂层（与甲状腺功能紊乱、免疫抑制和癌症相关）。蒸汽密封盖以更低温度烹饪，保留80%以上水溶性维生素。',
-    who:'Anyone currently using non-stick cookware (PFAS exposure concern). Families who invest in supplements — iCook ensures the nutrients aren\'t cooked out.',
-    whoZh:'目前使用不粘锅的人（PFAS暴露风险）。在营养品上有投入的家庭——iCook确保营养素不在烹饪中流失。',
-    how:'"You\'re spending $100+/month on supplements — but PFAS from non-stick pans is endocrine-disrupting, and boiling destroys 40–60% of Vitamin C and B vitamins. iCook addresses both."',
-    howZh:'"你每月花100+美元买营养品——但不粘锅的PFAS正在干扰内分泌系统，而水煮会破坏40-60%的维生素C和B族维生素。iCook同时解决这两个问题。"'
-  }
-];
-
 /* ════════════════════════════════════════════════
-   STATE & LANGUAGE
+   STATE
    ════════════════════════════════════════════════ */
+let currentLang = 'en';
+let viewMode = 'area';          // 'area' | 'category' | 'solution'
 let currentCat = 'all';
-let currentLang = 'en'; // 'en' | 'zh'
-let viewMode = 'category'; // 'category' | 'painpoint' | 'strategy'
-let currentPainPoint = 'energy';
-let currentStrategy = 'morning';
+let currentArea = 'skin';
+let currentSolution = null;     // set after data load
+let bizMode = 'customer';       // 'customer' | 'ibo'
+try { if (localStorage.getItem('pv_biz') === '1') bizMode = 'ibo'; } catch(e) {}
 
-function toggleLang() {
-  currentLang = currentLang === 'en' ? 'zh' : 'en';
-  const btn = document.getElementById('lang-toggle-btn');
-  btn.classList.toggle('zh-active', currentLang === 'zh');
-  btn.textContent = currentLang === 'en' ? 'EN / 中' : '中 / EN';
-  if (viewMode === 'category') {
-    renderGrid(currentCat);
-    updateHero(currentCat);
-  } else if (viewMode === 'painpoint') {
-    renderPainPointChips();
-    renderPainPointGrid(currentPainPoint);
-  } else {
-    renderStrategyChips();
-    renderStrategyGrid(currentStrategy);
-  }
-}
+const PASSCODE = '88688';
+const SHIP = { std: 10.99, ditto: 5.99, freeAt: 150 };
 
-function t(enStr, zhStr) {
-  return currentLang === 'zh' && zhStr ? zhStr : enStr;
-}
-
-/* ════════════════════════════════════════════════
-   FORMATTING
-   ════════════════════════════════════════════════ */
+function t(en, zh) { return currentLang === 'zh' && zh ? zh : en; }
 function fmtPrice(n) {
   if (n === null || n === undefined) return '—';
   if (n >= 1000) return '$' + n.toLocaleString('en-US', { maximumFractionDigits: 0 });
   return '$' + n.toFixed(2);
 }
+function fmtPv(n) { if (n === null || n === undefined) return '—'; return n % 1 === 0 ? n.toString() : n.toFixed(2); }
+function price(p) { return bizMode === 'ibo' ? (p.iboPrice ?? p.retailPrice) : (p.retailPrice ?? p.iboPrice); }
+// Image: explicit URL from Notion, else try the Amway CDN by item # (placeholder shows on 404)
+function imgUrl(p) { return p.imageUrl || (p.item ? `https://www.amway.com/medias/${p.item}-en-US-690px-01` : null); }
+function visibleProducts() { return PRODUCTS.filter(p => bizMode === 'ibo' || !p.iboOnly); }
+function findP(id) { return PRODUCTS.find(x => x.id === id); }
 
-function fmtPv(n) {
-  if (n === null || n === undefined) return '—';
-  return n % 1 === 0 ? n.toString() : n.toFixed(2);
+/* ════════════════════════════════════════════════
+   BUSINESS / CUSTOMER MODE
+   ════════════════════════════════════════════════ */
+function toggleBizMode() {
+  if (bizMode === 'customer') {
+    const code = prompt(t('Enter partner passcode', '请输入合伙人密码'));
+    if (code !== PASSCODE) { if (code !== null) alert(t('Incorrect passcode', '密码不正确')); return; }
+    bizMode = 'ibo';
+  } else {
+    bizMode = 'customer';
+  }
+  try { localStorage.setItem('pv_biz', bizMode === 'ibo' ? '1' : '0'); } catch(e) {}
+  updateModeBtn();
+  render();
+  updateCalcWidget();
+}
+function updateModeBtn() {
+  const b = document.getElementById('mode-btn');
+  b.textContent = bizMode === 'ibo' ? t('Partner ✓', '合伙人 ✓') : '···';
+  b.title = bizMode === 'ibo' ? 'Switch to customer view' : 'Partner view';
+  b.classList.toggle('ibo-on', bizMode === 'ibo');
 }
 
 /* ════════════════════════════════════════════════
-   CATEGORY HERO
+   LANGUAGE
    ════════════════════════════════════════════════ */
-function updateHero(cat) {
+function toggleLang() {
+  currentLang = currentLang === 'en' ? 'zh' : 'en';
+  const btn = document.getElementById('lang-toggle-btn');
+  btn.classList.toggle('zh-active', currentLang === 'zh');
+  btn.textContent = currentLang === 'en' ? 'EN / 中' : '中 / EN';
+  renderPrimaryTabs();
+  updateModeBtn();
+  render();
+  updateCalcWidget();
+}
+
+/* ════════════════════════════════════════════════
+   RENDER DISPATCH
+   ════════════════════════════════════════════════ */
+function render() {
+  renderSecondaryNavs();
+  if (viewMode === 'area') renderAreaView();
+  else if (viewMode === 'category') { renderGrid(currentCat); updateHeroCat(currentCat); }
+  else renderSolutionView();
+}
+
+function renderPrimaryTabs() {
+  document.getElementById('vtab-area').textContent = t('Areas of Support', '健康支持');
+  document.getElementById('vtab-category').textContent = t('By Category', '按品类');
+  document.getElementById('vtab-solution').textContent = t('Solutions', '官方方案');
+}
+
+function setViewMode(mode) {
+  viewMode = mode;
+  document.querySelectorAll('.primary-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('vtab-' + mode).classList.add('active');
+  document.getElementById('cat-secondary-nav').classList.toggle('visible', mode === 'category');
+  document.getElementById('area-secondary-nav').classList.toggle('visible', mode === 'area');
+  document.getElementById('solution-secondary-nav').classList.toggle('visible', mode === 'solution');
+  render();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderSecondaryNavs() {
+  // Areas
+  document.getElementById('area-chips').innerHTML = AREAS.map(a =>
+    `<button class="secondary-tab${a.id === currentArea ? ' active' : ''}" onclick="selectArea('${a.id}')">${t(a.name, a.nameZh)}</button>`
+  ).join('');
+  // Solutions
+  const sols = SOLUTIONS.filter(s => bizMode === 'ibo' || !(findP(s.id) || {}).iboOnly);
+  document.getElementById('solution-chips').innerHTML = sols.map(s =>
+    `<button class="secondary-tab${s.id === currentSolution ? ' active' : ''}" onclick="selectSolution('${s.id}')">${t(s.title, s.titleZh)}</button>`
+  ).join('');
+}
+
+/* ════════════════════════════════════════════════
+   HERO
+   ════════════════════════════════════════════════ */
+function heroSet(label, title, intro, theme, extraHtml) {
   const hero = document.getElementById('cat-hero');
-  if (cat === 'all') {
-    hero.classList.remove('visible');
-    hero.className = 'cat-hero';
-    return;
-  }
+  document.getElementById('hero-label').textContent = label;
+  document.getElementById('hero-title').textContent = title;
+  document.getElementById('hero-intro').textContent = intro;
+  document.getElementById('hero-extra').innerHTML = extraHtml || '';
+  hero.className = `cat-hero visible hero-${theme || 'nutrition'}`;
+}
+function heroHide() { document.getElementById('cat-hero').className = 'cat-hero'; }
+
+function updateHeroCat(cat) {
+  if (cat === 'all') { heroHide(); return; }
   const c = CATS[cat];
-  document.getElementById('hero-label').textContent = t(c.label, c.labelZh);
-  document.getElementById('hero-title').textContent = t(c.label, c.labelZh);
-  document.getElementById('hero-intro').textContent = t(c.intro, c.introZh);
-  hero.className = `cat-hero visible hero-${c.theme}`;
+  heroSet(t(c.label, c.labelZh), t(c.label, c.labelZh), t(c.intro, c.introZh), c.theme);
+}
+
+/* ════════════════════════════════════════════════
+   AREA VIEW  (default landing)
+   ════════════════════════════════════════════════ */
+function selectArea(id) { currentArea = id; renderSecondaryNavs(); renderAreaView(); }
+
+function renderAreaView() {
+  const a = AREAS.find(x => x.id === currentArea) || AREAS[0];
+  heroSet(t('Areas of Support', '健康支持'), t(a.name, a.nameZh), t(a.blurb, a.blurbZh), 'nutrition');
+  const products = visibleProducts().filter(p => (p.areas || []).includes(a.id));
+  document.getElementById('grid-label').textContent = t(a.name, a.nameZh);
+  document.getElementById('grid-count').textContent = `${products.length} ${t('products', '款产品')}`;
+  document.getElementById('product-grid').innerHTML = products.length
+    ? products.map(cardHtml).join('') : '<div class="empty-state"><p>No products found.</p></div>';
+}
+
+/* ════════════════════════════════════════════════
+   CATEGORY VIEW
+   ════════════════════════════════════════════════ */
+function renderGrid(cat) {
+  const products = visibleProducts().filter(p => cat === 'all' || p.cat === cat);
+  const label = cat === 'all' ? t('All Products', '全部产品') : t(CATS[cat].label, CATS[cat].labelZh);
+  document.getElementById('grid-label').textContent = label;
+  document.getElementById('grid-count').textContent = `${products.length} ${t('products', '款产品')}`;
+  document.getElementById('product-grid').innerHTML = products.length
+    ? products.map(cardHtml).join('') : '<div class="empty-state"><p>No products in this category yet.</p></div>';
+}
+
+/* ════════════════════════════════════════════════
+   SOLUTION VIEW  (official Amway bundles as preset stacks)
+   ════════════════════════════════════════════════ */
+function selectSolution(id) { currentSolution = id; renderSecondaryNavs(); renderSolutionView(); }
+
+function renderSolutionView() {
+  const sols = SOLUTIONS.filter(s => bizMode === 'ibo' || !(findP(s.id) || {}).iboOnly);
+  if (!sols.find(s => s.id === currentSolution)) currentSolution = sols[0] && sols[0].id;
+  const s = sols.find(x => x.id === currentSolution);
+  if (!s) return;
+  const bundle = findP(s.id);
+  const loadBtn = `<button class="hero-stack-btn" onclick="loadStack('${s.id}')">${t('⊕ Load this stack into calculator', '⊕ 一键加入计算器')}</button>`;
+  heroSet(t('Official Solution', '官方方案'), t(s.title, s.titleZh), t(s.story, s.storyZh), 'nutrition', loadBtn);
+  const contents = (s.contents || []).map(findP).filter(Boolean).filter(p => bizMode === 'ibo' || !p.iboOnly);
+  const cards = [bundle, ...contents.filter(p => bundle && p.id !== bundle.id)].filter(Boolean);
+  document.getElementById('grid-label').textContent = t('Bundle + what’s inside', '套装与单品');
+  document.getElementById('grid-count').textContent = bundle ? `${t('Bundle', '套装价')} ${fmtPrice(price(bundle))}${t('/mo', '/月')}` : '';
+  document.getElementById('product-grid').innerHTML = cards.map(cardHtml).join('');
+}
+
+function loadStack(bundleId) {
+  // Selecting the official bundle SKU itself — one order, official bundle price
+  calcSelections[bundleId] = 1;
+  syncHash();
+  updateCalcWidget();
+  render();
 }
 
 /* ════════════════════════════════════════════════
    CARD RENDERING
    ════════════════════════════════════════════════ */
 function cardHtml(p) {
-  const theme = CATS[p.cat]?.theme || 'nutrition';
+  const theme = CATS[p.cat] ? CATS[p.cat].theme : 'nutrition';
   const initial = p.brand.charAt(0);
-  const meta = PRODUCT_META[p.id] || {};
   const qty = calcSelections[p.id] || 0;
+  const pr = price(p);
+  const iurl = imgUrl(p);
 
-  const imgSection = p.imageUrl
-    ? `<img src="${p.imageUrl}" alt="${p.name}" loading="lazy"
+  const imgSection = iurl
+    ? `<img src="${iurl}" alt="${p.name}" loading="lazy"
             onerror="this.style.display='none';this.parentElement.querySelector('.p-img-placeholder').style.display='flex'">`
     : '';
-  const placeholderDisplay = p.imageUrl ? 'display:none' : '';
+  const placeholderDisplay = iurl ? 'display:none' : '';
 
-  const pvBadge = p.pv !== null
-    ? `<div class="p-pv-badge">${fmtPv(p.pv)} PV</div>`
-    : `<div class="p-pv-badge dim">—</div>`;
+  const pvBadge = (bizMode === 'ibo')
+    ? (p.pv !== null ? `<div class="p-pv-badge">${fmtPv(p.pv)} PV</div>` : `<div class="p-pv-badge dim">—</div>`)
+    : '';
 
-  // Daily cost or one-time tag
   let costTag = '';
-  if (meta.oneTime) {
-    costTag = `<span class="p-onetime-tag">One-time</span>`;
-  } else if (p.iboPrice && meta.daysSupply) {
-    costTag = `<span class="p-daily-cost">${fmtPrice(p.iboPrice / meta.daysSupply)}/day</span>`;
+  if (p.oneTime) {
+    costTag = `<span class="p-onetime-tag">${t('One-time', '一次性')}</span>`;
+  } else if (pr) {
+    const days = p.daysSupply || 30;
+    costTag = `<span class="p-daily-cost">${fmtPrice(pr / days)}${t('/day', '/天')}</span>`;
   }
 
-  // + button
+  const priceLabel = bizMode === 'ibo' ? t('IBO Price', 'IBO价') : t('Price', '价格');
+  const subLine = bizMode === 'ibo' && p.retailPrice
+    ? `<div class="p-price-retail">${t('Retail', '零售')} ${fmtPrice(p.retailPrice)}</div>` : '';
+
   const addLabel = qty > 0 ? `×${qty}` : '+';
   const addClass = qty > 0 ? 'p-add-btn selected' : 'p-add-btn';
 
@@ -1511,12 +3948,12 @@ function cardHtml(p) {
       </div>
       <div class="p-pricing">
         <div class="p-price-col">
-          <div class="p-price-label">IBO Price</div>
+          <div class="p-price-label">${priceLabel}</div>
           <div class="p-price-ibo-row">
-            <span class="p-price-ibo">${fmtPrice(p.iboPrice)}</span>
+            <span class="p-price-ibo">${fmtPrice(pr)}</span>
             ${costTag}
           </div>
-          ${p.retailPrice ? `<div class="p-price-retail">Retail ${fmtPrice(p.retailPrice)}</div>` : ''}
+          ${subLine}
         </div>
         ${pvBadge}
       </div>
@@ -1524,38 +3961,14 @@ function cardHtml(p) {
 }
 
 /* ════════════════════════════════════════════════
-   GRID
-   ════════════════════════════════════════════════ */
-function renderGrid(cat) {
-  const products = cat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.cat === cat);
-  const grid = document.getElementById('product-grid');
-  const label = document.getElementById('grid-label');
-  const count = document.getElementById('grid-count');
-
-  if (cat === 'all') {
-    label.textContent = t('All Products', '全部产品');
-  } else {
-    label.textContent = t(CATS[cat]?.label, CATS[cat]?.labelZh) || cat;
-  }
-  count.textContent = `${products.length} ${t('products', '款产品')}`;
-
-  if (products.length === 0) {
-    grid.innerHTML = '<div class="empty-state"><p>No products in this category yet.</p></div>';
-    return;
-  }
-  grid.innerHTML = products.map(cardHtml).join('');
-}
-
-/* ════════════════════════════════════════════════
    MODAL
    ════════════════════════════════════════════════ */
 function openModal(id) {
-  const p = PRODUCTS.find(x => x.id === id);
+  const p = findP(id);
   if (!p) return;
+  const theme = CATS[p.cat] ? CATS[p.cat].theme : 'nutrition';
+  const d = PRODUCT_DETAILS[id] || {};
 
-  const theme = CATS[p.cat]?.theme || 'nutrition';
-
-  // Image bar
   const imgbar = document.getElementById('modal-imgbar');
   imgbar.className = `modal-imgbar theme-${theme}`;
   document.getElementById('modal-initial').textContent = p.brand.charAt(0);
@@ -1563,53 +3976,58 @@ function openModal(id) {
 
   const mImg = document.getElementById('modal-img');
   const mPlaceholder = document.getElementById('modal-img-placeholder');
-  if (p.imageUrl) {
-    mImg.src = p.imageUrl;
-    mImg.alt = p.name;
-    mImg.style.display = '';
+  const miurl = imgUrl(p);
+  if (miurl) {
+    mImg.src = miurl; mImg.alt = p.name; mImg.style.display = '';
     mPlaceholder.style.display = 'none';
     mImg.onerror = () => { mImg.style.display='none'; mPlaceholder.style.display='flex'; };
-  } else {
-    mImg.style.display = 'none';
-    mPlaceholder.style.display = 'flex';
-  }
+  } else { mImg.style.display = 'none'; mPlaceholder.style.display = 'flex'; }
 
-  // Head
   const brandLabel = document.getElementById('modal-brand-label');
   brandLabel.className = `modal-brand-label theme-${theme}`;
   brandLabel.textContent = p.brand;
   document.getElementById('modal-title').textContent = t(p.name, p.nameZh);
   document.getElementById('modal-tagline').textContent = t(p.tagline, p.taglineZh);
 
-  // Pricing
-  document.getElementById('modal-ibo-val').textContent = fmtPrice(p.iboPrice);
-  const pvEl = document.getElementById('modal-pv-val');
-  pvEl.textContent = fmtPv(p.pv);
-  pvEl.className = p.pv ? 'modal-price-val pv' : 'modal-price-val na';
-  const retailEl = document.getElementById('modal-retail-val');
-  retailEl.textContent = fmtPrice(p.retailPrice);
-  retailEl.className = p.retailPrice ? 'modal-price-val retail' : 'modal-price-val na';
-
-  // Body
-  document.getElementById('modal-advantage').textContent = t(p.advantage, p.advantageZh);
-  document.getElementById('modal-who').textContent = t(p.who, p.whoZh);
-  document.getElementById('modal-how').textContent = t(p.how, p.howZh);
-
-  // Footer
-  const footer = document.getElementById('modal-footer');
-  if (p.notionId) {
-    const url = `https://www.notion.so/${p.notionId.replace(/-/g, '')}`;
-    footer.innerHTML = `<a class="btn-notion" href="${url}" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
-      </svg>
-      ${t('Full Product Profile', '查看完整产品档案')}
-    </a>`;
+  // Pricing cells adapt to mode
+  const cell1 = document.getElementById('modal-cell-1');
+  const cell2 = document.getElementById('modal-cell-2');
+  const days = p.daysSupply || 30;
+  const pr = price(p);
+  document.getElementById('modal-lbl-main').textContent = bizMode === 'ibo' ? t('IBO Price','IBO价') : t('Price','价格');
+  document.getElementById('modal-ibo-val').textContent = fmtPrice(pr);
+  if (bizMode === 'ibo') {
+    cell1.style.display = '';
+    document.getElementById('modal-lbl-2').textContent = 'PV';
+    const pvEl = document.getElementById('modal-pv-val');
+    pvEl.textContent = fmtPv(p.pv);
+    pvEl.className = p.pv ? 'modal-price-val pv' : 'modal-price-val na';
+    document.getElementById('modal-lbl-3').textContent = t('Retail','零售价');
+    document.getElementById('modal-retail-val').textContent = fmtPrice(p.retailPrice);
   } else {
-    footer.innerHTML = '';
+    document.getElementById('modal-lbl-2').textContent = t('Per day','每天');
+    const pvEl = document.getElementById('modal-pv-val');
+    pvEl.textContent = p.oneTime ? t('One-time','一次性') : fmtPrice(pr / days) ;
+    pvEl.className = 'modal-price-val';
+    document.getElementById('modal-lbl-3').textContent = t('Lasts','可用');
+    document.getElementById('modal-retail-val').textContent = p.oneTime ? t('Years','多年') : `${days} ${t('days','天')}`;
   }
 
-  // Open overlay
+  // Body sections — hide when no content
+  const sec = (elId, secId, val) => {
+    document.getElementById(secId).style.display = val ? '' : 'none';
+    if (val) document.getElementById(elId).textContent = val;
+  };
+  sec('modal-advantage', 'modal-sec-advantage', t(d.advantage, d.advantageZh));
+  sec('modal-who', 'modal-sec-who', t(d.who, d.whoZh));
+  sec('modal-how', 'modal-sec-how', bizMode === 'ibo' ? t(d.how, d.howZh) : null);
+
+  const footer = document.getElementById('modal-footer');
+  if (d.notionId && bizMode === 'ibo') {
+    const url = `https://www.notion.so/${d.notionId.replace(/-/g, '')}`;
+    footer.innerHTML = `<a class="btn-notion" href="${url}" target="_blank" rel="noopener">${t('Full Product Profile', '查看完整产品档案')}</a>`;
+  } else footer.innerHTML = '';
+
   document.getElementById('modal-overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -1618,95 +4036,7 @@ function closeModal() {
   document.getElementById('modal-overlay').classList.remove('open');
   document.body.style.overflow = '';
 }
-
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-/* ════════════════════════════════════════════════
-   VIEW MODE SWITCHING
-   ════════════════════════════════════════════════ */
-function setViewMode(mode) {
-  viewMode = mode;
-
-  // Primary tabs
-  document.querySelectorAll('.primary-tab').forEach(b => b.classList.remove('active'));
-  document.getElementById('vtab-' + mode).classList.add('active');
-
-  // Secondary navs
-  document.getElementById('cat-secondary-nav').classList.toggle('visible', mode === 'category');
-  document.getElementById('painpoint-secondary-nav').classList.toggle('visible', mode === 'painpoint');
-  document.getElementById('strategy-secondary-nav').classList.toggle('visible', mode === 'strategy');
-
-  // Hero only in category mode
-  if (mode !== 'category') {
-    document.getElementById('cat-hero').className = 'cat-hero';
-  }
-
-  if (mode === 'category') {
-    renderGrid(currentCat);
-    updateHero(currentCat);
-  } else if (mode === 'painpoint') {
-    renderPainPointChips();
-    renderPainPointGrid(currentPainPoint);
-  } else {
-    renderStrategyChips();
-    renderStrategyGrid(currentStrategy);
-  }
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-/* ════════════════════════════════════════════════
-   PAIN POINT RENDERING
-   ════════════════════════════════════════════════ */
-function renderPainPointChips() {
-  document.getElementById('painpoint-chips').innerHTML =
-    Object.entries(PAIN_POINTS).map(([key, pp]) =>
-      `<button class="secondary-tab${key === currentPainPoint ? ' active' : ''}"
-         onclick="selectPainPoint('${key}')">${t(pp.label, pp.labelZh)}</button>`
-    ).join('');
-}
-
-function selectPainPoint(key) {
-  currentPainPoint = key;
-  renderPainPointChips();
-  renderPainPointGrid(key);
-}
-
-function renderPainPointGrid(key) {
-  const pp = PAIN_POINTS[key];
-  const products = pp.products.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
-  document.getElementById('grid-label').textContent = `${pp.emoji} ${t(pp.label, pp.labelZh)}`;
-  document.getElementById('grid-count').textContent = `${products.length} ${t('products', '款产品')}`;
-  document.getElementById('product-grid').innerHTML = products.length
-    ? products.map(cardHtml).join('')
-    : '<div class="empty-state"><p>No products found.</p></div>';
-}
-
-/* ════════════════════════════════════════════════
-   STRATEGY RENDERING
-   ════════════════════════════════════════════════ */
-function renderStrategyChips() {
-  document.getElementById('strategy-chips').innerHTML =
-    Object.entries(VOL_STRATEGIES).map(([key, s]) =>
-      `<button class="secondary-tab${key === currentStrategy ? ' active' : ''}"
-         onclick="selectStrategy('${key}')">${t(s.label, s.labelZh)}</button>`
-    ).join('');
-}
-
-function selectStrategy(key) {
-  currentStrategy = key;
-  renderStrategyChips();
-  renderStrategyGrid(key);
-}
-
-function renderStrategyGrid(key) {
-  const s = VOL_STRATEGIES[key];
-  const products = s.products.map(id => PRODUCTS.find(p => p.id === id)).filter(Boolean);
-  document.getElementById('grid-label').textContent = `${s.emoji} ${t(s.label, s.labelZh)}`;
-  document.getElementById('grid-count').textContent = t(s.desc, s.descZh);
-  document.getElementById('product-grid').innerHTML = products.length
-    ? products.map(cardHtml).join('')
-    : '<div class="empty-state"><p>No products found.</p></div>';
-}
 
 /* ════════════════════════════════════════════════
    CALCULATOR
@@ -1714,107 +4044,159 @@ function renderStrategyGrid(key) {
 const calcSelections = {};   // { productId: qty (1-3) }
 
 function toggleSelect(id, event) {
-  event.stopPropagation();   // don't open modal
+  if (event) event.stopPropagation();
   const current = calcSelections[id] || 0;
   const next = current >= 3 ? 0 : current + 1;
-  if (next === 0) {
-    delete calcSelections[id];
-  } else {
-    calcSelections[id] = next;
-  }
+  if (next === 0) delete calcSelections[id]; else calcSelections[id] = next;
 
-  // Update button label/state
   const btn = document.getElementById('add-btn-' + id);
   const card = document.getElementById('card-' + id);
   if (btn) {
     btn.textContent = next > 0 ? '×' + next : '+';
-    btn.className   = next > 0 ? 'p-add-btn selected' : 'p-add-btn';
+    btn.className = next > 0 ? 'p-add-btn selected' : 'p-add-btn';
   }
-  if (card) {
-    if (next > 0) card.classList.add('selected');
-    else card.classList.remove('selected');
-  }
-
+  if (card) card.classList.toggle('selected', next > 0);
+  syncHash();
   updateCalcWidget();
 }
 
 function clearCalc() {
   Object.keys(calcSelections).forEach(k => delete calcSelections[k]);
-  // Reset all buttons and cards
-  document.querySelectorAll('.p-add-btn').forEach(btn => {
-    btn.textContent = '+';
-    btn.className = 'p-add-btn';
-  });
-  document.querySelectorAll('.p-card.selected').forEach(card => {
-    card.classList.remove('selected');
-  });
+  document.querySelectorAll('.p-add-btn').forEach(b => { b.textContent = '+'; b.className = 'p-add-btn'; });
+  document.querySelectorAll('.p-card.selected').forEach(c => c.classList.remove('selected'));
+  syncHash();
   updateCalcWidget();
 }
 
-function updateCalcWidget() {
-  let monthlyTotal = 0;
-  let pvTotal      = 0;
-  const onetimeItems = [];
-
+function calcTotals() {
+  let daily = 0, monthly = 0, pvMonthly = 0, oneTime = 0;
   Object.entries(calcSelections).forEach(([id, qty]) => {
-    const p    = PRODUCTS.find(x => x.id === id);
-    const meta = PRODUCT_META[id] || {};
+    const p = findP(id);
     if (!p) return;
-
-    if (meta.oneTime) {
-      // Collect one-time purchases separately
-      onetimeItems.push({ name: p.name, price: p.iboPrice * qty, qty });
-    } else if (p.iboPrice && meta.daysSupply) {
-      // Monthly cost = price * (30 / daysSupply) * qty
-      monthlyTotal += p.iboPrice * (30 / meta.daysSupply) * qty;
-    } else if (p.iboPrice) {
-      // Fallback: assume 30-day supply
-      monthlyTotal += p.iboPrice * qty;
+    const pr = price(p) || 0;
+    if (p.oneTime) {
+      oneTime += pr * qty;
+      if (p.pv) pvMonthly += 0; // one-time PV counted separately if needed
+    } else {
+      const days = p.daysSupply || 30;
+      monthly += pr * (30 / days) * qty;
+      daily += (pr / days) * qty;
+      if (p.pv) pvMonthly += p.pv * (30 / days) * qty;
     }
-
-    if (p.pv) pvTotal += p.pv * (meta.oneTime ? qty : (30 / (meta.daysSupply || 30)) * qty);
   });
+  const oneTimePv = Object.entries(calcSelections).reduce((s,[id,qty]) => {
+    const p = findP(id); return p && p.oneTime && p.pv ? s + p.pv * qty : s;
+  }, 0);
+  const firstOrder = monthly + oneTime;
+  const free = firstOrder >= SHIP.freeAt;
+  return { daily, monthly, pvMonthly, oneTime, oneTimePv, firstOrder, free };
+}
 
-  const widget  = document.getElementById('header-calc');
-  const monthly = document.getElementById('header-calc-monthly');
-  const onetime = document.getElementById('header-calc-onetime');
-
-  const hasItems = Object.keys(calcSelections).length > 0;
-  if (!hasItems) {
-    widget.classList.remove('visible');
-    return;
-  }
-
+function updateCalcWidget() {
+  const widget = document.getElementById('header-calc');
+  const items = Object.keys(calcSelections).length;
+  if (!items) { widget.classList.remove('visible'); document.getElementById('calc-panel').classList.remove('open'); return; }
   widget.classList.add('visible');
-  monthly.textContent = '~$' + monthlyTotal.toFixed(0) + '/mo · ' + Math.round(pvTotal) + ' PV';
+  const tt = calcTotals();
+  let compact = `~${fmtPrice(tt.monthly)}${t('/mo','/月')}`;
+  if (bizMode === 'ibo') compact += ` · ${Math.round(tt.pvMonthly + tt.oneTimePv)} PV`;
+  document.getElementById('header-calc-summary').textContent = compact;
+  renderCalcPanel();
+}
 
-  if (onetimeItems.length > 0) {
-    const onetimeTotal = onetimeItems.reduce((s, i) => s + i.price, 0);
-    onetime.textContent = '+$' + onetimeTotal.toFixed(0) + ' one-time';
-    onetime.style.display = 'inline';
-  } else {
-    onetime.style.display = 'none';
+function renderCalcPanel() {
+  const tt = calcTotals();
+  const rows = [];
+  const row = (l, v, cls) => rows.push(`<div class="calc-row ${cls||''}"><span>${l}</span><span>${v}</span></div>`);
+  row(t('Daily cost','每日成本'), fmtPrice(tt.daily) + t('/day','/天'));
+  row(t('Monthly cost','每月成本'), fmtPrice(tt.monthly) + t('/mo','/月'), 'strong');
+  if (bizMode === 'ibo') row('PV' + t(' / month','/月'), (Math.round((tt.pvMonthly + tt.oneTimePv) * 10) / 10) + ' PV', 'pv');
+  if (tt.oneTime > 0) row(t('One-time add-ons','一次性大件'), '+' + fmtPrice(tt.oneTime), 'onetime');
+  row(t('First order total','首单合计'), fmtPrice(tt.firstOrder), 'strong');
+  const shipTxt = tt.free
+    ? t('Free (over $150)', '免运费（满$150）')
+    : `${fmtPrice(SHIP.std)} · ${t('or','或')} ${fmtPrice(SHIP.ditto)} ${t('on DITTO','DITTO订购')}`;
+  row(t('Shipping est.','预计运费'), shipTxt, 'ship');
+  if (!tt.free) {
+    const gap = SHIP.freeAt - tt.firstOrder;
+    rows.push(`<div class="calc-hint">${t(`Add ${fmtPrice(gap)} more for free shipping`, `再加${fmtPrice(gap)}即可免运费`)}</div>`);
   }
+  document.getElementById('calc-rows').innerHTML = rows.join('');
+}
+
+function toggleCalcPanel() {
+  document.getElementById('calc-panel').classList.toggle('open');
+}
+document.addEventListener('click', (e) => {
+  const panel = document.getElementById('calc-panel');
+  const widget = document.getElementById('header-calc');
+  if (panel.classList.contains('open') && !panel.contains(e.target) && !widget.contains(e.target)) {
+    panel.classList.remove('open');
+  }
+});
+
+/* ════════════════════════════════════════════════
+   SHAREABLE LINKS  (#s=id:qty,id:qty)
+   ════════════════════════════════════════════════ */
+function syncHash() {
+  const parts = Object.entries(calcSelections).map(([id, q]) => q > 1 ? `${id}:${q}` : id);
+  const hash = parts.length ? '#s=' + parts.join(',') : '';
+  history.replaceState(null, '', location.pathname + location.search + hash);
+}
+
+function loadHash() {
+  const m = location.hash.match(/^#s=(.+)$/);
+  if (!m) return;
+  m[1].split(',').forEach(part => {
+    const [id, q] = part.split(':');
+    if (findP(id)) calcSelections[id] = Math.min(3, Math.max(1, parseInt(q || '1', 10) || 1));
+  });
+}
+
+function copyShareLink() {
+  const url = location.href;
+  const done = () => {
+    const btn = document.getElementById('calc-copy-btn');
+    const old = btn.textContent;
+    btn.textContent = t('✓ Copied', '✓ 已复制');
+    setTimeout(() => { btn.textContent = old; }, 1600);
+  };
+  if (navigator.clipboard) navigator.clipboard.writeText(url).then(done);
+  else { prompt('Copy link:', url); }
 }
 
 /* ════════════════════════════════════════════════
-   NAV TABS
+   NAV WIRING + INIT
    ════════════════════════════════════════════════ */
 document.querySelectorAll('.cat-tab').forEach(btn => {
   btn.addEventListener('click', () => {
     currentCat = btn.dataset.cat;
     document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    updateHero(currentCat);
+    updateHeroCat(currentCat);
     renderGrid(currentCat);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
 
-/* ════════════════════════════════════════════════
-   INIT
-   ════════════════════════════════════════════════ */
-renderGrid('all');
+function init() {
+  currentSolution = SOLUTIONS.length ? SOLUTIONS[0].id : null;
+  loadHash();
+  renderPrimaryTabs();
+  updateModeBtn();
+  render();
+  updateCalcWidget();
+}
+
+// Try live data first (GitHub Pages); fall back to inline snapshot (file://)
+try {
+  fetch('data/products.json')
+    .then(r => { if (!r.ok) throw 0; return r.json(); })
+    .then(d => { PRODUCTS = d.products; AREAS = d.areas; SOLUTIONS = d.solutions; })
+    .catch(() => {})
+    .finally(init);
+} catch (e) { init(); }
+
 </script>
 </body>
 </html>
