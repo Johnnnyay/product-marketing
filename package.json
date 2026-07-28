@@ -1,7 +1,7 @@
 {
-  "name": "levelup-product-reference",
+  "name": "product-volume-site",
   "version": "1.0.0",
-  "description": "levelup2026 IBO product reference site",
+  "description": "Product & Volume education site, data-driven from Notion",
   "scripts": {
     "fetch": "node scripts/fetch-notion.js"
   },

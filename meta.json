@@ -1,0 +1,1698 @@
+{
+ "meta": {
+  "Double X Multivitamin 31-day Refill": {
+   "id": "double-x-multivitamin-31-day-refill",
+   "nameZh": "双X综合营养片 31天装",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "22 vitamins & minerals plus phytonutrients from farm-grown plants",
+   "taglineZh": "22种维生素矿物质+植物营养素，农场种植",
+   "areas": [
+    "energy",
+    "aging",
+    "immunity"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Double X Multivitamin 10-day": {
+   "id": "double-x-multivitamin-10-day",
+   "nameZh": "双X综合营养片 10天体验装",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Try the flagship multivitamin in a 10-day starter",
+   "taglineZh": "旗舰综合营养素10天体验装",
+   "areas": [
+    "energy",
+    "immunity"
+   ],
+   "iboOnly": false,
+   "imageUrl": "https://www.amway.com/medias/123364-en-US-690px-01?context=bWFzdGVyfHJvb3R8MTAwNDc0fGltYWdlL3BuZ3xoZDEvaGYwLzk0NDY3MTc4ODIzOTgucG5nfDQ5NmQ3NzU2NDdjOTk4ZjJlMGQxNGQ0OGU0NWE0NjkzOWEwZDE1YjA5ZWQ0Nzg3NDU3ZDVmNWU1MjUwMzlhMGE"
+  },
+  "Vitamin C Extended Release 180ct": {
+   "id": "vitamin-c-extended-release-180ct",
+   "nameZh": "维生素C缓释片 180粒",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "8-hour slow release from acerola cherries, no flush-out",
+   "taglineZh": "针叶樱桃来源，8小时缓释吸收",
+   "areas": [
+    "immunity",
+    "skin",
+    "aging"
+   ],
+   "iboOnly": false,
+   "imageUrl": "https://www.amway.com/medias/109747-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w0NTI0MDN8aW1hZ2UvcG5nfGltYWdlcy9oMWEvaGEzLzk0NDk4ODA1MTg2ODYucG5nfDhhMzQ4NmUzNWUwODM2ZGYzODQ2MDk0YWQ4ODQxMThjMmUwYTlmZDBlYWIyMzFhYzBlZDc2YmFkOTcyNzY1MGE"
+  },
+  "Vitamin C Extended Release 60ct": {
+   "id": "vitamin-c-extended-release-60ct",
+   "nameZh": "维生素C缓释片 60粒",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Same 8-hour release, smaller trial size",
+   "taglineZh": "同款缓释配方，小瓶体验装",
+   "areas": [
+    "immunity",
+    "skin"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Vitamin B Complex 120ct": {
+   "id": "vitamin-b-complex-120ct",
+   "nameZh": "维生素B族 120粒",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Dual-action B for steady energy metabolism, 4-month supply",
+   "taglineZh": "双效B族，稳定能量代谢，可用4个月",
+   "areas": [
+    "energy",
+    "brain",
+    "sleep"
+   ],
+   "iboOnly": false,
+   "imageUrl": "https://www.amway.com/medias/110171-en-US-690px-01?context=bWFzdGVyfGltYWdlc3cyODQxMDJ8aW1hZ2UvcG5nfGltYWdlcy9oYjIvaDQ4Lzk0NDgxNjk0MzkyNjIucG5nfGY1NGI2MDQyZjVhZTliZTBkOWRlMWVhODRkOWYwYTEzNGNhZWRmMTgyZGMwYTYzMTdiZTc1ZmM2NjU1NWIwYzM"
+  },
+  "Vitamin B Complex 30ct": {
+   "id": "vitamin-b-complex-30ct",
+   "nameZh": "维生素B族 30粒",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "One-month B complex for energy support",
+   "taglineZh": "一个月装B族，能量支持",
+   "areas": [
+    "energy",
+    "brain"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Vitamin D": {
+   "id": "vitamin-d",
+   "nameZh": "维生素D",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Sunshine vitamin for bones and immune support",
+   "taglineZh": "阳光维生素，骨骼与免疫支持",
+   "areas": [
+    "immunity",
+    "aging"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Vitamin E Chewable": {
+   "id": "vitamin-e-chewable",
+   "nameZh": "天然维生素E咀嚼片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Antioxidant E with lecithin, chewable",
+   "taglineZh": "天然VE+卵磷脂，咀嚼型抗氧化",
+   "areas": [
+    "aging",
+    "heart",
+    "skin"
+   ],
+   "iboOnly": false,
+   "imageUrl": "https://www.amway.com/medias/A4042-en-US-690px-01?context=bWFzdGVyfGltYWdlc3wzMTI0MTJ8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2g1MS9oYmUvOTY3NjQwNjY4NTcyNi9BNDA0Mi1lbi1VUy02OTBweC0wMXwzNGQwYmQ2ODc2MzljZGE3Y2I5ZDIxNTc3NzE0MGEyNzRlZTE0N2Y1MDVkZWM3YmEwZWYwOTFhYmY4YWFjYjFk"
+  },
+  "Advanced Omega": {
+   "id": "advanced-omega",
+   "nameZh": "深海鱼油 Omega-3",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Triple-strength omega-3 for heart, brain and joints",
+   "taglineZh": "三倍浓缩Omega-3，护心健脑",
+   "areas": [
+    "heart",
+    "brain",
+    "skin",
+    "aging"
+   ],
+   "iboOnly": false,
+   "imageUrl": "https://www.amway.com/medias/126136-en-US-690px-01?context=bWFzdGVyfGltYWdlc3wxMDExNTF8aW1hZ2UvcG5nfGltYWdlcy9oMzAvaDA0Lzk0OTUyNDI1NzE4MDYucG5nfDYzMWY1NDJmNjhhMDMyNGUxODkwODAwNDFhZDIxMjJmYjUzODlkYjZjZmY4YzFkMDRlNTNlMzI1OTA0ZDMzODI"
+  },
+  "Calcium Magnesium D": {
+   "id": "calcium-magnesium-d",
+   "nameZh": "钙镁D片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Bone trio: calcium, magnesium and vitamin D",
+   "taglineZh": "钙+镁+D 骨骼铁三角",
+   "areas": [
+    "sleep",
+    "muscle",
+    "aging"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Magnesium": {
+   "id": "magnesium",
+   "nameZh": "镁片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Calm muscles and nerves, evening-friendly",
+   "taglineZh": "放松肌肉与神经，晚间好伙伴",
+   "areas": [
+    "sleep",
+    "muscle",
+    "heart"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Iron & Folic Acid": {
+   "id": "iron-folic-acid",
+   "nameZh": "铁质叶酸片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Iron plus folic acid for healthy blood",
+   "taglineZh": "补铁+叶酸，气血支持",
+   "areas": [
+    "energy"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Plant Protein Powder": {
+   "id": "plant-protein-powder",
+   "nameZh": "有机植物蛋白粉",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "21g organic tri-plant protein, smooth and creamy",
+   "taglineZh": "21克有机三重植物蛋白，顺滑好喝",
+   "areas": [
+    "muscle",
+    "weight",
+    "hair",
+    "energy"
+   ],
+   "iboOnly": false,
+   "imageUrl": "https://www.amway.com/medias/125921-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w1NDc5MjN8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2hmNS9oMzgvMTAyNjMxODAxMTU5OTgvMTI1OTIxLWVuLVVTLTY5MHB4LTAxfDIxNDAxNzg3MjY2OTIzNDU4NzM5YmZkZDFhNGQ4NGQzOWI4OTA1ODQzNDA1OGIzODZhOWRkOWIyNTIyNDE1MmY"
+  },
+  "Organics All-in-One Bars": {
+   "id": "organics-all-in-one-bars",
+   "nameZh": "有机全营养蛋白棒",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Organic protein bar, real-food snack replacement",
+   "taglineZh": "有机蛋白棒，健康代餐零食",
+   "areas": [
+    "weight",
+    "muscle",
+    "energy"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Green Superfood": {
+   "id": "green-superfood",
+   "nameZh": "绿色超级食物粉",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Organic greens powder for daily veggie gaps",
+   "taglineZh": "有机绿色蔬菜粉，补足每日蔬菜缺口",
+   "areas": [
+    "digestion",
+    "weight",
+    "immunity"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Probiotic": {
+   "id": "probiotic",
+   "nameZh": "益生菌",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "6.3 billion CFU clinically studied strains for gut & immunity",
+   "taglineZh": "63亿活菌，肠道与免疫双支持",
+   "areas": [
+    "digestion",
+    "immunity",
+    "skin"
+   ],
+   "iboOnly": false,
+   "imageUrl": "https://www.amway.com/medias/120571-en-US-150px-01?context=bWFzdGVyfGltYWdlc3w3OTExfGltYWdlL3BuZ3xpbWFnZXMvaGNiL2g3OS85NDQ5ODgyOTEwNzUwLnBuZ3w5ZTAwODllMjZhNzc5NmJmYmYwZTU0ZDlkNTdjNjE2YWJjNzZjZTJjZWE2MTYyY2RmODE5YTJkOGNiMzQxYmM2"
+  },
+  "Digestive Enzyme": {
+   "id": "digestive-enzyme",
+   "nameZh": "消化酶",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Plant-sourced enzymes to ease heavy meals",
+   "taglineZh": "植物来源消化酶，大餐救星",
+   "areas": [
+    "digestion"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Begin Daily GI Primer": {
+   "id": "begin-daily-gi-primer",
+   "nameZh": "Begin每日肠道启动粉",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "6-in-1 gut drink: fermented greens, prebiotics, enzymes",
+   "taglineZh": "六合一肠道饮：发酵绿蔬+益生元+酶",
+   "areas": [
+    "digestion",
+    "weight",
+    "energy"
+   ],
+   "iboOnly": false,
+   "imageUrl": "https://www.amway.com/medias/127725-en-US-150px-01?context=bWFzdGVyfGltYWdlc3wyMjU0MHxpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaDk5L2hlMi85ODMyMDA0NjE2MjIyLzEyNzcyNS1lbi1VUy0xNTBweC0wMXwyZTZjYjVkYjBlOGJjYWY0ZGNjYTE0YjQ5YzEwYWUzZDFiZDU5MzAyY2E3ZTIxZTE5YTZlMjdjOTRhNGJjYjJk"
+  },
+  "Sleep Gummies": {
+   "id": "sleep-gummies",
+   "nameZh": "甜梦睡眠软糖",
+   "brand": "n* by Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Melatonin-free botanical gummies for restful nights",
+   "taglineZh": "植物配方助眠软糖，无褪黑素依赖",
+   "areas": [
+    "sleep"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Go Shield": {
+   "id": "go-shield",
+   "nameZh": "免疫小卫士软糖",
+   "brand": "n* by Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Elderberry immunity gummies for on-the-go",
+   "taglineZh": "接骨木莓免疫软糖，随时防护",
+   "areas": [
+    "immunity"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Twist Tubes": {
+   "id": "twist-tubes",
+   "nameZh": "随身营养饮管",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Twist into water: immunity, joint or antioxidant",
+   "taglineZh": "拧入水中即饮：免疫/关节/抗氧化",
+   "areas": [
+    "immunity",
+    "energy"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Hair Skin Nail": {
+   "id": "hair-skin-nail",
+   "nameZh": "秀发亮肤美甲片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Biotin, collagen and silicon for hair, skin & nails",
+   "taglineZh": "生物素+胶原+硅，由内养出好发好肤",
+   "areas": [
+    "hair",
+    "skin"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Lean Muscle": {
+   "id": "lean-muscle",
+   "nameZh": "瘦肌肉支持片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "CLA support for lean muscle with training",
+   "taglineZh": "CLA配方，训练期瘦体重支持",
+   "areas": [
+    "muscle",
+    "weight"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Men's Pack": {
+   "id": "men-s-pack",
+   "nameZh": "男士营养包",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Daily grab-and-go pack tailored for men",
+   "taglineZh": "男士每日随身营养包",
+   "areas": [
+    "energy",
+    "heart"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Women's Pack": {
+   "id": "women-s-pack",
+   "nameZh": "女士营养包",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Daily grab-and-go pack tailored for women",
+   "taglineZh": "女士每日随身营养包",
+   "areas": [
+    "energy",
+    "skin"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "ClearGuard Allergy": {
+   "id": "clearguard-allergy",
+   "nameZh": "畅爽呼吸片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Seasonal comfort support for sensitive noses",
+   "taglineZh": "换季敏感鼻舒适支持",
+   "areas": [
+    "immunity"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Garlic Heart Care": {
+   "id": "garlic-heart-care",
+   "nameZh": "大蒜精华片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Odor-controlled garlic for cardiovascular support",
+   "taglineZh": "无味大蒜精华，心血管支持",
+   "areas": [
+    "heart"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Liver Support": {
+   "id": "liver-support",
+   "nameZh": "护肝片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Milk thistle blend for liver health",
+   "taglineZh": "奶蓟草配方，肝脏健康支持",
+   "areas": [
+    "digestion"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Memory Builder": {
+   "id": "memory-builder",
+   "nameZh": "记忆力支持片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Cistanche extract studied for memory support",
+   "taglineZh": "管花肉苁蓉萃取，记忆力支持",
+   "areas": [
+    "brain"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Prostate Health": {
+   "id": "prostate-health",
+   "nameZh": "前列腺健康片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Saw palmetto and nettle root for men 40+",
+   "taglineZh": "锯棕榈+荨麻根，40+男士之选",
+   "areas": [
+    "aging"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Slimmetry": {
+   "id": "slimmetry",
+   "nameZh": "轻盈片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Green tea extract to support healthy weight efforts",
+   "taglineZh": "绿茶萃取，健康体重管理支持",
+   "areas": [
+    "weight"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "XS Energy Drinks 12-pack": {
+   "id": "xs-energy-drinks-12-pack",
+   "nameZh": "XS能量饮料 12罐",
+   "brand": "XS",
+   "cat": "sports",
+   "tagline": "Zero sugar, B-vitamin energy that actually tastes good",
+   "taglineZh": "零糖B族能量饮，好喝不腻",
+   "areas": [
+    "energy"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "XS Energy + Focus 60ct": {
+   "id": "xs-energy-focus-60ct",
+   "nameZh": "XS能量专注片 60粒",
+   "brand": "XS",
+   "cat": "sports",
+   "tagline": "Caffeine + nootropics tablet, energy without the can",
+   "taglineZh": "咖啡因+专注配方，片剂随身带",
+   "areas": [
+    "energy",
+    "brain"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "XS Grass-Fed Whey Protein": {
+   "id": "xs-grass-fed-whey-protein",
+   "nameZh": "XS草饲乳清蛋白",
+   "brand": "XS",
+   "cat": "sports",
+   "tagline": "25g grass-fed whey, third-party tested",
+   "taglineZh": "25克草饲乳清，第三方检测",
+   "areas": [
+    "muscle"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "XS Muscle Multiplier (EAAs)": {
+   "id": "xs-muscle-multiplier-eaas",
+   "nameZh": "XS必需氨基酸",
+   "brand": "XS",
+   "cat": "sports",
+   "tagline": "9 essential amino acids for training recovery",
+   "taglineZh": "9种必需氨基酸，训练恢复加速",
+   "areas": [
+    "muscle"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "XS Pre-Workout Boost": {
+   "id": "xs-pre-workout-boost",
+   "nameZh": "XS训练前激活粉",
+   "brand": "XS",
+   "cat": "sports",
+   "tagline": "Clean pre-workout push without the jitters",
+   "taglineZh": "干净爆发力，不心慌不掉线",
+   "areas": [
+    "muscle",
+    "energy"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "XS Post-Workout Recovery": {
+   "id": "xs-post-workout-recovery",
+   "nameZh": "XS训练后恢复粉",
+   "brand": "XS",
+   "cat": "sports",
+   "tagline": "Refuel and rebuild right after training",
+   "taglineZh": "练后即时补充，修复肌肉",
+   "areas": [
+    "muscle"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "XS Ignite Thermogenic Powder": {
+   "id": "xs-ignite-thermogenic-powder",
+   "nameZh": "XS燃动粉",
+   "brand": "XS",
+   "cat": "sports",
+   "tagline": "Thermogenic blend to fire up active days",
+   "taglineZh": "生热配方，燃动活力日",
+   "areas": [
+    "weight",
+    "energy"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "XS Protein Bars 12-pack": {
+   "id": "xs-protein-bars-12-pack",
+   "nameZh": "XS蛋白棒 12支",
+   "brand": "XS",
+   "cat": "sports",
+   "tagline": "Protein snack bars for busy days",
+   "taglineZh": "忙碌日子的蛋白零食",
+   "areas": [
+    "muscle",
+    "weight"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "XS RTD Protein Shakes 12-pack": {
+   "id": "xs-rtd-protein-shakes-12-pack",
+   "nameZh": "XS即饮蛋白奶昔 12瓶",
+   "brand": "XS",
+   "cat": "sports",
+   "tagline": "Ready-to-drink protein, zero prep",
+   "taglineZh": "开盖即饮蛋白，省时省事",
+   "areas": [
+    "muscle",
+    "weight"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "XS Protein Crisps": {
+   "id": "xs-protein-crisps",
+   "nameZh": "XS蛋白脆片",
+   "brand": "XS",
+   "cat": "sports",
+   "tagline": "High-protein crunchy snack, BBQ flavor",
+   "taglineZh": "高蛋白脆片，解馋不长胖",
+   "areas": [
+    "weight"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "XS CocoWater 12-pack": {
+   "id": "xs-cocowater-12-pack",
+   "nameZh": "XS椰子水 12罐",
+   "brand": "XS",
+   "cat": "sports",
+   "tagline": "Coconut water hydration with electrolytes",
+   "taglineZh": "椰子水电解质补水",
+   "areas": [
+    "energy",
+    "muscle"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Perfect Empowered Drinking Water": {
+   "id": "perfect-empowered-drinking-water",
+   "nameZh": "完美活力水",
+   "brand": "Perfect",
+   "cat": "sports",
+   "tagline": "Purified, oxygenated, pH-balanced water case",
+   "taglineZh": "净化富氧平衡水，整箱装",
+   "areas": [
+    "energy"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry Hydrating Lotion SPF30": {
+   "id": "artistry-hydrating-lotion-spf30",
+   "nameZh": "雅姿保湿乳SPF30",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Daily hydration with SPF 30 protection",
+   "taglineZh": "日常保湿+SPF30防护",
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry Hydrating Day Lotion SPF30": {
+   "id": "artistry-hydrating-day-lotion-spf30",
+   "nameZh": "雅姿水润日霜SPF30",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Lightweight day lotion for thirsty skin",
+   "taglineZh": "轻盈日霜，干渴肌肤解渴",
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry Hydrating Eye Gel Cream": {
+   "id": "artistry-hydrating-eye-gel-cream",
+   "nameZh": "雅姿水润眼胶",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Cooling gel cream for tired eyes",
+   "taglineZh": "清凉眼胶，唤醒疲惫双眼",
+   "areas": [
+    "skin",
+    "aging"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry Hydrating System Bundle": {
+   "id": "artistry-hydrating-system-bundle",
+   "nameZh": "雅姿水润三件套",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Complete hydrating routine: cleanse, tone, moisturize",
+   "taglineZh": "水润全套：洁面+爽肤+保湿",
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry Renewing Day Lotion SPF30": {
+   "id": "artistry-renewing-day-lotion-spf30",
+   "nameZh": "雅姿焕新日霜SPF30",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Renewing peptide day lotion with SPF",
+   "taglineZh": "胜肽焕新日霜+防晒",
+   "areas": [
+    "aging",
+    "skin"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry Renewing System Bundle": {
+   "id": "artistry-renewing-system-bundle",
+   "nameZh": "雅姿焕新三件套",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Anti-aging renewal routine in one set",
+   "taglineZh": "抗老焕新全套方案",
+   "areas": [
+    "aging"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry Firming System Bundle": {
+   "id": "artistry-firming-system-bundle",
+   "nameZh": "雅姿紧致三件套",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Firming routine for lift and bounce",
+   "taglineZh": "紧致提拉全套方案",
+   "areas": [
+    "aging"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry Defying Serum": {
+   "id": "artistry-defying-serum",
+   "nameZh": "雅姿抗初老精华",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Phyto-peptide serum for early aging signs",
+   "taglineZh": "植物胜肽精华，狙击初老",
+   "areas": [
+    "aging"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry Labs Illuminating Serum": {
+   "id": "artistry-labs-illuminating-serum",
+   "nameZh": "雅姿实验室亮采精华",
+   "brand": "Artistry Labs",
+   "cat": "beauty",
+   "tagline": "Clinical-grade brightening serum",
+   "taglineZh": "实验室级亮白精华",
+   "areas": [
+    "skin",
+    "aging"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry Labs Retexturizing Serum": {
+   "id": "artistry-labs-retexturizing-serum",
+   "nameZh": "雅姿实验室焕肤精华",
+   "brand": "Artistry Labs",
+   "cat": "beauty",
+   "tagline": "Resurfacing serum for smoother texture",
+   "taglineZh": "焕肤精华，细腻肤质",
+   "areas": [
+    "skin",
+    "aging"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry Labs Retexturizing System": {
+   "id": "artistry-labs-retexturizing-system",
+   "nameZh": "雅姿实验室焕肤仪",
+   "brand": "Artistry Labs",
+   "cat": "beauty",
+   "tagline": "At-home resurfacing device system",
+   "taglineZh": "居家焕肤仪器套装",
+   "areas": [
+    "aging"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry LongXevity Creams": {
+   "id": "artistry-longxevity-creams",
+   "nameZh": "雅姿长青焕颜霜",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Flagship longevity cream, soft or rich texture",
+   "taglineZh": "旗舰级长青面霜，轻润/丰润可选",
+   "areas": [
+    "aging"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry LongXevity Eye Cream": {
+   "id": "artistry-longxevity-eye-cream",
+   "nameZh": "雅姿长青眼霜",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Premium eye cream for deep-set lines",
+   "taglineZh": "高端眼霜，深层细纹对策",
+   "areas": [
+    "aging"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry Intensive Skincare 14 Night Reset": {
+   "id": "artistry-intensive-skincare-14-night-reset",
+   "nameZh": "雅姿14夜焕肤安瓶",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "14-night ampoule reset program",
+   "taglineZh": "14夜安瓶密集焕肤",
+   "areas": [
+    "aging",
+    "skin"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry Everyday Skin Solution Bundle": {
+   "id": "artistry-everyday-skin-solution-bundle",
+   "nameZh": "雅姿每日护肤套装",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Daily skin essentials in one bundle",
+   "taglineZh": "每日护肤基础全套",
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry Signature Select Brightening Mask": {
+   "id": "artistry-signature-select-brightening-mask",
+   "nameZh": "雅姿亮采面膜",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Brightening treatment mask",
+   "taglineZh": "亮采焕白面膜",
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry Signature Select Purifying Mask": {
+   "id": "artistry-signature-select-purifying-mask",
+   "nameZh": "雅姿净澈面膜",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Deep-clean purifying mask for congested skin",
+   "taglineZh": "深层净澈，粉刺肌友好",
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry Signature Select Firming Mask": {
+   "id": "artistry-signature-select-firming-mask",
+   "nameZh": "雅姿紧致面膜",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Firming treatment mask",
+   "taglineZh": "紧致提拉面膜",
+   "areas": [
+    "aging"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry Signature Select Polishing Mask": {
+   "id": "artistry-signature-select-polishing-mask",
+   "nameZh": "雅姿焕肤面膜",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Gentle polishing mask for smooth glow",
+   "taglineZh": "温和焕肤，透亮光泽",
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry Studio Spot On Dots": {
+   "id": "artistry-studio-spot-on-dots",
+   "nameZh": "雅姿痘痘贴",
+   "brand": "Artistry Studio",
+   "cat": "beauty",
+   "tagline": "Blemish patches that work overnight",
+   "taglineZh": "一夜见效痘痘贴",
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry Studio Done with Zit": {
+   "id": "artistry-studio-done-with-zit",
+   "nameZh": "雅姿祛痘凝胶",
+   "brand": "Artistry Studio",
+   "cat": "beauty",
+   "tagline": "Salicylic acid spot treatment",
+   "taglineZh": "水杨酸点涂祛痘",
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry Studio Eye Look Rested": {
+   "id": "artistry-studio-eye-look-rested",
+   "nameZh": "雅姿去浮肿眼霜",
+   "brand": "Artistry Studio",
+   "cat": "beauty",
+   "tagline": "De-puff and brighten tired morning eyes",
+   "taglineZh": "晨间去浮肿提亮眼周",
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Artistry Men Face Wash": {
+   "id": "artistry-men-face-wash",
+   "nameZh": "雅姿男士洁面",
+   "brand": "Artistry Men",
+   "cat": "beauty",
+   "tagline": "Energizing face wash built for men's skin",
+   "taglineZh": "男士专属活力洁面",
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Glister Toothpaste": {
+   "id": "glister-toothpaste",
+   "nameZh": "丽齿健多效牙膏",
+   "brand": "Glister",
+   "cat": "care",
+   "tagline": "Remineralizing multi-action toothpaste, concentrated formula",
+   "taglineZh": "多效修护牙膏，浓缩配方",
+   "areas": [
+    "oral"
+   ],
+   "iboOnly": false,
+   "imageUrl": "https://www.amway.com/medias/124106-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w0MTQ3OXxpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaGFlL2hjMC85NTE4MTY3MDMxODM4LzEyNDEwNi1lbi1VUy02OTBweC0wMXwzZjk1MTcxYjIxMTcyMDdmYTY4NTJkNjE0MmU4NzRmYzU5ZTk4MTQ1NTBjOWE3NmVjOTZlZGExNWM3YzcwNWZm"
+  },
+  "Glister Power Toothbrush": {
+   "id": "glister-power-toothbrush",
+   "nameZh": "丽齿健声波电动牙刷",
+   "brand": "Glister",
+   "cat": "care",
+   "tagline": "Sonic toothbrush with UV sanitizing base",
+   "taglineZh": "声波电动牙刷+UV消毒座",
+   "areas": [
+    "oral"
+   ],
+   "iboOnly": false,
+   "imageUrl": "https://www.amway.com/medias/127705-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w2NTAyMXxpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaDBkL2gyNy85ODgyMjkzNzMxMzU4LzEyNzcwNS1lbi1VUy02OTBweC0wMXxmODFkMDM1MWZhZTRiOGRmNzRjNzJiM2NlZDI1OTFlOTQ0NmIyZDE4MjIwYmQ1MzVkNjk0YjY4ZjVmYTBkNTEx"
+  },
+  "Glister Refresher Spray": {
+   "id": "glister-refresher-spray",
+   "nameZh": "丽齿健清新喷雾",
+   "brand": "Glister",
+   "cat": "care",
+   "tagline": "Pocket breath refresher, sugar-free",
+   "taglineZh": "随身口气清新喷雾，无糖",
+   "areas": [
+    "oral"
+   ],
+   "iboOnly": false,
+   "imageUrl": "https://www.amway.com/medias/124111-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w0MTYxOHxpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaGQyL2hhNC85NTE4MTY3ODgzODA2LzEyNDExMS1lbi1VUy02OTBweC0wMXw1YzM4NjU2YTRjNTVhOGIwNWMyM2I5NDI1YjQ2MjQ5ZGUyNTgxOGE3OTZlMDRmYjY4ZDM1YmJkOGVjOWY0NTRh"
+  },
+  "Glister Floss 2-pack": {
+   "id": "glister-floss-2-pack",
+   "nameZh": "丽齿健牙线 2支装",
+   "brand": "Glister",
+   "cat": "care",
+   "tagline": "Smooth-glide floss two-pack",
+   "taglineZh": "顺滑牙线两支装",
+   "areas": [
+    "oral"
+   ],
+   "iboOnly": false,
+   "imageUrl": "https://www.amway.com/medias/124112-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w2OTg1MnxpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaGU2L2g1Yy8xMDE1MjA3NzY1NjA5NC8xMjQxMTItZW4tVVMtNjkwcHgtMDF8NTkyZmNlY2M4Zjk1NTQ2YjRmMmMyMDI1M2ZhOWUwYTFhNGZkZTNlNzkzMTAxYzBhYmMwYWQ1Njg3MzJjYjFhNQ"
+  },
+  "Glister Oral Rinse": {
+   "id": "glister-oral-rinse",
+   "nameZh": "丽齿健漱口水",
+   "brand": "Glister",
+   "cat": "care",
+   "tagline": "Alcohol-free rinse for all-day fresh mouth",
+   "taglineZh": "无酒精漱口水，全天清新",
+   "areas": [
+    "oral"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Satinique Purifying Shampoo 280ml": {
+   "id": "satinique-purifying-shampoo-280ml",
+   "nameZh": "丝婷净化洗发水 280ml",
+   "brand": "Satinique",
+   "cat": "care",
+   "tagline": "Deep-clean scalp reset for oily roots",
+   "taglineZh": "头皮深层净化，油性发质救星",
+   "areas": [
+    "hair"
+   ],
+   "iboOnly": false,
+   "imageUrl": "https://www.amway.com/medias/126460-en-US-690px-01?context=bWFzdGVyfGltYWdlc3wxMTIzMTF8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2g1MS9oMGYvOTk1ODg3OTQyODYzOC8xMjY0NjAtZW4tVVMtNjkwcHgtMDF8MTQyZjU3NjI4MmUyZTcwNDFiYzNhMjE1NzA3MTVhMjg5YmI1NDhkMDU0ZDFhN2E0NGM5NDk5MjQxODc0OTE5NQ"
+  },
+  "Satinique Purifying Shampoo 750ml": {
+   "id": "satinique-purifying-shampoo-750ml",
+   "nameZh": "丝婷净化洗发水 750ml",
+   "brand": "Satinique",
+   "cat": "care",
+   "tagline": "Family-size purifying shampoo, 4-month supply",
+   "taglineZh": "家庭装净化洗发水，可用4个月",
+   "areas": [
+    "hair"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Satinique Smooth Shampoo 280ml": {
+   "id": "satinique-smooth-shampoo-280ml",
+   "nameZh": "丝婷柔润洗发水 280ml",
+   "brand": "Satinique",
+   "cat": "care",
+   "tagline": "Smooth moisture for dry, frizzy hair",
+   "taglineZh": "柔润保湿，毛躁干发变顺滑",
+   "areas": [
+    "hair"
+   ],
+   "iboOnly": false,
+   "imageUrl": "https://www.amway.com/medias/126449-en-US-690px-01?context=bWFzdGVyfGltYWdlc3wxMDk3MTF8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2gzOS9oYzkvOTk1MzgwOTk4OTY2Mi8xMjY0NDktZW4tVVMtNjkwcHgtMDF8YjVmMDY4ZTE0NGMzMGJhM2ZjZGQ5NmJmNjY2NjU0Y2E4MzE5MTdhZTkzMjViMGNjN2I4MGY5YWU4YTc5ZDk0Yg"
+  },
+  "Satinique Smooth Conditioner": {
+   "id": "satinique-smooth-conditioner",
+   "nameZh": "丝婷柔润护发素",
+   "brand": "Satinique",
+   "cat": "care",
+   "tagline": "Detangling conditioner for silky finish",
+   "taglineZh": "顺滑护发素，丝滑收尾",
+   "areas": [
+    "hair"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "g&h Nourish Body Wash": {
+   "id": "g-h-nourish-body-wash",
+   "nameZh": "g&h滋养沐浴露",
+   "brand": "g&h",
+   "cat": "care",
+   "tagline": "Honey and shea gentle daily body wash",
+   "taglineZh": "蜂蜜乳木果温和沐浴",
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "g&h Nourish Body Lotion": {
+   "id": "g-h-nourish-body-lotion",
+   "nameZh": "g&h滋养身体乳",
+   "brand": "g&h",
+   "cat": "care",
+   "tagline": "24-hour moisture body lotion",
+   "taglineZh": "24小时保湿身体乳",
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "g&h Protect Body Lotion SPF50": {
+   "id": "g-h-protect-body-lotion-spf50",
+   "nameZh": "g&h防晒身体乳SPF50",
+   "brand": "g&h",
+   "cat": "care",
+   "tagline": "Broad-spectrum SPF 50 body protection",
+   "taglineZh": "SPF50广谱身体防晒",
+   "areas": [
+    "skin"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "eSpring Water Purifier (Chrome)": {
+   "id": "espring-water-purifier-chrome",
+   "nameZh": "益之源净水器（豪华龙头）",
+   "brand": "eSpring",
+   "cat": "home",
+   "tagline": "UV-C + carbon purification, designer faucet",
+   "taglineZh": "UV-C紫外线+活性炭，设计师龙头款",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "eSpring Above Counter Unit": {
+   "id": "espring-above-counter-unit",
+   "nameZh": "益之源净水器（台上型）",
+   "brand": "eSpring",
+   "cat": "home",
+   "tagline": "World's best-selling home water treatment brand",
+   "taglineZh": "全球销量领先家用净水品牌",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "eSpring UV Replacement Filter": {
+   "id": "espring-uv-replacement-filter",
+   "nameZh": "益之源UV滤芯",
+   "brand": "eSpring",
+   "cat": "home",
+   "tagline": "Annual replacement cartridge, one per year",
+   "taglineZh": "年度更换滤芯，一年一换",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "eSpring e3 Carbon Filter": {
+   "id": "espring-e3-carbon-filter",
+   "nameZh": "益之源e3碳滤芯",
+   "brand": "eSpring",
+   "cat": "home",
+   "tagline": "Carbon filter alternative cartridge",
+   "taglineZh": "碳滤芯替换装",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Atmosphere Sky Air Purifier": {
+   "id": "atmosphere-sky-air-purifier",
+   "nameZh": "逸新空气净化器 Sky",
+   "brand": "Atmosphere",
+   "cat": "home",
+   "tagline": "HEPA purification for rooms up to 465 sq ft",
+   "taglineZh": "三重滤净，适用465平方英尺",
+   "areas": [
+    "home",
+    "immunity"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Atmosphere Mini Air Purifier": {
+   "id": "atmosphere-mini-air-purifier",
+   "nameZh": "逸新空气净化器 Mini",
+   "brand": "Atmosphere",
+   "cat": "home",
+   "tagline": "Compact purifier for bedrooms up to 200 sq ft",
+   "taglineZh": "小巧机身，卧室净化之选",
+   "areas": [
+    "home",
+    "immunity"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Atmosphere Carbon Filter Replacement": {
+   "id": "atmosphere-carbon-filter-replacement",
+   "nameZh": "逸新碳滤网替换装",
+   "brand": "Atmosphere",
+   "cat": "home",
+   "tagline": "Replacement carbon filter for Atmosphere units",
+   "taglineZh": "逸新替换碳滤网",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "LOC Multi-Purpose Cleaner": {
+   "id": "loc-multi-purpose-cleaner",
+   "nameZh": "乐新多用途清洁剂",
+   "brand": "Amway Home",
+   "cat": "home",
+   "tagline": "Concentrated 1:50 cleaner, months per bottle",
+   "taglineZh": "1:50浓缩配方，一瓶用数月",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "LOC Multi-Purpose Wipes": {
+   "id": "loc-multi-purpose-wipes",
+   "nameZh": "乐新清洁湿巾",
+   "brand": "Amway Home",
+   "cat": "home",
+   "tagline": "Tough wipes for quick cleanups",
+   "taglineZh": "强力清洁湿巾",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "SA8 Liquid Laundry": {
+   "id": "sa8-liquid-laundry",
+   "nameZh": "SA8浓缩洗衣液",
+   "brand": "Amway Home",
+   "cat": "home",
+   "tagline": "Concentrated, biodegradable, tough on stains",
+   "taglineZh": "浓缩可降解，去渍强力",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "SA8 Powder Laundry Detergent": {
+   "id": "sa8-powder-laundry-detergent",
+   "nameZh": "SA8浓缩洗衣粉",
+   "brand": "Amway Home",
+   "cat": "home",
+   "tagline": "Classic concentrated powder detergent",
+   "taglineZh": "经典浓缩洗衣粉",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Dish Drops Dishwashing Liquid": {
+   "id": "dish-drops-dishwashing-liquid",
+   "nameZh": "碟新浓缩洗洁精",
+   "brand": "Amway Home",
+   "cat": "home",
+   "tagline": "Concentrated dish liquid, gentle on hands",
+   "taglineZh": "浓缩洗洁精，温和不伤手",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Amway Home Prewash Spray": {
+   "id": "amway-home-prewash-spray",
+   "nameZh": "衣物预洗喷雾",
+   "brand": "Amway Home",
+   "cat": "home",
+   "tagline": "Pre-treat stains before the wash",
+   "taglineZh": "洗前去渍喷雾",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Amway Home Fabric Softener": {
+   "id": "amway-home-fabric-softener",
+   "nameZh": "衣物柔顺剂",
+   "brand": "Amway Home",
+   "cat": "home",
+   "tagline": "Floral-scent fabric softener",
+   "taglineZh": "花香衣物柔顺剂",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Amway Home All Fabric Bleach": {
+   "id": "amway-home-all-fabric-bleach",
+   "nameZh": "彩漂粉",
+   "brand": "Amway Home",
+   "cat": "home",
+   "tagline": "Color-safe all-fabric bleach",
+   "taglineZh": "彩色衣物安全漂白",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Amway Home Glass Cleaner": {
+   "id": "amway-home-glass-cleaner",
+   "nameZh": "玻璃清洁剂",
+   "brand": "Amway Home",
+   "cat": "home",
+   "tagline": "Streak-free glass and surface cleaner",
+   "taglineZh": "玻璃清洁不留痕",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Pursue Disinfectant Spray": {
+   "id": "pursue-disinfectant-spray",
+   "nameZh": "消毒除臭喷雾",
+   "brand": "Amway Home",
+   "cat": "home",
+   "tagline": "Disinfect and deodorize in one spray",
+   "taglineZh": "消毒除臭二合一",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Amway Home Scrub Buds": {
+   "id": "amway-home-scrub-buds",
+   "nameZh": "百洁布",
+   "brand": "Amway Home",
+   "cat": "home",
+   "tagline": "Stainless scouring pads that last",
+   "taglineZh": "耐用不锈钢百洁布",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "iCook 19-piece Cookware Set": {
+   "id": "icook-19-piece-cookware-set",
+   "nameZh": "安利皇后锅具 19件套",
+   "brand": "iCook",
+   "cat": "home",
+   "tagline": "316L surgical steel, vapor-seal cooking, lifetime guarantee",
+   "taglineZh": "316L医用钢，节能无水烹调，终身保用",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "iCook 5-Piece Saute Set": {
+   "id": "icook-5-piece-saute-set",
+   "nameZh": "皇后锅具煎炒5件套",
+   "brand": "iCook",
+   "cat": "home",
+   "tagline": "Most popular entry set for daily cooking",
+   "taglineZh": "最受欢迎入门套装",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "iCook 4-Piece Saucepan Set": {
+   "id": "icook-4-piece-saucepan-set",
+   "nameZh": "皇后锅具汤锅4件套",
+   "brand": "iCook",
+   "cat": "home",
+   "tagline": "Saucepan set for soups and sauces",
+   "taglineZh": "炖汤煮酱汤锅套装",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "iCook 4-Piece Stock Pot": {
+   "id": "icook-4-piece-stock-pot",
+   "nameZh": "皇后锅具深汤锅4件套",
+   "brand": "iCook",
+   "cat": "home",
+   "tagline": "4-quart stock pot set",
+   "taglineZh": "4夸脱深汤锅套装",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "iCook 6-Piece Dutch Oven": {
+   "id": "icook-6-piece-dutch-oven",
+   "nameZh": "皇后锅具荷兰锅6件套",
+   "brand": "iCook",
+   "cat": "home",
+   "tagline": "8-quart Dutch oven for family meals",
+   "taglineZh": "8夸脱家庭炖锅",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "iCook 9.5\" Nonstick Frypan": {
+   "id": "icook-9-5-nonstick-frypan",
+   "nameZh": "皇后锅具不粘煎锅 9.5寸",
+   "brand": "iCook",
+   "cat": "home",
+   "tagline": "PFAS-free nonstick with lid",
+   "taglineZh": "无PFAS不粘煎锅带盖",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "iCook 11\" Nonstick Frypan": {
+   "id": "icook-11-nonstick-frypan",
+   "nameZh": "皇后锅具不粘煎锅 11寸",
+   "brand": "iCook",
+   "cat": "home",
+   "tagline": "Large PFAS-free nonstick with lid",
+   "taglineZh": "大号无PFAS不粘煎锅",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "iCook 5-Piece Knifeware Set": {
+   "id": "icook-5-piece-knifeware-set",
+   "nameZh": "皇后刀具5件套",
+   "brand": "iCook",
+   "cat": "home",
+   "tagline": "Precision knife set with block",
+   "taglineZh": "精工刀具连刀座",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "iCook Multipurpose Shears": {
+   "id": "icook-multipurpose-shears",
+   "nameZh": "多功能厨剪",
+   "brand": "iCook",
+   "cat": "home",
+   "tagline": "Kitchen shears, great first iCook purchase",
+   "taglineZh": "多功能厨房剪，入门首选",
+   "areas": [
+    "home"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Begin 30 Holistic Wellness Solution": {
+   "id": "begin-30-holistic-wellness-solution",
+   "nameZh": "Begin 30全人健康方案",
+   "brand": "Nutrilite",
+   "cat": "solutions",
+   "tagline": "30-day gut-first wellness program: GI Primer + Protein x2 + Probiotic",
+   "taglineZh": "30天肠道优先健康计划：肠道启动粉+蛋白粉x2+益生菌",
+   "areas": [
+    "digestion",
+    "weight",
+    "energy"
+   ],
+   "iboOnly": false,
+   "imageUrl": "https://www.amway.com/medias/326778-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w2NTg4OTZ8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2gxNC9oMzIvOTg5MDEyMjM5OTc3NC8zMjY3NzgtZW4tVVMtNjkwcHgtMDF8MzE3YmY3NjBkOTA5YTg4NWRmZTNjYzA0ZmFiMDJkYWQ1MWYzMTBjNWU2ZjQ1MzgyODgwNjkzNTQ5ZDMxMWMxMg"
+  },
+  "Everyday Nutrition Solution": {
+   "id": "everyday-nutrition-solution",
+   "nameZh": "每日基础营养方案",
+   "brand": "Nutrilite",
+   "cat": "solutions",
+   "tagline": "The daily foundation: Double X + Plant Protein + Omega",
+   "taglineZh": "每日三件套：双X+植物蛋白+鱼油",
+   "areas": [
+    "energy",
+    "immunity"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Sleep + Stress Solution": {
+   "id": "sleep-stress-solution",
+   "nameZh": "睡眠减压方案",
+   "brand": "Nutrilite",
+   "cat": "solutions",
+   "tagline": "Evening wind-down stack with Sweet Dreams gummies and calming botanicals",
+   "taglineZh": "晚间舒缓组合：睡眠软糖+舒缓植物配方",
+   "areas": [
+    "sleep"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Healthy Aging Solution": {
+   "id": "healthy-aging-solution",
+   "nameZh": "健康抗龄方案",
+   "brand": "Nutrilite",
+   "cat": "solutions",
+   "tagline": "Turmeric, Cal Mag D, Garlic Heart Care and Vision Health together",
+   "taglineZh": "姜黄+钙镁D+大蒜精华+护眼组合",
+   "areas": [
+    "aging",
+    "heart"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Energy Solution": {
+   "id": "energy-solution",
+   "nameZh": "活力能量方案",
+   "brand": "Nutrilite",
+   "cat": "solutions",
+   "tagline": "Daily stack built to fight the afternoon crash",
+   "taglineZh": "专为下午断电设计的能量组合",
+   "areas": [
+    "energy"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "XS Fitness Jump Start Solution": {
+   "id": "xs-fitness-jump-start-solution",
+   "nameZh": "XS健身启动方案",
+   "brand": "XS",
+   "cat": "solutions",
+   "tagline": "Protein + workout support to start training right",
+   "taglineZh": "蛋白+训练支持，开启健身计划",
+   "areas": [
+    "muscle",
+    "energy"
+   ],
+   "iboOnly": false,
+   "imageUrl": null
+  },
+  "Walking to Bronze Bundle": {
+   "id": "walking-to-bronze-bundle",
+   "nameZh": "Bronze起步套装",
+   "brand": "Nutrilite",
+   "cat": "solutions",
+   "tagline": "IBO starter bundle aligned to first milestone",
+   "taglineZh": "IBO起步套装，对齐首个里程碑",
+   "areas": [
+    "energy"
+   ],
+   "iboOnly": true,
+   "imageUrl": null
+  }
+ },
+ "areas": [
+  {
+   "id": "skin",
+   "name": "Acne & Skin",
+   "nameZh": "皮肤与痘痘",
+   "blurb": "Skin reflects what happens inside: gut balance, hydration, omega-3 intake, plus the right topical routine.",
+   "blurbZh": "皮肤是内在状态的镜子：肠道平衡、水分、Omega-3摄入，再配合正确的外用护理。"
+  },
+  {
+   "id": "energy",
+   "name": "Energy & Fatigue",
+   "nameZh": "精力与疲劳",
+   "blurb": "Constant tiredness is usually not laziness. It is often a signal that energy metabolism is short on raw materials like B vitamins, iron and quality protein, or that sleep debt is piling up.",
+   "blurbZh": "持续疲劳往往不是懒，而是身体能量代谢缺少原料（B族、铁、优质蛋白），或睡眠负债在累积。"
+  },
+  {
+   "id": "sleep",
+   "name": "Sleep & Stress",
+   "nameZh": "睡眠与压力",
+   "blurb": "The body repairs itself at night. When stress hormones stay high, minerals like magnesium get used up faster, and falling asleep gets harder. Support the wind-down, not just the knockout.",
+   "blurbZh": "身体的修复发生在夜里。压力激素偏高时，镁等矿物质消耗更快，入睡更难。要支持的是放松过程，而不是强行入睡。"
+  },
+  {
+   "id": "muscle",
+   "name": "Muscle & Fitness",
+   "nameZh": "增肌与运动表现",
+   "blurb": "Muscle is built in recovery, not in the gym. Repair needs protein as raw material, plus amino acids and minerals for the rebuild cycle.",
+   "blurbZh": "肌肉是在恢复中长出来的。修复需要蛋白质作为原料，加上氨基酸和矿物质支持重建。"
+  },
+  {
+   "id": "weight",
+   "name": "Weight Management",
+   "nameZh": "体重管理",
+   "blurb": "Sustainable weight change starts with steady blood sugar, enough protein and a healthy gut, not with eating as little as possible.",
+   "blurbZh": "可持续的体重管理，从稳定血糖、足量蛋白和健康肠道开始，而不是一味少吃。"
+  },
+  {
+   "id": "hair",
+   "name": "Hair Health",
+   "nameZh": "头发与脱发",
+   "blurb": "Hair is protein. Thinning and brittleness commonly reflect gaps in protein, biotin and scalp care working together.",
+   "blurbZh": "头发本质是蛋白质。稀疏易断常与蛋白质、生物素摄入不足及头皮护理有关。"
+  },
+  {
+   "id": "aging",
+   "name": "Healthy Aging",
+   "nameZh": "抗老与光泽",
+   "blurb": "Aging well is daily repair keeping pace with daily damage. Antioxidants and key nutrients are the raw materials of that repair.",
+   "blurbZh": "优雅变老=每日修复跟上每日损耗。抗氧化物和关键营养素就是修复的原料。"
+  },
+  {
+   "id": "heart",
+   "name": "Heart & Circulation",
+   "nameZh": "心血管健康",
+   "blurb": "Cardiovascular health builds silently over decades. Omega-3, magnesium and plant compounds support the maintenance work.",
+   "blurbZh": "心血管状态是几十年沉默累积的结果。Omega-3、镁和植物精华支持日常保养。"
+  },
+  {
+   "id": "immunity",
+   "name": "Immunity",
+   "nameZh": "免疫力",
+   "blurb": "A resilient immune system needs steady vitamin C and D, a healthy gut, and clean air and water at home.",
+   "blurbZh": "强韧免疫力需要稳定的维C维D、健康肠道，以及家中干净的空气和水。"
+  },
+  {
+   "id": "digestion",
+   "name": "Gut & Digestion",
+   "nameZh": "肠胃与消化",
+   "blurb": "Emerging science keeps pointing the same way: overall wellbeing begins in the gut microbiome.",
+   "blurbZh": "越来越多研究指向同一结论：整体健康始于肠道菌群。"
+  },
+  {
+   "id": "brain",
+   "name": "Focus & Memory",
+   "nameZh": "专注与记忆",
+   "blurb": "The brain runs on steady fuel: omega-3 fats, B vitamins, and blood sugar that does not spike and crash.",
+   "blurbZh": "大脑需要平稳供能：Omega-3、B族维生素，以及不过山车的血糖。"
+  },
+  {
+   "id": "oral",
+   "name": "Oral Care",
+   "nameZh": "口腔护理",
+   "blurb": "Oral health links to whole-body health. Daily mechanics plus the right products beat occasional deep cleans.",
+   "blurbZh": "口腔健康关联全身健康。每日到位的清洁胜过偶尔的深度处理。"
+  },
+  {
+   "id": "home",
+   "name": "Healthy Home",
+   "nameZh": "家庭健康环境",
+   "blurb": "What you drink, breathe and cook with every day quietly compounds. Upgrading the home environment is upgrading health.",
+   "blurbZh": "每天喝的水、呼吸的空气、做饭的锅具都在默默累积。升级居家环境就是升级健康。"
+  }
+ ],
+ "solutions": [
+  {
+   "id": "begin-30-holistic-wellness-solution",
+   "title": "Gut reset, 30 days",
+   "titleZh": "肠道重启30天",
+   "story": "Amway's official Begin 30 program: GI Primer + Plant Protein x2 + Probiotic, paired with the Wellbeing+ app. In Amway's study, 75% reported less fatigue and 70% of committed participants lost weight.",
+   "storyZh": "安利官方Begin 30计划：肠道启动粉+植物蛋白x2+益生菌，配合Wellbeing+打卡App。官方研究中75%参与者疲劳感下降。",
+   "contents": [
+    "begin-daily-gi-primer",
+    "plant-protein-powder",
+    "probiotic"
+   ]
+  },
+  {
+   "id": "everyday-nutrition-solution",
+   "title": "The daily foundation",
+   "titleZh": "每日营养地基",
+   "story": "Amway's official foundation stack: Double X multivitamin + Plant Protein + Advanced Omega. The three gaps almost everyone has, covered in one order.",
+   "storyZh": "官方基础组合：双X+植物蛋白+深海鱼油。一单补齐几乎人人都有的三大缺口。",
+   "contents": [
+    "double-x-multivitamin-31-day-refill",
+    "plant-protein-powder",
+    "advanced-omega"
+   ]
+  },
+  {
+   "id": "sleep-stress-solution",
+   "title": "Wind-down, rebuilt",
+   "titleZh": "晚间舒缓方案",
+   "story": "The official evening stack around Sweet Dreams gummies and calming botanicals. For the wired-but-tired pattern.",
+   "storyZh": "官方晚间组合，以甜梦软糖和舒缓植物配方为核心。专为身心俱疲却睡不着的状态设计。",
+   "contents": [
+    "sleep-gummies",
+    "magnesium"
+   ]
+  },
+  {
+   "id": "healthy-aging-solution",
+   "title": "Age on your terms",
+   "titleZh": "健康抗龄方案",
+   "story": "Official healthy-aging stack: turmeric, Cal Mag D, Garlic Heart Care and Vision Health. Maintenance for the long game.",
+   "storyZh": "官方抗龄组合：姜黄+钙镁D+大蒜精华+护眼配方。为长期健康做保养。",
+   "contents": [
+    "calcium-magnesium-d",
+    "garlic-heart-care"
+   ]
+  },
+  {
+   "id": "energy-solution",
+   "title": "Beat the 3pm crash",
+   "titleZh": "告别下午断电",
+   "story": "Official energy stack pairing foundational micronutrients with clean energy support.",
+   "storyZh": "官方能量组合：基础微量营养+干净能量支持。",
+   "contents": [
+    "vitamin-b-complex-120ct",
+    "double-x-multivitamin-31-day-refill"
+   ]
+  },
+  {
+   "id": "xs-fitness-jump-start-solution",
+   "title": "Training, jump-started",
+   "titleZh": "健身启动包",
+   "story": "XS protein plus workout support to launch a training habit properly.",
+   "storyZh": "XS蛋白+训练支持，正确开启训练习惯。",
+   "contents": [
+    "xs-grass-fed-whey-protein",
+    "xs-pre-workout-boost",
+    "xs-post-workout-recovery"
+   ]
+  },
+  {
+   "id": "artistry-everyday-skin-solution-bundle",
+   "title": "Skin, simplified",
+   "titleZh": "每日护肤方案",
+   "story": "Artistry's everyday routine in one bundle. The uncomplicated way to start real skincare.",
+   "storyZh": "雅姿每日护肤一套搞定。开始认真护肤的最简单方式。",
+   "contents": [
+    "artistry-hydrating-lotion-spf30"
+   ]
+  },
+  {
+   "id": "walking-to-bronze-bundle",
+   "title": "Bronze builder (IBO)",
+   "titleZh": "Bronze起步（IBO）",
+   "story": "IBO-facing starter bundle sized to the first business milestone. Shown in partner view only.",
+   "storyZh": "面向IBO的起步套装，对齐首个业务里程碑。仅合伙人视图显示。",
+   "contents": [
+    "double-x-multivitamin-31-day-refill",
+    "plant-protein-powder"
+   ]
+  }
+ ]
+}

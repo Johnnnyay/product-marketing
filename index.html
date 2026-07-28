@@ -4192,7 +4192,14 @@ function init() {
 try {
   fetch('data/products.json')
     .then(r => { if (!r.ok) throw 0; return r.json(); })
-    .then(d => { PRODUCTS = d.products; AREAS = d.areas; SOLUTIONS = d.solutions; })
+    .then(d => {
+      // Only accept data in the expected shape — otherwise keep the built-in snapshot
+      if (d && Array.isArray(d.products) && d.products.length) {
+        PRODUCTS = d.products;
+        if (Array.isArray(d.areas) && d.areas.length) AREAS = d.areas;
+        if (Array.isArray(d.solutions) && d.solutions.length) SOLUTIONS = d.solutions;
+      }
+    })
     .catch(() => {})
     .finally(init);
 } catch (e) { init(); }
