@@ -1,0 +1,61 @@
+{
+ "Vitamin C Extended Release 180ct": {
+  "skin": {"tagline": "Collagen's raw material, released over 8 hours", "taglineZh": "胶原蛋白的原料，8小时缓释", "advantage": "Skin cannot build collagen without vitamin C. The 8-hour extended release keeps blood levels steady all day instead of spiking and flushing out.", "advantageZh": "没有维C，皮肤无法合成胶原蛋白。8小时缓释让血液浓度全天平稳，而不是快速吸收又排出。", "who": "Anyone working on acne marks, dull skin, or slow skin recovery. Works from the inside while your topical routine works outside.", "whoZh": "在意痘印、暗沉或皮肤恢复慢的人。内服支持，配合外用护肤。"},
+  "immunity": {"tagline": "Steady immune support your body can't store", "taglineZh": "身体存不住的维C，全天稳定供给", "advantage": "Immune cells consume vitamin C rapidly and the body cannot store it. Extended release maintains supply through the whole day from acerola cherries, not synthetic ascorbic acid alone.", "advantageZh": "免疫细胞快速消耗维C，而身体无法储存。缓释配方全天维持供给，原料来自针叶樱桃而非纯合成。", "who": "People who catch whatever is going around the office, frequent travelers, high-stress schedules.", "whoZh": "办公室流行什么就中什么的人、经常出差的人、高压人群。"},
+  "aging": {"tagline": "The antioxidant collagen production depends on", "taglineZh": "胶原蛋白合成离不开的抗氧化剂", "advantage": "Collagen production declines with age and vitamin C is required for every step of it. Steady 8-hour release supports daily repair against daily oxidative wear.", "advantageZh": "胶原蛋白合成随年龄下降，而每一步都需要维C。8小时缓释支持每日修复，对抗每日氧化损耗。", "who": "Anyone 30+ starting to think about skin elasticity and daily antioxidant coverage.", "whoZh": "30岁以上、开始在意皮肤弹性和每日抗氧化储备的人。"}
+ },
+ "Advanced Omega": {
+  "skin": {"tagline": "Omega-3 supports the skin barrier from within", "taglineZh": "Omega-3由内支持皮肤屏障", "advantage": "The skin barrier is built from fats. Steady omega-3 intake is commonly associated with a calmer, better-hydrated barrier; modern diets skew heavily to omega-6.", "advantageZh": "皮肤屏障由脂质构成。稳定摄入Omega-3与更稳定、更水润的屏障相关，而现代饮食普遍偏向Omega-6。", "who": "Dry, easily irritated, or breakout-prone skin, especially if you rarely eat fatty fish.", "whoZh": "皮肤干燥、易泛红或易爆痘的人，尤其是很少吃深海鱼的人。"}
+ },
+ "Probiotic": {
+  "skin": {"tagline": "The gut-skin axis: calmer gut, calmer skin", "taglineZh": "肠皮轴：肠道稳，皮肤稳", "advantage": "Research keeps linking gut microbiome balance with skin condition (the gut-skin axis). 6.3 billion CFU of clinically studied strains support that balance daily.", "advantageZh": "越来越多研究将肠道菌群平衡与皮肤状态联系起来（肠皮轴）。63亿临床研究菌株每日支持这种平衡。", "who": "Recurring breakouts that topicals alone never quite resolve, especially alongside bloating or irregular digestion.", "whoZh": "反复长痘、光靠外用总解决不彻底的人，尤其伴随胀气或消化不规律。"},
+  "immunity": {"tagline": "70% of immune tissue lines the gut", "taglineZh": "70%的免疫组织分布在肠道", "advantage": "The largest immune organ is the gut lining. Supporting the microbiome with clinically studied strains supports the immune system where most of it lives.", "advantageZh": "人体最大的免疫器官就是肠道。用临床研究菌株支持菌群，就是在免疫系统的主场支持它。", "who": "Frequent colds plus digestive ups and downs, the combination is often connected.", "whoZh": "经常感冒又肠胃时好时坏的人，这两件事常常相关。"}
+ },
+ "Artistry Studio Done with Zit": {
+  "skin": {"tagline": "Salicylic acid spot treatment, works overnight", "taglineZh": "水杨酸点涂，一夜起效", "advantage": "2% salicylic acid clears pores right at the spot, the go-to active for breakouts, without drying the whole face.", "advantageZh": "2%水杨酸直接点涂疏通毛孔，祛痘经典成分，不干燥全脸。", "who": "Sudden breakouts before events, teens and adults with occasional spots rather than full-face acne.", "whoZh": "重要场合前突然爆痘的人；偶发性痘痘而非全脸痤疮的青少年和成人。"}
+ },
+ "Artistry Signature Select Purifying Mask": {
+  "skin": {"tagline": "Deep-clean mask for congested, oily skin", "taglineZh": "深层清洁面膜，油痘肌友好", "advantage": "Draws out impurities and excess oil from congested pores, the weekly reset that keeps daily breakouts down.", "advantageZh": "吸附毛孔内的油脂与杂质，每周一次的深层重置，减少日常爆痘。", "who": "Oily and combination skin with blackheads or frequent clogged pores.", "whoZh": "有黑头、毛孔易堵的油性和混合性肌肤。"}
+ },
+ "Vitamin D": {
+  "immunity": {"tagline": "The sunshine vitamin most people are low on", "taglineZh": "大多数人都缺的阳光维生素", "advantage": "Vitamin D helps regulate immune response, and indoor lifestyles leave most people below optimal levels most of the year.", "advantageZh": "维D参与调节免疫反应，而室内生活方式让大多数人一年大部分时间都低于理想水平。", "who": "Office workers, northern winters, anyone who wears sunscreen daily (which blocks vitamin D synthesis).", "whoZh": "办公室人群、日照少的季节、每天涂防晒的人（防晒会阻断维D合成）。"}
+ },
+ "Vitamin B Complex 120ct": {
+  "energy": {"tagline": "The coenzymes that turn food into energy", "taglineZh": "把食物变成能量的辅酶", "advantage": "B vitamins are the coenzymes of energy metabolism; without them food does not convert efficiently. Dual-action formula pairs instant and slow-release B, and one bottle lasts 4 months.", "advantageZh": "B族是能量代谢的辅酶，缺了它食物无法高效转化为能量。双效配方兼顾速释与缓释，一瓶可用4个月。", "who": "Afternoon crashes, coffee-dependent mornings, high-carb diets that burn through B vitamins faster.", "whoZh": "下午断电、早上靠咖啡续命、高碳水饮食（消耗B族更快）的人。"}
+ },
+ "Double X Multivitamin 31-day Refill": {
+  "energy": {"tagline": "Cover every micronutrient gap in one strip", "taglineZh": "一条补齐所有微量营养缺口", "advantage": "Persistent low energy often traces to multiple small nutrient gaps rather than one. 22 vitamins and minerals plus 22 plant concentrates cover the full base.", "advantageZh": "长期没精神往往源于多个小缺口叠加，而不是缺某一种。22种维生素矿物质+22种植物浓缩，一次补齐地基。", "who": "Busy people who eat irregularly and want one comprehensive daily habit instead of five bottles.", "whoZh": "吃饭不规律、想用一个习惯代替五瓶补充剂的忙碌人群。"}
+ },
+ "Plant Protein Powder": {
+  "energy": {"tagline": "Steady blood sugar starts with morning protein", "taglineZh": "早晨蛋白质，血糖稳一天", "advantage": "A carb-only breakfast sets up a blood sugar rollercoaster that crashes mid-morning. 21g of plant protein at breakfast keeps energy release steady.", "advantageZh": "纯碳水早餐让血糖坐过山车，上午十点就崩。早餐21克植物蛋白让能量平稳释放。", "who": "People who skip breakfast or grab pastries, then wonder why energy dips before lunch.", "whoZh": "不吃早餐或随手面包解决、然后纳闷为什么午饭前就没电的人。"},
+  "muscle": {"tagline": "21g organic protein for the rebuild window", "taglineZh": "21克有机蛋白，抓住修复窗口", "advantage": "Muscle grows during recovery, not during the workout. Tri-plant blend (pea, rice, chia) delivers a complete amino acid profile without dairy bloating.", "advantageZh": "肌肉是在恢复中生长的，不是在训练中。三重植物配方（豌豆+糙米+奇亚籽）氨基酸完整，无乳制品胀气。", "who": "Lifters who bloat on whey, plant-based athletes, and anyone under-eating protein on busy days.", "whoZh": "喝乳清胀气的健身人群、素食运动员，以及忙起来蛋白质摄入不够的人。"},
+  "weight": {"tagline": "Protein keeps you full, fullness keeps you on plan", "taglineZh": "蛋白质饱腹，饱腹才守得住计划", "advantage": "Protein is the most satiating macronutrient. Replacing a carb-heavy meal or snack with 21g of plant protein reduces the cravings that break diets.", "advantageZh": "蛋白质是饱腹感最强的营养素。用21克植物蛋白替换高碳水一餐或零食，减少击垮计划的馋嘴时刻。", "who": "Anyone managing weight who gets derailed by afternoon or late-night snacking.", "whoZh": "正在管理体重、但总被下午或夜宵零食带偏的人。"}
+ },
+ "Magnesium": {
+  "sleep": {"tagline": "The relaxation mineral stress burns through", "taglineZh": "压力最先消耗的放松矿物质", "advantage": "Magnesium supports muscle relaxation and nervous system wind-down, and it is exactly what sustained stress depletes fastest. Evening timing works best.", "advantageZh": "镁支持肌肉放松与神经系统的平静，恰恰是持续压力消耗最快的矿物质。晚间服用效果最好。", "who": "Wired-but-tired at bedtime, muscle tension, restless legs, or nighttime cramps.", "whoZh": "身体累但大脑停不下来、肌肉紧绷、腿不安或夜间抽筋的人。"}
+ },
+ "Sleep Gummies": {
+  "sleep": {"tagline": "Botanical wind-down, no melatonin dependency", "taglineZh": "植物配方助睡，不靠褪黑素", "advantage": "Calming botanicals support the natural wind-down process instead of forcing sleep with melatonin, so there is no groggy morning or dependency pattern.", "advantageZh": "舒缓植物配方支持身体自然的入睡过程，而不是用褪黑素强行催睡，早上不昏沉、不依赖。", "who": "Trouble falling asleep from a busy mind; people who dislike how melatonin makes them feel next morning.", "whoZh": "思绪多难入睡的人；不喜欢褪黑素第二天昏沉感的人。"}
+ },
+ "Calcium Magnesium D": {
+  "sleep": {"tagline": "Evening minerals for deeper rest", "taglineZh": "晚间矿物质，睡得更沉", "advantage": "Calcium and magnesium taken in the evening support muscle relaxation and the nervous system's shift into rest mode.", "advantageZh": "晚间补充钙镁，支持肌肉放松和神经系统切换到休息模式。", "who": "Light sleepers who wake at small noises, and anyone with evening muscle tightness.", "whoZh": "睡得浅、一点动静就醒的人，以及晚间肌肉紧绷的人。"}
+ },
+ "XS Grass-Fed Whey Protein": {
+  "muscle": {"tagline": "25g grass-fed whey, third-party tested", "taglineZh": "25克草饲乳清，第三方检测", "advantage": "Fast-absorbing whey right after training hits the recovery window when muscles are most receptive. Grass-fed source, tested for banned substances.", "advantageZh": "训练后快速吸收的乳清蛋白，正好赶上肌肉最需要营养的恢复窗口。草饲奶源，禁药检测。", "who": "Regular gym-goers optimizing post-workout nutrition; athletes who need tested supplements.", "whoZh": "规律健身、重视练后营养的人；需要检测认证补剂的运动员。"}
+ },
+ "Begin 30 Holistic Wellness Solution": {
+  "weight": {"tagline": "30-day program: 70% of committed users lost weight", "taglineZh": "30天计划，70%坚持者体重下降", "advantage": "Not a crash diet, a 30-day habit reset covering food, water, movement and mindfulness, with gut-supporting products and an app to track it. In Amway's study, 70% of committed participants lost weight.", "advantageZh": "不是极端节食，而是覆盖饮食、饮水、运动、正念的30天习惯重置，配合肠道支持产品和打卡App。官方研究中70%坚持者体重下降。", "who": "People who have tried diets that work for two weeks then collapse; anyone who wants structure and tracking.", "whoZh": "试过各种饮食法、坚持两周就崩的人；想要结构化计划和打卡追踪的人。"}
+ },
+ "Hair Skin Nail": {
+  "hair": {"tagline": "Biotin + collagen: feed hair from the root", "taglineZh": "生物素+胶原：从发根养发", "advantage": "Hair is built from protein and depends on biotin, collagen and silicon supply. Topical products coat the strand; nutrition feeds the follicle where growth actually happens.", "advantageZh": "头发由蛋白质构成，依赖生物素、胶原和硅的供给。外用产品只能护发丝，营养才能滋养真正长发的毛囊。", "who": "Thinning, shedding, or brittle hair and nails, especially after stress periods or dieting.", "whoZh": "头发变稀、掉发、发甲易断的人，尤其在高压期或节食后。"}
+ },
+ "Satinique Purifying Shampoo 280ml": {
+  "hair": {"tagline": "Reset an oily scalp so follicles can breathe", "taglineZh": "重置油性头皮，让毛囊呼吸", "advantage": "Buildup and excess scalp oil suffocate follicles. Deep-cleansing without sulfate harshness keeps the scalp environment healthy for growth.", "advantageZh": "油脂和残留堆积会闷住毛囊。无硫酸盐刺激的深层清洁，维持适合生长的头皮环境。", "who": "Oily scalp, flat hair by mid-day, or product buildup from styling.", "whoZh": "头皮出油快、到中午头发就塌、造型产品残留多的人。"}
+ },
+ "Vitamin E Chewable": {
+  "aging": {"tagline": "Classic antioxidant protection for cell membranes", "taglineZh": "经典抗氧化，保护细胞膜", "advantage": "Vitamin E sits in cell membranes intercepting oxidative damage where it happens. Paired with lecithin for absorption, in a chewable format.", "advantageZh": "维E驻守在细胞膜上，在损伤发生处拦截氧化。搭配卵磷脂助吸收，咀嚼型好入口。", "who": "Adults building a long-term antioxidant base, often paired with vitamin C and omega-3.", "whoZh": "在搭建长期抗氧化基础的成年人，常与维C、鱼油搭配。"}
+ },
+ "Artistry Renewing System Bundle": {
+  "aging": {"tagline": "Peptide renewal routine in one set", "taglineZh": "胜肽焕新，一套搭齐", "advantage": "The complete renewing routine, cleanse, treat, protect, built around peptides that support skin's own renewal cycle, in one decision instead of three.", "advantageZh": "完整焕新流程：清洁、修护、防护。围绕支持皮肤自身更新周期的胜肽配方，一次搭齐不用选三次。", "who": "First fine lines, loss of glow, or anyone ready to upgrade from basic moisturizer to a real routine.", "whoZh": "刚出现细纹、皮肤失去光泽的人，或准备从基础保湿升级到完整流程的人。"}
+ }
+}
