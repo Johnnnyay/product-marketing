@@ -2500,6 +2500,27 @@
    ]
   },
   {
+   "id": "kids",
+   "title": "Kids & Teens",
+   "titleZh": "孩子与青少年",
+   "icon": "kids",
+   "situation": "Picky eaters, packed schedules, screens after homework, and whatever is going around at school. Parents worry most about two things: are they getting what they need to grow, and why do they catch everything.",
+   "situationZh": "挑食、日程排满、写完作业还要看屏幕，加上学校里流行什么就传什么。家长最担心两件事：长身体的营养够不够，以及为什么什么病都能中。",
+   "gap": "Pediatric visits are built around growth curves and acute illness. Nobody sits down with a parent to look at whether the everyday diet actually covers what a growing body needs, because that is not what the appointment is for.",
+   "gapZh": "儿科门诊的设计是看生长曲线和处理急性病。没有人会坐下来和家长一起看，日常饮食到底有没有覆盖一个正在长身体的孩子所需要的，因为门诊本来就不是干这个的。",
+   "path": "Start where kids will actually cooperate: something that tastes good and takes three seconds. Chewables and gummies win over tablets every time. Cover the basics first (fruit and vegetable gaps, immune support), then protein if meals are unreliable. Consistency beats optimization at this age.",
+   "pathZh": "从孩子真的愿意配合的地方开始：好吃、三秒钟就能搞定。咀嚼片和软糖永远赢过药片。先补基础（蔬果缺口、免疫支持），如果三餐不规律再加蛋白质。这个年纪，坚持比精准更重要。",
+   "contents": [
+    "go-shield",
+    "eye-mojo-blue-light-gummies",
+    "sleep-gummies",
+    "twist-tubes",
+    "plant-protein-powder",
+    "glister-toothpaste",
+    "vitamin-c-extended-release-60ct"
+   ]
+  },
+  {
    "id": "fitness",
    "title": "Fitness & Wellness Centers",
    "titleZh": "健身房与养生馆",
@@ -2766,39 +2787,39 @@
   }
  },
  "tiles": {
-  "_note": "Unsplash photo IDs for tile art. Free commercial use. Replace any id to swap the photo.",
-  "_base": "https://images.unsplash.com/{id}?auto=format&fit=crop&w=400&h=320&q=70",
+  "_note": "Tile photos are stored locally in images/tiles/ so nothing depends on an external CDN. To swap a photo, replace the .jpg file (keep the name) or point the value at a new path.",
   "areas": {
-   "energy": "photo-1557766671-b21f9097a446",
-   "sleep": "photo-1764867175326-05572746780b",
-   "skin": "photo-1657152042407-64b755c7558a",
-   "eye": "photo-1564164841584-391b5c7b590c",
-   "brain": "photo-1597567918979-a06f2e60bd5a",
-   "weight": "photo-1546069901-ba9599a7e63c",
-   "hair": "photo-1581318694548-0fb6e47fe59b",
-   "digestion": "photo-1681330266932-391fd00f805f",
-   "muscle": "photo-1652364649008-99b647d0d1d0",
-   "immunity": "photo-1642054016707-ec809a9c5ba0",
-   "oral": "photo-1609016683866-029bca027853",
-   "heart": "photo-1570135497084-0debfc780ed8",
-   "aging": "photo-1615529179035-e760f6a2dcee",
-   "home": "photo-1744104135578-6768f2061be1"
+   "energy": "images/tiles/are-energy.jpg",
+   "sleep": "images/tiles/are-sleep.jpg",
+   "skin": "images/tiles/are-skin.jpg",
+   "eye": "images/tiles/are-eye.jpg",
+   "brain": "images/tiles/are-brain.jpg",
+   "weight": "images/tiles/are-weight.jpg",
+   "hair": "images/tiles/are-hair.jpg",
+   "digestion": "images/tiles/are-digestion.jpg",
+   "muscle": "images/tiles/are-muscle.jpg",
+   "immunity": "images/tiles/are-immunity.jpg",
+   "oral": "images/tiles/are-oral.jpg",
+   "heart": "images/tiles/are-heart.jpg",
+   "aging": "images/tiles/are-aging.jpg",
+   "home": "images/tiles/are-home.jpg"
   },
   "solutions": {
-   "students": "photo-1763469029610-a3e8e4536c6d",
-   "professionals": "photo-1535953472862-9cc610a70f8a",
-   "family": "photo-1646807821923-26d717c67d8c",
-   "fitness": "photo-1767531309781-b61fe1edfe86",
-   "gifting": "photo-1707944145479-12755f0434d8"
+   "students": "images/tiles/sol-students.jpg",
+   "professionals": "images/tiles/sol-professionals.jpg",
+   "family": "images/tiles/sol-family.jpg",
+   "kids": "images/tiles/sol-kids.jpg",
+   "fitness": "images/tiles/sol-fitness.jpg",
+   "gifting": "images/tiles/sol-gifting.jpg"
   },
   "cats": {
-   "all": "photo-1779142077668-fe26a95f459c",
-   "nutrition": "photo-1664216294580-079bc527ae49",
-   "sports": "photo-1572334029868-7d0eec63a040",
-   "beauty": "photo-1779056904689-ff99fd0045a4",
-   "care": "photo-1754211568488-f8481375d6fb",
-   "home": "photo-1615529179035-e760f6a2dcee",
-   "solutions": "photo-1707944145479-12755f0434d8"
+   "all": "images/tiles/cat-all.jpg",
+   "nutrition": "images/tiles/cat-nutrition.jpg",
+   "sports": "images/tiles/cat-sports.jpg",
+   "beauty": "images/tiles/cat-beauty.jpg",
+   "care": "images/tiles/cat-care.jpg",
+   "home": "images/tiles/cat-home.jpg",
+   "solutions": "images/tiles/cat-solutions.jpg"
   }
  }
 }

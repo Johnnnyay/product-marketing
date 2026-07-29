@@ -313,6 +313,15 @@ SOLUTIONS = [
   "先减少每日的损伤输入，因为这一步全家同时受益：水、空气、以及用什么做饭和清洁。然后再针对最需要的人补充营养。一次家居升级，覆盖五口人。",
   ["espring-water-purifier-chrome","atmosphere-mini-air-purifier","loc-multi-purpose-cleaner","sa8-liquid-laundry","double-x-multivitamin-31-day-refill","probiotic","glister-toothpaste"]),
 
+ ("kids","Kids & Teens","孩子与青少年","kids",
+  "Picky eaters, packed schedules, screens after homework, and whatever is going around at school. Parents worry most about two things: are they getting what they need to grow, and why do they catch everything.",
+  "挑食、日程排满、写完作业还要看屏幕，加上学校里流行什么就传什么。家长最担心两件事：长身体的营养够不够，以及为什么什么病都能中。",
+  "Pediatric visits are built around growth curves and acute illness. Nobody sits down with a parent to look at whether the everyday diet actually covers what a growing body needs, because that is not what the appointment is for.",
+  "儿科门诊的设计是看生长曲线和处理急性病。没有人会坐下来和家长一起看，日常饮食到底有没有覆盖一个正在长身体的孩子所需要的，因为门诊本来就不是干这个的。",
+  "Start where kids will actually cooperate: something that tastes good and takes three seconds. Chewables and gummies win over tablets every time. Cover the basics first (fruit and vegetable gaps, immune support), then protein if meals are unreliable. Consistency beats optimization at this age.",
+  "从孩子真的愿意配合的地方开始：好吃、三秒钟就能搞定。咀嚼片和软糖永远赢过药片。先补基础（蔬果缺口、免疫支持），如果三餐不规律再加蛋白质。这个年纪，坚持比精准更重要。",
+  ["go-shield","eye-mojo-blue-light-gummies","sleep-gummies","twist-tubes","plant-protein-powder","glister-toothpaste","vitamin-c-extended-release-60ct"]),
+
  ("fitness","Fitness & Wellness Centers","健身房与养生馆","dumbbell",
   "Gyms, studios, massage and recovery spaces. Their members already buy protein, pre-workout and recovery products somewhere, usually from a shelf nobody vetted. The owner wants products that make members come back, not products that eat margin.",
   "健身房、工作室、按摩与恢复中心。他们的会员本来就在别处买蛋白粉、训练前和恢复产品，通常来自没人把关的货架。老板要的是让会员回头的产品，不是吃掉利润的产品。",
