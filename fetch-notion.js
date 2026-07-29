@@ -16,10 +16,12 @@ const { Client } = require('@notionhq/client');
 const fs = require('fs');
 const path = require('path');
 
-const DATABASE_ID = '7e0a89db-f85d-4820-aa62-a278e0a2845c';
+const DATABASE_ID = '7e0a89db-f85d-4820-aa62-a278e0a2845c';        // Master Pricing Reference
+const AREACOPY_DB_ID = '01b81650-0f64-4ca0-89f2-bc318b9465bb';     // Area Copy — Website Content
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 const METAFILE = path.join(__dirname, 'meta.json');
+const IMAGESFILE = path.join(__dirname, 'images.json');
 const OUTFILE = path.join(__dirname, '..', 'data', 'products.json');
 
 // Notion Category select → site category bucket
@@ -50,21 +52,26 @@ const text = (p) => {
 };
 const check = (p) => !!(p && p.type === 'checkbox' && p.checkbox);
 
-async function main() {
-  const { meta, areas, solutions } = JSON.parse(fs.readFileSync(METAFILE, 'utf8'));
-
-  // Page through the pricing database
+async function queryAll(database_id) {
   const rows = [];
   let cursor;
   do {
     const resp = await notion.databases.query({
-      database_id: DATABASE_ID,
+      database_id,
       page_size: 100,
       ...(cursor ? { start_cursor: cursor } : {}),
     });
     rows.push(...resp.results);
     cursor = resp.has_more ? resp.next_cursor : null;
   } while (cursor);
+  return rows;
+}
+
+async function main() {
+  const { meta, areas, solutions } = JSON.parse(fs.readFileSync(METAFILE, 'utf8'));
+  const images = JSON.parse(fs.readFileSync(IMAGESFILE, 'utf8'));
+
+  const rows = await queryAll(DATABASE_ID);
 
   const products = rows
     .map((page) => {
@@ -87,7 +94,8 @@ async function main() {
         pv: num(P.PV),
         daysSupply: num(P.Days_Supply),
         oneTime: check(P.One_Time),
-        imageUrl: text(P.Image_URL) || m.imageUrl || null,
+        imageUrl: text(P.Image_URL) || (m.id && images.byId[m.id]) || images.byId[slug(name)] ||
+                  (text(P.Item) && images.byItem[text(P.Item)]) || m.imageUrl || null,
         areas: m.areas || [],
         iboOnly: !!m.iboOnly,
       };
@@ -95,11 +103,34 @@ async function main() {
     .filter(Boolean)
     .sort((a, b) => a.cat.localeCompare(b.cat) || a.name.localeCompare(b.name));
 
+  // Area Copy DB → { productId: { areaId: {tagline, advantage, who, ...} } }
+  const nameToId = Object.fromEntries(products.map((p) => [p.name, p.id]));
+  const areaCopy = {};
+  try {
+    const acRows = await queryAll(AREACOPY_DB_ID);
+    acRows.forEach((page) => {
+      const P = page.properties;
+      const prodName = text(P.Product);
+      const area = P.Area && P.Area.select ? P.Area.select.name : null;
+      const pid = nameToId[prodName];
+      if (!pid || !area) return;
+      areaCopy[pid] = areaCopy[pid] || {};
+      areaCopy[pid][area] = {
+        tagline: text(P.Tagline), taglineZh: text(P.Tagline_ZH),
+        advantage: text(P.Advantage), advantageZh: text(P.Advantage_ZH),
+        who: text(P.Who), whoZh: text(P.Who_ZH),
+      };
+    });
+  } catch (e) {
+    console.warn('Area Copy DB not readable, skipping:', e.message);
+  }
+
   const out = {
     lastUpdated: new Date().toISOString().slice(0, 10),
     products,
     areas,
     solutions,
+    areaCopy,
   };
 
   fs.mkdirSync(path.dirname(OUTFILE), { recursive: true });

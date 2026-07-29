@@ -1,0 +1,36 @@
+{
+"_note":"Unsplash photo IDs for tile art. Free commercial use. Replace any id to swap the photo.",
+"_base":"https://images.unsplash.com/{id}?auto=format&fit=crop&w=400&h=320&q=70",
+"areas":{
+ "energy":"photo-1557766671-b21f9097a446",
+ "sleep":"photo-1764867175326-05572746780b",
+ "skin":"photo-1657152042407-64b755c7558a",
+ "eye":"photo-1564164841584-391b5c7b590c",
+ "brain":"photo-1597567918979-a06f2e60bd5a",
+ "weight":"photo-1546069901-ba9599a7e63c",
+ "hair":"photo-1581318694548-0fb6e47fe59b",
+ "digestion":"photo-1681330266932-391fd00f805f",
+ "muscle":"photo-1652364649008-99b647d0d1d0",
+ "immunity":"photo-1642054016707-ec809a9c5ba0",
+ "oral":"photo-1609016683866-029bca027853",
+ "heart":"photo-1570135497084-0debfc780ed8",
+ "aging":"photo-1615529179035-e760f6a2dcee",
+ "home":"photo-1744104135578-6768f2061be1"
+},
+"solutions":{
+ "students":"photo-1763469029610-a3e8e4536c6d",
+ "professionals":"photo-1535953472862-9cc610a70f8a",
+ "family":"photo-1646807821923-26d717c67d8c",
+ "fitness":"photo-1767531309781-b61fe1edfe86",
+ "gifting":"photo-1707944145479-12755f0434d8"
+},
+"cats":{
+ "all":"photo-1779142077668-fe26a95f459c",
+ "nutrition":"photo-1664216294580-079bc527ae49",
+ "sports":"photo-1572334029868-7d0eec63a040",
+ "beauty":"photo-1779056904689-ff99fd0045a4",
+ "care":"photo-1754211568488-f8481375d6fb",
+ "home":"photo-1615529179035-e760f6a2dcee",
+ "solutions":"photo-1707944145479-12755f0434d8"
+}
+}

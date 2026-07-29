@@ -1,5 +1,5 @@
 {
- "lastUpdated": "2026-07-27",
+ "lastUpdated": "2026-07-28",
  "products": [
   {
    "id": "double-x-multivitamin-31-day-refill",
@@ -123,7 +123,7 @@
    "pv": 3.35,
    "daysSupply": 30,
    "oneTime": false,
-   "imageUrl": null,
+   "imageUrl": "https://www.amway.com/medias/122971-en-US-480px-01?context=bWFzdGVyfHJvb3R8NzQwNDB8aW1hZ2UvcG5nfGhhYy9oNmYvOTQ0OTg4NDc3ODUyNi5wbmd8ZWMxYTlkNWM2YWM4OGRhOWYzNmIzNDA2M2IwYjhhNTBlMDYxMjhiZGU0MDVkMTc0YzJjM2I3YTJjNzhlZTZjZg",
    "areas": [
     "energy",
     "brain"
@@ -254,7 +254,7 @@
    "pv": 4.46,
    "daysSupply": null,
    "oneTime": false,
-   "imageUrl": null,
+   "imageUrl": "https://www.amway.com/medias/102046-en-US-480px-01?context=bWFzdGVyfGltYWdlc3wxNzU0Mzd8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2hjOC9oMjIvOTczMTg2NjgyMDYzOC8xMDIwNDYtZW4tVVMtNDgwcHgtMDF8OTBiNjc4YTI1N2M1YTA1MmRmOWU4Njc1ZjFmZGIxZGNjOTY4MTIzMTI1YWY5MDhkNTA5ODc2M2EwYjI1Y2JhZA",
    "areas": [
     "energy"
    ],
@@ -297,7 +297,7 @@
    "pv": 14.96,
    "daysSupply": 14,
    "oneTime": false,
-   "imageUrl": null,
+   "imageUrl": "https://www.amway.com/medias/316302-en-US-480px-01?context=bWFzdGVyfGltYWdlc3w2ODYzM3xpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaGZkL2hlZC85NzQyODI0Mzc0MzAyLzMxNjMwMi1lbi1VUy00ODBweC0wMXwzNzQ2NzcwZjY4MTU2NTMyNzMyNWVkMTIyNzA4YWYwYmY3ZWJlODZhYTJkZjQ2Y2JlNzhkZTI0MGExYmRiY2Yy",
    "areas": [
     "weight",
     "muscle",
@@ -405,7 +405,7 @@
    "pv": 5.12,
    "daysSupply": null,
    "oneTime": false,
-   "imageUrl": null,
+   "imageUrl": "https://www.amway.com/medias/124506-en-US-480px-01?context=bWFzdGVyfGltYWdlc3wzMzYxNnxpbWFnZS9wbmd8aW1hZ2VzL2g5ZS9oODgvOTM1NTI5NDk2NTc5MC5wbmd8ZDU0NjNhZDIyNGMxODU3NGUwZjkzN2ExMTFiZGNiNWQxM2M1YmE4N2E4NDBhYWJiNjBlZmUyM2ZiYWVmNTA1Yw",
    "areas": [
     "sleep"
    ],
@@ -425,7 +425,7 @@
    "pv": 5.77,
    "daysSupply": null,
    "oneTime": false,
-   "imageUrl": null,
+   "imageUrl": "https://www.amway.com/medias/124555-en-US-480px-01?context=bWFzdGVyfGltYWdlc3wzMDUwNHxpbWFnZS9wbmd8aW1hZ2VzL2hkNC9oMTQvOTM1NTI5NTU4ODM4Mi5wbmd8MjQ4MzUwYjUzMTc0OGZmYWFjN2Q0NDM0Yjg1NDlhYmFmZjE3ZTQxYjY3MjNkMDIyMzZjMjdiMzgwYzg4NWY4NA",
    "areas": [
     "immunity"
    ],
@@ -445,7 +445,7 @@
    "pv": 6.29,
    "daysSupply": null,
    "oneTime": false,
-   "imageUrl": null,
+   "imageUrl": "https://www.amway.com/medias/110390-en-US-480px-01?context=bWFzdGVyfGltYWdlc3w0MzQwN3xpbWFnZS9wbmd8aW1hZ2VzL2g1NC9oOTgvOTM1NTAxMDIxMTg3MC5wbmd8OWNiMTcxZjI4ZWNlN2VkNzIyZTdkYjBiMGIyMDQ2NjdlZGZlYTE2MzdhMmNmZmM0ZjExNTMxN2Y2YTU2NWQwOQ",
    "areas": [
     "immunity",
     "energy"
@@ -570,7 +570,7 @@
    "pv": 8.4,
    "daysSupply": null,
    "oneTime": false,
-   "imageUrl": null,
+   "imageUrl": "https://www.amway.com/medias/A5923-en-US-480px-01?context=bWFzdGVyfGltYWdlc3wxNTU2NzF8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2g1ZC9oNDQvOTY2NzE3NjkyMzE2Ni9BNTkyMy1lbi1VUy00ODBweC0wMXwxOGMxYzZmYTgxYTYwZWMzNWNiMjkyNDAyYjRjOWUwYjgyYjg1ZWI0NTUwMTZlZWVmNjVlOTNjZTg0MWE0ZTFi",
    "areas": [
     "heart"
    ],
@@ -653,6 +653,48 @@
    "imageUrl": null,
    "areas": [
     "weight"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "vision-health",
+   "item": "124708",
+   "name": "Vision Health",
+   "nameZh": "护眼片",
+   "brand": "Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Lutein and zeaxanthin, the pigments that filter light in the eye",
+   "taglineZh": "叶黄素+玉米黄质，眼睛里过滤光线的色素",
+   "iboPrice": 31.5,
+   "retailPrice": 35,
+   "pv": 9.18,
+   "daysSupply": 30,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "eye",
+    "aging"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "eye-mojo-blue-light-gummies",
+   "item": "125544",
+   "name": "Eye Mojo Blue Light Gummies",
+   "nameZh": "蓝光护眼软糖",
+   "brand": "n* by Nutrilite",
+   "cat": "nutrition",
+   "tagline": "Blue-light support gummies for screen-heavy days",
+   "taglineZh": "蓝光护眼软糖，长时间看屏幕的人",
+   "iboPrice": 19.8,
+   "retailPrice": 22,
+   "pv": 5.77,
+   "daysSupply": 30,
+   "oneTime": false,
+   "imageUrl": null,
+   "areas": [
+    "eye",
+    "brain"
    ],
    "iboOnly": false
   },
@@ -896,7 +938,7 @@
    "pv": 6.82,
    "daysSupply": null,
    "oneTime": false,
-   "imageUrl": null,
+   "imageUrl": "https://www.amway.com/medias/123377-en-US-480px-01?context=bWFzdGVyfHJvb3R8MjY4ODMwfGltYWdlL3BuZ3xzeXMtbWFzdGVyL3Jvb3QvaGU1L2gyNy85NTc1MTk5NjcwMzAyLzEyMzM3Ny1lbi1VUy00ODBweC0wMXwwYTMwNDhlYjQ3ODExOTZkZTYxNjNkODVhZWZlNzE0NWJhZjc3MmNjM2JhODQxYmY3ZDU4NDI4ZGMzNmMyZmM5",
    "areas": [
     "energy"
    ],
@@ -1140,7 +1182,7 @@
    "pv": 95.59,
    "daysSupply": null,
    "oneTime": false,
-   "imageUrl": null,
+   "imageUrl": "https://www.amway.com/medias/127575V-en-US-480px-01?context=bWFzdGVyfGltYWdlc3w4NDc3MHxpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaDY1L2g2NS8xMDI5Njc0MjczOTk5OC8xMjc1NzVWLWVuLVVTLTQ4MHB4LTAxfDA3Mjg3ZTQwZGQ3ZmE2ZmI0NGQ3M2ZlYzNkMjM0MDE0MDRhYmY5ZTU4YjJlYmE5OGYyYjljMWQwZjkyNmU2M2E",
    "areas": [
     "aging"
    ],
@@ -1160,7 +1202,7 @@
    "pv": 53.69,
    "daysSupply": null,
    "oneTime": false,
-   "imageUrl": null,
+   "imageUrl": "https://www.amway.com/medias/127577V-en-US-480px-01?context=bWFzdGVyfGltYWdlc3wzNjczOXxpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaDQ1L2gwNC8xMDI5Njc0MzcyMzAzOC8xMjc1NzdWLWVuLVVTLTQ4MHB4LTAxfDQzOTFjM2FhOGU5ZTFhNzA0Y2U4MzNkMWJhOTExYTNiZGZkNmE5MWY4NjM5NzllMTk4ZmE2OTkwZmFjODAzNDg",
    "areas": [
     "aging"
    ],
@@ -1241,7 +1283,7 @@
    "pv": 10.21,
    "daysSupply": null,
    "oneTime": false,
-   "imageUrl": null,
+   "imageUrl": "https://www.amway.com/medias/122342V-en-US-480px-01?context=bWFzdGVyfGltYWdlc3wzNDE5MHxpbWFnZS9wbmd8aW1hZ2VzL2g0ZS9oMWYvOTQyMjk2NjYyMDE5MC5wbmd8ZjVjZDdmOWFmM2M5MDQyZmY5NDJkYWE5OTc4Mzk3Mjk1ZDVjYjRhN2NhNWNmNDI0MzE5MTlmZGU2OGMwY2I2MA",
    "areas": [
     "skin"
    ],
@@ -1281,7 +1323,7 @@
    "pv": 10.21,
    "daysSupply": null,
    "oneTime": false,
-   "imageUrl": null,
+   "imageUrl": "https://www.amway.com/medias/122339V-en-US-480px-01?context=bWFzdGVyfGltYWdlc3w0MDg2NXxpbWFnZS9wbmd8aW1hZ2VzL2g5ZS9oNWIvOTQyMjk2NDEyOTgyMi5wbmd8ZmZkMWZjNWI4MTBiMGJlOTkzMTU0MjJlZDFkNzE2MzgzMWNhMzA4NWZmMDI2YmY4NWI1OTQ5NDY2ODUzYWJkZA",
    "areas": [
     "skin"
    ],
@@ -1341,7 +1383,7 @@
    "pv": 9.17,
    "daysSupply": null,
    "oneTime": false,
-   "imageUrl": null,
+   "imageUrl": "https://www.amway.com/medias/124818-en-US-480px-01?context=bWFzdGVyfGltYWdlc3wzNTQyM3xpbWFnZS9wbmd8aW1hZ2VzL2hlNy9oNzEvOTM1NTI5MTgyMDA2Mi5wbmd8ZGQ5OGJhN2Y3Yzk4NTMzZjg3MzQwMjFlZjQ1N2I2OTU5YWQwZjJlNWQ3ZWFiZGM2NjUzMWZhNWZiMjZhMTcwNw",
    "areas": [
     "skin"
    ],
@@ -1641,7 +1683,7 @@
    "pv": 340.85,
    "daysSupply": null,
    "oneTime": true,
-   "imageUrl": null,
+   "imageUrl": "https://www.amway.com/medias/122940-en-US-480px-01?context=bWFzdGVyfGltYWdlc3wxMTYzODh8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2g1MS9oYWQvMTA0MTc4MjkxODM1MTgvMTIyOTQwLWVuLVVTLTQ4MHB4LTAxfDhmZTAzMTAwZjdhODA1NzcyZDRjNTBlNWFiZDllOWQ2ZTRjMjcwYTE5NWFhOThkNWI4NzQ0MTVkYTc1NTYzZGQ",
    "areas": [
     "home"
    ],
@@ -1661,7 +1703,7 @@
    "pv": 73.47,
    "daysSupply": null,
    "oneTime": true,
-   "imageUrl": null,
+   "imageUrl": "https://www.amway.com/medias/100186-en-US-480px-01?context=bWFzdGVyfGltYWdlc3w0Njg0NHxpbWFnZS9wbmd8aW1hZ2VzL2g2ZC9oYzQvOTM1NTE4NDAxMzM0Mi5wbmd8NWE5ZDljMDg4ZmNmNDliMjEyYmM1NmZlM2JhYzg0Y2UwNTg4OTdiNjBlYmI5ODFmOGRhNDFhN2U2MTdkZDU3Nw",
    "areas": [
     "home"
    ],
@@ -1681,7 +1723,7 @@
    "pv": 66.65,
    "daysSupply": null,
    "oneTime": true,
-   "imageUrl": null,
+   "imageUrl": "https://www.amway.com/medias/122943-en-US-480px-01?context=bWFzdGVyfGltYWdlc3w1NDAxN3xpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaGVkL2gzZC85NzI5NjgzMzU3NzI2LzEyMjk0My1lbi1VUy00ODBweC0wMXxlYTNlODBkOTk4NzE3YTVkNTM4NzI4Y2I0NTNlZTA3ODBkMjBjYWViYzZlODJmMzNjZDA2OTQwZjM0MzUxYTA2",
    "areas": [
     "home"
    ],
@@ -1743,7 +1785,7 @@
    "pv": 30.44,
    "daysSupply": null,
    "oneTime": true,
-   "imageUrl": null,
+   "imageUrl": "https://www.amway.com/medias/101078-en-US-480px-01?context=bWFzdGVyfGltYWdlc3w2ODE0NXxpbWFnZS9wbmd8aW1hZ2VzL2hmZi9oMDkvOTQ0MTMyNjk1NjU3NC5wbmd8MDczZWI1MGMxNmRiMWUyNzI5MjdmZTgxOGZhNTZkMDI0MGFlZmFkYzFmOWNmYmUxZjcyNmIyYjUyYTMzZDExOA",
    "areas": [
     "home"
    ],
@@ -2297,13 +2339,6 @@
  ],
  "areas": [
   {
-   "id": "skin",
-   "name": "Acne & Skin",
-   "nameZh": "皮肤与痘痘",
-   "blurb": "Skin reflects what happens inside: gut balance, hydration, omega-3 intake, plus the right topical routine.",
-   "blurbZh": "皮肤是内在状态的镜子：肠道平衡、水分、Omega-3摄入，再配合正确的外用护理。"
-  },
-  {
    "id": "energy",
    "name": "Energy & Fatigue",
    "nameZh": "精力与疲劳",
@@ -2318,11 +2353,25 @@
    "blurbZh": "身体的修复发生在夜里。压力激素偏高时，镁等矿物质消耗更快，入睡更难。要支持的是放松过程，而不是强行入睡。"
   },
   {
-   "id": "muscle",
-   "name": "Muscle & Fitness",
-   "nameZh": "增肌与运动表现",
-   "blurb": "Muscle is built in recovery, not in the gym. Repair needs protein as raw material, plus amino acids and minerals for the rebuild cycle.",
-   "blurbZh": "肌肉是在恢复中长出来的。修复需要蛋白质作为原料，加上氨基酸和矿物质支持重建。"
+   "id": "skin",
+   "name": "Acne & Skin",
+   "nameZh": "皮肤与痘痘",
+   "blurb": "Skin reflects what happens inside: gut balance, hydration, omega-3 intake, plus the right topical routine.",
+   "blurbZh": "皮肤是内在状态的镜子：肠道平衡、水分、Omega-3摄入，再配合正确的外用护理。"
+  },
+  {
+   "id": "eye",
+   "name": "Eye Health",
+   "nameZh": "眼睛健康",
+   "blurb": "Screens, night driving and long days ask a lot of the eyes. Lutein and zeaxanthin are the pigments that filter harsh light, and the body cannot make them.",
+   "blurbZh": "屏幕、夜间开车和长时间用眼都在消耗眼睛。叶黄素和玉米黄质是过滤强光的色素，而身体无法自己合成。"
+  },
+  {
+   "id": "brain",
+   "name": "Focus & Memory",
+   "nameZh": "专注与记忆",
+   "blurb": "The brain runs on steady fuel: omega-3 fats, B vitamins, and blood sugar that does not spike and crash.",
+   "blurbZh": "大脑需要平稳供能：Omega-3、B族维生素，以及不过山车的血糖。"
   },
   {
    "id": "weight",
@@ -2339,18 +2388,18 @@
    "blurbZh": "头发本质是蛋白质。稀疏易断常与蛋白质、生物素摄入不足及头皮护理有关。"
   },
   {
-   "id": "aging",
-   "name": "Healthy Aging",
-   "nameZh": "抗老与光泽",
-   "blurb": "Aging well is daily repair keeping pace with daily damage. Antioxidants and key nutrients are the raw materials of that repair.",
-   "blurbZh": "优雅变老=每日修复跟上每日损耗。抗氧化物和关键营养素就是修复的原料。"
+   "id": "digestion",
+   "name": "Gut & Digestion",
+   "nameZh": "肠胃与消化",
+   "blurb": "Emerging science keeps pointing the same way: overall wellbeing begins in the gut microbiome.",
+   "blurbZh": "越来越多研究指向同一结论：整体健康始于肠道菌群。"
   },
   {
-   "id": "heart",
-   "name": "Heart & Circulation",
-   "nameZh": "心血管健康",
-   "blurb": "Cardiovascular health builds silently over decades. Omega-3, magnesium and plant compounds support the maintenance work.",
-   "blurbZh": "心血管状态是几十年沉默累积的结果。Omega-3、镁和植物精华支持日常保养。"
+   "id": "muscle",
+   "name": "Muscle & Fitness",
+   "nameZh": "增肌与运动表现",
+   "blurb": "Muscle is built in recovery, not in the gym. Repair needs protein as raw material, plus amino acids and minerals for the rebuild cycle.",
+   "blurbZh": "肌肉是在恢复中长出来的。修复需要蛋白质作为原料，加上氨基酸和矿物质支持重建。"
   },
   {
    "id": "immunity",
@@ -2360,25 +2409,25 @@
    "blurbZh": "强韧免疫力需要稳定的维C维D、健康肠道，以及家中干净的空气和水。"
   },
   {
-   "id": "digestion",
-   "name": "Gut & Digestion",
-   "nameZh": "肠胃与消化",
-   "blurb": "Emerging science keeps pointing the same way: overall wellbeing begins in the gut microbiome.",
-   "blurbZh": "越来越多研究指向同一结论：整体健康始于肠道菌群。"
-  },
-  {
-   "id": "brain",
-   "name": "Focus & Memory",
-   "nameZh": "专注与记忆",
-   "blurb": "The brain runs on steady fuel: omega-3 fats, B vitamins, and blood sugar that does not spike and crash.",
-   "blurbZh": "大脑需要平稳供能：Omega-3、B族维生素，以及不过山车的血糖。"
-  },
-  {
    "id": "oral",
    "name": "Oral Care",
    "nameZh": "口腔护理",
    "blurb": "Oral health links to whole-body health. Daily mechanics plus the right products beat occasional deep cleans.",
    "blurbZh": "口腔健康关联全身健康。每日到位的清洁胜过偶尔的深度处理。"
+  },
+  {
+   "id": "heart",
+   "name": "Heart & Circulation",
+   "nameZh": "心血管健康",
+   "blurb": "Cardiovascular health builds silently over decades. Omega-3, magnesium and plant compounds support the maintenance work.",
+   "blurbZh": "心血管状态是几十年沉默累积的结果。Omega-3、镁和植物精华支持日常保养。"
+  },
+  {
+   "id": "aging",
+   "name": "Healthy Aging",
+   "nameZh": "抗老与光泽",
+   "blurb": "Aging well is daily repair keeping pace with daily damage. Antioxidants and key nutrients are the raw materials of that repair.",
+   "blurbZh": "优雅变老=每日修复跟上每日损耗。抗氧化物和关键营养素就是修复的原料。"
   },
   {
    "id": "home",
@@ -2390,93 +2439,107 @@
  ],
  "solutions": [
   {
-   "id": "begin-30-holistic-wellness-solution",
-   "title": "Gut reset, 30 days",
-   "titleZh": "肠道重启30天",
-   "story": "Amway's official Begin 30 program: GI Primer + Plant Protein x2 + Probiotic, paired with the Wellbeing+ app. In Amway's study, 75% reported less fatigue and 70% of committed participants lost weight.",
-   "storyZh": "安利官方Begin 30计划：肠道启动粉+植物蛋白x2+益生菌，配合Wellbeing+打卡App。官方研究中75%参与者疲劳感下降。",
+   "id": "students",
+   "title": "Students",
+   "titleZh": "学生党",
+   "icon": "backpack",
+   "situation": "Late nights, deadline sprints, delivery food, and a dorm where everything gets shared. Energy swings between wired and flat, skin reacts to the stress, and getting sick before finals is almost a tradition.",
+   "situationZh": "熬夜赶due、外卖为主、宿舍里什么都一起分。精力在亢奋和断电之间摇摆，皮肤跟着压力闹脾气，考试周前生病几乎成了传统。",
+   "gap": "A campus clinic visit ends with \"you're fine, get more sleep.\" That is accurate and useless, because nothing is diseased yet. This is the sub-health zone: reserves running down before symptoms appear.",
+   "gapZh": "校医院看完一句「你没事，多睡觉」。这话没错但没用，因为确实还没到生病。这就是亚健康区间：储备在消耗，但症状还没出现。",
+   "path": "Start with the two things that compound fastest: a real breakfast with protein instead of pastry, and steady vitamin C so the immune system is not running on empty during exam season. Add energy support that is not a fourth coffee. Build the habit before adding anything else.",
+   "pathZh": "先做两件复利最快的事：早餐用蛋白质替代面包，以及稳定补充维C，让考试季的免疫系统不至于空转。再加上不靠第四杯咖啡的能量支持。先把习惯做出来，再谈其他。",
    "contents": [
-    "begin-daily-gi-primer",
     "plant-protein-powder",
-    "probiotic"
+    "vitamin-c-extended-release-60ct",
+    "xs-energy-drinks-12-pack",
+    "organics-all-in-one-bars",
+    "artistry-studio-done-with-zit",
+    "sleep-gummies"
    ]
   },
   {
-   "id": "everyday-nutrition-solution",
-   "title": "The daily foundation",
-   "titleZh": "每日营养地基",
-   "story": "Amway's official foundation stack: Double X multivitamin + Plant Protein + Advanced Omega. The three gaps almost everyone has, covered in one order.",
-   "storyZh": "官方基础组合：双X+植物蛋白+深海鱼油。一单补齐几乎人人都有的三大缺口。",
+   "id": "professionals",
+   "title": "Working Professionals",
+   "titleZh": "职场人",
+   "icon": "laptop",
+   "situation": "Nine hours at a screen, lunch at the desk, the 3pm crash, and a mind that will not switch off at 11pm. Annual physical comes back clean, yet energy, focus and sleep have all quietly declined over three years.",
+   "situationZh": "一天九小时对着屏幕，午饭在工位解决，下午三点断电，晚上十一点大脑还停不下来。年度体检一切正常，但精力、专注和睡眠在三年里悄悄全面下滑。",
+   "gap": "A physical is designed to catch disease, not to measure how well you function. Blood work in normal range and feeling genuinely good are two different questions, and only one of them gets tested.",
+   "gapZh": "体检的设计目的是发现疾病，不是衡量你的机能状态。指标在正常范围和真正感觉很好，是两个不同的问题，而只有前者会被检测。",
+   "path": "Work in this order: stabilize energy metabolism (B vitamins, real protein at breakfast), then protect the eyes and brain that take the daily load, then rebuild the evening wind-down so sleep actually repairs. Fixing sleep last rarely works, fixing it as part of the chain does.",
+   "pathZh": "按这个顺序：先稳住能量代谢（B族、早餐真正的蛋白质），再保护每天承压的眼睛和大脑，最后重建晚间的放松节奏让睡眠真正修复。最后才治睡眠通常无效，把它放进整条链条里才有效。",
    "contents": [
+    "vitamin-b-complex-120ct",
     "double-x-multivitamin-31-day-refill",
-    "plant-protein-powder",
-    "advanced-omega"
+    "advanced-omega",
+    "vision-health",
+    "magnesium",
+    "plant-protein-powder"
    ]
   },
   {
-   "id": "sleep-stress-solution",
-   "title": "Wind-down, rebuilt",
-   "titleZh": "晚间舒缓方案",
-   "story": "The official evening stack around Sweet Dreams gummies and calming botanicals. For the wired-but-tired pattern.",
-   "storyZh": "官方晚间组合，以甜梦软糖和舒缓植物配方为核心。专为身心俱疲却睡不着的状态设计。",
+   "id": "family",
+   "title": "Family & Household",
+   "titleZh": "家庭",
+   "icon": "home",
+   "situation": "Two working parents, kids who bring home whatever is going around, aging parents you worry about, and a house full of products nobody ever read the label on. Health here is not one person, it is an environment.",
+   "situationZh": "双职工父母、把外面流行的病带回家的孩子、让你担心的长辈，还有满屋子从没人看过成分表的日用品。家庭健康不是一个人的事，是一个环境。",
+   "gap": "Doctors treat the person in front of them, one at a time. Nobody looks at the water, the air, the cookware, and the cleaning products as a system, even though those are the daily exposures the whole family shares.",
+   "gapZh": "医生一次只处理眼前这一个人。没有人会把水、空气、锅具、清洁用品当作一个系统来看，而这些恰恰是全家每天共同暴露的因素。",
+   "path": "Reduce the daily inputs of damage first, because that benefits everyone at once: water, air, and what you cook and clean with. Then layer in nutrition for whoever needs it most. A household upgrade is one decision that covers five people.",
+   "pathZh": "先减少每日的损伤输入，因为这一步全家同时受益：水、空气、以及用什么做饭和清洁。然后再针对最需要的人补充营养。一次家居升级，覆盖五口人。",
    "contents": [
-    "sleep-gummies",
+    "espring-water-purifier-chrome",
+    "atmosphere-mini-air-purifier",
+    "loc-multi-purpose-cleaner",
+    "sa8-liquid-laundry",
+    "double-x-multivitamin-31-day-refill",
+    "probiotic",
+    "glister-toothpaste"
+   ]
+  },
+  {
+   "id": "fitness",
+   "title": "Fitness & Wellness Centers",
+   "titleZh": "健身房与养生馆",
+   "icon": "dumbbell",
+   "situation": "Gyms, studios, massage and recovery spaces. Their members already buy protein, pre-workout and recovery products somewhere, usually from a shelf nobody vetted. The owner wants products that make members come back, not products that eat margin.",
+   "situationZh": "健身房、工作室、按摩与恢复中心。他们的会员本来就在别处买蛋白粉、训练前和恢复产品，通常来自没人把关的货架。老板要的是让会员回头的产品，不是吃掉利润的产品。",
+   "gap": "The supplement aisle is largely unregulated. Third-party testing, banned-substance screening and traceable sourcing are the exception, not the rule, and most members have no way to tell the difference.",
+   "gapZh": "补剂货架基本处于弱监管状态。第三方检测、禁药筛查、可追溯原料是例外而非常态，而大多数会员根本无从分辨。",
+   "path": "Lead with the differentiator that matters to a serious trainer: tested, traceable, grass-fed sourcing. Start the conversation with a sampling pack rather than a wholesale pitch, let their members taste it, then discuss a standing arrangement.",
+   "pathZh": "用真正打动专业教练的差异点切入：经过检测、可追溯、草饲原料。先用试用包开启对话而不是直接谈批发，让会员先尝到，再谈长期合作。",
+   "contents": [
+    "xs-grass-fed-whey-protein",
+    "xs-muscle-multiplier-eaas",
+    "xs-pre-workout-boost",
+    "xs-post-workout-recovery",
+    "xs-protein-bars-12-pack",
+    "advanced-omega",
     "magnesium"
    ]
   },
   {
-   "id": "healthy-aging-solution",
-   "title": "Age on your terms",
-   "titleZh": "健康抗龄方案",
-   "story": "Official healthy-aging stack: turmeric, Cal Mag D, Garlic Heart Care and Vision Health. Maintenance for the long game.",
-   "storyZh": "官方抗龄组合：姜黄+钙镁D+大蒜精华+护眼配方。为长期健康做保养。",
+   "id": "gifting",
+   "title": "Gifts & Sampling",
+   "titleZh": "礼盒与试用",
+   "icon": "gift",
+   "situation": "Holiday gifts, new-neighbor baskets, thank-you packages, and the wellness care package that starts a conversation without asking for anything. Anything that comes in single-serve format can go in the box.",
+   "situationZh": "节日礼物、新邻居礼篮、答谢包，以及那种不带任何要求、只为开启对话的健康关怀包。所有单份包装的产品都可以放进礼盒。",
+   "gap": "A gift lands differently than a pitch. Nobody puts up a defense against a thoughtful package, and single-serve formats let someone experience a product with zero commitment and zero risk.",
+   "gapZh": "礼物和推销的落点完全不同。没有人会对一份用心的礼包设防，而单份装让对方零承诺、零风险地体验产品。",
+   "path": "Build boxes around single-serve items: twist tubes, gummies, energy drinks, protein bars, travel-size personal care. Skip anything that only comes as a full bottle. Include a card with the product link so they can look up what they liked.",
+   "pathZh": "用单份产品搭礼盒：随身饮管、软糖、能量饮、蛋白棒、旅行装个护。跳过只有整瓶装的产品。附一张卡片写上产品链接，让他们能查到自己喜欢的那一款。",
    "contents": [
-    "calcium-magnesium-d",
-    "garlic-heart-care"
-   ]
-  },
-  {
-   "id": "energy-solution",
-   "title": "Beat the 3pm crash",
-   "titleZh": "告别下午断电",
-   "story": "Official energy stack pairing foundational micronutrients with clean energy support.",
-   "storyZh": "官方能量组合：基础微量营养+干净能量支持。",
-   "contents": [
-    "vitamin-b-complex-120ct",
-    "double-x-multivitamin-31-day-refill"
-   ]
-  },
-  {
-   "id": "xs-fitness-jump-start-solution",
-   "title": "Training, jump-started",
-   "titleZh": "健身启动包",
-   "story": "XS protein plus workout support to launch a training habit properly.",
-   "storyZh": "XS蛋白+训练支持，正确开启训练习惯。",
-   "contents": [
-    "xs-grass-fed-whey-protein",
-    "xs-pre-workout-boost",
-    "xs-post-workout-recovery"
-   ]
-  },
-  {
-   "id": "artistry-everyday-skin-solution-bundle",
-   "title": "Skin, simplified",
-   "titleZh": "每日护肤方案",
-   "story": "Artistry's everyday routine in one bundle. The uncomplicated way to start real skincare.",
-   "storyZh": "雅姿每日护肤一套搞定。开始认真护肤的最简单方式。",
-   "contents": [
-    "artistry-hydrating-lotion-spf30"
-   ]
-  },
-  {
-   "id": "walking-to-bronze-bundle",
-   "title": "Bronze builder (IBO)",
-   "titleZh": "Bronze起步（IBO）",
-   "story": "IBO-facing starter bundle sized to the first business milestone. Shown in partner view only.",
-   "storyZh": "面向IBO的起步套装，对齐首个业务里程碑。仅合伙人视图显示。",
-   "contents": [
-    "double-x-multivitamin-31-day-refill",
-    "plant-protein-powder"
+    "twist-tubes",
+    "sleep-gummies",
+    "go-shield",
+    "eye-mojo-blue-light-gummies",
+    "xs-energy-drinks-12-pack",
+    "xs-protein-bars-12-pack",
+    "glister-toothpaste",
+    "glister-refresher-spray"
    ]
   }
  ],
@@ -2700,6 +2763,42 @@
     "who": "First fine lines, loss of glow, or anyone ready to upgrade from basic moisturizer to a real routine.",
     "whoZh": "刚出现细纹、皮肤失去光泽的人，或准备从基础保湿升级到完整流程的人。"
    }
+  }
+ },
+ "tiles": {
+  "_note": "Unsplash photo IDs for tile art. Free commercial use. Replace any id to swap the photo.",
+  "_base": "https://images.unsplash.com/{id}?auto=format&fit=crop&w=400&h=320&q=70",
+  "areas": {
+   "energy": "photo-1557766671-b21f9097a446",
+   "sleep": "photo-1764867175326-05572746780b",
+   "skin": "photo-1657152042407-64b755c7558a",
+   "eye": "photo-1564164841584-391b5c7b590c",
+   "brain": "photo-1597567918979-a06f2e60bd5a",
+   "weight": "photo-1546069901-ba9599a7e63c",
+   "hair": "photo-1581318694548-0fb6e47fe59b",
+   "digestion": "photo-1681330266932-391fd00f805f",
+   "muscle": "photo-1652364649008-99b647d0d1d0",
+   "immunity": "photo-1642054016707-ec809a9c5ba0",
+   "oral": "photo-1609016683866-029bca027853",
+   "heart": "photo-1570135497084-0debfc780ed8",
+   "aging": "photo-1615529179035-e760f6a2dcee",
+   "home": "photo-1744104135578-6768f2061be1"
+  },
+  "solutions": {
+   "students": "photo-1763469029610-a3e8e4536c6d",
+   "professionals": "photo-1535953472862-9cc610a70f8a",
+   "family": "photo-1646807821923-26d717c67d8c",
+   "fitness": "photo-1767531309781-b61fe1edfe86",
+   "gifting": "photo-1707944145479-12755f0434d8"
+  },
+  "cats": {
+   "all": "photo-1779142077668-fe26a95f459c",
+   "nutrition": "photo-1664216294580-079bc527ae49",
+   "sports": "photo-1572334029868-7d0eec63a040",
+   "beauty": "photo-1779056904689-ff99fd0045a4",
+   "care": "photo-1754211568488-f8481375d6fb",
+   "home": "photo-1615529179035-e760f6a2dcee",
+   "solutions": "photo-1707944145479-12755f0434d8"
   }
  }
 }
