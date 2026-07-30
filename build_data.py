@@ -40,7 +40,7 @@ ROWS = [
  ("Magnesium","128032","nutrition",30.6,34,8.92,30,0),
  ("Iron & Folic Acid","102046","nutrition",15.3,17,4.46,60,0),
  ("Plant Protein Powder","125921","nutrition",36.9,41,10.76,15,0),
- ("Organics All-in-One Bars","316302","nutrition",51.3,57,14.96,14,0),
+ ("Organics All-in-One Bars","316302","nutrition",51.3,57,14.96,12,0),
  ("Green Superfood","125937","nutrition",40.5,45,11.81,30,0),
  ("Probiotic","120571","nutrition",38.7,43,11.28,30,0),
  ("Digestive Enzyme","A8903","nutrition",35.1,39,10.23,30,0),
