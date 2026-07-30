@@ -137,7 +137,8 @@
     "aging",
     "eczema",
     "rhinitis",
-    "hormone"
+    "hormone",
+    "eye"
    ],
    "iboOnly": false,
    "imageUrl": "https://www.amway.com/medias/126136-en-US-480px-01?context=bWFzdGVyfGltYWdlc3w1NTc0MnxpbWFnZS9wbmd8aW1hZ2VzL2hmZi9oNTkvOTQ5NTI0MjI0NDEyNi5wbmd8NjdmYzU1Mzc4ZjNjZDBiOTY3NThhNjEzM2EwOTRkNmRmNzJmYzYxMmEzZmFjZjJiNjVmOWJjMzExZTkxMDcyZQ"
@@ -169,7 +170,7 @@
     "sleep",
     "muscle",
     "heart",
-    "constipation"
+    "digestion"
    ],
    "iboOnly": false,
    "imageUrl": "https://www.amway.com/medias/128032-en-US-480px-01?context=bWFzdGVyfGltYWdlc3wxNzE5MTF8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2g5YS9oYWEvOTk5NDEwMzI5MTkzNC8xMjgwMzItZW4tVVMtNDgwcHgtMDF8NjIxYTM5ZmQ2NzBkYmI5NTllYzdmNTY3N2U2ZmQwMzQ5ZDFkYjAwZTk5Yzk3NTQ3M2RjMWQ1ZWQ0YzkxOGY3NQ"
@@ -215,7 +216,7 @@
     "weight",
     "muscle",
     "energy",
-    "constipation"
+    "digestion"
    ],
    "iboOnly": false,
    "imageUrl": "https://www.amway.com/medias/316302-en-US-480px-01?context=bWFzdGVyfGltYWdlc3w2ODYzM3xpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaGZkL2hlZC85NzQyODI0Mzc0MzAyLzMxNjMwMi1lbi1VUy00ODBweC0wMXwzNzQ2NzcwZjY4MTU2NTMyNzMyNWVkMTIyNzA4YWYwYmY3ZWJlODZhYTJkZjQ2Y2JlNzhkZTI0MGExYmRiY2Yy"
@@ -230,8 +231,7 @@
    "areas": [
     "digestion",
     "weight",
-    "immunity",
-    "constipation"
+    "immunity"
    ],
    "iboOnly": false,
    "imageUrl": "https://www.amway.com/medias/125937-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w1NTI5NDd8aW1hZ2UvcG5nfGltYWdlcy9oZmQvaGRkLzk0OTkzMjU5ODg4OTQucG5nfDRkODJmMGQ0MzRiMDc2NDM3NzA1OGViMmZhZmQ1MWUwNTcwNTc0NjA3ZGQ2MTJkNWZmNDEwZmQyNGQwYjMzNjU"
@@ -246,8 +246,7 @@
    "areas": [
     "digestion",
     "immunity",
-    "skin",
-    "constipation"
+    "skin"
    ],
    "iboOnly": false,
    "imageUrl": "https://www.amway.com/medias/120571-en-US-480px-01?context=bWFzdGVyfGltYWdlc3w0NzAxOXxpbWFnZS9wbmd8aW1hZ2VzL2g5OC9oODcvOTQ0OTg4Mjc3OTY3OC5wbmd8MGFkN2JjYThkZmZhYmM0MjU5M2FkZjIzNjU3Y2VlNDE4YTI3OGNmYWNiNjdmMDU4NDRkYWVkYzJhN2UyNmU5Ng"
@@ -260,8 +259,7 @@
    "tagline": "Plant-sourced enzymes to ease heavy meals",
    "taglineZh": "植物来源消化酶，大餐救星",
    "areas": [
-    "digestion",
-    "constipation"
+    "digestion"
    ],
    "iboOnly": false,
    "imageUrl": "https://www.amway.com/medias/A8903-en-US-480px-01?context=bWFzdGVyfGltYWdlc3wxNTc0MDB8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2g3ZS9oYTEvOTY4Mjc1ODYzMTQ1NC9BODkwMy1lbi1VUy00ODBweC0wMXxkYjY5MTYwOTNiMWM3NzM4YzFjM2MwNmY4ODMzMTdlODE0OTU3NDMxZGJhNzlmNzBhYmIyMGZmNzg0ZTdmMDQ2"
@@ -276,8 +274,7 @@
    "areas": [
     "digestion",
     "weight",
-    "energy",
-    "constipation"
+    "energy"
    ],
    "iboOnly": false,
    "imageUrl": "https://www.amway.com/medias/127725-en-US-480px-01?context=bWFzdGVyfGltYWdlc3wxODc0Nzh8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2gyNS9oYjQvOTgzMjAwMzY2NTk1MC8xMjc3MjUtZW4tVVMtNDgwcHgtMDF8MjcyZWFmYTRmNDAyNjczODE3ZTU5NjQ3NTNlMmQyZTNiY2UzNjEzNmRjODdlZDQyODE3NzM2MDRkMTY3NDk2Ng"
@@ -416,8 +413,7 @@
    "tagline": "Milk thistle blend for liver health",
    "taglineZh": "奶蓟草配方，肝脏健康支持",
    "areas": [
-    "digestion",
-    "constipation"
+    "digestion"
    ],
    "iboOnly": false,
    "imageUrl": "https://www.amway.com/medias/A8084-en-US-480px-01?context=bWFzdGVyfGltYWdlc3wxODgyNjV8aW1hZ2UvcG5nfGltYWdlcy9oYTgvaDliLzk0NzYyNjA3OTAzMDIucG5nfGM3NTIzNTVjNjdlY2M4ZTgxNzI3YWQ5ZGM5Njc0YjBjY2U4YmNkODY2ODIxNzY2NzhhZWE0Y2VjM2UzODM5ZGQ"
@@ -872,7 +868,7 @@
    "taglineZh": "晨间去浮肿提亮眼周",
    "areas": [
     "skin",
-    "eye"
+    "aging"
    ],
    "iboOnly": false,
    "imageUrl": "https://www.amway.com/medias/124818-en-US-480px-01?context=bWFzdGVyfGltYWdlc3wzNTQyM3xpbWFnZS9wbmd8aW1hZ2VzL2hlNy9oNzEvOTM1NTI5MTgyMDA2Mi5wbmd8ZGQ5OGJhN2Y3Yzk4NTMzZjg3MzQwMjFlZjQ1N2I2OTU5YWQwZjJlNWQ3ZWFiZGM2NjUzMWZhNWZiMjZhMTcwNw"
@@ -1498,7 +1494,6 @@
    "taglineZh": "喂养你已经有的那些菌",
    "areas": [
     "digestion",
-    "constipation",
     "skin",
     "weight"
    ],
@@ -1514,8 +1509,7 @@
    "taglineZh": "益生元+后生元组合，代谢支持",
    "areas": [
     "weight",
-    "digestion",
-    "constipation"
+    "digestion"
    ],
    "iboOnly": false,
    "imageUrl": "https://www.amway.com/medias/127620-en-US-690px-01?context=bWFzdGVyfGltYWdlc3wyODEwMzN8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2gwYS9oY2IvOTkwMzI3Mjg1MzUzNC8xMjc2MjAtZW4tVVMtNjkwcHgtMDF8MDNjZDZjZGJkYTJhZjcyN2M4ODNmOWE3OWQ2NGQzNDJiMzJhMzMwMGZjNTlkYjdlNTY2NDRhNmFmMmMwMjBmMQ"
@@ -1588,7 +1582,8 @@
     "aging",
     "skin",
     "eczema",
-    "rhinitis"
+    "rhinitis",
+    "eye"
    ],
    "iboOnly": false,
    "imageUrl": "https://www.amway.com/medias/100648-en-US-690px-01?context=bWFzdGVyfGltYWdlc3wxMDQ4NDB8aW1hZ2UvcG5nfGltYWdlcy9oZjcvaDJkLzk0NDgxNjYzNTkwNzAucG5nfGZjYjBjZmYzOWIwMmRkNmU0MmMyNDhjMTMzMDc3NWYzNjEzYmZlN2QyZGZkZGVmYjQwODViZDY2MjE2ZDQ2NWM"
@@ -2385,31 +2380,23 @@
    "name": "Eczema & Sensitive Skin",
    "nameZh": "湿疹与敏感肌",
    "blurb": "When the liver cannot keep up with detoxification, the body recruits the skin as a backup route. Eczema and recurring rashes are often that route being forced open, which is why creams relieve and then it comes back.",
-   "blurbZh": "当肝脏解毒跟不上，身体会征用皮肤当备用排毒通道。湿疹和反复起疹往往就是这条通道被迫开启 —— 这也是为什么药膏能缓解、停了又复发。",
+   "blurbZh": "当肝脏解毒跟不上，身体会征用皮肤当备用排毒通道。湿疹和反复起疹往往就是这条通道被迫开启，这也是为什么药膏能缓解、停了又复发。",
    "sensitive": true
   },
   {
    "id": "hormone",
-   "name": "Women's Cycle",
-   "nameZh": "女性周期",
+   "name": "Cycle Support",
+   "nameZh": "女性周期调理",
    "blurb": "Cyclical breakouts along the jaw, PMS mood swings and cycle-linked fatigue follow a monthly rhythm rather than a daily one. That rhythm is the clue: what changes with the cycle needs cycle-aware support.",
    "blurbZh": "下颌线周期性长痘、经前情绪波动、跟着周期走的疲劳，遵循的是月节律而不是日节律。这个节律本身就是线索：随周期变化的问题，需要顺着周期来支持。",
    "sensitive": true
   },
   {
    "id": "digestion",
-   "name": "Gut & Digestion",
-   "nameZh": "肠胃与消化",
-   "blurb": "Emerging science keeps pointing the same way: overall wellbeing begins in the gut microbiome.",
-   "blurbZh": "越来越多研究指向同一结论：整体健康始于肠道菌群。",
-   "sensitive": false
-  },
-  {
-   "id": "constipation",
-   "name": "Constipation & Regularity",
-   "nameZh": "便秘与排便",
-   "blurb": "Going once a day is not a personality trait, it is a supply issue: fibre to give stool bulk, water to keep it soft, and a microbiome that keeps things moving. Most people fix the last one and skip the first two.",
-   "blurbZh": "每天一次不是天生的，是供给问题：纤维给体积，水分保持柔软，菌群维持动力。多数人只补了菌群，跳过了前两样。",
+   "name": "Gut & Regularity",
+   "nameZh": "肠胃与排便",
+   "blurb": "Regular means once a day and formed, not too hard, not too loose. Both ends of that come back to the same three levers: fibre for bulk, water to keep things soft, and a microbiome with enough of the right bacteria to keep it moving. Most people fix the last one and skip the first two.",
+   "blurbZh": "正常是每天一次、成形，不干硬，也不稀软。这两头其实是同一件事的两个方向，取决于同样三个杠杆：纤维给体积，水分保持柔软，菌群提供动力。多数人只补了菌群，跳过了前两样。",
    "sensitive": true
   },
   {
@@ -2446,10 +2433,10 @@
   },
   {
    "id": "rhinitis",
-   "name": "Nasal Allergies",
-   "nameZh": "鼻炎与过敏",
-   "blurb": "Seasonal sensitivity is an immune response that overshoots. Support works best started before the season rather than during the worst week, and the gut is where most of the immune system actually lives.",
-   "blurbZh": "换季敏感是免疫反应过度。支持型方案要在换季前开始，而不是最难受那周才补；而免疫系统的大部分其实住在肠道。",
+   "name": "Allergies",
+   "nameZh": "过敏与鼻炎",
+   "blurb": "Seasonal and environmental sensitivity is an immune response that overshoots. Support works best started before the season rather than during the worst week, and most of the immune system actually lives in the gut, which is why this area overlaps with digestion more than people expect.",
+   "blurbZh": "季节性和环境敏感，本质是免疫反应过度。支持型方案要在换季前开始，而不是最难受那周才补；而免疫系统的大部分其实住在肠道，这也是为什么这个领域和肠胃的重叠比多数人想的更多。",
    "sensitive": true
   },
   {
@@ -2461,51 +2448,11 @@
    "sensitive": false
   },
   {
-   "id": "kids",
-   "name": "Kids & Teens",
-   "nameZh": "孩子与青少年",
-   "blurb": "Picky eating, growth spurts and whatever is going around at school. Formats decide compliance at this age: a chewable or gummy that gets taken beats a tablet that sits in the cupboard.",
-   "blurbZh": "挑食、长个子、学校里传来传去的病。这个年纪，剂型决定坚持度：吃得下的咀嚼片和软糖，胜过放在柜子里的药片。",
-   "sensitive": true
-  },
-  {
    "id": "muscle",
    "name": "Muscle & Fitness",
    "nameZh": "增肌与运动表现",
    "blurb": "Muscle is built in recovery, not in the gym. Repair needs protein as raw material, plus amino acids and minerals for the rebuild cycle.",
    "blurbZh": "肌肉是在恢复中长出来的。修复需要蛋白质作为原料，加上氨基酸和矿物质支持重建。",
-   "sensitive": false
-  },
-  {
-   "id": "oral",
-   "name": "Oral Care",
-   "nameZh": "口腔护理",
-   "blurb": "Oral health links to whole-body health. Daily mechanics plus the right products beat occasional deep cleans.",
-   "blurbZh": "口腔健康关联全身健康。每日到位的清洁胜过偶尔的深度处理。",
-   "sensitive": false
-  },
-  {
-   "id": "heart",
-   "name": "Heart & Circulation",
-   "nameZh": "心血管健康",
-   "blurb": "Cardiovascular health builds silently over decades. Omega-3, magnesium and plant compounds support the maintenance work.",
-   "blurbZh": "心血管状态是几十年沉默累积的结果。Omega-3、镁和植物精华支持日常保养。",
-   "sensitive": true
-  },
-  {
-   "id": "aging",
-   "name": "Healthy Aging",
-   "nameZh": "抗老与光泽",
-   "blurb": "Aging well is daily repair keeping pace with daily damage. Antioxidants and key nutrients are the raw materials of that repair.",
-   "blurbZh": "优雅变老=每日修复跟上每日损耗。抗氧化物和关键营养素就是修复的原料。",
-   "sensitive": false
-  },
-  {
-   "id": "home",
-   "name": "Healthy Home",
-   "nameZh": "家庭健康环境",
-   "blurb": "What you drink, breathe and cook with every day quietly compounds. Upgrading the home environment is upgrading health.",
-   "blurbZh": "每天喝的水、呼吸的空气、做饭的锅具都在默默累积。升级居家环境就是升级健康。",
    "sensitive": false
   }
  ],

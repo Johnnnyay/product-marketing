@@ -1,9 +1,9 @@
-# products_new.py — catalog additions found by the full amway.com sitemap audit (2026-07-29).
+# products_new.py, catalog additions found by the full amway.com sitemap audit (2026-07-29).
 # 475 SKUs in the public sitemap; after removing makeup shades, fragrance, spare parts,
 # agricultural products and pure flavour/size variants, these are the real gaps.
 #
 # Pricing convention verified against existing rows: IBO = retail * 0.90, PV ≈ retail * 0.2624.
-# PV is DERIVED, not scraped — verify in Notion before quoting PV to a partner.
+# PV is DERIVED, not scraped, verify in Notion before quoting PV to a partner.
 
 def rows():
     """(name, item, cat, ibo, retail, pv, days, one_time)"""
@@ -99,7 +99,7 @@ def enrich():
     """name -> (brand, nameZh, tagline, taglineZh, areas, flags)"""
     return {
  # nutrition
- "Prebiotic Fiber":("Nutrilite","益生元纤维粉","Feeds the bacteria you already have","喂养你已经有的那些菌",["digestion","constipation","skin","weight"],{}),
+ "Prebiotic Fiber":("Nutrilite","益生元纤维粉","Feeds the bacteria you already have","喂养你已经有的那些菌",["digestion","skin","weight"],{}),
  "Metabolic Pre & Postbiotic":("Nutrilite","代谢益生元后生元","Pre + postbiotic pairing for metabolic support","益生元+后生元组合，代谢支持",["weight","digestion"],{}),
  "Stress Relief Probiotic":("Nutrilite","舒压益生菌","Probiotic strains studied for the gut-brain axis","针对肠脑轴研究的益生菌株",["sleep","digestion","brain"],{}),
  "Cycle Support":("Nutrilite","女性周期支持","Chasteberry blend for monthly cycle comfort","圣洁莓配方，月经周期舒适支持",["hormone","skin"],{}),

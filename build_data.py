@@ -1,4 +1,4 @@
-# build_data.py — generates data/products.json (site data) + scripts/meta.json (enrichment map)
+# build_data.py, generates data/products.json (site data) + scripts/meta.json (enrichment map)
 # Notion Master Pricing DB is the source of truth for prices/PV/days/one-time/images.
 # This script holds the ENRICHMENT layer: slugs, Chinese names, taglines, area mapping.
 # fetch-notion.js merges live Notion rows over meta.json to refresh products.json.
@@ -24,7 +24,7 @@ IMG = {
  "125923": "https://www.amway.com/medias/125923-en-US-150px-01?context=bWFzdGVyfGltYWdlc3wxMTA5OXxpbWFnZS9wbmd8aW1hZ2VzL2gyNy9oODkvOTM1NTQyMTQ4MzAzOC5wbmd8MmMxZTc2YmYwYTBlNjdmZjQ0YmU1NWFjOWMxYWVkNDdhZDllNGQxNzE0YjhlNGZhZmY0YzczMjE1NjI0M2Y3Mw",
 }
 
-# (name_in_notion, item, cat, ibo, retail, pv, days, one_time)  — snapshot from Notion DB 2026-07-27
+# (name_in_notion, item, cat, ibo, retail, pv, days, one_time), snapshot from Notion DB 2026-07-27
 # fetch-notion.js refreshes these values live; enrichment below stays.
 ROWS = [
  ("Double X Multivitamin 31-day Refill","A0244","nutrition",57.6,64,16.79,31,0),
@@ -208,7 +208,7 @@ E = {
  "Artistry Signature Select Firming Mask":("Artistry","雅姿紧致面膜","Firming treatment mask","紧致提拉面膜",["aging"],{}),
  "Artistry Signature Select Polishing Mask":("Artistry","雅姿焕肤面膜","Gentle polishing mask for smooth glow","温和焕肤，透亮光泽",["skin"],{}),
  "Artistry Studio Spot On Dots":("Artistry Studio","雅姿痘痘贴","Blemish patches that work overnight","一夜见效痘痘贴",["skin"],{}),
- "Artistry Studio Eye Look Rested":("Artistry Studio","雅姿去浮肿眼霜","De-puff and brighten tired morning eyes","晨间去浮肿提亮眼周",["skin","eye"],{}),
+ "Artistry Studio Eye Look Rested":("Artistry Studio","雅姿去浮肿眼霜","De-puff and brighten tired morning eyes","晨间去浮肿提亮眼周",["skin","aging"],{}),
  "Artistry Men Face Wash":("Artistry Men","雅姿男士洁面","Energizing face wash built for men's skin","男士专属活力洁面",["skin"],{}),
  "Glister Toothpaste":("Glister","丽齿健多效牙膏","Remineralizing multi-action toothpaste, concentrated formula","多效修护牙膏，浓缩配方",["oral"],{}),
  "Glister Power Toothbrush":("Glister","丽齿健声波电动牙刷","Sonic toothbrush with UV sanitizing base","声波电动牙刷+UV消毒座",["oral"],{}),
@@ -258,27 +258,22 @@ E = {
 }
 
 AREAS = [
- # Ordered by frequency in the 72 client assessments, with the "hard to talk about"
- # pains (eczema, constipation, cycle) promoted above oral/heart/aging/home per Johnny.
+ # Areas of Support is a PAIN-POINT list, ordered by frequency in the 72 client
+ # assessments. Non-pain groupings (Healthy Aging, Heart, Oral Care) live under
+ # By Category; Kids & Teens is a persona and lives under Solutions.
  ("energy","Energy & Fatigue","精力与疲劳","Constant tiredness is usually not laziness. It is often a signal that energy metabolism is short on raw materials like B vitamins, iron and quality protein, or that sleep debt is piling up.","持续疲劳往往不是懒，而是身体能量代谢缺少原料（B族、铁、优质蛋白），或睡眠负债在累积。"),
  ("sleep","Sleep & Stress","睡眠与压力","The body repairs itself at night. When stress hormones stay high, minerals like magnesium get used up faster, and falling asleep gets harder. Support the wind-down, not just the knockout.","身体的修复发生在夜里。压力激素偏高时，镁等矿物质消耗更快，入睡更难。要支持的是放松过程，而不是强行入睡。"),
  ("skin","Acne & Skin","皮肤与痘痘","Skin reflects what happens inside: gut balance, hydration, omega-3 intake, plus the right topical routine.","皮肤是内在状态的镜子：肠道平衡、水分、Omega-3摄入，再配合正确的外用护理。"),
- ("eczema","Eczema & Sensitive Skin","湿疹与敏感肌","When the liver cannot keep up with detoxification, the body recruits the skin as a backup route. Eczema and recurring rashes are often that route being forced open, which is why creams relieve and then it comes back.","当肝脏解毒跟不上，身体会征用皮肤当备用排毒通道。湿疹和反复起疹往往就是这条通道被迫开启 —— 这也是为什么药膏能缓解、停了又复发。"),
- ("hormone","Women's Cycle","女性周期","Cyclical breakouts along the jaw, PMS mood swings and cycle-linked fatigue follow a monthly rhythm rather than a daily one. That rhythm is the clue: what changes with the cycle needs cycle-aware support.","下颌线周期性长痘、经前情绪波动、跟着周期走的疲劳，遵循的是月节律而不是日节律。这个节律本身就是线索：随周期变化的问题，需要顺着周期来支持。"),
- ("digestion","Gut & Digestion","肠胃与消化","Emerging science keeps pointing the same way: overall wellbeing begins in the gut microbiome.","越来越多研究指向同一结论：整体健康始于肠道菌群。"),
- ("constipation","Constipation & Regularity","便秘与排便","Going once a day is not a personality trait, it is a supply issue: fibre to give stool bulk, water to keep it soft, and a microbiome that keeps things moving. Most people fix the last one and skip the first two.","每天一次不是天生的，是供给问题：纤维给体积，水分保持柔软，菌群维持动力。多数人只补了菌群，跳过了前两样。"),
+ ("eczema","Eczema & Sensitive Skin","湿疹与敏感肌","When the liver cannot keep up with detoxification, the body recruits the skin as a backup route. Eczema and recurring rashes are often that route being forced open, which is why creams relieve and then it comes back.","当肝脏解毒跟不上，身体会征用皮肤当备用排毒通道。湿疹和反复起疹往往就是这条通道被迫开启，这也是为什么药膏能缓解、停了又复发。"),
+ ("hormone","Cycle Support","女性周期调理","Cyclical breakouts along the jaw, PMS mood swings and cycle-linked fatigue follow a monthly rhythm rather than a daily one. That rhythm is the clue: what changes with the cycle needs cycle-aware support.","下颌线周期性长痘、经前情绪波动、跟着周期走的疲劳，遵循的是月节律而不是日节律。这个节律本身就是线索：随周期变化的问题，需要顺着周期来支持。"),
+ ("digestion","Gut & Regularity","肠胃与排便","Regular means once a day and formed, not too hard, not too loose. Both ends of that come back to the same three levers: fibre for bulk, water to keep things soft, and a microbiome with enough of the right bacteria to keep it moving. Most people fix the last one and skip the first two.","正常是每天一次、成形，不干硬，也不稀软。这两头其实是同一件事的两个方向，取决于同样三个杠杆：纤维给体积，水分保持柔软，菌群提供动力。多数人只补了菌群，跳过了前两样。"),
  ("eye","Eye Health","眼睛健康","Screens, night driving and long days ask a lot of the eyes. Lutein and zeaxanthin are the pigments that filter harsh light, and the body cannot make them.","屏幕、夜间开车和长时间用眼都在消耗眼睛。叶黄素和玉米黄质是过滤强光的色素，而身体无法自己合成。"),
  ("brain","Focus & Memory","专注与记忆","The brain runs on steady fuel: omega-3 fats, B vitamins, and blood sugar that does not spike and crash.","大脑需要平稳供能：Omega-3、B族维生素，以及不过山车的血糖。"),
  ("weight","Weight Management","体重管理","Sustainable weight change starts with steady blood sugar, enough protein and a healthy gut, not with eating as little as possible.","可持续的体重管理，从稳定血糖、足量蛋白和健康肠道开始，而不是一味少吃。"),
  ("hair","Hair Health","头发与脱发","Hair is protein. Thinning and brittleness commonly reflect gaps in protein, biotin and scalp care working together.","头发本质是蛋白质。稀疏易断常与蛋白质、生物素摄入不足及头皮护理有关。"),
- ("rhinitis","Nasal Allergies","鼻炎与过敏","Seasonal sensitivity is an immune response that overshoots. Support works best started before the season rather than during the worst week, and the gut is where most of the immune system actually lives.","换季敏感是免疫反应过度。支持型方案要在换季前开始，而不是最难受那周才补；而免疫系统的大部分其实住在肠道。"),
+ ("rhinitis","Allergies","过敏与鼻炎","Seasonal and environmental sensitivity is an immune response that overshoots. Support works best started before the season rather than during the worst week, and most of the immune system actually lives in the gut, which is why this area overlaps with digestion more than people expect.","季节性和环境敏感，本质是免疫反应过度。支持型方案要在换季前开始，而不是最难受那周才补；而免疫系统的大部分其实住在肠道，这也是为什么这个领域和肠胃的重叠比多数人想的更多。"),
  ("immunity","Immunity","免疫力","A resilient immune system needs steady vitamin C and D, a healthy gut, and clean air and water at home.","强韧免疫力需要稳定的维C维D、健康肠道，以及家中干净的空气和水。"),
- ("kids","Kids & Teens","孩子与青少年","Picky eating, growth spurts and whatever is going around at school. Formats decide compliance at this age: a chewable or gummy that gets taken beats a tablet that sits in the cupboard.","挑食、长个子、学校里传来传去的病。这个年纪，剂型决定坚持度：吃得下的咀嚼片和软糖，胜过放在柜子里的药片。"),
  ("muscle","Muscle & Fitness","增肌与运动表现","Muscle is built in recovery, not in the gym. Repair needs protein as raw material, plus amino acids and minerals for the rebuild cycle.","肌肉是在恢复中长出来的。修复需要蛋白质作为原料，加上氨基酸和矿物质支持重建。"),
- ("oral","Oral Care","口腔护理","Oral health links to whole-body health. Daily mechanics plus the right products beat occasional deep cleans.","口腔健康关联全身健康。每日到位的清洁胜过偶尔的深度处理。"),
- ("heart","Heart & Circulation","心血管健康","Cardiovascular health builds silently over decades. Omega-3, magnesium and plant compounds support the maintenance work.","心血管状态是几十年沉默累积的结果。Omega-3、镁和植物精华支持日常保养。"),
- ("aging","Healthy Aging","抗老与光泽","Aging well is daily repair keeping pace with daily damage. Antioxidants and key nutrients are the raw materials of that repair.","优雅变老=每日修复跟上每日损耗。抗氧化物和关键营养素就是修复的原料。"),
- ("home","Healthy Home","家庭健康环境","What you drink, breathe and cook with every day quietly compounds. Upgrading the home environment is upgrading health.","每天喝的水、呼吸的空气、做饭的锅具都在默默累积。升级居家环境就是升级健康。"),
 ]
 
 
@@ -348,19 +343,19 @@ E.update(products_new.enrich())
 # Keyed by product NAME as it appears in ROWS.
 AREA_EXTRA = {
  # --- constipation: bulk (fiber), softness (magnesium/water), motility (microbiome, bile)
- "Probiotic": ["constipation"],
- "Digestive Enzyme": ["constipation"],
- "Begin Daily GI Primer": ["constipation"],
- "Magnesium": ["constipation"],
- "Green Superfood": ["constipation"],
- "Organics All-in-One Bars": ["constipation"],
- "Metabolic Pre & Postbiotic": ["constipation"],
- "Liver Support": ["constipation"],
+ "Probiotic": ["digestion"],
+ "Digestive Enzyme": ["digestion"],
+ "Begin Daily GI Primer": ["digestion"],
+ "Magnesium": ["digestion"],
+ "Green Superfood": ["digestion"],
+ "Organics All-in-One Bars": ["digestion"],
+ "Metabolic Pre & Postbiotic": ["digestion"],
+ "Liver Support": ["digestion"],
  # --- eczema: barrier lipids, detox load, gut-skin axis, trigger removal
- "Advanced Omega": ["eczema", "rhinitis", "hormone"],
+ "Advanced Omega": ["eczema", "rhinitis", "hormone", "eye"],  # DHA is a structural fat in the retina
  "Vitamin D": ["eczema", "rhinitis"],
  "Vitamin E Chewable": ["eczema"],
- "Concentrated Fruits & Vegetables": ["eczema", "rhinitis"],
+ "Concentrated Fruits & Vegetables": ["eczema", "rhinitis", "eye"],  # carotenoid families
  "g&h Nourish Body Lotion": ["eczema"],
  "g&h Nourish Body Wash": ["eczema"],
  "SA8 Liquid Laundry": ["eczema"],
@@ -415,7 +410,7 @@ for (name, item, cat, ibo, retail, pv, days, one) in ROWS:
 
 # Areas where the symptom is commonly treated medically. These get an extra
 # "talk to your doctor" line under the product grid, on top of the site footer note.
-SENSITIVE = {"eczema","constipation","rhinitis","hormone","heart","kids"}
+SENSITIVE = {"eczema","digestion","rhinitis","hormone","heart","kids"}
 areas = [{"id":a,"name":n,"nameZh":z,"blurb":b,"blurbZh":bz,"sensitive":a in SENSITIVE} for a,n,z,b,bz in AREAS]
 solutions = [{"id":i,"title":t,"titleZh":tz,"icon":ic,"situation":si,"situationZh":siz,"gap":g,"gapZh":gz,"path":pa,"pathZh":paz,"contents":c} for i,t,tz,ic,si,siz,g,gz,pa,paz,c in SOLUTIONS]
 

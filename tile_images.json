@@ -15,11 +15,9 @@
   "heart": "images/tiles/are-heart.jpg",
   "aging": "images/tiles/are-aging.jpg",
   "home": "images/tiles/are-home.jpg",
-  "constipation": "images/tiles/are-constipation.jpg",
   "eczema": "images/tiles/are-eczema.jpg",
   "rhinitis": "images/tiles/are-rhinitis.jpg",
-  "hormone": "images/tiles/are-hormone.jpg",
-  "kids": "images/tiles/are-kids.jpg"
+  "hormone": "images/tiles/are-hormone.jpg"
  },
  "solutions": {
   "students": "images/tiles/sol-students.jpg",
@@ -36,6 +34,9 @@
   "beauty": "images/tiles/cat-beauty.jpg",
   "care": "images/tiles/cat-care.jpg",
   "home": "images/tiles/cat-home.jpg",
-  "solutions": "images/tiles/cat-solutions.jpg"
+  "solutions": "images/tiles/cat-solutions.jpg",
+  "oral": "images/tiles/are-oral.jpg",
+  "aging": "images/tiles/are-aging.jpg",
+  "heart": "images/tiles/are-heart.jpg"
  }
 }

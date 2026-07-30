@@ -195,7 +195,7 @@
   "advantage": "Eye support in a gummy, aimed squarely at screen time. Easier to keep on a desk than a bottle of capsules.",
   "advantageZh": "软糖形态的护眼支持，直接针对屏幕时间。放在办公桌上比一瓶胶囊更容易坚持。",
   "who": "Students, gamers, and desk workers who will actually eat a gummy at 3pm but never open a bottle.",
-  "whoZh": "学生、游戏玩家、办公族 —— 下午三点会吃颗软糖，但永远不会打开一个瓶子。"
+  "whoZh": "学生、游戏玩家、办公族，下午三点会吃颗软糖，但永远不会打开一个瓶子。"
  },
  "xs-energy-drinks-12-pack": {
   "advantage": "Zero sugar, B-vitamin based energy rather than a sugar spike, and it actually tastes good enough to repeat. The 12-pack is the format that gets shared.",
@@ -288,7 +288,7 @@
   "whoZh": "屏幕疲劳、清晨浮肿，以及第一次用眼部产品的人。"
  },
  "artistry-hydrating-system-bundle": {
-  "advantage": "The full hydrating routine — cleanse, tone, moisturize — bought as one decision instead of three.",
+  "advantage": "The full hydrating routine, cleanse, tone, moisturize, bought as one decision instead of three.",
   "advantageZh": "完整水润流程：清洁、爽肤、保湿，一次决定代替三次。",
   "who": "People starting a real routine for the first time, and the simplest gift for skincare beginners.",
   "whoZh": "第一次开始认真护肤的人，也是送护肤新手最简单的礼物。"
@@ -397,7 +397,7 @@
  },
  "artistry-studio-spot-on-dots": {
   "advantage": "Hydrocolloid patches that protect a blemish overnight and stop you touching it, which is half the problem.",
-  "advantageZh": "水胶体贴片，整夜保护痘痘并阻止你去碰它 —— 而碰它正是问题的一半。",
+  "advantageZh": "水胶体贴片，整夜保护痘痘并阻止你去碰它，而碰它正是问题的一半。",
   "who": "Teens and adults with occasional spots. The single most giftable skincare item.",
   "whoZh": "偶发痘痘的青少年和成人。也是最适合当小礼物的护肤单品。"
  },
@@ -421,7 +421,7 @@
  },
  "glister-floss-2-pack": {
   "advantage": "Smooth-glide floss that does not shred between tight contacts, which is the reason most people quit flossing.",
-  "advantageZh": "顺滑牙线，在牙缝紧的地方不会起毛断裂 —— 而这正是多数人放弃用牙线的原因。",
+  "advantageZh": "顺滑牙线，在牙缝紧的地方不会起毛断裂，而这正是多数人放弃用牙线的原因。",
   "who": "Anyone who has given up on flossing because their current floss keeps catching.",
   "whoZh": "因为现有牙线总是卡住而放弃的人。"
  },
@@ -445,7 +445,7 @@
  },
  "satinique-smooth-shampoo-280ml": {
   "advantage": "Moisture-focused cleansing for hair that frizzes or feels straw-like, the opposite problem from the purifying line.",
-  "advantageZh": "主打保湿的清洁，针对毛躁或干枯like稻草的头发 —— 与净化线相反的问题。",
+  "advantageZh": "主打保湿的清洁，针对毛躁或干枯like稻草的头发，与净化线相反的问题。",
   "who": "Dry, colored, or heat-styled hair.",
   "whoZh": "干性、染过或经常热造型的头发。"
  },
@@ -565,7 +565,7 @@
  },
  "amway-home-glass-cleaner": {
   "advantage": "Streak-free on glass and mirrors, which is the entire job of a glass cleaner and where most fail.",
-  "advantageZh": "玻璃和镜面不留痕 —— 这是玻璃清洁剂唯一的任务，也是大多数产品失败的地方。",
+  "advantageZh": "玻璃和镜面不留痕，这是玻璃清洁剂唯一的任务，也是大多数产品失败的地方。",
   "who": "Anyone who has cleaned a window twice because of streaks.",
   "whoZh": "因为留痕而把窗户擦两遍的人。"
  },
@@ -631,7 +631,7 @@
  },
  "icook-multipurpose-shears": {
   "advantage": "Kitchen shears that separate for cleaning, which is the detail that decides whether you actually use them.",
-  "advantageZh": "可拆卸清洗的厨房剪 —— 这个细节决定了你会不会真的用它。",
+  "advantageZh": "可拆卸清洗的厨房剪，这个细节决定了你会不会真的用它。",
   "who": "The best first iCook purchase: low price, used immediately, and it opens the cookware conversation.",
   "whoZh": "最好的iCook入门单品：价格低、马上就能用，而且能打开锅具的话题。"
  },
@@ -651,7 +651,7 @@
   "advantage": "The official evening stack built around Sweet Dreams gummies and calming botanicals.",
   "advantageZh": "官方晚间组合，以甜梦软糖和舒缓植物配方为核心。",
   "who": "The wired-but-tired pattern, which is the most common complaint in this client base.",
-  "whoZh": "身体累但大脑停不下来 —— 这是这个客户群里最常见的主诉。"
+  "whoZh": "身体累但大脑停不下来，这是这个客户群里最常见的主诉。"
  },
  "healthy-aging-solution": {
   "advantage": "The official healthy-aging bundle: turmeric, Cal Mag D, Garlic Heart Care and Vision Health together.",
@@ -721,13 +721,13 @@
  },
  "immunity-echinacea": {
   "advantage": "Echinacea is the most-studied immune botanical in Western herbal medicine. The usage detail that matters: it is designed for short intensive runs around a period of exposure, not as a year-round daily, which is the opposite of how most people use it.",
-  "advantageZh": "紫锥菊是西方草药里研究最多的免疫植物。关键用法：它是设计给暴露期前后短期集中服用的，不是全年天天吃 —— 这跟多数人的用法正好相反。",
+  "advantageZh": "紫锥菊是西方草药里研究最多的免疫植物。关键用法：它是设计给暴露期前后短期集中服用的，不是全年天天吃，这跟多数人的用法正好相反。",
   "who": "Travel weeks, flu season, or the fortnight after a child brings something home from school.",
   "whoZh": "出差周、流感季，或者孩子从学校带回点什么之后的那两周。"
  },
  "heart-health-coq10": {
   "advantage": "Heart muscle has the highest concentration of mitochondria of any tissue, and CoQ10 is what those mitochondria use to make energy. Body production drops with age, and statins lower it further, which is why this is the single most common addition for people on that medication.",
-  "advantageZh": "心肌是全身线粒体密度最高的组织，而辅酶Q10正是线粒体产能所用。人体自身合成量随年龄下降，他汀类药物会进一步降低它 —— 这就是为什么服用该类药物的人最常补的就是这一个。",
+  "advantageZh": "心肌是全身线粒体密度最高的组织，而辅酶Q10正是线粒体产能所用。人体自身合成量随年龄下降，他汀类药物会进一步降低它，这就是为什么服用该类药物的人最常补的就是这一个。",
   "who": "Adults over 45, and anyone whose doctor has them on a statin.",
   "whoZh": "45岁以上的成年人，以及医生给开了他汀的人。"
  },
@@ -757,7 +757,7 @@
  },
  "organics-ashwagandha-capsules": {
   "advantage": "Adaptogens do not sedate you; they moderate the cortisol response, which is why ashwagandha can help someone sleep at night and stay steadier during the day from the same dose. Evening dosing suits most people.",
-  "advantageZh": "适应原不是镇静剂，它调节的是皮质醇反应 —— 所以同一个剂量既能帮人晚上睡好，又能让白天更稳。多数人放在晚上吃更合适。",
+  "advantageZh": "适应原不是镇静剂，它调节的是皮质醇反应，所以同一个剂量既能帮人晚上睡好，又能让白天更稳。多数人放在晚上吃更合适。",
   "who": "People carrying sustained pressure, wired at bedtime and flat by mid-afternoon.",
   "whoZh": "长期高压、晚上躺下反而清醒、下午三点就没电的人。"
  },
@@ -775,13 +775,13 @@
  },
  "women-s-daily-multivitamin": {
   "advantage": "Women's formulas differ mainly in iron, folate and calcium, which reflect real physiological differences rather than marketing. One tablet daily is the format most people can sustain for a year, which is the timescale that matters.",
-  "advantageZh": "女性配方的差别主要在铁、叶酸和钙，这反映的是真实的生理差异，不是营销话术。每天一片是多数人能坚持一年的剂型 —— 而一年才是有意义的时间尺度。",
+  "advantageZh": "女性配方的差别主要在铁、叶酸和钙，这反映的是真实的生理差异，不是营销话术。每天一片是多数人能坚持一年的剂型，而一年才是有意义的时间尺度。",
   "who": "Women starting out, or anyone who wants a simple daily floor under their nutrition.",
   "whoZh": "刚开始补充的女性，或者想给日常营养一个简单底线的人。"
  },
  "organics-men-s-daily-gummies": {
   "advantage": "The best supplement is the one that gets taken. For people who gag on tablets or forget them, a gummy that gets eaten daily outperforms a tablet sitting in a cupboard, and that is not a compromise, it is the whole point.",
-  "advantageZh": "最好的营养品是那个真的被吃掉的。对于吞不下药片或者总是忘记的人来说，每天真吃掉的软糖胜过柜子里的药片 —— 这不是妥协，这就是重点。",
+  "advantageZh": "最好的营养品是那个真的被吃掉的。对于吞不下药片或者总是忘记的人来说，每天真吃掉的软糖胜过柜子里的药片，这不是妥协，这就是重点。",
   "who": "People with a tablet aversion, and anyone whose supplement bottle is still half full after six months.",
   "whoZh": "咽不下药片的人，以及那瓶营养品放了半年还剩一半的人。"
  },
@@ -793,7 +793,7 @@
  },
  "collagen-shots": {
   "advantage": "Collagen research uses hydrolysed peptides at a specific dose, and a shot delivers that dose without a scoop, a shaker or a decision. The convenience is not a gimmick; daily consistency is what the studies are actually measuring.",
-  "advantageZh": "胶原蛋白的研究用的是特定剂量的水解肽，而即饮装直接给到这个剂量，不用勺子、不用摇杯、不用做决定。便利不是噱头 —— 研究真正测量的就是每日的坚持度。",
+  "advantageZh": "胶原蛋白的研究用的是特定剂量的水解肽，而即饮装直接给到这个剂量，不用勺子、不用摇杯、不用做决定。便利不是噱头，研究真正测量的就是每日的坚持度。",
   "who": "People who have bought collagen powder before and stopped using it.",
   "whoZh": "以前买过胶原蛋白粉然后就搁置了的人。"
  },
@@ -823,13 +823,13 @@
  },
  "kids-brainiums-dha-jelly": {
   "advantage": "About 60% of the brain by dry weight is fat, and DHA is the dominant structural fatty acid in it. Children build that structure now, from dietary supply, and fish twice a week is the intake most families are not hitting.",
-  "advantageZh": "大脑干重约60%是脂肪，而DHA是其中占主导的结构性脂肪酸。孩子现在正在搭这个结构，原料来自饮食供给 —— 而每周两次鱼，是多数家庭达不到的摄入量。",
+  "advantageZh": "大脑干重约60%是脂肪，而DHA是其中占主导的结构性脂肪酸。孩子现在正在搭这个结构，原料来自饮食供给，而每周两次鱼，是多数家庭达不到的摄入量。",
   "who": "Children who do not eat fish, and school-age kids in demanding academic years.",
   "whoZh": "不吃鱼的孩子，以及学业压力大的学龄儿童。"
  },
  "xs-sparkling-juiced-energy-12-pack": {
   "advantage": "Real juice base with zero sugar is a harder formulation than a synthetic flavour with zero sugar, and it is the reason this drinks like a soft drink rather than like a supplement. Same B-vitamin and caffeine structure as the rest of the XS line.",
-  "advantageZh": "真果汁基底加零糖，配方难度高于合成香精加零糖 —— 这也是为什么它喝起来像汽水而不像营养品。B族维生素和咖啡因结构与XS其他产品一致。",
+  "advantageZh": "真果汁基底加零糖，配方难度高于合成香精加零糖，这也是为什么它喝起来像汽水而不像营养品。B族维生素和咖啡因结构与XS其他产品一致。",
   "who": "People switching off sugary energy drinks who still want something that tastes like one.",
   "whoZh": "想戒掉高糖能量饮料、但还是想要那个口感的人。"
  },
@@ -841,7 +841,7 @@
  },
  "xs-energy-focus-30ct": {
   "advantage": "The 30-count is the trial size of the 60. Buying the small one first is the right move for anything caffeine-based, because individual tolerance varies more than any label can predict.",
-  "advantageZh": "30粒装是60粒装的试用规格。任何含咖啡因的东西，先买小包装都是对的做法 —— 个体耐受度的差异比任何标签能预测的都大。",
+  "advantageZh": "30粒装是60粒装的试用规格。任何含咖啡因的东西，先买小包装都是对的做法，个体耐受度的差异比任何标签能预测的都大。",
   "who": "First-time users testing tolerance before committing to the larger bottle.",
   "whoZh": "第一次用、想先试耐受度再决定要不要上大瓶的人。"
  },
@@ -853,7 +853,7 @@
  },
  "artistry-studio-glow-boss-cleanser-exfoliator": {
   "advantage": "Two steps in one is a compliance product: most people who own a separate exfoliant use it far less often than they should. Daily gentle exfoliation also beats aggressive weekly scrubbing, which is what damages a barrier.",
-  "advantageZh": "两步合一是一个坚持度产品：拥有单独去角质产品的人，绝大多数用的频率远低于应该的频率。而每天温和去角质，好过每周一次的猛搓 —— 后者才是伤屏障的元凶。",
+  "advantageZh": "两步合一是一个坚持度产品：拥有单独去角质产品的人，绝大多数用的频率远低于应该的频率。而每天温和去角质，好过每周一次的猛搓，后者才是伤屏障的元凶。",
   "who": "People with congested or textured skin who will not run a five-step routine.",
   "whoZh": "毛孔堵塞、皮肤粗糙，但不会执行五步护肤流程的人。"
  },
@@ -889,19 +889,19 @@
  },
  "artistry-correcting-serum": {
   "advantage": "Post-blemish marks are pigment left behind after inflammation, not scars, which means they respond to tone-correcting actives given enough weeks. Confusing the two is why people give up on marks that would have faded.",
-  "advantageZh": "痘印是炎症之后留下的色素沉着，不是疤痕 —— 这意味着给够周数，它们对匀色成分是有反应的。把两者混为一谈，是很多人放弃了本来会淡掉的痘印的原因。",
+  "advantageZh": "痘印是炎症之后留下的色素沉着，不是疤痕，这意味着给够周数，它们对匀色成分是有反应的。把两者混为一谈，是很多人放弃了本来会淡掉的痘印的原因。",
   "who": "People clearing acne who are now left with the marks, and anyone with uneven tone.",
   "whoZh": "痘痘已经控制住、现在只剩痘印的人，以及肤色不均的人。"
  },
  "artistry-longxevity-rich-cream": {
   "advantage": "The rich and soft versions are the same formula in two textures, and texture is the only decision. Rich suits drier skin, colder months and night use, where a heavier occlusive layer actually helps rather than sits.",
-  "advantageZh": "丰润版和轻盈版是同一个配方的两种质地，唯一要决定的就是质地。丰润适合偏干的皮肤、更冷的季节和夜间使用 —— 这些情况下更厚的封闭层是真的有用，而不是浮在脸上。",
+  "advantageZh": "丰润版和轻盈版是同一个配方的两种质地，唯一要决定的就是质地。丰润适合偏干的皮肤、更冷的季节和夜间使用，这些情况下更厚的封闭层是真的有用，而不是浮在脸上。",
   "who": "Drier or mature skin, winter, and night application.",
   "whoZh": "偏干或熟龄肌、冬季，以及夜间使用。"
  },
  "artistry-longxevity-soft-cream": {
   "advantage": "Same formula as the rich cream in a lighter texture. Combination and oilier skin, warmer climates and daytime layering under sunscreen are where the soft version is the correct choice, not the weaker one.",
-  "advantageZh": "与丰润版同配方，质地更轻。混合偏油的皮肤、温暖气候、以及白天叠在防晒下面 —— 这些情况下轻盈版是正确选择，不是弱化版。",
+  "advantageZh": "与丰润版同配方，质地更轻。混合偏油的皮肤、温暖气候、以及白天叠在防晒下面，这些情况下轻盈版是正确选择，不是弱化版。",
   "who": "Combination or oilier skin, humid climates, and daytime use.",
   "whoZh": "混合或偏油肌、湿热气候，以及白天使用。"
  },
@@ -925,43 +925,43 @@
  },
  "satinique-intensive-repair-conditioner": {
   "advantage": "Shampoo opens, conditioner closes. Using a repair shampoo without the matching conditioner leaves the cuticle open, which is why mixing lines often underperforms either line used properly.",
-  "advantageZh": "洗发水打开，护发素闭合。用了修护洗发水却不用配套护发素，毛鳞片就停在打开的状态 —— 这也是为什么混用不同系列，效果常常不如任何一个系列用完整。",
+  "advantageZh": "洗发水打开，护发素闭合。用了修护洗发水却不用配套护发素，毛鳞片就停在打开的状态，这也是为什么混用不同系列，效果常常不如任何一个系列用完整。",
   "who": "Anyone using the Intensive Repair shampoo.",
   "whoZh": "所有在用密集修护洗发水的人。"
  },
  "satinique-anti-hair-fall-shampoo": {
   "advantage": "Most visible hair fall is breakage part-way down the strand, not loss from the root. That distinction decides the fix: breakage responds to strand strength, root loss does not, and the shower drain looks identical either way.",
-  "advantageZh": "肉眼看到的掉发，多数是发丝中段的断裂，而不是从根部脱落。这个区分决定了怎么解决：断裂靠强化发丝有效，根部脱落无效 —— 而地漏里看起来是一样的。",
+  "advantageZh": "肉眼看到的掉发，多数是发丝中段的断裂，而不是从根部脱落。这个区分决定了怎么解决：断裂靠强化发丝有效，根部脱落无效，而地漏里看起来是一样的。",
   "who": "People seeing more hair in the drain, especially with long or chemically treated hair.",
   "whoZh": "发现地漏里头发变多的人，尤其是长发或者做过化学处理的。"
  },
  "satinique-anti-hair-fall-conditioner": {
   "advantage": "Strand strength is built where the conditioner sits, along the mid-length and ends, which is exactly where breakage happens. Skipping conditioner on fine hair to avoid weight is what leaves those ends brittle.",
-  "advantageZh": "发丝强度是在护发素停留的地方建立起来的 —— 中段和发尾，而这正是断裂发生的位置。细软发为了怕塌而跳过护发素，结果就是发尾更脆。",
+  "advantageZh": "发丝强度是在护发素停留的地方建立起来的，中段和发尾，而这正是断裂发生的位置。细软发为了怕塌而跳过护发素，结果就是发尾更脆。",
   "who": "Anyone using the Anti-Hair Fall shampoo, particularly with fine hair.",
   "whoZh": "所有在用防脱洗发水的人，尤其是细软发质。"
  },
  "satinique-anti-hair-fall-scalp-tonic": {
   "advantage": "A tonic goes on the scalp, not the hair, and stays there, which is the difference from a rinse-off product that has thirty seconds of contact. If a scalp is the actual issue, leave-on contact time is the whole mechanism.",
-  "advantageZh": "精华水是涂在头皮上而不是头发上，而且是留在上面的 —— 这就是它和只有三十秒接触时间的冲洗类产品的区别。如果问题真的出在头皮，留驻的接触时长就是全部机理。",
+  "advantageZh": "精华水是涂在头皮上而不是头发上，而且是留在上面的，这就是它和只有三十秒接触时间的冲洗类产品的区别。如果问题真的出在头皮，留驻的接触时长就是全部机理。",
   "who": "People with a visibly widening part or thinning at the temples.",
   "whoZh": "发缝明显变宽，或者两侧鬓角变稀的人。"
  },
  "satinique-anti-dandruff-shampoo": {
   "advantage": "Flaking is usually either a yeast overgrowth or a dry barrier, and they need opposite handling. If flakes are oily and yellowish it is the first; if they are fine and white with tightness it is the second, and washing more only helps one of them.",
-  "advantageZh": "头皮屑通常要么是马拉色菌过度增殖，要么是屏障干燥，这两种需要相反的处理。油腻发黄的屑是前者；细白干燥伴紧绷的是后者 —— 而多洗几次只对其中一种有用。",
+  "advantageZh": "头皮屑通常要么是马拉色菌过度增殖，要么是屏障干燥，这两种需要相反的处理。油腻发黄的屑是前者；细白干燥伴紧绷的是后者，而多洗几次只对其中一种有用。",
   "who": "People with persistent flaking or an itchy scalp, especially in winter.",
   "whoZh": "头皮屑反复、头皮发痒的人，冬天尤其明显。"
  },
  "satinique-purifying-conditioner": {
   "advantage": "Fine hair goes flat because conditioner reaches the roots. A purifying conditioner is formulated to condition the lengths while leaving the root area clean, which is a formulation problem, not a rinsing-technique problem.",
-  "advantageZh": "细软发扁塌，是因为护发素碰到了发根。清爽型护发素的配方目标是滋养中下段、让发根保持清爽 —— 这是配方要解决的问题，不是冲洗手法能解决的。",
+  "advantageZh": "细软发扁塌，是因为护发素碰到了发根。清爽型护发素的配方目标是滋养中下段、让发根保持清爽，这是配方要解决的问题，不是冲洗手法能解决的。",
   "who": "Fine or oily-root hair types who feel weighed down by regular conditioner.",
   "whoZh": "细软发或者头皮容易出油、觉得普通护发素太压发的人。"
  },
  "satinique-smooth-moisture-conditioner-750ml": {
   "advantage": "The 750ml is the same product in a household size. For a family or anyone with long hair, the per-use cost drops enough that people stop rationing it, and under-using conditioner is a real reason routines fail.",
-  "advantageZh": "750ml是同款产品的家庭装。对一家人或者长发的人来说，单次成本降到不用再省着用 —— 而护发素用量不足，确实是护理失败的一个真实原因。",
+  "advantageZh": "750ml是同款产品的家庭装。对一家人或者长发的人来说，单次成本降到不用再省着用，而护发素用量不足，确实是护理失败的一个真实原因。",
   "who": "Families sharing one bottle, and anyone with long or thick hair.",
   "whoZh": "共用一瓶的家庭，以及长发或发量多的人。"
  },
@@ -973,7 +973,7 @@
  },
  "g-h-protect-hand-soap": {
   "advantage": "Handwashing is still the highest-return hygiene habit there is, and the reason people cut it short is dry cracked hands. Cracked skin is also broken barrier, so a soap that does not strip is doing two jobs.",
-  "advantageZh": "洗手仍然是回报率最高的卫生习惯，而人们敷衍了事的原因是手干裂。而裂开的皮肤本身就是屏障破损 —— 所以一款不剥脱的洗手液，同时在做两件事。",
+  "advantageZh": "洗手仍然是回报率最高的卫生习惯，而人们敷衍了事的原因是手干裂。而裂开的皮肤本身就是屏障破损，所以一款不剥脱的洗手液，同时在做两件事。",
   "who": "Households with kids, and anyone washing their hands twenty times a day.",
   "whoZh": "有孩子的家庭，以及一天要洗二十次手的人。"
  },
@@ -991,7 +991,7 @@
  },
  "g-h-baby-wash-shampoo": {
   "advantage": "Baby skin barrier is thinner and more permeable than adult skin, so the standard for a baby product is what is left out, not what is added. Two-in-one also cuts bath time, which matters more than any brochure admits.",
-  "advantageZh": "婴儿皮肤屏障比成人更薄、通透性更高，所以婴儿产品的标准是它不含什么，而不是它加了什么。二合一还能缩短洗澡时间 —— 这一点的重要性，任何宣传册都不会承认。",
+  "advantageZh": "婴儿皮肤屏障比成人更薄、通透性更高，所以婴儿产品的标准是它不含什么，而不是它加了什么。二合一还能缩短洗澡时间，这一点的重要性，任何宣传册都不会承认。",
   "who": "Newborns through toddlers, and parents of children with reactive skin.",
   "whoZh": "新生儿到幼儿，以及孩子皮肤容易起反应的父母。"
  },
