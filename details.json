@@ -1,0 +1,1040 @@
+{
+ "double-x-multivitamin-31-day-refill": {
+  "advantage": "22 vitamins and minerals plus 22 plant concentrates in one strip, morning and evening. It is the flagship because it covers the widest range of everyday gaps at once instead of asking you to stack five bottles.",
+  "advantageZh": "22种维生素矿物质+22种植物浓缩，一条搞定早晚两次。它是旗舰产品，因为它一次覆盖最广泛的日常营养缺口，不用你叠五瓶。",
+  "who": "Anyone who eats irregularly and wants one comprehensive daily habit. The 31-day refill is the standard month; the 10-day pack is for trying it first.",
+  "whoZh": "吃饭不规律、想要一个全面日常习惯的人。31天装是标准月用量，10天装适合先试试看。"
+ },
+ "double-x-multivitamin-10-day": {
+  "advantage": "The same flagship formula as the 31-day refill, in a 10-day size. Low-commitment way to feel the difference before switching to a monthly habit.",
+  "advantageZh": "与31天装同样的旗舰配方，10天体验装。在转为每月习惯之前，用最低门槛先感受差别。",
+  "who": "First-timers who want to try Double X without committing to a full month, and anyone traveling short-term.",
+  "whoZh": "想先试试双X、不愿一次买一个月的人，以及短期出行的人。"
+ },
+ "vitamin-c-extended-release-180ct": {
+  "advantage": "Vitamin C is water-soluble, so the body cannot store it and flushes the excess. The 8-hour extended release keeps levels steadier through the day, and the acerola cherry concentrate comes from Nutrilite's own farms.",
+  "advantageZh": "维生素C是水溶性的，身体无法储存，多余的会排出。8小时缓释让全天浓度更平稳，针叶樱桃浓缩来自Nutrilite自有农场。",
+  "who": "The 180-count is the everyday size for people who want steady coverage year-round rather than only during cold season.",
+  "whoZh": "180粒装是日常规格，适合想全年稳定补充、而不只在换季时才吃的人。"
+ },
+ "vitamin-c-extended-release-60ct": {
+  "advantage": "Same 8-hour extended-release formula in a smaller bottle. Easiest entry point into the Nutrilite line.",
+  "advantageZh": "同样的8小时缓释配方，小瓶装。是进入Nutrilite产品线最容易的入口。",
+  "who": "First-time customers, gift boxes, or anyone who wants to try before moving to the 180-count.",
+  "whoZh": "首次购买的客户、礼盒搭配，或想先试用再换180粒装的人。"
+ },
+ "vitamin-b-complex-120ct": {
+  "advantage": "B vitamins act as coenzymes in energy metabolism, and the body uses them up faster under stress and high-carb diets. Dual-action pairs a quick-release and a slow-release layer so coverage lasts through the day.",
+  "advantageZh": "B族维生素是能量代谢的辅酶，压力大和高碳水饮食会消耗得更快。双效配方结合速释层与缓释层，让覆盖持续一整天。",
+  "who": "The 120-count runs four months, which makes it one of the lowest daily costs in the whole line. Good for anyone with afternoon energy dips.",
+  "whoZh": "120粒可用四个月，是整条产品线里日均成本最低的之一。适合下午容易没精神的人。"
+ },
+ "vitamin-b-complex-30ct": {
+  "advantage": "The same dual-action B formula in a one-month bottle.",
+  "advantageZh": "同样的双效B族配方，一个月装。",
+  "who": "Trial size, travel, or adding B vitamins to a stack without a four-month commitment.",
+  "whoZh": "试用、出行，或想在组合里加B族但不想一次买四个月的人。"
+ },
+ "vitamin-d": {
+  "advantage": "Vitamin D is made in the skin from sunlight, which is exactly what indoor work and daily sunscreen reduce. It supports bone health and normal immune function.",
+  "advantageZh": "维生素D靠皮肤在阳光下合成，而室内工作和每天防晒恰恰减少了这个过程。它支持骨骼健康和正常免疫功能。",
+  "who": "Office workers, people in low-sunlight seasons, and anyone who wears sunscreen daily.",
+  "whoZh": "办公室人群、日照少的季节，以及每天涂防晒的人。"
+ },
+ "vitamin-e-chewable": {
+  "advantage": "Vitamin E is fat-soluble and sits inside cell membranes, where it helps protect against oxidative stress. The chewable format with lecithin makes it easier to take consistently than a large softgel.",
+  "advantageZh": "维生素E是脂溶性的，驻守在细胞膜内，帮助抵御氧化压力。含卵磷脂的咀嚼型比大颗软胶囊更容易长期坚持。",
+  "who": "Adults building a long-term antioxidant base, usually alongside vitamin C and omega-3.",
+  "whoZh": "在搭建长期抗氧化基础的成年人，通常与维C和鱼油搭配。"
+ },
+ "advanced-omega": {
+  "advantage": "Concentrated EPA and DHA from fish oil, in a smaller softgel than most triple-strength products. Omega-3 is one of the few nutrients almost impossible to get enough of without eating fatty fish several times a week.",
+  "advantageZh": "浓缩鱼油EPA与DHA，软胶囊比多数三倍浓缩产品更小颗。Omega-3是极少数不靠每周吃几次深海鱼就几乎无法摄入足量的营养素之一。",
+  "who": "Anyone who rarely eats salmon or sardines. Commonly paired with brain, skin and heart goals.",
+  "whoZh": "很少吃三文鱼或沙丁鱼的人。常与大脑、皮肤、心血管目标搭配。"
+ },
+ "calcium-magnesium-d": {
+  "advantage": "Calcium, magnesium and vitamin D work together rather than separately: D supports calcium absorption and magnesium supports how it is used. Taking one without the others is the common mistake.",
+  "advantageZh": "钙、镁、维生素D是协同作用而非各自为战：D支持钙的吸收，镁支持钙的利用。只补其中一个是常见误区。",
+  "who": "Bone health, evening muscle tension, and anyone told to take calcium who is only taking calcium.",
+  "whoZh": "关注骨骼健康、晚间肌肉紧绷的人，以及被建议补钙但只补了钙的人。"
+ },
+ "magnesium": {
+  "advantage": "Magnesium is involved in hundreds of enzyme reactions, including muscle relaxation and nervous system regulation, and it is depleted faster under sustained stress.",
+  "advantageZh": "镁参与数百种酶反应，包括肌肉放松和神经系统调节，而持续压力会加快它的消耗。",
+  "who": "Evening routines, muscle tightness, and people who feel physically tired but mentally wired at bedtime.",
+  "whoZh": "晚间routine、肌肉紧绷，以及睡前身体累但大脑停不下来的人。"
+ },
+ "iron-folic-acid": {
+  "advantage": "Iron carries oxygen in the blood and folic acid supports normal red blood cell formation. The two are paired because they work on the same process.",
+  "advantageZh": "铁负责血液运输氧气，叶酸支持正常红细胞生成。两者搭配是因为它们作用于同一个过程。",
+  "who": "Women with heavy cycles, vegetarians, and anyone whose tiredness comes with pale skin or breathlessness on stairs. Do not supplement iron long-term without knowing your levels.",
+  "whoZh": "经量偏多的女性、素食者，以及疲劳同时伴随面色苍白或爬楼气喘的人。不清楚自身铁水平时不建议长期补铁。"
+ },
+ "plant-protein-powder": {
+  "advantage": "21g of protein from three organic plant sources (pea, brown rice, chia) so the amino acid profile is complete without dairy. Certified organic farms, and it mixes smooth rather than chalky.",
+  "advantageZh": "21克蛋白来自三种有机植物来源（豌豆、糙米、奇亚籽），氨基酸谱完整且不含乳制品。有机认证农场，冲调顺滑不粉。",
+  "who": "The single most useful product for people who skip breakfast or eat carb-only mornings. Also the go-to for anyone who bloats on whey.",
+  "whoZh": "对不吃早餐或早餐纯碳水的人来说，这是最有用的一个产品。喝乳清胀气的人也首选它。"
+ },
+ "organics-all-in-one-bars": {
+  "advantage": "A real-food protein bar from organic ingredients, built to replace the vending-machine snack rather than to be a dessert.",
+  "advantageZh": "有机原料的真食物蛋白棒，定位是替代自动贩卖机零食，而不是当甜点。",
+  "who": "Busy afternoons, gym bags, and anyone whose 3pm snack is currently a pastry.",
+  "whoZh": "忙碌的下午、健身包里，以及现在下午三点靠面包续命的人。"
+ },
+ "green-superfood": {
+  "advantage": "Concentrated organic greens for the days vegetables do not happen. Not a replacement for eating vegetables, a bridge for the days you did not.",
+  "advantageZh": "浓缩有机绿蔬，用于没吃上蔬菜的日子。它不替代吃蔬菜，只是没吃到那天的过渡。",
+  "who": "People who know their vegetable intake is low and want a realistic fallback rather than a guilt trip.",
+  "whoZh": "知道自己蔬菜吃得少、想要一个现实的补救方案而不是自责的人。"
+ },
+ "probiotic": {
+  "advantage": "Clinically studied strains at a meaningful CFU count, in packaging that does not require refrigeration. Most of the immune system lines the gut, which is why this shows up in immunity, skin and digestion conversations alike.",
+  "advantageZh": "临床研究菌株，活菌数达到有意义的水平，包装无需冷藏。人体大部分免疫组织分布在肠道，这就是为什么它在免疫、皮肤、消化三类话题里都会出现。",
+  "who": "Recurring digestive irregularity, after antibiotics, or as the foundation piece in a gut-first plan.",
+  "whoZh": "消化反复不规律、用过抗生素之后，或作为肠道优先方案的基础产品。"
+ },
+ "digestive-enzyme": {
+  "advantage": "Plant-sourced enzymes that help break down protein, fat, carbohydrate and fiber. Different from a probiotic: enzymes work on the meal, probiotics work on the microbiome.",
+  "advantageZh": "植物来源的酶，帮助分解蛋白质、脂肪、碳水和纤维。与益生菌不同：酶作用于这一餐，益生菌作用于菌群。",
+  "who": "Heavy meals, eating out often, or that uncomfortable fullness after a big dinner.",
+  "whoZh": "大餐、经常外食，或晚饭吃多后那种撑得难受的感觉。"
+ },
+ "begin-daily-gi-primer": {
+  "advantage": "A 6-in-1 gut drink combining fermented greens, prebiotics, fiber, digestive enzymes, alkaline spices and postbiotics. It is the centerpiece of Amway's official Begin 30 program.",
+  "advantageZh": "六合一肠道饮，结合发酵绿蔬、益生元、纤维、消化酶、碱性香料和后生元。它是安利官方Begin 30计划的核心。",
+  "who": "People starting a structured gut reset rather than adding one more supplement to an existing pile.",
+  "whoZh": "想开始一个结构化肠道重启的人，而不是在现有一堆补充剂上再加一个。"
+ },
+ "sleep-gummies": {
+  "advantage": "Botanical calming ingredients rather than a melatonin dose, so it supports the natural wind-down instead of overriding it. No next-morning grogginess pattern.",
+  "advantageZh": "植物舒缓成分而非褪黑素剂量，支持自然的入睡过程而不是强行覆盖它。不会有第二天昏沉的问题。",
+  "who": "Racing-mind bedtimes, and people who tried melatonin and disliked how it made them feel the next day.",
+  "whoZh": "睡前思绪停不下来的人，以及试过褪黑素但不喜欢第二天感觉的人。"
+ },
+ "go-shield": {
+  "advantage": "Elderberry and vitamin C in a gummy, which matters mainly because a gummy actually gets taken. Compliance beats formulation when nobody swallows the tablet.",
+  "advantageZh": "接骨木莓+维C软糖，关键在于软糖是真的会被吃掉。当没人愿意吞药片时，坚持比配方更重要。",
+  "who": "Kids, teens, travel season, and adults who genuinely will not take capsules.",
+  "whoZh": "孩子、青少年、出行季节，以及真的咽不下胶囊的成年人。"
+ },
+ "twist-tubes": {
+  "advantage": "Twist the cap, shake into water, drink. Single-serve immunity support with no measuring and nothing to carry back.",
+  "advantageZh": "拧一下瓶盖，摇进水里，喝掉。单份免疫支持，不用量勺，也没有东西要带回去。",
+  "who": "Travel, office drawers, gym bags, and the easiest single item to put in a sampling or gift box.",
+  "whoZh": "出行、办公室抽屉、健身包，也是放进试用装或礼盒里最方便的单品。"
+ },
+ "hair-skin-nail": {
+  "advantage": "Biotin, collagen and silicon target the three keratin-based tissues together, because hair, skin and nails are built from the same raw materials.",
+  "advantageZh": "生物素、胶原和硅同时作用于三种角蛋白组织，因为头发、皮肤和指甲由同样的原料构成。",
+  "who": "Thinning or brittle hair and nails, especially after a stressful period or a restrictive diet.",
+  "whoZh": "头发指甲变细变脆的人，尤其在高压期或节食之后。"
+ },
+ "lean-muscle": {
+  "advantage": "CLA-based support intended to be paired with actual resistance training. It supports body composition efforts; it does not replace them.",
+  "advantageZh": "以CLA为基础的支持，需要配合真正的力量训练使用。它支持体成分管理，但不能替代训练。",
+  "who": "People already training consistently who want support on the body-composition side.",
+  "whoZh": "已经在规律训练、想在体成分方面获得支持的人。"
+ },
+ "men-s-pack": {
+  "advantage": "A daily grab-and-go sachet combining the core multivitamin base with nutrients relevant to men. Removes the daily decision of which bottles to open.",
+  "advantageZh": "每日随身独立包装，结合核心综合营养基础与男性相关营养素。省去每天要开哪几瓶的决定。",
+  "who": "Men who want the foundation covered without managing a shelf of bottles.",
+  "whoZh": "想把基础营养补齐、又不想管理一排瓶子的男性。"
+ },
+ "women-s-pack": {
+  "advantage": "A daily sachet combining the multivitamin base with nutrients relevant to women, including iron and calcium support.",
+  "advantageZh": "每日独立包装，结合综合营养基础与女性相关营养素，包含铁和钙的支持。",
+  "who": "Women who want a single daily habit instead of four separate bottles.",
+  "whoZh": "想用一个每日习惯代替四个瓶子的女性。"
+ },
+ "clearguard-allergy": {
+  "advantage": "A botanical blend for seasonal respiratory comfort. Supportive rather than symptom-blocking, so it works best started before the season, not during the worst week.",
+  "advantageZh": "植物复方，用于换季呼吸道舒适。它是支持型而非阻断症状型，所以最好在换季前开始，而不是最难受那周才吃。",
+  "who": "People with predictable seasonal sensitivity who plan ahead.",
+  "whoZh": "换季敏感有规律、愿意提前准备的人。"
+ },
+ "garlic-heart-care": {
+  "advantage": "Standardized garlic concentrate with the odor controlled, so it is realistic to take daily. Cardiovascular support is a decades-long maintenance job, which makes daily consistency the whole point.",
+  "advantageZh": "标准化大蒜浓缩，控味处理，所以每天吃是现实的。心血管保养是几十年的功课，因此每天坚持才是关键。",
+  "who": "Adults building long-term cardiovascular habits, often alongside omega-3.",
+  "whoZh": "在建立长期心血管保养习惯的成年人，常与鱼油搭配。"
+ },
+ "liver-support": {
+  "advantage": "Milk thistle and botanical extracts supporting normal liver function. The liver handles everything you drink, eat and breathe, and it rarely complains until late.",
+  "advantageZh": "奶蓟草与植物萃取，支持正常肝功能。肝脏处理你喝的、吃的、呼吸的一切，而且往往到很晚才发出信号。",
+  "who": "People with frequent social drinking, heavy takeout diets, or high medication load. Not a substitute for medical care.",
+  "whoZh": "经常应酬饮酒、外卖为主，或用药较多的人。不能替代就医。"
+ },
+ "memory-builder": {
+  "advantage": "Cistanche extract, studied specifically for memory support, which is a narrower and better-evidenced claim than general brain blends.",
+  "advantageZh": "管花肉苁蓉萃取，针对记忆力支持有专门研究，比泛泛的健脑复方更聚焦、证据更明确。",
+  "who": "Adults noticing more word-finding pauses, and people with family history who want to act early.",
+  "whoZh": "开始注意到话到嘴边想不起来的成年人，以及有家族史、想早点行动的人。"
+ },
+ "prostate-health": {
+  "advantage": "Saw palmetto and nettle root, the two most studied botanicals for men's prostate health.",
+  "advantageZh": "锯棕榈与荨麻根，男性前列腺健康研究最充分的两种植物成分。",
+  "who": "Men 40 and over, particularly those getting up at night.",
+  "whoZh": "40岁以上男性，尤其是夜里起夜的人。"
+ },
+ "slimmetry": {
+  "advantage": "Green tea extract standardized for EGCG, designed to support a weight-management effort that already includes diet and movement.",
+  "advantageZh": "标准化EGCG的绿茶萃取，用于支持已经包含饮食和运动的体重管理计划。",
+  "who": "People actively working on weight who want support at the margin. It does not work as a standalone.",
+  "whoZh": "正在认真管理体重、想要边际助力的人。单独使用无效。"
+ },
+ "vision-health": {
+  "advantage": "Lutein and zeaxanthin are the pigments concentrated in the macula that filter high-energy light, and the body cannot make them. They have to come from diet or supplement.",
+  "advantageZh": "叶黄素和玉米黄质是黄斑区的色素，负责过滤高能光线，而人体无法自行合成，只能从饮食或补充剂获得。",
+  "who": "Anyone on screens all day or driving at night. This is a screen-generation product, not just an older-adult one.",
+  "whoZh": "整天对着屏幕或夜间开车的人。这是屏幕世代的产品，不只是给长辈的。"
+ },
+ "eye-mojo-blue-light-gummies": {
+  "advantage": "Eye support in a gummy, aimed squarely at screen time. Easier to keep on a desk than a bottle of capsules.",
+  "advantageZh": "软糖形态的护眼支持，直接针对屏幕时间。放在办公桌上比一瓶胶囊更容易坚持。",
+  "who": "Students, gamers, and desk workers who will actually eat a gummy at 3pm but never open a bottle.",
+  "whoZh": "学生、游戏玩家、办公族 —— 下午三点会吃颗软糖，但永远不会打开一个瓶子。"
+ },
+ "xs-energy-drinks-12-pack": {
+  "advantage": "Zero sugar, B-vitamin based energy rather than a sugar spike, and it actually tastes good enough to repeat. The 12-pack is the format that gets shared.",
+  "advantageZh": "零糖，靠B族提供能量而不是糖分冲击，而且好喝到愿意回购。12罐装是最容易被分享的规格。",
+  "who": "The easiest first purchase for students and young professionals, and the fastest-moving item in a dorm or office.",
+  "whoZh": "学生和职场新人最容易的第一单，也是宿舍或办公室里走得最快的产品。"
+ },
+ "xs-energy-focus-60ct": {
+  "advantage": "Caffeine plus focus ingredients in a tablet, so you get the effect without carrying a can or drinking 12 oz of liquid.",
+  "advantageZh": "咖啡因+专注成分的片剂，不用带罐子也不用喝下12盎司液体就能起效。",
+  "who": "Exam weeks, long drives, and anyone who wants the energy without the volume.",
+  "whoZh": "考试周、长途开车，以及想要能量但不想喝那么多液体的人。"
+ },
+ "xs-grass-fed-whey-protein": {
+  "advantage": "Grass-fed whey, third-party tested for banned substances. In a category where testing is the exception rather than the rule, that is the actual differentiator worth leading with.",
+  "advantageZh": "草饲乳清，第三方禁药检测。在一个检测属于例外而非常态的品类里，这才是真正值得先讲的差异点。",
+  "who": "Serious trainers and competitive athletes who need to know what is in the tub. Also the opening product for any gym conversation.",
+  "whoZh": "认真训练的人和需要清楚成分的竞技运动员。也是所有健身房洽谈的开场产品。"
+ },
+ "xs-muscle-multiplier-eaas": {
+  "advantage": "Nine essential amino acids, the ones the body cannot synthesize. Useful intra- or post-workout when a full protein shake is too heavy.",
+  "advantageZh": "9种必需氨基酸，即身体无法自行合成的那些。训练中或训练后，全份蛋白粉太沉时很实用。",
+  "who": "Lifters in a cut, fasted trainers, and anyone who trains before eating.",
+  "whoZh": "减脂期的训练者、空腹训练者，以及练完才吃饭的人。"
+ },
+ "xs-pre-workout-boost": {
+  "advantage": "Pre-workout push without the jittery crash profile of high-stimulant products.",
+  "advantageZh": "训练前激活，没有高刺激产品那种心慌和随后的崩溃感。",
+  "who": "Early-morning or after-work training when motivation is the limiting factor.",
+  "whoZh": "清晨或下班后训练、动力才是瓶颈的时候。"
+ },
+ "xs-post-workout-recovery": {
+  "advantage": "Recovery formula for the window right after training, when muscle is most receptive to nutrients.",
+  "advantageZh": "训练后恢复配方，用在肌肉对营养最敏感的那个窗口。",
+  "who": "People training four or more times a week who feel the accumulation.",
+  "whoZh": "每周训练四次以上、能感觉到疲劳累积的人。"
+ },
+ "xs-ignite-thermogenic-powder": {
+  "advantage": "A thermogenic blend for people already in a structured training and nutrition plan.",
+  "advantageZh": "生热配方，适合已经有结构化训练和饮食计划的人。",
+  "who": "Active people in a defined cutting phase. Not a starting point for someone new.",
+  "whoZh": "处在明确减脂期的运动人群。不适合作为新手的起点。"
+ },
+ "xs-protein-bars-12-pack": {
+  "advantage": "Protein bars that are a snack replacement rather than a candy bar with protein added.",
+  "advantageZh": "定位是零食替代的蛋白棒，而不是加了蛋白质的糖果棒。",
+  "who": "Gym bags, desk drawers, and long days when the alternative is skipping food entirely.",
+  "whoZh": "健身包、办公抽屉，以及那种不吃就等于不吃的漫长一天。"
+ },
+ "xs-rtd-protein-shakes-12-pack": {
+  "advantage": "Ready to drink, zero preparation. The format that survives contact with a real schedule.",
+  "advantageZh": "开盖即饮，零准备。这是能在真实日程里活下来的形态。",
+  "who": "Morning commutes and post-gym, for people who will not wash a shaker bottle.",
+  "whoZh": "通勤路上和练完之后，适合不愿意洗摇摇杯的人。"
+ },
+ "xs-protein-crisps": {
+  "advantage": "A crunchy high-protein snack for the salty-craving slot that chips usually fill.",
+  "advantageZh": "高蛋白脆片，填补通常被薯片占据的那个咸口零食位。",
+  "who": "People managing weight whose weak point is savory snacking, not sweets.",
+  "whoZh": "管理体重、但弱点是咸口零食而非甜食的人。"
+ },
+ "xs-cocowater-12-pack": {
+  "advantage": "Coconut water with electrolytes for rehydration, without the sugar load of a sports drink.",
+  "advantageZh": "含电解质的椰子水补水，没有运动饮料那么高的糖负担。",
+  "who": "Hot-weather training, hangovers, and anyone who finds plain water boring.",
+  "whoZh": "高温训练、宿醉之后，以及觉得白水太寡淡的人。"
+ },
+ "perfect-empowered-drinking-water": {
+  "advantage": "Purified, oxygenated and pH-balanced bottled water, sold by the case.",
+  "advantageZh": "净化、富氧、pH平衡的瓶装水，整箱销售。",
+  "who": "Events, offices and gatherings. Mainly a convenience and hosting item rather than a nutrition decision.",
+  "whoZh": "活动、办公室、聚会场合。它更多是便利和待客用品，而不是一个营养决策。"
+ },
+ "artistry-hydrating-lotion-spf30": {
+  "advantage": "Daily moisture with broad-spectrum SPF 30, so hydration and sun protection happen in one step instead of two products people skip.",
+  "advantageZh": "日常保湿+广谱SPF30防晒，保湿和防晒一步完成，不用买两个然后两个都不用。",
+  "who": "Anyone whose morning routine needs to be short enough to actually happen.",
+  "whoZh": "早晨流程必须够短才做得到的人。"
+ },
+ "artistry-hydrating-day-lotion-spf30": {
+  "advantage": "Lightweight day lotion with SPF for skin that feels tight by afternoon.",
+  "advantageZh": "轻盈日霜含防晒，适合下午会感到紧绷的皮肤。",
+  "who": "Dehydrated skin types and anyone in air-conditioned offices all day.",
+  "whoZh": "缺水肌，以及整天待在空调房的人。"
+ },
+ "artistry-hydrating-eye-gel-cream": {
+  "advantage": "A cooling gel-cream texture for the eye area, lighter than a traditional eye cream so it works under makeup.",
+  "advantageZh": "眼周清凉啫喱霜质地，比传统眼霜更轻盈，可以在妆前使用。",
+  "who": "Screen fatigue, early morning puffiness, and first-time eye-care users.",
+  "whoZh": "屏幕疲劳、清晨浮肿，以及第一次用眼部产品的人。"
+ },
+ "artistry-hydrating-system-bundle": {
+  "advantage": "The full hydrating routine — cleanse, tone, moisturize — bought as one decision instead of three.",
+  "advantageZh": "完整水润流程：清洁、爽肤、保湿，一次决定代替三次。",
+  "who": "People starting a real routine for the first time, and the simplest gift for skincare beginners.",
+  "whoZh": "第一次开始认真护肤的人，也是送护肤新手最简单的礼物。"
+ },
+ "artistry-renewing-day-lotion-spf30": {
+  "advantage": "Peptide-based renewal with daily SPF, targeting early lines while preventing the sun exposure that causes more.",
+  "advantageZh": "胜肽焕新配方+每日防晒，在处理初期细纹的同时防止造成更多细纹的日晒。",
+  "who": "First fine lines, typically late twenties onward.",
+  "whoZh": "刚出现细纹的人，一般是二十多岁后期开始。"
+ },
+ "artistry-renewing-system-bundle": {
+  "advantage": "The complete peptide renewal routine in one set, which also removes the guesswork about layering order.",
+  "advantageZh": "完整胜肽焕新流程一套配齐，也省去了叠加顺序的困扰。",
+  "who": "Upgrading from a basic moisturizer to a structured anti-aging routine.",
+  "whoZh": "从基础保湿升级到结构化抗老流程的人。"
+ },
+ "artistry-firming-system-bundle": {
+  "advantage": "A firming-focused routine for elasticity and bounce rather than surface hydration.",
+  "advantageZh": "主打紧致的流程，针对弹性和饱满度而非表层保湿。",
+  "who": "Skin that looks hydrated but has started to lose definition along the jaw.",
+  "whoZh": "看起来不干、但下颌线开始模糊的皮肤。"
+ },
+ "artistry-defying-serum": {
+  "advantage": "A phyto-peptide serum positioned for early aging signs, before heavier treatment products are needed.",
+  "advantageZh": "植物胜肽精华，定位在初老阶段，在需要更强效产品之前使用。",
+  "who": "People who want to start prevention rather than correction.",
+  "whoZh": "想做预防而不是补救的人。"
+ },
+ "artistry-labs-illuminating-serum": {
+  "advantage": "Clinical-strength brightening from the Artistry Labs line, aimed at uneven tone and post-blemish marks.",
+  "advantageZh": "Artistry Labs线的临床级亮白，针对肤色不均和痘后印记。",
+  "who": "Pigmentation and acne marks that a basic routine has not moved.",
+  "whoZh": "基础护肤解决不了的色素沉着和痘印。"
+ },
+ "artistry-labs-retexturizing-serum": {
+  "advantage": "Resurfacing serum for texture and pore appearance, the Labs line's answer to roughness rather than dryness.",
+  "advantageZh": "焕肤精华，针对肤质和毛孔外观，是Labs线对粗糙而非干燥的答案。",
+  "who": "Rough texture, enlarged pores, and skin that looks dull despite being moisturized.",
+  "whoZh": "肤质粗糙、毛孔明显，保湿做够了但看起来还是暗沉的皮肤。"
+ },
+ "artistry-labs-retexturizing-system": {
+  "advantage": "An at-home device system paired with the retexturizing formula, bringing a clinic-style protocol home.",
+  "advantageZh": "居家仪器系统搭配焕肤配方，把类似诊所的护理流程搬回家。",
+  "who": "Committed skincare users comfortable with a device-based routine. A considered purchase, not an impulse one.",
+  "whoZh": "愿意投入、能接受仪器流程的护肤用户。这是一个需要考虑的购买，不是冲动消费。"
+ },
+ "artistry-longxevity-creams": {
+  "advantage": "The flagship of the entire Artistry line, available in soft and rich textures for different skin needs and seasons.",
+  "advantageZh": "整个Artistry线的旗舰，有轻润和丰润两种质地对应不同肤质和季节。",
+  "who": "The premium tier. Usually bought by someone already committed to the brand.",
+  "whoZh": "高端线。通常是已经认可品牌的人才会买。"
+ },
+ "artistry-longxevity-eye-cream": {
+  "advantage": "The premium eye treatment in the LongXevity line, formulated for deeper-set lines than a hydrating eye gel addresses.",
+  "advantageZh": "LongXevity线的高端眼部护理，针对比保湿眼胶所能处理的更深的纹路。",
+  "who": "Mature skin where a lightweight eye gel is no longer enough.",
+  "whoZh": "轻盈眼胶已经不够用的成熟肌。"
+ },
+ "artistry-intensive-skincare-14-night-reset": {
+  "advantage": "A 14-night ampoule course, each night in a sealed single dose so the active stays fresh and the dosing stays consistent.",
+  "advantageZh": "14夜安瓶疗程，每晚一支独立密封，保证活性成分新鲜、用量一致。",
+  "who": "Before a wedding or event, or as a seasonal reset. Finite programs are easier to commit to than open-ended ones.",
+  "whoZh": "婚礼或重要场合前，或作为换季重启。有明确终点的疗程比无限期的更容易坚持。"
+ },
+ "artistry-everyday-skin-solution-bundle": {
+  "advantage": "The everyday essentials bundled at a set price, covering the basics without choosing between twelve products.",
+  "advantageZh": "日常必需品打包定价，覆盖基础需求，不用在十二个产品里做选择。",
+  "who": "Beginners, and the most reliable skincare gift because it is complete.",
+  "whoZh": "护肤新手，也是最保险的护肤礼物，因为它是完整的。"
+ },
+ "artistry-signature-select-brightening-mask": {
+  "advantage": "A targeted treatment mask for tone and radiance, used weekly rather than daily.",
+  "advantageZh": "针对肤色与光泽的护理面膜，每周使用而非每天。",
+  "who": "Dull skin, and the night before something that matters.",
+  "whoZh": "暗沉肌，以及重要场合的前一晚。"
+ },
+ "artistry-signature-select-purifying-mask": {
+  "advantage": "A deep-cleaning mask that draws out excess oil and congestion from pores.",
+  "advantageZh": "深层清洁面膜，吸附毛孔中过多的油脂和堵塞物。",
+  "who": "Oily and combination skin with blackheads or frequent clogged pores.",
+  "whoZh": "有黑头、毛孔易堵的油性和混合性肌肤。"
+ },
+ "artistry-signature-select-firming-mask": {
+  "advantage": "A firming treatment mask for a short-term lift and longer-term elasticity support.",
+  "advantageZh": "紧致护理面膜，兼顾短期提拉和长期弹性支持。",
+  "who": "Special occasions, and skin starting to lose bounce.",
+  "whoZh": "重要场合，以及开始失去饱满度的皮肤。"
+ },
+ "artistry-studio-eye-look-rested": {
+  "advantage": "A de-puffing eye product for mornings after short sleep. Cosmetic and immediate rather than long-term treatment.",
+  "advantageZh": "晨间去浮肿眼部产品，适合没睡够的早上。效果是即时的妆效，而非长期护理。",
+  "who": "Late nights, early meetings, and travel.",
+  "whoZh": "熬夜、早会、出差。"
+ },
+ "artistry-men-face-wash": {
+  "advantage": "A face wash formulated for typically oilier, thicker male skin, without stripping it.",
+  "advantageZh": "针对通常更油、角质更厚的男性肌肤设计的洁面，但不会过度清洁。",
+  "who": "Men whose current routine is bar soap. The easiest first step.",
+  "whoZh": "目前还在用香皂洗脸的男性。最容易的第一步。"
+ },
+ "artistry-signature-select-polishing-mask": {
+  "advantage": "A gentle polishing mask that smooths surface texture without the harshness of a scrub.",
+  "advantageZh": "温和的焕肤面膜，改善表层肤质但没有磨砂的粗暴感。",
+  "who": "Rough or flaky texture, especially in winter.",
+  "whoZh": "肤质粗糙或起皮，尤其在冬天。"
+ },
+ "artistry-studio-spot-on-dots": {
+  "advantage": "Hydrocolloid patches that protect a blemish overnight and stop you touching it, which is half the problem.",
+  "advantageZh": "水胶体贴片，整夜保护痘痘并阻止你去碰它 —— 而碰它正是问题的一半。",
+  "who": "Teens and adults with occasional spots. The single most giftable skincare item.",
+  "whoZh": "偶发痘痘的青少年和成人。也是最适合当小礼物的护肤单品。"
+ },
+ "glister-toothpaste": {
+  "advantage": "A concentrated formula, so a pea-sized amount is genuinely enough and one tube lasts far longer than it looks. Includes a gentle polishing agent rather than harsh abrasives.",
+  "advantageZh": "浓缩配方，黄豆大小真的就够，一支能用比看上去久得多。含温和抛光成分而非粗糙磨料。",
+  "who": "Everyone. Also the single best low-cost item to hand someone as a sample.",
+  "whoZh": "所有人。也是拿来给人试用最划算的单品。"
+ },
+ "glister-power-toothbrush": {
+  "advantage": "Sonic cleaning with a UV sanitizing base, which addresses the part nobody thinks about: the brush head sitting in a damp bathroom between uses.",
+  "advantageZh": "声波清洁配UV消毒座，解决了一个没人想过的问题：刷头在潮湿浴室里等待下次使用的那段时间。",
+  "who": "Gum-health focus, braces, or anyone upgrading from manual. A durable purchase, not a monthly one.",
+  "whoZh": "关注牙龈健康、戴牙套，或从手动牙刷升级的人。这是耐用品，不是每月消耗品。"
+ },
+ "glister-refresher-spray": {
+  "advantage": "Pocket-sized breath spray, sugar-free, with the same concentrated cleaning approach as the toothpaste.",
+  "advantageZh": "口袋装口气清新喷雾，无糖，与牙膏同样的浓缩清洁思路。",
+  "who": "After coffee or lunch, before meetings and dates. Small enough to give away freely.",
+  "whoZh": "咖啡或午饭后、开会约会前。小到可以随手送人。"
+ },
+ "glister-floss-2-pack": {
+  "advantage": "Smooth-glide floss that does not shred between tight contacts, which is the reason most people quit flossing.",
+  "advantageZh": "顺滑牙线，在牙缝紧的地方不会起毛断裂 —— 而这正是多数人放弃用牙线的原因。",
+  "who": "Anyone who has given up on flossing because their current floss keeps catching.",
+  "whoZh": "因为现有牙线总是卡住而放弃的人。"
+ },
+ "glister-oral-rinse": {
+  "advantage": "Alcohol-free rinse, so it does not dry out the mouth the way traditional mouthwash does. Dry mouth makes breath worse, not better.",
+  "advantageZh": "无酒精漱口水，不会像传统漱口水那样让口腔干燥。口干只会让口气更差，而不是更好。",
+  "who": "People who use mouthwash daily and notice their mouth feels dry afterward.",
+  "whoZh": "每天用漱口水、之后觉得口干的人。"
+ },
+ "satinique-purifying-shampoo-280ml": {
+  "advantage": "Deep-cleansing without harsh sulfates, resetting a scalp weighed down by oil and styling product buildup.",
+  "advantageZh": "无刺激性硫酸盐的深层清洁，重置被油脂和造型产品堆积压住的头皮。",
+  "who": "Oily scalps, hair that goes flat by mid-day, and frequent styling product users.",
+  "whoZh": "头皮出油、中午头发就塌、经常用造型产品的人。"
+ },
+ "satinique-purifying-shampoo-750ml": {
+  "advantage": "The same purifying formula in family size, which brings the per-wash cost down substantially.",
+  "advantageZh": "同样的净化配方，家庭装，每次洗发的成本大幅下降。",
+  "who": "Households with multiple users, or anyone who has already committed to the product.",
+  "whoZh": "多人使用的家庭，或已经认准这个产品的人。"
+ },
+ "satinique-smooth-shampoo-280ml": {
+  "advantage": "Moisture-focused cleansing for hair that frizzes or feels straw-like, the opposite problem from the purifying line.",
+  "advantageZh": "主打保湿的清洁，针对毛躁或干枯like稻草的头发 —— 与净化线相反的问题。",
+  "who": "Dry, colored, or heat-styled hair.",
+  "whoZh": "干性、染过或经常热造型的头发。"
+ },
+ "satinique-smooth-conditioner": {
+  "advantage": "The matching conditioner, formulated to detangle without the heavy silicone coating that causes buildup.",
+  "advantageZh": "配套护发素，能顺滑打结但不含造成堆积的厚重硅油。",
+  "who": "Long hair, and anyone who finds most conditioners leave hair greasy by day two.",
+  "whoZh": "长发，以及觉得多数护发素第二天就让头发发油的人。"
+ },
+ "g-h-nourish-body-wash": {
+  "advantage": "Honey and shea butter based, formulated to clean without stripping the skin barrier.",
+  "advantageZh": "以蜂蜜和乳木果为基础，清洁的同时不破坏皮肤屏障。",
+  "who": "Dry or sensitive skin, and anyone whose skin feels tight after showering.",
+  "whoZh": "干性或敏感肌，以及洗完澡皮肤发紧的人。"
+ },
+ "g-h-nourish-body-lotion": {
+  "advantage": "A body lotion built for 24-hour moisture that absorbs fast enough to get dressed right after.",
+  "advantageZh": "主打24小时保湿的身体乳，吸收够快，涂完就能穿衣服。",
+  "who": "Winter dryness, and people who own body lotion but never use it because it feels sticky.",
+  "whoZh": "冬季干燥，以及买了身体乳但因为黏腻从不用的人。"
+ },
+ "g-h-protect-body-lotion-spf50": {
+  "advantage": "Broad-spectrum SPF 50 in a body format, covering the area most people forget entirely.",
+  "advantageZh": "身体用的广谱SPF50防晒，覆盖大多数人完全遗忘的部位。",
+  "who": "Outdoor sports, beach days, and anyone who protects their face but never their neck, chest and arms.",
+  "whoZh": "户外运动、海边，以及只防晒脸、从不管颈胸手臂的人。"
+ },
+ "espring-water-purifier-chrome": {
+  "advantage": "UV-C light plus a carbon block filter, treating both what you can taste and what you cannot. From the world's best-selling brand of home water treatment systems.",
+  "advantageZh": "UV-C紫外线加活性炭滤芯，同时处理你尝得出的和尝不出的。来自全球销量领先的家用净水系统品牌。",
+  "who": "Households where everyone drinks tap or buys bottled. Compare the annual bottled-water spend before deciding it is expensive.",
+  "whoZh": "全家喝自来水或买瓶装水的家庭。觉得贵之前，先算一下一年买水花了多少。"
+ },
+ "espring-above-counter-unit": {
+  "advantage": "The same treatment technology in an above-counter configuration, for kitchens where under-sink installation is not practical.",
+  "advantageZh": "同样的净水技术，台上型配置，适合无法在水槽下安装的厨房。",
+  "who": "Renters and kitchens where plumbing changes are not allowed.",
+  "whoZh": "租房，以及不允许改水路的厨房。"
+ },
+ "espring-uv-replacement-filter": {
+  "advantage": "The annual replacement cartridge. A purifier only works as well as its filter, and this is the part that keeps the system honest.",
+  "advantageZh": "年度更换滤芯。净水器的效果取决于滤芯，这是让整个系统保持有效的部分。",
+  "who": "Every eSpring owner, once a year. Worth setting a reminder for at purchase.",
+  "whoZh": "每一位eSpring用户，每年一次。买机器时就该设好提醒。"
+ },
+ "espring-e3-carbon-filter": {
+  "advantage": "The carbon filter option in the eSpring system.",
+  "advantageZh": "eSpring系统中的碳滤芯选项。",
+  "who": "eSpring owners on the e3 configuration.",
+  "whoZh": "使用e3配置的eSpring用户。"
+ },
+ "atmosphere-sky-air-purifier": {
+  "advantage": "Three-stage filtration including a HEPA layer, sized for spaces up to 465 sq ft, with sensors that adjust automatically rather than running at one speed.",
+  "advantageZh": "三重滤净含HEPA层，适用最大465平方英尺空间，配备自动调节的传感器而非固定档位运行。",
+  "who": "Allergy households, pet owners, cities with poor air days, and homes with new furniture off-gassing.",
+  "whoZh": "过敏家庭、养宠家庭、空气质量差的城市，以及新家具释放气味的家。"
+ },
+ "atmosphere-mini-air-purifier": {
+  "advantage": "The same filtration approach scaled for a bedroom or office up to 200 sq ft.",
+  "advantageZh": "同样的滤净方案，缩小到适合200平方英尺以内的卧室或办公室。",
+  "who": "Bedrooms, nurseries, and desks. The realistic entry point into air treatment.",
+  "whoZh": "卧室、婴儿房、办公桌。空气净化最现实的入门选择。"
+ },
+ "atmosphere-carbon-filter-replacement": {
+  "advantage": "The replacement carbon filter for Atmosphere units.",
+  "advantageZh": "逸新系列的替换碳滤网。",
+  "who": "Atmosphere owners on the replacement schedule. An unchanged filter is a fan.",
+  "whoZh": "按周期更换的逸新用户。不换滤网的净化器只是个风扇。"
+ },
+ "loc-multi-purpose-cleaner": {
+  "advantage": "Concentrated at roughly 1:50, so one bottle makes many bottles of usable cleaner. Biodegradable surfactants, which matters in a home with kids and pets.",
+  "advantageZh": "约1:50浓缩，一瓶可以配出很多瓶可用清洁液。可降解表面活性剂，对有孩子和宠物的家庭很重要。",
+  "who": "The cost-per-use argument is the strongest in the whole home line. Do the math out loud with customers.",
+  "whoZh": "整个家居线里，单次使用成本这个论点最有说服力。和客户当面算一遍。"
+ },
+ "loc-multi-purpose-wipes": {
+  "advantage": "The same cleaning approach in a pre-moistened wipe for quick cleanups.",
+  "advantageZh": "同样的清洁思路，做成湿巾，用于快速清理。",
+  "who": "Cars, offices, and anyone who will wipe a counter but will not mix a solution.",
+  "whoZh": "车里、办公室，以及愿意擦一下台面但不愿意配溶液的人。"
+ },
+ "sa8-liquid-laundry": {
+  "advantage": "Concentrated and biodegradable, formulated to work in cold water so it does not force a hot wash.",
+  "advantageZh": "浓缩且可降解，配方在冷水中即可发挥作用，不需要用热水洗。",
+  "who": "Families doing frequent loads. Concentration means fewer reorders, not just lower cost.",
+  "whoZh": "洗衣频繁的家庭。浓缩意味着更少的补货次数，而不只是更低的成本。"
+ },
+ "sa8-powder-laundry-detergent": {
+  "advantage": "The classic concentrated powder formulation for households that prefer powder.",
+  "advantageZh": "经典浓缩粉状配方，适合习惯用洗衣粉的家庭。",
+  "who": "Powder users and hard-water areas.",
+  "whoZh": "习惯用洗衣粉的人，以及水质偏硬的地区。"
+ },
+ "dish-drops-dishwashing-liquid": {
+  "advantage": "Highly concentrated, so a few drops handle a full sink. Rinses clean without leaving film on glassware.",
+  "advantageZh": "高度浓缩，几滴就能洗一整池。冲洗干净不在玻璃器皿上留膜。",
+  "who": "The cost-per-sink comparison against supermarket brands is the demo worth doing.",
+  "whoZh": "和超市品牌比每池成本，这个演示值得做。"
+ },
+ "amway-home-prewash-spray": {
+  "advantage": "A pre-treatment for stains, applied before the wash rather than hoping the detergent handles it after.",
+  "advantageZh": "衣物去渍预处理，在洗之前使用，而不是指望洗衣液事后解决。",
+  "who": "Households with kids, or anyone who has thrown out a shirt over one stain.",
+  "whoZh": "有孩子的家庭，或曾因为一处污渍扔掉衬衫的人。"
+ },
+ "amway-home-fabric-softener": {
+  "advantage": "Concentrated fabric softener with a floral scent.",
+  "advantageZh": "浓缩衣物柔顺剂，花香型。",
+  "who": "Towels and bedding, where softness is most noticeable.",
+  "whoZh": "毛巾和床品，柔软度最容易被感知的地方。"
+ },
+ "amway-home-all-fabric-bleach": {
+  "advantage": "Color-safe bleach that brightens without the damage chlorine bleach does to fabric and color.",
+  "advantageZh": "彩漂粉，提亮的同时不会像含氯漂白剂那样损伤面料和颜色。",
+  "who": "Whites that have gone grey, and colored items you would never risk with chlorine.",
+  "whoZh": "已经发灰的白色衣物，以及绝不敢用氯漂的彩色衣物。"
+ },
+ "amway-home-glass-cleaner": {
+  "advantage": "Streak-free on glass and mirrors, which is the entire job of a glass cleaner and where most fail.",
+  "advantageZh": "玻璃和镜面不留痕 —— 这是玻璃清洁剂唯一的任务，也是大多数产品失败的地方。",
+  "who": "Anyone who has cleaned a window twice because of streaks.",
+  "whoZh": "因为留痕而把窗户擦两遍的人。"
+ },
+ "pursue-disinfectant-spray": {
+  "advantage": "Disinfects and deodorizes in one step, for surfaces that need more than a wipe-down.",
+  "advantageZh": "消毒除臭一步完成，用于需要不止擦拭的表面。",
+  "who": "Kitchens, bathrooms, and households during cold season.",
+  "whoZh": "厨房、卫生间，以及换季感冒期的家庭。"
+ },
+ "amway-home-scrub-buds": {
+  "advantage": "Stainless steel scouring pads that do not rust, shred, or hold odors the way sponges do.",
+  "advantageZh": "不锈钢百洁布，不生锈、不掉屑，也不像海绵那样藏味。",
+  "who": "Anyone replacing a sponge every few weeks. These last for years.",
+  "whoZh": "每几周就要换一次海绵的人。这个能用很多年。"
+ },
+ "icook-19-piece-cookware-set": {
+  "advantage": "316L surgical-grade stainless steel with a vapor-seal design that lets you cook with little or no added water, so water-soluble vitamins stay in the food rather than going down the drain. Lifetime guarantee.",
+  "advantageZh": "316L医用级不锈钢，蒸汽密封设计让你几乎不用加水烹调，水溶性维生素留在食物里而不是倒进下水道。终身保用。",
+  "who": "The strongest argument pairs with nutrition: someone spending on supplements while boiling nutrients out of their vegetables.",
+  "whoZh": "最有力的论点是和营养品联动：一个人花钱买补充剂，同时把蔬菜里的营养煮掉了。"
+ },
+ "icook-5-piece-saute-set": {
+  "advantage": "The most popular entry set, covering the pans used most days.",
+  "advantageZh": "最受欢迎的入门套装，覆盖日常使用最频繁的锅具。",
+  "who": "The realistic starting point for most households. Full sets can come later.",
+  "whoZh": "多数家庭最现实的起点。全套可以以后再说。"
+ },
+ "icook-4-piece-saucepan-set": {
+  "advantage": "Saucepans for sauces, grains and small-batch cooking.",
+  "advantageZh": "汤锅套装，用于酱汁、谷物和少量烹调。",
+  "who": "Small households and couples cooking for two.",
+  "whoZh": "小家庭和两人份烹饪。"
+ },
+ "icook-4-piece-stock-pot": {
+  "advantage": "A 4-quart stock pot for soups, stews and batch cooking.",
+  "advantageZh": "4夸脱深汤锅，用于煲汤、炖煮和批量备餐。",
+  "who": "Meal preppers and anyone who cooks soup weekly.",
+  "whoZh": "做备餐的人，以及每周煲汤的人。"
+ },
+ "icook-6-piece-dutch-oven": {
+  "advantage": "An 8-quart Dutch oven for family-sized braising and slow cooking.",
+  "advantageZh": "8夸脱荷兰锅，适合家庭份量的焖炖和慢煮。",
+  "who": "Larger families and anyone who entertains.",
+  "whoZh": "人口较多的家庭，以及经常请客的人。"
+ },
+ "icook-9-5-nonstick-frypan": {
+  "advantage": "PFAS-free nonstick with a lid, for eggs and delicate foods where stainless is harder to manage.",
+  "advantageZh": "无PFAS不粘煎锅带盖，适合鸡蛋和其他用不锈钢较难处理的娇嫩食材。",
+  "who": "Everyday breakfast use. The PFAS-free point matters to anyone who has read about older nonstick coatings.",
+  "whoZh": "日常早餐使用。无PFAS这点对了解过旧式不粘涂层的人很重要。"
+ },
+ "icook-11-nonstick-frypan": {
+  "advantage": "The larger PFAS-free nonstick pan, sized for cooking for more than one or two.",
+  "advantageZh": "更大尺寸的无PFAS不粘煎锅，适合两人以上的分量。",
+  "who": "Families, and stir-frying where a small pan crowds the food.",
+  "whoZh": "家庭使用，以及小锅会把菜挤在一起的爆炒场景。"
+ },
+ "icook-5-piece-knifeware-set": {
+  "advantage": "A precision knife set with a storage block. Sharp knives are safer than dull ones because they do not slip.",
+  "advantageZh": "精工刀具套装带刀座。锋利的刀比钝刀更安全，因为不会打滑。",
+  "who": "Home cooks still using one dull all-purpose knife.",
+  "whoZh": "还在用一把钝了的万能刀的家庭厨师。"
+ },
+ "icook-multipurpose-shears": {
+  "advantage": "Kitchen shears that separate for cleaning, which is the detail that decides whether you actually use them.",
+  "advantageZh": "可拆卸清洗的厨房剪 —— 这个细节决定了你会不会真的用它。",
+  "who": "The best first iCook purchase: low price, used immediately, and it opens the cookware conversation.",
+  "whoZh": "最好的iCook入门单品：价格低、马上就能用，而且能打开锅具的话题。"
+ },
+ "begin-30-holistic-wellness-solution": {
+  "advantage": "Amway's official 30-day program: GI Primer, Plant Protein and Probiotic, paired with the Wellbeing+ app for daily tracking. Structure and tracking are why people finish it.",
+  "advantageZh": "安利官方30天计划：肠道启动粉、植物蛋白、益生菌，配合Wellbeing+ App每日打卡。有结构和追踪，才是人们能坚持完的原因。",
+  "who": "People who have tried and abandoned unstructured plans. A defined end date changes completion rates.",
+  "whoZh": "试过并放弃无结构计划的人。有明确终点会改变完成率。"
+ },
+ "everyday-nutrition-solution": {
+  "advantage": "The official foundation stack: Double X, Plant Protein and Advanced Omega, bundled. It covers the three most common gaps in one order.",
+  "advantageZh": "官方基础组合：双X、植物蛋白、深海鱼油打包。一单覆盖三个最常见的缺口。",
+  "who": "The default recommendation when someone asks where to start.",
+  "whoZh": "有人问从哪开始时的默认答案。"
+ },
+ "sleep-stress-solution": {
+  "advantage": "The official evening stack built around Sweet Dreams gummies and calming botanicals.",
+  "advantageZh": "官方晚间组合，以甜梦软糖和舒缓植物配方为核心。",
+  "who": "The wired-but-tired pattern, which is the most common complaint in this client base.",
+  "whoZh": "身体累但大脑停不下来 —— 这是这个客户群里最常见的主诉。"
+ },
+ "healthy-aging-solution": {
+  "advantage": "The official healthy-aging bundle: turmeric, Cal Mag D, Garlic Heart Care and Vision Health together.",
+  "advantageZh": "官方抗龄套装：姜黄、钙镁D、大蒜精华、护眼配方组合。",
+  "who": "Adults over 40 building a maintenance routine rather than chasing a single symptom.",
+  "whoZh": "40岁以上、在建立保养习惯而非追着某个症状跑的成年人。"
+ },
+ "energy-solution": {
+  "advantage": "The official energy bundle, pairing foundational micronutrients with energy support.",
+  "advantageZh": "官方能量套装，基础微量营养素搭配能量支持。",
+  "who": "Persistent low energy where no single deficiency is obvious.",
+  "whoZh": "持续没精神但看不出明确单一缺口的人。"
+ },
+ "xs-fitness-jump-start-solution": {
+  "advantage": "XS protein plus workout support, bundled to start a training habit with the nutrition side already handled.",
+  "advantageZh": "XS蛋白加训练支持打包，让你开始训练习惯时营养那一半已经安排好。",
+  "who": "New gym memberships, and anyone restarting after a long break.",
+  "whoZh": "刚办健身卡的人，以及长时间中断后重新开始的人。"
+ },
+ "prebiotic-fiber": {
+  "advantage": "Probiotics add bacteria; prebiotic fiber feeds the ones already living in you. Most adults get about half the fiber they need, which is why a probiotic alone often underdelivers. Dissolves clear with no grit, so it goes into coffee or water without a texture argument.",
+  "advantageZh": "益生菌是加菌，益生元纤维是喂你本来就有的菌。大多数成年人纤维摄入只有需要量的一半左右，这就是为什么单吃益生菌常常效果打折。冲开无色无渣，加进咖啡或水里不会有口感上的抵触。",
+  "who": "Anyone who has tried a probiotic and felt nothing, eats out most days, or goes less than once a day.",
+  "whoZh": "吃过益生菌但没感觉、经常在外面吃、或者排便不到一天一次的人。"
+ },
+ "metabolic-pre-postbiotic": {
+  "advantage": "Postbiotics are what the bacteria produce, not the bacteria themselves, so the benefit does not depend on whether the strains survive the trip. Paired with a prebiotic here so the two work on the same axis: what feeds the microbiome and what the microbiome makes.",
+  "advantageZh": "后生元是菌产出的代谢物，不是菌本身，所以效果不取决于菌株能不能活着到达肠道。这里配上益生元，两者作用在同一条轴上：一个喂菌群，一个是菌群的产物。",
+  "who": "People working on weight or metabolic markers who already eat reasonably and want the gut side covered.",
+  "whoZh": "已经吃得还算规律、在处理体重或代谢指标、想把肠道这一环补上的人。"
+ },
+ "stress-relief-probiotic": {
+  "advantage": "The gut makes a large share of the body's serotonin, which is why gut and mood track together. This uses strains selected for gut-brain research rather than general digestive strains, so it is a different job from a standard probiotic.",
+  "advantageZh": "人体大部分血清素在肠道生成，这就是为什么肠道和情绪总是同步波动。这款用的是针对肠脑轴研究筛选的菌株，不是普通的助消化菌株，做的是不一样的事。",
+  "who": "People whose stomach reacts first when they are under pressure, or who lie awake with a busy head.",
+  "whoZh": "一紧张先闹肚子的人，或者躺下后脑子停不下来睡不着的人。"
+ },
+ "cycle-support": {
+  "advantage": "Chasteberry has the longest research history of any botanical used for cycle comfort. The point of a cycle formula is that it is taken continuously through the month, not only on the difficult days, because the rhythm you are supporting is monthly rather than daily.",
+  "advantageZh": "圣洁莓是周期类植物成分里研究历史最长的一味。周期类配方的逻辑是整月连续吃，而不是只在难受的那几天吃，因为你要支持的是月节律，不是日节律。",
+  "who": "Women with predictable premenstrual mood shifts, breast tenderness, or breakouts that arrive on schedule along the jaw.",
+  "whoZh": "经前情绪波动、乳房胀痛，或者下颌线上准时报到的痘痘，这类有规律可循的女性。"
+ },
+ "sleep-health": {
+  "advantage": "Melatonin tells your body it is night; it does not help a body that already knows it is night but cannot switch off. This is a botanical formula for that second problem, and being melatonin-free means no morning grogginess and no dependence question.",
+  "advantageZh": "褪黑素是告诉身体天黑了；但如果身体明明知道天黑了却关不掉，褪黑素帮不上忙。这款是针对第二种情况的植物配方，不含褪黑素意味着第二天不昏沉，也不用担心依赖。",
+  "who": "People who fall asleep fine but wake at 3am, or who do not want to start on melatonin.",
+  "whoZh": "能睡着但半夜三点醒的人，或者不想开始吃褪黑素的人。"
+ },
+ "joint-health": {
+  "advantage": "Glucosamine supplies raw material for cartilage; collagen supplies raw material for the connective tissue around it. Joint work is a repair project measured in months, so the mistake most people make is stopping at week three.",
+  "advantageZh": "氨糖提供软骨的原料，胶原蛋白提供关节周围结缔组织的原料。关节是一个以月为单位的修复工程，多数人犯的错是第三周就停了。",
+  "who": "People over 40, or anyone whose knees complain on stairs after a decade of running.",
+  "whoZh": "40岁以上，或者跑了十年步之后上下楼梯膝盖就抗议的人。"
+ },
+ "concentrated-fruits-vegetables": {
+  "advantage": "Each plant colour carries a different phytonutrient family, and almost nobody eats across all five in a week. This concentrates five colour groups into capsules, which is a floor under your diet, not a replacement for it.",
+  "advantageZh": "每种植物颜色对应一类不同的植物营养素，而几乎没有人能在一周内把五色吃全。这款把五个色系浓缩进胶囊，它是给饮食兜底，不是替代饮食。",
+  "who": "People whose vegetable intake is honestly two or three types on repeat, and travellers.",
+  "whoZh": "老实说蔬菜就那两三样来回吃的人，以及经常出差的人。"
+ },
+ "immunity-defense-zinc-holy-basil": {
+  "advantage": "Zinc is the mineral immune cells run out of first, and holy basil is an adaptogen, meaning it works on the stress side of immunity rather than the pathogen side. Stress-driven and season-driven immune dips are different problems and this covers the first.",
+  "advantageZh": "锌是免疫细胞最先耗尽的矿物质，而圣罗勒是适应原，作用在免疫的压力端而不是病原端。压力型和季节型的免疫下滑是两回事，这款管的是前者。",
+  "who": "People who get sick right after a deadline or a stretch of poor sleep, not randomly.",
+  "whoZh": "不是随机生病，而是一赶完项目、一连着熬几天就倒下的人。"
+ },
+ "immunity-echinacea": {
+  "advantage": "Echinacea is the most-studied immune botanical in Western herbal medicine. The usage detail that matters: it is designed for short intensive runs around a period of exposure, not as a year-round daily, which is the opposite of how most people use it.",
+  "advantageZh": "紫锥菊是西方草药里研究最多的免疫植物。关键用法：它是设计给暴露期前后短期集中服用的，不是全年天天吃 —— 这跟多数人的用法正好相反。",
+  "who": "Travel weeks, flu season, or the fortnight after a child brings something home from school.",
+  "whoZh": "出差周、流感季，或者孩子从学校带回点什么之后的那两周。"
+ },
+ "heart-health-coq10": {
+  "advantage": "Heart muscle has the highest concentration of mitochondria of any tissue, and CoQ10 is what those mitochondria use to make energy. Body production drops with age, and statins lower it further, which is why this is the single most common addition for people on that medication.",
+  "advantageZh": "心肌是全身线粒体密度最高的组织，而辅酶Q10正是线粒体产能所用。人体自身合成量随年龄下降，他汀类药物会进一步降低它 —— 这就是为什么服用该类药物的人最常补的就是这一个。",
+  "who": "Adults over 45, and anyone whose doctor has them on a statin.",
+  "whoZh": "45岁以上的成年人，以及医生给开了他汀的人。"
+ },
+ "carb-blocker": {
+  "advantage": "White kidney bean extract slows the enzyme that breaks starch into sugar, so part of a starch-heavy meal passes through instead of spiking blood sugar. It is a tool for specific meals, taken before them, not a daily supplement.",
+  "advantageZh": "白芸豆提取物抑制把淀粉分解成糖的那个酶，让一部分淀粉直接通过而不引起血糖飙升。它是针对特定一餐的工具，饭前吃，不是每天必补的营养品。",
+  "who": "People who cannot avoid rice, noodles or bread at certain meals and want to blunt the curve.",
+  "whoZh": "某几餐避不开米饭面条面包、想把血糖曲线压平一点的人。"
+ },
+ "wellness-bars": {
+  "advantage": "The test for a bar is the first three ingredients. A candy bar with added protein leads with sugar; a whole-food bar leads with nuts, fruit or oats. That is the entire difference and it decides whether the bar helps or hurts.",
+  "advantageZh": "判断一根棒子看前三位配料。加了蛋白质的糖果棒第一位是糖；全食物棒第一位是坚果、水果或燕麦。区别就在这里，也决定了它是帮你还是害你。",
+  "who": "People who skip meals then over-eat at night, and anyone who needs something in a bag.",
+  "whoZh": "经常不吃正餐结果晚上暴食的人，以及需要在包里常备一点东西的人。"
+ },
+ "organics-all-in-one-shakes": {
+  "advantage": "A meal replacement only works if it actually replaces the meal, which means protein, fiber and micronutrients in one glass rather than protein alone. Protein-only shakes leave you hungry in ninety minutes and that is why people abandon them.",
+  "advantageZh": "代餐要真的能替代一餐才算数，也就是一杯里要同时有蛋白质、纤维和微量营养素，而不是只有蛋白质。只有蛋白质的奶昔九十分钟后就饿，这就是人们坚持不下去的原因。",
+  "who": "People who skip breakfast, or who want the decision taken out of one meal a day.",
+  "whoZh": "不吃早餐的人，或者想把一天中一餐的选择题直接取消掉的人。"
+ },
+ "organics-turmeric-capsules": {
+  "advantage": "Turmeric's problem has always been absorption, so what matters in a turmeric product is the delivery form, not the milligram number on the front. Inflammatory balance is a background process, so this is measured in months, not days.",
+  "advantageZh": "姜黄一直以来的问题是吸收率，所以看姜黄产品要看剂型工艺，而不是正面标的毫克数。炎症平衡是一个后台过程，要按月看，不是按天看。",
+  "who": "People with stiffness that is worse in the morning, or recurring skin flare-ups.",
+  "whoZh": "早上起来更僵硬的人，或者皮肤反复起疹的人。"
+ },
+ "organics-ashwagandha-capsules": {
+  "advantage": "Adaptogens do not sedate you; they moderate the cortisol response, which is why ashwagandha can help someone sleep at night and stay steadier during the day from the same dose. Evening dosing suits most people.",
+  "advantageZh": "适应原不是镇静剂，它调节的是皮质醇反应 —— 所以同一个剂量既能帮人晚上睡好，又能让白天更稳。多数人放在晚上吃更合适。",
+  "who": "People carrying sustained pressure, wired at bedtime and flat by mid-afternoon.",
+  "whoZh": "长期高压、晚上躺下反而清醒、下午三点就没电的人。"
+ },
+ "organics-lion-s-mane-capsules": {
+  "advantage": "Lion's mane is studied for nerve growth factor rather than for stimulation, so it does not feel like caffeine and you should not expect it to. The reported effect is fewer word-finding pauses and steadier focus over weeks.",
+  "advantageZh": "猴头菇的研究方向是神经生长因子，不是提神，所以它的体感不像咖啡因，也不该期待它像。反馈到的效果是几周后想词卡壳变少、专注更稳。",
+  "who": "Knowledge workers, students, and anyone who noticed their recall slipping after 40.",
+  "whoZh": "脑力工作者、学生，以及40岁后发现记性变差的人。"
+ },
+ "men-s-daily-multivitamin": {
+  "advantage": "A one-tablet multi is a different product from a multi-pack: lower doses, but a dose you will actually take every day beats a better dose you abandon in week two. Compliance is the variable that decides outcomes here.",
+  "advantageZh": "单片综合维生素和综合营养包是两类产品：剂量更低，但一个你能天天吃下去的剂量，胜过一个你第二周就放弃的更好剂量。决定结果的变量是坚持度。",
+  "who": "Men starting out who want one tablet, or who found Double X too much to keep up with.",
+  "whoZh": "刚开始想简单吃一片的男性，或者觉得倍立健坚持不下来的人。"
+ },
+ "women-s-daily-multivitamin": {
+  "advantage": "Women's formulas differ mainly in iron, folate and calcium, which reflect real physiological differences rather than marketing. One tablet daily is the format most people can sustain for a year, which is the timescale that matters.",
+  "advantageZh": "女性配方的差别主要在铁、叶酸和钙，这反映的是真实的生理差异，不是营销话术。每天一片是多数人能坚持一年的剂型 —— 而一年才是有意义的时间尺度。",
+  "who": "Women starting out, or anyone who wants a simple daily floor under their nutrition.",
+  "whoZh": "刚开始补充的女性，或者想给日常营养一个简单底线的人。"
+ },
+ "organics-men-s-daily-gummies": {
+  "advantage": "The best supplement is the one that gets taken. For people who gag on tablets or forget them, a gummy that gets eaten daily outperforms a tablet sitting in a cupboard, and that is not a compromise, it is the whole point.",
+  "advantageZh": "最好的营养品是那个真的被吃掉的。对于吞不下药片或者总是忘记的人来说，每天真吃掉的软糖胜过柜子里的药片 —— 这不是妥协，这就是重点。",
+  "who": "People with a tablet aversion, and anyone whose supplement bottle is still half full after six months.",
+  "whoZh": "咽不下药片的人，以及那瓶营养品放了半年还剩一半的人。"
+ },
+ "organics-women-s-daily-gummies": {
+  "advantage": "Same logic as the men's gummy with a women's nutrient profile: iron and folate weighted differently. Being organic-certified matters more in a chewable because you are also eating the base, not just the actives.",
+  "advantageZh": "逻辑和男士软糖一样，但换成女性营养配比：铁和叶酸的权重不同。有机认证在咀嚼剂型里更重要，因为你连基质一起吃下去，不只是有效成分。",
+  "who": "Women who will not take tablets, and anyone building a habit from zero.",
+  "whoZh": "不肯吃药片的女性，以及从零开始建立习惯的人。"
+ },
+ "collagen-shots": {
+  "advantage": "Collagen research uses hydrolysed peptides at a specific dose, and a shot delivers that dose without a scoop, a shaker or a decision. The convenience is not a gimmick; daily consistency is what the studies are actually measuring.",
+  "advantageZh": "胶原蛋白的研究用的是特定剂量的水解肽，而即饮装直接给到这个剂量，不用勺子、不用摇杯、不用做决定。便利不是噱头 —— 研究真正测量的就是每日的坚持度。",
+  "who": "People who have bought collagen powder before and stopped using it.",
+  "whoZh": "以前买过胶原蛋白粉然后就搁置了的人。"
+ },
+ "collagen-gummies": {
+  "advantage": "Skin collagen turns over on a roughly twelve-week cycle, so this is a three-month product judged at three months, not three weeks. The gummy format exists because the twelve-week version of you needs to still be taking it.",
+  "advantageZh": "皮肤胶原大约以十二周为一个更新周期，所以这是一个三个月的产品，看三个月的结果，不看三周。做成软糖，是因为十二周后的你还得在吃。",
+  "who": "People starting collagen for the first time who want the lowest-friction format.",
+  "whoZh": "第一次开始吃胶原、想要最低门槛剂型的人。"
+ },
+ "collagen-peptides": {
+  "advantage": "Unflavoured peptides dissolve into coffee, soup or a smoothie without changing the taste, which means they attach to a habit you already have instead of asking you to build a new one. That is the most reliable way a supplement survives.",
+  "advantageZh": "无味肽粉可以溶进咖啡、汤或者奶昔里而不改变味道，也就是说它挂靠在你已有的习惯上，而不是要求你新建一个习惯。这是营养品能坚持下来最可靠的方式。",
+  "who": "People already drinking coffee every morning, and anyone wanting to control their own dose.",
+  "whoZh": "每天早上都喝咖啡的人，以及想自己控制剂量的人。"
+ },
+ "kids-daily-chewable-multivitamin": {
+  "advantage": "With children, format is the entire strategy. A chewable that gets eaten every morning does more than a superior tablet that turns into a daily fight. Growth years also raise requirements for the exact nutrients picky eating removes.",
+  "advantageZh": "对孩子来说，剂型就是全部策略。每天早上真被吃掉的咀嚼片，比一片更好但天天要打仗的药片有用得多。而长身体的年纪恰恰提高了挑食最容易缺的那几种营养素的需求。",
+  "who": "Picky eaters, growth-spurt years, and families who want one thing that works for everyone.",
+  "whoZh": "挑食的孩子、正在长个子的年纪，以及想全家统一用一样东西的家庭。"
+ },
+ "kids-toddler-immunity-drops": {
+  "advantage": "Toddlers cannot chew safely, so drops are not a lesser format, they are the only correct one below about three years old. Drops also let you scale the dose to a small body instead of splitting a tablet.",
+  "advantageZh": "幼儿不能安全咀嚼，所以滴剂不是次一等的剂型，在大约三岁以下它是唯一正确的剂型。滴剂还能按小身体的体重调整剂量，而不是掰药片。",
+  "who": "Toddlers, and children in their first year of daycare or preschool.",
+  "whoZh": "幼儿，以及第一年上托班或幼儿园的孩子。"
+ },
+ "kids-brainiums-dha-jelly": {
+  "advantage": "About 60% of the brain by dry weight is fat, and DHA is the dominant structural fatty acid in it. Children build that structure now, from dietary supply, and fish twice a week is the intake most families are not hitting.",
+  "advantageZh": "大脑干重约60%是脂肪，而DHA是其中占主导的结构性脂肪酸。孩子现在正在搭这个结构，原料来自饮食供给 —— 而每周两次鱼，是多数家庭达不到的摄入量。",
+  "who": "Children who do not eat fish, and school-age kids in demanding academic years.",
+  "whoZh": "不吃鱼的孩子，以及学业压力大的学龄儿童。"
+ },
+ "xs-sparkling-juiced-energy-12-pack": {
+  "advantage": "Real juice base with zero sugar is a harder formulation than a synthetic flavour with zero sugar, and it is the reason this drinks like a soft drink rather than like a supplement. Same B-vitamin and caffeine structure as the rest of the XS line.",
+  "advantageZh": "真果汁基底加零糖，配方难度高于合成香精加零糖 —— 这也是为什么它喝起来像汽水而不像营养品。B族维生素和咖啡因结构与XS其他产品一致。",
+  "who": "People switching off sugary energy drinks who still want something that tastes like one.",
+  "whoZh": "想戒掉高糖能量饮料、但还是想要那个口感的人。"
+ },
+ "xs-energy-burn-12-pack": {
+  "advantage": "Energy plus a thermogenic blend means the same can does two jobs, which matters mostly for the pre-workout slot. Read it as an energy drink with an added angle, not as a weight product with caffeine attached.",
+  "advantageZh": "能量加热效应配方，等于同一罐做两件事，主要用在训练前那个时间段。把它理解成加了一个角度的能量饮料，而不是加了咖啡因的减重产品。",
+  "who": "People training in a calorie deficit who want one can before the session.",
+  "whoZh": "在热量赤字下训练、想在练前来一罐的人。"
+ },
+ "xs-energy-focus-30ct": {
+  "advantage": "The 30-count is the trial size of the 60. Buying the small one first is the right move for anything caffeine-based, because individual tolerance varies more than any label can predict.",
+  "advantageZh": "30粒装是60粒装的试用规格。任何含咖啡因的东西，先买小包装都是对的做法 —— 个体耐受度的差异比任何标签能预测的都大。",
+  "who": "First-time users testing tolerance before committing to the larger bottle.",
+  "whoZh": "第一次用、想先试耐受度再决定要不要上大瓶的人。"
+ },
+ "xs-cbd-cream": {
+  "advantage": "Topical means it works where you rub it, on local muscle soreness, and does not enter general circulation the way an oral product would. That limits what it can do and also removes most of the concerns people have about the category.",
+  "advantageZh": "外用意味着它在你涂抹的部位起作用，针对局部肌肉酸痛，不像口服那样进入全身循环。这限制了它能做的事，同时也消除了人们对这个品类的大部分顾虑。",
+  "who": "Athletes and anyone with a specific sore shoulder, knee or lower back after training.",
+  "whoZh": "运动员，以及训练后肩、膝或下背某一处特别酸痛的人。"
+ },
+ "artistry-studio-glow-boss-cleanser-exfoliator": {
+  "advantage": "Two steps in one is a compliance product: most people who own a separate exfoliant use it far less often than they should. Daily gentle exfoliation also beats aggressive weekly scrubbing, which is what damages a barrier.",
+  "advantageZh": "两步合一是一个坚持度产品：拥有单独去角质产品的人，绝大多数用的频率远低于应该的频率。而每天温和去角质，好过每周一次的猛搓 —— 后者才是伤屏障的元凶。",
+  "who": "People with congested or textured skin who will not run a five-step routine.",
+  "whoZh": "毛孔堵塞、皮肤粗糙，但不会执行五步护肤流程的人。"
+ },
+ "artistry-studio-rose-all-day-anti-acne-toner": {
+  "advantage": "Spot treatment handles the blemish you can see; a salicylic toner handles the pores that are about to become the next one. Treating the whole face is the difference between reacting and getting ahead of the cycle.",
+  "advantageZh": "点涂处理的是你看得见的那颗痘；水杨酸爽肤水处理的是即将变成下一颗的那些毛孔。全脸使用，是被动应对和跑在周期前面的区别。",
+  "who": "People whose breakouts come in waves rather than as isolated spots.",
+  "whoZh": "痘痘一片一片来、而不是零星几颗的人。"
+ },
+ "artistry-studio-done-with-zit": {
+  "advantage": "Salicylic acid is oil-soluble, which is why it can get down inside a pore where a water-soluble acid cannot. That is the whole reason it is the standard for spot treatment rather than a stronger-sounding ingredient.",
+  "advantageZh": "水杨酸是脂溶性的，所以它能进到毛孔内部，而水溶性的酸做不到。这就是为什么它是点涂的标准成分，而不是某个听起来更猛的成分。",
+  "who": "Anyone who gets occasional single blemishes and wants something targeted in the bag.",
+  "whoZh": "偶尔冒一两颗痘、想在包里常备一支定点用的人。"
+ },
+ "artistry-multi-defense-uv-protect-spf50": {
+  "advantage": "Sunscreen is the single highest-return anti-ageing product there is, and the reason people skip it is texture, not belief. An SPF that layers under makeup without pilling is solving the actual obstacle.",
+  "advantageZh": "防晒是抗老回报率最高的单一产品，而人们不涂的原因是肤感，不是不相信。一款能在妆前叠涂而不搓泥的防晒，解决的才是真正的障碍。",
+  "who": "Everyone daily, and specifically anyone using retinol, acids or brightening actives.",
+  "whoZh": "所有人每天都要用，尤其是在用A醇、酸类或美白成分的人。"
+ },
+ "artistry-sleeping-mask": {
+  "advantage": "Skin repair peaks overnight, so an overnight mask is working during the window the skin is already in repair mode rather than fighting the day. No rinse step means it survives contact with a tired person at 11pm.",
+  "advantageZh": "皮肤修复在夜间达到峰值，所以睡眠面膜是在皮肤本来就在修复的窗口期起作用，而不是跟白天硬碰硬。免洗这一点，意味着它能扛得住晚上十一点一个疲惫的人。",
+  "who": "Dehydrated skin, winter, air-conditioned offices, and frequent flyers.",
+  "whoZh": "皮肤缺水、冬天、常年空调的办公室，以及经常坐飞机的人。"
+ },
+ "artistry-signature-select-hydrating-mask": {
+  "advantage": "A treatment mask is a concentrated dose, not a daily step, so its job is to reset skin before an event or after a rough week. Judge it on the next morning, not on the ten minutes it is on.",
+  "advantageZh": "护理面膜是一次集中剂量，不是日常步骤，它的任务是在重要场合前或者难熬的一周后把皮肤重置一下。看第二天早上的状态，不看敷着那十分钟。",
+  "who": "Before events, after travel, and anyone whose skin looks tired rather than problematic.",
+  "whoZh": "重要场合前、旅行后，以及皮肤不是有问题、只是显疲态的人。"
+ },
+ "artistry-correcting-serum": {
+  "advantage": "Post-blemish marks are pigment left behind after inflammation, not scars, which means they respond to tone-correcting actives given enough weeks. Confusing the two is why people give up on marks that would have faded.",
+  "advantageZh": "痘印是炎症之后留下的色素沉着，不是疤痕 —— 这意味着给够周数，它们对匀色成分是有反应的。把两者混为一谈，是很多人放弃了本来会淡掉的痘印的原因。",
+  "who": "People clearing acne who are now left with the marks, and anyone with uneven tone.",
+  "whoZh": "痘痘已经控制住、现在只剩痘印的人，以及肤色不均的人。"
+ },
+ "artistry-longxevity-rich-cream": {
+  "advantage": "The rich and soft versions are the same formula in two textures, and texture is the only decision. Rich suits drier skin, colder months and night use, where a heavier occlusive layer actually helps rather than sits.",
+  "advantageZh": "丰润版和轻盈版是同一个配方的两种质地，唯一要决定的就是质地。丰润适合偏干的皮肤、更冷的季节和夜间使用 —— 这些情况下更厚的封闭层是真的有用，而不是浮在脸上。",
+  "who": "Drier or mature skin, winter, and night application.",
+  "whoZh": "偏干或熟龄肌、冬季，以及夜间使用。"
+ },
+ "artistry-longxevity-soft-cream": {
+  "advantage": "Same formula as the rich cream in a lighter texture. Combination and oilier skin, warmer climates and daytime layering under sunscreen are where the soft version is the correct choice, not the weaker one.",
+  "advantageZh": "与丰润版同配方，质地更轻。混合偏油的皮肤、温暖气候、以及白天叠在防晒下面 —— 这些情况下轻盈版是正确选择，不是弱化版。",
+  "who": "Combination or oilier skin, humid climates, and daytime use.",
+  "whoZh": "混合或偏油肌、湿热气候，以及白天使用。"
+ },
+ "artistry-men-post-shave-toner": {
+  "advantage": "Shaving is controlled exfoliation done with a blade, which is why post-shave irritation is a barrier problem, not a fragrance problem. Alcohol-forward aftershaves make that worse; a calming toner addresses it.",
+  "advantageZh": "刮胡子本质上是用刀片做的一次可控去角质，所以刮后刺痛是屏障问题，不是香味问题。以酒精为主的须后水只会加重它，而舒缓型爽肤水才是对症的。",
+  "who": "Men who shave most days, especially with sensitive skin or ingrown hairs.",
+  "whoZh": "几乎每天刮胡子的男性，尤其是敏感肌或者容易长内生须的人。"
+ },
+ "artistry-men-facial-moisturizer": {
+  "advantage": "Men's skin is measurably thicker with higher sebum output, so the formulation target is hydration without a heavy finish. The reason men skip moisturiser is almost always how the last one felt, not scepticism.",
+  "advantageZh": "男性皮肤实测更厚、皮脂分泌更高，所以配方目标是补水但不厚重。男性不用面霜的原因，几乎总是上一支的肤感，而不是不认可。",
+  "who": "Men starting a routine, and anyone whose skin feels tight after washing.",
+  "whoZh": "刚开始护肤的男性，以及洗完脸觉得紧绷的人。"
+ },
+ "satinique-intensive-repair-shampoo": {
+  "advantage": "Damaged hair is hair with a lifted cuticle, and cleansing is where you either smooth it back down or lift it further. For colour-treated or heat-styled hair, the shampoo choice matters more than the mask.",
+  "advantageZh": "受损发就是毛鳞片翘起的头发，而洗发这一步，要么把它抚平，要么把它掀得更开。对染烫或常用热工具的头发来说，洗发水的选择比发膜更关键。",
+  "who": "Colour-treated, bleached or daily heat-styled hair.",
+  "whoZh": "染过、漂过，或者每天用热工具造型的头发。"
+ },
+ "satinique-intensive-repair-conditioner": {
+  "advantage": "Shampoo opens, conditioner closes. Using a repair shampoo without the matching conditioner leaves the cuticle open, which is why mixing lines often underperforms either line used properly.",
+  "advantageZh": "洗发水打开，护发素闭合。用了修护洗发水却不用配套护发素，毛鳞片就停在打开的状态 —— 这也是为什么混用不同系列，效果常常不如任何一个系列用完整。",
+  "who": "Anyone using the Intensive Repair shampoo.",
+  "whoZh": "所有在用密集修护洗发水的人。"
+ },
+ "satinique-anti-hair-fall-shampoo": {
+  "advantage": "Most visible hair fall is breakage part-way down the strand, not loss from the root. That distinction decides the fix: breakage responds to strand strength, root loss does not, and the shower drain looks identical either way.",
+  "advantageZh": "肉眼看到的掉发，多数是发丝中段的断裂，而不是从根部脱落。这个区分决定了怎么解决：断裂靠强化发丝有效，根部脱落无效 —— 而地漏里看起来是一样的。",
+  "who": "People seeing more hair in the drain, especially with long or chemically treated hair.",
+  "whoZh": "发现地漏里头发变多的人，尤其是长发或者做过化学处理的。"
+ },
+ "satinique-anti-hair-fall-conditioner": {
+  "advantage": "Strand strength is built where the conditioner sits, along the mid-length and ends, which is exactly where breakage happens. Skipping conditioner on fine hair to avoid weight is what leaves those ends brittle.",
+  "advantageZh": "发丝强度是在护发素停留的地方建立起来的 —— 中段和发尾，而这正是断裂发生的位置。细软发为了怕塌而跳过护发素，结果就是发尾更脆。",
+  "who": "Anyone using the Anti-Hair Fall shampoo, particularly with fine hair.",
+  "whoZh": "所有在用防脱洗发水的人，尤其是细软发质。"
+ },
+ "satinique-anti-hair-fall-scalp-tonic": {
+  "advantage": "A tonic goes on the scalp, not the hair, and stays there, which is the difference from a rinse-off product that has thirty seconds of contact. If a scalp is the actual issue, leave-on contact time is the whole mechanism.",
+  "advantageZh": "精华水是涂在头皮上而不是头发上，而且是留在上面的 —— 这就是它和只有三十秒接触时间的冲洗类产品的区别。如果问题真的出在头皮，留驻的接触时长就是全部机理。",
+  "who": "People with a visibly widening part or thinning at the temples.",
+  "whoZh": "发缝明显变宽，或者两侧鬓角变稀的人。"
+ },
+ "satinique-anti-dandruff-shampoo": {
+  "advantage": "Flaking is usually either a yeast overgrowth or a dry barrier, and they need opposite handling. If flakes are oily and yellowish it is the first; if they are fine and white with tightness it is the second, and washing more only helps one of them.",
+  "advantageZh": "头皮屑通常要么是马拉色菌过度增殖，要么是屏障干燥，这两种需要相反的处理。油腻发黄的屑是前者；细白干燥伴紧绷的是后者 —— 而多洗几次只对其中一种有用。",
+  "who": "People with persistent flaking or an itchy scalp, especially in winter.",
+  "whoZh": "头皮屑反复、头皮发痒的人，冬天尤其明显。"
+ },
+ "satinique-purifying-conditioner": {
+  "advantage": "Fine hair goes flat because conditioner reaches the roots. A purifying conditioner is formulated to condition the lengths while leaving the root area clean, which is a formulation problem, not a rinsing-technique problem.",
+  "advantageZh": "细软发扁塌，是因为护发素碰到了发根。清爽型护发素的配方目标是滋养中下段、让发根保持清爽 —— 这是配方要解决的问题，不是冲洗手法能解决的。",
+  "who": "Fine or oily-root hair types who feel weighed down by regular conditioner.",
+  "whoZh": "细软发或者头皮容易出油、觉得普通护发素太压发的人。"
+ },
+ "satinique-smooth-moisture-conditioner-750ml": {
+  "advantage": "The 750ml is the same product in a household size. For a family or anyone with long hair, the per-use cost drops enough that people stop rationing it, and under-using conditioner is a real reason routines fail.",
+  "advantageZh": "750ml是同款产品的家庭装。对一家人或者长发的人来说，单次成本降到不用再省着用 —— 而护发素用量不足，确实是护理失败的一个真实原因。",
+  "who": "Families sharing one bottle, and anyone with long or thick hair.",
+  "whoZh": "共用一瓶的家庭，以及长发或发量多的人。"
+ },
+ "g-h-refresh-exfoliating-body-wash": {
+  "advantage": "Rough patches on upper arms and thighs are usually keratin build-up in the follicle, and it responds to consistent gentle exfoliation rather than to lotion. People moisturise it for years and wonder why nothing changes.",
+  "advantageZh": "上臂和大腿上的粗糙颗粒，通常是毛囊口的角质堆积，它对持续温和的去角质有反应，对润肤露没有。很多人擦了好几年身体乳，纳闷为什么没变化。",
+  "who": "People with rough or bumpy upper arms, and anyone whose body lotion never seems to absorb.",
+  "whoZh": "上臂粗糙起颗粒的人，以及觉得身体乳总是吸收不了的人。"
+ },
+ "g-h-protect-hand-soap": {
+  "advantage": "Handwashing is still the highest-return hygiene habit there is, and the reason people cut it short is dry cracked hands. Cracked skin is also broken barrier, so a soap that does not strip is doing two jobs.",
+  "advantageZh": "洗手仍然是回报率最高的卫生习惯，而人们敷衍了事的原因是手干裂。而裂开的皮肤本身就是屏障破损 —— 所以一款不剥脱的洗手液，同时在做两件事。",
+  "who": "Households with kids, and anyone washing their hands twenty times a day.",
+  "whoZh": "有孩子的家庭，以及一天要洗二十次手的人。"
+ },
+ "g-h-protect-hand-sanitizer": {
+  "advantage": "Sanitiser is for when soap and water are not available, not instead of them, and the practical variable is whether you have it on you. A bottle in the car and one in the school bag beats a better formula at home.",
+  "advantageZh": "免洗洗手液是在没有肥皂和水的时候用的，不是用来替代洗手，而真正起作用的变量是你身上有没有带。车里一瓶、书包里一瓶，胜过家里放一瓶更好的。",
+  "who": "Travel, commuting, school bags, and eating out.",
+  "whoZh": "出行、通勤、书包里，以及在外面吃饭。"
+ },
+ "g-h-protect-deodorant": {
+  "advantage": "Antiperspirant and deodorant are two different mechanisms, one reduces sweat and one addresses odour, and most complaints come from buying the wrong one. Applying at night rather than morning also works better for the first mechanism.",
+  "advantageZh": "止汗和除臭是两个不同机理，一个减少出汗，一个处理气味，大多数不满意都来自买错了类型。另外，晚上涂比早上涂对止汗这个机理效果更好。",
+  "who": "Daily use, and anyone who has found other formulas irritating.",
+  "whoZh": "日常使用，以及用其他配方觉得刺激的人。"
+ },
+ "g-h-baby-wash-shampoo": {
+  "advantage": "Baby skin barrier is thinner and more permeable than adult skin, so the standard for a baby product is what is left out, not what is added. Two-in-one also cuts bath time, which matters more than any brochure admits.",
+  "advantageZh": "婴儿皮肤屏障比成人更薄、通透性更高，所以婴儿产品的标准是它不含什么，而不是它加了什么。二合一还能缩短洗澡时间 —— 这一点的重要性，任何宣传册都不会承认。",
+  "who": "Newborns through toddlers, and parents of children with reactive skin.",
+  "whoZh": "新生儿到幼儿，以及孩子皮肤容易起反应的父母。"
+ },
+ "g-h-baby-lotion": {
+  "advantage": "The barrier-first approach to reactive baby skin is daily moisturising when the skin looks fine, not only when it flares. Waiting for a flare means you are always treating rather than preventing.",
+  "advantageZh": "对容易起反应的婴儿皮肤，屏障优先的做法是皮肤看起来好的时候也每天涂，而不是只在起疹时涂。等到起疹才涂，就永远在处理而不是在预防。",
+  "who": "Babies with dry or reactive skin, and daily use after bathing.",
+  "whoZh": "皮肤干燥或容易起反应的宝宝，以及洗澡后的日常使用。"
+ },
+ "glister-power-toothbrush-refill": {
+  "advantage": "Bristles lose effectiveness at around three months, and worn bristles clean measurably worse while feeling the same. This is the cheapest item on this whole site and the one most people are overdue on.",
+  "advantageZh": "刷毛大约三个月后失去效力，磨损的刷毛清洁力实测明显下降，但手感没有区别。这是整个站上最便宜的一件东西，也是大多数人最该换而没换的一件。",
+  "who": "Anyone with the Glister power toothbrush whose last refill was more than three months ago.",
+  "whoZh": "用丽齿健电动牙刷、上次换头超过三个月的人。"
+ },
+ "amway-home-kitchen-cleaner": {
+  "advantage": "Kitchen cleaning is a grease problem, and grease needs a surfactant rather than a disinfectant. The residue question matters more here than anywhere else in the house because these are the surfaces food touches.",
+  "advantageZh": "厨房清洁本质是油污问题，而油污需要的是表面活性剂，不是消毒剂。残留问题在厨房比家里任何地方都更重要，因为这些是食物会接触到的表面。",
+  "who": "Anyone who cooks at home, especially with high-heat or oil-heavy cooking.",
+  "whoZh": "在家做饭的人，尤其是爆炒或者用油多的做法。"
+ },
+ "amway-home-bathroom-cleaner": {
+  "advantage": "Soap scum and limescale are mineral deposits, which is why a general-purpose spray smears them around instead of removing them. Dwell time is the other half: spray, wait, then wipe, rather than spray and wipe.",
+  "advantageZh": "皂垢和水垢是矿物沉积，这就是为什么万用喷雾只是把它们抹开而不是清掉。另一半是停留时间：喷、等、再擦，而不是喷完就擦。",
+  "who": "Hard-water areas, and anyone fighting the same shower door every week.",
+  "whoZh": "水质硬的地区，以及每周都在跟同一块淋浴玻璃较劲的人。"
+ },
+ "amway-home-automatic-dish-tablets": {
+  "advantage": "Pre-rinsing actually makes most modern dishwasher detergents work worse, because the enzymes need food residue to bind to. A tablet also doses correctly every time, which powder does not.",
+  "advantageZh": "预冲洗其实会让多数现代洗碗机洗涤剂效果变差，因为其中的酶需要食物残渣去结合。而块状每次的投放量都是准的，粉状做不到。",
+  "who": "Households running a dishwasher daily.",
+  "whoZh": "每天用洗碗机的家庭。"
+ },
+ "espring-pre-filter": {
+  "advantage": "A pre-filter catches sediment before it reaches the main cartridge, so the expensive part lasts closer to its rated life. On hard or sediment-heavy municipal water this is the cheapest way to protect the system.",
+  "advantageZh": "前置滤芯在泥沙到达主滤芯之前拦住它们，让贵的那一部分更接近额定寿命。在水质硬或泥沙多的市政供水下，这是保护整个系统最便宜的办法。",
+  "who": "eSpring owners, particularly on well water or in older buildings.",
+  "whoZh": "益之源用户，尤其是用井水或者住老楼的。"
+ },
+ "walking-to-bronze-bundle": {
+  "advantage": "A starter bundle exists so a new IBO does not have to guess what to order in month one. It is assembled to hit the volume the first milestone requires with products that are genuinely used rather than stored.",
+  "advantageZh": "起步套装的存在，是为了让新IBO在第一个月不用猜该订什么。它的组合是为了达到第一个里程碑所需的业绩量，同时里面都是真正会用掉的产品，而不是囤着的。",
+  "who": "New IBOs in their first month, and anyone rebuilding a consistent monthly order.",
+  "whoZh": "第一个月的新IBO，以及正在重建稳定月订单的人。"
+ }
+}

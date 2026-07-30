@@ -3,6 +3,7 @@
 # This script holds the ENRICHMENT layer: slugs, Chinese names, taglines, area mapping.
 # fetch-notion.js merges live Notion rows over meta.json to refresh products.json.
 import json, re, datetime
+import products_new
 
 IMG = {
  "123364": "https://www.amway.com/medias/123364-en-US-690px-01?context=bWFzdGVyfHJvb3R8MTAwNDc0fGltYWdlL3BuZ3xoZDEvaGYwLzk0NDY3MTc4ODIzOTgucG5nfDQ5NmQ3NzU2NDdjOTk4ZjJlMGQxNGQ0OGU0NWE0NjkzOWEwZDE1YjA5ZWQ0Nzg3NDU3ZDVmNWU1MjUwMzlhMGE",
@@ -26,125 +27,119 @@ IMG = {
 # (name_in_notion, item, cat, ibo, retail, pv, days, one_time)  — snapshot from Notion DB 2026-07-27
 # fetch-notion.js refreshes these values live; enrichment below stays.
 ROWS = [
- ("Double X Multivitamin 31-day Refill","123842","nutrition",57.6,64,16.79,31,0),
+ ("Double X Multivitamin 31-day Refill","A0244","nutrition",57.6,64,16.79,31,0),
  ("Double X Multivitamin 10-day","123364","nutrition",21.6,24,6.3,10,0),
  ("Vitamin C Extended Release 180ct","109747","nutrition",48.6,54,14.17,90,0),
  ("Vitamin C Extended Release 60ct","109745","nutrition",18,20,5.25,30,0),
  ("Vitamin B Complex 120ct","110171","nutrition",34.2,38,9.97,120,0),
  ("Vitamin B Complex 30ct","122971","nutrition",11.48,12.75,3.35,30,0),
- ("Vitamin D","119346","nutrition",26.1,29,7.61,None,0),
+ ("Vitamin D","119346","nutrition",26.1,29,7.61,60,0),
  ("Vitamin E Chewable","A4042","nutrition",38.7,43,11.28,60,0),
  ("Advanced Omega","126136","nutrition",36,40,10.5,30,0),
  ("Calcium Magnesium D","110610","nutrition",38.7,43,11.28,30,0),
  ("Magnesium","128032","nutrition",30.6,34,8.92,30,0),
- ("Iron & Folic Acid","102046","nutrition",15.3,17,4.46,None,0),
+ ("Iron & Folic Acid","102046","nutrition",15.3,17,4.46,60,0),
  ("Plant Protein Powder","125921","nutrition",36.9,41,10.76,15,0),
- ("Organics All-in-One Bars",None,"nutrition",51.3,57,14.96,14,0),
- ("Green Superfood","125937","nutrition",40.5,45,11.81,None,0),
+ ("Organics All-in-One Bars","316302","nutrition",51.3,57,14.96,14,0),
+ ("Green Superfood","125937","nutrition",40.5,45,11.81,30,0),
  ("Probiotic","120571","nutrition",38.7,43,11.28,30,0),
- ("Digestive Enzyme","A8903","nutrition",35.1,39,10.23,None,0),
+ ("Digestive Enzyme","A8903","nutrition",35.1,39,10.23,30,0),
  ("Begin Daily GI Primer","127725","nutrition",70.2,78,20.46,30,0),
- ("Sleep Gummies","124506","nutrition",17.55,19.5,5.12,None,0),
- ("Go Shield","124555","nutrition",19.8,22,5.77,None,0),
- ("Twist Tubes","110855","nutrition",21.6,24,6.29,None,0),
- ("Hair Skin Nail","A7553","nutrition",23.4,26,6.82,None,0),
- ("Lean Muscle","100280","nutrition",46.8,52,13.64,None,0),
- ("Men's Pack","123365","nutrition",66.6,74,19.42,None,0),
- ("Women's Pack","123372","nutrition",53.1,59,15.48,None,0),
- ("ClearGuard Allergy","102735","nutrition",24.3,27,7.08,None,0),
- ("Garlic Heart Care","A5923","nutrition",28.8,32,8.4,None,0),
- ("Liver Support","A8084","nutrition",31.5,35,9.18,None,0),
- ("Memory Builder","111106","nutrition",37.8,42,11.02,None,0),
- ("Prostate Health","A8004","nutrition",41.4,46,12.07,None,0),
- ("Slimmetry","117085","nutrition",29.7,33,8.66,None,0),
+ ("Sleep Gummies","124506","nutrition",17.55,19.5,5.12,30,0),
+ ("Go Shield","124555","nutrition",19.8,22,5.77,30,0),
+ ("Twist Tubes","110855","nutrition",21.6,24,6.29,14,0),
+ ("Hair Skin Nail","A7553","nutrition",23.4,26,6.82,30,0),
+ ("Lean Muscle","100280","nutrition",46.8,52,13.64,30,0),
+ ("Men's Pack","123365","nutrition",66.6,74,19.42,30,0),
+ ("Women's Pack","123372","nutrition",53.1,59,15.48,30,0),
+ ("ClearGuard Allergy","102735","nutrition",24.3,27,7.08,30,0),
+ ("Garlic Heart Care","A5923","nutrition",28.8,32,8.4,30,0),
+ ("Liver Support","A8084","nutrition",31.5,35,9.18,30,0),
+ ("Memory Builder","111106","nutrition",37.8,42,11.02,30,0),
+ ("Prostate Health","A8004","nutrition",41.4,46,12.07,30,0),
+ ("Slimmetry","117085","nutrition",29.7,33,8.66,30,0),
  ("Vision Health","124708","nutrition",31.5,35,9.18,30,0),
  ("Eye Mojo Blue Light Gummies","125544","nutrition",19.8,22,5.77,30,0),
  # XS / sports
- ("XS Energy Drinks 12-pack","126883","sports",33.3,37,9.7,None,0),
- ("XS Energy + Focus 60ct",None,"sports",36.9,41,10.76,30,0),
- ("XS Grass-Fed Whey Protein","128154","sports",54.9,61,16.01,None,0),
- ("XS Muscle Multiplier (EAAs)","126753","sports",45,50,13.11,None,0),
- ("XS Pre-Workout Boost","316377","sports",29.7,33,8.66,None,0),
- ("XS Post-Workout Recovery","316380","sports",29.7,33,8.66,None,0),
- ("XS Ignite Thermogenic Powder","127811","sports",39.6,44,11.55,None,0),
- ("XS Protein Bars 12-pack","110385","sports",37.8,42,11.02,None,0),
- ("XS RTD Protein Shakes 12-pack","110370","sports",47.7,53,13.91,None,0),
- ("XS Protein Crisps","110628","sports",35.1,39,10.23,None,0),
- ("XS CocoWater 12-pack","110631","sports",25.2,28,7.35,None,0),
- ("Perfect Empowered Drinking Water","285375","sports",46.8,52,6.82,None,0),
+ ("XS Energy Drinks 12-pack","126883","sports",33.3,37,9.7,12,0),
+ ("XS Energy + Focus 60ct","107846","sports",36.9,41,10.76,30,0),
+ ("XS Grass-Fed Whey Protein","128154","sports",54.9,61,16.01,30,0),
+ ("XS Muscle Multiplier (EAAs)","126753","sports",45,50,13.11,30,0),
+ ("XS Pre-Workout Boost","316377","sports",29.7,33,8.66,30,0),
+ ("XS Post-Workout Recovery","316380","sports",29.7,33,8.66,30,0),
+ ("XS Ignite Thermogenic Powder","127811","sports",39.6,44,11.55,30,0),
+ ("XS Protein Bars 12-pack","110385","sports",37.8,42,11.02,12,0),
+ ("XS RTD Protein Shakes 12-pack","110370","sports",47.7,53,13.91,12,0),
+ ("XS Protein Crisps","110628","sports",35.1,39,10.23,12,0),
+ ("XS CocoWater 12-pack","110631","sports",25.2,28,7.35,12,0),
+ ("Perfect Empowered Drinking Water","285375","sports",46.8,52,6.82,12,0),
  # Beauty
- ("Artistry Hydrating Lotion SPF30","123800","beauty",40.5,45,11.8,None,0),
- ("Artistry Hydrating Day Lotion SPF30",None,"beauty",36.9,41,10.74,None,0),
- ("Artistry Hydrating Eye Gel Cream",None,"beauty",36,40,10.48,None,0),
- ("Artistry Hydrating System Bundle",None,"beauty",90,100,26.19,None,0),
- ("Artistry Renewing Day Lotion SPF30",None,"beauty",66.6,74,19.38,None,0),
- ("Artistry Renewing System Bundle",None,"beauty",129.6,144,37.71,None,0),
- ("Artistry Firming System Bundle",None,"beauty",133.2,148,38.76,None,0),
- ("Artistry Defying Serum",None,"beauty",76.5,85,22.27,None,0),
- ("Artistry Labs Illuminating Serum",None,"beauty",99,110,28.81,None,0),
- ("Artistry Labs Retexturizing Serum",None,"beauty",99,110,28.81,None,0),
- ("Artistry Labs Retexturizing System",None,"beauty",334.8,372,97.43,None,1),
- ("Artistry LongXevity Creams",None,"beauty",328.5,365,95.59,None,0),
- ("Artistry LongXevity Eye Cream",None,"beauty",184.5,205,53.69,None,0),
- ("Artistry Intensive Skincare 14 Night Reset",None,"beauty",189,210,54.99,None,0),
- ("Artistry Everyday Skin Solution Bundle",None,"beauty",152.1,169,44.26,None,0),
- ("Artistry Signature Select Brightening Mask",None,"beauty",42.3,47,12.31,None,0),
- ("Artistry Signature Select Purifying Mask",None,"beauty",35.1,39,10.21,None,0),
- ("Artistry Signature Select Firming Mask",None,"beauty",44.1,49,12.83,None,0),
- ("Artistry Signature Select Polishing Mask",None,"beauty",35.1,39,10.21,None,0),
- ("Artistry Studio Spot On Dots",None,"beauty",24.3,27,7.07,None,0),
- ("Artistry Studio Done with Zit",None,"beauty",27.9,31,8.12,None,0),
- ("Artistry Studio Eye Look Rested",None,"beauty",31.5,35,9.17,None,0),
- ("Artistry Men Face Wash",None,"beauty",27,30,7.86,None,0),
+ ("Artistry Hydrating Day Lotion SPF30","123800","beauty",36.9,41,10.74,75,0),
+ ("Artistry Hydrating Eye Gel Cream","123796V","beauty",36,40,10.48,90,0),
+ ("Artistry Hydrating System Bundle","266693","beauty",90,100,26.19,75,0),
+ ("Artistry Renewing Day Lotion SPF30","123787","beauty",66.6,74,19.38,75,0),
+ ("Artistry Renewing System Bundle","266694","beauty",129.6,144,37.71,75,0),
+ ("Artistry Firming System Bundle","266695","beauty",133.2,148,38.76,75,0),
+ ("Artistry Defying Serum","127019V","beauty",76.5,85,22.27,60,0),
+ ("Artistry Labs Retexturizing Serum","128178V","beauty",99,110,28.81,60,0),
+ ("Artistry Labs Retexturizing System","125547V","beauty",334.8,372,97.43,None,1),
+ ("Artistry Intensive Skincare 14 Night Reset","123776V","beauty",189,210,54.99,14,0),
+ ("Artistry Everyday Skin Solution Bundle","321550","beauty",152.1,169,44.26,75,0),
+ ("Artistry Signature Select Brightening Mask","122340V","beauty",42.3,47,12.31,30,0),
+ ("Artistry Signature Select Purifying Mask","122342V","beauty",35.1,39,10.21,30,0),
+ ("Artistry Signature Select Firming Mask","122341V","beauty",44.1,49,12.83,30,0),
+ ("Artistry Signature Select Polishing Mask","122339V","beauty",35.1,39,10.21,30,0),
+ ("Artistry Studio Spot On Dots","124816","beauty",24.3,27,7.07,30,0),
+ ("Artistry Studio Eye Look Rested","124818","beauty",31.5,35,9.17,60,0),
+ ("Artistry Men Face Wash","111225V","beauty",27,30,7.86,60,0),
  # Personal care
  ("Glister Toothpaste","124106","care",6.98,7.75,2.03,60,0),
  ("Glister Power Toothbrush","127705","care",157.5,175,45.92,None,1),
  ("Glister Refresher Spray","124111","care",6.53,7.25,1.9,45,0),
  ("Glister Floss 2-pack","124112","care",11.26,12.5,3.29,60,0),
- ("Glister Oral Rinse",None,"care",12.6,14,3.67,45,0),
+ ("Glister Oral Rinse","124108","care",12.6,14,3.67,45,0),
  ("Satinique Purifying Shampoo 280ml","126460","care",13.5,15,3.94,45,0),
  ("Satinique Purifying Shampoo 750ml","126461","care",25.2,28,7.35,120,0),
  ("Satinique Smooth Shampoo 280ml","126449","care",13.5,15,3.94,45,0),
  ("Satinique Smooth Conditioner","126451","care",13.5,15,3.94,45,0),
- ("g&h Nourish Body Wash","125890","care",13.05,14.5,3.8,None,0),
- ("g&h Nourish Body Lotion","125891","care",14.18,15.75,4.13,None,0),
- ("g&h Protect Body Lotion SPF50","125901","care",25.2,28,7.35,None,0),
+ ("g&h Nourish Body Wash","125890","care",13.05,14.5,3.8,45,0),
+ ("g&h Nourish Body Lotion","125891","care",14.18,15.75,4.13,45,0),
+ ("g&h Protect Body Lotion SPF50","125901","care",25.2,28,7.35,45,0),
  # Home
  ("eSpring Water Purifier (Chrome)","128212UC","home",1259.1,1399,367.08,None,1),
- ("eSpring Above Counter Unit",None,"home",1169.1,1299,340.85,None,1),
- ("eSpring UV Replacement Filter",None,"home",252,280,73.47,None,1),
- ("eSpring e3 Carbon Filter",None,"home",228.6,254,66.65,None,1),
+ ("eSpring Above Counter Unit","122940","home",1169.1,1299,340.85,None,1),
+ ("eSpring UV Replacement Filter","100186","home",252,280,73.47,None,1),
+ ("eSpring e3 Carbon Filter","122943","home",228.6,254,66.65,None,1),
  ("Atmosphere Sky Air Purifier","120539","home",1539,1710,448.69,None,1),
  ("Atmosphere Mini Air Purifier","124746","home",819,910,238.78,None,1),
- ("Atmosphere Carbon Filter Replacement",None,"home",104.4,116,30.44,None,1),
+ ("Atmosphere Carbon Filter Replacement","101078","home",104.4,116,30.44,None,1),
  ("LOC Multi-Purpose Cleaner","E0001","home",11.25,12.5,3.28,120,0),
- ("LOC Multi-Purpose Wipes",None,"home",13.73,15.25,4,None,0),
+ ("LOC Multi-Purpose Wipes","110485","home",13.73,15.25,4,30,0),
  ("SA8 Liquid Laundry","110478","home",47.7,53,13.9,60,0),
- ("SA8 Powder Laundry Detergent",None,"home",47.7,53,13.9,60,0),
- ("Dish Drops Dishwashing Liquid",None,"home",14.4,16,4.2,None,0),
- ("Amway Home Prewash Spray",None,"home",16.65,18.5,4.85,None,0),
- ("Amway Home Fabric Softener",None,"home",12.61,14,3.68,None,0),
- ("Amway Home All Fabric Bleach",None,"home",15.75,17.5,4.59,None,0),
- ("Amway Home Glass Cleaner",None,"home",15.3,17,4.46,None,0),
- ("Pursue Disinfectant Spray",None,"home",11.71,13,3.42,None,0),
- ("Amway Home Scrub Buds",None,"home",6.31,7,1.84,None,0),
+ ("SA8 Powder Laundry Detergent","109849","home",47.7,53,13.9,60,0),
+ ("Dish Drops Dishwashing Liquid","110488","home",14.4,16,4.2,60,0),
+ ("Amway Home Prewash Spray","110403","home",16.65,18.5,4.85,60,0),
+ ("Amway Home Fabric Softener","110480","home",12.61,14,3.68,45,0),
+ ("Amway Home All Fabric Bleach","124485","home",15.75,17.5,4.59,60,0),
+ ("Amway Home Glass Cleaner","112537","home",15.3,17,4.46,90,0),
+ ("Pursue Disinfectant Spray","E0023","home",11.71,13,3.42,60,0),
+ ("Amway Home Scrub Buds","110490","home",6.31,7,1.84,180,0),
  ("iCook 19-piece Cookware Set","120231","home",1382.4,1536,403.03,None,1),
- ("iCook 5-Piece Saute Set",None,"home",422.1,469,123.06,None,1),
- ("iCook 4-Piece Saucepan Set",None,"home",278.1,309,81.08,None,1),
- ("iCook 4-Piece Stock Pot",None,"home",287.1,319,83.7,None,1),
- ("iCook 6-Piece Dutch Oven",None,"home",395.1,439,115.19,None,1),
- ("iCook 9.5\" Nonstick Frypan",None,"home",206.1,229,60.09,None,1),
+ ("iCook 5-Piece Saute Set","101084","home",422.1,469,123.06,None,1),
+ ("iCook 4-Piece Saucepan Set","101082","home",278.1,309,81.08,None,1),
+ ("iCook 4-Piece Stock Pot","101085","home",287.1,319,83.7,None,1),
+ ("iCook 6-Piece Dutch Oven","101086","home",395.1,439,115.19,None,1),
+ ("iCook 9.5\" Nonstick Frypan","124694","home",206.1,229,60.09,None,1),
  ("iCook 11\" Nonstick Frypan",None,"home",251.1,279,73.21,None,1),
- ("iCook 5-Piece Knifeware Set",None,"home",467.1,519,136.19,None,1),
- ("iCook Multipurpose Shears",None,"home",62.1,69,18.11,None,1),
+ ("iCook 5-Piece Knifeware Set","102709E","home",467.1,519,136.19,None,1),
+ ("iCook Multipurpose Shears","102715","home",62.1,69,18.11,None,1),
  # Solutions
  ("Begin 30 Holistic Wellness Solution","326778","solutions",182.7,203,53.27,30,0),
  ("Everyday Nutrition Solution","318781","solutions",132.3,147,38.58,30,0),
  ("Sleep + Stress Solution","321893","solutions",167.85,186.5,48.94,30,0),
  ("Healthy Aging Solution","321548","solutions",128.7,143,37.52,30,0),
- ("Energy Solution",None,"solutions",137.7,153,40.14,30,0),
- ("XS Fitness Jump Start Solution",None,"solutions",159.3,177,46.44,30,0),
- ("Walking to Bronze Bundle",None,"solutions",197.1,219,57.47,30,0),
+ ("Energy Solution","321549","solutions",137.7,153,40.14,30,0),
+ ("XS Fitness Jump Start Solution","128209","solutions",159.3,177,46.44,30,0),
 ]
 
 # Enrichment: name -> (brand, zh_name, tagline_en, tagline_zh, [areas], flags)
@@ -194,7 +189,6 @@ E = {
  "XS Protein Crisps":("XS","XS蛋白脆片","High-protein crunchy snack, BBQ flavor","高蛋白脆片，解馋不长胖",["weight"],{}),
  "XS CocoWater 12-pack":("XS","XS椰子水 12罐","Coconut water hydration with electrolytes","椰子水电解质补水",["energy","muscle"],{}),
  "Perfect Empowered Drinking Water":("Perfect","完美活力水","Purified, oxygenated, pH-balanced water case","净化富氧平衡水，整箱装",["energy"],{}),
- "Artistry Hydrating Lotion SPF30":("Artistry","雅姿保湿乳SPF30","Daily hydration with SPF 30 protection","日常保湿+SPF30防护",["skin"],{}),
  "Artistry Hydrating Day Lotion SPF30":("Artistry","雅姿水润日霜SPF30","Lightweight day lotion for thirsty skin","轻盈日霜，干渴肌肤解渴",["skin"],{}),
  "Artistry Hydrating Eye Gel Cream":("Artistry","雅姿水润眼胶","Cooling gel cream for tired eyes","清凉眼胶，唤醒疲惫双眼",["skin","aging"],{}),
  "Artistry Hydrating System Bundle":("Artistry","雅姿水润三件套","Complete hydrating routine: cleanse, tone, moisturize","水润全套：洁面+爽肤+保湿",["skin"],{}),
@@ -214,8 +208,7 @@ E = {
  "Artistry Signature Select Firming Mask":("Artistry","雅姿紧致面膜","Firming treatment mask","紧致提拉面膜",["aging"],{}),
  "Artistry Signature Select Polishing Mask":("Artistry","雅姿焕肤面膜","Gentle polishing mask for smooth glow","温和焕肤，透亮光泽",["skin"],{}),
  "Artistry Studio Spot On Dots":("Artistry Studio","雅姿痘痘贴","Blemish patches that work overnight","一夜见效痘痘贴",["skin"],{}),
- "Artistry Studio Done with Zit":("Artistry Studio","雅姿祛痘凝胶","Salicylic acid spot treatment","水杨酸点涂祛痘",["skin"],{}),
- "Artistry Studio Eye Look Rested":("Artistry Studio","雅姿去浮肿眼霜","De-puff and brighten tired morning eyes","晨间去浮肿提亮眼周",["skin"],{}),
+ "Artistry Studio Eye Look Rested":("Artistry Studio","雅姿去浮肿眼霜","De-puff and brighten tired morning eyes","晨间去浮肿提亮眼周",["skin","eye"],{}),
  "Artistry Men Face Wash":("Artistry Men","雅姿男士洁面","Energizing face wash built for men's skin","男士专属活力洁面",["skin"],{}),
  "Glister Toothpaste":("Glister","丽齿健多效牙膏","Remineralizing multi-action toothpaste, concentrated formula","多效修护牙膏，浓缩配方",["oral"],{}),
  "Glister Power Toothbrush":("Glister","丽齿健声波电动牙刷","Sonic toothbrush with UV sanitizing base","声波电动牙刷+UV消毒座",["oral"],{}),
@@ -262,26 +255,32 @@ E = {
  "Healthy Aging Solution":("Nutrilite","健康抗龄方案","Turmeric, Cal Mag D, Garlic Heart Care and Vision Health together","姜黄+钙镁D+大蒜精华+护眼组合",["aging","heart"],{}),
  "Energy Solution":("Nutrilite","活力能量方案","Daily stack built to fight the afternoon crash","专为下午断电设计的能量组合",["energy"],{}),
  "XS Fitness Jump Start Solution":("XS","XS健身启动方案","Protein + workout support to start training right","蛋白+训练支持，开启健身计划",["muscle","energy"],{}),
- "Walking to Bronze Bundle":("Nutrilite","Bronze起步套装","IBO starter bundle aligned to first milestone","IBO起步套装，对齐首个里程碑",["energy"],{"iboOnly":True}),
 }
 
 AREAS = [
- # Ordered by frequency in Johnny's own 72 client assessments (Dec 2025 - Jul 2026)
+ # Ordered by frequency in the 72 client assessments, with the "hard to talk about"
+ # pains (eczema, constipation, cycle) promoted above oral/heart/aging/home per Johnny.
  ("energy","Energy & Fatigue","精力与疲劳","Constant tiredness is usually not laziness. It is often a signal that energy metabolism is short on raw materials like B vitamins, iron and quality protein, or that sleep debt is piling up.","持续疲劳往往不是懒，而是身体能量代谢缺少原料（B族、铁、优质蛋白），或睡眠负债在累积。"),
  ("sleep","Sleep & Stress","睡眠与压力","The body repairs itself at night. When stress hormones stay high, minerals like magnesium get used up faster, and falling asleep gets harder. Support the wind-down, not just the knockout.","身体的修复发生在夜里。压力激素偏高时，镁等矿物质消耗更快，入睡更难。要支持的是放松过程，而不是强行入睡。"),
  ("skin","Acne & Skin","皮肤与痘痘","Skin reflects what happens inside: gut balance, hydration, omega-3 intake, plus the right topical routine.","皮肤是内在状态的镜子：肠道平衡、水分、Omega-3摄入，再配合正确的外用护理。"),
+ ("eczema","Eczema & Sensitive Skin","湿疹与敏感肌","When the liver cannot keep up with detoxification, the body recruits the skin as a backup route. Eczema and recurring rashes are often that route being forced open, which is why creams relieve and then it comes back.","当肝脏解毒跟不上，身体会征用皮肤当备用排毒通道。湿疹和反复起疹往往就是这条通道被迫开启 —— 这也是为什么药膏能缓解、停了又复发。"),
+ ("hormone","Women's Cycle","女性周期","Cyclical breakouts along the jaw, PMS mood swings and cycle-linked fatigue follow a monthly rhythm rather than a daily one. That rhythm is the clue: what changes with the cycle needs cycle-aware support.","下颌线周期性长痘、经前情绪波动、跟着周期走的疲劳，遵循的是月节律而不是日节律。这个节律本身就是线索：随周期变化的问题，需要顺着周期来支持。"),
+ ("digestion","Gut & Digestion","肠胃与消化","Emerging science keeps pointing the same way: overall wellbeing begins in the gut microbiome.","越来越多研究指向同一结论：整体健康始于肠道菌群。"),
+ ("constipation","Constipation & Regularity","便秘与排便","Going once a day is not a personality trait, it is a supply issue: fibre to give stool bulk, water to keep it soft, and a microbiome that keeps things moving. Most people fix the last one and skip the first two.","每天一次不是天生的，是供给问题：纤维给体积，水分保持柔软，菌群维持动力。多数人只补了菌群，跳过了前两样。"),
  ("eye","Eye Health","眼睛健康","Screens, night driving and long days ask a lot of the eyes. Lutein and zeaxanthin are the pigments that filter harsh light, and the body cannot make them.","屏幕、夜间开车和长时间用眼都在消耗眼睛。叶黄素和玉米黄质是过滤强光的色素，而身体无法自己合成。"),
  ("brain","Focus & Memory","专注与记忆","The brain runs on steady fuel: omega-3 fats, B vitamins, and blood sugar that does not spike and crash.","大脑需要平稳供能：Omega-3、B族维生素，以及不过山车的血糖。"),
  ("weight","Weight Management","体重管理","Sustainable weight change starts with steady blood sugar, enough protein and a healthy gut, not with eating as little as possible.","可持续的体重管理，从稳定血糖、足量蛋白和健康肠道开始，而不是一味少吃。"),
  ("hair","Hair Health","头发与脱发","Hair is protein. Thinning and brittleness commonly reflect gaps in protein, biotin and scalp care working together.","头发本质是蛋白质。稀疏易断常与蛋白质、生物素摄入不足及头皮护理有关。"),
- ("digestion","Gut & Digestion","肠胃与消化","Emerging science keeps pointing the same way: overall wellbeing begins in the gut microbiome.","越来越多研究指向同一结论：整体健康始于肠道菌群。"),
- ("muscle","Muscle & Fitness","增肌与运动表现","Muscle is built in recovery, not in the gym. Repair needs protein as raw material, plus amino acids and minerals for the rebuild cycle.","肌肉是在恢复中长出来的。修复需要蛋白质作为原料，加上氨基酸和矿物质支持重建。"),
+ ("rhinitis","Nasal Allergies","鼻炎与过敏","Seasonal sensitivity is an immune response that overshoots. Support works best started before the season rather than during the worst week, and the gut is where most of the immune system actually lives.","换季敏感是免疫反应过度。支持型方案要在换季前开始，而不是最难受那周才补；而免疫系统的大部分其实住在肠道。"),
  ("immunity","Immunity","免疫力","A resilient immune system needs steady vitamin C and D, a healthy gut, and clean air and water at home.","强韧免疫力需要稳定的维C维D、健康肠道，以及家中干净的空气和水。"),
+ ("kids","Kids & Teens","孩子与青少年","Picky eating, growth spurts and whatever is going around at school. Formats decide compliance at this age: a chewable or gummy that gets taken beats a tablet that sits in the cupboard.","挑食、长个子、学校里传来传去的病。这个年纪，剂型决定坚持度：吃得下的咀嚼片和软糖，胜过放在柜子里的药片。"),
+ ("muscle","Muscle & Fitness","增肌与运动表现","Muscle is built in recovery, not in the gym. Repair needs protein as raw material, plus amino acids and minerals for the rebuild cycle.","肌肉是在恢复中长出来的。修复需要蛋白质作为原料，加上氨基酸和矿物质支持重建。"),
  ("oral","Oral Care","口腔护理","Oral health links to whole-body health. Daily mechanics plus the right products beat occasional deep cleans.","口腔健康关联全身健康。每日到位的清洁胜过偶尔的深度处理。"),
  ("heart","Heart & Circulation","心血管健康","Cardiovascular health builds silently over decades. Omega-3, magnesium and plant compounds support the maintenance work.","心血管状态是几十年沉默累积的结果。Omega-3、镁和植物精华支持日常保养。"),
  ("aging","Healthy Aging","抗老与光泽","Aging well is daily repair keeping pace with daily damage. Antioxidants and key nutrients are the raw materials of that repair.","优雅变老=每日修复跟上每日损耗。抗氧化物和关键营养素就是修复的原料。"),
  ("home","Healthy Home","家庭健康环境","What you drink, breathe and cook with every day quietly compounds. Upgrading the home environment is upgrading health.","每天喝的水、呼吸的空气、做饭的锅具都在默默累积。升级居家环境就是升级健康。"),
 ]
+
 
 # Persona modules. Each: id, title, titleZh, icon, situation, gap (why a clean checkup
 # still leaves you feeling off), path (step-by-step), products, iboOnly
@@ -293,7 +292,7 @@ SOLUTIONS = [
   "校医院看完一句「你没事，多睡觉」。这话没错但没用，因为确实还没到生病。这就是亚健康区间：储备在消耗，但症状还没出现。",
   "Start with the two things that compound fastest: a real breakfast with protein instead of pastry, and steady vitamin C so the immune system is not running on empty during exam season. Add energy support that is not a fourth coffee. Build the habit before adding anything else.",
   "先做两件复利最快的事：早餐用蛋白质替代面包，以及稳定补充维C，让考试季的免疫系统不至于空转。再加上不靠第四杯咖啡的能量支持。先把习惯做出来，再谈其他。",
-  ["plant-protein-powder","vitamin-c-extended-release-60ct","xs-energy-drinks-12-pack","organics-all-in-one-bars","artistry-studio-done-with-zit","sleep-gummies"]),
+  ["plant-protein-powder","vitamin-c-extended-release-60ct","xs-energy-drinks-12-pack","organics-all-in-one-bars","sleep-gummies"]),
 
  ("professionals","Working Professionals","职场人","laptop",
   "Nine hours at a screen, lunch at the desk, the 3pm crash, and a mind that will not switch off at 11pm. Annual physical comes back clean, yet energy, focus and sleep have all quietly declined over three years.",
@@ -341,6 +340,55 @@ SOLUTIONS = [
   ["twist-tubes","sleep-gummies","go-shield","eye-mojo-blue-light-gummies","xs-energy-drinks-12-pack","xs-protein-bars-12-pack","glister-toothpaste","glister-refresher-spray"]),
 ]
 
+ROWS += products_new.rows()
+E.update(products_new.enrich())
+
+# Extra area tags layered on top of E, added when the four "hard to talk about"
+# areas were introduced (constipation / eczema / rhinitis / hormone) plus kids.
+# Keyed by product NAME as it appears in ROWS.
+AREA_EXTRA = {
+ # --- constipation: bulk (fiber), softness (magnesium/water), motility (microbiome, bile)
+ "Probiotic": ["constipation"],
+ "Digestive Enzyme": ["constipation"],
+ "Begin Daily GI Primer": ["constipation"],
+ "Magnesium": ["constipation"],
+ "Green Superfood": ["constipation"],
+ "Organics All-in-One Bars": ["constipation"],
+ "Metabolic Pre & Postbiotic": ["constipation"],
+ "Liver Support": ["constipation"],
+ # --- eczema: barrier lipids, detox load, gut-skin axis, trigger removal
+ "Advanced Omega": ["eczema", "rhinitis", "hormone"],
+ "Vitamin D": ["eczema", "rhinitis"],
+ "Vitamin E Chewable": ["eczema"],
+ "Concentrated Fruits & Vegetables": ["eczema", "rhinitis"],
+ "g&h Nourish Body Lotion": ["eczema"],
+ "g&h Nourish Body Wash": ["eczema"],
+ "SA8 Liquid Laundry": ["eczema"],
+ # --- rhinitis: histamine load, immune tolerance, airborne allergen removal
+ "ClearGuard Allergy": ["rhinitis"],
+ "Vitamin C Extended Release 180ct": ["rhinitis"],
+ "Vitamin C Extended Release 60ct": ["rhinitis"],
+ "Go Shield": ["rhinitis"],
+ "Atmosphere Sky Air Purifier": ["rhinitis", "eczema"],
+ "Atmosphere Mini Air Purifier": ["rhinitis"],
+ "Atmosphere Carbon Filter Replacement": ["rhinitis"],
+ # --- hormone: B6 / magnesium / calcium for PMS, iron for menstrual loss, cortisol axis
+ "Women's Pack": ["hormone"],
+ "Vitamin B Complex 120ct": ["hormone"],
+ "Vitamin B Complex 30ct": ["hormone"],
+ "Calcium Magnesium D": ["hormone"],
+ "Iron & Folic Acid": ["hormone"],
+ "Organics Ashwagandha Capsules": ["hormone"],
+ # --- kids
+ "Twist Tubes": ["kids"],
+}
+for _n, _extra in AREA_EXTRA.items():
+    assert _n in E, _n
+    _e = list(E[_n])
+    _e[4] = _e[4] + [a for a in _extra if a not in _e[4]]
+    E[_n] = tuple(_e)
+
+
 def slug(n):
     s = re.sub(r"[^a-z0-9]+","-", n.lower()).strip("-")
     return s
@@ -365,7 +413,10 @@ for (name, item, cat, ibo, retail, pv, days, one) in ROWS:
         "iboOnly": bool(flags.get("iboOnly")),
     })
 
-areas = [{"id":a,"name":n,"nameZh":z,"blurb":b,"blurbZh":bz} for a,n,z,b,bz in AREAS]
+# Areas where the symptom is commonly treated medically. These get an extra
+# "talk to your doctor" line under the product grid, on top of the site footer note.
+SENSITIVE = {"eczema","constipation","rhinitis","hormone","heart","kids"}
+areas = [{"id":a,"name":n,"nameZh":z,"blurb":b,"blurbZh":bz,"sensitive":a in SENSITIVE} for a,n,z,b,bz in AREAS]
 solutions = [{"id":i,"title":t,"titleZh":tz,"icon":ic,"situation":si,"situationZh":siz,"gap":g,"gapZh":gz,"path":pa,"pathZh":paz,"contents":c} for i,t,tz,ic,si,siz,g,gz,pa,paz,c in SOLUTIONS]
 
 # areaCopy: per-product per-area copy, keyed by product ID (local mirror of Notion "Area Copy" DB)
@@ -374,7 +425,29 @@ name2id = {p["name"]: p["id"] for p in products}
 areaCopy = {name2id[n]: v for n, v in AC_RAW.items() if n in name2id}
 
 TILES = json.load(open("scripts/tile_images.json"))
-data = {"lastUpdated": datetime.date.today().isoformat(), "products": products, "areas": areas, "solutions": solutions, "areaCopy": areaCopy, "tiles": TILES}
+DETAILS = json.load(open("scripts/details.json"))
+# --- Protocol Map (清调补养) -----------------------------------------------
+# Snapshot of the Notion Protocol Map. Products referenced by name -> resolved to ids.
+try:
+    PROTO = json.load(open("scripts/protocol.json"))
+except FileNotFoundError:
+    PROTO = {"stages": [], "areas": {}}
+_byname = {p["name"]: p["id"] for p in products}
+_unresolved = []
+for _area, _blk in PROTO.get("areas", {}).items():
+    for _row in _blk.get("rows", []):
+        _ids = []
+        for _n in _row.get("products", []):
+            if _n in _byname:
+                _ids.append(_byname[_n])
+            else:
+                _unresolved.append((_area, _n))
+        _row["productIds"] = _ids
+if _unresolved:
+    raise SystemExit("Protocol Map references unknown products: %s" % _unresolved)
+protocol = PROTO
+
+data = {"lastUpdated": datetime.date.today().isoformat(), "products": products, "areas": areas, "solutions": solutions, "areaCopy": areaCopy, "tiles": TILES, "details": DETAILS, "protocol": protocol}
 import os
 os.makedirs("data", exist_ok=True)
 json.dump(data, open("data/products.json","w"), ensure_ascii=False, indent=1)

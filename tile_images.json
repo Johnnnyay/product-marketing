@@ -14,7 +14,12 @@
   "oral": "images/tiles/are-oral.jpg",
   "heart": "images/tiles/are-heart.jpg",
   "aging": "images/tiles/are-aging.jpg",
-  "home": "images/tiles/are-home.jpg"
+  "home": "images/tiles/are-home.jpg",
+  "constipation": "images/tiles/are-constipation.jpg",
+  "eczema": "images/tiles/are-eczema.jpg",
+  "rhinitis": "images/tiles/are-rhinitis.jpg",
+  "hormone": "images/tiles/are-hormone.jpg",
+  "kids": "images/tiles/are-kids.jpg"
  },
  "solutions": {
   "students": "images/tiles/sol-students.jpg",

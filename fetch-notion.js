@@ -18,10 +18,14 @@ const path = require('path');
 
 const DATABASE_ID = '7e0a89db-f85d-4820-aa62-a278e0a2845c';        // Master Pricing Reference
 const AREACOPY_DB_ID = '01b81650-0f64-4ca0-89f2-bc318b9465bb';     // Area Copy — Website Content
+const PROTOCOL_DB_ID = '7d1e5d56-2a00-4680-b6f8-4c0f21f5eadc';     // 🧭 调理地图 Protocol Map
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 const METAFILE = path.join(__dirname, 'meta.json');
 const IMAGESFILE = path.join(__dirname, 'images.json');
+const TILESFILE = path.join(__dirname, 'tile_images.json');
+const DETAILSFILE = path.join(__dirname, 'details.json');
+const PROTOFILE = path.join(__dirname, 'protocol.json');
 const OUTFILE = path.join(__dirname, '..', 'data', 'products.json');
 
 // Notion Category select → site category bucket
@@ -70,6 +74,8 @@ async function queryAll(database_id) {
 async function main() {
   const { meta, areas, solutions } = JSON.parse(fs.readFileSync(METAFILE, 'utf8'));
   const images = JSON.parse(fs.readFileSync(IMAGESFILE, 'utf8'));
+  const tiles = JSON.parse(fs.readFileSync(TILESFILE, 'utf8'));
+  const details = JSON.parse(fs.readFileSync(DETAILSFILE, 'utf8'));
 
   const rows = await queryAll(DATABASE_ID);
 
@@ -125,12 +131,65 @@ async function main() {
     console.warn('Area Copy DB not readable, skipping:', e.message);
   }
 
+
+  // Protocol Map DB → { areaId: { overview, rows:[{stage, rank, route, productIds, why, whyEn}] } }
+  // Stage headings and the per-area overview text live in scripts/protocol.json;
+  // Notion owns the rows. Only rows with "Show on site" checked are published.
+  const protoLocal = JSON.parse(fs.readFileSync(PROTOFILE, 'utf8'));
+  const STAGE_KEY = { '清': 'clear', '调': 'regulate', '补': 'supplement', '养': 'sustain' };
+  const ROUTE_KEY = { '内服': 'internal', '外用': 'external', '习惯': 'habit', '环境': 'environment' };
+  const protocol = { stages: protoLocal.stages, areas: {} };
+  try {
+    const prRows = await queryAll(PROTOCOL_DB_ID);
+    const relTitle = {};   // related page id -> product name, resolved lazily below
+    for (const page of prRows) {
+      const P = page.properties;
+      if (!check(P['Show on site'])) continue;
+      const areaOpt = P.Area && P.Area.select ? P.Area.select.name : '';
+      const areaId = areaOpt.split(' ')[0];
+      const stage = STAGE_KEY[(P.Stage && P.Stage.select ? P.Stage.select.name : '')[0]];
+      if (!areaId || !stage) continue;
+      const ids = [];
+      for (const rel of (P.Product && P.Product.relation) || []) {
+        if (!(rel.id in relTitle)) {
+          try {
+            const pg = await notion.pages.retrieve({ page_id: rel.id });
+            relTitle[rel.id] = text(pg.properties.Name);
+          } catch { relTitle[rel.id] = null; }
+        }
+        const pid = nameToId[relTitle[rel.id]];
+        if (pid) ids.push(pid);
+      }
+      if (!ids.length) continue;
+      const base = protoLocal.areas[areaId] || {};
+      protocol.areas[areaId] = protocol.areas[areaId] ||
+        { overview: base.overview || '', overviewZh: base.overviewZh || '', rows: [] };
+      protocol.areas[areaId].rows.push({
+        stage,
+        rank: num(P.Rank) || 9,
+        route: ROUTE_KEY[(P.Route && P.Route.select ? P.Route.select.name : '')
+          .replace(/ .*$/, '')] || 'internal',
+        productIds: ids,
+        why: text(P.Why),
+        whyEn: text(P.Why_EN),
+      });
+    }
+    Object.values(protocol.areas).forEach((a) => a.rows.sort((x, y) => x.rank - y.rank));
+  } catch (e) {
+    console.warn('Protocol Map not readable, using local snapshot:', e.message);
+    Object.assign(protocol, protoLocal);
+  }
+  if (!Object.keys(protocol.areas).length) Object.assign(protocol, protoLocal);
+
   const out = {
     lastUpdated: new Date().toISOString().slice(0, 10),
     products,
     areas,
     solutions,
     areaCopy,
+    tiles,
+    details,
+    protocol,
   };
 
   fs.mkdirSync(path.dirname(OUTFILE), { recursive: true });
