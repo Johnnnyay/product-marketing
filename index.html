@@ -308,8 +308,8 @@
       overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
     }
     .pr-count {
-      flex: none; font-size: 11px; font-weight: 700; color: var(--gray-500);
-      background: var(--gray-100); border-radius: 999px; padding: 2px 9px;
+      flex: none; font-size: 11px; font-weight: 700; color: var(--navy);
+      background: var(--green-light); border-radius: 999px; padding: 2px 9px;
     }
     .pr-chev {
       flex: none; color: var(--gray-400); font-size: 11px;
@@ -364,7 +364,21 @@
       display: block; font-size: 11px; color: var(--gray-500); margin-top: 2px;
       overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
     }
-    .pr-item-add { flex: none; display: flex; align-items: center; gap: 3px; }
+    /* The shared stepper is built to sit on a product photo: white glyphs on a
+       translucent dark pill. On the light protocol row that reads as grey-on-grey,
+       so this row gets its own light-background treatment. */
+    .pr-item-add { flex: none; display: flex; align-items: center; gap: 2px; }
+    .pr-item-add .p-step-btn {
+      width: 26px; height: 26px;
+      background: white; border: 1.5px solid var(--green-mid);
+      color: var(--navy); font-weight: 600;
+      backdrop-filter: none; -webkit-backdrop-filter: none;
+    }
+    .pr-item-add .p-step-btn:hover { background: var(--green-light); transform: scale(1.08); }
+    .pr-item-add .p-step-btn:disabled { opacity: .35; }
+    .pr-item-add .p-step-qty {
+      color: var(--navy); font-size: 13px; font-weight: 800; min-width: 20px;
+    }
 
     @media (max-width: 760px) {
       .pr-row { grid-template-columns: 1fr; gap: 12px; padding: 13px 0; }
