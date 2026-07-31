@@ -3598,7 +3598,11 @@
    "nameZh": "精力与疲劳",
    "blurb": "Constant tiredness is usually not laziness. It is often a signal that energy metabolism is short on raw materials like B vitamins, iron and quality protein, or that sleep debt is piling up.",
    "blurbZh": "持续疲劳往往不是懒，而是身体能量代谢缺少原料（B族、铁、优质蛋白），或睡眠负债在累积。",
-   "sensitive": false
+   "sensitive": false,
+   "name_es": "Energía y cansancio",
+   "name_hi": "ऊर्जा और थकान",
+   "blurb_es": "El cansancio constante rara vez es pereza. Casi siempre es una señal de que el metabolismo energético anda corto de materia prima, vitaminas del grupo B, hierro y proteína de calidad, o de que la deuda de sueño se está acumulando.",
+   "blurb_hi": "लगातार थकान आलस नहीं होती। यह अक्सर संकेत है कि ऊर्जा चयापचय के पास कच्चा माल कम है, जैसे बी विटामिन, आयरन और अच्छी प्रोटीन, या नींद का कर्ज़ जमा हो रहा है।"
   },
   {
    "id": "sleep",
@@ -3606,7 +3610,11 @@
    "nameZh": "睡眠与压力",
    "blurb": "The body repairs itself at night. When stress hormones stay high, minerals like magnesium get used up faster, and falling asleep gets harder. Support the wind-down, not just the knockout.",
    "blurbZh": "身体的修复发生在夜里。压力激素偏高时，镁等矿物质消耗更快，入睡更难。要支持的是放松过程，而不是强行入睡。",
-   "sensitive": false
+   "sensitive": false,
+   "name_es": "Sueño y estrés",
+   "name_hi": "नींद और तनाव",
+   "blurb_es": "El cuerpo se repara de noche. Cuando las hormonas del estrés se mantienen altas, minerales como el magnesio se gastan más rápido y dormirse cuesta más. Hay que apoyar el proceso de bajar revoluciones, no forzar el apagón.",
+   "blurb_hi": "शरीर की मरम्मत रात में होती है। जब तनाव हार्मोन लगातार ऊँचे रहते हैं, मैग्नीशियम जैसे खनिज तेज़ी से खर्च होते हैं और नींद आना कठिन हो जाता है। ज़ोर से सुलाने के बजाय शांत होने की प्रक्रिया को सहारा दें।"
   },
   {
    "id": "skin",
@@ -3614,7 +3622,13 @@
    "nameZh": "皮肤与痘痘",
    "blurb": "Almost everything that decides whether a pore becomes a pimple happens before your face is involved.",
    "blurbZh": "决定一个毛孔会不会变成一颗痘的因素，几乎都发生在脸之外。",
-   "sensitive": true
+   "sensitive": true,
+   "name_es": "Acné y piel",
+   "name_hi": "मुँहासे और त्वचा",
+   "blurb_es": "Casi todo lo que decide si un poro se convierte en grano ocurre antes de que tu cara entre en la historia.",
+   "blurb_hi": "यह तय करने वाली लगभग हर चीज़ कि रोमछिद्र मुँहासा बनेगा या नहीं, आपके चेहरे तक पहुँचने से पहले ही घट चुकी होती है।",
+   "overview_es": "Un poro se convierte en grano cuando coinciden cuatro cosas: el sebo sube, el revestimiento del poro se descama más rápido de lo que se elimina y forma un tapón, las bacterias se multiplican en ese aceite atrapado, y todo se inflama. Los productos tópicos actúan sobre las dos últimas. Las dos primeras se deciden más arriba: por la insulina y el IGF-1, por cuánta carga inflamatoria está pasando el intestino, y por el cortisol de la noche. Por eso limpiar solo la superficie compra unas buenas semanas y luego vuelven los mismos granos. Los cuatro pasos de abajo van en ese orden a propósito: quita la carga, haz que lo que tomas realmente cuente, aporta el material que la reparación necesita, y después protege el resultado.",
+   "overview_hi": "रोमछिद्र मुँहासा तब बनता है जब चार चीज़ें एक साथ आती हैं: तेल का बनना बढ़ जाता है, छिद्र की भीतरी परत निकलने से तेज़ी से झड़कर रुकावट बना देती है, फँसे हुए तेल में बैक्टीरिया बढ़ते हैं, और फिर सूजन आ जाती है। बाहरी उत्पाद केवल आखिरी दो पर काम करते हैं। पहली दो ऊपर से तय होती हैं: इंसुलिन और IGF-1 से, आँत कितना सूजन-भार आगे भेज रही है उससे, और रात के कोर्टिसोल से। इसीलिए सिर्फ़ सतह साफ़ करने से कुछ अच्छे हफ़्ते मिलते हैं और फिर वही दाने लौट आते हैं। नीचे दिए चार चरण जानबूझकर इसी क्रम में हैं: पहले बोझ हटाएँ, फिर जो लेते हैं वह वाकई काम आए यह सुनिश्चित करें, फिर मरम्मत का कच्चा माल दें, और अंत में नतीजे की रक्षा करें।"
   },
   {
    "id": "eczema",
@@ -3622,7 +3636,13 @@
    "nameZh": "湿疹与敏感肌",
    "blurb": "When the liver cannot keep up with detoxification, the body recruits the skin as a backup route. Eczema and recurring rashes are often that route being forced open, which is why creams relieve and then it comes back.",
    "blurbZh": "当肝脏解毒跟不上，身体会征用皮肤当备用排毒通道。湿疹和反复起疹往往就是这条通道被迫开启，这也是为什么药膏能缓解、停了又复发。",
-   "sensitive": true
+   "sensitive": true,
+   "name_es": "Eczema y piel sensible",
+   "name_hi": "एक्ज़िमा और संवेदनशील त्वचा",
+   "blurb_es": "Cuando el hígado no da abasto con la desintoxicación, el cuerpo recluta la piel como ruta alternativa. El eczema y los brotes que vuelven suelen ser esa ruta abriéndose a la fuerza, y por eso las cremas alivian y luego el problema regresa.",
+   "blurb_hi": "जब लिवर विषहरण में पिछड़ जाता है, शरीर त्वचा को वैकल्पिक रास्ते के रूप में इस्तेमाल करता है। एक्ज़िमा और बार-बार लौटने वाले चकत्ते अक्सर उसी रास्ते का ज़बरदस्ती खुलना होते हैं, इसीलिए क्रीम से आराम मिलता है और फिर समस्या लौट आती है।",
+   "overview_es": "La piel es una ruta de desintoxicación de reserva. Se abre porque la ruta principal, primero el intestino y después el hígado, está bloqueada. Esa sola idea define todo el orden: despeja primero la ruta principal, reconstruye la barrera lipídica desde dentro, y solo entonces trabaja la superficie. Las cremas alivian y luego el problema vuelve precisamente porque tratan la salida y no la presión.",
+   "overview_hi": "त्वचा विषहरण का वैकल्पिक रास्ता है। यह इसलिए खुलता है क्योंकि मुख्य रास्ता, पहले आँत और फिर लिवर, अवरुद्ध है। यही एक बात पूरा क्रम तय कर देती है: पहले मुख्य रास्ता खोलें, फिर भीतर से वसा अवरोध बनाएँ, और उसके बाद ही सतह पर काम करें। क्रीम आराम देती है और फिर समस्या लौटती है, क्योंकि वह निकास का इलाज करती है, दबाव का नहीं।"
   },
   {
    "id": "hormone",
@@ -3630,7 +3650,13 @@
    "nameZh": "女性周期调理",
    "blurb": "Cyclical breakouts along the jaw, PMS mood swings and cycle-linked fatigue follow a monthly rhythm rather than a daily one. That rhythm is the clue: what changes with the cycle needs cycle-aware support.",
    "blurbZh": "下颌线周期性长痘、经前情绪波动、跟着周期走的疲劳，遵循的是月节律而不是日节律。这个节律本身就是线索：随周期变化的问题，需要顺着周期来支持。",
-   "sensitive": true
+   "sensitive": true,
+   "name_es": "Apoyo al ciclo",
+   "name_hi": "मासिक चक्र सहायता",
+   "blurb_es": "Los granos cíclicos en la mandíbula, los cambios de ánimo premenstruales y el cansancio ligado al ciclo siguen un ritmo mensual, no diario. Ese ritmo es la pista: lo que cambia con el ciclo necesita un apoyo que siga el ciclo.",
+   "blurb_hi": "जबड़े की रेखा पर चक्र के साथ आने वाले दाने, माहवारी से पहले मूड में बदलाव और चक्र से जुड़ी थकान मासिक लय पर चलते हैं, दैनिक लय पर नहीं। यही लय संकेत है: जो चक्र के साथ बदलता है उसे चक्र के हिसाब से सहारा चाहिए।",
+   "overview_es": "Los granos cíclicos en la mandíbula, los cambios de ánimo premenstruales y el cansancio ligado al ciclo siguen un ritmo mensual, no diario. Ese ritmo es la pista. El hígado es donde se depuran las hormonas ya usadas, los minerales se pierden y se reponen cada mes, y el cortisol compite por la misma materia prima. Evalúa cualquier cambio a lo largo de tres ciclos, no de tres semanas.",
+   "overview_hi": "जबड़े की रेखा पर चक्रीय दाने, माहवारी से पहले मूड में बदलाव और चक्र से जुड़ी थकान मासिक लय पर चलते हैं, दैनिक लय पर नहीं। यही लय संकेत है। इस्तेमाल हो चुके हार्मोन लिवर में साफ़ होते हैं, खनिज हर महीने घटते और फिर से भरते हैं, और कोर्टिसोल उसी कच्चे माल के लिए होड़ करता है। किसी भी बदलाव को तीन हफ़्तों में नहीं, तीन चक्रों में आँकें।"
   },
   {
    "id": "digestion",
@@ -3638,7 +3664,11 @@
    "nameZh": "肠胃与排便",
    "blurb": "Regular means once a day and formed, not too hard, not too loose. Both ends of that come back to the same three levers: fibre for bulk, water to keep things soft, and a microbiome with enough of the right bacteria to keep it moving. Most people fix the last one and skip the first two.",
    "blurbZh": "正常是每天一次、成形，不干硬，也不稀软。这两头其实是同一件事的两个方向，取决于同样三个杠杆：纤维给体积，水分保持柔软，菌群提供动力。多数人只补了菌群，跳过了前两样。",
-   "sensitive": true
+   "sensitive": true,
+   "name_es": "Intestino y regularidad",
+   "name_hi": "पाचन और नियमितता",
+   "blurb_es": "Regular quiere decir una vez al día y con forma, ni muy duro ni muy suelto. Los dos extremos vuelven a las mismas tres palancas: fibra para dar volumen, agua para mantenerlo blando, y una microbiota con suficientes bacterias buenas para que todo siga en movimiento. La mayoría atiende la última y se salta las dos primeras.",
+   "blurb_hi": "नियमित का मतलब है दिन में एक बार और ठोस, न बहुत कड़ा न बहुत ढीला। दोनों छोर एक ही तीन कारकों पर लौटते हैं: मात्रा के लिए फ़ाइबर, नरमी के लिए पानी, और गति बनाए रखने के लिए पर्याप्त अच्छे बैक्टीरिया। ज़्यादातर लोग आखिरी वाला ठीक करते हैं और पहले दो छोड़ देते हैं।"
   },
   {
    "id": "eye",
@@ -3646,7 +3676,11 @@
    "nameZh": "眼睛健康",
    "blurb": "Screens, night driving and long days ask a lot of the eyes. Lutein and zeaxanthin are the pigments that filter harsh light, and the body cannot make them.",
    "blurbZh": "屏幕、夜间开车和长时间用眼都在消耗眼睛。叶黄素和玉米黄质是过滤强光的色素，而身体无法自己合成。",
-   "sensitive": false
+   "sensitive": false,
+   "name_es": "Salud visual",
+   "name_hi": "आँखों का स्वास्थ्य",
+   "blurb_es": "Las pantallas, conducir de noche y las jornadas largas le exigen mucho a los ojos. La luteína y la zeaxantina son los pigmentos que filtran la luz dura, y el cuerpo no puede fabricarlos.",
+   "blurb_hi": "स्क्रीन, रात में गाड़ी चलाना और लंबे दिन आँखों से बहुत माँगते हैं। ल्यूटिन और ज़ियाज़ैंथिन वे रंगद्रव्य हैं जो तेज़ रोशनी छानते हैं, और शरीर इन्हें खुद नहीं बना सकता।"
   },
   {
    "id": "brain",
@@ -3654,7 +3688,11 @@
    "nameZh": "专注与记忆",
    "blurb": "The brain runs on steady fuel: omega-3 fats, B vitamins, and blood sugar that does not spike and crash.",
    "blurbZh": "大脑需要平稳供能：Omega-3、B族维生素，以及不过山车的血糖。",
-   "sensitive": false
+   "sensitive": false,
+   "name_es": "Concentración y memoria",
+   "name_hi": "एकाग्रता और स्मृति",
+   "blurb_es": "El cerebro funciona con combustible estable: grasas omega-3, vitaminas del grupo B y una glucosa que no suba y se desplome.",
+   "blurb_hi": "दिमाग को स्थिर ईंधन चाहिए: ओमेगा-3 वसा, बी विटामिन, और ऐसा रक्त शर्करा जो चढ़कर गिरे नहीं।"
   },
   {
    "id": "weight",
@@ -3662,7 +3700,11 @@
    "nameZh": "体重管理",
    "blurb": "Sustainable weight change starts with steady blood sugar, enough protein and a healthy gut, not with eating as little as possible.",
    "blurbZh": "可持续的体重管理，从稳定血糖、足量蛋白和健康肠道开始，而不是一味少吃。",
-   "sensitive": false
+   "sensitive": false,
+   "name_es": "Control de peso",
+   "name_hi": "वज़न प्रबंधन",
+   "blurb_es": "Un cambio de peso que dura empieza con glucosa estable, suficiente proteína y un intestino sano, no con comer lo menos posible.",
+   "blurb_hi": "टिकाऊ वज़न बदलाव स्थिर रक्त शर्करा, पर्याप्त प्रोटीन और स्वस्थ आँत से शुरू होता है, जितना कम हो सके उतना खाने से नहीं।"
   },
   {
    "id": "hair",
@@ -3670,7 +3712,11 @@
    "nameZh": "头发与脱发",
    "blurb": "Hair is protein. Thinning and brittleness commonly reflect gaps in protein, biotin and scalp care working together.",
    "blurbZh": "头发本质是蛋白质。稀疏易断常与蛋白质、生物素摄入不足及头皮护理有关。",
-   "sensitive": false
+   "sensitive": false,
+   "name_es": "Salud del cabello",
+   "name_hi": "बालों का स्वास्थ्य",
+   "blurb_es": "El cabello es proteína. La caída y la fragilidad suelen reflejar huecos en proteína, biotina y cuidado del cuero cabelludo, actuando juntos.",
+   "blurb_hi": "बाल प्रोटीन हैं। पतलापन और टूटना आमतौर पर प्रोटीन, बायोटिन और सिर की त्वचा की देखभाल, तीनों में कमी को दर्शाते हैं।"
   },
   {
    "id": "rhinitis",
@@ -3678,7 +3724,11 @@
    "nameZh": "过敏与鼻炎",
    "blurb": "Seasonal and environmental sensitivity is an immune response that overshoots. Support works best started before the season rather than during the worst week, and most of the immune system actually lives in the gut, which is why this area overlaps with digestion more than people expect.",
    "blurbZh": "季节性和环境敏感，本质是免疫反应过度。支持型方案要在换季前开始，而不是最难受那周才补；而免疫系统的大部分其实住在肠道，这也是为什么这个领域和肠胃的重叠比多数人想的更多。",
-   "sensitive": true
+   "sensitive": true,
+   "name_es": "Alergias",
+   "name_hi": "एलर्जी",
+   "blurb_es": "La sensibilidad estacional y ambiental es una respuesta inmune que se pasa de la raya. El apoyo funciona mejor si empieza antes de la temporada y no durante la peor semana, y la mayor parte del sistema inmune vive en el intestino, por eso esta área se solapa con la digestión más de lo que la gente espera.",
+   "blurb_hi": "मौसमी और पर्यावरणीय संवेदनशीलता एक अति-प्रतिक्रिया करती प्रतिरक्षा है। सहायता मौसम शुरू होने से पहले शुरू करने पर सबसे अच्छी चलती है, सबसे कठिन हफ़्ते में नहीं; और प्रतिरक्षा तंत्र का बड़ा हिस्सा आँत में रहता है, इसीलिए यह क्षेत्र पाचन से उम्मीद से कहीं ज़्यादा जुड़ा है।"
   },
   {
    "id": "immunity",
@@ -3686,7 +3736,11 @@
    "nameZh": "免疫力",
    "blurb": "A resilient immune system needs steady vitamin C and D, a healthy gut, and clean air and water at home.",
    "blurbZh": "强韧免疫力需要稳定的维C维D、健康肠道，以及家中干净的空气和水。",
-   "sensitive": false
+   "sensitive": false,
+   "name_es": "Inmunidad",
+   "name_hi": "रोग प्रतिरोधक क्षमता",
+   "blurb_es": "Un sistema inmune resistente necesita vitamina C y D constantes, un intestino sano, y aire y agua limpios en casa.",
+   "blurb_hi": "मज़बूत प्रतिरक्षा के लिए नियमित विटामिन सी और डी, स्वस्थ आँत, और घर में साफ़ हवा और पानी चाहिए।"
   },
   {
    "id": "muscle",
@@ -3694,7 +3748,11 @@
    "nameZh": "增肌与运动表现",
    "blurb": "Muscle is built in recovery, not in the gym. Repair needs protein as raw material, plus amino acids and minerals for the rebuild cycle.",
    "blurbZh": "肌肉是在恢复中长出来的。修复需要蛋白质作为原料，加上氨基酸和矿物质支持重建。",
-   "sensitive": false
+   "sensitive": false,
+   "name_es": "Músculo y rendimiento",
+   "name_hi": "मांसपेशी और फ़िटनेस",
+   "blurb_es": "El músculo se construye en la recuperación, no en el gimnasio. La reparación necesita proteína como materia prima, más aminoácidos y minerales para el ciclo de reconstrucción.",
+   "blurb_hi": "मांसपेशी जिम में नहीं, रिकवरी में बनती है। मरम्मत के लिए कच्चे माल के रूप में प्रोटीन चाहिए, साथ ही पुनर्निर्माण चक्र के लिए अमीनो एसिड और खनिज।"
   }
  ],
  "solutions": [
@@ -5201,13 +5259,16 @@
        "Prebiotic Fiber",
        "Plant Protein Powder"
       ],
-      "whyEn": "Start here because this is the best-evidenced diet link in acne. A high-glycemic meal spikes insulin, insulin raises IGF-1, and IGF-1 does two things at once: it tells sebaceous cells to make more oil, and it raises inflammatory signalling inside those same cells. In trials, two weeks of a low-glycemic-load diet measurably dropped IGF-1, and twelve weeks dropped lesion counts. You do not have to quit rice. You have to stop the spike: slow the starch, add fibre alongside it, and put protein where a refined-carb breakfast used to be.",
-      "why": "从这里开始，因为这是痘痘领域证据最强的一条饮食链。一顿高升糖的饭把胰岛素顶上去，胰岛素抬高IGF-1，而IGF-1同时做两件事：让皮脂腺细胞多产油，并且提高这些细胞内部的炎症信号。临床试验里，低升糖负荷饮食两周就能实测降低IGF-1，十二周降低痘的数量。你不需要戒掉米饭，你需要的是掐掉那个尖峰：把淀粉的分解放慢，同一餐配上纤维，再把原来那份精致碳水早餐换成蛋白质。",
+      "why": "Start here because this is the best-evidenced diet link in acne. A high-glycemic meal spikes insulin, insulin raises IGF-1, and IGF-1 does two things at once: it tells sebaceous cells to make more oil, and it raises inflammatory signalling inside those same cells. In trials, two weeks of a low-glycemic-load diet measurably dropped IGF-1, and twelve weeks dropped lesion counts. You do not have to quit rice. You have to stop the spike: slow the starch, add fibre alongside it, and put protein where a refined-carb breakfast used to be.",
+      "key": "skin.clear.carb-blocker",
+      "whyZh": "从这里开始，因为这是痘痘领域证据最强的一条饮食链。一顿高升糖的饭把胰岛素顶上去，胰岛素抬高IGF-1，而IGF-1同时做两件事：让皮脂腺细胞多产油，并且提高这些细胞内部的炎症信号。临床试验里，低升糖负荷饮食两周就能实测降低IGF-1，十二周降低痘的数量。你不需要戒掉米饭，你需要的是掐掉那个尖峰：把淀粉的分解放慢，同一餐配上纤维，再把原来那份精致碳水早餐换成蛋白质。",
       "productIds": [
        "carb-blocker",
        "prebiotic-fiber",
        "plant-protein-powder"
-      ]
+      ],
+      "why_es": "Empieza aquí porque es el vínculo con la dieta que mejor evidencia tiene en acné. Una comida de índice glucémico alto dispara la insulina, la insulina sube el IGF-1, y el IGF-1 hace dos cosas a la vez: le dice a las células sebáceas que produzcan más aceite, y sube la señal inflamatoria dentro de esas mismas células. En ensayos, dos semanas de dieta de baja carga glucémica bajaron el IGF-1 de forma medible, y doce semanas bajaron el número de lesiones. No hace falta dejar el arroz. Hace falta cortar el pico: frena el almidón, acompáñalo de fibra, y pon proteína donde antes había un desayuno de carbohidrato refinado.",
+      "why_hi": "यहाँ से शुरू करें, क्योंकि मुँहासे में आहार का यही संबंध सबसे मज़बूत प्रमाणों वाला है। उच्च ग्लाइसेमिक भोजन इंसुलिन बढ़ाता है, इंसुलिन IGF-1 को ऊपर उठाता है, और IGF-1 एक साथ दो काम करता है: तेल ग्रंथियों से ज़्यादा तेल बनवाता है, और उन्हीं कोशिकाओं के भीतर सूजन के संकेत बढ़ाता है। परीक्षणों में, कम ग्लाइसेमिक भार वाले आहार के दो हफ़्तों में IGF-1 मापने लायक घटा, और बारह हफ़्तों में दानों की संख्या घटी। चावल छोड़ने की ज़रूरत नहीं। ज़रूरत है उस उछाल को रोकने की: स्टार्च को धीमा करें, उसी भोजन में फ़ाइबर जोड़ें, और जहाँ पहले रिफ़ाइंड कार्ब का नाश्ता था वहाँ प्रोटीन रखें।"
      },
      {
       "stage": "clear",
@@ -5218,13 +5279,16 @@
        "Green Superfood",
        "Liver Support"
       ],
-      "whyEn": "The second load is the gut. When the gut ecology tips, barrier permeability rises and metabolites that should have left the body get through instead, which raises inflammation everywhere, skin included. There is a second cost people miss: the same dysbiosis impairs absorption of zinc, selenium and omega-3, which are exactly the nutrients the repair stage depends on. So this is not only about clearing, it decides whether step three will work at all. Fibre carries out, probiotics rebuild, and the liver handles what the gut passes on.",
-      "why": "第二个负担在肠道。肠道生态一旦失衡，肠壁通透性升高，本该排出体外的代谢物反而穿过屏障进入循环，全身的炎症水平随之上升，皮肤也在其中。还有一笔很多人漏掉的代价：同样的菌群失衡会损害锌、硒和Omega-3的吸收，而这几样恰恰是后面「补」那一步要用的原料。所以这一步不只是清，它决定了第三步能不能生效。纤维负责带走，益生菌负责重建，肝脏处理肠道递上来的那一部分。",
+      "why": "The second load is the gut. When the gut ecology tips, barrier permeability rises and metabolites that should have left the body get through instead, which raises inflammation everywhere, skin included. There is a second cost people miss: the same dysbiosis impairs absorption of zinc, selenium and omega-3, which are exactly the nutrients the repair stage depends on. So this is not only about clearing, it decides whether step three will work at all. Fibre carries out, probiotics rebuild, and the liver handles what the gut passes on.",
+      "key": "skin.clear.probiotic",
+      "whyZh": "第二个负担在肠道。肠道生态一旦失衡，肠壁通透性升高，本该排出体外的代谢物反而穿过屏障进入循环，全身的炎症水平随之上升，皮肤也在其中。还有一笔很多人漏掉的代价：同样的菌群失衡会损害锌、硒和Omega-3的吸收，而这几样恰恰是后面「补」那一步要用的原料。所以这一步不只是清，它决定了第三步能不能生效。纤维负责带走，益生菌负责重建，肝脏处理肠道递上来的那一部分。",
       "productIds": [
        "probiotic",
        "green-superfood",
        "liver-support"
-      ]
+      ],
+      "why_es": "La segunda carga es el intestino. Cuando la ecología intestinal se desequilibra, la permeabilidad de la barrera sube y metabolitos que deberían haber salido del cuerpo pasan al torrente, lo que eleva la inflamación en todas partes, piel incluida. Hay un segundo costo que la gente pasa por alto: esa misma disbiosis afecta la absorción de zinc, selenio y omega-3, que son justo los nutrientes de los que depende la etapa de reparación. Así que esto no es solo limpiar, decide si el paso tres va a funcionar. La fibra arrastra, los probióticos reconstruyen, y el hígado procesa lo que el intestino le pasa.",
+      "why_hi": "दूसरा बोझ आँत है। जब आँत का संतुलन बिगड़ता है, अवरोध की पारगम्यता बढ़ जाती है और जो चयापचय उत्पाद शरीर से निकल जाने चाहिए थे वे रक्त में लौट आते हैं, जिससे त्वचा सहित हर जगह सूजन बढ़ती है। एक दूसरी कीमत जो लोग चूक जाते हैं: वही असंतुलन ज़िंक, सेलेनियम और ओमेगा-3 के अवशोषण को बिगाड़ता है, और यही वे पोषक तत्व हैं जिन पर मरम्मत का चरण टिका है। इसलिए यह सिर्फ़ सफ़ाई नहीं है, यह तय करता है कि तीसरा चरण काम करेगा या नहीं। फ़ाइबर बाहर ले जाता है, प्रोबायोटिक्स फिर से बसाते हैं, और लिवर वह हिस्सा सँभालता है जो आँत आगे भेजती है।"
      },
      {
       "stage": "clear",
@@ -5234,12 +5298,15 @@
        "Artistry Studio Rose All Day Anti-Acne Toner",
        "Artistry Signature Select Purifying Mask"
       ],
-      "whyEn": "External clearing deals with the plug that is already in the pore. The reason salicylic acid is the standard here and not something that sounds stronger: it is oil-soluble, so it can travel through the sebum filling the pore and break the plug up from the inside. A water-soluble acid stays on the surface and never reaches it. Use the toner across the whole face rather than only on the spot you can see, because the pore that becomes next week's pimple is already clogged today. Once a week is enough for the mask; over-cleansing raises oil output.",
-      "why": "外清处理的是已经堵在毛孔里的那个栓子。水杨酸之所以是这里的标准配置，而不是某个听起来更猛的成分，原因很具体：它是脂溶性的，能穿过填满毛孔的油脂，从内部把栓子瓦解掉。水溶性的酸只停在表面，根本到不了那里。爽肤水要全脸用，而不是只点你看得见的那颗，因为下周会冒出来的那个毛孔，今天已经堵上了。面膜每周一次足够，过度清洁反而会让出油更多。",
+      "why": "External clearing deals with the plug that is already in the pore. The reason salicylic acid is the standard here and not something that sounds stronger: it is oil-soluble, so it can travel through the sebum filling the pore and break the plug up from the inside. A water-soluble acid stays on the surface and never reaches it. Use the toner across the whole face rather than only on the spot you can see, because the pore that becomes next week's pimple is already clogged today. Once a week is enough for the mask; over-cleansing raises oil output.",
+      "key": "skin.clear.artistry-studio-rose-all-day",
+      "whyZh": "外清处理的是已经堵在毛孔里的那个栓子。水杨酸之所以是这里的标准配置，而不是某个听起来更猛的成分，原因很具体：它是脂溶性的，能穿过填满毛孔的油脂，从内部把栓子瓦解掉。水溶性的酸只停在表面，根本到不了那里。爽肤水要全脸用，而不是只点你看得见的那颗，因为下周会冒出来的那个毛孔，今天已经堵上了。面膜每周一次足够，过度清洁反而会让出油更多。",
       "productIds": [
        "artistry-studio-rose-all-day-anti-acne-toner",
        "artistry-signature-select-purifying-mask"
-      ]
+      ],
+      "why_es": "La limpieza externa se ocupa del tapón que ya está dentro del poro. La razón por la que el ácido salicílico es el estándar aquí, y no algo que suene más fuerte: es liposoluble, así que puede atravesar el sebo que llena el poro y deshacer el tapón desde dentro. Un ácido hidrosoluble se queda en la superficie y nunca llega. Usa el tónico en toda la cara y no solo en el grano que ya ves, porque el poro que será el grano de la semana que viene ya está tapado hoy. Con la mascarilla una vez por semana basta; limpiar de más aumenta la producción de aceite.",
+      "why_hi": "बाहरी सफ़ाई उस रुकावट को सँभालती है जो पहले से छिद्र में है। सैलिसिलिक एसिड यहाँ मानक क्यों है, किसी ज़्यादा ताक़तवर लगने वाली चीज़ के बजाय: यह वसा में घुलनशील है, इसलिए छिद्र भरे तेल के पार जाकर रुकावट को भीतर से तोड़ सकता है। पानी में घुलनशील एसिड सतह पर ही रह जाता है और वहाँ तक पहुँचता ही नहीं। टोनर पूरे चेहरे पर लगाएँ, सिर्फ़ उस दाने पर नहीं जो दिख रहा है, क्योंकि अगले हफ़्ते का दाना जिस छिद्र से निकलेगा वह आज ही बंद हो चुका है। मास्क हफ़्ते में एक बार काफ़ी है; ज़्यादा सफ़ाई से तेल और बढ़ता है।"
      },
      {
       "stage": "regulate",
@@ -5249,12 +5316,15 @@
        "Begin Daily GI Primer",
        "Digestive Enzyme"
       ],
-      "whyEn": "This stage is about conversion rate. Swallowing zinc, vitamin C and B vitamins is not the same as absorbing them, and poorly digested food left sitting in the gut adds back to the load you just spent step one reducing. For anyone who eats out most days or bloats after a big meal, skipping this step is why the supplements in step three underperform. The 6-in-1 folds clearing and regulating into one drink if you would rather not manage four bottles.",
-      "why": "这一步管的是转化率。把锌、维生素C和B族吞下去，跟真正吸收进去是两件事；而消化不完全、滞留在肠道里的食物残渣，又会把你第一步刚卸掉的负担加回来。对于经常在外面吃、或者大餐后腹胀的人，跳过这一步，就是第三步的营养素效果打折的原因。如果不想同时管三四瓶，六合一把清和调压进一杯里。",
+      "why": "This stage is about conversion rate. Swallowing zinc, vitamin C and B vitamins is not the same as absorbing them, and poorly digested food left sitting in the gut adds back to the load you just spent step one reducing. For anyone who eats out most days or bloats after a big meal, skipping this step is why the supplements in step three underperform. The 6-in-1 folds clearing and regulating into one drink if you would rather not manage four bottles.",
+      "key": "skin.regulate.begin-daily-gi-primer",
+      "whyZh": "这一步管的是转化率。把锌、维生素C和B族吞下去，跟真正吸收进去是两件事；而消化不完全、滞留在肠道里的食物残渣，又会把你第一步刚卸掉的负担加回来。对于经常在外面吃、或者大餐后腹胀的人，跳过这一步，就是第三步的营养素效果打折的原因。如果不想同时管三四瓶，六合一把清和调压进一杯里。",
       "productIds": [
        "begin-daily-gi-primer",
        "digestive-enzyme"
-      ]
+      ],
+      "why_es": "Esta etapa trata de la tasa de conversión. Tragarte el zinc, la vitamina C y las del grupo B no es lo mismo que absorberlos, y la comida mal digerida que se queda en el intestino vuelve a sumar a la carga que acabas de quitar en el paso uno. Para quien come fuera casi todos los días o se hincha después de una comida grande, saltarse este paso es la razón de que los suplementos del paso tres rindan menos. El 6 en 1 junta limpiar y regular en una sola bebida si prefieres no manejar cuatro frascos.",
+      "why_hi": "यह चरण रूपांतरण दर के बारे में है। ज़िंक, विटामिन सी और बी विटामिन निगल लेना और उन्हें सोख लेना दो अलग बातें हैं, और आँत में पड़ा अधपचा भोजन उसी बोझ को वापस जोड़ देता है जो आपने पहले चरण में हटाया था। जो लोग ज़्यादातर बाहर खाते हैं या भारी भोजन के बाद पेट फूलता है, उनके लिए इस चरण को छोड़ना ही वजह है कि तीसरे चरण के पोषक तत्व कम असर करते हैं। अगर चार डिब्बे सँभालना नहीं चाहते, तो 6-इन-1 सफ़ाई और नियमन को एक ही पेय में समेट देता है।"
      },
      {
       "stage": "regulate",
@@ -5264,12 +5334,15 @@
        "Artistry Studio Spot On Dots",
        "Artistry Studio Done with Zit"
       ],
-      "whyEn": "A patch is not clearing anything, it is regulating how one lesion heals, which is why it sits here rather than in step one. It seals the spot into a moist, closed environment, keeps outside bacteria and air oxidation off an open surface, and physically stops you touching it. That last part matters most: picking is the single biggest cause of the mark left behind, and a mark outlasts the pimple by months. In a controlled trial, patched lesions scored better on crusting, redness, size and elevation. The spot gel is for the one that has not opened yet.",
-      "why": "痘痘贴不是在清理什么，它调控的是一颗痘的愈合环境，所以它放在这一步而不是第一步。它把这颗痘封成一个湿润的闭合环境，隔绝外界细菌和空气氧化，并且在物理上让你碰不到它。最后这一点最关键：抠，是留下痘印的头号原因，而痘印比痘本身要多留好几个月。在对照试验里，贴过的痘在结痂、泛红、大小和凸起这几项上评分都更好。凝胶留给还没破的那一颗。",
+      "why": "A patch is not clearing anything, it is regulating how one lesion heals, which is why it sits here rather than in step one. It seals the spot into a moist, closed environment, keeps outside bacteria and air oxidation off an open surface, and physically stops you touching it. That last part matters most: picking is the single biggest cause of the mark left behind, and a mark outlasts the pimple by months. In a controlled trial, patched lesions scored better on crusting, redness, size and elevation. The spot gel is for the one that has not opened yet.",
+      "key": "skin.regulate.artistry-studio-spot-on-dots",
+      "whyZh": "痘痘贴不是在清理什么，它调控的是一颗痘的愈合环境，所以它放在这一步而不是第一步。它把这颗痘封成一个湿润的闭合环境，隔绝外界细菌和空气氧化，并且在物理上让你碰不到它。最后这一点最关键：抠，是留下痘印的头号原因，而痘印比痘本身要多留好几个月。在对照试验里，贴过的痘在结痂、泛红、大小和凸起这几项上评分都更好。凝胶留给还没破的那一颗。",
       "productIds": [
        "artistry-studio-spot-on-dots",
        "artistry-studio-done-with-zit"
-      ]
+      ],
+      "why_es": "Un parche no está limpiando nada, está regulando cómo cicatriza una lesión, y por eso va aquí y no en el paso uno. Sella el grano en un ambiente húmedo y cerrado, mantiene fuera las bacterias y la oxidación del aire, y físicamente impide que te lo toques. Esto último es lo que más pesa: rascarse es la causa número uno de la marca que queda, y la marca dura meses más que el grano. En un ensayo controlado, las lesiones con parche puntuaron mejor en costra, enrojecimiento, tamaño y relieve. El gel es para el que todavía no ha abierto.",
+      "why_hi": "पैच कुछ साफ़ नहीं कर रहा, वह एक दाने के भरने का माहौल नियंत्रित कर रहा है, इसीलिए यह पहले चरण में नहीं यहाँ है। यह दाने को नम और बंद वातावरण में सील कर देता है, बाहरी बैक्टीरिया और हवा के ऑक्सीकरण को रोकता है, और शारीरिक रूप से आपको छूने नहीं देता। आखिरी बात सबसे अहम है: नोचना ही निशान पड़ने का सबसे बड़ा कारण है, और निशान दाने से महीनों ज़्यादा टिकता है। एक नियंत्रित परीक्षण में, पैच लगे दानों ने पपड़ी, लालिमा, आकार और उभार में बेहतर अंक पाए। जेल उस दाने के लिए है जो अभी फूटा नहीं।"
      },
      {
       "stage": "regulate",
@@ -5280,13 +5353,16 @@
        "Artistry Studio Glow Boss Cleanser + Exfoliator",
        "Artistry Men Face Wash"
       ],
-      "whyEn": "Cleansing is where most people make things worse without knowing. Harsh surfactants strip the barrier lipids, the skin reads that as damage, and sebum output goes up to compensate. So the person who washes four times a day to control oil ends up producing more of it. A mousse dilutes and distributes the surfactant before it reaches your face, which is the whole point of the format. Daily gentle exfoliation beats aggressive weekly scrubbing; pick the exfoliating one only if your skin is genuinely congested.",
-      "why": "洗脸是多数人不知不觉把事情弄糟的地方。清洁力过强的表面活性剂会把屏障脂质剥掉，皮肤把这个读成损伤，于是提高皮脂分泌来补偿。结果就是：一天洗四次脸想控油的人，最后出油更多。慕斯剂型在接触皮肤之前就把表面活性剂稀释并分散开，这就是这个剂型存在的意义。每天温和去角质好过每周一次猛搓；只有在皮肤确实堵得厉害时，才选带磨砂的那一支。",
+      "why": "Cleansing is where most people make things worse without knowing. Harsh surfactants strip the barrier lipids, the skin reads that as damage, and sebum output goes up to compensate. So the person who washes four times a day to control oil ends up producing more of it. A mousse dilutes and distributes the surfactant before it reaches your face, which is the whole point of the format. Daily gentle exfoliation beats aggressive weekly scrubbing; pick the exfoliating one only if your skin is genuinely congested.",
+      "key": "skin.regulate.artistry-hydrating-mousse-cl",
+      "whyZh": "洗脸是多数人不知不觉把事情弄糟的地方。清洁力过强的表面活性剂会把屏障脂质剥掉，皮肤把这个读成损伤，于是提高皮脂分泌来补偿。结果就是：一天洗四次脸想控油的人，最后出油更多。慕斯剂型在接触皮肤之前就把表面活性剂稀释并分散开，这就是这个剂型存在的意义。每天温和去角质好过每周一次猛搓；只有在皮肤确实堵得厉害时，才选带磨砂的那一支。",
       "productIds": [
        "artistry-hydrating-mousse-cleanser",
        "artistry-studio-glow-boss-cleanser-exfoliator",
        "artistry-men-face-wash"
-      ]
+      ],
+      "why_es": "La limpieza es donde la mayoría empeora las cosas sin saberlo. Los tensioactivos agresivos arrancan los lípidos de la barrera, la piel lo lee como daño, y la producción de sebo sube para compensar. Así que quien se lava la cara cuatro veces al día para controlar el aceite termina fabricando más. Una mousse diluye y reparte el tensioactivo antes de que llegue a la cara, y ese es todo el sentido del formato. Exfoliar suave a diario le gana a frotar fuerte una vez por semana; elige el exfoliante solo si tu piel está de verdad congestionada.",
+      "why_hi": "सफ़ाई वही जगह है जहाँ ज़्यादातर लोग अनजाने में हालत बिगाड़ लेते हैं। तेज़ सर्फ़ैक्टेंट त्वचा अवरोध की वसा छीन लेते हैं, त्वचा इसे नुकसान समझती है, और भरपाई में तेल का उत्पादन बढ़ा देती है। यानी जो व्यक्ति तेल घटाने के लिए दिन में चार बार मुँह धोता है, वह और ज़्यादा तेल बनाने लगता है। मूस चेहरे तक पहुँचने से पहले ही सर्फ़ैक्टेंट को पतला और फैला देता है, और यही इस रूप का पूरा मक़सद है। हफ़्ते में एक बार ज़ोर से रगड़ने से बेहतर है रोज़ हल्का एक्सफ़ोलिएशन; स्क्रब वाला विकल्प तभी चुनें जब त्वचा वाकई बंद हो।"
      },
      {
       "stage": "supplement",
@@ -5295,11 +5371,14 @@
       "products": [
        "Vitamin B Complex 120ct"
       ],
-      "whyEn": "If the breakouts sit on the nose folds, the T-zone and the chin, that is the classic B2 pattern. B2 maintains sebaceous gland and follicle function; without it sebum regulation drifts, pores clog and inflame. B3 belongs to the same story from the other end, and its shortfall shows up as the rough little bumps on the backs of the arms and along the jaw. B vitamins are water-soluble and clear in roughly a day, so they only work daily. Late nights burn B2 faster, which is why the nose goes first after a bad week.",
-      "why": "如果痘集中在鼻唇沟、三角区和下巴，这是B2的典型分布。B2维护皮脂腺和毛囊的功能，缺了它，油脂分泌就会失调、毛孔堵塞、随即发炎。B3从另一头讲的是同一件事，它的不足表现为上臂外侧和下颌线上那些粗糙的小疙瘩。B族是水溶性的，大约一天就清空，所以它只有天天吃才有意义。熬夜会加速B2消耗，这就是为什么熬了糟糕的一周之后，先冒出来的往往是鼻子旁边那颗。",
+      "why": "If the breakouts sit on the nose folds, the T-zone and the chin, that is the classic B2 pattern. B2 maintains sebaceous gland and follicle function; without it sebum regulation drifts, pores clog and inflame. B3 belongs to the same story from the other end, and its shortfall shows up as the rough little bumps on the backs of the arms and along the jaw. B vitamins are water-soluble and clear in roughly a day, so they only work daily. Late nights burn B2 faster, which is why the nose goes first after a bad week.",
+      "key": "skin.supplement.vitamin-b-complex-120ct",
+      "whyZh": "如果痘集中在鼻唇沟、三角区和下巴，这是B2的典型分布。B2维护皮脂腺和毛囊的功能，缺了它，油脂分泌就会失调、毛孔堵塞、随即发炎。B3从另一头讲的是同一件事，它的不足表现为上臂外侧和下颌线上那些粗糙的小疙瘩。B族是水溶性的，大约一天就清空，所以它只有天天吃才有意义。熬夜会加速B2消耗，这就是为什么熬了糟糕的一周之后，先冒出来的往往是鼻子旁边那颗。",
       "productIds": [
        "vitamin-b-complex-120ct"
-      ]
+      ],
+      "why_es": "Si los granos se concentran en las aletas de la nariz, la zona T y el mentón, ese es el patrón clásico de la B2. La B2 mantiene la función de la glándula sebácea y del folículo; sin ella la regulación del sebo se descontrola, los poros se tapan y se inflaman. La B3 cuenta la misma historia desde el otro lado, y su falta aparece como esos bultitos ásperos en la parte de atrás de los brazos y a lo largo de la mandíbula. Las vitaminas B son hidrosolubles y se eliminan en aproximadamente un día, así que solo funcionan a diario. Trasnochar quema la B2 más rápido, y por eso después de una mala semana el primero en salir es el de al lado de la nariz.",
+      "why_hi": "अगर दाने नाक के किनारों, टी-ज़ोन और ठोड़ी पर केंद्रित हैं, तो यह बी2 का पहचाना हुआ पैटर्न है। बी2 तेल ग्रंथि और रोमकूप का कामकाज बनाए रखता है; इसके बिना तेल का नियंत्रण बिगड़ता है, छिद्र बंद होते हैं और सूजन आती है। बी3 उसी कहानी का दूसरा सिरा है, और इसकी कमी बाँहों के पिछले हिस्से और जबड़े की रेखा पर उन खुरदुरे छोटे दानों के रूप में दिखती है। बी विटामिन पानी में घुलनशील हैं और लगभग एक दिन में निकल जाते हैं, इसलिए ये रोज़ लेने पर ही काम करते हैं। देर रात जागना बी2 को तेज़ी से खर्च करता है, इसीलिए बुरे हफ़्ते के बाद सबसे पहले नाक के पास वाला दाना निकलता है।"
      },
      {
       "stage": "supplement",
@@ -5309,12 +5388,15 @@
        "Plant Protein Powder",
        "Vitamin C Extended Release 180ct"
       ],
-      "whyEn": "These two are one job: rebuilding. Skin turns over every day, and without enough protein the old cells shed but the new ones cannot be built. Vitamin C is the cofactor the body needs to actually assemble that protein into collagen, which is what decides whether a pitted mark fills back in. Vitamin C has a second, separate action: it inhibits tyrosinase, so it slows new pigment forming. Read that carefully, it keeps marks from getting darker rather than bleaching the ones you already have, which is why it only pays off as a daily habit.",
-      "why": "这两样其实是同一件事：重建。皮肤每天都在更新，蛋白质不够，旧细胞脱落了，新细胞造不出来。而维生素C是身体把这些蛋白质真正组装成胶原蛋白所需的辅因子，痘坑能不能填回来，取决于这一步。维生素C还有第二个独立作用：抑制酪氨酸酶，从源头减缓新色素的生成。这句话要读仔细，它管的是让痘印不再变深，而不是把已有的印漂掉，所以它只有当成每日习惯才划算。",
+      "why": "These two are one job: rebuilding. Skin turns over every day, and without enough protein the old cells shed but the new ones cannot be built. Vitamin C is the cofactor the body needs to actually assemble that protein into collagen, which is what decides whether a pitted mark fills back in. Vitamin C has a second, separate action: it inhibits tyrosinase, so it slows new pigment forming. Read that carefully, it keeps marks from getting darker rather than bleaching the ones you already have, which is why it only pays off as a daily habit.",
+      "key": "skin.supplement.plant-protein-powder",
+      "whyZh": "这两样其实是同一件事：重建。皮肤每天都在更新，蛋白质不够，旧细胞脱落了，新细胞造不出来。而维生素C是身体把这些蛋白质真正组装成胶原蛋白所需的辅因子，痘坑能不能填回来，取决于这一步。维生素C还有第二个独立作用：抑制酪氨酸酶，从源头减缓新色素的生成。这句话要读仔细，它管的是让痘印不再变深，而不是把已有的印漂掉，所以它只有当成每日习惯才划算。",
       "productIds": [
        "plant-protein-powder",
        "vitamin-c-extended-release-180ct"
-      ]
+      ],
+      "why_es": "Estos dos son un mismo trabajo: reconstruir. La piel se renueva todos los días, y sin suficiente proteína las células viejas se caen pero las nuevas no se pueden fabricar. La vitamina C es el cofactor que el cuerpo necesita para ensamblar esa proteína en colágeno, que es lo que decide si una marca hundida se rellena. La vitamina C tiene una segunda acción, distinta: inhibe la tirosinasa, así que frena la formación de pigmento nuevo. Léelo con cuidado, evita que las marcas se oscurezcan más, no blanquea las que ya tienes, y por eso solo rinde como hábito diario.",
+      "why_hi": "ये दोनों एक ही काम हैं: पुनर्निर्माण। त्वचा हर दिन बदलती है, और पर्याप्त प्रोटीन के बिना पुरानी कोशिकाएँ झड़ती हैं पर नई बन नहीं पातीं। विटामिन सी वह सहकारक है जिसकी शरीर को उस प्रोटीन को कोलेजन में जोड़ने के लिए ज़रूरत होती है, और यही तय करता है कि गड्ढेदार निशान भरेगा या नहीं। विटामिन सी का एक अलग, दूसरा काम भी है: यह टायरोसिनेज़ को रोकता है, जिससे नया रंगद्रव्य बनना धीमा होता है। इसे ध्यान से पढ़ें, यह निशानों को और गहरा होने से रोकता है, पहले से मौजूद निशान मिटाता नहीं, इसीलिए यह सिर्फ़ रोज़ की आदत के रूप में फ़ायदा देता है।"
      },
      {
       "stage": "supplement",
@@ -5323,11 +5405,14 @@
       "products": [
        "Artistry Vitamin C + HA3 Daily Serum"
       ],
-      "whyEn": "Oral and topical vitamin C are not interchangeable, which is why this sits beside the tablet rather than instead of it. Swallowed vitamin C is distributed by the bloodstream and reaches the outer skin layers poorly; applied vitamin C lands directly where the pigment is being made. Use them together and you are working the same tyrosinase step from both sides. The three hyaluronic acid weights are the second half of the bottle: large molecules hold water at the surface, smaller ones carry it deeper, and hydrated skin produces less oil, not more.",
-      "why": "口服维C和外用维C不能互相替代，所以这一条是放在药片旁边，而不是取而代之。吞下去的维C靠血液分配，到达皮肤外层的量很有限；涂上去的维C则直接落在色素正在生成的地方。两者一起用，等于从内外两侧作用在同一个酪氨酸酶环节上。三种分子量的玻尿酸是这瓶里的另一半：大分子在表层锁水，小分子往深处带，而水分充足的皮肤出油会更少，不是更多。",
+      "why": "Oral and topical vitamin C are not interchangeable, which is why this sits beside the tablet rather than instead of it. Swallowed vitamin C is distributed by the bloodstream and reaches the outer skin layers poorly; applied vitamin C lands directly where the pigment is being made. Use them together and you are working the same tyrosinase step from both sides. The three hyaluronic acid weights are the second half of the bottle: large molecules hold water at the surface, smaller ones carry it deeper, and hydrated skin produces less oil, not more.",
+      "key": "skin.supplement.artistry-vitamin-c-ha3-daily",
+      "whyZh": "口服维C和外用维C不能互相替代，所以这一条是放在药片旁边，而不是取而代之。吞下去的维C靠血液分配，到达皮肤外层的量很有限；涂上去的维C则直接落在色素正在生成的地方。两者一起用，等于从内外两侧作用在同一个酪氨酸酶环节上。三种分子量的玻尿酸是这瓶里的另一半：大分子在表层锁水，小分子往深处带，而水分充足的皮肤出油会更少，不是更多。",
       "productIds": [
        "artistry-vitamin-c-ha3-daily-serum"
-      ]
+      ],
+      "why_es": "La vitamina C oral y la tópica no son intercambiables, y por eso esta va al lado de la pastilla y no en su lugar. La que tragas se reparte por el torrente sanguíneo y llega mal a las capas externas de la piel; la que aplicas aterriza justo donde se está fabricando el pigmento. Usadas juntas, estás trabajando el mismo paso de la tirosinasa desde los dos lados. Los tres pesos moleculares de ácido hialurónico son la otra mitad del frasco: las moléculas grandes retienen agua en la superficie, las pequeñas la llevan más adentro, y una piel hidratada produce menos aceite, no más.",
+      "why_hi": "मुँह से ली गई और त्वचा पर लगाई गई विटामिन सी एक-दूसरे की जगह नहीं ले सकतीं, इसीलिए यह गोली के बदले नहीं, उसके साथ रखी गई है। निगली गई विटामिन सी रक्त के ज़रिए बँटती है और त्वचा की बाहरी परतों तक कम पहुँचती है; लगाई गई विटामिन सी सीधे वहीं उतरती है जहाँ रंगद्रव्य बन रहा है। दोनों साथ इस्तेमाल करने पर आप उसी टायरोसिनेज़ चरण पर दोनों तरफ़ से काम कर रहे होते हैं। तीन आणविक भार वाला हाइलुरोनिक एसिड इस बोतल का दूसरा आधा है: बड़े अणु सतह पर पानी रोकते हैं, छोटे उसे गहराई तक ले जाते हैं, और नमी वाली त्वचा कम तेल बनाती है, ज़्यादा नहीं।"
      },
      {
       "stage": "supplement",
@@ -5336,11 +5421,14 @@
       "products": [
        "Vitamin E Chewable"
       ],
-      "whyEn": "This is the most specific mechanism on the page, and the one almost nobody explains. Acne skin produces roughly twice as much squalene as clear skin. Squalene itself is harmless; oxidised squalene is not, and its peroxide by-products are directly comedogenic and inflammatory. Measurements in acne patients show exactly that pattern: squalene peroxides up in the sebum, vitamin E and vitamin A down in the plasma. Vitamin E is the fat-phase antioxidant that sits inside that oil and stops the peroxidation. The lecithin alongside it is the same phospholipid your cell membranes are built from: an intact membrane holds water in and the cell stays a grape, a damaged one leaks and it becomes a raisin. That is also why topical moisturiser alone only goes so far.",
-      "why": "这是整页里最具体的一条机制，也是几乎没人讲清楚的一条。痘痘肌分泌的角鲨烯大约是健康皮肤的两倍。角鲨烯本身无害，但氧化后的角鲨烯不是，它的过氧化产物直接具有致粉刺性和促炎性。在痘痘患者身上实测到的正是这个组合：皮脂里角鲨烯过氧化物升高，血浆里维生素E和维生素A降低。维生素E是驻守在油脂相里的抗氧化剂，它的位置就在那层油里，作用就是阻止这个氧化过程。同时配的卵磷脂，与细胞膜的磷脂成分相同：膜完整，水分锁得住，细胞是饱满的葡萄；膜破损，水从里面跑掉，就成了葡萄干。这也解释了为什么只靠外用保湿，效果总是有限。",
+      "why": "This is the most specific mechanism on the page, and the one almost nobody explains. Acne skin produces roughly twice as much squalene as clear skin. Squalene itself is harmless; oxidised squalene is not, and its peroxide by-products are directly comedogenic and inflammatory. Measurements in acne patients show exactly that pattern: squalene peroxides up in the sebum, vitamin E and vitamin A down in the plasma. Vitamin E is the fat-phase antioxidant that sits inside that oil and stops the peroxidation. The lecithin alongside it is the same phospholipid your cell membranes are built from: an intact membrane holds water in and the cell stays a grape, a damaged one leaks and it becomes a raisin. That is also why topical moisturiser alone only goes so far.",
+      "key": "skin.supplement.vitamin-e-chewable",
+      "whyZh": "这是整页里最具体的一条机制，也是几乎没人讲清楚的一条。痘痘肌分泌的角鲨烯大约是健康皮肤的两倍。角鲨烯本身无害，但氧化后的角鲨烯不是，它的过氧化产物直接具有致粉刺性和促炎性。在痘痘患者身上实测到的正是这个组合：皮脂里角鲨烯过氧化物升高，血浆里维生素E和维生素A降低。维生素E是驻守在油脂相里的抗氧化剂，它的位置就在那层油里，作用就是阻止这个氧化过程。同时配的卵磷脂，与细胞膜的磷脂成分相同：膜完整，水分锁得住，细胞是饱满的葡萄；膜破损，水从里面跑掉，就成了葡萄干。这也解释了为什么只靠外用保湿，效果总是有限。",
       "productIds": [
        "vitamin-e-chewable"
-      ]
+      ],
+      "why_es": "Este es el mecanismo más concreto de toda la página, y el que casi nadie explica. La piel con acné produce alrededor del doble de escualeno que la piel limpia. El escualeno en sí es inofensivo; el escualeno oxidado no lo es, y sus peróxidos son directamente comedogénicos e inflamatorios. Las mediciones en pacientes con acné muestran exactamente ese patrón: peróxidos de escualeno altos en el sebo, vitamina E y vitamina A bajas en plasma. La vitamina E es el antioxidante de fase grasa que se aloja dentro de ese aceite y frena la peroxidación. La lecitina que la acompaña es el mismo fosfolípido con el que están hechas tus membranas celulares: con la membrana intacta la célula retiene agua y es una uva; con la membrana dañada se escapa y queda una pasa. Eso también explica por qué la hidratación tópica sola llega hasta cierto punto.",
+      "why_hi": "यह पूरे पन्ने का सबसे ठोस तंत्र है, और वही जिसे लगभग कोई नहीं समझाता। मुँहासे वाली त्वचा साफ़ त्वचा से लगभग दोगुना स्क्वैलीन बनाती है। स्क्वैलीन अपने आप में हानिरहित है; ऑक्सीकृत स्क्वैलीन नहीं, और उसके परॉक्साइड सीधे छिद्र बंद करने वाले और सूजन बढ़ाने वाले हैं। मुँहासे के रोगियों में की गई माप ठीक यही तस्वीर दिखाती है: सीबम में स्क्वैलीन परॉक्साइड ऊँचा, रक्त प्लाज़्मा में विटामिन ई और विटामिन ए नीचा। विटामिन ई वह वसा-चरण एंटीऑक्सिडेंट है जो उसी तेल के भीतर बैठकर इस ऑक्सीकरण को रोकता है। साथ मिला लेसिथिन वही फ़ॉस्फ़ोलिपिड है जिससे आपकी कोशिका झिल्ली बनी है: झिल्ली सही हो तो कोशिका पानी रोके रखती है और अंगूर जैसी रहती है; झिल्ली टूटे तो पानी निकल जाता है और वह किशमिश बन जाती है। यही समझाता है कि सिर्फ़ बाहरी मॉइस्चराइज़र एक हद तक ही काम क्यों करता है।"
      },
      {
       "stage": "supplement",
@@ -5349,11 +5437,14 @@
       "products": [
        "Advanced Omega"
       ],
-      "whyEn": "Omega-3 works on two of the four steps at once: it slows the hyperkeratinisation that forms the plug, and it lowers leukotriene B4, one of the signals that turns a clogged pore into an inflamed one. The reason this is almost always a real gap is the ratio, not the absence: modern diets carry plenty of omega-6 and very little omega-3, and the balance between them is what sets the inflammatory tone. If you rarely eat oily fish, assume the gap is there.",
-      "why": "Omega-3 同时作用在四步中的两步：它减缓形成栓子的角化过度，并且降低白三烯B4，那是把一个堵住的毛孔推向发炎的信号之一。这一项之所以几乎总是真实存在的缺口，问题不在于完全没有，而在于比例：现代饮食里Omega-6很多、Omega-3很少，而决定炎症基调的正是两者的比例。如果你很少吃深海鱼，就默认这个缺口存在。",
+      "why": "Omega-3 works on two of the four steps at once: it slows the hyperkeratinisation that forms the plug, and it lowers leukotriene B4, one of the signals that turns a clogged pore into an inflamed one. The reason this is almost always a real gap is the ratio, not the absence: modern diets carry plenty of omega-6 and very little omega-3, and the balance between them is what sets the inflammatory tone. If you rarely eat oily fish, assume the gap is there.",
+      "key": "skin.supplement.advanced-omega",
+      "whyZh": "Omega-3 同时作用在四步中的两步：它减缓形成栓子的角化过度，并且降低白三烯B4，那是把一个堵住的毛孔推向发炎的信号之一。这一项之所以几乎总是真实存在的缺口，问题不在于完全没有，而在于比例：现代饮食里Omega-6很多、Omega-3很少，而决定炎症基调的正是两者的比例。如果你很少吃深海鱼，就默认这个缺口存在。",
       "productIds": [
        "advanced-omega"
-      ]
+      ],
+      "why_es": "El omega-3 actúa sobre dos de los cuatro pasos a la vez: frena la hiperqueratinización que forma el tapón, y baja el leucotrieno B4, una de las señales que convierte un poro tapado en uno inflamado. La razón de que casi siempre haya aquí un hueco real es la proporción, no la ausencia: la dieta moderna trae mucho omega-6 y muy poco omega-3, y el equilibrio entre ambos es lo que fija el tono inflamatorio. Si rara vez comes pescado azul, da por hecho que el hueco está.",
+      "why_hi": "ओमेगा-3 चार में से दो चरणों पर एक साथ काम करता है: यह उस अति-केराटिनीकरण को धीमा करता है जो रुकावट बनाती है, और ल्यूकोट्रीन बी4 घटाता है, जो बंद छिद्र को सूजे हुए छिद्र में बदलने वाले संकेतों में से एक है। यहाँ कमी लगभग हमेशा असली क्यों होती है, इसकी वजह अनुपात है, अनुपस्थिति नहीं: आधुनिक आहार में ओमेगा-6 बहुत है और ओमेगा-3 बहुत कम, और सूजन का स्तर इन दोनों का संतुलन तय करता है। अगर आप शायद ही कभी तैलीय मछली खाते हैं, तो मान लें कि कमी मौजूद है।"
      },
      {
       "stage": "supplement",
@@ -5363,12 +5454,15 @@
        "Immunity Defense Zinc + Holy Basil",
        "Vitamin D"
       ],
-      "whyEn": "Both of these show up as measured shortfalls rather than theory. Serum zinc runs lower in people with acne than in controls, and lowest in the most severe grades; trials adding zinc report fewer inflammatory lesions. Vitamin D follows the same shape: deficiency is roughly twice as common in acne patients as in matched controls, and levels track inversely with severity. Neither is a treatment. Both are worth closing if the gap is yours, and vitamin D is one of the few things here a blood panel can actually tell you about.",
-      "why": "这两样都是实测出来的缺口，不是推论。痘痘人群的血清锌水平低于对照组，而且分级越重的人越低；补锌的试验报告炎症性皮损减少。维生素D是同样的形状：痘痘人群的缺乏率大约是对照组的两倍，血清水平与严重程度呈负相关。两者都不是治疗手段。但如果这个缺口在你身上，就值得补上；而且维生素D是这一页里少数几个抽血就能看清楚的指标之一。",
+      "why": "Both of these show up as measured shortfalls rather than theory. Serum zinc runs lower in people with acne than in controls, and lowest in the most severe grades; trials adding zinc report fewer inflammatory lesions. Vitamin D follows the same shape: deficiency is roughly twice as common in acne patients as in matched controls, and levels track inversely with severity. Neither is a treatment. Both are worth closing if the gap is yours, and vitamin D is one of the few things here a blood panel can actually tell you about.",
+      "key": "skin.supplement.immunity-defense-zinc-holy-b",
+      "whyZh": "这两样都是实测出来的缺口，不是推论。痘痘人群的血清锌水平低于对照组，而且分级越重的人越低；补锌的试验报告炎症性皮损减少。维生素D是同样的形状：痘痘人群的缺乏率大约是对照组的两倍，血清水平与严重程度呈负相关。两者都不是治疗手段。但如果这个缺口在你身上，就值得补上；而且维生素D是这一页里少数几个抽血就能看清楚的指标之一。",
       "productIds": [
        "immunity-defense-zinc-holy-basil",
        "vitamin-d"
-      ]
+      ],
+      "why_es": "Los dos aparecen como carencias medidas, no como teoría. El zinc en suero es más bajo en personas con acné que en controles, y más bajo aún en los grados más severos; los ensayos que añaden zinc reportan menos lesiones inflamatorias. La vitamina D sigue la misma forma: la deficiencia es aproximadamente el doble de común en pacientes con acné que en controles comparables, y los niveles se mueven en sentido contrario a la severidad. Ninguno es un tratamiento. Los dos vale la pena cerrarlos si el hueco es tuyo, y la vitamina D es de las pocas cosas de esta página que un análisis de sangre sí te puede decir.",
+      "why_hi": "ये दोनों सिद्धांत नहीं, मापी गई कमियाँ हैं। मुँहासे वाले लोगों में रक्त का ज़िंक स्तर तुलना समूह से कम रहता है, और सबसे गंभीर श्रेणियों में सबसे कम; ज़िंक जोड़ने वाले परीक्षणों में सूजन वाले घाव कम पाए गए। विटामिन डी की तस्वीर भी वैसी ही है: मुँहासे के रोगियों में कमी लगभग दोगुनी आम है, और स्तर गंभीरता के उल्टे चलता है। दोनों में से कोई इलाज नहीं है। पर अगर यह कमी आपमें है तो इसे पूरा करना सार्थक है, और विटामिन डी इस पन्ने की उन गिनी-चुनी चीज़ों में है जिसे खून की जाँच सचमुच बता सकती है।"
      },
      {
       "stage": "supplement",
@@ -5378,12 +5472,15 @@
        "Concentrated Fruits & Vegetables",
        "Calcium Magnesium D"
       ],
-      "whyEn": "Two supporting lines. Plant antioxidants work in the water phase where vitamin E works in the oil phase, and the carotenoid families are also where the body sources vitamin A, the other nutrient measured low in acne plasma. Calcium and magnesium are here for a different reason: they maintain neuromuscular excitability, and when they are short the body will not release even after you lie down. Across the 72 client assessments we have on file, 77% of acne cases also reported chronic late nights, and skin repair happens overnight.",
-      "why": "两条辅助线。植物抗氧化物工作在水相，而维生素E工作在油相，两者互补；而类胡萝卜素家族同时也是身体获取维生素A的来源，那是痘痘人群血浆里另一个被测出偏低的营养素。钙镁放在这里是另一个理由：它们维持神经肌肉的兴奋性，缺的时候人躺下了也放松不下来。在我们手上的72份健康评估里，77%的痘痘案例同时存在长期晚睡，而皮肤的修复发生在夜里。",
+      "why": "Two supporting lines. Plant antioxidants work in the water phase where vitamin E works in the oil phase, and the carotenoid families are also where the body sources vitamin A, the other nutrient measured low in acne plasma. Calcium and magnesium are here for a different reason: they maintain neuromuscular excitability, and when they are short the body will not release even after you lie down. Across the 72 client assessments we have on file, 77% of acne cases also reported chronic late nights, and skin repair happens overnight.",
+      "key": "skin.supplement.concentrated-fruits-vegetabl",
+      "whyZh": "两条辅助线。植物抗氧化物工作在水相，而维生素E工作在油相，两者互补；而类胡萝卜素家族同时也是身体获取维生素A的来源，那是痘痘人群血浆里另一个被测出偏低的营养素。钙镁放在这里是另一个理由：它们维持神经肌肉的兴奋性，缺的时候人躺下了也放松不下来。在我们手上的72份健康评估里，77%的痘痘案例同时存在长期晚睡，而皮肤的修复发生在夜里。",
       "productIds": [
        "concentrated-fruits-vegetables",
        "calcium-magnesium-d"
-      ]
+      ],
+      "why_es": "Dos líneas de apoyo. Los antioxidantes vegetales trabajan en la fase acuosa donde la vitamina E trabaja en la fase grasa, y las familias de carotenoides son además de donde el cuerpo obtiene vitamina A, el otro nutriente que se mide bajo en el plasma con acné. El calcio y el magnesio están aquí por otro motivo: mantienen la excitabilidad neuromuscular, y cuando faltan el cuerpo no se suelta ni después de acostarse. En las 72 evaluaciones de salud que tenemos registradas, el 77 por ciento de los casos de acné también reportaba trasnochar de forma habitual, y la piel se repara de noche.",
+      "why_hi": "दो सहायक कड़ियाँ। पादप एंटीऑक्सिडेंट जल-चरण में काम करते हैं जबकि विटामिन ई वसा-चरण में, और कैरोटीनॉयड परिवार वही स्रोत भी है जहाँ से शरीर विटामिन ए लेता है, वह दूसरा पोषक तत्व जो मुँहासे में रक्त प्लाज़्मा में कम मापा जाता है। कैल्शियम और मैग्नीशियम यहाँ किसी और वजह से हैं: ये तंत्रिका-मांसपेशी की उत्तेजना बनाए रखते हैं, और इनकी कमी में शरीर लेटने के बाद भी शिथिल नहीं हो पाता। हमारे पास दर्ज 72 स्वास्थ्य आकलनों में, मुँहासे के 77 प्रतिशत मामलों में लगातार देर रात जागना भी दर्ज था, और त्वचा की मरम्मत रात में होती है।"
      },
      {
       "stage": "sustain",
@@ -5393,12 +5490,15 @@
        "Artistry Multi-Defense UV Protect SPF50",
        "Artistry Hydrating Day Lotion SPF30"
       ],
-      "whyEn": "Sunscreen is usually sold to acne-prone skin as mark protection, and that undersells it. UV generates reactive oxygen species in the skin, and those are what oxidise the squalene in your sebum into the comedogenic by-products from the replenish stage. So this step is not only protecting the result, it is cutting off one of the sources upstream. Texture is the whole decision here: a heavy sunscreen clogs pores and sends you back to step one, which is why a lightweight formula that layers without pilling is the one that actually gets worn.",
-      "why": "防晒卖给油痘肌的时候，通常被说成是保护痘印不变深，这个说法把它讲小了。紫外线在皮肤里产生活性氧，而正是这些活性氧把你皮脂中的角鲨烯氧化成「补」那一步讲的致粉刺产物。所以这一步不只是守住成果，它同时切断了上游的一个源头。这里唯一要决定的是肤感：厚重的防晒本身堵毛孔，那就又回到第一步了，所以能真正被涂上脸的，是那支轻盈、能叠涂而不搓泥的。",
+      "why": "Sunscreen is usually sold to acne-prone skin as mark protection, and that undersells it. UV generates reactive oxygen species in the skin, and those are what oxidise the squalene in your sebum into the comedogenic by-products from the replenish stage. So this step is not only protecting the result, it is cutting off one of the sources upstream. Texture is the whole decision here: a heavy sunscreen clogs pores and sends you back to step one, which is why a lightweight formula that layers without pilling is the one that actually gets worn.",
+      "key": "skin.sustain.artistry-multi-defense-uv-pr",
+      "whyZh": "防晒卖给油痘肌的时候，通常被说成是保护痘印不变深，这个说法把它讲小了。紫外线在皮肤里产生活性氧，而正是这些活性氧把你皮脂中的角鲨烯氧化成「补」那一步讲的致粉刺产物。所以这一步不只是守住成果，它同时切断了上游的一个源头。这里唯一要决定的是肤感：厚重的防晒本身堵毛孔，那就又回到第一步了，所以能真正被涂上脸的，是那支轻盈、能叠涂而不搓泥的。",
       "productIds": [
        "artistry-multi-defense-uv-protect-spf50",
        "artistry-hydrating-day-lotion-spf30"
-      ]
+      ],
+      "why_es": "El protector solar se le vende a la piel con acné como protección contra las marcas, y eso lo deja corto. La radiación UV genera especies reactivas de oxígeno en la piel, y son justamente esas las que oxidan el escualeno de tu sebo hasta los subproductos comedogénicos de la etapa de reposición. Así que este paso no solo protege el resultado, corta una de las fuentes que están más arriba. Aquí la textura lo decide todo: un protector pesado tapa los poros y te devuelve al paso uno, por eso el que de verdad se usa es la fórmula ligera que se superpone sin apelmazarse.",
+      "why_hi": "मुँहासे वाली त्वचा को सनस्क्रीन अक्सर निशान बचाने के नाम पर बेचा जाता है, और यह उसे छोटा कर देता है। पराबैंगनी किरणें त्वचा में सक्रिय ऑक्सीजन कण बनाती हैं, और वही कण आपके सीबम के स्क्वैलीन को उन छिद्र-अवरोधक उत्पादों में बदलते हैं जिनकी बात पुनःपूर्ति चरण में हुई। इसलिए यह चरण सिर्फ़ नतीजा नहीं बचाता, यह ऊपर के एक स्रोत को भी काटता है। यहाँ सब कुछ बनावट पर टिका है: भारी सनस्क्रीन खुद छिद्र बंद करती है और आपको पहले चरण पर लौटा देती है, इसीलिए असल में वही लगती है जो हल्की हो और परत पर परत लगने पर लुढ़के नहीं।"
      },
      {
       "stage": "sustain",
@@ -5408,12 +5508,15 @@
        "Artistry Sleeping Mask",
        "Artistry Correcting Serum"
       ],
-      "whyEn": "Water-oil balance is the part oily skin gets backwards. Dehydrated skin does not produce less oil, it produces more, because the barrier reads dryness as damage. Hydration and oil control are the same project, not opposites. Overnight is when to do it: skin repair peaks while you sleep, so a leave-on mask is working with the window rather than against the day. The correcting serum is for the stage after, when the acne is handled and what is left is the marks, which are pigment rather than scars and will respond given enough weeks.",
-      "why": "水油平衡是油性皮肤最容易搞反的一环。缺水的皮肤不会少出油，而是会出更多油，因为屏障把干燥读成了损伤。补水和控油是同一个工程，不是对立面。而做这件事的时间是夜里：皮肤修复在睡眠中达到峰值，所以免洗的睡眠面膜是顺着这个修复窗口在做事，而不是跟白天硬碰硬。焕颜精华留给下一个阶段，痘控制住了、只剩痘印的时候，那是色素沉着而不是疤痕，给够周数它是会退的。",
+      "why": "Water-oil balance is the part oily skin gets backwards. Dehydrated skin does not produce less oil, it produces more, because the barrier reads dryness as damage. Hydration and oil control are the same project, not opposites. Overnight is when to do it: skin repair peaks while you sleep, so a leave-on mask is working with the window rather than against the day. The correcting serum is for the stage after, when the acne is handled and what is left is the marks, which are pigment rather than scars and will respond given enough weeks.",
+      "key": "skin.sustain.artistry-sleeping-mask",
+      "whyZh": "水油平衡是油性皮肤最容易搞反的一环。缺水的皮肤不会少出油，而是会出更多油，因为屏障把干燥读成了损伤。补水和控油是同一个工程，不是对立面。而做这件事的时间是夜里：皮肤修复在睡眠中达到峰值，所以免洗的睡眠面膜是顺着这个修复窗口在做事，而不是跟白天硬碰硬。焕颜精华留给下一个阶段，痘控制住了、只剩痘印的时候，那是色素沉着而不是疤痕，给够周数它是会退的。",
       "productIds": [
        "artistry-sleeping-mask",
        "artistry-correcting-serum"
-      ]
+      ],
+      "why_es": "El equilibrio agua-aceite es la parte que la piel grasa entiende al revés. La piel deshidratada no produce menos aceite, produce más, porque la barrera lee la sequedad como daño. Hidratar y controlar el aceite son el mismo proyecto, no opuestos. El momento es de noche: la reparación de la piel llega a su pico mientras duermes, así que una mascarilla que se queja puesta trabaja con esa ventana en lugar de pelearse con el día. El sérum corrector es para la etapa siguiente, cuando el acné ya está controlado y lo que queda son las marcas, que son pigmento y no cicatriz, y responden si se les dan suficientes semanas.",
+      "why_hi": "पानी और तेल का संतुलन वही हिस्सा है जिसे तैलीय त्वचा उल्टा समझती है। निर्जलित त्वचा कम तेल नहीं बनाती, ज़्यादा बनाती है, क्योंकि अवरोध सूखेपन को नुकसान समझ लेता है। नमी देना और तेल नियंत्रित करना एक ही काम है, विपरीत नहीं। समय रात का है: त्वचा की मरम्मत नींद में चरम पर होती है, इसलिए बिना धोए छोड़ा जाने वाला स्लीपिंग मास्क उसी खिड़की के साथ काम करता है, दिन से लड़ने के बजाय। करेक्टिंग सीरम अगले चरण के लिए है, जब मुँहासे नियंत्रण में हों और सिर्फ़ निशान बचे हों, जो घाव नहीं बल्कि रंगद्रव्य हैं और पर्याप्त हफ़्ते मिलने पर हल्के पड़ते हैं।"
      },
      {
       "stage": "sustain",
@@ -5423,14 +5526,19 @@
        "Sleep Gummies",
        "Organics Ashwagandha Capsules"
       ],
-      "whyEn": "Sleep is the free half of this plan, and the mechanism is more specific than people assume. Sebaceous cells carry receptors for corticotropin-releasing hormone, the stress signal. CRH does two things when it binds: it raises sebum output, and it activates the enzyme that converts precursors into active androgens, which raises sebum again. Skin sampled from acne-involved areas shows markedly stronger CRH receptor expression than clear skin on the same person. That is the mechanism behind breaking out after a bad week. Neither of these replaces going to bed earlier; they only help you land that step.",
-      "why": "睡眠是这套方案里免费的那一半，而它的机制比多数人以为的要具体。皮脂腺细胞上带有促肾上腺皮质激素释放激素（CRH，也就是压力信号）的受体。CRH结合上去之后做两件事：提高皮脂分泌，并激活把前体转化为活性雄激素的那个酶，于是皮脂再一次上升。取自痘痘部位的皮肤样本，其CRH受体表达明显强于同一个人身上没长痘的皮肤。这就是压力大的一周之后爆痘的机制。这两样都不能替代早睡，它们只是帮你把早睡这一步落地。",
+      "why": "Sleep is the free half of this plan, and the mechanism is more specific than people assume. Sebaceous cells carry receptors for corticotropin-releasing hormone, the stress signal. CRH does two things when it binds: it raises sebum output, and it activates the enzyme that converts precursors into active androgens, which raises sebum again. Skin sampled from acne-involved areas shows markedly stronger CRH receptor expression than clear skin on the same person. That is the mechanism behind breaking out after a bad week. Neither of these replaces going to bed earlier; they only help you land that step.",
+      "key": "skin.sustain.sleep-gummies",
+      "whyZh": "睡眠是这套方案里免费的那一半，而它的机制比多数人以为的要具体。皮脂腺细胞上带有促肾上腺皮质激素释放激素（CRH，也就是压力信号）的受体。CRH结合上去之后做两件事：提高皮脂分泌，并激活把前体转化为活性雄激素的那个酶，于是皮脂再一次上升。取自痘痘部位的皮肤样本，其CRH受体表达明显强于同一个人身上没长痘的皮肤。这就是压力大的一周之后爆痘的机制。这两样都不能替代早睡，它们只是帮你把早睡这一步落地。",
       "productIds": [
        "sleep-gummies",
        "organics-ashwagandha-capsules"
-      ]
+      ],
+      "why_es": "El sueño es la mitad gratis de este plan, y el mecanismo es más concreto de lo que la gente supone. Las células sebáceas llevan receptores para la hormona liberadora de corticotropina, la señal de estrés. Cuando se une, la CRH hace dos cosas: sube la producción de sebo, y activa la enzima que convierte precursores en andrógenos activos, lo que vuelve a subir el sebo. La piel tomada de zonas con acné muestra una expresión de estos receptores mucho más fuerte que la piel limpia de la misma persona. Ese es el mecanismo detrás de brotar después de una mala semana. Ninguno de estos dos sustituye acostarse antes; solo te ayudan a aterrizar ese paso.",
+      "why_hi": "नींद इस योजना का मुफ़्त वाला आधा हिस्सा है, और इसका तंत्र लोगों की धारणा से कहीं ज़्यादा ठोस है। तेल ग्रंथि की कोशिकाओं पर कॉर्टिकोट्रोपिन-रिलीज़िंग हार्मोन, यानी तनाव संकेत, के ग्राही होते हैं। जुड़ते ही CRH दो काम करता है: सीबम का उत्पादन बढ़ाता है, और उस एंज़ाइम को सक्रिय करता है जो पूर्ववर्ती अणुओं को सक्रिय एंड्रोजन में बदलता है, जिससे सीबम फिर बढ़ता है। मुँहासे वाले हिस्सों से ली गई त्वचा में इन ग्राहियों की अभिव्यक्ति उसी व्यक्ति की साफ़ त्वचा से कहीं अधिक मिलती है। बुरे हफ़्ते के बाद दाने निकलने का यही तंत्र है। इनमें से कोई भी जल्दी सोने की जगह नहीं ले सकता; ये सिर्फ़ उस कदम को उतारने में मदद करते हैं।"
      }
-    ]
+    ],
+    "overview_es": "Un poro se convierte en grano cuando coinciden cuatro cosas: el sebo sube, el revestimiento del poro se descama más rápido de lo que se elimina y forma un tapón, las bacterias se multiplican en ese aceite atrapado, y todo se inflama. Los productos tópicos actúan sobre las dos últimas. Las dos primeras se deciden más arriba: por la insulina y el IGF-1, por cuánta carga inflamatoria está pasando el intestino, y por el cortisol de la noche. Por eso limpiar solo la superficie compra unas buenas semanas y luego vuelven los mismos granos. Los cuatro pasos de abajo van en ese orden a propósito: quita la carga, haz que lo que tomas realmente cuente, aporta el material que la reparación necesita, y después protege el resultado.",
+    "overview_hi": "रोमछिद्र मुँहासा तब बनता है जब चार चीज़ें एक साथ आती हैं: तेल का बनना बढ़ जाता है, छिद्र की भीतरी परत निकलने से तेज़ी से झड़कर रुकावट बना देती है, फँसे हुए तेल में बैक्टीरिया बढ़ते हैं, और फिर सूजन आ जाती है। बाहरी उत्पाद केवल आखिरी दो पर काम करते हैं। पहली दो ऊपर से तय होती हैं: इंसुलिन और IGF-1 से, आँत कितना सूजन-भार आगे भेज रही है उससे, और रात के कोर्टिसोल से। इसीलिए सिर्फ़ सतह साफ़ करने से कुछ अच्छे हफ़्ते मिलते हैं और फिर वही दाने लौट आते हैं। नीचे दिए चार चरण जानबूझकर इसी क्रम में हैं: पहले बोझ हटाएँ, फिर जो लेते हैं वह वाकई काम आए यह सुनिश्चित करें, फिर मरम्मत का कच्चा माल दें, और अंत में नतीजे की रक्षा करें।"
    },
    "hormone": {
     "overview": "Cyclical breakouts along the jaw, premenstrual mood shifts and cycle-linked fatigue follow a monthly rhythm rather than a daily one. That rhythm is the clue. The liver is where used hormones are cleared, minerals are lost and reset every month, and cortisol competes for the same raw materials. Judge any change over three cycles, not three weeks.",
@@ -5443,8 +5551,9 @@
       "products": [
        "Liver Support"
       ],
-      "why": "用过的雌激素是经肝脏灭活之后才能排出的。肝的处理能力一旦跟不上，激素就堆在系统里，表现出来就是经前下颌线那几颗痘、情绪波动和胀痛。所以周期性痘痘的第一步不在脸上，在肝。这也解释了为什么外用能压住一次，下个月同一个位置又会回来。",
-      "whyEn": "Used oestrogen has to be deactivated by the liver before it can leave the body. When liver capacity falls behind, hormones back up in the system, and what you see is the same few jawline spots before every period, along with mood swings and tenderness. So the first step in cyclical acne is not on the face, it is at the liver. It also explains why a topical can flatten one round and the same spot returns next month.",
+      "why": "Used oestrogen has to be deactivated by the liver before it can leave the body. When liver capacity falls behind, hormones back up in the system, and what you see is the same few jawline spots before every period, along with mood swings and tenderness. So the first step in cyclical acne is not on the face, it is at the liver. It also explains why a topical can flatten one round and the same spot returns next month.",
+      "key": "hormone.clear.liver-support",
+      "whyZh": "用过的雌激素是经肝脏灭活之后才能排出的。肝的处理能力一旦跟不上，激素就堆在系统里，表现出来就是经前下颌线那几颗痘、情绪波动和胀痛。所以周期性痘痘的第一步不在脸上，在肝。这也解释了为什么外用能压住一次，下个月同一个位置又会回来。",
       "productIds": [
        "liver-support"
       ]
@@ -5456,8 +5565,9 @@
       "products": [
        "Cycle Support"
       ],
-      "why": "圣洁莓是周期类植物成分里研究历史最长的一味。用法上有一个关键点很多人做错：它要整月连续吃，而不是难受那几天才吃。因为你要支持的是一个月节律，不是一个日节律。同理，看效果要看三个周期，而不是三周。",
-      "whyEn": "Chasteberry has the longest research history of any botanical used for cycle comfort. One usage point trips most people up: it is taken continuously through the month, not only on the difficult days, because the rhythm being supported is monthly rather than daily. By the same logic, judge it over three cycles, not three weeks.",
+      "why": "Chasteberry has the longest research history of any botanical used for cycle comfort. One usage point trips most people up: it is taken continuously through the month, not only on the difficult days, because the rhythm being supported is monthly rather than daily. By the same logic, judge it over three cycles, not three weeks.",
+      "key": "hormone.regulate.cycle-support",
+      "whyZh": "圣洁莓是周期类植物成分里研究历史最长的一味。用法上有一个关键点很多人做错：它要整月连续吃，而不是难受那几天才吃。因为你要支持的是一个月节律，不是一个日节律。同理，看效果要看三个周期，而不是三周。",
       "productIds": [
        "cycle-support"
       ]
@@ -5469,8 +5579,9 @@
       "products": [
        "Calcium Magnesium D"
       ],
-      "why": "女性每个月的生理周期都会带走一批镁和铁。这意味着女性的矿物质缺口是每月重新出现的，不是补一次就完事。而钙镁同时维持神经肌肉兴奋性，这直接对应经期绞痛和经前的紧绷感。所以这一步是周期方案里最不该省的一步。",
-      "whyEn": "A woman's monthly cycle carries out a batch of magnesium and iron, so the mineral deficit reopens every month rather than being filled once. Calcium and magnesium also maintain neuromuscular excitability, which maps directly onto cramping and premenstrual tension. This is the step least worth skipping in a cycle protocol.",
+      "why": "A woman's monthly cycle carries out a batch of magnesium and iron, so the mineral deficit reopens every month rather than being filled once. Calcium and magnesium also maintain neuromuscular excitability, which maps directly onto cramping and premenstrual tension. This is the step least worth skipping in a cycle protocol.",
+      "key": "hormone.supplement.calcium-magnesium-d",
+      "whyZh": "女性每个月的生理周期都会带走一批镁和铁。这意味着女性的矿物质缺口是每月重新出现的，不是补一次就完事。而钙镁同时维持神经肌肉兴奋性，这直接对应经期绞痛和经前的紧绷感。所以这一步是周期方案里最不该省的一步。",
       "productIds": [
        "calcium-magnesium-d"
       ]
@@ -5482,8 +5593,9 @@
       "products": [
        "Vitamin B Complex 120ct"
       ],
-      "why": "B 族是水溶性的，体内存不住，基本 24 小时清空，所以它必须每天补。对周期这条线而言，B6 参与神经递质合成，是经前情绪波动最常被提到的一个环节；而 B2 维护皮脂腺与毛囊功能，直接接回下颌线那几颗痘。一瓶盖两条线。",
-      "whyEn": "B vitamins are water-soluble and cannot be stored, clearing in roughly 24 hours, so they have to be taken daily. On the cycle line specifically, B6 is involved in neurotransmitter synthesis and is the link most often cited for premenstrual mood shifts, while B2 maintains sebaceous gland and follicle function, which connects straight back to jawline breakouts. One bottle covers both lines.",
+      "why": "B vitamins are water-soluble and cannot be stored, clearing in roughly 24 hours, so they have to be taken daily. On the cycle line specifically, B6 is involved in neurotransmitter synthesis and is the link most often cited for premenstrual mood shifts, while B2 maintains sebaceous gland and follicle function, which connects straight back to jawline breakouts. One bottle covers both lines.",
+      "key": "hormone.supplement.vitamin-b-complex-120ct",
+      "whyZh": "B 族是水溶性的，体内存不住，基本 24 小时清空，所以它必须每天补。对周期这条线而言，B6 参与神经递质合成，是经前情绪波动最常被提到的一个环节；而 B2 维护皮脂腺与毛囊功能，直接接回下颌线那几颗痘。一瓶盖两条线。",
       "productIds": [
        "vitamin-b-complex-120ct"
       ]
@@ -5495,8 +5607,9 @@
       "products": [
        "Iron & Folic Acid"
       ],
-      "why": "铁是另一个每月被带走的矿物质。这也是为什么女性铁超标几乎不可能，而男性反而常见偏高，同一套方案，男女优先级本来就不一样。要注意的是：铁不该盲补，先看体检里的血红蛋白和铁蛋白。",
-      "whyEn": "Iron is the other mineral carried out every month, which is why high iron is nearly impossible in menstruating women and fairly common in men. The same protocol should not be prioritised the same way for both. One caution: iron should not be supplemented blind. Check haemoglobin and ferritin on a blood panel first.",
+      "why": "Iron is the other mineral carried out every month, which is why high iron is nearly impossible in menstruating women and fairly common in men. The same protocol should not be prioritised the same way for both. One caution: iron should not be supplemented blind. Check haemoglobin and ferritin on a blood panel first.",
+      "key": "hormone.supplement.iron-folic-acid",
+      "whyZh": "铁是另一个每月被带走的矿物质。这也是为什么女性铁超标几乎不可能，而男性反而常见偏高，同一套方案，男女优先级本来就不一样。要注意的是：铁不该盲补，先看体检里的血红蛋白和铁蛋白。",
       "productIds": [
        "iron-folic-acid"
       ]
@@ -5508,13 +5621,16 @@
       "products": [
        "Organics Ashwagandha Capsules"
       ],
-      "why": "适应原不是镇静剂，它调节的是皮质醇反应。而皮质醇和性激素共用一条合成原料链，长期高压会把这条链拿走。这就是为什么周期乱得最厉害的那几个月，往往也是最累的那几个月。放在「养」这一步，是因为它要解决的是背景类压力，不是当下症状。",
-      "whyEn": "Adaptogens are not sedatives; they moderate the cortisol response. Cortisol and the sex hormones share a synthesis pathway, and sustained pressure pulls capacity onto the cortisol side. That is why the months a cycle is most disrupted are usually also the most exhausting months. It sits in the Sustain stage because it addresses background load, not the symptom in front of you.",
+      "why": "Adaptogens are not sedatives; they moderate the cortisol response. Cortisol and the sex hormones share a synthesis pathway, and sustained pressure pulls capacity onto the cortisol side. That is why the months a cycle is most disrupted are usually also the most exhausting months. It sits in the Sustain stage because it addresses background load, not the symptom in front of you.",
+      "key": "hormone.sustain.organics-ashwagandha-capsule",
+      "whyZh": "适应原不是镇静剂，它调节的是皮质醇反应。而皮质醇和性激素共用一条合成原料链，长期高压会把这条链拿走。这就是为什么周期乱得最厉害的那几个月，往往也是最累的那几个月。放在「养」这一步，是因为它要解决的是背景类压力，不是当下症状。",
       "productIds": [
        "organics-ashwagandha-capsules"
       ]
      }
-    ]
+    ],
+    "overview_es": "Los granos cíclicos en la mandíbula, los cambios de ánimo premenstruales y el cansancio ligado al ciclo siguen un ritmo mensual, no diario. Ese ritmo es la pista. El hígado es donde se depuran las hormonas ya usadas, los minerales se pierden y se reponen cada mes, y el cortisol compite por la misma materia prima. Evalúa cualquier cambio a lo largo de tres ciclos, no de tres semanas.",
+    "overview_hi": "जबड़े की रेखा पर चक्रीय दाने, माहवारी से पहले मूड में बदलाव और चक्र से जुड़ी थकान मासिक लय पर चलते हैं, दैनिक लय पर नहीं। यही लय संकेत है। इस्तेमाल हो चुके हार्मोन लिवर में साफ़ होते हैं, खनिज हर महीने घटते और फिर से भरते हैं, और कोर्टिसोल उसी कच्चे माल के लिए होड़ करता है। किसी भी बदलाव को तीन हफ़्तों में नहीं, तीन चक्रों में आँकें।"
    },
    "eczema": {
     "overview": "Skin is a backup detox route. It opens because the main route, the gut and then the liver, is blocked. That single idea sets the whole order: clear the main route first, rebuild the lipid barrier from the inside, and only then work on the surface. Creams relieve and then it comes back precisely because they treat the exit rather than the pressure.",
@@ -5528,8 +5644,9 @@
        "Probiotic",
        "Prebiotic Fiber"
       ],
-      "why": "皮肤是排毒的备用通道。通道被迫开启，是因为主通道堵了。所以顽固湿疹的第一步不是从皮肤开始，而是先用益生菌重建菌群、用纤维把东西带走。只补菌不给纤维，等于招了人不给粮。反过来先在皮肤上使劲，等于一边堵备用出口一边不减压。",
-      "whyEn": "Skin is a backup detox route, and it opens because the main route is blocked. So the first step with stubborn eczema is not the skin: rebuild the flora with probiotics and give fibre to carry things out. Probiotics without fibre is hiring staff and not feeding them. Working on the skin first is closing the backup exit while leaving the pressure unchanged.",
+      "why": "Skin is a backup detox route, and it opens because the main route is blocked. So the first step with stubborn eczema is not the skin: rebuild the flora with probiotics and give fibre to carry things out. Probiotics without fibre is hiring staff and not feeding them. Working on the skin first is closing the backup exit while leaving the pressure unchanged.",
+      "key": "eczema.clear.probiotic",
+      "whyZh": "皮肤是排毒的备用通道。通道被迫开启，是因为主通道堵了。所以顽固湿疹的第一步不是从皮肤开始，而是先用益生菌重建菌群、用纤维把东西带走。只补菌不给纤维，等于招了人不给粮。反过来先在皮肤上使劲，等于一边堵备用出口一边不减压。",
       "productIds": [
        "probiotic",
        "prebiotic-fiber"
@@ -5542,8 +5659,9 @@
       "products": [
        "Liver Support"
       ],
-      "why": "肠道是第一道，肝是第二道。体内毒素负荷超标时，肝处理不完的那部分才会转而从皮肤走。这也是为什么很多人的湿疹在应酬多、熬夜多、饮酒多的那段时间集中发作，那正好是肝最忙的时候。",
-      "whyEn": "The gut is the first route and the liver is the second. When the toxin load runs high, the portion the liver cannot process is what gets pushed out through the skin. It is also why eczema so often flares during stretches of heavy socialising, late nights and alcohol, which is exactly when the liver is busiest.",
+      "why": "The gut is the first route and the liver is the second. When the toxin load runs high, the portion the liver cannot process is what gets pushed out through the skin. It is also why eczema so often flares during stretches of heavy socialising, late nights and alcohol, which is exactly when the liver is busiest.",
+      "key": "eczema.regulate.liver-support",
+      "whyZh": "肠道是第一道，肝是第二道。体内毒素负荷超标时，肝处理不完的那部分才会转而从皮肤走。这也是为什么很多人的湿疹在应酬多、熬夜多、饮酒多的那段时间集中发作，那正好是肝最忙的时候。",
       "productIds": [
        "liver-support"
       ]
@@ -5555,8 +5673,9 @@
       "products": [
        "Advanced Omega"
       ],
-      "why": "皮肤屏障是由脂质构成的，而现代饮食严重偏向 Omega-6。补足 Omega-3 不是多一种营养，而是在把脂肪酸的比例拉回来。比例对了，屏障才稳，皮肤对刺激的反应才会缓下来。很少吃深海鱼的人，这个缺口几乎必然存在。",
-      "whyEn": "The skin barrier is built from lipids, and the modern diet is heavily skewed toward omega-6. Adding omega-3 is not one more nutrient, it is pulling the fatty-acid ratio back. Once the ratio is right the barrier steadies and the skin's reaction to irritants slows down. For anyone who rarely eats oily fish, this gap is close to certain.",
+      "why": "The skin barrier is built from lipids, and the modern diet is heavily skewed toward omega-6. Adding omega-3 is not one more nutrient, it is pulling the fatty-acid ratio back. Once the ratio is right the barrier steadies and the skin's reaction to irritants slows down. For anyone who rarely eats oily fish, this gap is close to certain.",
+      "key": "eczema.supplement.advanced-omega",
+      "whyZh": "皮肤屏障是由脂质构成的，而现代饮食严重偏向 Omega-6。补足 Omega-3 不是多一种营养，而是在把脂肪酸的比例拉回来。比例对了，屏障才稳，皮肤对刺激的反应才会缓下来。很少吃深海鱼的人，这个缺口几乎必然存在。",
       "productIds": [
        "advanced-omega"
       ]
@@ -5569,15 +5688,280 @@
        "g&h Nourish Body Wash",
        "g&h Nourish Body Lotion"
       ],
-      "why": "屏障优先的做法是：皮肤看起来好的时候也每天润肤，而不是只在起疹时才润。等起疹才处理，就永远在救火而不是防火。另一个常被忽略的细节：变量最大的不是身体乳，是沐浴露，清洁力过强的沐浴露每天把屏障剥掉一层，再好的身体乳也补不回来。",
-      "whyEn": "The barrier-first approach means moisturising daily when the skin looks fine, not only when it flares. Waiting for a flare means always fighting the fire instead of preventing it. One detail people miss: the bigger variable is not the lotion, it is the body wash. A wash that cleans too aggressively strips a layer of barrier every day, and no lotion fully replaces that.",
+      "why": "The barrier-first approach means moisturising daily when the skin looks fine, not only when it flares. Waiting for a flare means always fighting the fire instead of preventing it. One detail people miss: the bigger variable is not the lotion, it is the body wash. A wash that cleans too aggressively strips a layer of barrier every day, and no lotion fully replaces that.",
+      "key": "eczema.sustain.g-h-nourish-body-wash",
+      "whyZh": "屏障优先的做法是：皮肤看起来好的时候也每天润肤，而不是只在起疹时才润。等起疹才处理，就永远在救火而不是防火。另一个常被忽略的细节：变量最大的不是身体乳，是沐浴露，清洁力过强的沐浴露每天把屏障剥掉一层，再好的身体乳也补不回来。",
       "productIds": [
        "g-h-nourish-body-wash",
        "g-h-nourish-body-lotion"
       ]
      }
-    ]
+    ],
+    "overview_es": "La piel es una ruta de desintoxicación de reserva. Se abre porque la ruta principal, primero el intestino y después el hígado, está bloqueada. Esa sola idea define todo el orden: despeja primero la ruta principal, reconstruye la barrera lipídica desde dentro, y solo entonces trabaja la superficie. Las cremas alivian y luego el problema vuelve precisamente porque tratan la salida y no la presión.",
+    "overview_hi": "त्वचा विषहरण का वैकल्पिक रास्ता है। यह इसलिए खुलता है क्योंकि मुख्य रास्ता, पहले आँत और फिर लिवर, अवरुद्ध है। यही एक बात पूरा क्रम तय कर देती है: पहले मुख्य रास्ता खोलें, फिर भीतर से वसा अवरोध बनाएँ, और उसके बाद ही सतह पर काम करें। क्रीम आराम देती है और फिर समस्या लौटती है, क्योंकि वह निकास का इलाज करती है, दबाव का नहीं।"
    }
+  }
+ },
+ "ui": {
+  "Areas of Support": {
+   "es": "Áreas de apoyo",
+   "hi": "सहायता क्षेत्र"
+  },
+  "By Category": {
+   "es": "Por categoría",
+   "hi": "श्रेणी अनुसार"
+  },
+  "Solutions": {
+   "es": "Soluciones",
+   "hi": "समाधान"
+  },
+  "All Products": {
+   "es": "Todos los productos",
+   "hi": "सभी उत्पाद"
+  },
+  "Nutrition": {
+   "es": "Nutrición",
+   "hi": "पोषण"
+  },
+  "Sports & Energy": {
+   "es": "Deporte y energía",
+   "hi": "स्पोर्ट्स और एनर्जी"
+  },
+  "Beauty": {
+   "es": "Belleza",
+   "hi": "सौंदर्य"
+  },
+  "Personal Care": {
+   "es": "Cuidado personal",
+   "hi": "व्यक्तिगत देखभाल"
+  },
+  "Oral Care": {
+   "es": "Cuidado bucal",
+   "hi": "मुख देखभाल"
+  },
+  "Home": {
+   "es": "Hogar",
+   "hi": "घर"
+  },
+  "Healthy Aging": {
+   "es": "Envejecer bien",
+   "hi": "स्वस्थ उम्र"
+  },
+  "Heart & Circulation": {
+   "es": "Corazón y circulación",
+   "hi": "हृदय और रक्त संचार"
+  },
+  "Official Bundles": {
+   "es": "Paquetes oficiales",
+   "hi": "आधिकारिक पैकेज"
+  },
+  "Quality of health is quality of life": {
+   "es": "La calidad de tu salud es la calidad de tu vida",
+   "hi": "स्वास्थ्य की गुणवत्ता ही जीवन की गुणवत्ता है"
+  },
+  "Search products": {
+   "es": "Buscar productos",
+   "hi": "उत्पाद खोजें"
+  },
+  "Search results": {
+   "es": "Resultados",
+   "hi": "खोज परिणाम"
+  },
+  "No matches.": {
+   "es": "Sin resultados.",
+   "hi": "कोई परिणाम नहीं।"
+  },
+  "products": {
+   "es": "productos",
+   "hi": "उत्पाद"
+  },
+  "Everything else in this area": {
+   "es": "Todo lo demás en esta área",
+   "hi": "इस क्षेत्र में बाकी सब"
+  },
+  "Products that support this": {
+   "es": "Productos que apoyan esto",
+   "hi": "इसमें सहायक उत्पाद"
+  },
+  "How to work through this": {
+   "es": "Cómo trabajarlo, paso a paso",
+   "hi": "इसे कदम दर कदम कैसे करें"
+  },
+  "4-step plan": {
+   "es": "Plan de 4 pasos",
+   "hi": "4-चरण योजना"
+  },
+  "Step-by-step protocol": {
+   "es": "Protocolo paso a paso",
+   "hi": "क्रमबद्ध प्रोटोकॉल"
+  },
+  "Core": {
+   "es": "Clave",
+   "hi": "मुख्य"
+  },
+  "Read the rest": {
+   "es": "Leer el resto",
+   "hi": "पूरा पढ़ें"
+  },
+  "Show less": {
+   "es": "Mostrar menos",
+   "hi": "कम दिखाएँ"
+  },
+  "Internal": {
+   "es": "Vía oral",
+   "hi": "आंतरिक"
+  },
+  "Topical": {
+   "es": "Uso tópico",
+   "hi": "बाहरी"
+  },
+  "Habit": {
+   "es": "Hábito",
+   "hi": "आदत"
+  },
+  "Environment": {
+   "es": "Entorno",
+   "hi": "वातावरण"
+  },
+  "Cost calculator": {
+   "es": "Calculadora de costos",
+   "hi": "लागत कैलकुलेटर"
+  },
+  "This order": {
+   "es": "Este pedido",
+   "hi": "यह ऑर्डर"
+  },
+  "Order total": {
+   "es": "Total del pedido",
+   "hi": "ऑर्डर कुल"
+  },
+  "To keep it going": {
+   "es": "Para mantenerlo",
+   "hi": "इसे जारी रखने के लिए"
+  },
+  "Per day": {
+   "es": "Por día",
+   "hi": "प्रति दिन"
+  },
+  "Per month": {
+   "es": "Por mes",
+   "hi": "प्रति माह"
+  },
+  "Shipping est.": {
+   "es": "Envío estimado",
+   "hi": "अनुमानित शिपिंग"
+  },
+  "Free (over $150)": {
+   "es": "Gratis (más de $150)",
+   "hi": "मुफ़्त ($150 से ऊपर)"
+  },
+  "on DITTO": {
+   "es": "con DITTO",
+   "hi": "DITTO पर"
+  },
+  "or": {
+   "es": "o",
+   "hi": "या"
+  },
+  "/day": {
+   "es": "/día",
+   "hi": "/दिन"
+  },
+  "/mo": {
+   "es": "/mes",
+   "hi": "/माह"
+  },
+  " / month": {
+   "es": " / mes",
+   "hi": " / माह"
+  },
+  " each": {
+   "es": " c/u",
+   "hi": " प्रत्येक"
+  },
+  "One-time": {
+   "es": "Pago único",
+   "hi": "एक बार"
+  },
+  "1 month": {
+   "es": "1 mes",
+   "hi": "1 माह"
+  },
+  "days": {
+   "es": "días",
+   "hi": "दिन"
+  },
+  "Price": {
+   "es": "Precio",
+   "hi": "कीमत"
+  },
+  "IBO Price": {
+   "es": "Precio IBO",
+   "hi": "IBO कीमत"
+  },
+  "Retail": {
+   "es": "Público",
+   "hi": "खुदरा"
+  },
+  "Lasts": {
+   "es": "Dura",
+   "hi": "चलता है"
+  },
+  "✓ Copied": {
+   "es": "✓ Copiado",
+   "hi": "✓ कॉपी हो गया"
+  },
+  "⊕ Load this set into calculator": {
+   "es": "⊕ Cargar este set en la calculadora",
+   "hi": "⊕ यह सेट कैलकुलेटर में डालें"
+  },
+  "Key Advantage": {
+   "es": "Ventaja clave",
+   "hi": "मुख्य लाभ"
+  },
+  "Who this is for": {
+   "es": "Para quién es",
+   "hi": "यह किसके लिए है"
+  },
+  "Full Product Profile": {
+   "es": "Ficha completa del producto",
+   "hi": "पूरी उत्पाद जानकारी"
+  },
+  "How to Share the Story": {
+   "es": "Cómo contar la historia",
+   "hi": "कहानी कैसे साझा करें"
+  },
+  "Where to start, in order": {
+   "es": "Por dónde empezar, en orden",
+   "hi": "कहाँ से शुरू करें, क्रम में"
+  },
+  "Why a clean checkup still leaves you feeling off": {
+   "es": "Por qué un chequeo normal no explica cómo te sientes",
+   "hi": "सामान्य जाँच के बावजूद ठीक क्यों नहीं लगता"
+  },
+  "Partner ✓": {
+   "es": "Socio ✓",
+   "hi": "पार्टनर ✓"
+  },
+  "Enter partner passcode": {
+   "es": "Introduce el código de socio",
+   "hi": "पार्टनर पासकोड डालें"
+  },
+  "Incorrect passcode": {
+   "es": "Código incorrecto",
+   "hi": "गलत पासकोड"
+  },
+  "This is an area people often manage with a doctor. Nothing here diagnoses, treats or replaces medical care, and nothing here should be started in place of a treatment you have been prescribed. If a symptom is new, worsening, or you are pregnant, breastfeeding or on medication, speak with your physician first.": {
+   "es": "Esta es un área que la gente suele manejar con un médico. Nada de lo que hay aquí diagnostica, trata ni sustituye la atención médica, y nada de esto debe iniciarse en lugar de un tratamiento que te hayan recetado. Si un síntoma es nuevo, va a peor, o estás embarazada, en lactancia o tomando medicación, habla primero con tu médico.",
+   "hi": "यह ऐसा क्षेत्र है जिसे लोग आमतौर पर डॉक्टर के साथ सँभालते हैं। यहाँ दी गई कोई भी बात रोग की पहचान या इलाज नहीं करती, न ही चिकित्सा देखभाल की जगह लेती है, और इसे आपके लिए निर्धारित किसी उपचार के बदले शुरू नहीं करना चाहिए। यदि कोई लक्षण नया है, बढ़ रहा है, या आप गर्भवती हैं, स्तनपान करा रही हैं या कोई दवा ले रही हैं, तो पहले अपने डॉक्टर से बात करें।"
+  },
+  "Tap <b>+</b> on any product to build a plan. You will see what the order costs today and what it costs per month to keep going.": {
+   "es": "Toca <b>+</b> en cualquier producto para armar un plan. Verás cuánto cuesta el pedido hoy y cuánto cuesta al mes mantenerlo.",
+   "hi": "योजना बनाने के लिए किसी भी उत्पाद पर <b>+</b> दबाएँ। आपको दिखेगा कि आज ऑर्डर की लागत कितनी है और इसे जारी रखने पर हर महीने कितनी।"
+  },
+  "Content on this page is general wellness education, not medical advice. Shipping estimate based on published US rates (free ground shipping on orders $150+).": {
+   "es": "El contenido de esta página es educación general sobre bienestar, no consejo médico. El envío estimado se basa en las tarifas publicadas en EE. UU. (envío terrestre gratis en pedidos de más de $150).",
+   "hi": "इस पृष्ठ की सामग्री सामान्य स्वास्थ्य शिक्षा है, चिकित्सा सलाह नहीं। शिपिंग अनुमान अमेरिका की प्रकाशित दरों पर आधारित है ($150 से ऊपर के ऑर्डर पर मुफ़्त ग्राउंड शिपिंग)।"
   }
  }
 }

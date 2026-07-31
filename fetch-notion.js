@@ -152,6 +152,8 @@ async function main() {
           blurbZh: text(P.Blurb_ZH),
           overview: text(P.Overview),
           overviewZh: text(P.Overview_ZH),
+          name_es: text(P.Name_ES), blurb_es: text(P.Blurb_ES), overview_es: text(P.Overview_ES),
+          name_hi: text(P.Name_HI), blurb_hi: text(P.Blurb_HI), overview_hi: text(P.Overview_HI),
           sensitive: check(P.Sensitive),
         };
       })
@@ -163,15 +165,22 @@ async function main() {
     console.warn('Areas DB not readable, using local snapshot:', e.message);
   }
   areasOut.sort((a, b) => a.order - b.order);
-  const areas = areasOut.map((a) => ({
-    id: a.id, name: a.name, nameZh: a.nameZh,
-    blurb: a.blurb, blurbZh: a.blurbZh, sensitive: !!a.sensitive,
-  }));
+  // Only emit translation fields that actually have text, so a blank Notion cell
+  // falls through to English rather than rendering as an empty string.
+  const LANGS_EXTRA = ['es', 'hi'];
+  const areas = areasOut.map((a) => {
+    const o = { id: a.id, name: a.name, nameZh: a.nameZh,
+                blurb: a.blurb, blurbZh: a.blurbZh, sensitive: !!a.sensitive };
+    LANGS_EXTRA.forEach((L) => ['name', 'blurb'].forEach((f) => {
+      if (a[f + '_' + L]) o[f + '_' + L] = a[f + '_' + L];
+    }));
+    return o;
+  });
   const areaOverview = Object.fromEntries(
     areasOut.filter((a) => a.overview).map((a) => [a.id, [a.overview, a.overviewZh]]));
 
 
-  // Protocol Map DB → { areaId: { overview, rows:[{stage, rank, route, productIds, why, whyEn}] } }
+  // Protocol Map DB → { areaId: { overview, rows:[{stage, rank, route, productIds, why, whyZh}] } }
   // Stage headings and the per-area overview text live in scripts/protocol.json;
   // Notion owns the rows. Only rows with "Show on site" checked are published.
   const protoLocal = JSON.parse(fs.readFileSync(PROTOFILE, 'utf8'));
@@ -202,16 +211,24 @@ async function main() {
       if (!ids.length) continue;
       const base = protoLocal.areas[areaId] || {};
       const ov = areaOverview[areaId] || [base.overview || '', base.overviewZh || ''];
-      protocol.areas[areaId] = protocol.areas[areaId] ||
-        { overview: ov[0], overviewZh: ov[1], rows: [] };
+      if (!protocol.areas[areaId]) {
+        protocol.areas[areaId] = { overview: ov[0], overviewZh: ov[1], rows: [] };
+        const src = areasOut.find((a) => a.id === areaId) || {};
+        LANGS_EXTRA.forEach((L) => {
+          if (src['overview_' + L]) protocol.areas[areaId]['overview_' + L] = src['overview_' + L];
+        });
+      }
       protocol.areas[areaId].rows.push({
         stage,
         rank: num(P.Rank) || 9,
         route: ROUTE_KEY[(P.Route && P.Route.select ? P.Route.select.name : '')
           .replace(/ .*$/, '')] || 'internal',
         productIds: ids,
-        why: text(P.Why),
-        whyEn: text(P.Why_EN),
+        key: text(P.Row_Key) || undefined,
+        why: text(P.Why_EN),
+        whyZh: text(P.Why),
+        ...(text(P.Why_ES) ? { why_es: text(P.Why_ES) } : {}),
+        ...(text(P.Why_HI) ? { why_hi: text(P.Why_HI) } : {}),
       });
     }
     Object.values(protocol.areas).forEach((a) => a.rows.sort((x, y) => x.rank - y.rank));
@@ -230,6 +247,7 @@ async function main() {
     tiles,
     details,
     protocol,
+    ui: JSON.parse(fs.readFileSync(path.join(__dirname, 'i18n.json'), 'utf8')).ui || {},
   };
 
   fs.mkdirSync(path.dirname(OUTFILE), { recursive: true });

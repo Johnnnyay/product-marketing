@@ -60,8 +60,9 @@
       "Prebiotic Fiber",
       "Plant Protein Powder"
      ],
-     "whyEn": "Start here because this is the best-evidenced diet link in acne. A high-glycemic meal spikes insulin, insulin raises IGF-1, and IGF-1 does two things at once: it tells sebaceous cells to make more oil, and it raises inflammatory signalling inside those same cells. In trials, two weeks of a low-glycemic-load diet measurably dropped IGF-1, and twelve weeks dropped lesion counts. You do not have to quit rice. You have to stop the spike: slow the starch, add fibre alongside it, and put protein where a refined-carb breakfast used to be.",
-     "why": "从这里开始，因为这是痘痘领域证据最强的一条饮食链。一顿高升糖的饭把胰岛素顶上去，胰岛素抬高IGF-1，而IGF-1同时做两件事：让皮脂腺细胞多产油，并且提高这些细胞内部的炎症信号。临床试验里，低升糖负荷饮食两周就能实测降低IGF-1，十二周降低痘的数量。你不需要戒掉米饭，你需要的是掐掉那个尖峰：把淀粉的分解放慢，同一餐配上纤维，再把原来那份精致碳水早餐换成蛋白质。"
+     "why": "Start here because this is the best-evidenced diet link in acne. A high-glycemic meal spikes insulin, insulin raises IGF-1, and IGF-1 does two things at once: it tells sebaceous cells to make more oil, and it raises inflammatory signalling inside those same cells. In trials, two weeks of a low-glycemic-load diet measurably dropped IGF-1, and twelve weeks dropped lesion counts. You do not have to quit rice. You have to stop the spike: slow the starch, add fibre alongside it, and put protein where a refined-carb breakfast used to be.",
+     "key": "skin.clear.carb-blocker",
+     "whyZh": "从这里开始，因为这是痘痘领域证据最强的一条饮食链。一顿高升糖的饭把胰岛素顶上去，胰岛素抬高IGF-1，而IGF-1同时做两件事：让皮脂腺细胞多产油，并且提高这些细胞内部的炎症信号。临床试验里，低升糖负荷饮食两周就能实测降低IGF-1，十二周降低痘的数量。你不需要戒掉米饭，你需要的是掐掉那个尖峰：把淀粉的分解放慢，同一餐配上纤维，再把原来那份精致碳水早餐换成蛋白质。"
     },
     {
      "stage": "clear",
@@ -72,8 +73,9 @@
       "Green Superfood",
       "Liver Support"
      ],
-     "whyEn": "The second load is the gut. When the gut ecology tips, barrier permeability rises and metabolites that should have left the body get through instead, which raises inflammation everywhere, skin included. There is a second cost people miss: the same dysbiosis impairs absorption of zinc, selenium and omega-3, which are exactly the nutrients the repair stage depends on. So this is not only about clearing, it decides whether step three will work at all. Fibre carries out, probiotics rebuild, and the liver handles what the gut passes on.",
-     "why": "第二个负担在肠道。肠道生态一旦失衡，肠壁通透性升高，本该排出体外的代谢物反而穿过屏障进入循环，全身的炎症水平随之上升，皮肤也在其中。还有一笔很多人漏掉的代价：同样的菌群失衡会损害锌、硒和Omega-3的吸收，而这几样恰恰是后面「补」那一步要用的原料。所以这一步不只是清，它决定了第三步能不能生效。纤维负责带走，益生菌负责重建，肝脏处理肠道递上来的那一部分。"
+     "why": "The second load is the gut. When the gut ecology tips, barrier permeability rises and metabolites that should have left the body get through instead, which raises inflammation everywhere, skin included. There is a second cost people miss: the same dysbiosis impairs absorption of zinc, selenium and omega-3, which are exactly the nutrients the repair stage depends on. So this is not only about clearing, it decides whether step three will work at all. Fibre carries out, probiotics rebuild, and the liver handles what the gut passes on.",
+     "key": "skin.clear.probiotic",
+     "whyZh": "第二个负担在肠道。肠道生态一旦失衡，肠壁通透性升高，本该排出体外的代谢物反而穿过屏障进入循环，全身的炎症水平随之上升，皮肤也在其中。还有一笔很多人漏掉的代价：同样的菌群失衡会损害锌、硒和Omega-3的吸收，而这几样恰恰是后面「补」那一步要用的原料。所以这一步不只是清，它决定了第三步能不能生效。纤维负责带走，益生菌负责重建，肝脏处理肠道递上来的那一部分。"
     },
     {
      "stage": "clear",
@@ -83,8 +85,9 @@
       "Artistry Studio Rose All Day Anti-Acne Toner",
       "Artistry Signature Select Purifying Mask"
      ],
-     "whyEn": "External clearing deals with the plug that is already in the pore. The reason salicylic acid is the standard here and not something that sounds stronger: it is oil-soluble, so it can travel through the sebum filling the pore and break the plug up from the inside. A water-soluble acid stays on the surface and never reaches it. Use the toner across the whole face rather than only on the spot you can see, because the pore that becomes next week's pimple is already clogged today. Once a week is enough for the mask; over-cleansing raises oil output.",
-     "why": "外清处理的是已经堵在毛孔里的那个栓子。水杨酸之所以是这里的标准配置，而不是某个听起来更猛的成分，原因很具体：它是脂溶性的，能穿过填满毛孔的油脂，从内部把栓子瓦解掉。水溶性的酸只停在表面，根本到不了那里。爽肤水要全脸用，而不是只点你看得见的那颗，因为下周会冒出来的那个毛孔，今天已经堵上了。面膜每周一次足够，过度清洁反而会让出油更多。"
+     "why": "External clearing deals with the plug that is already in the pore. The reason salicylic acid is the standard here and not something that sounds stronger: it is oil-soluble, so it can travel through the sebum filling the pore and break the plug up from the inside. A water-soluble acid stays on the surface and never reaches it. Use the toner across the whole face rather than only on the spot you can see, because the pore that becomes next week's pimple is already clogged today. Once a week is enough for the mask; over-cleansing raises oil output.",
+     "key": "skin.clear.artistry-studio-rose-all-day",
+     "whyZh": "外清处理的是已经堵在毛孔里的那个栓子。水杨酸之所以是这里的标准配置，而不是某个听起来更猛的成分，原因很具体：它是脂溶性的，能穿过填满毛孔的油脂，从内部把栓子瓦解掉。水溶性的酸只停在表面，根本到不了那里。爽肤水要全脸用，而不是只点你看得见的那颗，因为下周会冒出来的那个毛孔，今天已经堵上了。面膜每周一次足够，过度清洁反而会让出油更多。"
     },
     {
      "stage": "regulate",
@@ -94,8 +97,9 @@
       "Begin Daily GI Primer",
       "Digestive Enzyme"
      ],
-     "whyEn": "This stage is about conversion rate. Swallowing zinc, vitamin C and B vitamins is not the same as absorbing them, and poorly digested food left sitting in the gut adds back to the load you just spent step one reducing. For anyone who eats out most days or bloats after a big meal, skipping this step is why the supplements in step three underperform. The 6-in-1 folds clearing and regulating into one drink if you would rather not manage four bottles.",
-     "why": "这一步管的是转化率。把锌、维生素C和B族吞下去，跟真正吸收进去是两件事；而消化不完全、滞留在肠道里的食物残渣，又会把你第一步刚卸掉的负担加回来。对于经常在外面吃、或者大餐后腹胀的人，跳过这一步，就是第三步的营养素效果打折的原因。如果不想同时管三四瓶，六合一把清和调压进一杯里。"
+     "why": "This stage is about conversion rate. Swallowing zinc, vitamin C and B vitamins is not the same as absorbing them, and poorly digested food left sitting in the gut adds back to the load you just spent step one reducing. For anyone who eats out most days or bloats after a big meal, skipping this step is why the supplements in step three underperform. The 6-in-1 folds clearing and regulating into one drink if you would rather not manage four bottles.",
+     "key": "skin.regulate.begin-daily-gi-primer",
+     "whyZh": "这一步管的是转化率。把锌、维生素C和B族吞下去，跟真正吸收进去是两件事；而消化不完全、滞留在肠道里的食物残渣，又会把你第一步刚卸掉的负担加回来。对于经常在外面吃、或者大餐后腹胀的人，跳过这一步，就是第三步的营养素效果打折的原因。如果不想同时管三四瓶，六合一把清和调压进一杯里。"
     },
     {
      "stage": "regulate",
@@ -105,8 +109,9 @@
       "Artistry Studio Spot On Dots",
       "Artistry Studio Done with Zit"
      ],
-     "whyEn": "A patch is not clearing anything, it is regulating how one lesion heals, which is why it sits here rather than in step one. It seals the spot into a moist, closed environment, keeps outside bacteria and air oxidation off an open surface, and physically stops you touching it. That last part matters most: picking is the single biggest cause of the mark left behind, and a mark outlasts the pimple by months. In a controlled trial, patched lesions scored better on crusting, redness, size and elevation. The spot gel is for the one that has not opened yet.",
-     "why": "痘痘贴不是在清理什么，它调控的是一颗痘的愈合环境，所以它放在这一步而不是第一步。它把这颗痘封成一个湿润的闭合环境，隔绝外界细菌和空气氧化，并且在物理上让你碰不到它。最后这一点最关键：抠，是留下痘印的头号原因，而痘印比痘本身要多留好几个月。在对照试验里，贴过的痘在结痂、泛红、大小和凸起这几项上评分都更好。凝胶留给还没破的那一颗。"
+     "why": "A patch is not clearing anything, it is regulating how one lesion heals, which is why it sits here rather than in step one. It seals the spot into a moist, closed environment, keeps outside bacteria and air oxidation off an open surface, and physically stops you touching it. That last part matters most: picking is the single biggest cause of the mark left behind, and a mark outlasts the pimple by months. In a controlled trial, patched lesions scored better on crusting, redness, size and elevation. The spot gel is for the one that has not opened yet.",
+     "key": "skin.regulate.artistry-studio-spot-on-dots",
+     "whyZh": "痘痘贴不是在清理什么，它调控的是一颗痘的愈合环境，所以它放在这一步而不是第一步。它把这颗痘封成一个湿润的闭合环境，隔绝外界细菌和空气氧化，并且在物理上让你碰不到它。最后这一点最关键：抠，是留下痘印的头号原因，而痘印比痘本身要多留好几个月。在对照试验里，贴过的痘在结痂、泛红、大小和凸起这几项上评分都更好。凝胶留给还没破的那一颗。"
     },
     {
      "stage": "regulate",
@@ -117,8 +122,9 @@
       "Artistry Studio Glow Boss Cleanser + Exfoliator",
       "Artistry Men Face Wash"
      ],
-     "whyEn": "Cleansing is where most people make things worse without knowing. Harsh surfactants strip the barrier lipids, the skin reads that as damage, and sebum output goes up to compensate. So the person who washes four times a day to control oil ends up producing more of it. A mousse dilutes and distributes the surfactant before it reaches your face, which is the whole point of the format. Daily gentle exfoliation beats aggressive weekly scrubbing; pick the exfoliating one only if your skin is genuinely congested.",
-     "why": "洗脸是多数人不知不觉把事情弄糟的地方。清洁力过强的表面活性剂会把屏障脂质剥掉，皮肤把这个读成损伤，于是提高皮脂分泌来补偿。结果就是：一天洗四次脸想控油的人，最后出油更多。慕斯剂型在接触皮肤之前就把表面活性剂稀释并分散开，这就是这个剂型存在的意义。每天温和去角质好过每周一次猛搓；只有在皮肤确实堵得厉害时，才选带磨砂的那一支。"
+     "why": "Cleansing is where most people make things worse without knowing. Harsh surfactants strip the barrier lipids, the skin reads that as damage, and sebum output goes up to compensate. So the person who washes four times a day to control oil ends up producing more of it. A mousse dilutes and distributes the surfactant before it reaches your face, which is the whole point of the format. Daily gentle exfoliation beats aggressive weekly scrubbing; pick the exfoliating one only if your skin is genuinely congested.",
+     "key": "skin.regulate.artistry-hydrating-mousse-cl",
+     "whyZh": "洗脸是多数人不知不觉把事情弄糟的地方。清洁力过强的表面活性剂会把屏障脂质剥掉，皮肤把这个读成损伤，于是提高皮脂分泌来补偿。结果就是：一天洗四次脸想控油的人，最后出油更多。慕斯剂型在接触皮肤之前就把表面活性剂稀释并分散开，这就是这个剂型存在的意义。每天温和去角质好过每周一次猛搓；只有在皮肤确实堵得厉害时，才选带磨砂的那一支。"
     },
     {
      "stage": "supplement",
@@ -127,8 +133,9 @@
      "products": [
       "Vitamin B Complex 120ct"
      ],
-     "whyEn": "If the breakouts sit on the nose folds, the T-zone and the chin, that is the classic B2 pattern. B2 maintains sebaceous gland and follicle function; without it sebum regulation drifts, pores clog and inflame. B3 belongs to the same story from the other end, and its shortfall shows up as the rough little bumps on the backs of the arms and along the jaw. B vitamins are water-soluble and clear in roughly a day, so they only work daily. Late nights burn B2 faster, which is why the nose goes first after a bad week.",
-     "why": "如果痘集中在鼻唇沟、三角区和下巴，这是B2的典型分布。B2维护皮脂腺和毛囊的功能，缺了它，油脂分泌就会失调、毛孔堵塞、随即发炎。B3从另一头讲的是同一件事，它的不足表现为上臂外侧和下颌线上那些粗糙的小疙瘩。B族是水溶性的，大约一天就清空，所以它只有天天吃才有意义。熬夜会加速B2消耗，这就是为什么熬了糟糕的一周之后，先冒出来的往往是鼻子旁边那颗。"
+     "why": "If the breakouts sit on the nose folds, the T-zone and the chin, that is the classic B2 pattern. B2 maintains sebaceous gland and follicle function; without it sebum regulation drifts, pores clog and inflame. B3 belongs to the same story from the other end, and its shortfall shows up as the rough little bumps on the backs of the arms and along the jaw. B vitamins are water-soluble and clear in roughly a day, so they only work daily. Late nights burn B2 faster, which is why the nose goes first after a bad week.",
+     "key": "skin.supplement.vitamin-b-complex-120ct",
+     "whyZh": "如果痘集中在鼻唇沟、三角区和下巴，这是B2的典型分布。B2维护皮脂腺和毛囊的功能，缺了它，油脂分泌就会失调、毛孔堵塞、随即发炎。B3从另一头讲的是同一件事，它的不足表现为上臂外侧和下颌线上那些粗糙的小疙瘩。B族是水溶性的，大约一天就清空，所以它只有天天吃才有意义。熬夜会加速B2消耗，这就是为什么熬了糟糕的一周之后，先冒出来的往往是鼻子旁边那颗。"
     },
     {
      "stage": "supplement",
@@ -138,8 +145,9 @@
       "Plant Protein Powder",
       "Vitamin C Extended Release 180ct"
      ],
-     "whyEn": "These two are one job: rebuilding. Skin turns over every day, and without enough protein the old cells shed but the new ones cannot be built. Vitamin C is the cofactor the body needs to actually assemble that protein into collagen, which is what decides whether a pitted mark fills back in. Vitamin C has a second, separate action: it inhibits tyrosinase, so it slows new pigment forming. Read that carefully, it keeps marks from getting darker rather than bleaching the ones you already have, which is why it only pays off as a daily habit.",
-     "why": "这两样其实是同一件事：重建。皮肤每天都在更新，蛋白质不够，旧细胞脱落了，新细胞造不出来。而维生素C是身体把这些蛋白质真正组装成胶原蛋白所需的辅因子，痘坑能不能填回来，取决于这一步。维生素C还有第二个独立作用：抑制酪氨酸酶，从源头减缓新色素的生成。这句话要读仔细，它管的是让痘印不再变深，而不是把已有的印漂掉，所以它只有当成每日习惯才划算。"
+     "why": "These two are one job: rebuilding. Skin turns over every day, and without enough protein the old cells shed but the new ones cannot be built. Vitamin C is the cofactor the body needs to actually assemble that protein into collagen, which is what decides whether a pitted mark fills back in. Vitamin C has a second, separate action: it inhibits tyrosinase, so it slows new pigment forming. Read that carefully, it keeps marks from getting darker rather than bleaching the ones you already have, which is why it only pays off as a daily habit.",
+     "key": "skin.supplement.plant-protein-powder",
+     "whyZh": "这两样其实是同一件事：重建。皮肤每天都在更新，蛋白质不够，旧细胞脱落了，新细胞造不出来。而维生素C是身体把这些蛋白质真正组装成胶原蛋白所需的辅因子，痘坑能不能填回来，取决于这一步。维生素C还有第二个独立作用：抑制酪氨酸酶，从源头减缓新色素的生成。这句话要读仔细，它管的是让痘印不再变深，而不是把已有的印漂掉，所以它只有当成每日习惯才划算。"
     },
     {
      "stage": "supplement",
@@ -148,8 +156,9 @@
      "products": [
       "Artistry Vitamin C + HA3 Daily Serum"
      ],
-     "whyEn": "Oral and topical vitamin C are not interchangeable, which is why this sits beside the tablet rather than instead of it. Swallowed vitamin C is distributed by the bloodstream and reaches the outer skin layers poorly; applied vitamin C lands directly where the pigment is being made. Use them together and you are working the same tyrosinase step from both sides. The three hyaluronic acid weights are the second half of the bottle: large molecules hold water at the surface, smaller ones carry it deeper, and hydrated skin produces less oil, not more.",
-     "why": "口服维C和外用维C不能互相替代，所以这一条是放在药片旁边，而不是取而代之。吞下去的维C靠血液分配，到达皮肤外层的量很有限；涂上去的维C则直接落在色素正在生成的地方。两者一起用，等于从内外两侧作用在同一个酪氨酸酶环节上。三种分子量的玻尿酸是这瓶里的另一半：大分子在表层锁水，小分子往深处带，而水分充足的皮肤出油会更少，不是更多。"
+     "why": "Oral and topical vitamin C are not interchangeable, which is why this sits beside the tablet rather than instead of it. Swallowed vitamin C is distributed by the bloodstream and reaches the outer skin layers poorly; applied vitamin C lands directly where the pigment is being made. Use them together and you are working the same tyrosinase step from both sides. The three hyaluronic acid weights are the second half of the bottle: large molecules hold water at the surface, smaller ones carry it deeper, and hydrated skin produces less oil, not more.",
+     "key": "skin.supplement.artistry-vitamin-c-ha3-daily",
+     "whyZh": "口服维C和外用维C不能互相替代，所以这一条是放在药片旁边，而不是取而代之。吞下去的维C靠血液分配，到达皮肤外层的量很有限；涂上去的维C则直接落在色素正在生成的地方。两者一起用，等于从内外两侧作用在同一个酪氨酸酶环节上。三种分子量的玻尿酸是这瓶里的另一半：大分子在表层锁水，小分子往深处带，而水分充足的皮肤出油会更少，不是更多。"
     },
     {
      "stage": "supplement",
@@ -158,8 +167,9 @@
      "products": [
       "Vitamin E Chewable"
      ],
-     "whyEn": "This is the most specific mechanism on the page, and the one almost nobody explains. Acne skin produces roughly twice as much squalene as clear skin. Squalene itself is harmless; oxidised squalene is not, and its peroxide by-products are directly comedogenic and inflammatory. Measurements in acne patients show exactly that pattern: squalene peroxides up in the sebum, vitamin E and vitamin A down in the plasma. Vitamin E is the fat-phase antioxidant that sits inside that oil and stops the peroxidation. The lecithin alongside it is the same phospholipid your cell membranes are built from: an intact membrane holds water in and the cell stays a grape, a damaged one leaks and it becomes a raisin. That is also why topical moisturiser alone only goes so far.",
-     "why": "这是整页里最具体的一条机制，也是几乎没人讲清楚的一条。痘痘肌分泌的角鲨烯大约是健康皮肤的两倍。角鲨烯本身无害，但氧化后的角鲨烯不是，它的过氧化产物直接具有致粉刺性和促炎性。在痘痘患者身上实测到的正是这个组合：皮脂里角鲨烯过氧化物升高，血浆里维生素E和维生素A降低。维生素E是驻守在油脂相里的抗氧化剂，它的位置就在那层油里，作用就是阻止这个氧化过程。同时配的卵磷脂，与细胞膜的磷脂成分相同：膜完整，水分锁得住，细胞是饱满的葡萄；膜破损，水从里面跑掉，就成了葡萄干。这也解释了为什么只靠外用保湿，效果总是有限。"
+     "why": "This is the most specific mechanism on the page, and the one almost nobody explains. Acne skin produces roughly twice as much squalene as clear skin. Squalene itself is harmless; oxidised squalene is not, and its peroxide by-products are directly comedogenic and inflammatory. Measurements in acne patients show exactly that pattern: squalene peroxides up in the sebum, vitamin E and vitamin A down in the plasma. Vitamin E is the fat-phase antioxidant that sits inside that oil and stops the peroxidation. The lecithin alongside it is the same phospholipid your cell membranes are built from: an intact membrane holds water in and the cell stays a grape, a damaged one leaks and it becomes a raisin. That is also why topical moisturiser alone only goes so far.",
+     "key": "skin.supplement.vitamin-e-chewable",
+     "whyZh": "这是整页里最具体的一条机制，也是几乎没人讲清楚的一条。痘痘肌分泌的角鲨烯大约是健康皮肤的两倍。角鲨烯本身无害，但氧化后的角鲨烯不是，它的过氧化产物直接具有致粉刺性和促炎性。在痘痘患者身上实测到的正是这个组合：皮脂里角鲨烯过氧化物升高，血浆里维生素E和维生素A降低。维生素E是驻守在油脂相里的抗氧化剂，它的位置就在那层油里，作用就是阻止这个氧化过程。同时配的卵磷脂，与细胞膜的磷脂成分相同：膜完整，水分锁得住，细胞是饱满的葡萄；膜破损，水从里面跑掉，就成了葡萄干。这也解释了为什么只靠外用保湿，效果总是有限。"
     },
     {
      "stage": "supplement",
@@ -168,8 +178,9 @@
      "products": [
       "Advanced Omega"
      ],
-     "whyEn": "Omega-3 works on two of the four steps at once: it slows the hyperkeratinisation that forms the plug, and it lowers leukotriene B4, one of the signals that turns a clogged pore into an inflamed one. The reason this is almost always a real gap is the ratio, not the absence: modern diets carry plenty of omega-6 and very little omega-3, and the balance between them is what sets the inflammatory tone. If you rarely eat oily fish, assume the gap is there.",
-     "why": "Omega-3 同时作用在四步中的两步：它减缓形成栓子的角化过度，并且降低白三烯B4，那是把一个堵住的毛孔推向发炎的信号之一。这一项之所以几乎总是真实存在的缺口，问题不在于完全没有，而在于比例：现代饮食里Omega-6很多、Omega-3很少，而决定炎症基调的正是两者的比例。如果你很少吃深海鱼，就默认这个缺口存在。"
+     "why": "Omega-3 works on two of the four steps at once: it slows the hyperkeratinisation that forms the plug, and it lowers leukotriene B4, one of the signals that turns a clogged pore into an inflamed one. The reason this is almost always a real gap is the ratio, not the absence: modern diets carry plenty of omega-6 and very little omega-3, and the balance between them is what sets the inflammatory tone. If you rarely eat oily fish, assume the gap is there.",
+     "key": "skin.supplement.advanced-omega",
+     "whyZh": "Omega-3 同时作用在四步中的两步：它减缓形成栓子的角化过度，并且降低白三烯B4，那是把一个堵住的毛孔推向发炎的信号之一。这一项之所以几乎总是真实存在的缺口，问题不在于完全没有，而在于比例：现代饮食里Omega-6很多、Omega-3很少，而决定炎症基调的正是两者的比例。如果你很少吃深海鱼，就默认这个缺口存在。"
     },
     {
      "stage": "supplement",
@@ -179,8 +190,9 @@
       "Immunity Defense Zinc + Holy Basil",
       "Vitamin D"
      ],
-     "whyEn": "Both of these show up as measured shortfalls rather than theory. Serum zinc runs lower in people with acne than in controls, and lowest in the most severe grades; trials adding zinc report fewer inflammatory lesions. Vitamin D follows the same shape: deficiency is roughly twice as common in acne patients as in matched controls, and levels track inversely with severity. Neither is a treatment. Both are worth closing if the gap is yours, and vitamin D is one of the few things here a blood panel can actually tell you about.",
-     "why": "这两样都是实测出来的缺口，不是推论。痘痘人群的血清锌水平低于对照组，而且分级越重的人越低；补锌的试验报告炎症性皮损减少。维生素D是同样的形状：痘痘人群的缺乏率大约是对照组的两倍，血清水平与严重程度呈负相关。两者都不是治疗手段。但如果这个缺口在你身上，就值得补上；而且维生素D是这一页里少数几个抽血就能看清楚的指标之一。"
+     "why": "Both of these show up as measured shortfalls rather than theory. Serum zinc runs lower in people with acne than in controls, and lowest in the most severe grades; trials adding zinc report fewer inflammatory lesions. Vitamin D follows the same shape: deficiency is roughly twice as common in acne patients as in matched controls, and levels track inversely with severity. Neither is a treatment. Both are worth closing if the gap is yours, and vitamin D is one of the few things here a blood panel can actually tell you about.",
+     "key": "skin.supplement.immunity-defense-zinc-holy-b",
+     "whyZh": "这两样都是实测出来的缺口，不是推论。痘痘人群的血清锌水平低于对照组，而且分级越重的人越低；补锌的试验报告炎症性皮损减少。维生素D是同样的形状：痘痘人群的缺乏率大约是对照组的两倍，血清水平与严重程度呈负相关。两者都不是治疗手段。但如果这个缺口在你身上，就值得补上；而且维生素D是这一页里少数几个抽血就能看清楚的指标之一。"
     },
     {
      "stage": "supplement",
@@ -190,8 +202,9 @@
       "Concentrated Fruits & Vegetables",
       "Calcium Magnesium D"
      ],
-     "whyEn": "Two supporting lines. Plant antioxidants work in the water phase where vitamin E works in the oil phase, and the carotenoid families are also where the body sources vitamin A, the other nutrient measured low in acne plasma. Calcium and magnesium are here for a different reason: they maintain neuromuscular excitability, and when they are short the body will not release even after you lie down. Across the 72 client assessments we have on file, 77% of acne cases also reported chronic late nights, and skin repair happens overnight.",
-     "why": "两条辅助线。植物抗氧化物工作在水相，而维生素E工作在油相，两者互补；而类胡萝卜素家族同时也是身体获取维生素A的来源，那是痘痘人群血浆里另一个被测出偏低的营养素。钙镁放在这里是另一个理由：它们维持神经肌肉的兴奋性，缺的时候人躺下了也放松不下来。在我们手上的72份健康评估里，77%的痘痘案例同时存在长期晚睡，而皮肤的修复发生在夜里。"
+     "why": "Two supporting lines. Plant antioxidants work in the water phase where vitamin E works in the oil phase, and the carotenoid families are also where the body sources vitamin A, the other nutrient measured low in acne plasma. Calcium and magnesium are here for a different reason: they maintain neuromuscular excitability, and when they are short the body will not release even after you lie down. Across the 72 client assessments we have on file, 77% of acne cases also reported chronic late nights, and skin repair happens overnight.",
+     "key": "skin.supplement.concentrated-fruits-vegetabl",
+     "whyZh": "两条辅助线。植物抗氧化物工作在水相，而维生素E工作在油相，两者互补；而类胡萝卜素家族同时也是身体获取维生素A的来源，那是痘痘人群血浆里另一个被测出偏低的营养素。钙镁放在这里是另一个理由：它们维持神经肌肉的兴奋性，缺的时候人躺下了也放松不下来。在我们手上的72份健康评估里，77%的痘痘案例同时存在长期晚睡，而皮肤的修复发生在夜里。"
     },
     {
      "stage": "sustain",
@@ -201,8 +214,9 @@
       "Artistry Multi-Defense UV Protect SPF50",
       "Artistry Hydrating Day Lotion SPF30"
      ],
-     "whyEn": "Sunscreen is usually sold to acne-prone skin as mark protection, and that undersells it. UV generates reactive oxygen species in the skin, and those are what oxidise the squalene in your sebum into the comedogenic by-products from the replenish stage. So this step is not only protecting the result, it is cutting off one of the sources upstream. Texture is the whole decision here: a heavy sunscreen clogs pores and sends you back to step one, which is why a lightweight formula that layers without pilling is the one that actually gets worn.",
-     "why": "防晒卖给油痘肌的时候，通常被说成是保护痘印不变深，这个说法把它讲小了。紫外线在皮肤里产生活性氧，而正是这些活性氧把你皮脂中的角鲨烯氧化成「补」那一步讲的致粉刺产物。所以这一步不只是守住成果，它同时切断了上游的一个源头。这里唯一要决定的是肤感：厚重的防晒本身堵毛孔，那就又回到第一步了，所以能真正被涂上脸的，是那支轻盈、能叠涂而不搓泥的。"
+     "why": "Sunscreen is usually sold to acne-prone skin as mark protection, and that undersells it. UV generates reactive oxygen species in the skin, and those are what oxidise the squalene in your sebum into the comedogenic by-products from the replenish stage. So this step is not only protecting the result, it is cutting off one of the sources upstream. Texture is the whole decision here: a heavy sunscreen clogs pores and sends you back to step one, which is why a lightweight formula that layers without pilling is the one that actually gets worn.",
+     "key": "skin.sustain.artistry-multi-defense-uv-pr",
+     "whyZh": "防晒卖给油痘肌的时候，通常被说成是保护痘印不变深，这个说法把它讲小了。紫外线在皮肤里产生活性氧，而正是这些活性氧把你皮脂中的角鲨烯氧化成「补」那一步讲的致粉刺产物。所以这一步不只是守住成果，它同时切断了上游的一个源头。这里唯一要决定的是肤感：厚重的防晒本身堵毛孔，那就又回到第一步了，所以能真正被涂上脸的，是那支轻盈、能叠涂而不搓泥的。"
     },
     {
      "stage": "sustain",
@@ -212,8 +226,9 @@
       "Artistry Sleeping Mask",
       "Artistry Correcting Serum"
      ],
-     "whyEn": "Water-oil balance is the part oily skin gets backwards. Dehydrated skin does not produce less oil, it produces more, because the barrier reads dryness as damage. Hydration and oil control are the same project, not opposites. Overnight is when to do it: skin repair peaks while you sleep, so a leave-on mask is working with the window rather than against the day. The correcting serum is for the stage after, when the acne is handled and what is left is the marks, which are pigment rather than scars and will respond given enough weeks.",
-     "why": "水油平衡是油性皮肤最容易搞反的一环。缺水的皮肤不会少出油，而是会出更多油，因为屏障把干燥读成了损伤。补水和控油是同一个工程，不是对立面。而做这件事的时间是夜里：皮肤修复在睡眠中达到峰值，所以免洗的睡眠面膜是顺着这个修复窗口在做事，而不是跟白天硬碰硬。焕颜精华留给下一个阶段，痘控制住了、只剩痘印的时候，那是色素沉着而不是疤痕，给够周数它是会退的。"
+     "why": "Water-oil balance is the part oily skin gets backwards. Dehydrated skin does not produce less oil, it produces more, because the barrier reads dryness as damage. Hydration and oil control are the same project, not opposites. Overnight is when to do it: skin repair peaks while you sleep, so a leave-on mask is working with the window rather than against the day. The correcting serum is for the stage after, when the acne is handled and what is left is the marks, which are pigment rather than scars and will respond given enough weeks.",
+     "key": "skin.sustain.artistry-sleeping-mask",
+     "whyZh": "水油平衡是油性皮肤最容易搞反的一环。缺水的皮肤不会少出油，而是会出更多油，因为屏障把干燥读成了损伤。补水和控油是同一个工程，不是对立面。而做这件事的时间是夜里：皮肤修复在睡眠中达到峰值，所以免洗的睡眠面膜是顺着这个修复窗口在做事，而不是跟白天硬碰硬。焕颜精华留给下一个阶段，痘控制住了、只剩痘印的时候，那是色素沉着而不是疤痕，给够周数它是会退的。"
     },
     {
      "stage": "sustain",
@@ -223,8 +238,9 @@
       "Sleep Gummies",
       "Organics Ashwagandha Capsules"
      ],
-     "whyEn": "Sleep is the free half of this plan, and the mechanism is more specific than people assume. Sebaceous cells carry receptors for corticotropin-releasing hormone, the stress signal. CRH does two things when it binds: it raises sebum output, and it activates the enzyme that converts precursors into active androgens, which raises sebum again. Skin sampled from acne-involved areas shows markedly stronger CRH receptor expression than clear skin on the same person. That is the mechanism behind breaking out after a bad week. Neither of these replaces going to bed earlier; they only help you land that step.",
-     "why": "睡眠是这套方案里免费的那一半，而它的机制比多数人以为的要具体。皮脂腺细胞上带有促肾上腺皮质激素释放激素（CRH，也就是压力信号）的受体。CRH结合上去之后做两件事：提高皮脂分泌，并激活把前体转化为活性雄激素的那个酶，于是皮脂再一次上升。取自痘痘部位的皮肤样本，其CRH受体表达明显强于同一个人身上没长痘的皮肤。这就是压力大的一周之后爆痘的机制。这两样都不能替代早睡，它们只是帮你把早睡这一步落地。"
+     "why": "Sleep is the free half of this plan, and the mechanism is more specific than people assume. Sebaceous cells carry receptors for corticotropin-releasing hormone, the stress signal. CRH does two things when it binds: it raises sebum output, and it activates the enzyme that converts precursors into active androgens, which raises sebum again. Skin sampled from acne-involved areas shows markedly stronger CRH receptor expression than clear skin on the same person. That is the mechanism behind breaking out after a bad week. Neither of these replaces going to bed earlier; they only help you land that step.",
+     "key": "skin.sustain.sleep-gummies",
+     "whyZh": "睡眠是这套方案里免费的那一半，而它的机制比多数人以为的要具体。皮脂腺细胞上带有促肾上腺皮质激素释放激素（CRH，也就是压力信号）的受体。CRH结合上去之后做两件事：提高皮脂分泌，并激活把前体转化为活性雄激素的那个酶，于是皮脂再一次上升。取自痘痘部位的皮肤样本，其CRH受体表达明显强于同一个人身上没长痘的皮肤。这就是压力大的一周之后爆痘的机制。这两样都不能替代早睡，它们只是帮你把早睡这一步落地。"
     }
    ]
   },
@@ -239,8 +255,9 @@
      "products": [
       "Liver Support"
      ],
-     "why": "用过的雌激素是经肝脏灭活之后才能排出的。肝的处理能力一旦跟不上，激素就堆在系统里，表现出来就是经前下颌线那几颗痘、情绪波动和胀痛。所以周期性痘痘的第一步不在脸上，在肝。这也解释了为什么外用能压住一次，下个月同一个位置又会回来。",
-     "whyEn": "Used oestrogen has to be deactivated by the liver before it can leave the body. When liver capacity falls behind, hormones back up in the system, and what you see is the same few jawline spots before every period, along with mood swings and tenderness. So the first step in cyclical acne is not on the face, it is at the liver. It also explains why a topical can flatten one round and the same spot returns next month."
+     "why": "Used oestrogen has to be deactivated by the liver before it can leave the body. When liver capacity falls behind, hormones back up in the system, and what you see is the same few jawline spots before every period, along with mood swings and tenderness. So the first step in cyclical acne is not on the face, it is at the liver. It also explains why a topical can flatten one round and the same spot returns next month.",
+     "key": "hormone.clear.liver-support",
+     "whyZh": "用过的雌激素是经肝脏灭活之后才能排出的。肝的处理能力一旦跟不上，激素就堆在系统里，表现出来就是经前下颌线那几颗痘、情绪波动和胀痛。所以周期性痘痘的第一步不在脸上，在肝。这也解释了为什么外用能压住一次，下个月同一个位置又会回来。"
     },
     {
      "stage": "regulate",
@@ -249,8 +266,9 @@
      "products": [
       "Cycle Support"
      ],
-     "why": "圣洁莓是周期类植物成分里研究历史最长的一味。用法上有一个关键点很多人做错：它要整月连续吃，而不是难受那几天才吃。因为你要支持的是一个月节律，不是一个日节律。同理，看效果要看三个周期，而不是三周。",
-     "whyEn": "Chasteberry has the longest research history of any botanical used for cycle comfort. One usage point trips most people up: it is taken continuously through the month, not only on the difficult days, because the rhythm being supported is monthly rather than daily. By the same logic, judge it over three cycles, not three weeks."
+     "why": "Chasteberry has the longest research history of any botanical used for cycle comfort. One usage point trips most people up: it is taken continuously through the month, not only on the difficult days, because the rhythm being supported is monthly rather than daily. By the same logic, judge it over three cycles, not three weeks.",
+     "key": "hormone.regulate.cycle-support",
+     "whyZh": "圣洁莓是周期类植物成分里研究历史最长的一味。用法上有一个关键点很多人做错：它要整月连续吃，而不是难受那几天才吃。因为你要支持的是一个月节律，不是一个日节律。同理，看效果要看三个周期，而不是三周。"
     },
     {
      "stage": "supplement",
@@ -259,8 +277,9 @@
      "products": [
       "Calcium Magnesium D"
      ],
-     "why": "女性每个月的生理周期都会带走一批镁和铁。这意味着女性的矿物质缺口是每月重新出现的，不是补一次就完事。而钙镁同时维持神经肌肉兴奋性，这直接对应经期绞痛和经前的紧绷感。所以这一步是周期方案里最不该省的一步。",
-     "whyEn": "A woman's monthly cycle carries out a batch of magnesium and iron, so the mineral deficit reopens every month rather than being filled once. Calcium and magnesium also maintain neuromuscular excitability, which maps directly onto cramping and premenstrual tension. This is the step least worth skipping in a cycle protocol."
+     "why": "A woman's monthly cycle carries out a batch of magnesium and iron, so the mineral deficit reopens every month rather than being filled once. Calcium and magnesium also maintain neuromuscular excitability, which maps directly onto cramping and premenstrual tension. This is the step least worth skipping in a cycle protocol.",
+     "key": "hormone.supplement.calcium-magnesium-d",
+     "whyZh": "女性每个月的生理周期都会带走一批镁和铁。这意味着女性的矿物质缺口是每月重新出现的，不是补一次就完事。而钙镁同时维持神经肌肉兴奋性，这直接对应经期绞痛和经前的紧绷感。所以这一步是周期方案里最不该省的一步。"
     },
     {
      "stage": "supplement",
@@ -269,8 +288,9 @@
      "products": [
       "Vitamin B Complex 120ct"
      ],
-     "why": "B 族是水溶性的，体内存不住，基本 24 小时清空，所以它必须每天补。对周期这条线而言，B6 参与神经递质合成，是经前情绪波动最常被提到的一个环节；而 B2 维护皮脂腺与毛囊功能，直接接回下颌线那几颗痘。一瓶盖两条线。",
-     "whyEn": "B vitamins are water-soluble and cannot be stored, clearing in roughly 24 hours, so they have to be taken daily. On the cycle line specifically, B6 is involved in neurotransmitter synthesis and is the link most often cited for premenstrual mood shifts, while B2 maintains sebaceous gland and follicle function, which connects straight back to jawline breakouts. One bottle covers both lines."
+     "why": "B vitamins are water-soluble and cannot be stored, clearing in roughly 24 hours, so they have to be taken daily. On the cycle line specifically, B6 is involved in neurotransmitter synthesis and is the link most often cited for premenstrual mood shifts, while B2 maintains sebaceous gland and follicle function, which connects straight back to jawline breakouts. One bottle covers both lines.",
+     "key": "hormone.supplement.vitamin-b-complex-120ct",
+     "whyZh": "B 族是水溶性的，体内存不住，基本 24 小时清空，所以它必须每天补。对周期这条线而言，B6 参与神经递质合成，是经前情绪波动最常被提到的一个环节；而 B2 维护皮脂腺与毛囊功能，直接接回下颌线那几颗痘。一瓶盖两条线。"
     },
     {
      "stage": "supplement",
@@ -279,8 +299,9 @@
      "products": [
       "Iron & Folic Acid"
      ],
-     "why": "铁是另一个每月被带走的矿物质。这也是为什么女性铁超标几乎不可能，而男性反而常见偏高，同一套方案，男女优先级本来就不一样。要注意的是：铁不该盲补，先看体检里的血红蛋白和铁蛋白。",
-     "whyEn": "Iron is the other mineral carried out every month, which is why high iron is nearly impossible in menstruating women and fairly common in men. The same protocol should not be prioritised the same way for both. One caution: iron should not be supplemented blind. Check haemoglobin and ferritin on a blood panel first."
+     "why": "Iron is the other mineral carried out every month, which is why high iron is nearly impossible in menstruating women and fairly common in men. The same protocol should not be prioritised the same way for both. One caution: iron should not be supplemented blind. Check haemoglobin and ferritin on a blood panel first.",
+     "key": "hormone.supplement.iron-folic-acid",
+     "whyZh": "铁是另一个每月被带走的矿物质。这也是为什么女性铁超标几乎不可能，而男性反而常见偏高，同一套方案，男女优先级本来就不一样。要注意的是：铁不该盲补，先看体检里的血红蛋白和铁蛋白。"
     },
     {
      "stage": "sustain",
@@ -289,8 +310,9 @@
      "products": [
       "Organics Ashwagandha Capsules"
      ],
-     "why": "适应原不是镇静剂，它调节的是皮质醇反应。而皮质醇和性激素共用一条合成原料链，长期高压会把这条链拿走。这就是为什么周期乱得最厉害的那几个月，往往也是最累的那几个月。放在「养」这一步，是因为它要解决的是背景类压力，不是当下症状。",
-     "whyEn": "Adaptogens are not sedatives; they moderate the cortisol response. Cortisol and the sex hormones share a synthesis pathway, and sustained pressure pulls capacity onto the cortisol side. That is why the months a cycle is most disrupted are usually also the most exhausting months. It sits in the Sustain stage because it addresses background load, not the symptom in front of you."
+     "why": "Adaptogens are not sedatives; they moderate the cortisol response. Cortisol and the sex hormones share a synthesis pathway, and sustained pressure pulls capacity onto the cortisol side. That is why the months a cycle is most disrupted are usually also the most exhausting months. It sits in the Sustain stage because it addresses background load, not the symptom in front of you.",
+     "key": "hormone.sustain.organics-ashwagandha-capsule",
+     "whyZh": "适应原不是镇静剂，它调节的是皮质醇反应。而皮质醇和性激素共用一条合成原料链，长期高压会把这条链拿走。这就是为什么周期乱得最厉害的那几个月，往往也是最累的那几个月。放在「养」这一步，是因为它要解决的是背景类压力，不是当下症状。"
     }
    ]
   },
@@ -306,8 +328,9 @@
       "Probiotic",
       "Prebiotic Fiber"
      ],
-     "why": "皮肤是排毒的备用通道。通道被迫开启，是因为主通道堵了。所以顽固湿疹的第一步不是从皮肤开始，而是先用益生菌重建菌群、用纤维把东西带走。只补菌不给纤维，等于招了人不给粮。反过来先在皮肤上使劲，等于一边堵备用出口一边不减压。",
-     "whyEn": "Skin is a backup detox route, and it opens because the main route is blocked. So the first step with stubborn eczema is not the skin: rebuild the flora with probiotics and give fibre to carry things out. Probiotics without fibre is hiring staff and not feeding them. Working on the skin first is closing the backup exit while leaving the pressure unchanged."
+     "why": "Skin is a backup detox route, and it opens because the main route is blocked. So the first step with stubborn eczema is not the skin: rebuild the flora with probiotics and give fibre to carry things out. Probiotics without fibre is hiring staff and not feeding them. Working on the skin first is closing the backup exit while leaving the pressure unchanged.",
+     "key": "eczema.clear.probiotic",
+     "whyZh": "皮肤是排毒的备用通道。通道被迫开启，是因为主通道堵了。所以顽固湿疹的第一步不是从皮肤开始，而是先用益生菌重建菌群、用纤维把东西带走。只补菌不给纤维，等于招了人不给粮。反过来先在皮肤上使劲，等于一边堵备用出口一边不减压。"
     },
     {
      "stage": "regulate",
@@ -316,8 +339,9 @@
      "products": [
       "Liver Support"
      ],
-     "why": "肠道是第一道，肝是第二道。体内毒素负荷超标时，肝处理不完的那部分才会转而从皮肤走。这也是为什么很多人的湿疹在应酬多、熬夜多、饮酒多的那段时间集中发作，那正好是肝最忙的时候。",
-     "whyEn": "The gut is the first route and the liver is the second. When the toxin load runs high, the portion the liver cannot process is what gets pushed out through the skin. It is also why eczema so often flares during stretches of heavy socialising, late nights and alcohol, which is exactly when the liver is busiest."
+     "why": "The gut is the first route and the liver is the second. When the toxin load runs high, the portion the liver cannot process is what gets pushed out through the skin. It is also why eczema so often flares during stretches of heavy socialising, late nights and alcohol, which is exactly when the liver is busiest.",
+     "key": "eczema.regulate.liver-support",
+     "whyZh": "肠道是第一道，肝是第二道。体内毒素负荷超标时，肝处理不完的那部分才会转而从皮肤走。这也是为什么很多人的湿疹在应酬多、熬夜多、饮酒多的那段时间集中发作，那正好是肝最忙的时候。"
     },
     {
      "stage": "supplement",
@@ -326,8 +350,9 @@
      "products": [
       "Advanced Omega"
      ],
-     "why": "皮肤屏障是由脂质构成的，而现代饮食严重偏向 Omega-6。补足 Omega-3 不是多一种营养，而是在把脂肪酸的比例拉回来。比例对了，屏障才稳，皮肤对刺激的反应才会缓下来。很少吃深海鱼的人，这个缺口几乎必然存在。",
-     "whyEn": "The skin barrier is built from lipids, and the modern diet is heavily skewed toward omega-6. Adding omega-3 is not one more nutrient, it is pulling the fatty-acid ratio back. Once the ratio is right the barrier steadies and the skin's reaction to irritants slows down. For anyone who rarely eats oily fish, this gap is close to certain."
+     "why": "The skin barrier is built from lipids, and the modern diet is heavily skewed toward omega-6. Adding omega-3 is not one more nutrient, it is pulling the fatty-acid ratio back. Once the ratio is right the barrier steadies and the skin's reaction to irritants slows down. For anyone who rarely eats oily fish, this gap is close to certain.",
+     "key": "eczema.supplement.advanced-omega",
+     "whyZh": "皮肤屏障是由脂质构成的，而现代饮食严重偏向 Omega-6。补足 Omega-3 不是多一种营养，而是在把脂肪酸的比例拉回来。比例对了，屏障才稳，皮肤对刺激的反应才会缓下来。很少吃深海鱼的人，这个缺口几乎必然存在。"
     },
     {
      "stage": "sustain",
@@ -337,8 +362,9 @@
       "g&h Nourish Body Wash",
       "g&h Nourish Body Lotion"
      ],
-     "why": "屏障优先的做法是：皮肤看起来好的时候也每天润肤，而不是只在起疹时才润。等起疹才处理，就永远在救火而不是防火。另一个常被忽略的细节：变量最大的不是身体乳，是沐浴露，清洁力过强的沐浴露每天把屏障剥掉一层，再好的身体乳也补不回来。",
-     "whyEn": "The barrier-first approach means moisturising daily when the skin looks fine, not only when it flares. Waiting for a flare means always fighting the fire instead of preventing it. One detail people miss: the bigger variable is not the lotion, it is the body wash. A wash that cleans too aggressively strips a layer of barrier every day, and no lotion fully replaces that."
+     "why": "The barrier-first approach means moisturising daily when the skin looks fine, not only when it flares. Waiting for a flare means always fighting the fire instead of preventing it. One detail people miss: the bigger variable is not the lotion, it is the body wash. A wash that cleans too aggressively strips a layer of barrier every day, and no lotion fully replaces that.",
+     "key": "eczema.sustain.g-h-nourish-body-wash",
+     "whyZh": "屏障优先的做法是：皮肤看起来好的时候也每天润肤，而不是只在起疹时才润。等起疹才处理，就永远在救火而不是防火。另一个常被忽略的细节：变量最大的不是身体乳，是沐浴露，清洁力过强的沐浴露每天把屏障剥掉一层，再好的身体乳也补不回来。"
     }
    ]
   }

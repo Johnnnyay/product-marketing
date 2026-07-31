@@ -429,7 +429,34 @@ if _unresolved:
     raise SystemExit("Protocol Map references unknown products: %s" % _unresolved)
 protocol = PROTO
 
-data = {"lastUpdated": datetime.date.today().isoformat(), "products": products, "areas": areas, "solutions": solutions, "areaCopy": areaCopy, "tiles": TILES, "details": DETAILS, "protocol": protocol}
+# --- i18n --------------------------------------------------------------------
+# Languages beyond English/Chinese live in scripts/i18n.json. Missing entries fall
+# back to English, so a partly translated language never breaks a page. Extend by
+# adding a "products" block keyed by product id with the same {field:{lang:text}}
+# shape used by "areas".
+try:
+    I18N = json.load(open("scripts/i18n.json"))
+except FileNotFoundError:
+    I18N = {"ui": {}, "areas": {}, "protocol": {}}
+for _a in areas:
+    _t = I18N.get("areas", {}).get(_a["id"], {})
+    for _field in ("name", "blurb", "overview"):
+        for _lang, _val in (_t.get(_field) or {}).items():
+            if _val:
+                _a[_field + "_" + _lang] = _val
+for _aid, _blk in protocol.get("areas", {}).items():
+    _t = I18N.get("areas", {}).get(_aid, {})
+    for _lang, _val in (_t.get("overview") or {}).items():
+        if _val:
+            _blk["overview_" + _lang] = _val
+for _blk in protocol.get("areas", {}).values():
+    for _row in _blk.get("rows", []):
+        for _lang, _val in (I18N.get("protocol", {}).get(_row.get("key"), {}) or {}).items():
+            if _val:
+                _row["why_" + _lang] = _val
+i18nUi = I18N.get("ui", {})
+
+data = {"lastUpdated": datetime.date.today().isoformat(), "products": products, "areas": areas, "solutions": solutions, "areaCopy": areaCopy, "tiles": TILES, "details": DETAILS, "protocol": protocol, "ui": i18nUi}
 import os
 os.makedirs("data", exist_ok=True)
 json.dump(data, open("data/products.json","w"), ensure_ascii=False, indent=1)

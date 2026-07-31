@@ -1,0 +1,481 @@
+{
+ "_note": "Translations for every language beyond English and Chinese. English lives in the code and Chinese lives beside it as the second argument to t(); this file adds the rest. Anything missing here falls back to English, so a half-finished language never breaks the page. To add a language: add its code to LANGS in index.html and add a key beside 'es' and 'hi' below. To extend coverage to product copy later, add a 'products' block keyed by product id with the same shape as 'areas'.",
+ "_status": {
+  "ui": "complete",
+  "areas": "complete",
+  "protocol": "skin complete; hormone and eczema fall back to English",
+  "products": "not started, falls back to English"
+ },
+ "ui": {
+  "Areas of Support": {
+   "es": "Áreas de apoyo",
+   "hi": "सहायता क्षेत्र"
+  },
+  "By Category": {
+   "es": "Por categoría",
+   "hi": "श्रेणी अनुसार"
+  },
+  "Solutions": {
+   "es": "Soluciones",
+   "hi": "समाधान"
+  },
+  "All Products": {
+   "es": "Todos los productos",
+   "hi": "सभी उत्पाद"
+  },
+  "Nutrition": {
+   "es": "Nutrición",
+   "hi": "पोषण"
+  },
+  "Sports & Energy": {
+   "es": "Deporte y energía",
+   "hi": "स्पोर्ट्स और एनर्जी"
+  },
+  "Beauty": {
+   "es": "Belleza",
+   "hi": "सौंदर्य"
+  },
+  "Personal Care": {
+   "es": "Cuidado personal",
+   "hi": "व्यक्तिगत देखभाल"
+  },
+  "Oral Care": {
+   "es": "Cuidado bucal",
+   "hi": "मुख देखभाल"
+  },
+  "Home": {
+   "es": "Hogar",
+   "hi": "घर"
+  },
+  "Healthy Aging": {
+   "es": "Envejecer bien",
+   "hi": "स्वस्थ उम्र"
+  },
+  "Heart & Circulation": {
+   "es": "Corazón y circulación",
+   "hi": "हृदय और रक्त संचार"
+  },
+  "Official Bundles": {
+   "es": "Paquetes oficiales",
+   "hi": "आधिकारिक पैकेज"
+  },
+  "Quality of health is quality of life": {
+   "es": "La calidad de tu salud es la calidad de tu vida",
+   "hi": "स्वास्थ्य की गुणवत्ता ही जीवन की गुणवत्ता है"
+  },
+  "Search products": {
+   "es": "Buscar productos",
+   "hi": "उत्पाद खोजें"
+  },
+  "Search results": {
+   "es": "Resultados",
+   "hi": "खोज परिणाम"
+  },
+  "No matches.": {
+   "es": "Sin resultados.",
+   "hi": "कोई परिणाम नहीं।"
+  },
+  "products": {
+   "es": "productos",
+   "hi": "उत्पाद"
+  },
+  "Everything else in this area": {
+   "es": "Todo lo demás en esta área",
+   "hi": "इस क्षेत्र में बाकी सब"
+  },
+  "Products that support this": {
+   "es": "Productos que apoyan esto",
+   "hi": "इसमें सहायक उत्पाद"
+  },
+  "How to work through this": {
+   "es": "Cómo trabajarlo, paso a paso",
+   "hi": "इसे कदम दर कदम कैसे करें"
+  },
+  "4-step plan": {
+   "es": "Plan de 4 pasos",
+   "hi": "4-चरण योजना"
+  },
+  "Step-by-step protocol": {
+   "es": "Protocolo paso a paso",
+   "hi": "क्रमबद्ध प्रोटोकॉल"
+  },
+  "Core": {
+   "es": "Clave",
+   "hi": "मुख्य"
+  },
+  "Read the rest": {
+   "es": "Leer el resto",
+   "hi": "पूरा पढ़ें"
+  },
+  "Show less": {
+   "es": "Mostrar menos",
+   "hi": "कम दिखाएँ"
+  },
+  "Internal": {
+   "es": "Vía oral",
+   "hi": "आंतरिक"
+  },
+  "Topical": {
+   "es": "Uso tópico",
+   "hi": "बाहरी"
+  },
+  "Habit": {
+   "es": "Hábito",
+   "hi": "आदत"
+  },
+  "Environment": {
+   "es": "Entorno",
+   "hi": "वातावरण"
+  },
+  "Cost calculator": {
+   "es": "Calculadora de costos",
+   "hi": "लागत कैलकुलेटर"
+  },
+  "This order": {
+   "es": "Este pedido",
+   "hi": "यह ऑर्डर"
+  },
+  "Order total": {
+   "es": "Total del pedido",
+   "hi": "ऑर्डर कुल"
+  },
+  "To keep it going": {
+   "es": "Para mantenerlo",
+   "hi": "इसे जारी रखने के लिए"
+  },
+  "Per day": {
+   "es": "Por día",
+   "hi": "प्रति दिन"
+  },
+  "Per month": {
+   "es": "Por mes",
+   "hi": "प्रति माह"
+  },
+  "Shipping est.": {
+   "es": "Envío estimado",
+   "hi": "अनुमानित शिपिंग"
+  },
+  "Free (over $150)": {
+   "es": "Gratis (más de $150)",
+   "hi": "मुफ़्त ($150 से ऊपर)"
+  },
+  "on DITTO": {
+   "es": "con DITTO",
+   "hi": "DITTO पर"
+  },
+  "or": {
+   "es": "o",
+   "hi": "या"
+  },
+  "/day": {
+   "es": "/día",
+   "hi": "/दिन"
+  },
+  "/mo": {
+   "es": "/mes",
+   "hi": "/माह"
+  },
+  " / month": {
+   "es": " / mes",
+   "hi": " / माह"
+  },
+  " each": {
+   "es": " c/u",
+   "hi": " प्रत्येक"
+  },
+  "One-time": {
+   "es": "Pago único",
+   "hi": "एक बार"
+  },
+  "1 month": {
+   "es": "1 mes",
+   "hi": "1 माह"
+  },
+  "days": {
+   "es": "días",
+   "hi": "दिन"
+  },
+  "Price": {
+   "es": "Precio",
+   "hi": "कीमत"
+  },
+  "IBO Price": {
+   "es": "Precio IBO",
+   "hi": "IBO कीमत"
+  },
+  "Retail": {
+   "es": "Público",
+   "hi": "खुदरा"
+  },
+  "Lasts": {
+   "es": "Dura",
+   "hi": "चलता है"
+  },
+  "✓ Copied": {
+   "es": "✓ Copiado",
+   "hi": "✓ कॉपी हो गया"
+  },
+  "⊕ Load this set into calculator": {
+   "es": "⊕ Cargar este set en la calculadora",
+   "hi": "⊕ यह सेट कैलकुलेटर में डालें"
+  },
+  "Key Advantage": {
+   "es": "Ventaja clave",
+   "hi": "मुख्य लाभ"
+  },
+  "Who this is for": {
+   "es": "Para quién es",
+   "hi": "यह किसके लिए है"
+  },
+  "Full Product Profile": {
+   "es": "Ficha completa del producto",
+   "hi": "पूरी उत्पाद जानकारी"
+  },
+  "How to Share the Story": {
+   "es": "Cómo contar la historia",
+   "hi": "कहानी कैसे साझा करें"
+  },
+  "Where to start, in order": {
+   "es": "Por dónde empezar, en orden",
+   "hi": "कहाँ से शुरू करें, क्रम में"
+  },
+  "Why a clean checkup still leaves you feeling off": {
+   "es": "Por qué un chequeo normal no explica cómo te sientes",
+   "hi": "सामान्य जाँच के बावजूद ठीक क्यों नहीं लगता"
+  },
+  "Partner ✓": {
+   "es": "Socio ✓",
+   "hi": "पार्टनर ✓"
+  },
+  "Enter partner passcode": {
+   "es": "Introduce el código de socio",
+   "hi": "पार्टनर पासकोड डालें"
+  },
+  "Incorrect passcode": {
+   "es": "Código incorrecto",
+   "hi": "गलत पासकोड"
+  },
+  "This is an area people often manage with a doctor. Nothing here diagnoses, treats or replaces medical care, and nothing here should be started in place of a treatment you have been prescribed. If a symptom is new, worsening, or you are pregnant, breastfeeding or on medication, speak with your physician first.": {
+   "es": "Esta es un área que la gente suele manejar con un médico. Nada de lo que hay aquí diagnostica, trata ni sustituye la atención médica, y nada de esto debe iniciarse en lugar de un tratamiento que te hayan recetado. Si un síntoma es nuevo, va a peor, o estás embarazada, en lactancia o tomando medicación, habla primero con tu médico.",
+   "hi": "यह ऐसा क्षेत्र है जिसे लोग आमतौर पर डॉक्टर के साथ सँभालते हैं। यहाँ दी गई कोई भी बात रोग की पहचान या इलाज नहीं करती, न ही चिकित्सा देखभाल की जगह लेती है, और इसे आपके लिए निर्धारित किसी उपचार के बदले शुरू नहीं करना चाहिए। यदि कोई लक्षण नया है, बढ़ रहा है, या आप गर्भवती हैं, स्तनपान करा रही हैं या कोई दवा ले रही हैं, तो पहले अपने डॉक्टर से बात करें।"
+  },
+  "Tap <b>+</b> on any product to build a plan. You will see what the order costs today and what it costs per month to keep going.": {
+   "es": "Toca <b>+</b> en cualquier producto para armar un plan. Verás cuánto cuesta el pedido hoy y cuánto cuesta al mes mantenerlo.",
+   "hi": "योजना बनाने के लिए किसी भी उत्पाद पर <b>+</b> दबाएँ। आपको दिखेगा कि आज ऑर्डर की लागत कितनी है और इसे जारी रखने पर हर महीने कितनी।"
+  },
+  "Content on this page is general wellness education, not medical advice. Shipping estimate based on published US rates (free ground shipping on orders $150+).": {
+   "es": "El contenido de esta página es educación general sobre bienestar, no consejo médico. El envío estimado se basa en las tarifas publicadas en EE. UU. (envío terrestre gratis en pedidos de más de $150).",
+   "hi": "इस पृष्ठ की सामग्री सामान्य स्वास्थ्य शिक्षा है, चिकित्सा सलाह नहीं। शिपिंग अनुमान अमेरिका की प्रकाशित दरों पर आधारित है ($150 से ऊपर के ऑर्डर पर मुफ़्त ग्राउंड शिपिंग)।"
+  }
+ },
+ "areas": {
+  "energy": {
+   "name": {
+    "es": "Energía y cansancio",
+    "hi": "ऊर्जा और थकान"
+   },
+   "blurb": {
+    "es": "El cansancio constante rara vez es pereza. Casi siempre es una señal de que el metabolismo energético anda corto de materia prima, vitaminas del grupo B, hierro y proteína de calidad, o de que la deuda de sueño se está acumulando.",
+    "hi": "लगातार थकान आलस नहीं होती। यह अक्सर संकेत है कि ऊर्जा चयापचय के पास कच्चा माल कम है, जैसे बी विटामिन, आयरन और अच्छी प्रोटीन, या नींद का कर्ज़ जमा हो रहा है।"
+   }
+  },
+  "sleep": {
+   "name": {
+    "es": "Sueño y estrés",
+    "hi": "नींद और तनाव"
+   },
+   "blurb": {
+    "es": "El cuerpo se repara de noche. Cuando las hormonas del estrés se mantienen altas, minerales como el magnesio se gastan más rápido y dormirse cuesta más. Hay que apoyar el proceso de bajar revoluciones, no forzar el apagón.",
+    "hi": "शरीर की मरम्मत रात में होती है। जब तनाव हार्मोन लगातार ऊँचे रहते हैं, मैग्नीशियम जैसे खनिज तेज़ी से खर्च होते हैं और नींद आना कठिन हो जाता है। ज़ोर से सुलाने के बजाय शांत होने की प्रक्रिया को सहारा दें।"
+   }
+  },
+  "skin": {
+   "name": {
+    "es": "Acné y piel",
+    "hi": "मुँहासे और त्वचा"
+   },
+   "blurb": {
+    "es": "Casi todo lo que decide si un poro se convierte en grano ocurre antes de que tu cara entre en la historia.",
+    "hi": "यह तय करने वाली लगभग हर चीज़ कि रोमछिद्र मुँहासा बनेगा या नहीं, आपके चेहरे तक पहुँचने से पहले ही घट चुकी होती है।"
+   },
+   "overview": {
+    "es": "Un poro se convierte en grano cuando coinciden cuatro cosas: el sebo sube, el revestimiento del poro se descama más rápido de lo que se elimina y forma un tapón, las bacterias se multiplican en ese aceite atrapado, y todo se inflama. Los productos tópicos actúan sobre las dos últimas. Las dos primeras se deciden más arriba: por la insulina y el IGF-1, por cuánta carga inflamatoria está pasando el intestino, y por el cortisol de la noche. Por eso limpiar solo la superficie compra unas buenas semanas y luego vuelven los mismos granos. Los cuatro pasos de abajo van en ese orden a propósito: quita la carga, haz que lo que tomas realmente cuente, aporta el material que la reparación necesita, y después protege el resultado.",
+    "hi": "रोमछिद्र मुँहासा तब बनता है जब चार चीज़ें एक साथ आती हैं: तेल का बनना बढ़ जाता है, छिद्र की भीतरी परत निकलने से तेज़ी से झड़कर रुकावट बना देती है, फँसे हुए तेल में बैक्टीरिया बढ़ते हैं, और फिर सूजन आ जाती है। बाहरी उत्पाद केवल आखिरी दो पर काम करते हैं। पहली दो ऊपर से तय होती हैं: इंसुलिन और IGF-1 से, आँत कितना सूजन-भार आगे भेज रही है उससे, और रात के कोर्टिसोल से। इसीलिए सिर्फ़ सतह साफ़ करने से कुछ अच्छे हफ़्ते मिलते हैं और फिर वही दाने लौट आते हैं। नीचे दिए चार चरण जानबूझकर इसी क्रम में हैं: पहले बोझ हटाएँ, फिर जो लेते हैं वह वाकई काम आए यह सुनिश्चित करें, फिर मरम्मत का कच्चा माल दें, और अंत में नतीजे की रक्षा करें।"
+   }
+  },
+  "eczema": {
+   "name": {
+    "es": "Eczema y piel sensible",
+    "hi": "एक्ज़िमा और संवेदनशील त्वचा"
+   },
+   "blurb": {
+    "es": "Cuando el hígado no da abasto con la desintoxicación, el cuerpo recluta la piel como ruta alternativa. El eczema y los brotes que vuelven suelen ser esa ruta abriéndose a la fuerza, y por eso las cremas alivian y luego el problema regresa.",
+    "hi": "जब लिवर विषहरण में पिछड़ जाता है, शरीर त्वचा को वैकल्पिक रास्ते के रूप में इस्तेमाल करता है। एक्ज़िमा और बार-बार लौटने वाले चकत्ते अक्सर उसी रास्ते का ज़बरदस्ती खुलना होते हैं, इसीलिए क्रीम से आराम मिलता है और फिर समस्या लौट आती है।"
+   },
+   "overview": {
+    "es": "La piel es una ruta de desintoxicación de reserva. Se abre porque la ruta principal, primero el intestino y después el hígado, está bloqueada. Esa sola idea define todo el orden: despeja primero la ruta principal, reconstruye la barrera lipídica desde dentro, y solo entonces trabaja la superficie. Las cremas alivian y luego el problema vuelve precisamente porque tratan la salida y no la presión.",
+    "hi": "त्वचा विषहरण का वैकल्पिक रास्ता है। यह इसलिए खुलता है क्योंकि मुख्य रास्ता, पहले आँत और फिर लिवर, अवरुद्ध है। यही एक बात पूरा क्रम तय कर देती है: पहले मुख्य रास्ता खोलें, फिर भीतर से वसा अवरोध बनाएँ, और उसके बाद ही सतह पर काम करें। क्रीम आराम देती है और फिर समस्या लौटती है, क्योंकि वह निकास का इलाज करती है, दबाव का नहीं।"
+   }
+  },
+  "hormone": {
+   "name": {
+    "es": "Apoyo al ciclo",
+    "hi": "मासिक चक्र सहायता"
+   },
+   "blurb": {
+    "es": "Los granos cíclicos en la mandíbula, los cambios de ánimo premenstruales y el cansancio ligado al ciclo siguen un ritmo mensual, no diario. Ese ritmo es la pista: lo que cambia con el ciclo necesita un apoyo que siga el ciclo.",
+    "hi": "जबड़े की रेखा पर चक्र के साथ आने वाले दाने, माहवारी से पहले मूड में बदलाव और चक्र से जुड़ी थकान मासिक लय पर चलते हैं, दैनिक लय पर नहीं। यही लय संकेत है: जो चक्र के साथ बदलता है उसे चक्र के हिसाब से सहारा चाहिए।"
+   },
+   "overview": {
+    "es": "Los granos cíclicos en la mandíbula, los cambios de ánimo premenstruales y el cansancio ligado al ciclo siguen un ritmo mensual, no diario. Ese ritmo es la pista. El hígado es donde se depuran las hormonas ya usadas, los minerales se pierden y se reponen cada mes, y el cortisol compite por la misma materia prima. Evalúa cualquier cambio a lo largo de tres ciclos, no de tres semanas.",
+    "hi": "जबड़े की रेखा पर चक्रीय दाने, माहवारी से पहले मूड में बदलाव और चक्र से जुड़ी थकान मासिक लय पर चलते हैं, दैनिक लय पर नहीं। यही लय संकेत है। इस्तेमाल हो चुके हार्मोन लिवर में साफ़ होते हैं, खनिज हर महीने घटते और फिर से भरते हैं, और कोर्टिसोल उसी कच्चे माल के लिए होड़ करता है। किसी भी बदलाव को तीन हफ़्तों में नहीं, तीन चक्रों में आँकें।"
+   }
+  },
+  "digestion": {
+   "name": {
+    "es": "Intestino y regularidad",
+    "hi": "पाचन और नियमितता"
+   },
+   "blurb": {
+    "es": "Regular quiere decir una vez al día y con forma, ni muy duro ni muy suelto. Los dos extremos vuelven a las mismas tres palancas: fibra para dar volumen, agua para mantenerlo blando, y una microbiota con suficientes bacterias buenas para que todo siga en movimiento. La mayoría atiende la última y se salta las dos primeras.",
+    "hi": "नियमित का मतलब है दिन में एक बार और ठोस, न बहुत कड़ा न बहुत ढीला। दोनों छोर एक ही तीन कारकों पर लौटते हैं: मात्रा के लिए फ़ाइबर, नरमी के लिए पानी, और गति बनाए रखने के लिए पर्याप्त अच्छे बैक्टीरिया। ज़्यादातर लोग आखिरी वाला ठीक करते हैं और पहले दो छोड़ देते हैं।"
+   }
+  },
+  "eye": {
+   "name": {
+    "es": "Salud visual",
+    "hi": "आँखों का स्वास्थ्य"
+   },
+   "blurb": {
+    "es": "Las pantallas, conducir de noche y las jornadas largas le exigen mucho a los ojos. La luteína y la zeaxantina son los pigmentos que filtran la luz dura, y el cuerpo no puede fabricarlos.",
+    "hi": "स्क्रीन, रात में गाड़ी चलाना और लंबे दिन आँखों से बहुत माँगते हैं। ल्यूटिन और ज़ियाज़ैंथिन वे रंगद्रव्य हैं जो तेज़ रोशनी छानते हैं, और शरीर इन्हें खुद नहीं बना सकता।"
+   }
+  },
+  "brain": {
+   "name": {
+    "es": "Concentración y memoria",
+    "hi": "एकाग्रता और स्मृति"
+   },
+   "blurb": {
+    "es": "El cerebro funciona con combustible estable: grasas omega-3, vitaminas del grupo B y una glucosa que no suba y se desplome.",
+    "hi": "दिमाग को स्थिर ईंधन चाहिए: ओमेगा-3 वसा, बी विटामिन, और ऐसा रक्त शर्करा जो चढ़कर गिरे नहीं।"
+   }
+  },
+  "weight": {
+   "name": {
+    "es": "Control de peso",
+    "hi": "वज़न प्रबंधन"
+   },
+   "blurb": {
+    "es": "Un cambio de peso que dura empieza con glucosa estable, suficiente proteína y un intestino sano, no con comer lo menos posible.",
+    "hi": "टिकाऊ वज़न बदलाव स्थिर रक्त शर्करा, पर्याप्त प्रोटीन और स्वस्थ आँत से शुरू होता है, जितना कम हो सके उतना खाने से नहीं।"
+   }
+  },
+  "hair": {
+   "name": {
+    "es": "Salud del cabello",
+    "hi": "बालों का स्वास्थ्य"
+   },
+   "blurb": {
+    "es": "El cabello es proteína. La caída y la fragilidad suelen reflejar huecos en proteína, biotina y cuidado del cuero cabelludo, actuando juntos.",
+    "hi": "बाल प्रोटीन हैं। पतलापन और टूटना आमतौर पर प्रोटीन, बायोटिन और सिर की त्वचा की देखभाल, तीनों में कमी को दर्शाते हैं।"
+   }
+  },
+  "rhinitis": {
+   "name": {
+    "es": "Alergias",
+    "hi": "एलर्जी"
+   },
+   "blurb": {
+    "es": "La sensibilidad estacional y ambiental es una respuesta inmune que se pasa de la raya. El apoyo funciona mejor si empieza antes de la temporada y no durante la peor semana, y la mayor parte del sistema inmune vive en el intestino, por eso esta área se solapa con la digestión más de lo que la gente espera.",
+    "hi": "मौसमी और पर्यावरणीय संवेदनशीलता एक अति-प्रतिक्रिया करती प्रतिरक्षा है। सहायता मौसम शुरू होने से पहले शुरू करने पर सबसे अच्छी चलती है, सबसे कठिन हफ़्ते में नहीं; और प्रतिरक्षा तंत्र का बड़ा हिस्सा आँत में रहता है, इसीलिए यह क्षेत्र पाचन से उम्मीद से कहीं ज़्यादा जुड़ा है।"
+   }
+  },
+  "immunity": {
+   "name": {
+    "es": "Inmunidad",
+    "hi": "रोग प्रतिरोधक क्षमता"
+   },
+   "blurb": {
+    "es": "Un sistema inmune resistente necesita vitamina C y D constantes, un intestino sano, y aire y agua limpios en casa.",
+    "hi": "मज़बूत प्रतिरक्षा के लिए नियमित विटामिन सी और डी, स्वस्थ आँत, और घर में साफ़ हवा और पानी चाहिए।"
+   }
+  },
+  "muscle": {
+   "name": {
+    "es": "Músculo y rendimiento",
+    "hi": "मांसपेशी और फ़िटनेस"
+   },
+   "blurb": {
+    "es": "El músculo se construye en la recuperación, no en el gimnasio. La reparación necesita proteína como materia prima, más aminoácidos y minerales para el ciclo de reconstrucción.",
+    "hi": "मांसपेशी जिम में नहीं, रिकवरी में बनती है। मरम्मत के लिए कच्चे माल के रूप में प्रोटीन चाहिए, साथ ही पुनर्निर्माण चक्र के लिए अमीनो एसिड और खनिज।"
+   }
+  }
+ },
+ "protocol": {
+  "skin.clear.carb-blocker": {
+   "es": "Empieza aquí porque es el vínculo con la dieta que mejor evidencia tiene en acné. Una comida de índice glucémico alto dispara la insulina, la insulina sube el IGF-1, y el IGF-1 hace dos cosas a la vez: le dice a las células sebáceas que produzcan más aceite, y sube la señal inflamatoria dentro de esas mismas células. En ensayos, dos semanas de dieta de baja carga glucémica bajaron el IGF-1 de forma medible, y doce semanas bajaron el número de lesiones. No hace falta dejar el arroz. Hace falta cortar el pico: frena el almidón, acompáñalo de fibra, y pon proteína donde antes había un desayuno de carbohidrato refinado.",
+   "hi": "यहाँ से शुरू करें, क्योंकि मुँहासे में आहार का यही संबंध सबसे मज़बूत प्रमाणों वाला है। उच्च ग्लाइसेमिक भोजन इंसुलिन बढ़ाता है, इंसुलिन IGF-1 को ऊपर उठाता है, और IGF-1 एक साथ दो काम करता है: तेल ग्रंथियों से ज़्यादा तेल बनवाता है, और उन्हीं कोशिकाओं के भीतर सूजन के संकेत बढ़ाता है। परीक्षणों में, कम ग्लाइसेमिक भार वाले आहार के दो हफ़्तों में IGF-1 मापने लायक घटा, और बारह हफ़्तों में दानों की संख्या घटी। चावल छोड़ने की ज़रूरत नहीं। ज़रूरत है उस उछाल को रोकने की: स्टार्च को धीमा करें, उसी भोजन में फ़ाइबर जोड़ें, और जहाँ पहले रिफ़ाइंड कार्ब का नाश्ता था वहाँ प्रोटीन रखें।"
+  },
+  "skin.clear.probiotic": {
+   "es": "La segunda carga es el intestino. Cuando la ecología intestinal se desequilibra, la permeabilidad de la barrera sube y metabolitos que deberían haber salido del cuerpo pasan al torrente, lo que eleva la inflamación en todas partes, piel incluida. Hay un segundo costo que la gente pasa por alto: esa misma disbiosis afecta la absorción de zinc, selenio y omega-3, que son justo los nutrientes de los que depende la etapa de reparación. Así que esto no es solo limpiar, decide si el paso tres va a funcionar. La fibra arrastra, los probióticos reconstruyen, y el hígado procesa lo que el intestino le pasa.",
+   "hi": "दूसरा बोझ आँत है। जब आँत का संतुलन बिगड़ता है, अवरोध की पारगम्यता बढ़ जाती है और जो चयापचय उत्पाद शरीर से निकल जाने चाहिए थे वे रक्त में लौट आते हैं, जिससे त्वचा सहित हर जगह सूजन बढ़ती है। एक दूसरी कीमत जो लोग चूक जाते हैं: वही असंतुलन ज़िंक, सेलेनियम और ओमेगा-3 के अवशोषण को बिगाड़ता है, और यही वे पोषक तत्व हैं जिन पर मरम्मत का चरण टिका है। इसलिए यह सिर्फ़ सफ़ाई नहीं है, यह तय करता है कि तीसरा चरण काम करेगा या नहीं। फ़ाइबर बाहर ले जाता है, प्रोबायोटिक्स फिर से बसाते हैं, और लिवर वह हिस्सा सँभालता है जो आँत आगे भेजती है।"
+  },
+  "skin.clear.artistry-studio-rose-all-day": {
+   "es": "La limpieza externa se ocupa del tapón que ya está dentro del poro. La razón por la que el ácido salicílico es el estándar aquí, y no algo que suene más fuerte: es liposoluble, así que puede atravesar el sebo que llena el poro y deshacer el tapón desde dentro. Un ácido hidrosoluble se queda en la superficie y nunca llega. Usa el tónico en toda la cara y no solo en el grano que ya ves, porque el poro que será el grano de la semana que viene ya está tapado hoy. Con la mascarilla una vez por semana basta; limpiar de más aumenta la producción de aceite.",
+   "hi": "बाहरी सफ़ाई उस रुकावट को सँभालती है जो पहले से छिद्र में है। सैलिसिलिक एसिड यहाँ मानक क्यों है, किसी ज़्यादा ताक़तवर लगने वाली चीज़ के बजाय: यह वसा में घुलनशील है, इसलिए छिद्र भरे तेल के पार जाकर रुकावट को भीतर से तोड़ सकता है। पानी में घुलनशील एसिड सतह पर ही रह जाता है और वहाँ तक पहुँचता ही नहीं। टोनर पूरे चेहरे पर लगाएँ, सिर्फ़ उस दाने पर नहीं जो दिख रहा है, क्योंकि अगले हफ़्ते का दाना जिस छिद्र से निकलेगा वह आज ही बंद हो चुका है। मास्क हफ़्ते में एक बार काफ़ी है; ज़्यादा सफ़ाई से तेल और बढ़ता है।"
+  },
+  "skin.regulate.begin-daily-gi-primer": {
+   "es": "Esta etapa trata de la tasa de conversión. Tragarte el zinc, la vitamina C y las del grupo B no es lo mismo que absorberlos, y la comida mal digerida que se queda en el intestino vuelve a sumar a la carga que acabas de quitar en el paso uno. Para quien come fuera casi todos los días o se hincha después de una comida grande, saltarse este paso es la razón de que los suplementos del paso tres rindan menos. El 6 en 1 junta limpiar y regular en una sola bebida si prefieres no manejar cuatro frascos.",
+   "hi": "यह चरण रूपांतरण दर के बारे में है। ज़िंक, विटामिन सी और बी विटामिन निगल लेना और उन्हें सोख लेना दो अलग बातें हैं, और आँत में पड़ा अधपचा भोजन उसी बोझ को वापस जोड़ देता है जो आपने पहले चरण में हटाया था। जो लोग ज़्यादातर बाहर खाते हैं या भारी भोजन के बाद पेट फूलता है, उनके लिए इस चरण को छोड़ना ही वजह है कि तीसरे चरण के पोषक तत्व कम असर करते हैं। अगर चार डिब्बे सँभालना नहीं चाहते, तो 6-इन-1 सफ़ाई और नियमन को एक ही पेय में समेट देता है।"
+  },
+  "skin.regulate.artistry-studio-spot-on-dots": {
+   "es": "Un parche no está limpiando nada, está regulando cómo cicatriza una lesión, y por eso va aquí y no en el paso uno. Sella el grano en un ambiente húmedo y cerrado, mantiene fuera las bacterias y la oxidación del aire, y físicamente impide que te lo toques. Esto último es lo que más pesa: rascarse es la causa número uno de la marca que queda, y la marca dura meses más que el grano. En un ensayo controlado, las lesiones con parche puntuaron mejor en costra, enrojecimiento, tamaño y relieve. El gel es para el que todavía no ha abierto.",
+   "hi": "पैच कुछ साफ़ नहीं कर रहा, वह एक दाने के भरने का माहौल नियंत्रित कर रहा है, इसीलिए यह पहले चरण में नहीं यहाँ है। यह दाने को नम और बंद वातावरण में सील कर देता है, बाहरी बैक्टीरिया और हवा के ऑक्सीकरण को रोकता है, और शारीरिक रूप से आपको छूने नहीं देता। आखिरी बात सबसे अहम है: नोचना ही निशान पड़ने का सबसे बड़ा कारण है, और निशान दाने से महीनों ज़्यादा टिकता है। एक नियंत्रित परीक्षण में, पैच लगे दानों ने पपड़ी, लालिमा, आकार और उभार में बेहतर अंक पाए। जेल उस दाने के लिए है जो अभी फूटा नहीं।"
+  },
+  "skin.regulate.artistry-hydrating-mousse-cl": {
+   "es": "La limpieza es donde la mayoría empeora las cosas sin saberlo. Los tensioactivos agresivos arrancan los lípidos de la barrera, la piel lo lee como daño, y la producción de sebo sube para compensar. Así que quien se lava la cara cuatro veces al día para controlar el aceite termina fabricando más. Una mousse diluye y reparte el tensioactivo antes de que llegue a la cara, y ese es todo el sentido del formato. Exfoliar suave a diario le gana a frotar fuerte una vez por semana; elige el exfoliante solo si tu piel está de verdad congestionada.",
+   "hi": "सफ़ाई वही जगह है जहाँ ज़्यादातर लोग अनजाने में हालत बिगाड़ लेते हैं। तेज़ सर्फ़ैक्टेंट त्वचा अवरोध की वसा छीन लेते हैं, त्वचा इसे नुकसान समझती है, और भरपाई में तेल का उत्पादन बढ़ा देती है। यानी जो व्यक्ति तेल घटाने के लिए दिन में चार बार मुँह धोता है, वह और ज़्यादा तेल बनाने लगता है। मूस चेहरे तक पहुँचने से पहले ही सर्फ़ैक्टेंट को पतला और फैला देता है, और यही इस रूप का पूरा मक़सद है। हफ़्ते में एक बार ज़ोर से रगड़ने से बेहतर है रोज़ हल्का एक्सफ़ोलिएशन; स्क्रब वाला विकल्प तभी चुनें जब त्वचा वाकई बंद हो।"
+  },
+  "skin.supplement.vitamin-b-complex-120ct": {
+   "es": "Si los granos se concentran en las aletas de la nariz, la zona T y el mentón, ese es el patrón clásico de la B2. La B2 mantiene la función de la glándula sebácea y del folículo; sin ella la regulación del sebo se descontrola, los poros se tapan y se inflaman. La B3 cuenta la misma historia desde el otro lado, y su falta aparece como esos bultitos ásperos en la parte de atrás de los brazos y a lo largo de la mandíbula. Las vitaminas B son hidrosolubles y se eliminan en aproximadamente un día, así que solo funcionan a diario. Trasnochar quema la B2 más rápido, y por eso después de una mala semana el primero en salir es el de al lado de la nariz.",
+   "hi": "अगर दाने नाक के किनारों, टी-ज़ोन और ठोड़ी पर केंद्रित हैं, तो यह बी2 का पहचाना हुआ पैटर्न है। बी2 तेल ग्रंथि और रोमकूप का कामकाज बनाए रखता है; इसके बिना तेल का नियंत्रण बिगड़ता है, छिद्र बंद होते हैं और सूजन आती है। बी3 उसी कहानी का दूसरा सिरा है, और इसकी कमी बाँहों के पिछले हिस्से और जबड़े की रेखा पर उन खुरदुरे छोटे दानों के रूप में दिखती है। बी विटामिन पानी में घुलनशील हैं और लगभग एक दिन में निकल जाते हैं, इसलिए ये रोज़ लेने पर ही काम करते हैं। देर रात जागना बी2 को तेज़ी से खर्च करता है, इसीलिए बुरे हफ़्ते के बाद सबसे पहले नाक के पास वाला दाना निकलता है।"
+  },
+  "skin.supplement.plant-protein-powder": {
+   "es": "Estos dos son un mismo trabajo: reconstruir. La piel se renueva todos los días, y sin suficiente proteína las células viejas se caen pero las nuevas no se pueden fabricar. La vitamina C es el cofactor que el cuerpo necesita para ensamblar esa proteína en colágeno, que es lo que decide si una marca hundida se rellena. La vitamina C tiene una segunda acción, distinta: inhibe la tirosinasa, así que frena la formación de pigmento nuevo. Léelo con cuidado, evita que las marcas se oscurezcan más, no blanquea las que ya tienes, y por eso solo rinde como hábito diario.",
+   "hi": "ये दोनों एक ही काम हैं: पुनर्निर्माण। त्वचा हर दिन बदलती है, और पर्याप्त प्रोटीन के बिना पुरानी कोशिकाएँ झड़ती हैं पर नई बन नहीं पातीं। विटामिन सी वह सहकारक है जिसकी शरीर को उस प्रोटीन को कोलेजन में जोड़ने के लिए ज़रूरत होती है, और यही तय करता है कि गड्ढेदार निशान भरेगा या नहीं। विटामिन सी का एक अलग, दूसरा काम भी है: यह टायरोसिनेज़ को रोकता है, जिससे नया रंगद्रव्य बनना धीमा होता है। इसे ध्यान से पढ़ें, यह निशानों को और गहरा होने से रोकता है, पहले से मौजूद निशान मिटाता नहीं, इसीलिए यह सिर्फ़ रोज़ की आदत के रूप में फ़ायदा देता है।"
+  },
+  "skin.supplement.vitamin-e-chewable": {
+   "es": "Este es el mecanismo más concreto de toda la página, y el que casi nadie explica. La piel con acné produce alrededor del doble de escualeno que la piel limpia. El escualeno en sí es inofensivo; el escualeno oxidado no lo es, y sus peróxidos son directamente comedogénicos e inflamatorios. Las mediciones en pacientes con acné muestran exactamente ese patrón: peróxidos de escualeno altos en el sebo, vitamina E y vitamina A bajas en plasma. La vitamina E es el antioxidante de fase grasa que se aloja dentro de ese aceite y frena la peroxidación. La lecitina que la acompaña es el mismo fosfolípido con el que están hechas tus membranas celulares: con la membrana intacta la célula retiene agua y es una uva; con la membrana dañada se escapa y queda una pasa. Eso también explica por qué la hidratación tópica sola llega hasta cierto punto.",
+   "hi": "यह पूरे पन्ने का सबसे ठोस तंत्र है, और वही जिसे लगभग कोई नहीं समझाता। मुँहासे वाली त्वचा साफ़ त्वचा से लगभग दोगुना स्क्वैलीन बनाती है। स्क्वैलीन अपने आप में हानिरहित है; ऑक्सीकृत स्क्वैलीन नहीं, और उसके परॉक्साइड सीधे छिद्र बंद करने वाले और सूजन बढ़ाने वाले हैं। मुँहासे के रोगियों में की गई माप ठीक यही तस्वीर दिखाती है: सीबम में स्क्वैलीन परॉक्साइड ऊँचा, रक्त प्लाज़्मा में विटामिन ई और विटामिन ए नीचा। विटामिन ई वह वसा-चरण एंटीऑक्सिडेंट है जो उसी तेल के भीतर बैठकर इस ऑक्सीकरण को रोकता है। साथ मिला लेसिथिन वही फ़ॉस्फ़ोलिपिड है जिससे आपकी कोशिका झिल्ली बनी है: झिल्ली सही हो तो कोशिका पानी रोके रखती है और अंगूर जैसी रहती है; झिल्ली टूटे तो पानी निकल जाता है और वह किशमिश बन जाती है। यही समझाता है कि सिर्फ़ बाहरी मॉइस्चराइज़र एक हद तक ही काम क्यों करता है।"
+  },
+  "skin.supplement.advanced-omega": {
+   "es": "El omega-3 actúa sobre dos de los cuatro pasos a la vez: frena la hiperqueratinización que forma el tapón, y baja el leucotrieno B4, una de las señales que convierte un poro tapado en uno inflamado. La razón de que casi siempre haya aquí un hueco real es la proporción, no la ausencia: la dieta moderna trae mucho omega-6 y muy poco omega-3, y el equilibrio entre ambos es lo que fija el tono inflamatorio. Si rara vez comes pescado azul, da por hecho que el hueco está.",
+   "hi": "ओमेगा-3 चार में से दो चरणों पर एक साथ काम करता है: यह उस अति-केराटिनीकरण को धीमा करता है जो रुकावट बनाती है, और ल्यूकोट्रीन बी4 घटाता है, जो बंद छिद्र को सूजे हुए छिद्र में बदलने वाले संकेतों में से एक है। यहाँ कमी लगभग हमेशा असली क्यों होती है, इसकी वजह अनुपात है, अनुपस्थिति नहीं: आधुनिक आहार में ओमेगा-6 बहुत है और ओमेगा-3 बहुत कम, और सूजन का स्तर इन दोनों का संतुलन तय करता है। अगर आप शायद ही कभी तैलीय मछली खाते हैं, तो मान लें कि कमी मौजूद है।"
+  },
+  "skin.supplement.immunity-defense-zinc-holy-b": {
+   "es": "Los dos aparecen como carencias medidas, no como teoría. El zinc en suero es más bajo en personas con acné que en controles, y más bajo aún en los grados más severos; los ensayos que añaden zinc reportan menos lesiones inflamatorias. La vitamina D sigue la misma forma: la deficiencia es aproximadamente el doble de común en pacientes con acné que en controles comparables, y los niveles se mueven en sentido contrario a la severidad. Ninguno es un tratamiento. Los dos vale la pena cerrarlos si el hueco es tuyo, y la vitamina D es de las pocas cosas de esta página que un análisis de sangre sí te puede decir.",
+   "hi": "ये दोनों सिद्धांत नहीं, मापी गई कमियाँ हैं। मुँहासे वाले लोगों में रक्त का ज़िंक स्तर तुलना समूह से कम रहता है, और सबसे गंभीर श्रेणियों में सबसे कम; ज़िंक जोड़ने वाले परीक्षणों में सूजन वाले घाव कम पाए गए। विटामिन डी की तस्वीर भी वैसी ही है: मुँहासे के रोगियों में कमी लगभग दोगुनी आम है, और स्तर गंभीरता के उल्टे चलता है। दोनों में से कोई इलाज नहीं है। पर अगर यह कमी आपमें है तो इसे पूरा करना सार्थक है, और विटामिन डी इस पन्ने की उन गिनी-चुनी चीज़ों में है जिसे खून की जाँच सचमुच बता सकती है।"
+  },
+  "skin.supplement.concentrated-fruits-vegetabl": {
+   "es": "Dos líneas de apoyo. Los antioxidantes vegetales trabajan en la fase acuosa donde la vitamina E trabaja en la fase grasa, y las familias de carotenoides son además de donde el cuerpo obtiene vitamina A, el otro nutriente que se mide bajo en el plasma con acné. El calcio y el magnesio están aquí por otro motivo: mantienen la excitabilidad neuromuscular, y cuando faltan el cuerpo no se suelta ni después de acostarse. En las 72 evaluaciones de salud que tenemos registradas, el 77 por ciento de los casos de acné también reportaba trasnochar de forma habitual, y la piel se repara de noche.",
+   "hi": "दो सहायक कड़ियाँ। पादप एंटीऑक्सिडेंट जल-चरण में काम करते हैं जबकि विटामिन ई वसा-चरण में, और कैरोटीनॉयड परिवार वही स्रोत भी है जहाँ से शरीर विटामिन ए लेता है, वह दूसरा पोषक तत्व जो मुँहासे में रक्त प्लाज़्मा में कम मापा जाता है। कैल्शियम और मैग्नीशियम यहाँ किसी और वजह से हैं: ये तंत्रिका-मांसपेशी की उत्तेजना बनाए रखते हैं, और इनकी कमी में शरीर लेटने के बाद भी शिथिल नहीं हो पाता। हमारे पास दर्ज 72 स्वास्थ्य आकलनों में, मुँहासे के 77 प्रतिशत मामलों में लगातार देर रात जागना भी दर्ज था, और त्वचा की मरम्मत रात में होती है।"
+  },
+  "skin.sustain.artistry-multi-defense-uv-pr": {
+   "es": "El protector solar se le vende a la piel con acné como protección contra las marcas, y eso lo deja corto. La radiación UV genera especies reactivas de oxígeno en la piel, y son justamente esas las que oxidan el escualeno de tu sebo hasta los subproductos comedogénicos de la etapa de reposición. Así que este paso no solo protege el resultado, corta una de las fuentes que están más arriba. Aquí la textura lo decide todo: un protector pesado tapa los poros y te devuelve al paso uno, por eso el que de verdad se usa es la fórmula ligera que se superpone sin apelmazarse.",
+   "hi": "मुँहासे वाली त्वचा को सनस्क्रीन अक्सर निशान बचाने के नाम पर बेचा जाता है, और यह उसे छोटा कर देता है। पराबैंगनी किरणें त्वचा में सक्रिय ऑक्सीजन कण बनाती हैं, और वही कण आपके सीबम के स्क्वैलीन को उन छिद्र-अवरोधक उत्पादों में बदलते हैं जिनकी बात पुनःपूर्ति चरण में हुई। इसलिए यह चरण सिर्फ़ नतीजा नहीं बचाता, यह ऊपर के एक स्रोत को भी काटता है। यहाँ सब कुछ बनावट पर टिका है: भारी सनस्क्रीन खुद छिद्र बंद करती है और आपको पहले चरण पर लौटा देती है, इसीलिए असल में वही लगती है जो हल्की हो और परत पर परत लगने पर लुढ़के नहीं।"
+  },
+  "skin.sustain.artistry-sleeping-mask": {
+   "es": "El equilibrio agua-aceite es la parte que la piel grasa entiende al revés. La piel deshidratada no produce menos aceite, produce más, porque la barrera lee la sequedad como daño. Hidratar y controlar el aceite son el mismo proyecto, no opuestos. El momento es de noche: la reparación de la piel llega a su pico mientras duermes, así que una mascarilla que se queja puesta trabaja con esa ventana en lugar de pelearse con el día. El sérum corrector es para la etapa siguiente, cuando el acné ya está controlado y lo que queda son las marcas, que son pigmento y no cicatriz, y responden si se les dan suficientes semanas.",
+   "hi": "पानी और तेल का संतुलन वही हिस्सा है जिसे तैलीय त्वचा उल्टा समझती है। निर्जलित त्वचा कम तेल नहीं बनाती, ज़्यादा बनाती है, क्योंकि अवरोध सूखेपन को नुकसान समझ लेता है। नमी देना और तेल नियंत्रित करना एक ही काम है, विपरीत नहीं। समय रात का है: त्वचा की मरम्मत नींद में चरम पर होती है, इसलिए बिना धोए छोड़ा जाने वाला स्लीपिंग मास्क उसी खिड़की के साथ काम करता है, दिन से लड़ने के बजाय। करेक्टिंग सीरम अगले चरण के लिए है, जब मुँहासे नियंत्रण में हों और सिर्फ़ निशान बचे हों, जो घाव नहीं बल्कि रंगद्रव्य हैं और पर्याप्त हफ़्ते मिलने पर हल्के पड़ते हैं।"
+  },
+  "skin.sustain.sleep-gummies": {
+   "es": "El sueño es la mitad gratis de este plan, y el mecanismo es más concreto de lo que la gente supone. Las células sebáceas llevan receptores para la hormona liberadora de corticotropina, la señal de estrés. Cuando se une, la CRH hace dos cosas: sube la producción de sebo, y activa la enzima que convierte precursores en andrógenos activos, lo que vuelve a subir el sebo. La piel tomada de zonas con acné muestra una expresión de estos receptores mucho más fuerte que la piel limpia de la misma persona. Ese es el mecanismo detrás de brotar después de una mala semana. Ninguno de estos dos sustituye acostarse antes; solo te ayudan a aterrizar ese paso.",
+   "hi": "नींद इस योजना का मुफ़्त वाला आधा हिस्सा है, और इसका तंत्र लोगों की धारणा से कहीं ज़्यादा ठोस है। तेल ग्रंथि की कोशिकाओं पर कॉर्टिकोट्रोपिन-रिलीज़िंग हार्मोन, यानी तनाव संकेत, के ग्राही होते हैं। जुड़ते ही CRH दो काम करता है: सीबम का उत्पादन बढ़ाता है, और उस एंज़ाइम को सक्रिय करता है जो पूर्ववर्ती अणुओं को सक्रिय एंड्रोजन में बदलता है, जिससे सीबम फिर बढ़ता है। मुँहासे वाले हिस्सों से ली गई त्वचा में इन ग्राहियों की अभिव्यक्ति उसी व्यक्ति की साफ़ त्वचा से कहीं अधिक मिलती है। बुरे हफ़्ते के बाद दाने निकलने का यही तंत्र है। इनमें से कोई भी जल्दी सोने की जगह नहीं ले सकता; ये सिर्फ़ उस कदम को उतारने में मदद करते हैं।"
+  },
+  "skin.supplement.artistry-vitamin-c-ha3-daily": {
+   "es": "La vitamina C oral y la tópica no son intercambiables, y por eso esta va al lado de la pastilla y no en su lugar. La que tragas se reparte por el torrente sanguíneo y llega mal a las capas externas de la piel; la que aplicas aterriza justo donde se está fabricando el pigmento. Usadas juntas, estás trabajando el mismo paso de la tirosinasa desde los dos lados. Los tres pesos moleculares de ácido hialurónico son la otra mitad del frasco: las moléculas grandes retienen agua en la superficie, las pequeñas la llevan más adentro, y una piel hidratada produce menos aceite, no más.",
+   "hi": "मुँह से ली गई और त्वचा पर लगाई गई विटामिन सी एक-दूसरे की जगह नहीं ले सकतीं, इसीलिए यह गोली के बदले नहीं, उसके साथ रखी गई है। निगली गई विटामिन सी रक्त के ज़रिए बँटती है और त्वचा की बाहरी परतों तक कम पहुँचती है; लगाई गई विटामिन सी सीधे वहीं उतरती है जहाँ रंगद्रव्य बन रहा है। दोनों साथ इस्तेमाल करने पर आप उसी टायरोसिनेज़ चरण पर दोनों तरफ़ से काम कर रहे होते हैं। तीन आणविक भार वाला हाइलुरोनिक एसिड इस बोतल का दूसरा आधा है: बड़े अणु सतह पर पानी रोकते हैं, छोटे उसे गहराई तक ले जाते हैं, और नमी वाली त्वचा कम तेल बनाती है, ज़्यादा नहीं।"
+  }
+ }
+}
