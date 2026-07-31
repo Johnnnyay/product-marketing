@@ -252,51 +252,21 @@
       border-radius: 12px;
       padding: 18px 22px;
       margin-bottom: 16px;
-      /* Prose keeps a readable measure on the left; the step list fills the
-         right instead of leaving half the panel empty. */
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
-      gap: 32px;
-      align-items: start;
     }
-    .pr-intro-main { max-width: 62ch; }
     .pr-intro-label {
       font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
-      font-weight: 700; color: var(--green); margin-bottom: 7px;
+      font-weight: 700; color: var(--green); margin-bottom: 8px;
     }
     .pr-intro p {
       margin: 0; font-size: 14px; line-height: 1.7; color: var(--gray-700);
+      /* Two columns so the paragraph fills the panel edge to edge while each
+         line stays a readable length. One column across 1200px would be
+         ~170 characters wide, which the eye cannot track back from. */
+      column-count: 2;
+      column-gap: 42px;
+      orphans: 2; widows: 2;
     }
 
-    /* Step list, doubles as a table of contents */
-    .pr-jumps { display: flex; flex-direction: column; gap: 2px; }
-    .pr-jump {
-      display: flex; align-items: center; gap: 11px; width: 100%;
-      background: none; border: 0; border-radius: 9px; padding: 7px 9px;
-      cursor: pointer; text-align: left; font: inherit;
-      transition: background .15s;
-    }
-    .pr-jump:hover { background: rgba(255,255,255,0.72); }
-    .pr-jump-n {
-      flex: none; width: 24px; height: 24px; border-radius: 7px;
-      background: var(--green-mid); color: white;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 12px; font-weight: 700; line-height: 1;
-    }
-    .pr-jump:nth-child(1) .pr-jump-n { background: var(--navy); }
-    .pr-jump:nth-child(2) .pr-jump-n { background: var(--green); }
-    .pr-jump:nth-child(4) .pr-jump-n { background: #8FB09C; }
-    .pr-jump-txt { min-width: 0; }
-    .pr-jump-title {
-      display: block; font-size: 13px; font-weight: 650; color: var(--navy);
-      line-height: 1.3;
-    }
-    .pr-jump-sub {
-      display: block; font-size: 11.5px; color: var(--gray-500);
-      line-height: 1.35; margin-top: 1px;
-    }
-
-    /* Collapsible stage */
     .pr-stage {
       border: 1px solid var(--gray-200); border-radius: 11px;
       margin-bottom: 10px; background: white; overflow: hidden;
@@ -424,11 +394,8 @@
       .pr-row { grid-template-columns: 1fr; gap: 11px; padding: 13px 0; }
       .pr-why p { -webkit-line-clamp: 4; }
       .pr-items { grid-template-columns: 1fr; gap: 7px; }
-      .pr-intro { padding: 15px 16px; grid-template-columns: 1fr; gap: 14px; }
-      .pr-intro p { font-size: 13.5px; }
-      .pr-jumps { border-top: 1px solid rgba(255,255,255,0.7); padding-top: 8px; }
-      .pr-jump { padding: 6px 4px; gap: 10px; }
-      .pr-jump-sub { display: none; }
+      .pr-intro { padding: 15px 16px; }
+      .pr-intro p { font-size: 13.5px; column-count: 1; }
       .pr-stage-head { padding: 12px 13px; gap: 10px; }
       .pr-stage-sub { display: none; }
       .pr-body { padding: 0 13px 6px; }
@@ -1966,25 +1933,10 @@ function renderProtocol(proto, area) {
       </div>`;
   }).join('');
 
-  // The step list doubles as a table of contents on the right of the intro,
-  // so the paragraph keeps a readable measure instead of running the full width.
-  const present = new Set((proto.rows || []).map(r => r.stage));
-  const steps = (PROTOCOL.stages || []).filter(s => present.has(s.key)).map((s, n) => `
-    <button class="pr-jump" onclick="openStage('${s.key}')">
-      <span class="pr-jump-n">${currentLang === 'zh' ? s.zh : (s.glyph || (n + 1))}</span>
-      <span class="pr-jump-txt">
-        <span class="pr-jump-title">${stageTitle(s)}</span>
-        <span class="pr-jump-sub">${t(s.sub, s.subZh)}</span>
-      </span>
-    </button>`).join('');
-
   el.innerHTML = `
     <div class="pr-intro">
-      <div class="pr-intro-main">
-        <div class="pr-intro-label">${t('How to work through this', '这个问题怎么一步步调理')}</div>
-        <p>${t(proto.overview, proto.overviewZh)}</p>
-      </div>
-      <div class="pr-jumps">${steps}</div>
+      <div class="pr-intro-label">${t('How to work through this', '这个问题怎么一步步调理')}</div>
+      <p>${t(proto.overview, proto.overviewZh)}</p>
     </div>
     ${stages}`;
 }
@@ -1994,14 +1946,6 @@ let protoOpen = {};
 /* The glyph badge already carries 清/调/补/养, so drop it from the title text. */
 function stageTitle(st) {
   return t(st.labelEnLong || st.label, (st.labelZh || '').replace(/^.\s*[·・]\s*/, ''));
-}
-
-/* Jump from the intro list straight into a step. */
-function openStage(key) {
-  const el = document.querySelector(`.pr-stage[data-stage="${key}"]`);
-  if (!el) return;
-  if (!el.classList.contains('open')) toggleStage(key);
-  if (el.scrollIntoView) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function toggleWhy(id, btn) {
