@@ -257,24 +257,12 @@ E = {
  "XS Fitness Jump Start Solution":("XS","XS健身启动方案","Protein + workout support to start training right","蛋白+训练支持，开启健身计划",["muscle","energy"],{}),
 }
 
-AREAS = [
- # Areas of Support is a PAIN-POINT list, ordered by frequency in the 72 client
- # assessments. Non-pain groupings (Healthy Aging, Heart, Oral Care) live under
- # By Category; Kids & Teens is a persona and lives under Solutions.
- ("energy","Energy & Fatigue","精力与疲劳","Constant tiredness is usually not laziness. It is often a signal that energy metabolism is short on raw materials like B vitamins, iron and quality protein, or that sleep debt is piling up.","持续疲劳往往不是懒，而是身体能量代谢缺少原料（B族、铁、优质蛋白），或睡眠负债在累积。"),
- ("sleep","Sleep & Stress","睡眠与压力","The body repairs itself at night. When stress hormones stay high, minerals like magnesium get used up faster, and falling asleep gets harder. Support the wind-down, not just the knockout.","身体的修复发生在夜里。压力激素偏高时，镁等矿物质消耗更快，入睡更难。要支持的是放松过程，而不是强行入睡。"),
- ("skin","Acne & Skin","皮肤与痘痘","Skin reflects what happens inside: gut balance, hydration, omega-3 intake, plus the right topical routine.","皮肤是内在状态的镜子：肠道平衡、水分、Omega-3摄入，再配合正确的外用护理。"),
- ("eczema","Eczema & Sensitive Skin","湿疹与敏感肌","When the liver cannot keep up with detoxification, the body recruits the skin as a backup route. Eczema and recurring rashes are often that route being forced open, which is why creams relieve and then it comes back.","当肝脏解毒跟不上，身体会征用皮肤当备用排毒通道。湿疹和反复起疹往往就是这条通道被迫开启，这也是为什么药膏能缓解、停了又复发。"),
- ("hormone","Cycle Support","女性周期调理","Cyclical breakouts along the jaw, PMS mood swings and cycle-linked fatigue follow a monthly rhythm rather than a daily one. That rhythm is the clue: what changes with the cycle needs cycle-aware support.","下颌线周期性长痘、经前情绪波动、跟着周期走的疲劳，遵循的是月节律而不是日节律。这个节律本身就是线索：随周期变化的问题，需要顺着周期来支持。"),
- ("digestion","Gut & Regularity","肠胃与排便","Regular means once a day and formed, not too hard, not too loose. Both ends of that come back to the same three levers: fibre for bulk, water to keep things soft, and a microbiome with enough of the right bacteria to keep it moving. Most people fix the last one and skip the first two.","正常是每天一次、成形，不干硬，也不稀软。这两头其实是同一件事的两个方向，取决于同样三个杠杆：纤维给体积，水分保持柔软，菌群提供动力。多数人只补了菌群，跳过了前两样。"),
- ("eye","Eye Health","眼睛健康","Screens, night driving and long days ask a lot of the eyes. Lutein and zeaxanthin are the pigments that filter harsh light, and the body cannot make them.","屏幕、夜间开车和长时间用眼都在消耗眼睛。叶黄素和玉米黄质是过滤强光的色素，而身体无法自己合成。"),
- ("brain","Focus & Memory","专注与记忆","The brain runs on steady fuel: omega-3 fats, B vitamins, and blood sugar that does not spike and crash.","大脑需要平稳供能：Omega-3、B族维生素，以及不过山车的血糖。"),
- ("weight","Weight Management","体重管理","Sustainable weight change starts with steady blood sugar, enough protein and a healthy gut, not with eating as little as possible.","可持续的体重管理，从稳定血糖、足量蛋白和健康肠道开始，而不是一味少吃。"),
- ("hair","Hair Health","头发与脱发","Hair is protein. Thinning and brittleness commonly reflect gaps in protein, biotin and scalp care working together.","头发本质是蛋白质。稀疏易断常与蛋白质、生物素摄入不足及头皮护理有关。"),
- ("rhinitis","Allergies","过敏与鼻炎","Seasonal and environmental sensitivity is an immune response that overshoots. Support works best started before the season rather than during the worst week, and most of the immune system actually lives in the gut, which is why this area overlaps with digestion more than people expect.","季节性和环境敏感，本质是免疫反应过度。支持型方案要在换季前开始，而不是最难受那周才补；而免疫系统的大部分其实住在肠道，这也是为什么这个领域和肠胃的重叠比多数人想的更多。"),
- ("immunity","Immunity","免疫力","A resilient immune system needs steady vitamin C and D, a healthy gut, and clean air and water at home.","强韧免疫力需要稳定的维C维D、健康肠道，以及家中干净的空气和水。"),
- ("muscle","Muscle & Fitness","增肌与运动表现","Muscle is built in recovery, not in the gym. Repair needs protein as raw material, plus amino acids and minerals for the rebuild cycle.","肌肉是在恢复中长出来的。修复需要蛋白质作为原料，加上氨基酸和矿物质支持重建。"),
-]
+# Areas of Support now live in Notion ("🎯 Areas of Support" DB) and are mirrored
+# into scripts/areas.json by fetch-notion.js. Edit the copy in Notion, not here.
+_AREAS_FILE = json.load(open("scripts/areas.json"))["areas"]
+_AREAS_FILE.sort(key=lambda a: a.get("order", 999))
+AREAS = [(a["id"], a["name"], a["nameZh"], a["blurb"], a["blurbZh"]) for a in _AREAS_FILE]
+SENSITIVE_IDS = {a["id"] for a in _AREAS_FILE if a.get("sensitive")}
 
 
 # Persona modules. Each: id, title, titleZh, icon, situation, gap (why a clean checkup
@@ -410,7 +398,7 @@ for (name, item, cat, ibo, retail, pv, days, one) in ROWS:
 
 # Areas where the symptom is commonly treated medically. These get an extra
 # "talk to your doctor" line under the product grid, on top of the site footer note.
-SENSITIVE = {"eczema","digestion","rhinitis","hormone","heart","kids"}
+SENSITIVE = SENSITIVE_IDS   # set per-area in Notion
 areas = [{"id":a,"name":n,"nameZh":z,"blurb":b,"blurbZh":bz,"sensitive":a in SENSITIVE} for a,n,z,b,bz in AREAS]
 solutions = [{"id":i,"title":t,"titleZh":tz,"icon":ic,"situation":si,"situationZh":siz,"gap":g,"gapZh":gz,"path":pa,"pathZh":paz,"contents":c} for i,t,tz,ic,si,siz,g,gz,pa,paz,c in SOLUTIONS]
 

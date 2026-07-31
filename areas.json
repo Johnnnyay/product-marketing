@@ -1,0 +1,122 @@
+{
+ "_note": "Snapshot of the Notion '🎯 Areas of Support' DB. Notion is the source of truth; fetch-notion.js overwrites this on each run. Edit copy in Notion, not here. 'order' controls the tab order on the site. 'sensitive' adds the extra medical disclaimer under the grid.",
+ "areas": [
+  {
+   "id": "energy",
+   "order": 10,
+   "name": "Energy & Fatigue",
+   "nameZh": "精力与疲劳",
+   "blurb": "Constant tiredness is usually not laziness. It is often a signal that energy metabolism is short on raw materials like B vitamins, iron and quality protein, or that sleep debt is piling up.",
+   "blurbZh": "持续疲劳往往不是懒，而是身体能量代谢缺少原料（B族、铁、优质蛋白），或睡眠负债在累积。",
+   "sensitive": false
+  },
+  {
+   "id": "sleep",
+   "order": 20,
+   "name": "Sleep & Stress",
+   "nameZh": "睡眠与压力",
+   "blurb": "The body repairs itself at night. When stress hormones stay high, minerals like magnesium get used up faster, and falling asleep gets harder. Support the wind-down, not just the knockout.",
+   "blurbZh": "身体的修复发生在夜里。压力激素偏高时，镁等矿物质消耗更快，入睡更难。要支持的是放松过程，而不是强行入睡。",
+   "sensitive": false
+  },
+  {
+   "id": "skin",
+   "order": 30,
+   "name": "Acne & Skin",
+   "nameZh": "皮肤与痘痘",
+   "blurb": "Almost everything that decides whether a pore becomes a pimple happens before your face is involved.",
+   "blurbZh": "决定一个毛孔会不会变成一颗痘的因素，几乎都发生在脸之外。",
+   "sensitive": true
+  },
+  {
+   "id": "eczema",
+   "order": 40,
+   "name": "Eczema & Sensitive Skin",
+   "nameZh": "湿疹与敏感肌",
+   "blurb": "When the liver cannot keep up with detoxification, the body recruits the skin as a backup route. Eczema and recurring rashes are often that route being forced open, which is why creams relieve and then it comes back.",
+   "blurbZh": "当肝脏解毒跟不上，身体会征用皮肤当备用排毒通道。湿疹和反复起疹往往就是这条通道被迫开启，这也是为什么药膏能缓解、停了又复发。",
+   "sensitive": true
+  },
+  {
+   "id": "hormone",
+   "order": 50,
+   "name": "Cycle Support",
+   "nameZh": "女性周期调理",
+   "blurb": "Cyclical breakouts along the jaw, PMS mood swings and cycle-linked fatigue follow a monthly rhythm rather than a daily one. That rhythm is the clue: what changes with the cycle needs cycle-aware support.",
+   "blurbZh": "下颌线周期性长痘、经前情绪波动、跟着周期走的疲劳，遵循的是月节律而不是日节律。这个节律本身就是线索：随周期变化的问题，需要顺着周期来支持。",
+   "sensitive": true
+  },
+  {
+   "id": "digestion",
+   "order": 60,
+   "name": "Gut & Regularity",
+   "nameZh": "肠胃与排便",
+   "blurb": "Regular means once a day and formed, not too hard, not too loose. Both ends of that come back to the same three levers: fibre for bulk, water to keep things soft, and a microbiome with enough of the right bacteria to keep it moving. Most people fix the last one and skip the first two.",
+   "blurbZh": "正常是每天一次、成形，不干硬，也不稀软。这两头其实是同一件事的两个方向，取决于同样三个杠杆：纤维给体积，水分保持柔软，菌群提供动力。多数人只补了菌群，跳过了前两样。",
+   "sensitive": true
+  },
+  {
+   "id": "eye",
+   "order": 70,
+   "name": "Eye Health",
+   "nameZh": "眼睛健康",
+   "blurb": "Screens, night driving and long days ask a lot of the eyes. Lutein and zeaxanthin are the pigments that filter harsh light, and the body cannot make them.",
+   "blurbZh": "屏幕、夜间开车和长时间用眼都在消耗眼睛。叶黄素和玉米黄质是过滤强光的色素，而身体无法自己合成。",
+   "sensitive": false
+  },
+  {
+   "id": "brain",
+   "order": 80,
+   "name": "Focus & Memory",
+   "nameZh": "专注与记忆",
+   "blurb": "The brain runs on steady fuel: omega-3 fats, B vitamins, and blood sugar that does not spike and crash.",
+   "blurbZh": "大脑需要平稳供能：Omega-3、B族维生素，以及不过山车的血糖。",
+   "sensitive": false
+  },
+  {
+   "id": "weight",
+   "order": 90,
+   "name": "Weight Management",
+   "nameZh": "体重管理",
+   "blurb": "Sustainable weight change starts with steady blood sugar, enough protein and a healthy gut, not with eating as little as possible.",
+   "blurbZh": "可持续的体重管理，从稳定血糖、足量蛋白和健康肠道开始，而不是一味少吃。",
+   "sensitive": false
+  },
+  {
+   "id": "hair",
+   "order": 100,
+   "name": "Hair Health",
+   "nameZh": "头发与脱发",
+   "blurb": "Hair is protein. Thinning and brittleness commonly reflect gaps in protein, biotin and scalp care working together.",
+   "blurbZh": "头发本质是蛋白质。稀疏易断常与蛋白质、生物素摄入不足及头皮护理有关。",
+   "sensitive": false
+  },
+  {
+   "id": "rhinitis",
+   "order": 110,
+   "name": "Allergies",
+   "nameZh": "过敏与鼻炎",
+   "blurb": "Seasonal and environmental sensitivity is an immune response that overshoots. Support works best started before the season rather than during the worst week, and most of the immune system actually lives in the gut, which is why this area overlaps with digestion more than people expect.",
+   "blurbZh": "季节性和环境敏感，本质是免疫反应过度。支持型方案要在换季前开始，而不是最难受那周才补；而免疫系统的大部分其实住在肠道，这也是为什么这个领域和肠胃的重叠比多数人想的更多。",
+   "sensitive": true
+  },
+  {
+   "id": "immunity",
+   "order": 120,
+   "name": "Immunity",
+   "nameZh": "免疫力",
+   "blurb": "A resilient immune system needs steady vitamin C and D, a healthy gut, and clean air and water at home.",
+   "blurbZh": "强韧免疫力需要稳定的维C维D、健康肠道，以及家中干净的空气和水。",
+   "sensitive": false
+  },
+  {
+   "id": "muscle",
+   "order": 130,
+   "name": "Muscle & Fitness",
+   "nameZh": "增肌与运动表现",
+   "blurb": "Muscle is built in recovery, not in the gym. Repair needs protein as raw material, plus amino acids and minerals for the rebuild cycle.",
+   "blurbZh": "肌肉是在恢复中长出来的。修复需要蛋白质作为原料，加上氨基酸和矿物质支持重建。",
+   "sensitive": false
+  }
+ ]
+}

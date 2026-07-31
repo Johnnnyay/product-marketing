@@ -19,6 +19,7 @@ const path = require('path');
 const DATABASE_ID = '7e0a89db-f85d-4820-aa62-a278e0a2845c';        // Master Pricing Reference
 const AREACOPY_DB_ID = '01b81650-0f64-4ca0-89f2-bc318b9465bb';     // Area Copy — Website Content
 const PROTOCOL_DB_ID = '7d1e5d56-2a00-4680-b6f8-4c0f21f5eadc';     // 🧭 调理地图 Protocol Map
+const AREAS_DB_ID    = 'c53bc81b-7eca-4b89-be33-dbd1869f89fa';     // 🎯 Areas of Support
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 const METAFILE = path.join(__dirname, 'meta.json');
@@ -26,6 +27,7 @@ const IMAGESFILE = path.join(__dirname, 'images.json');
 const TILESFILE = path.join(__dirname, 'tile_images.json');
 const DETAILSFILE = path.join(__dirname, 'details.json');
 const PROTOFILE = path.join(__dirname, 'protocol.json');
+const AREASFILE = path.join(__dirname, 'areas.json');
 const OUTFILE = path.join(__dirname, '..', 'data', 'products.json');
 
 // Notion Category select → site category bucket
@@ -72,7 +74,7 @@ async function queryAll(database_id) {
 }
 
 async function main() {
-  const { meta, areas, solutions } = JSON.parse(fs.readFileSync(METAFILE, 'utf8'));
+  const { meta, solutions } = JSON.parse(fs.readFileSync(METAFILE, 'utf8'));
   const images = JSON.parse(fs.readFileSync(IMAGESFILE, 'utf8'));
   const tiles = JSON.parse(fs.readFileSync(TILESFILE, 'utf8'));
   const details = JSON.parse(fs.readFileSync(DETAILSFILE, 'utf8'));
@@ -132,6 +134,43 @@ async function main() {
   }
 
 
+  // Areas of Support DB → tab labels, one-line blurbs, protocol overviews.
+  // Notion owns this; scripts/areas.json is only a fallback snapshot.
+  let areasOut = JSON.parse(fs.readFileSync(AREASFILE, 'utf8')).areas;
+  try {
+    const arRows = await queryAll(AREAS_DB_ID);
+    const live = arRows
+      .filter((pg) => check(pg.properties['Show on site']))
+      .map((pg) => {
+        const P = pg.properties;
+        return {
+          id: text(P.Area_ID),
+          order: num(P.Order) || 999,
+          name: text(P.Name),
+          nameZh: text(P.Name_ZH),
+          blurb: text(P.Blurb),
+          blurbZh: text(P.Blurb_ZH),
+          overview: text(P.Overview),
+          overviewZh: text(P.Overview_ZH),
+          sensitive: check(P.Sensitive),
+        };
+      })
+      .filter((a) => a.id && a.name);
+    if (live.length) areasOut = live;
+    fs.writeFileSync(AREASFILE, JSON.stringify(
+      { _note: JSON.parse(fs.readFileSync(AREASFILE, 'utf8'))._note, areas: areasOut }, null, 1));
+  } catch (e) {
+    console.warn('Areas DB not readable, using local snapshot:', e.message);
+  }
+  areasOut.sort((a, b) => a.order - b.order);
+  const areas = areasOut.map((a) => ({
+    id: a.id, name: a.name, nameZh: a.nameZh,
+    blurb: a.blurb, blurbZh: a.blurbZh, sensitive: !!a.sensitive,
+  }));
+  const areaOverview = Object.fromEntries(
+    areasOut.filter((a) => a.overview).map((a) => [a.id, [a.overview, a.overviewZh]]));
+
+
   // Protocol Map DB → { areaId: { overview, rows:[{stage, rank, route, productIds, why, whyEn}] } }
   // Stage headings and the per-area overview text live in scripts/protocol.json;
   // Notion owns the rows. Only rows with "Show on site" checked are published.
@@ -162,8 +201,9 @@ async function main() {
       }
       if (!ids.length) continue;
       const base = protoLocal.areas[areaId] || {};
+      const ov = areaOverview[areaId] || [base.overview || '', base.overviewZh || ''];
       protocol.areas[areaId] = protocol.areas[areaId] ||
-        { overview: base.overview || '', overviewZh: base.overviewZh || '', rows: [] };
+        { overview: ov[0], overviewZh: ov[1], rows: [] };
       protocol.areas[areaId].rows.push({
         stage,
         rank: num(P.Rank) || 9,

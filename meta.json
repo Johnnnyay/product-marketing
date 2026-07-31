@@ -2371,9 +2371,9 @@
    "id": "skin",
    "name": "Acne & Skin",
    "nameZh": "皮肤与痘痘",
-   "blurb": "Skin reflects what happens inside: gut balance, hydration, omega-3 intake, plus the right topical routine.",
-   "blurbZh": "皮肤是内在状态的镜子：肠道平衡、水分、Omega-3摄入，再配合正确的外用护理。",
-   "sensitive": false
+   "blurb": "Almost everything that decides whether a pore becomes a pimple happens before your face is involved.",
+   "blurbZh": "决定一个毛孔会不会变成一颗痘的因素，几乎都发生在脸之外。",
+   "sensitive": true
   },
   {
    "id": "eczema",
