@@ -110,14 +110,15 @@
     },
     {
      "stage": "regulate",
-     "rank": 2,
+     "rank": 1,
      "route": "external",
      "products": [
+      "Artistry Hydrating Mousse Cleanser",
       "Artistry Studio Glow Boss Cleanser + Exfoliator",
       "Artistry Men Face Wash"
      ],
-     "whyEn": "Cleansing is where most people make things worse without knowing. Harsh surfactants strip the barrier lipids, the skin reads that as damage, and sebum output goes up to compensate. So the person who washes four times a day to control oil ends up producing more of it. What you want is daily gentle exfoliation instead of aggressive weekly scrubbing, from a cleanser that leaves the barrier intact.",
-     "why": "洗脸是多数人不知不觉把事情弄糟的地方。清洁力过强的表面活性剂会把屏障脂质剥掉，皮肤把这个读成损伤，于是提高皮脂分泌来补偿。结果就是：一天洗四次脸想控油的人，最后出油更多。你要的是每天温和去角质，而不是每周一次猛搓，并且用一支洗完不破坏屏障的洁面。"
+     "whyEn": "Cleansing is where most people make things worse without knowing. Harsh surfactants strip the barrier lipids, the skin reads that as damage, and sebum output goes up to compensate. So the person who washes four times a day to control oil ends up producing more of it. A mousse dilutes and distributes the surfactant before it reaches your face, which is the whole point of the format. Daily gentle exfoliation beats aggressive weekly scrubbing; pick the exfoliating one only if your skin is genuinely congested.",
+     "why": "洗脸是多数人不知不觉把事情弄糟的地方。清洁力过强的表面活性剂会把屏障脂质剥掉，皮肤把这个读成损伤，于是提高皮脂分泌来补偿。结果就是：一天洗四次脸想控油的人，最后出油更多。慕斯剂型在接触皮肤之前就把表面活性剂稀释并分散开，这就是这个剂型存在的意义。每天温和去角质好过每周一次猛搓；只有在皮肤确实堵得厉害时，才选带磨砂的那一支。"
     },
     {
      "stage": "supplement",
@@ -139,6 +140,16 @@
      ],
      "whyEn": "These two are one job: rebuilding. Skin turns over every day, and without enough protein the old cells shed but the new ones cannot be built. Vitamin C is the cofactor the body needs to actually assemble that protein into collagen, which is what decides whether a pitted mark fills back in. Vitamin C has a second, separate action: it inhibits tyrosinase, so it slows new pigment forming. Read that carefully, it keeps marks from getting darker rather than bleaching the ones you already have, which is why it only pays off as a daily habit.",
      "why": "这两样其实是同一件事：重建。皮肤每天都在更新，蛋白质不够，旧细胞脱落了，新细胞造不出来。而维生素C是身体把这些蛋白质真正组装成胶原蛋白所需的辅因子，痘坑能不能填回来，取决于这一步。维生素C还有第二个独立作用：抑制酪氨酸酶，从源头减缓新色素的生成。这句话要读仔细，它管的是让痘印不再变深，而不是把已有的印漂掉，所以它只有当成每日习惯才划算。"
+    },
+    {
+     "stage": "supplement",
+     "rank": 2,
+     "route": "external",
+     "products": [
+      "Artistry Vitamin C + HA3 Daily Serum"
+     ],
+     "whyEn": "Oral and topical vitamin C are not interchangeable, which is why this sits beside the tablet rather than instead of it. Swallowed vitamin C is distributed by the bloodstream and reaches the outer skin layers poorly; applied vitamin C lands directly where the pigment is being made. Use them together and you are working the same tyrosinase step from both sides. The three hyaluronic acid weights are the second half of the bottle: large molecules hold water at the surface, smaller ones carry it deeper, and hydrated skin produces less oil, not more.",
+     "why": "口服维C和外用维C不能互相替代，所以这一条是放在药片旁边，而不是取而代之。吞下去的维C靠血液分配，到达皮肤外层的量很有限；涂上去的维C则直接落在色素正在生成的地方。两者一起用，等于从内外两侧作用在同一个酪氨酸酶环节上。三种分子量的玻尿酸是这瓶里的另一半：大分子在表层锁水，小分子往深处带，而水分充足的皮肤出油会更少，不是更多。"
     },
     {
      "stage": "supplement",

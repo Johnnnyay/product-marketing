@@ -56,6 +56,8 @@ def rows():
     add("Artistry Studio Glow Boss Cleanser + Exfoliator", "124812", "beauty", 19.75, 60)
     add("Artistry Studio Rose All Day Anti-Acne Toner",    "124813", "beauty", 19.00, 45)
     add("Artistry Studio Done with Zit",                   "125327", "beauty", 31.00, 45)
+    add("Artistry Hydrating Mousse Cleanser",             "123793V", "beauty", 31.00, 60)
+    add("Artistry Vitamin C + HA3 Daily Serum",           "125517V", "beauty", 58.00, 60)
     add("Artistry Multi-Defense UV Protect SPF50",         "124823", "beauty", 59.00, 60)
     add("Artistry Sleeping Mask",       "125575", "beauty", 58.00, 60)
     add("Artistry Signature Select Hydrating Mask", "122343V", "beauty", 42.00, 30)
@@ -134,6 +136,8 @@ def enrich():
  "Artistry Studio Glow Boss Cleanser + Exfoliator":("Artistry Studio","雅姿净透洁面磨砂二合一","Cleanser and exfoliator in one step","洁面与去角质一步完成",["skin"],{}),
  "Artistry Studio Rose All Day Anti-Acne Toner":("Artistry Studio","雅姿玫瑰控痘爽肤水","Salicylic toner for the whole face, not just spots","水杨酸爽肤水，管全脸不只是一颗",["skin"],{}),
  "Artistry Studio Done with Zit":("Artistry Studio","雅姿祛痘凝胶","Salicylic acid spot treatment","水杨酸点涂祛痘",["skin"],{}),
+ "Artistry Hydrating Mousse Cleanser":("Artistry","雅姿保湿慕斯洁面","Mousse cleanser that does not strip the barrier","不剥脱屏障的慕斯洁面",["skin","eczema","aging"],{}),
+ "Artistry Vitamin C + HA3 Daily Serum":("Artistry","雅姿维C+三重玻尿酸精华","Topical vitamin C with three hyaluronic acid weights","外用维C配三种分子量玻尿酸",["skin","aging"],{}),
  "Artistry Multi-Defense UV Protect SPF50":("Artistry","雅姿多重防护SPF50","SPF 50 that layers under makeup","SPF50，可以上妆前用",["skin","aging"],{}),
  "Artistry Sleeping Mask":("Artistry","雅姿睡眠面膜","Overnight mask, no rinsing","免洗过夜面膜",["skin","aging"],{}),
  "Artistry Signature Select Hydrating Mask":("Artistry","雅姿水润面膜","Hydrating treatment mask","水润护理面膜",["skin"],{}),

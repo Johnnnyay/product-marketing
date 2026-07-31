@@ -2931,9 +2931,52 @@
    "pv": 8.13,
    "daysSupply": 45,
    "oneTime": false,
-   "imageUrl": "images/products/artistry-studio-done-with-zit.jpg",
+   "imageUrl": "https://www.amway.com/medias/125327-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w0MzMzOHxpbWFnZS9wbmd8aW1hZ2VzL2gzYi9oNWIvOTM1NTM0NTQ5NDA0Ni5wbmd8ZThjNjVmNGEyNzQ3ZTE1NGE4YTBhOTIzZmY2YzIyNzI4ZTI3Yjc2NjQ5MDhhYzYxNjJhYzExMDZhNjA4MjdlZQ",
    "areas": [
     "skin"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-hydrating-mousse-cleanser",
+   "item": "123793V",
+   "name": "Artistry Hydrating Mousse Cleanser",
+   "nameZh": "雅姿保湿慕斯洁面",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Mousse cleanser that does not strip the barrier",
+   "taglineZh": "不剥脱屏障的慕斯洁面",
+   "iboPrice": 27.9,
+   "retailPrice": 31.0,
+   "pv": 8.13,
+   "daysSupply": 60,
+   "oneTime": false,
+   "imageUrl": "https://www.amway.com/medias/123793V-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w0NjkyM3xpbWFnZS9wbmd8aW1hZ2VzL2hmZi9oMjUvOTM1NTI4NjgzOTMyNi5wbmd8NGM5YzFjZGI4OWE5N2JjNmJiZWJkMmU5ZGFiYzcxNzZiYWE3MTM2ZGZhMWIyMzU5NGEwMjA1YTdjZjEzY2Y4Yg",
+   "areas": [
+    "skin",
+    "eczema",
+    "aging"
+   ],
+   "iboOnly": false
+  },
+  {
+   "id": "artistry-vitamin-c-ha3-daily-serum",
+   "item": "125517V",
+   "name": "Artistry Vitamin C + HA3 Daily Serum",
+   "nameZh": "雅姿维C+三重玻尿酸精华",
+   "brand": "Artistry",
+   "cat": "beauty",
+   "tagline": "Topical vitamin C with three hyaluronic acid weights",
+   "taglineZh": "外用维C配三种分子量玻尿酸",
+   "iboPrice": 52.2,
+   "retailPrice": 58.0,
+   "pv": 15.22,
+   "daysSupply": 60,
+   "oneTime": false,
+   "imageUrl": "https://www.amway.com/medias/125517V-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w3MDYyNnxpbWFnZS9wbmd8aW1hZ2VzL2g1MS9oZWIvOTQxNzQ1MjE1OTAwNi5wbmd8NThiYzU0YmNjMTQyNTE1OGIyMWExNTdjNzU4Y2M1M2ViYTE2YTc1NjUxNzFjODMxMDAwYTgxOTIwOWI1ZDRlZg",
+   "areas": [
+    "skin",
+    "aging"
    ],
    "iboOnly": false
   },
@@ -3541,7 +3584,7 @@
    "pv": 57.47,
    "daysSupply": 30,
    "oneTime": false,
-   "imageUrl": "images/products/walking-to-bronze-bundle.jpg",
+   "imageUrl": "https://www.amway.com/medias/321111-en-US-690px-01?context=bWFzdGVyfGltYWdlc3w2OTQ2MDB8aW1hZ2UvcG5nfHN5cy1tYXN0ZXIvaW1hZ2VzL2hkYS9oNDkvOTYxMDkzOTEzODA3OC8zMjExMTEtZW4tVVMtNjkwcHgtMDF8YzNhM2JkYzFkMzFlMWViZGRmYWI4NjFkMzIxZjY4OTFlYmM5YTM0MmVlZjI2OGVlYTc3YTFkMmQ1MGQ3YTkyZA",
    "areas": [
     "energy"
    ],
@@ -5082,6 +5125,18 @@
    "advantageZh": "起步套装的存在，是为了让新IBO在第一个月不用猜该订什么。它的组合是为了达到第一个里程碑所需的业绩量，同时里面都是真正会用掉的产品，而不是囤着的。",
    "who": "New IBOs in their first month, and anyone rebuilding a consistent monthly order.",
    "whoZh": "第一个月的新IBO，以及正在重建稳定月订单的人。"
+  },
+  "artistry-hydrating-mousse-cleanser": {
+   "advantage": "The cleanser is the step where most people accidentally make oily skin oilier. Harsh surfactants strip barrier lipids, the skin reads that as damage, and sebum output rises to compensate. A mousse format dilutes and distributes the surfactant before it touches the face, so it cleans without that rebound. If you only change one product in a routine, this is usually the one with the highest return.",
+   "advantageZh": "洁面是多数人不小心把油皮洗得更油的那一步。清洁力过强的表面活性剂会剥掉屏障脂质，皮肤把这个读成损伤，于是提高皮脂分泌来补偿。慕斯剂型在接触皮肤前就已经稀释并均匀分散了表面活性剂，所以洗得干净但不会引起反弹。如果一整套流程里只换一样东西，通常回报最高的就是这一支。",
+   "who": "Oily or breakout-prone skin that feels tight after washing, and anyone using acids or retinol who needs the barrier left intact.",
+   "whoZh": "洗完脸发紧的油性或痘痘肌，以及正在用酸类或A醇、需要保住屏障的人。"
+  },
+  "artistry-vitamin-c-ha3-daily-serum": {
+   "advantage": "Two jobs in one bottle, and they are not the same job. Topical vitamin C works on the surface layers where an oral dose reaches poorly, slowing new pigment at the source, which is what keeps post-acne marks from deepening. The three hyaluronic acid molecular weights sit at different depths: large ones hold water at the surface, smaller ones carry it further in. That matters for oily skin, because dehydrated skin makes more oil, not less.",
+   "advantageZh": "一瓶里两件事，而且是两件不同的事。外用维C作用在口服很难充分抵达的表层，从源头减缓新色素生成，这正是让痘印不再变深的关键。三种分子量的玻尿酸停留在不同深度：大分子在表层锁水，小分子往里带水。这一点对油皮尤其重要，因为缺水的皮肤只会出更多油，不会更少。",
+   "who": "Anyone left with post-acne marks after the breakouts are handled, and oily skin that has been drying itself out.",
+   "whoZh": "痘痘控制住之后只剩痘印的人，以及一直在把自己越洗越干的油性皮肤。"
   }
  },
  "protocol": {
@@ -5218,15 +5273,17 @@
      },
      {
       "stage": "regulate",
-      "rank": 2,
+      "rank": 1,
       "route": "external",
       "products": [
+       "Artistry Hydrating Mousse Cleanser",
        "Artistry Studio Glow Boss Cleanser + Exfoliator",
        "Artistry Men Face Wash"
       ],
-      "whyEn": "Cleansing is where most people make things worse without knowing. Harsh surfactants strip the barrier lipids, the skin reads that as damage, and sebum output goes up to compensate. So the person who washes four times a day to control oil ends up producing more of it. What you want is daily gentle exfoliation instead of aggressive weekly scrubbing, from a cleanser that leaves the barrier intact.",
-      "why": "洗脸是多数人不知不觉把事情弄糟的地方。清洁力过强的表面活性剂会把屏障脂质剥掉，皮肤把这个读成损伤，于是提高皮脂分泌来补偿。结果就是：一天洗四次脸想控油的人，最后出油更多。你要的是每天温和去角质，而不是每周一次猛搓，并且用一支洗完不破坏屏障的洁面。",
+      "whyEn": "Cleansing is where most people make things worse without knowing. Harsh surfactants strip the barrier lipids, the skin reads that as damage, and sebum output goes up to compensate. So the person who washes four times a day to control oil ends up producing more of it. A mousse dilutes and distributes the surfactant before it reaches your face, which is the whole point of the format. Daily gentle exfoliation beats aggressive weekly scrubbing; pick the exfoliating one only if your skin is genuinely congested.",
+      "why": "洗脸是多数人不知不觉把事情弄糟的地方。清洁力过强的表面活性剂会把屏障脂质剥掉，皮肤把这个读成损伤，于是提高皮脂分泌来补偿。结果就是：一天洗四次脸想控油的人，最后出油更多。慕斯剂型在接触皮肤之前就把表面活性剂稀释并分散开，这就是这个剂型存在的意义。每天温和去角质好过每周一次猛搓；只有在皮肤确实堵得厉害时，才选带磨砂的那一支。",
       "productIds": [
+       "artistry-hydrating-mousse-cleanser",
        "artistry-studio-glow-boss-cleanser-exfoliator",
        "artistry-men-face-wash"
       ]
@@ -5257,6 +5314,19 @@
       "productIds": [
        "plant-protein-powder",
        "vitamin-c-extended-release-180ct"
+      ]
+     },
+     {
+      "stage": "supplement",
+      "rank": 2,
+      "route": "external",
+      "products": [
+       "Artistry Vitamin C + HA3 Daily Serum"
+      ],
+      "whyEn": "Oral and topical vitamin C are not interchangeable, which is why this sits beside the tablet rather than instead of it. Swallowed vitamin C is distributed by the bloodstream and reaches the outer skin layers poorly; applied vitamin C lands directly where the pigment is being made. Use them together and you are working the same tyrosinase step from both sides. The three hyaluronic acid weights are the second half of the bottle: large molecules hold water at the surface, smaller ones carry it deeper, and hydrated skin produces less oil, not more.",
+      "why": "口服维C和外用维C不能互相替代，所以这一条是放在药片旁边，而不是取而代之。吞下去的维C靠血液分配，到达皮肤外层的量很有限；涂上去的维C则直接落在色素正在生成的地方。两者一起用，等于从内外两侧作用在同一个酪氨酸酶环节上。三种分子量的玻尿酸是这瓶里的另一半：大分子在表层锁水，小分子往深处带，而水分充足的皮肤出油会更少，不是更多。",
+      "productIds": [
+       "artistry-vitamin-c-ha3-daily-serum"
       ]
      },
      {

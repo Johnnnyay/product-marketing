@@ -1036,5 +1036,17 @@
   "advantageZh": "起步套装的存在，是为了让新IBO在第一个月不用猜该订什么。它的组合是为了达到第一个里程碑所需的业绩量，同时里面都是真正会用掉的产品，而不是囤着的。",
   "who": "New IBOs in their first month, and anyone rebuilding a consistent monthly order.",
   "whoZh": "第一个月的新IBO，以及正在重建稳定月订单的人。"
+ },
+ "artistry-hydrating-mousse-cleanser": {
+  "advantage": "The cleanser is the step where most people accidentally make oily skin oilier. Harsh surfactants strip barrier lipids, the skin reads that as damage, and sebum output rises to compensate. A mousse format dilutes and distributes the surfactant before it touches the face, so it cleans without that rebound. If you only change one product in a routine, this is usually the one with the highest return.",
+  "advantageZh": "洁面是多数人不小心把油皮洗得更油的那一步。清洁力过强的表面活性剂会剥掉屏障脂质，皮肤把这个读成损伤，于是提高皮脂分泌来补偿。慕斯剂型在接触皮肤前就已经稀释并均匀分散了表面活性剂，所以洗得干净但不会引起反弹。如果一整套流程里只换一样东西，通常回报最高的就是这一支。",
+  "who": "Oily or breakout-prone skin that feels tight after washing, and anyone using acids or retinol who needs the barrier left intact.",
+  "whoZh": "洗完脸发紧的油性或痘痘肌，以及正在用酸类或A醇、需要保住屏障的人。"
+ },
+ "artistry-vitamin-c-ha3-daily-serum": {
+  "advantage": "Two jobs in one bottle, and they are not the same job. Topical vitamin C works on the surface layers where an oral dose reaches poorly, slowing new pigment at the source, which is what keeps post-acne marks from deepening. The three hyaluronic acid molecular weights sit at different depths: large ones hold water at the surface, smaller ones carry it further in. That matters for oily skin, because dehydrated skin makes more oil, not less.",
+  "advantageZh": "一瓶里两件事，而且是两件不同的事。外用维C作用在口服很难充分抵达的表层，从源头减缓新色素生成，这正是让痘印不再变深的关键。三种分子量的玻尿酸停留在不同深度：大分子在表层锁水，小分子往里带水。这一点对油皮尤其重要，因为缺水的皮肤只会出更多油，不会更少。",
+  "who": "Anyone left with post-acne marks after the breakouts are handled, and oily skin that has been drying itself out.",
+  "whoZh": "痘痘控制住之后只剩痘印的人，以及一直在把自己越洗越干的油性皮肤。"
  }
 }
