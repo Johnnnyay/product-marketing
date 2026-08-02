@@ -83,6 +83,15 @@
    "sensitive": false
   },
   {
+   "id": "metabolic",
+   "order": 95,
+   "name": "Blood Sugar & Weight",
+   "nameZh": "血糖与体重",
+   "blurb": "Where the fat sits matters more than what the scale says, because the fat around your organs is the part that changes how your body answers insulin.",
+   "blurbZh": "脂肪长在哪里，比体重秤上的数字更重要，因为包在内脏周围的那部分脂肪，才是改变身体对胰岛素反应的那一部分。",
+   "sensitive": true
+  },
+  {
    "id": "hair",
    "order": 100,
    "name": "Hair Health",

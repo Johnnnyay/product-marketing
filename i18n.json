@@ -3,7 +3,7 @@
  "_status": {
   "ui": "complete",
   "areas": "complete",
-  "protocol": "skin complete; hormone and eczema fall back to English",
+  "protocol": "skin complete (zh/es/hi); metabolic complete (zh/es); hormone and eczema fall back to English",
   "products": "not started, falls back to English"
  },
  "ui": {
@@ -266,6 +266,10 @@
   "Content on this page is general wellness education, not medical advice. Shipping estimate based on published US rates (free ground shipping on orders $150+).": {
    "es": "El contenido de esta página es educación general sobre bienestar, no consejo médico. El envío estimado se basa en las tarifas publicadas en EE. UU. (envío terrestre gratis en pedidos de más de $150).",
    "hi": "इस पृष्ठ की सामग्री सामान्य स्वास्थ्य शिक्षा है, चिकित्सा सलाह नहीं। शिपिंग अनुमान अमेरिका की प्रकाशित दरों पर आधारित है ($150 से ऊपर के ऑर्डर पर मुफ़्त ग्राउंड शिपिंग)।"
+  },
+  "Blood Sugar & Weight": {
+   "es": "Azúcar en sangre y peso",
+   "hi": "रक्त शर्करा और वज़न"
   }
  },
  "areas": {
@@ -410,6 +414,20 @@
     "es": "El músculo se construye en la recuperación, no en el gimnasio. La reparación necesita proteína como materia prima, más aminoácidos y minerales para el ciclo de reconstrucción.",
     "hi": "मांसपेशी जिम में नहीं, रिकवरी में बनती है। मरम्मत के लिए कच्चे माल के रूप में प्रोटीन चाहिए, साथ ही पुनर्निर्माण चक्र के लिए अमीनो एसिड और खनिज।"
    }
+  },
+  "metabolic": {
+   "name": {
+    "es": "Azúcar en sangre y peso",
+    "hi": "रक्त शर्करा और वज़न"
+   },
+   "blurb": {
+    "es": "Dónde está la grasa importa más que lo que dice la báscula, porque la grasa que rodea tus órganos es la parte que cambia cómo tu cuerpo responde a la insulina.",
+    "hi": "चर्बी कहाँ जमा है यह वज़न काँटे के अंक से ज़्यादा मायने रखता है, क्योंकि अंगों के आसपास जमी चर्बी ही वह हिस्सा है जो बदल देती है कि शरीर इंसुलिन का जवाब कैसे देता है।"
+   },
+   "overview": {
+    "es": "La insulina es la señal que le dice a las células que saquen el azúcar de la sangre. En el patrón en el que está la mayoría de los adultos de mediana edad, el páncreas sigue mandando esa señal, a veces más que nunca. Las células han dejado de responder. Lo que hace que dejen de responder es la grasa en el lugar equivocado: no la de los brazos, que es bastante inofensiva, sino la que se empaqueta alrededor de los órganos y dentro del hígado. Esa grasa drena directo al hígado, lo empuja a producir glucosa que no hacía falta producir, y mantiene todo el sistema inflamado. Así que el objetivo no es un número en la báscula, es la grasa de la cintura y la carga que le llega al hígado tres veces al día. Los cuatro pasos de abajo van en ese orden: quita la carga, haz que las comidas que ya haces se comporten distinto, aporta la materia prima con la que funciona la reparación, y protege el resultado, porque recuperar el peso es lo normal y es la parte que casi nadie planea.",
+    "hi": "इंसुलिन वह संकेत है जो कोशिकाओं से कहता है कि खून से शर्करा हटा लो। अधेड़ उम्र के अधिकांश लोगों की स्थिति यह है कि अग्न्याशय अब भी यह संकेत भेज रहा है, कभी-कभी पहले से भी ज़्यादा, पर कोशिकाएँ जवाब देना बंद कर चुकी हैं। जवाब देना बंद कराती है गलत जगह जमी चर्बी: बाँहों वाली नहीं, जो अपेक्षाकृत हानिरहित है, बल्कि वह जो अंगों के चारों ओर और लिवर के भीतर भरी है। यह चर्बी सीधे लिवर में जाती है, उसे ऐसी शर्करा बनाने पर मजबूर करती है जिसकी ज़रूरत नहीं थी, और पूरे तंत्र को सूजन में रखती है। इसलिए लक्ष्य वज़न काँटे का अंक नहीं है, लक्ष्य है कमर के आसपास की चर्बी और दिन में तीन बार लिवर पर पड़ने वाला बोझ। नीचे के चार चरण इसी क्रम में हैं: पहले बोझ हटाएँ, फिर जो भोजन आप पहले से करते हैं उसका व्यवहार बदलें, फिर मरम्मत का कच्चा माल दें, और अंत में नतीजे की रक्षा करें, क्योंकि वज़न लौट आना ही सामान्य है और यही वह हिस्सा है जिसकी योजना कोई नहीं बनाता।"
+   }
   }
  },
  "protocol": {
@@ -476,6 +494,39 @@
   "skin.supplement.artistry-vitamin-c-ha3-daily": {
    "es": "La vitamina C oral y la tópica no son intercambiables, y por eso esta va al lado de la pastilla y no en su lugar. La que tragas se reparte por el torrente sanguíneo y llega mal a las capas externas de la piel; la que aplicas aterriza justo donde se está fabricando el pigmento. Usadas juntas, estás trabajando el mismo paso de la tirosinasa desde los dos lados. Los tres pesos moleculares de ácido hialurónico son la otra mitad del frasco: las moléculas grandes retienen agua en la superficie, las pequeñas la llevan más adentro, y una piel hidratada produce menos aceite, no más.",
    "hi": "मुँह से ली गई और त्वचा पर लगाई गई विटामिन सी एक-दूसरे की जगह नहीं ले सकतीं, इसीलिए यह गोली के बदले नहीं, उसके साथ रखी गई है। निगली गई विटामिन सी रक्त के ज़रिए बँटती है और त्वचा की बाहरी परतों तक कम पहुँचती है; लगाई गई विटामिन सी सीधे वहीं उतरती है जहाँ रंगद्रव्य बन रहा है। दोनों साथ इस्तेमाल करने पर आप उसी टायरोसिनेज़ चरण पर दोनों तरफ़ से काम कर रहे होते हैं। तीन आणविक भार वाला हाइलुरोनिक एसिड इस बोतल का दूसरा आधा है: बड़े अणु सतह पर पानी रोकते हैं, छोटे उसे गहराई तक ले जाते हैं, और नमी वाली त्वचा कम तेल बनाती है, ज़्यादा नहीं।"
+  },
+  "metabolic.clear.carb-blocker": {
+   "es": "La primera carga es el tamaño del pico de glucosa después de cada comida, y se puede aplanar sin quitar un solo alimento. El extracto de frijol blanco frena la enzima que rompe el almidón en azúcar, así que parte de un plato con mucho almidón pasa de largo en vez de llegar todo de golpe. La fibra viscosa hace lo mismo por otra vía: espesa lo que hay en el estómago, así que la comida entera se vacía más despacio. Esto importa más que un plan de dieta por una razón. Nadie en una familia que lleva tres generaciones comiendo tortillas y arroz va a dejarlo, y un plan que se lo exija se abandona en una semana. Un plan que aplana la curva de la comida que ya comen sí se puede sostener."
+  },
+  "metabolic.clear.green-superfood": {
+   "es": "La segunda carga es gratis, y es el orden en que comes. En ensayos cruzados, comer proteína y verdura antes del arroz produjo una subida de glucosa medible más baja que la misma comida en orden inverso. Mismo plato, mismas calorías, misma persona, otra curva. Es lo más barato de esta página y lo primero que hay que darle a alguien, porque no cuesta nada, le demuestra que el mecanismo es real, y una persona que ha visto funcionar una cosa prueba la siguiente."
+  },
+  "metabolic.clear.liver-support": {
+   "es": "La tercera carga es el hígado, y es el órgano sobre el que gira toda esta área. La grasa visceral drena directamente al hígado por la vena porta, entregándole ácidos grasos y señales inflamatorias antes de que lleguen al resto del cuerpo. Un hígado que carga su propia grasa responde mal a la insulina y sigue produciendo glucosa cuando debería haber parado. Este es también el mecanismo detrás de algo que confunde a la gente: alguien puede tener solo un poco de sobrepeso y aun así el cuadro metabólico de alguien mucho más pesado, porque la grasa está en el hígado y no bajo la piel."
+  },
+  "metabolic.regulate.plant-protein-powder": {
+   "es": "Esta etapa trata de cambiar lo que hace una comida, y el desayuno es donde está la palanca. Un desayuno de puro carbohidrato marca el patrón del día entero: sube, cae, y esa caída es lo que hace que el antojo de media mañana se sienta como falta de voluntad cuando en realidad es azúcar en sangre. Cambiar esa única comida por proteína es el cambio de mayor retorno de toda el área. Hay una segunda razón para que esté aquí. Cuando la gente baja de peso, una parte importante de lo que pierde es músculo, y el músculo es el tejido que se lleva la mayor parte de tu glucosa. Si lo pierdes, sales de la dieta metabólicamente peor de como entraste."
+  },
+  "metabolic.regulate.probiotic": {
+   "es": "El intestino está en esta etapa y no en la primera porque, para el metabolismo, su trabajo es conversión, no limpieza. Las bacterias del colon fermentan la fibra que les mandas y producen ácidos grasos de cadena corta, que es una de las formas en que la fibra afecta al azúcar en sangre más allá de solo frenar la comida. Los postbióticos son esos productos bacterianos dados directamente, así que el beneficio no depende de si las cepas sobreviven el viaje. Si alguien solo va a añadir una cosa aquí: primero fibra, después bacterias. Alimentar a la población que ya tienes sale más barato que importar una nueva."
+  },
+  "metabolic.supplement.magnesium": {
+   "es": "De todo lo que hay en esta página, el magnesio es lo que tiene la evidencia más sólida y el menor marketing detrás. Al juntar veinticinco estudios prospectivos con más de 630.000 personas, una ingesta más alta de magnesio en la dieta se asoció con un riesgo de diabetes tipo 2 cerca de un 17% menor, y la relación fue dosis-dependiente: cada 100mg adicionales al día se asociaron con una reducción extra del 8 al 13%. Fíjate en lo que esto es y lo que no es. Es una asociación medida en poblaciones grandes, no una promesa sobre tus análisis. Pero es del tipo de hallazgo que aguanta el escrutinio, y el magnesio es de lo más barato de la línea."
+  },
+  "metabolic.supplement.double-x-multivitamin-31-day": {
+   "es": "Un multivitamínico amplio está aquí por una razón poco vistosa: los nutrientes que importan para el manejo de la glucosa están repartidos entre muchos de ellos, y comprarlos de uno en uno sale más caro que cubrir todo el piso de una vez. El cromo es el que la gente pregunta, y la respuesta honesta es que participa en cómo las células responden a la insulina, pero la evidencia de los ensayos es mixta y buena parte es de baja calidad, así que trátalo como un ingrediente razonable y no como el motivo de compra. Si el presupuesto solo da para un suplemento en toda esta área, esta es una elección defendible, porque cubre un piso ancho en vez de apostarlo todo a un solo nutriente."
+  },
+  "metabolic.supplement.advanced-omega": {
+   "es": "La resistencia a la insulina ocurre sobre un fondo de inflamación de bajo grado, y la grasa visceral es una fuente activa de ella, no un depósito inerte. El omega-3 actúa sobre ese fondo y no sobre la glucosa directamente, por eso no esperes que mueva un análisis la semana que viene. El hueco casi siempre es de proporción y no de ausencia: la alimentación moderna trae mucho omega-6 y muy poco omega-3, y el equilibrio entre ambos fija el tono inflamatorio."
+  },
+  "metabolic.supplement.concentrated-fruits-vegetabl": {
+   "es": "Dos líneas de apoyo para quien ya pasó lo básico. Las familias de pigmentos vegetales son de donde el cuerpo saca varios antioxidantes que no puede fabricar, y casi nadie come todos los grupos de color en una semana. Las vitaminas del grupo B son coenzimas del metabolismo energético y se gastan más rápido con una dieta alta en carbohidratos, que describe a la mayoría de quien llega a esta página. El frasco de 120 sale a menos de treinta centavos al día, lo que lo convierte en una de las adiciones más fáciles de justificar en una casa que cuida cada dólar."
+  },
+  "metabolic.sustain.plant-protein-powder": {
+   "es": "Esta es la parte que casi nadie planea. En los seguimientos largos de los mejores ensayos de pérdida de peso, quienes conservaron el resultado fueron quienes conservaron el peso perdido, y las recaídas siguieron a la recuperación de peso en los dos o tres años siguientes. Bajarlo es la mitad fácil. Lo que protege la segunda mitad es mantener la proteína alta para conservar el músculo, y tener algo a lo que de verdad echar mano cuando da hambre entre comidas, porque el plan no falla en la cena, falla a las cuatro de la tarde."
+  },
+  "metabolic.sustain.calcium-magnesium-d": {
+   "es": "El sueño pertenece a esta etapa y es la palanca que más gente se salta. Dormir poco sube el cortisol, el cortisol sube la glucosa, y además empuja el apetito justo hacia los alimentos que hacen más difícil el día siguiente. Así que una mala semana de sueño no está aparte de la conversación del azúcar en sangre, está río arriba de ella. Ninguno de estos dos sustituye acostarse antes. Solo ayudan a aterrizar ese paso, y vale la pena decirlo en voz alta, porque quien crea que una cápsula reemplaza al sueño se va a decepcionar y dejará de confiar en el resto."
   }
  }
 }

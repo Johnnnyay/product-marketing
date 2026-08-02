@@ -367,6 +367,142 @@
      "whyZh": "屏障优先的做法是：皮肤看起来好的时候也每天润肤，而不是只在起疹时才润。等起疹才处理，就永远在救火而不是防火。另一个常被忽略的细节：变量最大的不是身体乳，是沐浴露，清洁力过强的沐浴露每天把屏障剥掉一层，再好的身体乳也补不回来。"
     }
    ]
+  },
+  "metabolic": {
+   "overview": "Insulin is the signal that tells cells to take sugar out of the blood. In the pattern most middle-aged adults are in, the pancreas is still sending that signal, sometimes more of it than ever. The cells have stopped answering. What makes them stop answering is fat in the wrong place: not the fat on your arms, which is fairly harmless, but the fat packed around the organs and inside the liver. That fat drains straight into the liver, pushes it to make glucose it does not need to make, and keeps the whole system inflamed. So the target is not a number on the scale, it is the fat around your middle and the load hitting your liver three times a day. The four steps below work in that order: take the load off, make the meals you already eat behave differently, supply the raw materials the repair runs on, and protect the result, because regain is the normal outcome and the part almost nobody plans for.",
+   "overviewZh": "胰岛素是通知细胞把糖从血里搬走的信号。多数中年人所处的状态是：胰腺还在发这个信号，有时甚至发得比以前更多，但细胞不再应答。让细胞不应答的，是长错位置的脂肪，不是手臂上那些相对无害的皮下脂肪，而是包在内脏周围、囤在肝里的那部分。这部分脂肪直接引流进肝脏，逼着肝去制造它本不需要制造的葡萄糖，并让整个系统持续处在炎症里。所以目标不是体重秤上的数字，而是腰围那一圈，以及一天三次撞进肝脏的那份负担。下面四步就按这个顺序走：先卸掉负担，再让你本来就在吃的那几餐表现得不一样，然后把修复要用的原料供上，最后守住结果，因为反弹才是常态，而几乎没人为这一步做准备。",
+   "rows": [
+    {
+     "stage": "clear",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "Green Superfood"
+     ],
+     "why": "The second load is free, and it is the order you eat in. In crossover trials, eating protein and vegetables before the rice produced a measurably lower glucose excursion than the same meal eaten in the reverse order. Same plate, same calories, same person, different curve. This is the single cheapest thing on this page and the one to give someone first, because it costs nothing, it proves to them that the mechanism is real, and a person who has seen one thing work will try the next one.",
+     "whyZh": "第二个负担是免费的，就是你吃东西的顺序。在交叉对照试验里，先吃蛋白质和蔬菜、后吃米饭，血糖曲线的波动明显低于同一餐反过来吃。同一盘菜、同样的热量、同一个人，曲线不一样。这是整页里最便宜的一件事，也是应该第一个交给别人的那件事，因为它不花钱、能让对方亲眼确认这个机理是真的，而一个见过一件事奏效的人，才会愿意试下一件。",
+     "key": "metabolic.clear.green-superfood"
+    },
+    {
+     "stage": "clear",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Carb Blocker",
+      "Prebiotic Fiber"
+     ],
+     "why": "The first load is the size of the glucose spike after each meal, and you can flatten it without removing a single food. White kidney bean extract slows the enzyme that breaks starch into sugar, so part of a starch-heavy plate passes through instead of arriving all at once. Viscous fibre does the same job by a different route: it thickens what is in the stomach so the whole meal empties more slowly. This matters more than a diet plan for one reason. Nobody in a family that has eaten tortillas and rice for three generations is going to stop, and a plan that requires them to stop will be abandoned in a week. A plan that flattens the curve on the food they already eat can actually be kept.",
+     "whyZh": "第一个负担是每餐之后血糖峰值的高度，而这个高度可以在不删掉任何一种食物的前提下压平。白芸豆提取物抑制把淀粉分解成糖的那个酶，让一部分淀粉直接通过，而不是一次性全涌进来。黏性纤维用另一条路做同一件事：它让胃里的东西变稠，整餐排空得更慢。这件事比一份食谱更重要，理由只有一个：一个三代人都在吃玉米饼和米饭的家庭，不会真的戒掉，而任何要求他们戒掉的方案，一周之内就会被放弃。能压平曲线又不动他们本来饮食的方案，才是能坚持下去的那个。",
+     "key": "metabolic.clear.carb-blocker"
+    },
+    {
+     "stage": "clear",
+     "rank": 3,
+     "route": "internal",
+     "products": [
+      "Liver Support",
+      "Organics Turmeric Capsules"
+     ],
+     "why": "The third load is the liver, and it is the organ this whole area turns on. Visceral fat drains directly into the liver through the portal vein, delivering fatty acids and inflammatory signals to it before they reach the rest of the body. A liver carrying its own fat responds poorly to insulin and keeps producing glucose when it should have stopped. This is also the mechanism behind something people find confusing: someone can be only slightly overweight and still have the metabolic picture of someone much heavier, because the fat is in the liver rather than under the skin.",
+     "whyZh": "第三个负担在肝，而整个领域其实都是围着这个器官转的。内脏脂肪经门静脉直接引流进肝脏，把脂肪酸和炎症信号先送到肝，再送到全身其他地方。一个自己也囤着脂肪的肝，对胰岛素反应变差，该停止产糖的时候还在产糖。这也解释了一件让很多人困惑的事：有人只是略微超重，代谢指标却像一个重得多的人，因为脂肪长在肝里，而不在皮下。",
+     "key": "metabolic.clear.liver-support"
+    },
+    {
+     "stage": "regulate",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "Plant Protein Powder"
+     ],
+     "why": "This stage is about changing what a meal does, and breakfast is where the leverage is. A carbohydrate-only breakfast sets the pattern for the whole day: it spikes, it crashes, and the crash is what makes the mid-morning craving feel like willpower failing when it is actually blood sugar. Replacing that one meal with protein is the highest-return single change in this area. There is a second reason it matters here specifically. When people lose weight, a meaningful share of what they lose is muscle, and muscle is the tissue that disposes of most of your blood glucose. Lose it and you come out of the diet metabolically worse than you went in.",
+     "whyZh": "这一步管的是改变一餐的行为方式，而杠杆最大的地方是早餐。一顿只有碳水的早餐会给一整天定下节奏：血糖冲上去、掉下来，而那个下坠正是上午十点那种馋，感觉像是意志力不够，其实是血糖。把这一餐换成蛋白质，是整个领域里回报最高的单一改变。在这里它还有第二层意义：人在减重时掉的有相当一部分是肌肉，而肌肉正是处理你大部分血糖的组织。掉了肌肉，减完这一轮，代谢比开始前更差。",
+     "key": "metabolic.regulate.plant-protein-powder"
+    },
+    {
+     "stage": "regulate",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Probiotic",
+      "Metabolic Pre & Postbiotic"
+     ],
+     "why": "The gut sits in this stage rather than the first one because for metabolism its job is conversion, not clearance. The bacteria in your colon ferment the fibre you send them and produce short-chain fatty acids, which is one of the ways fibre affects blood sugar beyond simply slowing the meal down. Postbiotics are those bacterial products supplied directly, so the benefit does not depend on whether the strains survive the journey. If someone is only going to add one thing here, fibre first and bacteria second: feeding the population you already have is cheaper than importing a new one.",
+     "whyZh": "肠道放在这一步而不是第一步，是因为对代谢而言，它的职责是转化，不是清除。结肠里的菌把你送进去的纤维发酵成短链脂肪酸，这是纤维影响血糖的另一条路径，不只是把一餐变慢那么简单。后生元是把这些菌产物直接给到，所以效果不取决于菌株能不能活着走完这段路。如果只加一样，先纤维后菌：喂饱你本来就有的菌群，比引进一批新的便宜。",
+     "key": "metabolic.regulate.probiotic"
+    },
+    {
+     "stage": "supplement",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "Magnesium",
+      "Calcium Magnesium D"
+     ],
+     "why": "Of everything on this page, magnesium has the strongest evidence and the least marketing behind it. Pooling twenty-five prospective studies covering more than 630,000 people, higher dietary magnesium intake tracked with roughly 17% lower risk of type 2 diabetes, and the relationship was dose-dependent: each additional 100mg a day was associated with a further 8 to 13% reduction. Note what that is and is not. It is an association measured across large populations, not a promise about your numbers. But it is the kind of finding that survives scrutiny, and magnesium is one of the cheapest things in the line.",
+     "whyZh": "这一页上的所有东西里，镁的证据最强，而它背后的营销最少。汇总二十五项前瞻性研究、超过六十三万人，膳食镁摄入较高的人群，2型糖尿病的风险约低 17%，而且呈剂量依赖：每天每多摄入 100 毫克，风险再降 8% 到 13%。要看清这是什么、不是什么。它是在大人群里测出来的相关性，不是对你个人指标的承诺。但它属于经得起推敲的那一类发现，而镁又是整个产品线里最便宜的几样之一。",
+     "key": "metabolic.supplement.magnesium"
+    },
+    {
+     "stage": "supplement",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Double X Multivitamin 31-day Refill",
+      "Men's Pack",
+      "Women's Pack"
+     ],
+     "why": "A broad multivitamin is here for an unglamorous reason: the nutrients that matter for glucose handling are spread across many of them, and picking them off one at a time costs more than covering the whole floor at once. Chromium is the one people ask about, and the honest answer is that it is involved in how cells respond to insulin but the trial evidence is mixed and much of it is low quality, so treat it as a reasonable inclusion rather than the reason to buy. If the budget only stretches to one supplement in this whole area, this is a defensible choice, because it covers a wide floor rather than betting everything on one nutrient.",
+     "whyZh": "综合营养素放在这里，理由并不花哨：与血糖处理相关的营养素分散在很多种里，一个一个单买，比一次性把底盘铺满更贵。铬是大家最常问的那个，诚实的回答是：它确实参与细胞对胰岛素的反应，但临床试验结果不一致，其中不少质量偏低，所以把它当成一个合理的配料，而不是购买的理由。如果整个领域的预算只够买一样，这是一个说得过去的选择，因为它铺的是一个宽的底盘，而不是把赌注压在单一营养素上。",
+     "key": "metabolic.supplement.double-x-multivitamin-31-day"
+    },
+    {
+     "stage": "supplement",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Advanced Omega"
+     ],
+     "why": "Insulin resistance runs on a background of low-grade inflammation, and visceral fat is an active source of it rather than an inert store. Omega-3 works on that background rather than on glucose directly, which is why you should not expect it to move a reading next week. The gap is almost always about ratio rather than absence: modern eating carries plenty of omega-6 and very little omega-3, and the balance between them sets the inflammatory tone.",
+     "whyZh": "胰岛素抵抗是建立在一层低度炎症的背景之上的，而内脏脂肪不是惰性的储存仓，它本身就是炎症的活跃来源。Omega-3 作用在这层背景上，而不是直接作用于血糖，所以不要指望它下周就把某个读数改掉。这个缺口几乎总是比例问题而不是有无问题：现代饮食里 Omega-6 很多、Omega-3 很少，而炎症的基调由两者的比例决定。",
+     "key": "metabolic.supplement.advanced-omega"
+    },
+    {
+     "stage": "supplement",
+     "rank": 3,
+     "route": "internal",
+     "products": [
+      "Concentrated Fruits & Vegetables",
+      "Vitamin B Complex 120ct"
+     ],
+     "why": "Two supporting lines for people who have gone past the basics. Plant pigment families are how the body sources several antioxidants it cannot make, and almost nobody eats across all the colour groups in a week. B vitamins are coenzymes in energy metabolism and get consumed faster on a high-carbohydrate diet, which describes most people arriving at this page. The 120-count works out under thirty cents a day, which makes it one of the easiest additions to justify to a household watching every dollar.",
+     "whyZh": "两条辅助线，给已经做完基础项的人。植物色素家族是身体获取多种自身无法合成的抗氧化物的来源，而几乎没有人能在一周内把所有色系吃全。B族是能量代谢里的辅酶，在高碳水饮食下消耗得更快，而这正好描述了大多数会看到这一页的人。120粒装算下来每天不到三毛钱，对于一个每一块钱都要算的家庭，这是最容易说得通的一笔添加。",
+     "key": "metabolic.supplement.concentrated-fruits-vegetabl"
+    },
+    {
+     "stage": "sustain",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "Plant Protein Powder",
+      "Wellness Bars"
+     ],
+     "why": "Here is the part almost nobody plans for. In the long follow-ups of the best weight-loss trials, the people who kept the result were the people who kept the weight off, and relapse tracked regain over the following two to three years. Losing it is the easy half. What protects the second half is keeping protein up so you hold the muscle, and having something you actually reach for when you are hungry between meals, because the plan does not fail at dinner, it fails at 4pm.",
+     "whyZh": "这是几乎没有人会提前规划的一环。在最好的减重试验的长期随访里，守住结果的人就是守住体重的人，而复发跟随后两到三年的反弹同步。减下来是容易的那一半。保住后一半，靠的是把蛋白质吃够、守住肌肉，以及在两餐之间饿的时候手边真的有东西可拿，因为方案不是在晚餐时崩的，是在下午四点崩的。",
+     "key": "metabolic.sustain.plant-protein-powder"
+    },
+    {
+     "stage": "sustain",
+     "rank": 2,
+     "route": "habit",
+     "products": [
+      "Calcium Magnesium D",
+      "Stress Relief Probiotic"
+     ],
+     "why": "Sleep belongs in this stage and it is the lever most people skip. Short sleep raises cortisol, cortisol raises blood glucose, and it also drives appetite towards exactly the foods that make the next day harder. So a bad week of sleep is not separate from the blood sugar conversation, it is upstream of it. Neither of these replaces going to bed earlier. They only help someone land that step, and it is worth saying that out loud, because a person who thinks a capsule can substitute for sleep will be disappointed and stop trusting the rest.",
+     "whyZh": "睡眠属于这一步，而它是多数人跳过的那根杠杆。睡眠不足抬高皮质醇，皮质醇抬高血糖，同时把食欲推向那些让第二天更难过的食物。所以睡不好的一周不是血糖话题之外的事，它在血糖的上游。这两样都不能替代早睡，它们只是帮人把早睡这一步落地。这句话值得说出口，因为一个以为吃胶囊可以代替睡觉的人，最后会失望，然后连带着不再相信其余部分。",
+     "key": "metabolic.sustain.calcium-magnesium-d"
+    }
+   ]
   }
  }
 }

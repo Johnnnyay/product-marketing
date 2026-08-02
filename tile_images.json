@@ -17,7 +17,8 @@
   "home": "images/tiles/are-home.jpg",
   "eczema": "images/tiles/are-eczema.jpg",
   "rhinitis": "images/tiles/are-rhinitis.jpg",
-  "hormone": "images/tiles/are-hormone.jpg"
+  "hormone": "images/tiles/are-hormone.jpg",
+  "metabolic": "images/tiles/are-metabolic.jpg"
  },
  "solutions": {
   "students": "images/tiles/sol-students.jpg",

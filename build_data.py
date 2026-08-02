@@ -371,6 +371,25 @@ for _n, _extra in AREA_EXTRA.items():
     E[_n] = tuple(_e)
 
 
+# Blood Sugar & Weight. Tagged separately from `weight` because the audience is
+# different: weight is about body composition, metabolic is about how the body
+# answers insulin. Several products serve both.
+METABOLIC = ["Carb Blocker", "Prebiotic Fiber", "Green Superfood", "Liver Support",
+             "Organics Turmeric Capsules", "Plant Protein Powder", "Probiotic",
+             "Metabolic Pre & Postbiotic", "Magnesium", "Calcium Magnesium D",
+             "Double X Multivitamin 31-day Refill", "Men's Pack", "Women's Pack",
+             "Advanced Omega", "Concentrated Fruits & Vegetables",
+             "Vitamin B Complex 120ct", "Wellness Bars", "Stress Relief Probiotic",
+             "Slimmetry", "Digestive Enzyme", "Begin Daily GI Primer",
+             "Heart Health CoQ10", "Garlic Heart Care", "Organics All-in-One Shakes"]
+for _n in METABOLIC:
+    assert _n in E, _n
+    _e = list(E[_n])
+    if "metabolic" not in _e[4]:
+        _e[4] = _e[4] + ["metabolic"]
+    E[_n] = tuple(_e)
+
+
 def slug(n):
     s = re.sub(r"[^a-z0-9]+","-", n.lower()).strip("-")
     return s
