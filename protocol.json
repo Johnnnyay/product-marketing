@@ -369,8 +369,8 @@
    ]
   },
   "metabolic": {
-   "overview": "Insulin is the signal that tells cells to take sugar out of the blood. In the pattern most middle-aged adults are in, the pancreas is still sending that signal, sometimes more of it than ever. The cells have stopped answering. What makes them stop answering is fat in the wrong place: not the fat on your arms, which is fairly harmless, but the fat packed around the organs and inside the liver. That fat drains straight into the liver, pushes it to make glucose it does not need to make, and keeps the whole system inflamed. So the target is not a number on the scale, it is the fat around your middle and the load hitting your liver three times a day. The four steps below work in that order: take the load off, make the meals you already eat behave differently, supply the raw materials the repair runs on, and protect the result, because regain is the normal outcome and the part almost nobody plans for.",
-   "overviewZh": "胰岛素是通知细胞把糖从血里搬走的信号。多数中年人所处的状态是：胰腺还在发这个信号，有时甚至发得比以前更多，但细胞不再应答。让细胞不应答的，是长错位置的脂肪，不是手臂上那些相对无害的皮下脂肪，而是包在内脏周围、囤在肝里的那部分。这部分脂肪直接引流进肝脏，逼着肝去制造它本不需要制造的葡萄糖，并让整个系统持续处在炎症里。所以目标不是体重秤上的数字，而是腰围那一圈，以及一天三次撞进肝脏的那份负担。下面四步就按这个顺序走：先卸掉负担，再让你本来就在吃的那几餐表现得不一样，然后把修复要用的原料供上，最后守住结果，因为反弹才是常态，而几乎没人为这一步做准备。",
+   "overview": "Insulin is the signal that tells cells to take sugar out of the blood. In the pattern most adults over forty are in, the pancreas is still sending it, often more than ever. The cells have stopped answering. What makes them stop is fat in the wrong place: not the fat on your arms, which is fairly harmless, but the fat packed around the organs and inside the liver. That fat drains straight into the liver through the portal vein, pushes it to keep producing glucose when it should have stopped, and holds the whole system in low-grade inflammation. This is why someone only slightly overweight can have worse numbers than someone much heavier, and why waist measurement tells you more than weight does. Everything below sits alongside whatever your doctor has you on, never instead of it. The four steps run in order: flatten what arrives, change how the meal behaves, supply the raw materials, and hold the rhythm that the whole thing runs on.",
+   "overviewZh": "胰岛素是通知细胞把糖从血里搬走的信号。四十岁以上多数人所处的状态是：胰腺还在发这个信号，往往比以前发得更多，但细胞不再应答。让它们不应答的，是长错位置的脂肪，不是手臂上那些相对无害的皮下脂肪，而是包在内脏周围、囤在肝里的那部分。这部分脂肪经门静脉直接引流进肝脏，逼着肝在该停止产糖的时候继续产糖，并把整个系统按在一层低度炎症里。这解释了为什么一个只是略微超重的人，指标可能比一个重得多的人更差，也解释了为什么腰围比体重能告诉你更多。下面所有内容都是与医生给你的方案并行，永远不是替代它。四步按顺序走：压平进来的量，改变一餐的行为方式，把原料供上，守住整件事赖以运转的节律。",
    "rows": [
     {
      "stage": "clear",
@@ -438,8 +438,8 @@
       "Magnesium",
       "Calcium Magnesium D"
      ],
-     "why": "Of everything on this page, magnesium has the strongest evidence and the least marketing behind it. Pooling twenty-five prospective studies covering more than 630,000 people, higher dietary magnesium intake tracked with roughly 17% lower risk of type 2 diabetes, and the relationship was dose-dependent: each additional 100mg a day was associated with a further 8 to 13% reduction. Note what that is and is not. It is an association measured across large populations, not a promise about your numbers. But it is the kind of finding that survives scrutiny, and magnesium is one of the cheapest things in the line.",
-     "whyZh": "这一页上的所有东西里，镁的证据最强，而它背后的营销最少。汇总二十五项前瞻性研究、超过六十三万人，膳食镁摄入较高的人群，2型糖尿病的风险约低 17%，而且呈剂量依赖：每天每多摄入 100 毫克，风险再降 8% 到 13%。要看清这是什么、不是什么。它是在大人群里测出来的相关性，不是对你个人指标的承诺。但它属于经得起推敲的那一类发现，而镁又是整个产品线里最便宜的几样之一。",
+     "why": "Of everything on this page, magnesium has the strongest evidence and the least marketing behind it. Pooling twenty-five prospective studies covering more than 630,000 people, higher dietary magnesium intake tracked with roughly 17% lower risk of type 2 diabetes, dose-dependently: each extra 100mg a day was associated with a further 8 to 13% reduction. The label matters here too. This is 200mg delivered as bisglycinate chelate, hydroxide and malate rather than the cheap oxide most shelf products use, which is the difference between a dose you absorb and a dose that mostly reaches the toilet. Note what the evidence is and is not: an association across large populations, not a promise about your numbers.",
+     "whyZh": "这一页上的所有东西里，镁的证据最强，而它背后的营销最少。汇总二十五项前瞻性研究、超过六十三万人，膳食镁摄入较高的人群，2型糖尿病风险约低 17%，而且呈剂量依赖：每天每多 100 毫克，风险再降 8% 到 13%。标签在这里也重要。这是 200 毫克，来自甘氨酸螯合镁、氢氧化镁和苹果酸镁，而不是货架上多数产品用的廉价氧化镁，这个区别决定了它是一份你吸收得进去的剂量，还是一份基本进了马桶的剂量。但要看清证据是什么、不是什么：这是大人群里的相关性，不是对你个人指标的承诺。",
      "key": "metabolic.supplement.magnesium"
     },
     {
@@ -483,24 +483,151 @@
      "rank": 1,
      "route": "habit",
      "products": [
-      "Plant Protein Powder",
+      "Calcium Magnesium D",
+      "Stress Relief Probiotic"
+     ],
+     "why": "Sleep is the lever most people skip and it acts directly on this problem. Short sleep raises cortisol, cortisol raises blood glucose, and it pushes appetite specifically toward the foods that make tomorrow's numbers worse. So a bad week of sleep is not a separate topic from blood sugar, it sits upstream of it. Neither of these replaces going to bed earlier; they help someone land that step. Say that out loud, because a person who thinks a capsule substitutes for sleep will be disappointed and stop trusting the rest.",
+     "whyZh": "睡眠是多数人跳过的那根杠杆，而它直接作用在这个问题上。睡眠不足抬高皮质醇，皮质醇抬高血糖，同时把食欲专门推向那些让明天指标更难看的食物。所以睡不好的一周不是血糖之外的话题，它在血糖的上游。这两样都不能替代早睡，它们只是帮人把早睡这一步落地。这句话要说出口，因为一个以为吃胶囊可以代替睡觉的人，最后会失望，然后连带着不再相信其余部分。",
+     "key": "metabolic.sustain.calcium-magnesium-d"
+    }
+   ],
+   "overview_es": "La insulina es la señal que le dice a las células que saquen el azúcar de la sangre. En el patrón en el que está la mayoría de los adultos de más de cuarenta, el páncreas sigue mandándola, a menudo más que nunca. Las células han dejado de responder. Lo que hace que dejen de responder es la grasa en el lugar equivocado: no la de los brazos, que es bastante inofensiva, sino la que se empaqueta alrededor de los órganos y dentro del hígado. Esa grasa drena directo al hígado por la vena porta, lo empuja a seguir produciendo glucosa cuando debería haber parado, y mantiene todo el sistema en inflamación de bajo grado. Por eso alguien con solo un poco de sobrepeso puede tener peores números que alguien mucho más pesado, y por eso la medida de la cintura dice más que el peso. Todo lo de abajo va junto a lo que tu médico te haya indicado, nunca en su lugar. Los cuatro pasos van en orden: aplana lo que llega, cambia cómo se comporta la comida, aporta la materia prima, y sostén el ritmo del que depende todo lo demás."
+  },
+  "weight": {
+   "overview": "Two people lose the same ten pounds. One loses mostly fat and keeps it off. The other loses a third of it as muscle, and muscle is the tissue that burns energy at rest, so they finish the diet lighter and worse at staying light. Then they regain, and the weight that comes back is fat. That is the loop, and it is why the number on the scale is a poor guide to whether something is working. The four steps below are built around composition rather than the number: make the meals you eat more filling so the deficit is bearable, get enough protein that your body has no reason to break down muscle, cover the nutrient gaps that open up whenever you eat less, and protect what you built, because the hard part was never the losing.",
+   "overviewZh": "两个人减掉同样的十斤。一个减掉的主要是脂肪，而且守住了；另一个有三分之一减掉的是肌肉，而肌肉恰恰是静息状态下消耗能量的组织，于是这一轮减完，人更轻了，但更不容易维持轻。然后反弹，涨回来的是脂肪。这就是那个循环，也是为什么体重秤上的数字并不能说明一件事有没有奏效。下面四步围绕的是身体成分而不是数字：让你吃的每一餐更顶饱，好让热量缺口撑得下去；把蛋白质吃够，让身体没有理由去拆肌肉；补上少吃之后必然出现的营养缺口；最后守住你建起来的东西，因为难的从来不是减掉。",
+   "overview_es": "Dos personas pierden los mismos cinco kilos. Una pierde sobre todo grasa y los mantiene. La otra pierde un tercio en forma de músculo, y el músculo es el tejido que quema energía en reposo, así que termina la dieta más ligera y peor preparada para seguir ligera. Después recupera, y lo que vuelve es grasa. Ese es el bucle, y por eso el número de la báscula es una mala guía para saber si algo está funcionando. Los cuatro pasos de abajo giran en torno a la composición y no al número: haz que las comidas que ya haces llenen más para que el déficit sea soportable, come suficiente proteína para que tu cuerpo no tenga motivo para deshacer músculo, cubre los huecos de nutrientes que se abren siempre que comes menos, y protege lo que construiste, porque la parte difícil nunca fue bajarlo.",
+   "rows": [
+    {
+     "stage": "clear",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "Prebiotic Fiber",
+      "Green Superfood"
+     ],
+     "why": "Start by making the same food fill you up more, because a deficit you cannot tolerate is a deficit you will not keep. Viscous fibre thickens what is in the stomach and slows how fast it empties, which is why a meal with fibre in it stops feeling like a meal you finished twenty minutes ago. This is the cheapest lever in the whole area and it works on food you already buy. Most adults get roughly half the fibre they need, so for most people this is closing a real gap rather than adding something exotic.",
+     "whyZh": "先让同样的食物更顶饱，因为一个你忍受不了的热量缺口，就是一个你守不住的缺口。黏性纤维让胃里的东西变稠、排空变慢，这就是为什么一顿有纤维的饭，不会二十分钟后就像没吃过。这是整个领域最便宜的杠杆，而且作用在你本来就在买的食物上。大多数成年人的纤维摄入只有需要量的一半左右，所以对多数人来说，这是在补一个真实的缺口，而不是加一样新奇的东西。",
+     "key": "weight.clear.prebiotic-fiber"
+    },
+    {
+     "stage": "clear",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "Organics All-in-One Shakes",
       "Wellness Bars"
      ],
-     "why": "Here is the part almost nobody plans for. In the long follow-ups of the best weight-loss trials, the people who kept the result were the people who kept the weight off, and relapse tracked regain over the following two to three years. Losing it is the easy half. What protects the second half is keeping protein up so you hold the muscle, and having something you actually reach for when you are hungry between meals, because the plan does not fail at dinner, it fails at 4pm.",
-     "whyZh": "这是几乎没有人会提前规划的一环。在最好的减重试验的长期随访里，守住结果的人就是守住体重的人，而复发跟随后两到三年的反弹同步。减下来是容易的那一半。保住后一半，靠的是把蛋白质吃够、守住肌肉，以及在两餐之间饿的时候手边真的有东西可拿，因为方案不是在晚餐时崩的，是在下午四点崩的。",
-     "key": "metabolic.sustain.plant-protein-powder"
+     "why": "Then replace the one meal you consistently lose control of. For most people that is not dinner, it is breakfast skipped and then a mid-afternoon collapse. Replacing a single meal with something of known size removes a decision instead of adding a rule, and decisions are what run out by 4pm. The test for a bar is the first three ingredients: a candy bar with protein added leads with sugar, a whole-food bar leads with nuts, fruit or oats. That difference decides whether it helps or just moves the problem.",
+     "whyZh": "然后替换掉你固定会失控的那一餐。对多数人来说不是晚餐，是早餐没吃、然后下午彻底垮掉。把一餐换成分量已知的东西，是减少一个决定，而不是增加一条规矩，而到下午四点先用完的，正是决定力。判断一根能量棒看前三位配料：加了蛋白质的糖果棒第一位是糖，全食物棒第一位是坚果、水果或燕麦。这个区别决定了它是帮你，还是只是把问题挪了个位置。",
+     "key": "weight.clear.organics-all-in-one-shakes"
+    },
+    {
+     "stage": "clear",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Carb Blocker"
+     ],
+     "why": "The third lever is the starch-heavy meal you are not going to give up. The label is 500mg of white kidney bean extract, which inhibits alpha-amylase, the enzyme that breaks starch into absorbable sugar. Some of that plate passes through undigested instead of arriving as glucose. Be clear about what this is: a tool for specific meals, taken before them, not a daily supplement and not permission to eat more. It belongs here because a plan that requires someone to abandon the food their family eats will be the first thing abandoned.",
+     "whyZh": "第三根杠杆是那顿你不打算放弃的、淀粉很重的饭。标签上是 500 毫克白芸豆提取物，它抑制的是α-淀粉酶，也就是把淀粉分解成可吸收糖分的那个酶。那一盘里有一部分会不经消化直接通过，而不是变成葡萄糖进来。要说清楚它是什么：针对特定几餐、饭前吃的工具，不是每天必补的营养品，更不是多吃的许可证。它放在这里，是因为一个要求人放弃家里那口饭的方案，会最先被放弃。",
+     "key": "weight.clear.carb-blocker"
+    },
+    {
+     "stage": "clear",
+     "rank": 3,
+     "route": "internal",
+     "key": "weight.clear.slimmetry",
+     "products": [
+      "Slimmetry"
+     ],
+     "why": "Read this label before deciding what it is. 150mg of GreenSelect Phytosome, which is green tea catechins bound to phosphatidylcholine, delivering only 20mg of EGCG. That number looks too small until you see the point: ordinary green tea extract trials use 200 to 800mg of EGCG, and the phospholipid complex exists to raise absorption so a fraction of the dose does the work. That matters for safety as much as effect, because the liver signals reported with green tea extract come from the high-dose end. In a controlled trial adding it to a low-calorie diet, the supplemented group lost substantially more over 90 days than diet alone, though that trial was open-label rather than blinded, so treat the direction as more trustworthy than the size.",
+     "whyZh": "先看标签再决定它是什么。150 毫克 GreenSelect Phytosome，也就是与磷脂酰胆碱结合的绿茶儿茶素，实际提供的 EGCG 只有 20 毫克。这个数字看起来小得离谱，直到你看懂它的用意：普通绿茶提取物的试验用的是 200 到 800 毫克 EGCG，而磷脂复合物的存在就是为了提高吸收率，让零头的剂量做同样的事。这一点对安全性和对效果同样重要，因为绿茶提取物报告出的肝脏信号，来自的正是高剂量那一端。在一项把它加进低热量饮食的对照试验里，加了这一项的组在 90 天里减掉的明显更多，但那项试验是开放标签而非双盲，所以方向比幅度更值得相信。"
+    },
+    {
+     "stage": "regulate",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "Plant Protein Powder",
+      "XS Grass-Fed Whey Protein"
+     ],
+     "why": "This is the step that decides what you lose. In controlled trials at matched weight loss, the higher-protein group lost about 1.5kg of lean mass while the normal-protein group lost about 2.8kg. Same scale reading, nearly twice the muscle gone in one group. Protein also blunts the drop in fullness that comes with eating less, so it works on adherence at the same time. If you only do one thing on this page, do this one, and put it at breakfast, which is the meal most people currently eat as pure carbohydrate.",
+     "whyZh": "这一步决定你减掉的是什么。在体重下降幅度相当的对照试验里，高蛋白组瘦体重减少约 1.5 公斤，普通蛋白组约 2.8 公斤。秤上的数字一样，其中一组掉的肌肉几乎是另一组的两倍。蛋白质同时还能缓解少吃带来的饱腹感下降，所以它顺带解决了坚持度的问题。如果这一页你只做一件事，就做这件，并且放在早餐，因为那正是多数人目前当作纯碳水在吃的一餐。",
+     "key": "weight.regulate.plant-protein-powder"
+    },
+    {
+     "stage": "regulate",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Probiotic",
+      "Metabolic Pre & Postbiotic"
+     ],
+     "why": "Fibre only pays off if you have the bacteria to ferment it. They turn it into short-chain fatty acids, which is one of the routes by which fibre affects appetite signalling rather than just physically filling you. Order matters and saves money: feed the population you already have before importing a new one, so fibre first, bacteria second.",
+     "whyZh": "纤维要有菌来发酵才划算。菌把它变成短链脂肪酸，这是纤维影响食欲信号的路径之一，而不只是物理上把你填满。顺序有讲究，也省钱：先喂饱你本来就有的菌群，再考虑引进新的，所以先纤维、后菌。",
+     "key": "weight.regulate.probiotic"
+    },
+    {
+     "stage": "supplement",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "Double X Multivitamin 31-day Refill",
+      "Men's Pack",
+      "Women's Pack"
+     ],
+     "why": "Eating less means eating fewer nutrients, and that is the part diet advice never mentions. Cut 500 calories a day and you cut roughly a fifth of everything that came with them. The symptoms people blame on dieting, the flatness, the cold hands, the hair in the drain, are frequently that gap rather than the calorie deficit itself. Covering a wide floor cheaply matters more here than any single nutrient, which is the argument for a broad multi over buying six bottles.",
+     "whyZh": "少吃意味着摄入的营养素也少了，而这一点，减肥建议从来不提。每天少吃 500 大卡，你同时也少掉了随之而来的大约五分之一的一切。人们归咎于节食的那些症状，没精神、手脚冰凉、地漏里的头发，很多时候是这个缺口造成的，而不是热量缺口本身。在这里，把底盘便宜地铺宽，比任何单一营养素都重要，这也是选综合而不是买六瓶的理由。",
+     "key": "weight.supplement.double-x-multivitamin-31-day"
+    },
+    {
+     "stage": "supplement",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Vitamin B Complex 120ct",
+      "Advanced Omega"
+     ],
+     "why": "Two specific gaps worth closing. B vitamins are the coenzymes that let you turn food into usable energy, they are water-soluble so they clear in about a day, and they get used up faster under stress, which describes anyone in a deficit. Omega-3 works on the inflammatory background that body fat actively maintains rather than on weight directly, so judge it over months. Between them the 120-count B complex runs under thirty cents a day, which makes it the easiest thing here to keep.",
+     "whyZh": "两个值得补上的具体缺口。B族是把食物转成可用能量的辅酶，它是水溶性的，大约一天就清空，而且在压力下消耗更快，而处在热量缺口里的人正是这种状态。Omega-3 作用的是脂肪组织本身在维持的那层炎症背景，而不是直接作用于体重，所以要按月来看。两者之中，120粒装的B族每天不到三毛钱，是这里最容易坚持下去的一样。",
+     "key": "weight.supplement.vitamin-b-complex-120ct"
+    },
+    {
+     "stage": "sustain",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "Calcium Magnesium D",
+      "Sleep Gummies"
+     ],
+     "why": "This is the most under-rated finding in the whole area. In a controlled trial where people ate the same restricted diet, those whose sleep was cut short lost 55% less of their weight as fat. Same calories, same weight on the scale, but far more of it came out of muscle. Short sleep also raises ghrelin and pushes appetite specifically toward sweet food, so it attacks the plan from both ends. Neither of these replaces going to bed earlier. They help someone land that step, and saying so plainly is what keeps them trusting the rest of the page.",
+     "whyZh": "这是整个领域里最被低估的一个发现。在一项对照试验里，人们吃同样的限制饮食，而睡眠被削短的那组，减掉的重量中脂肪的比例低了 55%。同样的热量、秤上同样的数字，但其中相当大一部分是从肌肉里出来的。睡眠不足同时抬高饥饿素，并把食欲专门推向甜食，等于从两头同时拆你的计划。这两样都不能替代早睡，它们只是帮人把早睡这一步落地。把这句话说明白，才是让人继续相信这一页其余内容的原因。",
+     "key": "weight.sustain.calcium-magnesium-d"
+    },
+    {
+     "stage": "sustain",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "Lean Muscle",
+      "XS Muscle Multiplier (EAAs)"
+     ],
+     "why": "Protein gives your body the material to keep muscle. Resistance training gives it the reason. Without the signal that the muscle is being used, the body treats it as expensive tissue it can afford to lose, and in a deficit it will. Two sessions a week is enough to change the answer, and this is the step that decides whether you end up smaller and stronger or just smaller.",
+     "whyZh": "蛋白质给身体保住肌肉的材料，力量训练给它保住肌肉的理由。如果没有「这块肌肉还在被使用」这个信号，身体就会把它当成一块养不起的昂贵组织，而在热量缺口下，它真的会拆掉。每周两次就足以改变这个答案，而这一步决定了你最后是变小并且变强，还是只是变小。",
+     "key": "weight.sustain.lean-muscle"
     },
     {
      "stage": "sustain",
      "rank": 2,
      "route": "habit",
      "products": [
-      "Calcium Magnesium D",
-      "Stress Relief Probiotic"
+      "Wellness Bars",
+      "XS Protein Bars 12-pack"
      ],
-     "why": "Sleep belongs in this stage and it is the lever most people skip. Short sleep raises cortisol, cortisol raises blood glucose, and it also drives appetite towards exactly the foods that make the next day harder. So a bad week of sleep is not separate from the blood sugar conversation, it is upstream of it. Neither of these replaces going to bed earlier. They only help someone land that step, and it is worth saying that out loud, because a person who thinks a capsule can substitute for sleep will be disappointed and stop trusting the rest.",
-     "whyZh": "睡眠属于这一步，而它是多数人跳过的那根杠杆。睡眠不足抬高皮质醇，皮质醇抬高血糖，同时把食欲推向那些让第二天更难过的食物。所以睡不好的一周不是血糖话题之外的事，它在血糖的上游。这两样都不能替代早睡，它们只是帮人把早睡这一步落地。这句话值得说出口，因为一个以为吃胶囊可以代替睡觉的人，最后会失望，然后连带着不再相信其余部分。",
-     "key": "metabolic.sustain.calcium-magnesium-d"
+     "why": "Regain is the normal outcome, not the exception, and the plan rarely fails at dinner. It fails in the gap between meals when there is nothing on hand and something convenient is. Keeping one acceptable option in the bag, the car and the desk drawer is a boring intervention that outperforms most of what gets sold as motivation.",
+     "whyZh": "反弹是常态而不是例外，而计划很少是在晚餐时崩的。它崩在两餐之间那个空档：手边什么都没有，而方便的东西正好在。在包里、车里、办公桌抽屉里各放一样能接受的东西，是个很无聊的干预，但它的效果好过大多数以「动力」为名卖出去的东西。",
+     "key": "weight.sustain.wellness-bars"
     }
    ]
   }

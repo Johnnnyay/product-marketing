@@ -3,7 +3,7 @@
  "_status": {
   "ui": "complete",
   "areas": "complete",
-  "protocol": "skin complete (zh/es/hi); metabolic complete (zh/es); hormone and eczema fall back to English",
+  "protocol": "skin (zh/es/hi); weight and metabolic (zh/es); hormone and eczema fall back to English",
   "products": "not started, falls back to English"
  },
  "ui": {
@@ -270,6 +270,10 @@
   "Blood Sugar & Weight": {
    "es": "Azúcar en sangre y peso",
    "hi": "रक्त शर्करा और वज़न"
+  },
+  "Blood Sugar": {
+   "es": "Azúcar en sangre",
+   "hi": "रक्त शर्करा"
   }
  },
  "areas": {
@@ -371,8 +375,11 @@
     "hi": "वज़न प्रबंधन"
    },
    "blurb": {
-    "es": "Un cambio de peso que dura empieza con glucosa estable, suficiente proteína y un intestino sano, no con comer lo menos posible.",
-    "hi": "टिकाऊ वज़न बदलाव स्थिर रक्त शर्करा, पर्याप्त प्रोटीन और स्वस्थ आँत से शुरू होता है, जितना कम हो सके उतना खाने से नहीं।"
+    "es": "La báscula no puede decirte qué perdiste, y ahí está todo el problema, porque perder músculo es lo que hace que el peso vuelva.",
+    "hi": "वज़न काँटा यह नहीं बता सकता कि आपने क्या घटाया, और पूरी समस्या यही है, क्योंकि मांसपेशी घटने पर ही वज़न लौटकर आता है।"
+   },
+   "overview": {
+    "es": "Dos personas pierden los mismos cinco kilos. Una pierde sobre todo grasa y los mantiene. La otra pierde un tercio en forma de músculo, y el músculo es el tejido que quema energía en reposo, así que termina la dieta más ligera y peor preparada para seguir ligera. Después recupera, y lo que vuelve es grasa. Ese es el bucle, y por eso el número de la báscula es una mala guía para saber si algo está funcionando. Los cuatro pasos de abajo giran en torno a la composición y no al número: haz que las comidas que ya haces llenen más para que el déficit sea soportable, come suficiente proteína para que tu cuerpo no tenga motivo para deshacer músculo, cubre los huecos de nutrientes que se abren siempre que comes menos, y protege lo que construiste, porque la parte difícil nunca fue bajarlo."
    }
   },
   "hair": {
@@ -417,16 +424,15 @@
   },
   "metabolic": {
    "name": {
-    "es": "Azúcar en sangre y peso",
-    "hi": "रक्त शर्करा और वज़न"
+    "es": "Azúcar en sangre",
+    "hi": "रक्त शर्करा"
    },
    "blurb": {
-    "es": "Dónde está la grasa importa más que lo que dice la báscula, porque la grasa que rodea tus órganos es la parte que cambia cómo tu cuerpo responde a la insulina.",
-    "hi": "चर्बी कहाँ जमा है यह वज़न काँटे के अंक से ज़्यादा मायने रखता है, क्योंकि अंगों के आसपास जमी चर्बी ही वह हिस्सा है जो बदल देती है कि शरीर इंसुलिन का जवाब कैसे देता है।"
+    "es": "El páncreas normalmente sigue mandando la señal. Lo que cambió es que las células dejaron de responderla, y la grasa en el lugar equivocado es la razón.",
+    "hi": "अग्न्याशय आमतौर पर अब भी संकेत भेज रहा होता है। बदला यह है कि कोशिकाओं ने जवाब देना बंद कर दिया, और इसकी वजह है गलत जगह जमी चर्बी।"
    },
    "overview": {
-    "es": "La insulina es la señal que le dice a las células que saquen el azúcar de la sangre. En el patrón en el que está la mayoría de los adultos de mediana edad, el páncreas sigue mandando esa señal, a veces más que nunca. Las células han dejado de responder. Lo que hace que dejen de responder es la grasa en el lugar equivocado: no la de los brazos, que es bastante inofensiva, sino la que se empaqueta alrededor de los órganos y dentro del hígado. Esa grasa drena directo al hígado, lo empuja a producir glucosa que no hacía falta producir, y mantiene todo el sistema inflamado. Así que el objetivo no es un número en la báscula, es la grasa de la cintura y la carga que le llega al hígado tres veces al día. Los cuatro pasos de abajo van en ese orden: quita la carga, haz que las comidas que ya haces se comporten distinto, aporta la materia prima con la que funciona la reparación, y protege el resultado, porque recuperar el peso es lo normal y es la parte que casi nadie planea.",
-    "hi": "इंसुलिन वह संकेत है जो कोशिकाओं से कहता है कि खून से शर्करा हटा लो। अधेड़ उम्र के अधिकांश लोगों की स्थिति यह है कि अग्न्याशय अब भी यह संकेत भेज रहा है, कभी-कभी पहले से भी ज़्यादा, पर कोशिकाएँ जवाब देना बंद कर चुकी हैं। जवाब देना बंद कराती है गलत जगह जमी चर्बी: बाँहों वाली नहीं, जो अपेक्षाकृत हानिरहित है, बल्कि वह जो अंगों के चारों ओर और लिवर के भीतर भरी है। यह चर्बी सीधे लिवर में जाती है, उसे ऐसी शर्करा बनाने पर मजबूर करती है जिसकी ज़रूरत नहीं थी, और पूरे तंत्र को सूजन में रखती है। इसलिए लक्ष्य वज़न काँटे का अंक नहीं है, लक्ष्य है कमर के आसपास की चर्बी और दिन में तीन बार लिवर पर पड़ने वाला बोझ। नीचे के चार चरण इसी क्रम में हैं: पहले बोझ हटाएँ, फिर जो भोजन आप पहले से करते हैं उसका व्यवहार बदलें, फिर मरम्मत का कच्चा माल दें, और अंत में नतीजे की रक्षा करें, क्योंकि वज़न लौट आना ही सामान्य है और यही वह हिस्सा है जिसकी योजना कोई नहीं बनाता।"
+    "es": "La insulina es la señal que le dice a las células que saquen el azúcar de la sangre. En el patrón en el que está la mayoría de los adultos de más de cuarenta, el páncreas sigue mandándola, a menudo más que nunca. Las células han dejado de responder. Lo que hace que dejen de responder es la grasa en el lugar equivocado: no la de los brazos, que es bastante inofensiva, sino la que se empaqueta alrededor de los órganos y dentro del hígado. Esa grasa drena directo al hígado por la vena porta, lo empuja a seguir produciendo glucosa cuando debería haber parado, y mantiene todo el sistema en inflamación de bajo grado. Por eso alguien con solo un poco de sobrepeso puede tener peores números que alguien mucho más pesado, y por eso la medida de la cintura dice más que el peso. Todo lo de abajo va junto a lo que tu médico te haya indicado, nunca en su lugar. Los cuatro pasos van en orden: aplana lo que llega, cambia cómo se comporta la comida, aporta la materia prima, y sostén el ritmo del que depende todo lo demás."
    }
   }
  },
@@ -511,7 +517,7 @@
    "es": "El intestino está en esta etapa y no en la primera porque, para el metabolismo, su trabajo es conversión, no limpieza. Las bacterias del colon fermentan la fibra que les mandas y producen ácidos grasos de cadena corta, que es una de las formas en que la fibra afecta al azúcar en sangre más allá de solo frenar la comida. Los postbióticos son esos productos bacterianos dados directamente, así que el beneficio no depende de si las cepas sobreviven el viaje. Si alguien solo va a añadir una cosa aquí: primero fibra, después bacterias. Alimentar a la población que ya tienes sale más barato que importar una nueva."
   },
   "metabolic.supplement.magnesium": {
-   "es": "De todo lo que hay en esta página, el magnesio es lo que tiene la evidencia más sólida y el menor marketing detrás. Al juntar veinticinco estudios prospectivos con más de 630.000 personas, una ingesta más alta de magnesio en la dieta se asoció con un riesgo de diabetes tipo 2 cerca de un 17% menor, y la relación fue dosis-dependiente: cada 100mg adicionales al día se asociaron con una reducción extra del 8 al 13%. Fíjate en lo que esto es y lo que no es. Es una asociación medida en poblaciones grandes, no una promesa sobre tus análisis. Pero es del tipo de hallazgo que aguanta el escrutinio, y el magnesio es de lo más barato de la línea."
+   "es": "De todo lo que hay en esta página, el magnesio es lo que tiene la evidencia más sólida y el menor marketing detrás. Al juntar veinticinco estudios prospectivos con más de 630.000 personas, una ingesta más alta de magnesio se asoció con un riesgo de diabetes tipo 2 cerca de un 17% menor, de forma dosis-dependiente: cada 100mg adicionales al día se asociaron con una reducción extra del 8 al 13%. La etiqueta también importa aquí. Son 200mg en forma de quelato de bisglicinato, hidróxido y malato, y no el óxido barato que usan la mayoría de los productos de estantería, que es la diferencia entre una dosis que absorbes y una que en gran parte acaba en el váter. Fíjate en lo que la evidencia es y no es: una asociación en poblaciones grandes, no una promesa sobre tus análisis."
   },
   "metabolic.supplement.double-x-multivitamin-31-day": {
    "es": "Un multivitamínico amplio está aquí por una razón poco vistosa: los nutrientes que importan para el manejo de la glucosa están repartidos entre muchos de ellos, y comprarlos de uno en uno sale más caro que cubrir todo el piso de una vez. El cromo es el que la gente pregunta, y la respuesta honesta es que participa en cómo las células responden a la insulina, pero la evidencia de los ensayos es mixta y buena parte es de baja calidad, así que trátalo como un ingrediente razonable y no como el motivo de compra. Si el presupuesto solo da para un suplemento en toda esta área, esta es una elección defendible, porque cubre un piso ancho en vez de apostarlo todo a un solo nutriente."
@@ -522,11 +528,41 @@
   "metabolic.supplement.concentrated-fruits-vegetabl": {
    "es": "Dos líneas de apoyo para quien ya pasó lo básico. Las familias de pigmentos vegetales son de donde el cuerpo saca varios antioxidantes que no puede fabricar, y casi nadie come todos los grupos de color en una semana. Las vitaminas del grupo B son coenzimas del metabolismo energético y se gastan más rápido con una dieta alta en carbohidratos, que describe a la mayoría de quien llega a esta página. El frasco de 120 sale a menos de treinta centavos al día, lo que lo convierte en una de las adiciones más fáciles de justificar en una casa que cuida cada dólar."
   },
-  "metabolic.sustain.plant-protein-powder": {
-   "es": "Esta es la parte que casi nadie planea. En los seguimientos largos de los mejores ensayos de pérdida de peso, quienes conservaron el resultado fueron quienes conservaron el peso perdido, y las recaídas siguieron a la recuperación de peso en los dos o tres años siguientes. Bajarlo es la mitad fácil. Lo que protege la segunda mitad es mantener la proteína alta para conservar el músculo, y tener algo a lo que de verdad echar mano cuando da hambre entre comidas, porque el plan no falla en la cena, falla a las cuatro de la tarde."
-  },
   "metabolic.sustain.calcium-magnesium-d": {
    "es": "El sueño pertenece a esta etapa y es la palanca que más gente se salta. Dormir poco sube el cortisol, el cortisol sube la glucosa, y además empuja el apetito justo hacia los alimentos que hacen más difícil el día siguiente. Así que una mala semana de sueño no está aparte de la conversación del azúcar en sangre, está río arriba de ella. Ninguno de estos dos sustituye acostarse antes. Solo ayudan a aterrizar ese paso, y vale la pena decirlo en voz alta, porque quien crea que una cápsula reemplaza al sueño se va a decepcionar y dejará de confiar en el resto."
+  },
+  "weight.clear.prebiotic-fiber": {
+   "es": "Empieza por hacer que la misma comida te llene más, porque un déficit que no toleras es un déficit que no vas a mantener. La fibra viscosa espesa lo que hay en el estómago y frena la velocidad a la que se vacía, y por eso una comida con fibra deja de sentirse como una comida que terminaste hace veinte minutos. Es la palanca más barata de toda el área y actúa sobre la comida que ya compras. La mayoría de los adultos toma más o menos la mitad de la fibra que necesita, así que para casi todos esto es cerrar un hueco real y no añadir algo exótico."
+  },
+  "weight.clear.carb-blocker": {
+   "es": "La tercera palanca es esa comida cargada de almidón que no vas a dejar. La etiqueta son 500mg de extracto de frijol blanco, que inhibe la alfa-amilasa, la enzima que rompe el almidón en azúcar absorbible. Parte de ese plato pasa sin digerir en lugar de llegar como glucosa. Ten claro qué es: una herramienta para comidas concretas, tomada antes, no un suplemento diario ni un permiso para comer más. Está aquí porque un plan que exige abandonar la comida que come tu familia será lo primero que se abandone."
+  },
+  "weight.regulate.plant-protein-powder": {
+   "es": "Este es el paso que decide qué pierdes. En ensayos controlados con pérdida de peso equivalente, el grupo de proteína alta perdió alrededor de 1,5 kg de masa magra mientras que el de proteína normal perdió unos 2,8 kg. La misma lectura en la báscula, casi el doble de músculo perdido en uno de los grupos. La proteína además amortigua la caída de saciedad que viene con comer menos, así que trabaja también sobre la adherencia. Si solo haces una cosa de esta página, haz esta, y ponla en el desayuno, que es la comida que hoy la mayoría hace de puro carbohidrato."
+  },
+  "weight.regulate.probiotic": {
+   "es": "La fibra solo rinde si tienes las bacterias que la fermenten. Ellas la convierten en ácidos grasos de cadena corta, que es una de las vías por las que la fibra afecta a las señales de apetito y no solo te llena físicamente. El orden importa y ahorra dinero: alimenta a la población que ya tienes antes de importar una nueva, así que primero fibra, después bacterias."
+  },
+  "weight.supplement.double-x-multivitamin-31-day": {
+   "es": "Comer menos significa tomar menos nutrientes, y esa es la parte que los consejos de dieta nunca mencionan. Quita 500 calorías al día y quitas más o menos una quinta parte de todo lo que venía con ellas. Los síntomas que la gente le achaca a la dieta, la falta de chispa, las manos frías, el pelo en el desagüe, muchas veces son ese hueco y no el déficit calórico en sí. Cubrir barato un piso ancho importa aquí más que cualquier nutriente suelto, y ese es el argumento del multivitamínico frente a comprar seis frascos."
+  },
+  "weight.sustain.calcium-magnesium-d": {
+   "es": "Este es el hallazgo más infravalorado de toda el área. En un ensayo controlado en el que la gente hizo la misma dieta restringida, quienes durmieron poco perdieron un 55% menos de su peso en forma de grasa. Las mismas calorías, el mismo número en la báscula, pero mucha más parte salió del músculo. Dormir poco además sube la grelina y empuja el apetito específicamente hacia lo dulce, así que ataca el plan por los dos lados. Ninguno de estos dos sustituye acostarse antes. Ayudan a aterrizar ese paso, y decirlo con claridad es lo que hace que sigan confiando en el resto de la página."
+  },
+  "weight.sustain.lean-muscle": {
+   "es": "La proteína le da a tu cuerpo el material para conservar músculo. El entrenamiento de fuerza le da el motivo. Sin la señal de que ese músculo se está usando, el cuerpo lo trata como tejido caro del que puede prescindir, y en déficit prescindirá. Dos sesiones por semana bastan para cambiar esa respuesta, y este es el paso que decide si terminas más pequeño y más fuerte, o solo más pequeño."
+  },
+  "weight.sustain.wellness-bars": {
+   "es": "Recuperar el peso es lo normal, no la excepción, y el plan rara vez falla en la cena. Falla en el hueco entre comidas, cuando no hay nada a mano y sí hay algo cómodo. Tener una opción aceptable en el bolso, en el coche y en el cajón del escritorio es una intervención aburrida que funciona mejor que casi todo lo que se vende como motivación."
+  },
+  "weight.clear.organics-all-in-one-shakes": {
+   "es": "Después sustituye la comida en la que pierdes el control de forma constante. Para la mayoría no es la cena, es el desayuno saltado y luego el derrumbe de media tarde. Cambiar una sola comida por algo de tamaño conocido elimina una decisión en vez de añadir una regla, y lo que se agota a las cuatro de la tarde son las decisiones. La prueba de una barrita son los tres primeros ingredientes: una barra de dulce con proteína añadida empieza por azúcar, una de comida real empieza por frutos secos, fruta o avena. Esa diferencia decide si ayuda o solo mueve el problema de sitio."
+  },
+  "weight.supplement.vitamin-b-complex-120ct": {
+   "es": "Dos huecos concretos que vale la pena cerrar. Las vitaminas del grupo B son las coenzimas que te permiten convertir la comida en energía utilizable, son hidrosolubles y se eliminan en un día, y se gastan más rápido bajo estrés, que describe a cualquiera en déficit. El omega-3 actúa sobre el fondo inflamatorio que la grasa corporal mantiene activamente, no sobre el peso directamente, así que júzgalo por meses. De los dos, el frasco de 120 de complejo B sale a menos de treinta centavos al día, lo que lo convierte en lo más fácil de sostener."
+  },
+  "weight.clear.slimmetry": {
+   "es": "Lee la etiqueta antes de decidir qué es esto. 150mg de GreenSelect Phytosome, que son catequinas de té verde unidas a fosfatidilcolina, aportando solo 20mg de EGCG. Ese número parece demasiado pequeño hasta que ves la idea: los ensayos con extracto de té verde normal usan de 200 a 800mg de EGCG, y el complejo con fosfolípidos existe para subir la absorción de modo que una fracción de la dosis haga el trabajo. Eso importa tanto por seguridad como por efecto, porque las señales hepáticas descritas con extracto de té verde vienen del extremo de dosis altas. En un ensayo controlado que lo añadió a una dieta baja en calorías, el grupo suplementado perdió bastante más en 90 días que la dieta sola, aunque ese ensayo fue abierto y no ciego, así que fíate más de la dirección que del tamaño."
   }
  }
 }
