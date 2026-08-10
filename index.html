@@ -2574,7 +2574,8 @@ function toggleCalcPanel() {
 document.addEventListener('click', (e) => {
   const panel = document.getElementById('calc-panel');
   const widget = document.getElementById('header-calc');
-  if (panel.classList.contains('open') && !panel.contains(e.target) && !widget.contains(e.target)) {
+  const overlay = document.getElementById('modal-overlay');
+  if (panel.classList.contains('open') && !panel.contains(e.target) && !widget.contains(e.target) && !overlay.contains(e.target)) {
     panel.classList.remove('open');
   }
 });
