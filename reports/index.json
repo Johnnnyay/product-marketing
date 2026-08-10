@@ -126,6 +126,27 @@
         }
       ]
     },
+    "HL_1999-11-03": {
+      "name": "Hunter Long",
+      "initials": "HL",
+      "dob": "1999-11-03",
+      "reports": [
+        {
+          "date": "2026-08-10",
+          "file": "HL_1999-11-03_2026-08-10.html",
+          "signals": [
+            "1-3 AM Waking + Nervous System",
+            "Inflammatory Diet + Gut Dysbiosis",
+            "Joint Inflammation + Blood Sugar"
+          ],
+          "products": [
+            "Magnesium",
+            "Advanced Omega"
+          ],
+          "consultant": "Johnny/Irene"
+        }
+      ]
+    },
     "MM_1996-09-09": {
       "name": "Marco Maciel",
       "initials": "MM",
