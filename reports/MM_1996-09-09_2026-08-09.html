@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Progress Report — Marco Maciel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:        #3D5A4C;
+    --navy-hover:  #47695a;
+    --green:       #5C8A6E;
+    --green-mid:   #6F9E80;
+    --green-light: #EDF2EE;
+    --off-white:   #F7F9F7;
+    --gray-100:    #F0F3F0;
+    --gray-200:    #E4E9E5;
+    --gray-300:    #d1d5db;
+    --gray-400:    #9ca3af;
+    --gray-500:    #6E7B74;
+    --gray-600:    #55605A;
+    --gray-800:    #2A332D;
+    --amber:       #b45309;
+    --amber-light: #fffbeb;
+    --shadow-sm:   0 1px 4px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow:      0 4px 16px rgba(0,0,0,0.09), 0 1px 4px rgba(0,0,0,0.05);
+    --radius:      12px;
+    --radius-lg:   18px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--off-white);
+    color: var(--gray-800);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.65;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    color: white;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .site-logo {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.95);
+    text-decoration: none;
+  }
+  .site-header-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    margin-left: auto;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--green) 100%);
+    color: white;
+    padding: 40px 24px 36px;
+    text-align: center;
+  }
+  .hero-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 8px;
+  }
+  .hero-name {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .hero-meta {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 20px;
+  }
+  .hero-signals {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .signal-badge {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+  }
+
+  /* ── LAYOUT ── */
+  .page-body {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 28px 16px 60px;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .card-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .card-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gray-200);
+  }
+
+  /* ── BODY COMP TABLE ── */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  .comp-row {
+    background: var(--gray-100);
+    border-radius: 8px;
+    padding: 10px 14px;
+  }
+  .comp-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gray-500);
+    margin-bottom: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .comp-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-800);
+  }
+  .comp-range {
+    font-size: 11px;
+    color: var(--gray-400);
+    margin-top: 1px;
+  }
+  .comp-good { color: var(--green); }
+  .comp-warn { color: var(--amber); }
+  .comp-note {
+    margin-top: 14px;
+    font-size: 13.5px;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+
+  /* ── SIGNALS ── */
+  .signal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .signal-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .signal-num {
+    background: var(--navy);
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .signal-content {}
+  .signal-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 2px;
+  }
+  .signal-desc {
+    font-size: 13.5px;
+    color: var(--gray-600);
+    line-height: 1.55;
+  }
+
+  /* ── ROOT CAUSE ── */
+  .rca-section {
+    margin-bottom: 20px;
+  }
+  .rca-section:last-child { margin-bottom: 0; }
+  .rca-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .rca-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    flex-shrink: 0;
+  }
+  .rca-text {
+    font-size: 13.5px;
+    color: var(--gray-600);
+    line-height: 1.65;
+  }
+
+  /* ── SUMMARY ── */
+  .summary-box {
+    background: var(--green-light);
+    border-left: 3px solid var(--green);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 16px 18px;
+    font-size: 14px;
+    color: var(--gray-800);
+    line-height: 1.65;
+  }
+
+  /* ── PLAN ── */
+  .plan-priority {
+    margin-bottom: 18px;
+  }
+  .plan-priority:last-child { margin-bottom: 0; }
+  .plan-priority-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .plan-num {
+    background: var(--green-light);
+    color: var(--green);
+    border-radius: 6px;
+    padding: 1px 7px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .plan-items {
+    list-style: none;
+    padding: 0;
+  }
+  .plan-items li {
+    font-size: 13.5px;
+    color: var(--gray-600);
+    padding: 4px 0 4px 16px;
+    position: relative;
+    line-height: 1.55;
+  }
+  .plan-items li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--green-mid);
+    font-size: 12px;
+    top: 5px;
+  }
+
+  /* ── PRODUCTS ── */
+  .product-card {
+    background: var(--amber-light);
+    border: 1px solid rgba(180,83,9,0.12);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .product-card:last-child { margin-bottom: 0; }
+  .product-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--amber);
+    margin-bottom: 4px;
+  }
+  .product-rationale {
+    font-size: 13.5px;
+    color: var(--gray-700, #374151);
+    line-height: 1.6;
+  }
+  .product-note {
+    font-size: 12px;
+    color: var(--gray-400);
+    margin-top: 6px;
+  }
+
+  /* ── WINS ── */
+  .wins-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .wins-list li {
+    font-size: 13.5px;
+    color: var(--gray-600);
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.55;
+  }
+  .wins-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 700;
+  }
+
+  /* ── NEXT STEPS ── */
+  .next-steps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  @media (max-width: 520px) {
+    .next-steps-grid { grid-template-columns: 1fr; }
+  }
+  .next-step-box {
+    background: var(--gray-100);
+    border-radius: var(--radius);
+    padding: 14px;
+  }
+  .next-step-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--gray-500);
+    margin-bottom: 6px;
+  }
+  .next-step-text {
+    font-size: 13px;
+    color: var(--gray-700, #374151);
+    line-height: 1.6;
+  }
+  .recheck-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-500);
+    margin-top: 14px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .recheck-items {
+    font-size: 13px;
+    color: var(--gray-600);
+  }
+
+  /* ── CTA BUTTON ── */
+  .cta-section {
+    background: var(--navy);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .cta-title {
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .cta-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 18px;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: white;
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 15px;
+    padding: 12px 28px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  }
+  .cta-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.22);
+  }
+  .cta-passcode {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 12px;
+  }
+
+  /* ── FOOTER ── */
+  .report-footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--gray-400);
+    padding-top: 8px;
+  }
+  .report-footer a {
+    color: var(--green);
+    text-decoration: none;
+  }
+
+  @media (max-width: 600px) {
+    .hero-name { font-size: 24px; }
+    .comp-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <span class="site-logo">Health Progress Report</span>
+  <span class="site-header-sub">Confidential &nbsp;·&nbsp; 2026-08-09</span>
+</header>
+
+<div class="hero">
+  <div class="hero-label">Personalized Health Analysis</div>
+  <div class="hero-name">Marco Maciel</div>
+  <div class="hero-meta">2026-08-09 &nbsp;·&nbsp; Consultant: Johnny / Irene &nbsp;·&nbsp; Recheck in 4 Weeks</div>
+  <div class="hero-signals">
+    <span class="signal-badge">Fatty Liver + Metabolic Burden</span>
+    <span class="signal-badge">Constipation — Hard Pellet Stool</span>
+    <span class="signal-badge">Anxiety + Motion Sickness + Circulation Cluster</span>
+  </div>
+</div>
+
+<div class="page-body">
+
+  <!-- CLIENT OVERVIEW -->
+  <div class="card">
+    <div class="card-title">Client Overview</div>
+    <div class="comp-grid" style="grid-template-columns: repeat(auto-fill, minmax(150px,1fr));">
+      <div class="comp-row">
+        <div class="comp-label">Name</div>
+        <div class="comp-value" style="font-size:14px;">Marco Maciel</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Age</div>
+        <div class="comp-value" style="font-size:14px;">29</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Gender</div>
+        <div class="comp-value" style="font-size:14px;">Male</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Referred by</div>
+        <div class="comp-value" style="font-size:14px;">(to confirm)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY COMPOSITION -->
+  <div class="card">
+    <div class="card-title">Body Composition</div>
+    <div class="comp-grid">
+      
+<div class="comp-row"><div class="comp-label">Weight</div><div class="comp-value">220 lb</div><div class="comp-range comp-warn">Above ideal for height</div></div>
+<div class="comp-row"><div class="comp-label">Height</div><div class="comp-value">175 cm</div><div class="comp-range">5&apos;9&quot;</div></div>
+<div class="comp-row"><div class="comp-label">BMI (calc.)</div><div class="comp-value">32.6</div><div class="comp-range comp-warn">Class I obesity (30–34.9)</div></div>
+<div class="comp-row"><div class="comp-label">Smart Scale</div><div class="comp-value">Not captured</div><div class="comp-range">Priority for next recheck</div></div>
+
+    </div>
+    <p class="comp-note">Smart scale was not captured this session — this is the first priority at the 4-week recheck to get visceral fat, body fat %, skeletal muscle, and metabolic age baselines. BMI of 32.6 places Marco in Class I obesity. At 29 with a self-reported fatty liver and hard-pellet stool, his liver and gut are under meaningful daily stress. The positive picture: good water intake (1.5–2 L), good sleep timing (before 10 PM), and a protein-at-breakfast habit — these are real assets to build from.</p>
+  </div>
+
+  <!-- TOP 3 SIGNALS -->
+  <div class="card">
+    <div class="card-title">Top 3 Priority Signals</div>
+    <div class="signal-list">
+      <div class="signal-item">
+        <div class="signal-num">1</div>
+        <div class="signal-content">
+          <div class="signal-name">Fatty Liver + Metabolic Burden</div>
+          <div class="signal-desc">Fatty liver marked Often at 29, combined with BMI 32.6 and frequent binge eating, is the most medically significant signal in Marco's profile. Non-alcoholic fatty liver disease (NAFLD) at this age is a direct consequence of excess caloric intake being stored as liver fat — it is common, serious, and highly reversible with dietary changes and targeted omega-3 support.</div>
+        </div>
+      </div>
+      <div class="signal-item">
+        <div class="signal-num">2</div>
+        <div class="signal-content">
+          <div class="signal-name">Constipation — Hard Pellet Stool</div>
+          <div class="signal-desc">Hard pellet stool (Bristol Type 1) despite adequate water intake suggests a fiber deficit rather than dehydration. The liver and gut are directly connected — constipation slows the clearance of bile acids and metabolic waste that the liver processes, increasing the liver's daily load. Resolving constipation is both a quality-of-life improvement and a liver support intervention.</div>
+        </div>
+      </div>
+      <div class="signal-item">
+        <div class="signal-num">3</div>
+        <div class="signal-content">
+          <div class="signal-name">Anxiety + Motion Sickness + Circulation Cluster</div>
+          <div class="signal-desc">Anxiety marked Often, motion sickness Often, occasional dizziness and headaches, and occasional blurry vision and light sensitivity form a pattern that may reflect a combination of autonomic nervous system sensitivity and reduced cerebral circulation — both of which are associated with obesity and omega-3 deficit. This is not a diagnosis, but it is a pattern worth monitoring.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROOT CAUSE ANALYSIS -->
+  <div class="card">
+    <div class="card-title">Root Cause Analysis</div>
+    
+<div class="rca-section">
+  <div class="rca-label"><span class="rca-dot"></span>Fatty Liver / Hepatic Load (Primary Driver)</div>
+  <div class="rca-text">Frequent self-reported fatty liver at 29 reflects the liver's ongoing struggle to process the metabolic load from excess caloric intake. The liver converts excess calories — particularly from refined carbohydrates and dietary fat — into triglycerides for storage, and when this exceeds its clearance capacity, fat accumulates in liver cells. The binge eating pattern (marked Often) means Marco is regularly presenting the liver with caloric surges beyond what it can immediately process. Omega-3 EPA has direct clinical evidence for reducing liver triglyceride accumulation by downregulating the enzyme pathways that produce liver fat. Soluble fiber supports liver detoxification by binding bile acids in the gut and preventing their reabsorption, reducing the liver's recycling load.</div>
+</div>
+<div class="rca-section">
+  <div class="rca-label"><span class="rca-dot"></span>Constipation / Gut (Secondary Driver)</div>
+  <div class="rca-text">Hard pellet stool despite adequate water is a fiber story, not a hydration story. Marco drinks 1.5–2 L of water, which is reasonable, but without adequate fiber the water passes through without forming a stool-bulking gel. Bristol Type 1 (hard pellets) indicates transit time is too slow — waste is sitting in the colon longer than it should, allowing reabsorption of metabolic byproducts the liver is trying to clear. Binge eating occasionally suggests hunger and satiety signals are dysregulated — soluble fiber directly addresses this by slowing gastric emptying and reducing appetite spikes. The gut and liver are in a bidirectional relationship: constipation worsens liver load, and liver dysfunction reduces bile output needed for normal digestion.</div>
+</div>
+<div class="rca-section">
+  <div class="rca-label"><span class="rca-dot"></span>Anxiety / Autonomic Sensitivity</div>
+  <div class="rca-text">Anxiety marked Often at 29 with frequent motion sickness (vestibular sensitivity), occasional dizziness, and headaches suggests some autonomic nervous system hyperreactivity. Omega-3 DHA is the dominant fatty acid in the brain and has the strongest evidence base for reducing anxiety and supporting vestibular function. At BMI 32.6 with NAFLD, the inflammatory load itself raises cortisol and sensitizes the stress response — reducing inflammation through diet and omega-3 supplementation is a direct anxiety intervention, not just a metabolic one.</div>
+</div>
+
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="card">
+    <div class="card-title">Summary</div>
+    <div class="summary-box">Marco's profile has a clear connection: fatty liver, constipation, and binge eating are all feeding each other through the gut-liver axis. The liver is stressed, the gut is slow, and hunger signals are dysregulated — producing a cycle of overconsumption and under-clearance. The interventions here are targeted: fiber to clear the gut and buffer blood glucose, omega-3 to reduce liver fat and calm the nervous system, and movement to improve metabolic clearance. His good water intake and sleep timing are genuine assets.</div>
+  </div>
+
+  <!-- 30-DAY PLAN -->
+  <div class="card">
+    <div class="card-title">30-Day Plan</div>
+    
+<div class="plan-priority">
+  <div class="plan-priority-label"><span class="plan-num">1</span>Fiber at Every Meal</div>
+  <ul class="plan-items">
+    <li>Add one fiber source to every meal: vegetables, legumes (beans, lentils), or a fiber supplement.</li>
+    <li>His stool (hard pellets) will normalize within 5–7 days as fiber intake increases — this is one of the fastest-responding changes.</li>
+    <li>Aim for 25–30 g fiber/day. A serving of beans at lunch + vegetables at dinner = approximately 12–15 g.</li>
+    <li>High-fiber breakfast: oats, fruit, or a high-fiber protein smoothie add another 5–8 g.</li>
+  </ul>
+</div>
+<div class="plan-priority">
+  <div class="plan-priority-label"><span class="plan-num">2</span>Reduce Binge Eating — Structured Meals</div>
+  <ul class="plan-items">
+    <li>Eat at consistent times: breakfast, lunch, dinner at set times reduces the blood sugar swings that trigger binge eating.</li>
+    <li>Protein + fat + fiber at every meal slows gastric emptying and extends satiety — the combination matters.</li>
+    <li>He already eats breakfast with protein (good). Add a fiber source to breakfast to further extend satiety.</li>
+    <li>If binge urges hit, drink 500 ml water first and wait 15 minutes — often it is thirst or blood sugar, not true hunger.</li>
+  </ul>
+</div>
+<div class="plan-priority">
+  <div class="plan-priority-label"><span class="plan-num">3</span>Movement — Reduce Liver and Visceral Fat</div>
+  <ul class="plan-items">
+    <li>20–30 minute walk daily — exercise is the single most effective intervention for NAFLD independent of diet.</li>
+    <li>Break up prolonged sitting: stand and walk for 5 minutes every hour. This alone improves post-meal glucose clearance.</li>
+    <li>Resistance training 2x per week (even bodyweight exercises) builds skeletal muscle that acts as a glucose sink.</li>
+  </ul>
+</div>
+<div class="plan-priority">
+  <div class="plan-priority-label"><span class="plan-num">4</span>Reduce Processed Food — Support Liver Recovery</div>
+  <ul class="plan-items">
+    <li>Processed food (fast food, packaged snacks, fried items) are the primary dietary source driving NAFLD progression.</li>
+    <li>Replace one processed meal per day with a whole-food option — don't aim for perfection, aim for reduction.</li>
+    <li>The liver recovers fastest when the daily caloric and inflammatory load is consistently reduced.</li>
+  </ul>
+</div>
+
+  </div>
+
+  <!-- SUPPORT TOOLS -->
+  <div class="card">
+    <div class="card-title">Support Tools (Optional)</div>
+    <p style="font-size:13px; color:var(--gray-500); margin-bottom:14px;">Food, water, sleep, and movement are always the foundation. These are targeted bridge tools for specific gaps.</p>
+    
+<div class="product-card">
+  <div class="product-name">Advanced Omega</div>
+  <div class="product-rationale">EPA in Advanced Omega has the strongest nutritional evidence base for reducing liver fat in NAFLD — it directly inhibits the enzyme (DGAT-2) responsible for converting excess calories into liver triglycerides. DHA supports the nervous system and may reduce Marco's motion sickness and anxiety symptoms, as it is the dominant fatty acid in vestibular and brain tissue. At BMI 32.6 with a self-reported fatty liver, this is one of the highest-leverage targeted interventions available.</div>
+  <div class="product-note">Take 2 softgels with the largest meal of the day. Liver fat and motion sickness effects build over 6–8 weeks — set this expectation. Anxiety improvements may be noticeable earlier.</div>
+</div>
+<div class="product-card">
+  <div class="product-name">Prebiotic Fiber</div>
+  <div class="product-rationale">Marco's hard-pellet stool and binge eating pattern are both fiber-deficit problems. Prebiotic fiber provides the soluble fiber that bulks stool (resolving the constipation quickly), slows gastric emptying to extend satiety and reduce binge urges, and binds bile acids in the gut — reducing the amount the liver needs to reprocess daily. The gut-liver axis means improving gut motility directly reduces liver workload.</div>
+  <div class="product-note">Mix one serving in a large glass of water before dinner or the largest meal of the day. Stool consistency change is typically noticeable within 5–7 days.</div>
+</div>
+
+  </div>
+
+  <!-- EXPECTED WINS -->
+  <div class="card">
+    <div class="card-title">What to Expect in 30 Days</div>
+    <ul class="wins-list">
+      
+<li>Improved stool consistency (less hard, more regular) within 5–7 days as fiber increases</li>
+<li>Reduced binge eating frequency within 1–2 weeks as fiber and structured meals stabilize satiety</li>
+<li>Less anxiety and motion sickness sensitivity at 4–6 weeks as omega-3 DHA builds in nervous tissue</li>
+<li>Improved post-meal comfort and energy as liver and gut function improve</li>
+<li>Full smart scale baseline captured at 4-week recheck: visceral fat, body fat, metabolic age</li>
+<li>Weight trending down at 4-week recheck with consistent fiber, movement, and reduced binge eating</li>
+
+    </ul>
+  </div>
+
+  <!-- NEXT STEPS -->
+  <div class="card">
+    <div class="card-title">Next Step</div>
+    <div class="next-steps-grid">
+      <div class="next-step-box">
+        <div class="next-step-label">Option A — Lifestyle Only</div>
+        <div class="next-step-text">Fiber source at every meal, 20-min walk daily, structured meal times, reduce one processed meal/day. Recheck at 4 weeks: weight, stool consistency, binge eating frequency.</div>
+      </div>
+      <div class="next-step-box">
+        <div class="next-step-label">Option B — Lifestyle + Support</div>
+        <div class="next-step-text">Advanced Omega with largest meal + Prebiotic Fiber before dinner, plus all lifestyle changes above. Recheck at 4 weeks: weight, full smart scale baseline, stool form, binge frequency, anxiety level (1–5).</div>
+      </div>
+    </div>
+    <div class="recheck-label">4 Weeks Recheck</div>
+    <div class="recheck-items">Weight, full smart scale (first reading), stool consistency (Bristol scale), binge eating episodes/week, anxiety level (1–5), motion sickness frequency</div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-title">Your Personalized Product Stack</div>
+    <div class="cta-sub">Pre-loaded based on your assessment. View pricing and order in one click.</div>
+    <a class="cta-btn" href="https://johnnnyay.github.io/product-marketing/#s=advanced-omega:1,prebiotic-fiber:1" target="_blank">View My Products →</a>
+    <div class="cta-passcode">For member pricing: tap ··· in the top right and enter the passcode your consultant gave you</div>
+  </div>
+
+  <div class="report-footer">
+    Health Progress Report &nbsp;·&nbsp; 2026-08-09<br>
+    This report is for wellness education only and does not constitute medical advice.
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Health Reports</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:        #3D5A4C;
+    --navy-hover:  #47695a;
+    --green:       #5C8A6E;
+    --green-mid:   #6F9E80;
+    --green-light: #EDF2EE;
+    --off-white:   #F7F9F7;
+    --gray-100:    #F0F3F0;
+    --gray-200:    #E4E9E5;
+    --gray-300:    #d1d5db;
+    --gray-400:    #9ca3af;
+    --gray-500:    #6E7B74;
+    --gray-600:    #55605A;
+    --gray-800:    #2A332D;
+    --amber:       #b45309;
+    --amber-light: #fffbeb;
+    --red-light:   #fef2f2;
+    --red:         #dc2626;
+    --shadow-sm:   0 1px 4px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow:      0 4px 16px rgba(0,0,0,0.09), 0 1px 4px rgba(0,0,0,0.05);
+    --shadow-lg:   0 8px 28px rgba(0,0,0,0.13), 0 2px 8px rgba(0,0,0,0.06);
+    --radius:      12px;
+    --radius-lg:   18px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--off-white);
+    color: var(--gray-800);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--navy);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+  }
+  .site-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+  }
+  .back-link {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    margin-left: auto;
+    transition: color 0.15s;
+  }
+  .back-link:hover { color: rgba(255,255,255,0.75); }
+
+  main {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 48px 16px 60px;
+  }
+
+  /* ── LOGIN CARD ── */
+  #login-view {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    padding: 40px 32px;
+    width: 100%;
+    max-width: 420px;
+    margin-top: 16px;
+  }
+  .lock-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--green-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 24px;
+  }
+  h1 {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    font-size: 13.5px;
+    color: var(--gray-500);
+    text-align: center;
+    line-height: 1.55;
+    margin-bottom: 28px;
+  }
+  label {
+    display: block;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 6px;
+  }
+  .field { margin-bottom: 18px; }
+  input[type="text"], input[type="date"] {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--gray-800);
+    outline: none;
+    transition: border-color 0.15s, background 0.15s;
+    background: var(--gray-100);
+  }
+  input[type="text"]:focus, input[type="date"]:focus {
+    border-color: var(--green);
+    background: white;
+  }
+  .hint { font-size: 11.5px; color: var(--gray-400); margin-top: 5px; }
+
+  .btn-primary {
+    width: 100%;
+    padding: 13px;
+    background: var(--navy);
+    color: white;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+    margin-top: 4px;
+  }
+  .btn-primary:hover { background: var(--navy-hover); }
+  .btn-primary:active { transform: scale(0.98); }
+  .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  .error-box {
+    display: none;
+    background: var(--red-light);
+    border: 1px solid rgba(220,38,38,0.2);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: var(--red);
+    margin-top: 14px;
+    text-align: center;
+    line-height: 1.5;
+  }
+  .divider { height: 1px; background: var(--gray-200); margin: 24px 0; }
+  .contact-note { font-size: 12.5px; color: var(--gray-400); text-align: center; line-height: 1.55; }
+
+  /* ── PROFILE VIEW ── */
+  #profile-view {
+    display: none;
+    width: 100%;
+    max-width: 680px;
+  }
+
+  .profile-header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--green) 100%);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    color: white;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .profile-greeting {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 6px;
+  }
+  .profile-name {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .profile-meta {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+  }
+  .profile-count {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 12px;
+    padding-left: 2px;
+  }
+
+  /* REPORT CARD */
+  .report-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 22px 24px;
+    margin-bottom: 12px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    transition: box-shadow 0.15s, transform 0.15s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+  .report-card:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-1px);
+  }
+  .report-date-block {
+    flex-shrink: 0;
+    background: var(--green-light);
+    border-radius: 10px;
+    padding: 10px 14px;
+    text-align: center;
+    min-width: 62px;
+  }
+  .report-month {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--green);
+  }
+  .report-day {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+  .report-year {
+    font-size: 10px;
+    color: var(--gray-400);
+    margin-top: 2px;
+  }
+  .report-body { flex: 1; min-width: 0; }
+  .report-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 6px;
+  }
+  .report-signals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 8px;
+  }
+  .signal-tag {
+    background: var(--gray-100);
+    border-radius: 999px;
+    padding: 2px 9px;
+    font-size: 11px;
+    color: var(--gray-600);
+    font-weight: 500;
+  }
+  .report-products {
+    font-size: 12px;
+    color: var(--gray-400);
+  }
+  .report-arrow {
+    color: var(--gray-300);
+    font-size: 18px;
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  /* LATEST BADGE */
+  .latest-badge {
+    display: inline-block;
+    background: var(--navy);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin-left: 8px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+
+  .sign-out-btn {
+    background: none;
+    border: 1.5px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 9px 16px;
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--gray-500);
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+    margin-top: 4px;
+    width: 100%;
+  }
+  .sign-out-btn:hover { border-color: var(--gray-400); color: var(--gray-700, #374151); }
+
+  footer {
+    text-align: center;
+    font-size: 11.5px;
+    color: var(--gray-400);
+    padding: 16px;
+  }
+
+  @media (max-width: 500px) {
+    #login-view { padding: 28px 20px; }
+    .profile-header { padding: 24px 20px; }
+    .profile-name { font-size: 22px; }
+    .profile-count { position: static; display: inline-block; margin-top: 10px; }
+    .report-card { padding: 16px; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="site-name" href="index.html">← Back to site</a>
+</header>
+
+<main>
+
+  <!-- STEP 1: LOGIN -->
+  <div id="login-view">
+    <div class="lock-icon">🔒</div>
+    <h1>My Health Reports</h1>
+    <p class="subtitle">Enter your initials and date of birth to view your assessment history.</p>
+
+    <div class="field">
+      <label for="initials">Your Initials</label>
+      <input type="text" id="initials" placeholder="e.g. JH" maxlength="4" autocomplete="off" autocapitalize="characters" spellcheck="false">
+      <div class="hint">First letter of first name + first letter of last name</div>
+    </div>
+
+    <div class="field">
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob">
+    </div>
+
+    <button class="btn-primary" id="lookup-btn" onclick="lookupClient()">View My Reports</button>
+    <div class="error-box" id="error-box"></div>
+
+    <div class="divider"></div>
+    <p class="contact-note">Don't have a report yet? Reach out to your health consultant to schedule your assessment.</p>
+  </div>
+
+  <!-- STEP 2: PROFILE + HISTORY -->
+  <div id="profile-view">
+    <div class="profile-header">
+      <div class="profile-greeting">Health Profile</div>
+      <div class="profile-name" id="profile-name"></div>
+      <div class="profile-meta" id="profile-meta"></div>
+      <div class="profile-count" id="profile-count"></div>
+    </div>
+
+    <div class="section-label" id="history-label"></div>
+    <div id="report-list"></div>
+
+    <button class="sign-out-btn" onclick="signOut()">← Use different details</button>
+  </div>
+
+</main>
+
+<footer>Health Progress Reports &nbsp;·&nbsp; For wellness education only, not medical advice.</footer>
+
+<script>
+  // Auto-uppercase initials
+  document.getElementById('initials').addEventListener('input', function() {
+    this.value = this.value.toUpperCase().replace(/[^A-Z]/g, '');
+  });
+
+  // Enter key support
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && document.getElementById('login-view').style.display !== 'none') {
+      lookupClient();
+    }
+  });
+
+  function lookupClient() {
+    const initials = document.getElementById('initials').value.trim().toUpperCase();
+    const dob = document.getElementById('dob').value;
+    const errorBox = document.getElementById('error-box');
+    const btn = document.getElementById('lookup-btn');
+
+    errorBox.style.display = 'none';
+
+    if (!initials || initials.length < 2) {
+      showError('Please enter your initials (first + last name initial).');
+      return;
+    }
+    if (!dob) {
+      showError('Please enter your date of birth.');
+      return;
+    }
+
+    const key = initials + '_' + dob;
+    btn.disabled = true;
+    btn.textContent = 'Looking up…';
+
+    // Fetch the index JSON from the same origin
+    fetch('reports/index.json?t=' + Date.now())
+      .then(r => {
+        if (!r.ok) throw new Error('index not found');
+        return r.json();
+      })
+      .then(data => {
+        const client = data.clients[key];
+        if (!client) {
+          showError('No report found for those details. Please double-check your initials and date of birth, or contact your consultant.');
+          btn.disabled = false;
+          btn.textContent = 'View My Reports';
+          return;
+        }
+        showProfile(client);
+      })
+      .catch(() => {
+        showError('Unable to load reports right now. If you are testing locally, this page must be served over HTTP — it will work correctly on the live site.');
+        btn.disabled = false;
+        btn.textContent = 'View My Reports';
+      });
+  }
+
+  function showProfile(client) {
+    // Sort reports newest first
+    const reports = [...client.reports].sort((a, b) => b.date.localeCompare(a.date));
+
+    document.getElementById('profile-name').textContent = client.name;
+    document.getElementById('profile-meta').textContent =
+      'DOB: ' + formatDate(client.dob);
+    document.getElementById('profile-count').textContent =
+      reports.length + (reports.length === 1 ? ' Assessment' : ' Assessments');
+    document.getElementById('history-label').textContent =
+      'Assessment History';
+
+    const list = document.getElementById('report-list');
+    list.innerHTML = '';
+
+    reports.forEach((r, i) => {
+      const d = new Date(r.date + 'T00:00:00');
+      const month = d.toLocaleString('en', { month: 'short' }).toUpperCase();
+      const day = d.getDate();
+      const year = d.getFullYear();
+
+      const signalTags = (r.signals || []).map(s =>
+        `<span class="signal-tag">${s}</span>`
+      ).join('');
+
+      const productText = r.products && r.products.length
+        ? 'Recommended: ' + r.products.join(' · ')
+        : '';
+
+      const latestBadge = i === 0 ? '<span class="latest-badge">Latest</span>' : '';
+
+      const card = document.createElement('a');
+      card.className = 'report-card';
+      card.href = 'reports/' + r.file;
+      card.innerHTML = `
+        <div class="report-date-block">
+          <div class="report-month">${month}</div>
+          <div class="report-day">${day}</div>
+          <div class="report-year">${year}</div>
+        </div>
+        <div class="report-body">
+          <div class="report-title">Health Assessment ${latestBadge}</div>
+          <div class="report-signals">${signalTags}</div>
+          ${productText ? `<div class="report-products">${productText}</div>` : ''}
+        </div>
+        <div class="report-arrow">›</div>
+      `;
+      list.appendChild(card);
+    });
+
+    document.getElementById('login-view').style.display = 'none';
+    document.getElementById('profile-view').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
+  function signOut() {
+    document.getElementById('profile-view').style.display = 'none';
+    document.getElementById('login-view').style.display = 'block';
+    document.getElementById('lookup-btn').disabled = false;
+    document.getElementById('lookup-btn').textContent = 'View My Reports';
+  }
+
+  function showError(msg) {
+    const box = document.getElementById('error-box');
+    box.textContent = msg;
+    box.style.display = 'block';
+  }
+
+  function formatDate(dateStr) {
+    const d = new Date(dateStr + 'T00:00:00');
+    return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  }
+</script>
+
+</body>
+</html>

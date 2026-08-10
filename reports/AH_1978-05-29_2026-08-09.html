@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Progress Report — Adelita Hernandez</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:        #3D5A4C;
+    --navy-hover:  #47695a;
+    --green:       #5C8A6E;
+    --green-mid:   #6F9E80;
+    --green-light: #EDF2EE;
+    --off-white:   #F7F9F7;
+    --gray-100:    #F0F3F0;
+    --gray-200:    #E4E9E5;
+    --gray-300:    #d1d5db;
+    --gray-400:    #9ca3af;
+    --gray-500:    #6E7B74;
+    --gray-600:    #55605A;
+    --gray-800:    #2A332D;
+    --amber:       #b45309;
+    --amber-light: #fffbeb;
+    --shadow-sm:   0 1px 4px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow:      0 4px 16px rgba(0,0,0,0.09), 0 1px 4px rgba(0,0,0,0.05);
+    --radius:      12px;
+    --radius-lg:   18px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--off-white);
+    color: var(--gray-800);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.65;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    color: white;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .site-logo {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.95);
+    text-decoration: none;
+  }
+  .site-header-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    margin-left: auto;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--green) 100%);
+    color: white;
+    padding: 40px 24px 36px;
+    text-align: center;
+  }
+  .hero-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 8px;
+  }
+  .hero-name {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .hero-meta {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 20px;
+  }
+  .hero-signals {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .signal-badge {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+  }
+
+  /* ── LAYOUT ── */
+  .page-body {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 28px 16px 60px;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .card-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .card-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gray-200);
+  }
+
+  /* ── BODY COMP TABLE ── */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  .comp-row {
+    background: var(--gray-100);
+    border-radius: 8px;
+    padding: 10px 14px;
+  }
+  .comp-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gray-500);
+    margin-bottom: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .comp-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-800);
+  }
+  .comp-range {
+    font-size: 11px;
+    color: var(--gray-400);
+    margin-top: 1px;
+  }
+  .comp-good { color: var(--green); }
+  .comp-warn { color: var(--amber); }
+  .comp-note {
+    margin-top: 14px;
+    font-size: 13.5px;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+
+  /* ── SIGNALS ── */
+  .signal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .signal-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .signal-num {
+    background: var(--navy);
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .signal-content {}
+  .signal-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 2px;
+  }
+  .signal-desc {
+    font-size: 13.5px;
+    color: var(--gray-600);
+    line-height: 1.55;
+  }
+
+  /* ── ROOT CAUSE ── */
+  .rca-section {
+    margin-bottom: 20px;
+  }
+  .rca-section:last-child { margin-bottom: 0; }
+  .rca-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .rca-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    flex-shrink: 0;
+  }
+  .rca-text {
+    font-size: 13.5px;
+    color: var(--gray-600);
+    line-height: 1.65;
+  }
+
+  /* ── SUMMARY ── */
+  .summary-box {
+    background: var(--green-light);
+    border-left: 3px solid var(--green);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 16px 18px;
+    font-size: 14px;
+    color: var(--gray-800);
+    line-height: 1.65;
+  }
+
+  /* ── PLAN ── */
+  .plan-priority {
+    margin-bottom: 18px;
+  }
+  .plan-priority:last-child { margin-bottom: 0; }
+  .plan-priority-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .plan-num {
+    background: var(--green-light);
+    color: var(--green);
+    border-radius: 6px;
+    padding: 1px 7px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .plan-items {
+    list-style: none;
+    padding: 0;
+  }
+  .plan-items li {
+    font-size: 13.5px;
+    color: var(--gray-600);
+    padding: 4px 0 4px 16px;
+    position: relative;
+    line-height: 1.55;
+  }
+  .plan-items li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--green-mid);
+    font-size: 12px;
+    top: 5px;
+  }
+
+  /* ── PRODUCTS ── */
+  .product-card {
+    background: var(--amber-light);
+    border: 1px solid rgba(180,83,9,0.12);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .product-card:last-child { margin-bottom: 0; }
+  .product-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--amber);
+    margin-bottom: 4px;
+  }
+  .product-rationale {
+    font-size: 13.5px;
+    color: var(--gray-700, #374151);
+    line-height: 1.6;
+  }
+  .product-note {
+    font-size: 12px;
+    color: var(--gray-400);
+    margin-top: 6px;
+  }
+
+  /* ── WINS ── */
+  .wins-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .wins-list li {
+    font-size: 13.5px;
+    color: var(--gray-600);
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.55;
+  }
+  .wins-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 700;
+  }
+
+  /* ── NEXT STEPS ── */
+  .next-steps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  @media (max-width: 520px) {
+    .next-steps-grid { grid-template-columns: 1fr; }
+  }
+  .next-step-box {
+    background: var(--gray-100);
+    border-radius: var(--radius);
+    padding: 14px;
+  }
+  .next-step-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--gray-500);
+    margin-bottom: 6px;
+  }
+  .next-step-text {
+    font-size: 13px;
+    color: var(--gray-700, #374151);
+    line-height: 1.6;
+  }
+  .recheck-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-500);
+    margin-top: 14px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .recheck-items {
+    font-size: 13px;
+    color: var(--gray-600);
+  }
+
+  /* ── CTA BUTTON ── */
+  .cta-section {
+    background: var(--navy);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .cta-title {
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .cta-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 18px;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: white;
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 15px;
+    padding: 12px 28px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  }
+  .cta-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.22);
+  }
+  .cta-passcode {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 12px;
+  }
+
+  /* ── FOOTER ── */
+  .report-footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--gray-400);
+    padding-top: 8px;
+  }
+  .report-footer a {
+    color: var(--green);
+    text-decoration: none;
+  }
+
+  @media (max-width: 600px) {
+    .hero-name { font-size: 24px; }
+    .comp-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <span class="site-logo">Health Progress Report</span>
+  <span class="site-header-sub">Confidential &nbsp;·&nbsp; 2026-08-09</span>
+</header>
+
+<div class="hero">
+  <div class="hero-label">Personalized Health Analysis</div>
+  <div class="hero-name">Adelita Hernandez</div>
+  <div class="hero-meta">2026-08-09 &nbsp;·&nbsp; Consultant: Johnny / Irene &nbsp;·&nbsp; Recheck in 6 Weeks</div>
+  <div class="hero-signals">
+    <span class="signal-badge">Nervous System Overload</span>
+    <span class="signal-badge">Chronic GI Distress</span>
+    <span class="signal-badge">Hair Loss + Metabolic Aging Gap</span>
+  </div>
+</div>
+
+<div class="page-body">
+
+  <!-- CLIENT OVERVIEW -->
+  <div class="card">
+    <div class="card-title">Client Overview</div>
+    <div class="comp-grid" style="grid-template-columns: repeat(auto-fill, minmax(150px,1fr));">
+      <div class="comp-row">
+        <div class="comp-label">Name</div>
+        <div class="comp-value" style="font-size:14px;">Adelita Hernandez</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Age</div>
+        <div class="comp-value" style="font-size:14px;">48</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Gender</div>
+        <div class="comp-value" style="font-size:14px;">Female</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Referred by</div>
+        <div class="comp-value" style="font-size:14px;">(to confirm)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY COMPOSITION -->
+  <div class="card">
+    <div class="card-title">Body Composition</div>
+    <div class="comp-grid">
+      
+<div class="comp-row"><div class="comp-label">Weight</div><div class="comp-value">154.6 lb</div><div class="comp-range comp-warn">Above ideal range</div></div>
+<div class="comp-row"><div class="comp-label">Height</div><div class="comp-value">155 cm</div><div class="comp-range">5&apos;1&quot;</div></div>
+<div class="comp-row"><div class="comp-label">BMI</div><div class="comp-value">29.2</div><div class="comp-range comp-warn">Overweight (25–29.9)</div></div>
+<div class="comp-row"><div class="comp-label">Body Fat</div><div class="comp-value">36%</div><div class="comp-range comp-warn">Elevated (ideal &lt;33%)</div></div>
+<div class="comp-row"><div class="comp-label">Visceral Fat</div><div class="comp-value">12</div><div class="comp-range comp-warn">Elevated (&gt;10 = concern)</div></div>
+<div class="comp-row"><div class="comp-label">Body Water</div><div class="comp-value">43.9%</div><div class="comp-range comp-warn">Low (ideal 45–60%)</div></div>
+<div class="comp-row"><div class="comp-label">Skeletal Muscle</div><div class="comp-value">37.3%</div><div class="comp-range">Moderate</div></div>
+<div class="comp-row"><div class="comp-label">Metabolic Age</div><div class="comp-value">53</div><div class="comp-range comp-warn">5 yrs above actual age</div></div>
+<div class="comp-row"><div class="comp-label">BMR</div><div class="comp-value">1,327 kcal</div><div class="comp-range">Resting baseline</div></div>
+<div class="comp-row"><div class="comp-label">Bone Mass</div><div class="comp-value">5.8 kg</div><div class="comp-range comp-good">Good</div></div>
+
+    </div>
+    <p class="comp-note">Adelita has a complete smart scale picture, which is excellent for tracking. The key flags are visceral fat at 12 (the threshold is 10), body water at 43.9% (below the healthy 45% floor), and a metabolic age running 5 years ahead of her actual age. These three numbers together tell the same story: chronic low-grade inflammation and under-recovery. The good news is all three are responsive to the interventions in this plan.</p>
+  </div>
+
+  <!-- TOP 3 SIGNALS -->
+  <div class="card">
+    <div class="card-title">Top 3 Priority Signals</div>
+    <div class="signal-list">
+      <div class="signal-item">
+        <div class="signal-num">1</div>
+        <div class="signal-content">
+          <div class="signal-name">Nervous System Overload</div>
+          <div class="signal-desc">A cluster of eight nervous system symptoms all marking Often — startled awake at night, hard to relax, mentally tense, anxious, emotions out of control, eyes light-sensitive — alongside an irregular menstrual cycle that at 48 may reflect perimenopausal hormonal shifts amplifying the stress response. Skipping breakfast often adds a daily cortisol spike to an already burdened system.</div>
+        </div>
+      </div>
+      <div class="signal-item">
+        <div class="signal-num">2</div>
+        <div class="signal-content">
+          <div class="signal-name">Chronic GI Distress</div>
+          <div class="signal-desc">Poor digestion and stomach problems (gastritis) both marked Often — not occasionally. Combined with occasional bloating, constipation, and burping, this is a consistent pattern of digestive insufficiency, not a one-off event. Poor digestion means that even the nutrients Adelita is eating are not being fully absorbed, which directly affects energy, mood, and hair health.</div>
+        </div>
+      </div>
+      <div class="signal-item">
+        <div class="signal-num">3</div>
+        <div class="signal-content">
+          <div class="signal-name">Hair Loss + Metabolic Aging Gap</div>
+          <div class="signal-desc">Hair falling out, dry/dull hair, and grey hair all marked Often. When hair loss co-occurs with elevated visceral fat, low body water, and a metabolic age running 5 years above actual, it reflects a systemic under-resourcing — the body is pulling back from non-essential functions like hair growth to cope with the inflammatory load and nutrient absorption deficit.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROOT CAUSE ANALYSIS -->
+  <div class="card">
+    <div class="card-title">Root Cause Analysis</div>
+    
+<div class="rca-section">
+  <div class="rca-label"><span class="rca-dot"></span>Stress / Nervous System (Primary Driver)</div>
+  <div class="rca-text">Adelita's nervous system profile is consistent and significant: hard to relax, mentally tense, anxious, emotionally out of control, startled awake at night, eyes sensitive to light — all marked Often. This is not everyday stress; this is a sustained high-cortisol state. At 48, perimenopausal hormonal fluctuation commonly amplifies cortisol reactivity and disrupts the HPA axis, creating a feedback loop where stress raises cortisol, cortisol disrupts sleep, poor sleep raises cortisol further. Skipping breakfast often adds a 6–8 hour fasting cortisol spike each morning. The irregular menstrual cycle likely reflects this HPA disruption rather than a separate cause. Magnesium is one of the most depleted minerals under chronic cortisol load — it is consumed by the stress response itself, which then worsens anxiety, muscle tension, and sleep quality.</div>
+</div>
+<div class="rca-section">
+  <div class="rca-label"><span class="rca-dot"></span>Digestion / Gut (Secondary Driver)</div>
+  <div class="rca-text">Poor digestion and gastritis both flagged Often suggest this is not a passing issue. The gut-brain axis means chronic nervous system activation directly suppresses digestive enzyme output — the body diverts resources away from digestion when it perceives stress. This creates a cycle: poor digestion → reduced nutrient absorption → nutrient deficits → worsened mood, energy, and hair health → increased stress reactivity. The constipation and bloating are downstream of this enzyme deficit combined with 1–1.5 L water intake (low for her needs). Until digestion is supported, supplements and food both have reduced effectiveness.</div>
+</div>
+<div class="rca-section">
+  <div class="rca-label"><span class="rca-dot"></span>Nutrient Absorption Gap (Consequence)</div>
+  <div class="rca-text">The hair cluster (falling out, dry, dull, grey — all Often) combined with body water at 43.9% and visceral fat at 12 suggests the body is operating in a low-nutrient-availability state despite a self-reported high-protein diet. Hair follicle cycling requires B-vitamins, zinc, iron, and protein — all of which depend on adequate digestive enzyme activity and adequate hydration to transport. At 1–1.5 L water/day, cellular hydration and nutrient transport are both compromised. The metabolic age running 5 years ahead of actual age suggests this has been a pattern building over time — it is reversible with consistency, but the window for action is now.</div>
+</div>
+<div class="rca-section">
+  <div class="rca-label"><span class="rca-dot"></span>Inflammation (Underpinning)</div>
+  <div class="rca-text">Visceral fat at 12 is metabolically active tissue — it releases pro-inflammatory cytokines continuously. Combined with the stress cortisol load, this creates a chronic low-grade inflammatory environment that slows healing, disrupts hormonal signaling, and accelerates metabolic aging. The metabolic age gap (53 vs actual 48) is the measurable output of this inflammation. Reducing visceral fat is a long-term project, but improving sleep, reducing cortisol through digestion support, and increasing water and produce intake all reduce the inflammatory burden incrementally.</div>
+</div>
+
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="card">
+    <div class="card-title">Summary</div>
+    <div class="summary-box">Adelita's picture has a clear center of gravity: a chronically activated stress response is suppressing her digestive function, which is reducing nutrient availability, which is showing up as hair loss, metabolic aging, and low cellular hydration. This is not a supplement gap — it is a system that needs to be calmed down and supported at the gut level first. Water, breakfast, digestive support, and nervous system recovery are the four levers. The smart scale data is excellent because it gives us a precise baseline to measure against at the 6-week recheck.</div>
+  </div>
+
+  <!-- 30-DAY PLAN -->
+  <div class="card">
+    <div class="card-title">30-Day Plan</div>
+    
+<div class="plan-priority">
+  <div class="plan-priority-label"><span class="plan-num">1</span>Breakfast — Break the Cortisol Spike</div>
+  <ul class="plan-items">
+    <li>Eat within 60 minutes of waking — every day. This is the single highest-leverage habit change.</li>
+    <li>Include protein at breakfast (already doing this occasionally — make it daily): eggs, Greek yogurt, or protein shake.</li>
+    <li>Even a small meal reduces the morning cortisol spike that is damaging her nervous system and hair follicles.</li>
+  </ul>
+</div>
+<div class="plan-priority">
+  <div class="plan-priority-label"><span class="plan-num">2</span>Water — Rebuild Cellular Hydration</div>
+  <ul class="plan-items">
+    <li>Target: 1.5 L this week, 2 L by week 3. Current 1–1.5 L is below threshold for her body composition.</li>
+    <li>One full glass immediately upon waking before coffee or food.</li>
+    <li>Water bottle visible at the desk at all times — refill at every meal.</li>
+  </ul>
+</div>
+<div class="plan-priority">
+  <div class="plan-priority-label"><span class="plan-num">3</span>Evening Nervous System Wind-Down</div>
+  <ul class="plan-items">
+    <li>Screens off 45 minutes before bed — blue light directly suppresses melatonin and delays cortisol clearance.</li>
+    <li>10-minute walk or gentle stretching after dinner — activates the parasympathetic nervous system.</li>
+    <li>Consistent sleep time: aim for the same bedtime ± 30 minutes, which helps regulate cortisol rhythms.</li>
+  </ul>
+</div>
+<div class="plan-priority">
+  <div class="plan-priority-label"><span class="plan-num">4</span>Movement — Address Visceral Fat</div>
+  <ul class="plan-items">
+    <li>Stand or walk 5 minutes every hour during prolonged sitting.</li>
+    <li>15–20 minute walk daily — visceral fat responds well to consistent moderate movement.</li>
+    <li>Tracking: note energy before and after walks. It should be noticeably better within 2 weeks.</li>
+  </ul>
+</div>
+
+  </div>
+
+  <!-- SUPPORT TOOLS -->
+  <div class="card">
+    <div class="card-title">Support Tools (Optional)</div>
+    <p style="font-size:13px; color:var(--gray-500); margin-bottom:14px;">Food, water, sleep, and movement are always the foundation. These are targeted bridge tools for specific gaps.</p>
+    
+<div class="product-card">
+  <div class="product-name">Magnesium</div>
+  <div class="product-rationale">Magnesium is one of the most consumed minerals during chronic stress — the body uses it to regulate cortisol and calm the nervous system, which depletes it faster than food can replace. Adelita's pattern of anxiety, tension, startled sleep, and emotional dysregulation all reflect the physiological effects of magnesium insufficiency under sustained stress load.</div>
+  <div class="product-note">Take 1–2 capsules with dinner or before bed. Effects on sleep quality and relaxation are typically noticeable within 1–2 weeks. Start with dinner to assess tolerance.</div>
+</div>
+<div class="product-card">
+  <div class="product-name">Digestive Enzyme</div>
+  <div class="product-rationale">With poor digestion and gastritis both marked Often, Adelita's gut is consistently underperforming on nutrient extraction. A digestive enzyme taken with meals directly addresses the root of her nutrient absorption gap — supporting the breakdown of proteins, fats, and carbs that the chronically stressed gut is not completing on its own. This is the infrastructure fix that makes everything else — food, other supplements, water — more effective.</div>
+  <div class="product-note">Take 1 capsule with each main meal. Results for digestion comfort (less bloating, less post-meal heaviness) are typically felt within 1–2 weeks.</div>
+</div>
+
+  </div>
+
+  <!-- EXPECTED WINS -->
+  <div class="card">
+    <div class="card-title">What to Expect in 30 Days</div>
+    <ul class="wins-list">
+      
+<li>Reduced post-meal bloating and heaviness within 1–2 weeks as digestive enzyme supports gut function</li>
+<li>Improved sleep quality and ability to fall back asleep within 1–2 weeks as magnesium levels rebuild</li>
+<li>Less anxiety and emotional reactivity within 2–3 weeks as the cortisol-magnesium cycle begins to break</li>
+<li>More consistent morning energy as breakfast stabilizes cortisol patterns — noticeable within 1 week</li>
+<li>Reduced hair shedding at 6–8 weeks as nutrient absorption improves and stress hormones decrease</li>
+<li>Body water trending toward 45%+ at the 6-week smart scale recheck if hydration habits hold</li>
+
+    </ul>
+  </div>
+
+  <!-- NEXT STEPS -->
+  <div class="card">
+    <div class="card-title">Next Step</div>
+    <div class="next-steps-grid">
+      <div class="next-step-box">
+        <div class="next-step-label">Option A — Lifestyle Only</div>
+        <div class="next-step-text">Eat breakfast daily with protein, build water to 2 L, add 15-min walk daily, screens off 45 min before bed. Recheck smart scale at 6 weeks: body water, visceral fat, metabolic age.</div>
+      </div>
+      <div class="next-step-box">
+        <div class="next-step-label">Option B — Lifestyle + Support</div>
+        <div class="next-step-text">Magnesium at dinner + Digestive Enzyme with each main meal, plus all lifestyle changes above. Recheck at 6 weeks: body water, visceral fat, metabolic age, hair shedding amount.</div>
+      </div>
+    </div>
+    <div class="recheck-label">6 Weeks Recheck</div>
+    <div class="recheck-items">Body water %, visceral fat level, metabolic age, hair shedding amount, sleep quality (1–5), morning energy (1–5), post-meal comfort</div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-title">Your Personalized Product Stack</div>
+    <div class="cta-sub">Pre-loaded based on your assessment. View pricing and order in one click.</div>
+    <a class="cta-btn" href="https://johnnnyay.github.io/product-marketing/#s=magnesium:1,digestive-enzyme:1" target="_blank">View My Products →</a>
+    <div class="cta-passcode">For member pricing: tap ··· in the top right and enter the passcode your consultant gave you</div>
+  </div>
+
+  <div class="report-footer">
+    Health Progress Report &nbsp;·&nbsp; 2026-08-09<br>
+    This report is for wellness education only and does not constitute medical advice.
+  </div>
+
+</div>
+</body>
+</html>
