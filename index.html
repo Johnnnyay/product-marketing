@@ -1069,6 +1069,11 @@
     }
     .ci-name  { font-size: 12.5px; color: var(--gray-700); line-height: 1.35; }
     .ci-name em { font-style: normal; color: var(--gray-400); margin-left: 4px; }
+    .ci-name-btn { background: none; border: none; padding: 0; font: inherit; font-size: 12.5px;
+                   color: var(--gray-700); line-height: 1.35; text-align: left; cursor: pointer;
+                   text-decoration: underline; text-underline-offset: 2px;
+                   text-decoration-color: var(--gray-300); }
+    .ci-name-btn:hover { color: var(--green); text-decoration-color: var(--green); }
     .ci-meta  { font-size: 10.5px; color: var(--gray-400); grid-column: 1; }
     .ci-price { font-size: 12.5px; color: var(--gray-700); grid-row: 1 / span 2;
                 align-self: center; white-space: nowrap; }
@@ -2516,7 +2521,7 @@ function renderCalcPanel() {
     if (!p) return;
     const pr = (price(p) || 0) * qty;
     out.push(`<div class="calc-item">
-      <span class="ci-name">${t(p.name, p.nameZh || p.name)}<em>×${qty}</em></span>
+      <button class="ci-name-btn" onclick="openModal('${id}')" type="button">${t(p.name, p.nameZh || p.name)}<em>×${qty}</em></button>
       <span class="ci-meta">${supplyLabel(p)}${qty > 1 && !p.oneTime ? t(' each', ' 每份') : ''}</span>
       <span class="ci-price">${fmtPrice(pr)}</span>
     </div>`);
@@ -2672,6 +2677,10 @@ function init() {
   currentSolution = SOLUTIONS.length ? SOLUTIONS[0].id : null;
   normalizeProtocol(PROTOCOL);
   loadHash();
+  // Auto-open the cart panel when arriving from a shareable link with products pre-loaded
+  if (Object.keys(calcSelections).length > 0) {
+    document.getElementById('calc-panel').classList.add('open');
+  }
   renderLangMenu();
   renderPrimaryTabs();
   updateModeBtn();
