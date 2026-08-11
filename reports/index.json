@@ -126,6 +126,48 @@
         }
       ]
     },
+    "GC_2001-04-06": {
+      "name": "Grace Collis",
+      "initials": "GC",
+      "dob": "2001-04-06",
+      "reports": [
+        {
+          "date": "2026-08-10",
+          "file": "GC_2001-04-06_2026-08-10.html",
+          "signals": [
+            "Acne + Heavy Flow + Anemia",
+            "Breakfast Skip + Blood Sugar",
+            "Low Body Water + Dehydration"
+          ],
+          "products": [
+            "Advanced Omega",
+            "Plant Protein Powder"
+          ],
+          "consultant": "Johnny/Irene"
+        }
+      ]
+    },
+    "TW_2001-03-21": {
+      "name": "Tyler Wiseman",
+      "initials": "TW",
+      "dob": "2001-03-21",
+      "reports": [
+        {
+          "date": "2026-08-10",
+          "file": "TW_2001-03-21_2026-08-10.html",
+          "signals": [
+            "Visceral Fat 12 + Metabolic Age 28",
+            "Bloating + Fiber Deficit",
+            "Blood Pressure + Processed Diet"
+          ],
+          "products": [
+            "Prebiotic Fiber",
+            "Double X Multivitamin"
+          ],
+          "consultant": "Johnny/Irene"
+        }
+      ]
+    },
     "HL_1999-11-03": {
       "name": "Hunter Long",
       "initials": "HL",
