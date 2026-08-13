@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Progress Report — Johnny Huang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:        #3D5A4C;
+    --navy-hover:  #47695a;
+    --green:       #5C8A6E;
+    --green-mid:   #6F9E80;
+    --green-light: #EDF2EE;
+    --off-white:   #F7F9F7;
+    --gray-100:    #F0F3F0;
+    --gray-200:    #E4E9E5;
+    --gray-300:    #d1d5db;
+    --gray-400:    #9ca3af;
+    --gray-500:    #6E7B74;
+    --gray-600:    #55605A;
+    --gray-800:    #2A332D;
+    --amber:       #b45309;
+    --amber-light: #fffbeb;
+    --shadow-sm:   0 1px 4px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow:      0 4px 16px rgba(0,0,0,0.09), 0 1px 4px rgba(0,0,0,0.05);
+    --radius:      12px;
+    --radius-lg:   18px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--off-white);
+    color: var(--gray-800);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.65;
+  }
+  .site-header {
+    background: var(--navy);
+    color: white;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .site-logo {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.95);
+    text-decoration: none;
+  }
+  .site-header-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    margin-left: auto;
+  }
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--green) 100%);
+    color: white;
+    padding: 40px 24px 36px;
+    text-align: center;
+  }
+  .hero-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 8px;
+  }
+  .hero-name {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .hero-meta {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 20px;
+  }
+  .hero-signals {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .signal-badge {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+  }
+  .page-body {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 28px 16px 60px;
+  }
+  .card {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .card-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .card-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gray-200);
+  }
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  .comp-row {
+    background: var(--gray-100);
+    border-radius: 8px;
+    padding: 10px 14px;
+  }
+  .comp-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gray-500);
+    margin-bottom: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .comp-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-800);
+  }
+  .comp-range {
+    font-size: 11px;
+    color: var(--gray-400);
+    margin-top: 1px;
+  }
+  .comp-good { color: var(--green); }
+  .comp-warn { color: var(--amber); }
+  .comp-note {
+    margin-top: 14px;
+    font-size: 13.5px;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+  .signal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .signal-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .signal-num {
+    background: var(--navy);
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .signal-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 2px;
+  }
+  .signal-desc {
+    font-size: 13.5px;
+    color: var(--gray-600);
+    line-height: 1.55;
+  }
+  .rca-section { margin-bottom: 20px; }
+  .rca-section:last-child { margin-bottom: 0; }
+  .rca-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .rca-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    flex-shrink: 0;
+  }
+  .rca-text {
+    font-size: 13.5px;
+    color: var(--gray-600);
+    line-height: 1.65;
+  }
+  .summary-box {
+    background: var(--green-light);
+    border-left: 3px solid var(--green);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 16px 18px;
+    font-size: 14px;
+    color: var(--gray-800);
+    line-height: 1.65;
+  }
+  .plan-priority { margin-bottom: 18px; }
+  .plan-priority:last-child { margin-bottom: 0; }
+  .plan-priority-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .plan-num {
+    background: var(--green-light);
+    color: var(--green);
+    border-radius: 6px;
+    padding: 1px 7px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .plan-items { list-style: none; padding: 0; }
+  .plan-items li {
+    font-size: 13.5px;
+    color: var(--gray-600);
+    padding: 4px 0 4px 16px;
+    position: relative;
+    line-height: 1.55;
+  }
+  .plan-items li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--green-mid);
+    font-size: 12px;
+    top: 5px;
+  }
+  .product-card {
+    background: var(--amber-light);
+    border: 1px solid rgba(180,83,9,0.12);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .product-card:last-child { margin-bottom: 0; }
+  .product-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--amber);
+    margin-bottom: 4px;
+  }
+  .product-rationale {
+    font-size: 13.5px;
+    color: var(--gray-700, #374151);
+    line-height: 1.6;
+  }
+  .product-note {
+    font-size: 12px;
+    color: var(--gray-400);
+    margin-top: 6px;
+  }
+  .wins-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .wins-list li {
+    font-size: 13.5px;
+    color: var(--gray-600);
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.55;
+  }
+  .wins-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 700;
+  }
+  .next-steps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  @media (max-width: 520px) { .next-steps-grid { grid-template-columns: 1fr; } }
+  .next-step-box {
+    background: var(--gray-100);
+    border-radius: var(--radius);
+    padding: 14px;
+  }
+  .next-step-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--gray-500);
+    margin-bottom: 6px;
+  }
+  .next-step-text {
+    font-size: 13px;
+    color: var(--gray-700, #374151);
+    line-height: 1.6;
+  }
+  .recheck-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-500);
+    margin-top: 14px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .recheck-items { font-size: 13px; color: var(--gray-600); }
+  .cta-section {
+    background: var(--navy);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .cta-title { color: white; font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+  .cta-sub { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 18px; }
+  .cta-btn {
+    display: inline-block;
+    background: white;
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 15px;
+    padding: 12px 28px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  }
+  .cta-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0,0,0,0.22); }
+  .cta-passcode { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 12px; }
+  .report-footer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--gray-400);
+    padding-top: 8px;
+  }
+  @media (max-width: 600px) {
+    .hero-name { font-size: 24px; }
+    .comp-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <span class="site-logo">Health Progress Report</span>
+  <span class="site-header-sub">Confidential &nbsp;·&nbsp; 2026-08-12</span>
+</header>
+
+<div class="hero">
+  <div class="hero-label">Personalized Health Analysis</div>
+  <div class="hero-name">Johnny Huang</div>
+  <div class="hero-meta">2026-08-12 &nbsp;·&nbsp; Consultant: Johnny / Irene &nbsp;·&nbsp; Recheck in 4 Weeks</div>
+  <div class="hero-signals">
+    <span class="signal-badge">Immune + Respiratory Cluster</span>
+    <span class="signal-badge">Gut Dysbiosis + Cold Food Pattern</span>
+    <span class="signal-badge">1-3 AM Waking + Cognitive Drain</span>
+  </div>
+</div>
+
+<div class="page-body">
+
+  <!-- CLIENT OVERVIEW -->
+  <div class="card">
+    <div class="card-title">Client Overview</div>
+    <div class="comp-grid" style="grid-template-columns: repeat(auto-fill, minmax(150px,1fr));">
+      <div class="comp-row">
+        <div class="comp-label">Name</div>
+        <div class="comp-value" style="font-size:14px;">Johnny Huang</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Age</div>
+        <div class="comp-value" style="font-size:14px;">31</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Gender</div>
+        <div class="comp-value" style="font-size:14px;">Male</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">DOB</div>
+        <div class="comp-value" style="font-size:14px;">1995-02-27</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY COMPOSITION -->
+  <div class="card">
+    <div class="card-title">Body Composition</div>
+    <div class="comp-grid">
+      <div class="comp-row">
+        <div class="comp-label">Weight</div>
+        <div class="comp-value">166.4 lb</div>
+        <div class="comp-range">75.5 kg</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">BMI</div>
+        <div class="comp-value comp-good">24.7</div>
+        <div class="comp-range comp-good">Healthy (18.5–24.9)</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Body Fat %</div>
+        <div class="comp-value comp-good">17.6%</div>
+        <div class="comp-range comp-good">Healthy (10–20%)</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Visceral Fat</div>
+        <div class="comp-value comp-good">7</div>
+        <div class="comp-range comp-good">Healthy (&lt;10)</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Skeletal Muscle</div>
+        <div class="comp-value comp-good">53.2%</div>
+        <div class="comp-range comp-good">Excellent</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Body Water</div>
+        <div class="comp-value comp-warn">59.5%</div>
+        <div class="comp-range comp-warn">Low-normal (60%+ ideal)</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Protein</div>
+        <div class="comp-value comp-good">18.8%</div>
+        <div class="comp-range comp-good">Adequate</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Metabolic Age</div>
+        <div class="comp-value comp-good">29</div>
+        <div class="comp-range comp-good">2 years younger than actual</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Fat-free Mass</div>
+        <div class="comp-value">136.4 lb</div>
+        <div class="comp-range">Strong lean base</div>
+      </div>
+      <div class="comp-row">
+        <div class="comp-label">Subcutaneous Fat</div>
+        <div class="comp-value comp-good">15.3%</div>
+        <div class="comp-range comp-good">Normal range</div>
+      </div>
+    </div>
+    <p class="comp-note">Johnny's composition is genuinely strong for 31 — BMI 24.7, visceral fat 7, skeletal muscle 53.2%, and a metabolic age two years younger than his actual age all reflect a physically well-maintained body. The one number worth watching is body water at 59.5%, sitting just below the 60% threshold that typically correlates with optimal cellular function, energy production, and detoxification. At 75.5 kg, an intake of 1.5–2L of water per day is at the lower end of adequate. The composition gives a healthy platform to work from — the symptom pattern is the more actionable story.</p>
+  </div>
+
+  <!-- TOP 3 SIGNALS -->
+  <div class="card">
+    <div class="card-title">Top 3 Priority Signals</div>
+    <div class="signal-list">
+      <div class="signal-item">
+        <div class="signal-num">1</div>
+        <div class="signal-content">
+          <div class="signal-name">Immune and Respiratory Cluster</div>
+          <div class="signal-desc">Five immune/respiratory symptoms all rated "often": cough, runny nose, sneezing, catching colds, and nasal allergies — plus athlete's foot (often) as an additional immune-gap marker. This is the most concentrated "often" cluster across the entire assessment and points to a systemic immune resilience problem, not isolated incidents. The gut-immune connection is central here: 70% of immune activity is coordinated from the gut lining, and Johnny's concurrent gut dysbiosis signals (Signal 2) strongly suggest this is the underlying root.</div>
+        </div>
+      </div>
+      <div class="signal-item">
+        <div class="signal-num">2</div>
+        <div class="signal-content">
+          <div class="signal-name">Gut Dysbiosis + Cold Food Pattern</div>
+          <div class="signal-desc">Four gut symptoms rated "often": poor digestion, excessive gas, diarrhea, and bad breath or bitter taste. Compounding this, a consistent preference for cold food and beverages — a dietary pattern that reduces digestive enzyme activity and slows gastric emptying, creating exactly the fermentation-and-transit-dysfunction cycle that produces the symptoms above. The athlete's foot and dandruff (both often) add a fungal overgrowth dimension consistent with gut microbiome imbalance.</div>
+        </div>
+      </div>
+      <div class="signal-item">
+        <div class="signal-num">3</div>
+        <div class="signal-content">
+          <div class="signal-name">1-3 AM Waking + Cognitive and Circulation Pattern</div>
+          <div class="signal-desc">Confirmed 1-3 AM waking combined with going to sleep after midnight, cold and sweaty hands often, and forgetfulness rated "often" at age 31. The 1-3 AM window is a known cortisol micro-spike associated with blood glucose fluctuations and liver processing load during sleep. Going to sleep after midnight means cortisol has not yet dropped to its overnight minimum when sleep begins, making the 1-3 AM pulse more disruptive. The cold hands and forgetfulness point to a peripheral circulation and cognitive recovery pattern that is not fully resetting overnight — consistent with fragmented sleep architecture.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROOT CAUSE ANALYSIS -->
+  <div class="card">
+    <div class="card-title">Root Cause Analysis</div>
+
+    <div class="rca-section">
+      <div class="rca-label"><span class="rca-dot"></span>Immune System — Gut as the Root</div>
+      <div class="rca-text">The five respiratory and immune symptoms rated "often" are not separate conditions — they share a common upstream cause. The gut microbiome is responsible for training and regulating the immune system through the gut-associated lymphoid tissue (GALT), which contains 70–80% of the body's immune cells. When the gut microbiome is imbalanced — as Johnny's symptom profile strongly suggests — the immune system loses its ability to calibrate appropriately. The result is both underperformance against real threats (frequent colds, cough, athlete's foot) and overreaction to environmental triggers (nasal allergies, sneezing, runny nose). These are two sides of the same immune dysregulation coin, not two separate problems. The consistent cold food preference suppresses the mucosal immune activity in the digestive tract, compounding the imbalance.</div>
+    </div>
+
+    <div class="rca-section">
+      <div class="rca-label"><span class="rca-dot"></span>Gut / Digestive Pattern</div>
+      <div class="rca-text">Poor digestion, gas, diarrhea, and bad breath together form a recognizable pattern: food is moving through the digestive tract incompletely processed, and the fermentation of undigested food — particularly in the lower gut — is producing the gas and loose stool. Bad breath and bitter taste are often reflections of gut dysbiosis bacteria producing volatile compounds that surface orally. Cold foods slow the mechanical and enzymatic activity of the stomach, meaning less breakdown happens before food enters the intestines, feeding the fermentation cycle further. The dandruff and athlete's foot add surface-level evidence that the fungal populations in the microbiome have grown beyond the healthy ratio — again, a gut-origin signal showing up peripherally.</div>
+    </div>
+
+    <div class="rca-section">
+      <div class="rca-label"><span class="rca-dot"></span>Sleep and Nervous System</div>
+      <div class="rca-text">The 1-3 AM waking pattern with a post-midnight bedtime is a compounding problem. Cortisol follows a daily rhythm that should be at its lowest between 11 PM and 2 AM. When sleep is initiated after midnight, the body has already missed the optimal window for cortisol to trough before sleep, meaning the 1-3 AM cortisol micro-pulse — which the body uses to stabilize blood glucose mid-sleep — hits a system that has not fully wound down. The result is the waking Johnny experiences. Cold and sweaty hands (vasomotor instability) and the forgetfulness pattern at 31 are consistent with a nervous system that is doing more sympathetic work than it should be overnight, reducing the quality of restorative sleep stages. Notably, Johnny reports taking supplements "sometimes" — meaning these gaps in coverage land on a system that is also not sleeping deeply enough to fully recover.</div>
+    </div>
+
+    <div class="rca-section">
+      <div class="rca-label"><span class="rca-dot"></span>Supplement Inconsistency and Compounding</div>
+      <div class="rca-text">Johnny reports taking "almost all vitamins" but only sometimes — an inconsistent pattern that defeats a significant portion of the benefit. Nutrients like vitamin C (directly relevant to immune resilience and mucosal barrier function) have short half-lives and need consistent daily replenishment to maintain tissue saturation. A pattern of taking vitamins three or four days a week rather than daily means the immune system never fully capitalizes on the support being offered. This is especially relevant given the immune gap revealed by the symptom cluster — the infrastructure for better immunity appears to be available but is not being used consistently enough to close the gap.</div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="card">
+    <div class="card-title">Summary</div>
+    <div class="summary-box">Johnny's body composition is a genuine strength — visceral fat 7, skeletal muscle 53.2%, metabolic age 29. The data shows a body that is well-maintained at the structural level. What the symptom pattern reveals is an immune system running below its potential because the gut it depends on is chronically imbalanced, a sleep cycle that is not fully restorative because of late bedtimes and the resulting overnight cortisol pattern, and a supplement habit that is well-intentioned but inconsistent enough to not close the gaps that matter most. The good news is that Johnny is starting from a strong baseline. The interventions needed are not dramatic — consistent probiotic support, consistent vitamin C, and a sleep timing shift. These address all three signals at once rather than treating each symptom separately.</div>
+  </div>
+
+  <!-- 30-DAY PLAN -->
+  <div class="card">
+    <div class="card-title">30-Day Plan</div>
+
+    <div class="plan-priority">
+      <div class="plan-priority-label"><span class="plan-num">1</span>Bedtime Anchor — Highest Leverage Change</div>
+      <ul class="plan-items">
+        <li>Commit to being in bed by 11:30 PM — the 1-3 AM waking will not fully resolve while sleep starts after midnight, regardless of any supplement</li>
+        <li>No food or cold drinks in the 2 hours before bed — this reduces the digestive load that compounds the 1-3 AM blood glucose instability</li>
+        <li>Consistent wake time, even on weekends — stabilizes the cortisol rhythm within 2 weeks</li>
+      </ul>
+    </div>
+
+    <div class="plan-priority">
+      <div class="plan-priority-label"><span class="plan-num">2</span>Cold Food Reduction</div>
+      <ul class="plan-items">
+        <li>Shift to room-temperature or warm beverages with meals — cold temperatures slow gastric enzyme activity directly, and this one change reduces fermentation downstream</li>
+        <li>No iced drinks on an empty stomach — if cold drinks happen, keep them to meals where food buffers the thermal shock to the gut</li>
+        <li>Warm breakfast (eggs, congee, soup) three days a week minimum — gives the gut a daily reset instead of starting each day suppressed</li>
+      </ul>
+    </div>
+
+    <div class="plan-priority">
+      <div class="plan-priority-label"><span class="plan-num">3</span>Supplement Consistency — Daily Without Exception</div>
+      <ul class="plan-items">
+        <li>Take supplements at the same time every day, tied to a non-negotiable daily habit (e.g., immediately after breakfast) — consistency matters more than dose</li>
+        <li>Probiotic in the morning before or with breakfast — the stomach acid is lower in the morning than midday, improving survivability of the cultures</li>
+        <li>Vitamin C with breakfast or the largest meal — extended release provides 8-hour coverage, but only works if taken daily</li>
+      </ul>
+    </div>
+
+    <div class="plan-priority">
+      <div class="plan-priority-label"><span class="plan-num">4</span>Hydration</div>
+      <ul class="plan-items">
+        <li>Increase water intake to 2–2.5L per day — at 75.5 kg, the current 1.5–2L is at the minimum and body water at 59.5% confirms the body is operating slightly dry</li>
+        <li>Room temperature water preferred, especially first thing in the morning — rehydrates the gut without suppressing digestive warmth</li>
+        <li>Add one extra glass mid-morning and one mid-afternoon as new anchors</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SUPPORT TOOLS -->
+  <div class="card">
+    <div class="card-title">Support Tools (Optional)</div>
+    <p style="font-size:13px; color:var(--gray-500); margin-bottom:14px;">Food, sleep, and lifestyle are always the foundation. These are targeted bridge tools for the specific gaps the data reveals.</p>
+
+    <div class="product-card">
+      <div class="product-name">Probiotic — 6.3 Billion CFU</div>
+      <div class="product-rationale">Johnny's symptom profile — poor digestion often, gas often, diarrhea often, bad breath often, dandruff often, athlete's foot often, plus five immune/respiratory symptoms all rated often — traces to a gut microbiome that is imbalanced. The gut is not just a digestive organ; it is the control center for immune training, and 70% of the body's immune response is regulated through the gut lining. A daily clinically studied probiotic directly addresses the dysbiosis at the source, which over 4–8 weeks should reduce the digestive symptoms, the fungal peripheral signals, and the immune resilience gap simultaneously. This is the highest-leverage single intervention given that the gut appears to be the upstream cause of both Signal 1 and Signal 2.</div>
+      <div class="product-note">Take before or with breakfast, daily without exception. Gut microbiome shifts are gradual — expect meaningful change at 4 weeks, with stronger improvement at 8 weeks. Consistency is more important than timing.</div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-name">Vitamin C Extended Release 180ct</div>
+      <div class="product-rationale">Vitamin C is the primary water-soluble antioxidant supporting mucosal immune barriers — the linings of the nose, throat, and lungs that are Johnny's weakest point given the respiratory cluster. It also directly supports immune cell production (neutrophils, lymphocytes) and is essential for the integrity of the gut mucosal barrier. Standard vitamin C flushes out of the body in 3–4 hours; the extended-release form provides 8-hour sustained blood levels from acerola cherry extract, which makes it suitable for someone who is currently inconsistent — the extended coverage reduces the penalty of missing the ideal timing. At 31 with frequent colds and nasal allergies rated often, this is not a general wellness supplement for Johnny — it is closing a specific and measurable gap.</div>
+      <div class="product-note">Take with the largest meal of the day for best absorption. With consistent daily use, mucosal barrier improvements typically noticeable within 2–3 weeks; immune event frequency (colds, flares) reduces over 4–8 weeks.</div>
+    </div>
+  </div>
+
+  <!-- EXPECTED WINS -->
+  <div class="card">
+    <div class="card-title">What to Expect in 30 Days</div>
+    <ul class="wins-list">
+      <li>Reduced 1-3 AM waking frequency within 1–2 weeks of consistently sleeping before midnight</li>
+      <li>Less gas, more regular bowel consistency, and reduced bad breath within 2–3 weeks of daily probiotic use</li>
+      <li>Fewer "cold days" and reduced nasal allergy reactivity over 4–8 weeks as the gut-immune axis stabilizes</li>
+      <li>Improved morning cognitive clarity and less forgetfulness as sleep quality improves with earlier bedtimes</li>
+      <li>Dandruff and athlete's foot symptoms should begin reducing at 4–6 weeks as gut microbiome balance shifts</li>
+      <li>Body water likely to improve from 59.5% toward 61%+ with consistent hydration habits</li>
+    </ul>
+  </div>
+
+  <!-- NEXT STEPS -->
+  <div class="card">
+    <div class="card-title">Next Step</div>
+    <div class="next-steps-grid">
+      <div class="next-step-box">
+        <div class="next-step-label">Option A — Lifestyle Only</div>
+        <div class="next-step-text">Bedtime by 11:30 PM nightly, reduce cold foods and beverages with meals, increase water to 2–2.5L per day. Recheck at 4 weeks: 1-3 AM waking frequency, digestion quality, morning energy, and cold/allergy event count.</div>
+      </div>
+      <div class="next-step-box">
+        <div class="next-step-label">Option B — Lifestyle + Support</div>
+        <div class="next-step-text">Probiotic before breakfast and Vitamin C Extended Release with the largest meal, plus all lifestyle changes. Addresses the gut microbiome and immune mucosal barrier simultaneously, which is the upstream root of the most concentrated symptom clusters.</div>
+      </div>
+    </div>
+    <div class="recheck-label">4-Week Recheck</div>
+    <div class="recheck-items">1-3 AM waking frequency, digestion quality score, gas/bloating frequency, cold and allergy events in the 4-week window, morning cognitive clarity rating, dandruff and athlete's foot status, body water percentage</div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-title">Your Personalized Product Stack</div>
+    <div class="cta-sub">Pre-loaded based on your assessment. View pricing and order in one click.</div>
+    <a class="cta-btn" href="https://johnnnyay.github.io/product-marketing/#s=probiotic:1,vitamin-c-extended-release-180ct:1" target="_blank">View My Products →</a>
+    <div class="cta-passcode">For member pricing: tap ··· in the top right and enter the passcode your consultant gave you</div>
+  </div>
+
+  <div class="report-footer">
+    Health Progress Report &nbsp;·&nbsp; 2026-08-12<br>
+    This report is for wellness education only and does not constitute medical advice.
+  </div>
+
+</div>
+</body>
+</html>
