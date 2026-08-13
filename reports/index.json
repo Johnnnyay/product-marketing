@@ -189,6 +189,27 @@
         }
       ]
     },
+    "JH_1995-02-27": {
+      "name": "Johnny Huang",
+      "initials": "JH",
+      "dob": "1995-02-27",
+      "reports": [
+        {
+          "date": "2026-08-12",
+          "file": "JH_1995-02-27_2026-08-12.html",
+          "signals": [
+            "Immune + Respiratory Cluster",
+            "Gut Dysbiosis + Cold Food Pattern",
+            "1-3 AM Waking + Cognitive Drain"
+          ],
+          "products": [
+            "Probiotic",
+            "Vitamin C Extended Release"
+          ],
+          "consultant": "Johnny/Irene"
+        }
+      ]
+    },
     "MM_1996-09-09": {
       "name": "Marco Maciel",
       "initials": "MM",
