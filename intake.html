@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Assessment — Wellspring</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#3D5A4C;--green:#5C8A6E;--green-light:#EDF2EE;--green-mid:#6F9E80;
+    --off-white:#F7F9F7;--gray-100:#F0F3F0;--gray-200:#E4E9E5;--gray-400:#9ca3af;
+    --gray-500:#6E7B74;--gray-600:#55605A;--gray-800:#2A332D;
+    --amber:#b45309;--radius:12px;--radius-lg:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--off-white);color:var(--gray-800);-webkit-font-smoothing:antialiased;min-height:100vh}
+  .site-header{background:var(--navy);color:#fff;padding:14px 24px;display:flex;align-items:center;gap:12px}
+  .site-logo{font-family:'Caveat',cursive;font-size:22px;font-weight:600;color:rgba(255,255,255,.95);text-decoration:none}
+  .back-link{font-size:13px;color:rgba(255,255,255,.55);margin-left:auto;text-decoration:none}
+  .back-link:hover{color:rgba(255,255,255,.85)}
+  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--green) 100%);color:#fff;padding:36px 24px 32px;text-align:center}
+  .hero h1{font-size:26px;font-weight:700;margin-bottom:8px}
+  .hero p{font-size:14px;color:rgba(255,255,255,.7);max-width:480px;margin:0 auto}
+  .wrap{max-width:680px;margin:0 auto;padding:28px 16px 60px}
+
+  /* Progress bar */
+  .progress-bar{display:flex;gap:0;margin-bottom:28px;border-radius:999px;overflow:hidden;background:var(--gray-200)}
+  .progress-step{flex:1;height:4px;background:transparent;transition:background .3s}
+  .progress-step.done{background:var(--green)}
+  .progress-step.active{background:var(--green-mid)}
+
+  .step-label{font-size:12px;color:var(--gray-500);margin-bottom:20px;text-align:center}
+
+  /* Cards */
+  .card{background:#fff;border-radius:var(--radius-lg);box-shadow:0 1px 4px rgba(0,0,0,.07);padding:24px;margin-bottom:16px}
+  .card-title{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--green);margin-bottom:16px;display:flex;align-items:center;gap:6px}
+  .card-title::after{content:'';flex:1;height:1px;background:var(--gray-200)}
+
+  /* Form elements */
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:13px;font-weight:600;color:var(--gray-600);margin-bottom:6px}
+  .field input,.field select,.field textarea{width:100%;border:1.5px solid var(--gray-200);border-radius:8px;padding:10px 12px;font-size:14px;font-family:inherit;color:var(--gray-800);background:#fff;transition:border .15s}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--green)}
+  .field textarea{resize:vertical;min-height:80px}
+  .field .hint{font-size:12px;color:var(--gray-400);margin-top:4px}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .field-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+  @media(max-width:520px){.field-row,.field-row-3{grid-template-columns:1fr}}
+
+  /* Frequency grid for symptoms */
+  .symptom-group{margin-bottom:20px}
+  .symptom-group-label{font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--green);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+  .symptom-group-label::after{content:'';flex:1;height:1px;background:var(--gray-200)}
+  .symptom-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--gray-100)}
+  .symptom-row:last-child{border-bottom:none}
+  .symptom-name{font-size:13.5px;color:var(--gray-700,#374151)}
+  .freq-btns{display:flex;gap:4px;flex-shrink:0}
+  .freq-btn{padding:4px 8px;border:1.5px solid var(--gray-200);border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;background:#fff;color:var(--gray-500);transition:all .15s;white-space:nowrap}
+  .freq-btn:hover{border-color:var(--green);color:var(--green)}
+  .freq-btn.selected-often{background:#d1fae5;border-color:#059669;color:#065f46}
+  .freq-btn.selected-sometimes{background:#fef9c3;border-color:#ca8a04;color:#713f12}
+  .freq-btn.selected-rarely{background:#f3f4f6;border-color:#9ca3af;color:#6b7280}
+  .freq-btn.selected-never{background:#f3f4f6;border-color:#e5e7eb;color:#9ca3af}
+
+  /* Step nav */
+  .step-nav{display:flex;gap:12px;margin-top:8px}
+  .btn{padding:12px 24px;border-radius:999px;font-size:15px;font-weight:600;cursor:pointer;border:none;transition:all .15s}
+  .btn-primary{background:var(--navy);color:#fff;flex:1}
+  .btn-primary:hover{background:#47695a}
+  .btn-primary:disabled{background:var(--gray-400);cursor:not-allowed}
+  .btn-secondary{background:var(--gray-100);color:var(--gray-600);min-width:100px}
+  .btn-secondary:hover{background:var(--gray-200)}
+
+  /* Toggle for smart scale section */
+  .toggle-row{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding:12px 14px;background:var(--gray-100);border-radius:8px;cursor:pointer}
+  .toggle-label{font-size:13.5px;font-weight:500;color:var(--gray-700,#374151)}
+  .toggle-hint{font-size:12px;color:var(--gray-400);margin-left:auto}
+  input[type="checkbox"].toggle{width:20px;height:20px;accent-color:var(--green);cursor:pointer;flex-shrink:0}
+  .body-comp-fields{display:none}
+  .body-comp-fields.visible{display:block}
+
+  /* Success state */
+  .success-screen{display:none;text-align:center;padding:48px 24px}
+  .success-icon{font-size:56px;margin-bottom:16px}
+  .success-title{font-size:24px;font-weight:700;color:var(--navy);margin-bottom:8px}
+  .success-sub{font-size:15px;color:var(--gray-600);margin-bottom:24px;line-height:1.6}
+  .success-link{display:inline-block;background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:12px 28px;border-radius:999px;text-decoration:none;margin-bottom:12px}
+  .success-note{font-size:12px;color:var(--gray-400)}
+
+  /* Loading overlay */
+  .loading-overlay{display:none;position:fixed;inset:0;background:rgba(255,255,255,.92);z-index:100;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+  .loading-overlay.visible{display:flex}
+  .spinner{width:44px;height:44px;border:3px solid var(--gray-200);border-top-color:var(--green);border-radius:50%;animation:spin 1s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .loading-title{font-size:17px;font-weight:600;color:var(--navy)}
+  .loading-sub{font-size:13px;color:var(--gray-500);text-align:center;max-width:280px}
+  .loading-steps{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:4px}
+  .loading-steps li{font-size:13px;color:var(--gray-400);padding-left:20px;position:relative}
+  .loading-steps li::before{content:'○';position:absolute;left:0;color:var(--gray-300)}
+  .loading-steps li.done::before{content:'✓';color:var(--green)}
+  .loading-steps li.active::before{content:'◉';color:var(--green-mid)}
+
+  .error-box{background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:14px;font-size:13.5px;color:#991b1b;margin-bottom:16px;display:none}
+
+  /* Steps visibility */
+  .step{display:none}.step.active{display:block}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <span class="site-logo">Wellspring</span>
+  <a href="index.html" class="back-link">← Back to products</a>
+</header>
+
+<div class="hero">
+  <h1>Personal Health Assessment</h1>
+  <p>Fill this out once and receive a personalized report with root cause analysis and targeted recommendations.</p>
+</div>
+
+<div class="wrap" id="mainWrap">
+
+  <div class="progress-bar">
+    <div class="progress-step active" id="prog0"></div>
+    <div class="progress-step" id="prog1"></div>
+    <div class="progress-step" id="prog2"></div>
+  </div>
+  <div class="step-label" id="stepLabel">Step 1 of 3 — About You</div>
+
+  <div class="error-box" id="errorBox"></div>
+
+  <!-- ═══ STEP 1: Personal + Body Comp ═══ -->
+  <div class="step active" id="step0">
+
+    <div class="card">
+      <div class="card-title">Personal Information</div>
+      <div class="field-row">
+        <div class="field"><label>First and Last Name *</label><input type="text" id="f-name" placeholder="Jane Smith" required></div>
+        <div class="field"><label>Email *</label><input type="email" id="f-email" placeholder="you@example.com" required></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Date of Birth *</label><input type="date" id="f-dob" required></div>
+        <div class="field"><label>Gender *</label>
+          <select id="f-gender">
+            <option value="">Select...</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other / Prefer not to say</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Height</label><input type="text" id="f-height" placeholder="e.g. 175 cm or 5'9&quot;"></div>
+        <div class="field"><label>Weight (lb)</label><input type="number" id="f-weight" placeholder="e.g. 160"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Body Composition (Smart Scale)</div>
+      <label class="toggle-row">
+        <input type="checkbox" class="toggle" id="hasScale" onchange="toggleScale(this.checked)">
+        <span class="toggle-label">I have smart scale data to enter</span>
+        <span class="toggle-hint">Optional but improves accuracy</span>
+      </label>
+      <div class="body-comp-fields" id="scaleFields">
+        <div class="field-row-3">
+          <div class="field"><label>BMI</label><input type="number" step="0.1" id="f-bmi" placeholder="24.7"></div>
+          <div class="field"><label>Body Fat %</label><input type="number" step="0.1" id="f-bodyFat" placeholder="18.3"></div>
+          <div class="field"><label>Skeletal Muscle %</label><input type="number" step="0.1" id="f-skeletalMuscle" placeholder="52.7"></div>
+        </div>
+        <div class="field-row-3">
+          <div class="field"><label>Visceral Fat (1–20)</label><input type="number" step="0.1" id="f-visceralFat" placeholder="8"></div>
+          <div class="field"><label>Body Water %</label><input type="number" step="0.1" id="f-bodyWater" placeholder="59"></div>
+          <div class="field"><label>Metabolic Age</label><input type="number" id="f-metabolicAge" placeholder="28"></div>
+        </div>
+        <div class="field-row-3">
+          <div class="field"><label>Protein %</label><input type="number" step="0.1" id="f-protein" placeholder="18.5"></div>
+          <div class="field"><label>Muscle Mass (lb)</label><input type="number" step="0.1" id="f-muscleMass" placeholder="140"></div>
+          <div class="field"><label>Fat-free Mass (lb)</label><input type="number" step="0.1" id="f-fatFreeMass" placeholder="148"></div>
+        </div>
+        <p class="hint" style="margin-top:4px">Enter values from your smart scale app (e.g. FitIndex, Renpho, Xiaomi Health). Body fat and muscle entries should be percentages, not decimals.</p>
+      </div>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn btn-primary" onclick="goStep(1)">Continue → How I Feel</button>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 2: Symptoms ═══ -->
+  <div class="step" id="step1">
+
+    <div class="card">
+      <div class="card-title">Symptoms</div>
+      <p style="font-size:13px;color:var(--gray-500);margin-bottom:18px">Rate how often you experience each. Tap the frequency that fits best. Skip anything that doesn't apply.</p>
+
+      <div id="symptomContainer"></div>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn btn-secondary" onclick="goStep(0)">← Back</button>
+      <button class="btn btn-primary" onclick="goStep(2)">Continue → Lifestyle</button>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 3: Lifestyle + Submit ═══ -->
+  <div class="step" id="step2">
+
+    <div class="card">
+      <div class="card-title">Daily Habits</div>
+
+      <div class="field-row">
+        <div class="field"><label>Daily water intake</label>
+          <select id="f-water">
+            <option value="">Select...</option>
+            <option value="Less than 1L">Less than 1L</option>
+            <option value="1–1.5L">1–1.5L</option>
+            <option value="1.5–2L">1.5–2L</option>
+            <option value="2–2.5L">2–2.5L</option>
+            <option value="2.5L+">2.5L or more</option>
+          </select>
+        </div>
+        <div class="field"><label>Fruit and vegetable servings per day</label>
+          <select id="f-produce">
+            <option value="">Select...</option>
+            <option value="0–1 servings">0–1 servings</option>
+            <option value="2–3 servings">2–3 servings</option>
+            <option value="4–5 servings">4–5 servings</option>
+            <option value="5+ servings">5+ servings</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field"><label>Best describes your diet</label>
+          <select id="f-diet">
+            <option value="">Select...</option>
+            <option value="Balanced — varies daily">Balanced (varies daily)</option>
+            <option value="High meat, low produce">High meat, low produce</option>
+            <option value="Vegetarian or vegan">Vegetarian or vegan</option>
+            <option value="Fast food / processed heavy">Fast food / processed heavy</option>
+            <option value="Chinese traditional diet">Chinese traditional diet</option>
+          </select>
+        </div>
+        <div class="field"><label>Cold food and drink preference</label>
+          <select id="f-coldFood">
+            <option value="">Select...</option>
+            <option value="Yes, I prefer cold/iced">Yes, I prefer cold or iced</option>
+            <option value="Sometimes">Sometimes</option>
+            <option value="No, I prefer room temp or warm">No, room temp or warm</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field"><label>Do you eat breakfast?</label>
+          <select id="f-breakfastFreq">
+            <option value="">Select...</option>
+            <option value="Yes, daily">Yes, daily</option>
+            <option value="Sometimes (3–4x/week)">Sometimes (3–4x/week)</option>
+            <option value="Rarely or never">Rarely or never</option>
+          </select>
+        </div>
+        <div class="field"><label>Protein at breakfast?</label>
+          <select id="f-breakfastProtein">
+            <option value="">Select...</option>
+            <option value="Yes">Yes (eggs, yogurt, protein shake, meat)</option>
+            <option value="No">No (mainly carbs or fruit)</option>
+            <option value="N/A — skip breakfast">N/A, I skip breakfast</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field"><label>Typical bedtime</label>
+          <select id="f-bedtime">
+            <option value="">Select...</option>
+            <option value="Before 10 PM">Before 10 PM</option>
+            <option value="10–11 PM">10–11 PM</option>
+            <option value="11 PM–midnight">11 PM – midnight</option>
+            <option value="After midnight">After midnight</option>
+          </select>
+        </div>
+        <div class="field"><label>Do you wake between 1–3 AM?</label>
+          <select id="f-waking13">
+            <option value="">Select...</option>
+            <option value="Yes, regularly">Yes, regularly</option>
+            <option value="Occasionally">Occasionally</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Supplements</div>
+      <div class="field">
+        <label>What supplements do you currently take?</label>
+        <textarea id="f-supplements" placeholder="e.g. Vitamin D, fish oil, magnesium, Double X... or 'none'"></textarea>
+      </div>
+      <div class="field"><label>How consistently do you take them?</label>
+        <select id="f-supplementFreq">
+          <option value="">Select...</option>
+          <option value="Daily without fail">Daily without fail</option>
+          <option value="Sometimes (3–4x/week)">Sometimes (3–4 days a week)</option>
+          <option value="Rarely (1–2x/week)">Rarely (1–2 days a week)</option>
+          <option value="Not currently taking any">Not currently taking any</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Anything else you want the consultant to know?</label>
+        <textarea id="f-notes" placeholder="Recent health changes, specific concerns, goals..."></textarea>
+      </div>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn btn-secondary" onclick="goStep(1)">← Back</button>
+      <button class="btn btn-primary" id="submitBtn" onclick="submitForm()">Generate My Report →</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- Loading overlay -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+  <div class="loading-title">Generating your report...</div>
+  <div class="loading-sub">Claude is analyzing your data against your health profile.</div>
+  <ul class="loading-steps" id="loadingSteps">
+    <li class="active" id="ls0">Analyzing symptom patterns</li>
+    <li id="ls1">Identifying root causes</li>
+    <li id="ls2">Building your 30-day plan</li>
+    <li id="ls3">Publishing report</li>
+  </ul>
+</div>
+
+<!-- Success screen (replaces form) -->
+<div class="success-screen" id="successScreen">
+  <div class="success-icon">✅</div>
+  <div class="success-title">Your report is ready.</div>
+  <div class="success-sub">We've put together a personalized analysis with your top health signals, root cause breakdown, and a 30-day plan.</div>
+  <a class="success-link" id="reportLink" href="#" target="_blank">Open My Report →</a>
+  <br>
+  <div class="success-note">You can also share this link with your consultant.</div>
+</div>
+
+<script>
+// ─── SYMPTOM DATA ──────────────────────────────────────────────────────────
+
+const SYMPTOMS = [
+  { group: 'Sleep and Nervous System', items: [
+    'Hard to fall asleep',
+    'Restless or poor sleep quality',
+    'Wake up tired even after 8 hours',
+    'Anxiety or mental tension',
+    'Heart palpitations',
+    'Cold sweaty hands or feet',
+    'Difficulty relaxing or winding down'
+  ]},
+  { group: 'Digestion and Gut', items: [
+    'Poor digestion or feel full quickly',
+    'Bloating after meals',
+    'Excessive gas',
+    'Diarrhea or loose stools',
+    'Constipation',
+    'Bad breath or bitter taste in mouth',
+    'Acid reflux or heartburn'
+  ]},
+  { group: 'Immune and Respiratory', items: [
+    'Catch colds frequently',
+    'Cough easily',
+    'Runny nose easily',
+    'Sneezing a lot',
+    'Nasal allergies',
+    "Athlete's foot or nail fungus",
+    'Infections take a long time to clear'
+  ]},
+  { group: 'Energy and Cognitive', items: [
+    'Afternoon energy crash',
+    'Persistent fatigue regardless of sleep',
+    'Brain fog or mental cloudiness',
+    'Forgetfulness',
+    'Hard to focus or concentrate',
+    'Reliant on caffeine to function',
+    'Feel slow or sluggish in the morning'
+  ]},
+  { group: 'Skin and Hair', items: [
+    'Acne or breakouts',
+    'Hair loss or thinning',
+    'Dandruff or itchy scalp',
+    'Dry or brittle hair',
+    'Skin allergies or hives',
+    'Dark circles under eyes'
+  ]},
+  { group: "Women's Health", items: [
+    'Heavy menstrual flow',
+    'Severe period cramps',
+    'PMS (mood, bloating, breast tenderness)',
+    'Irregular periods',
+    'Low libido'
+  ]},
+  { group: 'Pain and Inflammation', items: [
+    'Joint pain or stiffness',
+    'Back or neck pain',
+    'Muscle cramps',
+    'Numbness or tingling in limbs',
+    'Headaches or migraines'
+  ]},
+  { group: 'Metabolic', items: [
+    'Unexplained weight gain',
+    'Difficulty losing weight',
+    'Craving sweets or carbs',
+    'Binge eating episodes',
+    'Always hungry or never satisfied'
+  ]}
+];
+
+const FREQ = ['Often', 'Sometimes', 'Rarely', 'Never'];
+const symptomValues = {};
+
+function buildSymptoms() {
+  const container = document.getElementById('symptomContainer');
+  container.innerHTML = '';
+  SYMPTOMS.forEach(group => {
+    // Hide women's health for males if gender is already selected
+    const gender = document.getElementById('f-gender').value;
+    if (group.group === "Women's Health" && gender === 'Male') return;
+
+    const div = document.createElement('div');
+    div.className = 'symptom-group';
+    div.innerHTML = `<div class="symptom-group-label">${group.group}</div>`;
+    group.items.forEach(item => {
+      const key = group.group + '__' + item;
+      const row = document.createElement('div');
+      row.className = 'symptom-row';
+      const nameDiv = document.createElement('div');
+      nameDiv.className = 'symptom-name';
+      nameDiv.textContent = item;
+      const btns = document.createElement('div');
+      btns.className = 'freq-btns';
+      FREQ.forEach(f => {
+        const btn = document.createElement('button');
+        btn.className = 'freq-btn';
+        btn.textContent = f;
+        btn.type = 'button';
+        btn.onclick = () => {
+          btns.querySelectorAll('.freq-btn').forEach(b => b.className = 'freq-btn');
+          btn.className = `freq-btn selected-${f.toLowerCase()}`;
+          symptomValues[key] = f;
+        };
+        btns.appendChild(btn);
+      });
+      row.appendChild(nameDiv);
+      row.appendChild(btns);
+      div.appendChild(row);
+    });
+    container.appendChild(div);
+  });
+}
+
+// ─── STEP NAVIGATION ────────────────────────────────────────────────────────
+
+let currentStep = 0;
+const LABELS = ['Step 1 of 3 — About You', 'Step 2 of 3 — How I Feel', 'Step 3 of 3 — Lifestyle'];
+
+function goStep(n) {
+  if (n > currentStep) {
+    if (!validateStep(currentStep)) return;
+  }
+  document.getElementById(`step${currentStep}`).classList.remove('active');
+  document.getElementById(`prog${currentStep}`).classList.remove('active');
+  document.getElementById(`prog${currentStep}`).classList.add('done');
+  currentStep = n;
+  document.getElementById(`step${currentStep}`).classList.add('active');
+  document.getElementById(`prog${currentStep}`).classList.add('active');
+  document.getElementById('stepLabel').textContent = LABELS[currentStep];
+  // Build symptoms on step 2
+  if (n === 1) buildSymptoms();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function validateStep(n) {
+  const err = document.getElementById('errorBox');
+  err.style.display = 'none';
+  if (n === 0) {
+    const name = document.getElementById('f-name').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const dob = document.getElementById('f-dob').value;
+    const gender = document.getElementById('f-gender').value;
+    if (!name || !email || !dob || !gender) {
+      err.textContent = 'Please fill in your name, email, date of birth, and gender before continuing.';
+      err.style.display = 'block';
+      return false;
+    }
+    if (!email.includes('@')) {
+      err.textContent = 'Please enter a valid email address.';
+      err.style.display = 'block';
+      return false;
+    }
+  }
+  return true;
+}
+
+// ─── SCALE TOGGLE ────────────────────────────────────────────────────────────
+
+function toggleScale(on) {
+  document.getElementById('scaleFields').classList.toggle('visible', on);
+}
+
+// ─── LOADING ANIMATION ───────────────────────────────────────────────────────
+
+let loadStep = 0;
+function advanceLoad() {
+  if (loadStep > 0) {
+    document.getElementById(`ls${loadStep-1}`).className = 'done';
+  }
+  if (loadStep < 4) {
+    if (document.getElementById(`ls${loadStep}`)) {
+      document.getElementById(`ls${loadStep}`).className = 'active';
+    }
+    loadStep++;
+  }
+}
+
+// ─── SUBMIT ──────────────────────────────────────────────────────────────────
+
+async function submitForm() {
+  if (!validateStep(2)) return;
+
+  const err = document.getElementById('errorBox');
+  err.style.display = 'none';
+
+  // Build payload
+  const payload = {
+    name: document.getElementById('f-name').value.trim(),
+    email: document.getElementById('f-email').value.trim(),
+    dob: document.getElementById('f-dob').value,
+    gender: document.getElementById('f-gender').value,
+    height: document.getElementById('f-height').value.trim() || null,
+    weight: document.getElementById('f-weight').value || null,
+    symptoms: symptomValues,
+    water: document.getElementById('f-water').value || null,
+    produce: document.getElementById('f-produce').value || null,
+    diet: document.getElementById('f-diet').value || null,
+    coldFood: document.getElementById('f-coldFood').value || null,
+    breakfastFreq: document.getElementById('f-breakfastFreq').value || null,
+    breakfastProtein: document.getElementById('f-breakfastProtein').value || null,
+    bedtime: document.getElementById('f-bedtime').value || null,
+    waking13: document.getElementById('f-waking13').value || null,
+    supplements: document.getElementById('f-supplements').value.trim() || null,
+    supplementFreq: document.getElementById('f-supplementFreq').value || null,
+    notes: document.getElementById('f-notes').value.trim() || null,
+  };
+
+  // Add body comp if filled
+  if (document.getElementById('hasScale').checked) {
+    const get = id => document.getElementById(id).value || null;
+    Object.assign(payload, {
+      bmi: get('f-bmi'),
+      bodyFat: get('f-bodyFat'),
+      skeletalMuscle: get('f-skeletalMuscle'),
+      visceralFat: get('f-visceralFat'),
+      bodyWater: get('f-bodyWater'),
+      metabolicAge: get('f-metabolicAge'),
+      protein: get('f-protein'),
+      muscleMass: get('f-muscleMass'),
+      fatFreeMass: get('f-fatFreeMass'),
+    });
+  }
+
+  // Show loading overlay
+  document.getElementById('loadingOverlay').classList.add('visible');
+  loadStep = 0;
+  advanceLoad();
+  const loadTimer = setInterval(advanceLoad, 5000);
+
+  try {
+    // REPLACE THIS URL with your actual Vercel function URL after deployment
+    const API_URL = 'https://health-intake-api.vercel.app/api/submit';
+
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    clearInterval(loadTimer);
+    const data = await res.json();
+    document.getElementById('loadingOverlay').classList.remove('visible');
+
+    if (!res.ok || !data.success) {
+      throw new Error(data.error || 'Unknown error');
+    }
+
+    // Show success screen
+    document.getElementById('mainWrap').style.display = 'none';
+    document.getElementById('reportLink').href = data.reportUrl;
+    const s = document.getElementById('successScreen');
+    s.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  } catch (e) {
+    clearInterval(loadTimer);
+    document.getElementById('loadingOverlay').classList.remove('visible');
+    err.textContent = 'Something went wrong: ' + e.message + '. Please try again or contact Johnny directly.';
+    err.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+</script>
+</body>
+</html>
