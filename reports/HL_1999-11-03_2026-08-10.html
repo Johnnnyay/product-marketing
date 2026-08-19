@@ -9,14 +9,12 @@
 <style>
   :root {
     --navy:        #3D5A4C;
-    --navy-hover:  #47695a;
     --green:       #5C8A6E;
     --green-mid:   #6F9E80;
     --green-light: #EDF2EE;
     --off-white:   #F7F9F7;
     --gray-100:    #F0F3F0;
     --gray-200:    #E4E9E5;
-    --gray-300:    #d1d5db;
     --gray-400:    #9ca3af;
     --gray-500:    #6E7B74;
     --gray-600:    #55605A;
@@ -27,10 +25,9 @@
     --area1-light: #EBF3F8;
     --area2:       #5C6E3D;
     --area2-light: #EEF2E8;
-    --area3:       #7A4E2D;
-    --area3-light: #F5EDE6;
+    --phase2:      #7A4E2D;
+    --phase2-light:#F5EDE6;
     --shadow-sm:   0 1px 4px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
-    --shadow:      0 4px 16px rgba(0,0,0,0.09), 0 1px 4px rgba(0,0,0,0.05);
     --radius:      12px;
     --radius-lg:   18px;
   }
@@ -43,43 +40,34 @@
     line-height: 1.65;
   }
 
-  /* ── SITE HEADER ── */
   .site-header {
     background: var(--navy);
     color: white;
     padding: 14px 24px;
     display: flex;
     align-items: center;
-    gap: 12px;
   }
   .site-logo {
     font-family: 'Caveat', cursive;
     font-size: 22px;
     font-weight: 600;
     color: rgba(255,255,255,0.95);
-    text-decoration: none;
   }
   .site-header-sub {
     font-size: 12px;
-    color: rgba(255,255,255,0.45);
+    color: rgba(255,255,255,0.4);
     margin-left: auto;
   }
 
-  /* ── HERO BANNER ── */
+  /* HERO */
   .hero {
     background: linear-gradient(135deg, var(--navy) 0%, var(--green) 100%);
     color: white;
-    padding: 36px 24px 0;
+    padding: 32px 24px 0;
   }
   .hero-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 12px;
     margin-bottom: 28px;
   }
-  .hero-info { flex: 1; min-width: 200px; }
   .hero-label {
     font-size: 11px;
     font-weight: 600;
@@ -96,7 +84,7 @@
   .hero-meta {
     font-size: 12.5px;
     color: rgba(255,255,255,0.6);
-    line-height: 1.7;
+    line-height: 1.8;
   }
   .hero-section-title {
     font-size: 11px;
@@ -108,22 +96,19 @@
     margin-bottom: 14px;
   }
 
-  /* ── PRIORITY AREA CARDS (in hero) ── */
+  /* AREA CARDS */
   .area-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
-    margin-bottom: 0;
   }
-  @media (max-width: 600px) { .area-cards { grid-template-columns: 1fr; } }
+  @media (max-width: 540px) { .area-cards { grid-template-columns: 1fr; } }
   .area-card {
     background: rgba(255,255,255,0.12);
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: var(--radius) var(--radius) 0 0;
-    padding: 16px 14px 18px;
+    padding: 18px 16px 22px;
     position: relative;
-    overflow: hidden;
-    transition: background 0.15s;
   }
   .area-card::after {
     content: '';
@@ -133,36 +118,35 @@
   }
   .area-card:nth-child(1)::after { background: #70b5d8; }
   .area-card:nth-child(2)::after { background: #96c87a; }
-  .area-card:nth-child(3)::after { background: #d4a574; }
   .area-num {
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
     color: rgba(255,255,255,0.5);
-    margin-bottom: 6px;
+    margin-bottom: 7px;
   }
   .area-title {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 700;
     color: white;
-    line-height: 1.3;
-    margin-bottom: 6px;
+    line-height: 1.25;
+    margin-bottom: 8px;
   }
   .area-tagline {
-    font-size: 12px;
+    font-size: 12.5px;
     color: rgba(255,255,255,0.65);
-    line-height: 1.45;
+    line-height: 1.5;
   }
 
-  /* ── PAGE BODY ── */
+  /* PAGE */
   .page-body {
     max-width: 760px;
     margin: 0 auto;
-    padding: 24px 16px 60px;
+    padding: 22px 16px 60px;
   }
 
-  /* ── CARDS ── */
+  /* CARD */
   .card {
     background: white;
     border-radius: var(--radius-lg);
@@ -188,7 +172,7 @@
     background: var(--gray-200);
   }
 
-  /* ── BODY COMP (compact) ── */
+  /* BODY COMP */
   .comp-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -207,26 +191,13 @@
     text-transform: uppercase;
     letter-spacing: 0.4px;
   }
-  .comp-value {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--gray-800);
-  }
-  .comp-range {
-    font-size: 10.5px;
-    color: var(--gray-400);
-    margin-top: 1px;
-  }
+  .comp-value { font-size: 15px; font-weight: 600; color: var(--gray-800); }
+  .comp-range { font-size: 10.5px; color: var(--gray-400); margin-top: 1px; }
   .comp-good { color: var(--green); }
   .comp-warn { color: var(--amber); }
-  .comp-note {
-    margin-top: 12px;
-    font-size: 13px;
-    color: var(--gray-600);
-    line-height: 1.6;
-  }
+  .comp-note { margin-top: 12px; font-size: 13px; color: var(--gray-600); line-height: 1.6; }
 
-  /* ── DEEP DIVE SECTIONS ── */
+  /* DEEP DIVE */
   .deep-dive {
     background: white;
     border-radius: var(--radius-lg);
@@ -242,34 +213,22 @@
     border-bottom: 1px solid var(--gray-200);
   }
   .deep-dive-num {
-    width: 36px;
-    height: 36px;
+    width: 38px; height: 38px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: 700;
-    color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px; font-weight: 700; color: white;
     flex-shrink: 0;
   }
   .area-1 .deep-dive-num { background: var(--area1); }
   .area-2 .deep-dive-num { background: var(--area2); }
-  .area-3 .deep-dive-num { background: var(--area3); }
-  .deep-dive-heading { flex: 1; }
   .deep-dive-title {
     font-size: 16px;
     font-weight: 700;
-    color: var(--gray-800);
     margin-bottom: 2px;
   }
   .area-1 .deep-dive-title { color: var(--area1); }
   .area-2 .deep-dive-title { color: var(--area2); }
-  .area-3 .deep-dive-title { color: var(--area3); }
-  .deep-dive-sub {
-    font-size: 12.5px;
-    color: var(--gray-500);
-  }
+  .deep-dive-sub { font-size: 12.5px; color: var(--gray-500); }
   .deep-dive-body { padding: 20px 24px; }
   .dd-section { margin-bottom: 18px; }
   .dd-section:last-child { margin-bottom: 0; }
@@ -281,11 +240,7 @@
     color: var(--gray-400);
     margin-bottom: 6px;
   }
-  .dd-text {
-    font-size: 13.5px;
-    color: var(--gray-600);
-    line-height: 1.65;
-  }
+  .dd-text { font-size: 13.5px; color: var(--gray-600); line-height: 1.65; }
   .insight-box {
     border-radius: var(--radius);
     padding: 13px 16px;
@@ -295,9 +250,18 @@
   }
   .area-1 .insight-box { background: var(--area1-light); color: var(--area1); border-left: 3px solid var(--area1); }
   .area-2 .insight-box { background: var(--area2-light); color: var(--area2); border-left: 3px solid var(--area2); }
-  .area-3 .insight-box { background: var(--area3-light); color: var(--area3); border-left: 3px solid var(--area3); }
+  .flag-box {
+    background: #fffbeb;
+    border-left: 3px solid #f59e0b;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 11px 14px;
+    font-size: 12.5px;
+    color: #92400e;
+    margin-top: 12px;
+    line-height: 1.55;
+  }
 
-  /* ── 30-DAY PLAN ── */
+  /* PLAN */
   .plan-priority { margin-bottom: 20px; }
   .plan-priority:last-child { margin-bottom: 0; }
   .plan-priority-label {
@@ -327,19 +291,12 @@
     border-bottom: 1px solid var(--gray-100);
   }
   .plan-items li:last-child { border-bottom: none; }
-  .plan-items li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--green-mid);
-    font-size: 12px;
-    top: 6px;
-  }
+  .plan-items li::before { content: '→'; position: absolute; left: 0; color: var(--green-mid); font-size: 12px; top: 6px; }
 
-  /* ── EXPECTED WINS ── */
+  /* WINS */
   .wins-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
     gap: 10px;
   }
   .win-card {
@@ -355,13 +312,43 @@
     color: var(--green);
     margin-bottom: 4px;
   }
-  .win-text {
+  .win-text { font-size: 13px; color: var(--gray-800); line-height: 1.5; }
+
+  /* PHASE 2 */
+  .phase2-card {
+    background: var(--phase2-light);
+    border: 1px solid rgba(122,78,45,0.15);
+    border-radius: var(--radius);
+    padding: 18px;
+    margin-bottom: 12px;
+  }
+  .phase2-header {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--phase2);
+    margin-bottom: 10px;
+  }
+  .phase2-products {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  @media (max-width: 500px) { .phase2-products { grid-template-columns: 1fr; } }
+  .phase2-product-name {
     font-size: 13px;
-    color: var(--gray-800);
+    font-weight: 700;
+    color: var(--phase2);
+    margin-bottom: 3px;
+  }
+  .phase2-product-why {
+    font-size: 12.5px;
+    color: var(--gray-600);
     line-height: 1.5;
   }
 
-  /* ── PRODUCTS ── */
+  /* PRODUCTS */
   .product-card {
     background: var(--amber-light);
     border: 1px solid rgba(180,83,9,0.12);
@@ -374,46 +361,26 @@
   }
   .product-card:last-child { margin-bottom: 0; }
   .product-icon {
-    width: 40px;
-    height: 40px;
-    background: rgba(180,83,9,0.12);
+    width: 40px; height: 40px;
+    background: rgba(180,83,9,0.1);
     border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     font-size: 20px;
     flex-shrink: 0;
   }
   .product-body { flex: 1; }
-  .product-name {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--amber);
-    margin-bottom: 4px;
-  }
-  .product-rationale {
-    font-size: 13.5px;
-    color: var(--gray-700, #374151);
-    line-height: 1.6;
-    margin-bottom: 6px;
-  }
-  .product-note {
-    font-size: 12px;
-    color: var(--gray-400);
-  }
+  .product-name { font-size: 14px; font-weight: 700; color: var(--amber); margin-bottom: 4px; }
+  .product-rationale { font-size: 13.5px; color: #374151; line-height: 1.6; margin-bottom: 6px; }
+  .product-note { font-size: 12px; color: var(--gray-400); }
 
-  /* ── OPTIONS / NEXT STEP ── */
+  /* NEXT STEP */
   .next-steps-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
   }
   @media (max-width: 520px) { .next-steps-grid { grid-template-columns: 1fr; } }
-  .next-step-box {
-    background: var(--gray-100);
-    border-radius: var(--radius);
-    padding: 16px;
-  }
+  .next-step-box { background: var(--gray-100); border-radius: var(--radius); padding: 16px; }
   .next-step-label {
     font-size: 11px;
     font-weight: 700;
@@ -422,23 +389,18 @@
     color: var(--gray-500);
     margin-bottom: 6px;
   }
-  .next-step-text {
-    font-size: 13px;
-    color: var(--gray-700, #374151);
-    line-height: 1.6;
-  }
+  .next-step-text { font-size: 13px; color: #374151; line-height: 1.6; }
   .recheck-label {
     font-size: 11px;
     font-weight: 600;
     color: var(--gray-500);
-    margin-top: 16px;
-    margin-bottom: 4px;
+    margin-top: 16px; margin-bottom: 4px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
   .recheck-items { font-size: 13px; color: var(--gray-600); line-height: 1.6; }
 
-  /* ── CTA ── */
+  /* CTA */
   .cta-section {
     background: var(--navy);
     border-radius: var(--radius-lg);
@@ -447,7 +409,7 @@
     margin-bottom: 14px;
   }
   .cta-title { color: white; font-size: 17px; font-weight: 600; margin-bottom: 6px; }
-  .cta-sub { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 18px; }
+  .cta-sub { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 18px; }
   .cta-btn {
     display: inline-block;
     background: white;
@@ -459,14 +421,7 @@
     text-decoration: none;
     box-shadow: 0 2px 8px rgba(0,0,0,0.18);
   }
-
-  /* ── FOOTER ── */
-  .report-footer {
-    text-align: center;
-    font-size: 12px;
-    color: var(--gray-400);
-    padding-top: 8px;
-  }
+  .report-footer { text-align: center; font-size: 12px; color: var(--gray-400); padding-top: 8px; }
 </style>
 </head>
 <body>
@@ -476,43 +431,35 @@
   <span class="site-header-sub">Confidential &nbsp;·&nbsp; 2026-08-10</span>
 </header>
 
-<!-- ── HERO BANNER ── -->
+<!-- HERO -->
 <div class="hero">
   <div class="hero-top">
-    <div class="hero-info">
-      <div class="hero-label">Personalized Health Analysis</div>
-      <div class="hero-name">Hunter Long</div>
-      <div class="hero-meta">
-        Age 26 &nbsp;·&nbsp; Male<br>
-        Assessment: 2026-08-10 &nbsp;·&nbsp; Consultant: Johnny / Irene<br>
-        Recheck: 4 Weeks
-      </div>
+    <div class="hero-label">Personalized Health Analysis</div>
+    <div class="hero-name">Hunter Long</div>
+    <div class="hero-meta">
+      Age 26 &nbsp;·&nbsp; Male<br>
+      Assessment: 2026-08-10 &nbsp;·&nbsp; Consultant: Johnny / Irene &nbsp;·&nbsp; Recheck: 4 Weeks
     </div>
   </div>
 
-  <div class="hero-section-title">Your 3 Priority Health Improvement Areas</div>
+  <div class="hero-section-title">2 Priority Health Improvement Areas</div>
   <div class="area-cards">
     <div class="area-card">
-      <div class="area-num">Area 1</div>
-      <div class="area-title">Joint Health Recovery</div>
-      <div class="area-tagline">10 years of catcher load left a structural debt the current diet isn't addressing.</div>
+      <div class="area-num">Priority 1</div>
+      <div class="area-title">Sleep &amp; Self-Recovery</div>
+      <div class="area-tagline">One month of quality sleep will do more for Hunter's body than anything else. The current pattern — skipping breakfast, late eating, occasional evening alcohol — is disrupting the recovery window his body needs.</div>
     </div>
     <div class="area-card">
-      <div class="area-num">Area 2</div>
-      <div class="area-title">Sleep Quality</div>
-      <div class="area-tagline">3-4 AM waking may reflect blood sugar swings and a diet-driven nutrient gap affecting the sleep pathway.</div>
-    </div>
-    <div class="area-card">
-      <div class="area-num">Area 3</div>
-      <div class="area-title">Diet Foundation</div>
-      <div class="area-tagline">Rice + red meat only creates micronutrient gaps and an inflammatory ratio that compounds every other area.</div>
+      <div class="area-num">Priority 2</div>
+      <div class="area-title">Gut as Foundation</div>
+      <div class="area-tagline">A healthy gut reduces systemic inflammation, supports the body's detox capacity, and feeds the same serotonin pathway that governs sleep. Fix the gut and the joint and sleep picture both improve downstream.</div>
     </div>
   </div>
 </div>
 
 <div class="page-body">
 
-  <!-- BODY COMPOSITION -->
+  <!-- BODY COMP -->
   <div class="card">
     <div class="card-title">Body Composition</div>
     <div class="comp-grid">
@@ -557,103 +504,77 @@
         <div class="comp-range">Daily baseline</div>
       </div>
     </div>
-    <p class="comp-note">Hunter's composition is genuinely strong for 26 — athletic muscle mass, low visceral fat, metabolic age below actual. The borderline BMI (25.3) is muscle-driven rather than fat-driven. Two numbers worth watching: body water at 59% (60%+ is the healthy baseline for joint lubrication and metabolic function) and the downstream effects of diet on every metric over the next 4-week recheck.</p>
+    <p class="comp-note">Hunter's composition is genuinely strong — high muscle mass, healthy visceral fat, and a metabolic age below his actual age reflect an athletic foundation built over years. The borderline BMI is muscle-driven, not fat-driven. Body water at 59% and the downstream effects of diet are the numbers to watch at the 4-week recheck.</p>
   </div>
 
 
-  <!-- ── DEEP DIVE: AREA 1 — JOINT HEALTH ── -->
+  <!-- DEEP DIVE 1: SLEEP -->
   <div class="deep-dive area-1">
     <div class="deep-dive-header">
       <div class="deep-dive-num">1</div>
-      <div class="deep-dive-heading">
-        <div class="deep-dive-title">Joint Health Recovery</div>
-        <div class="deep-dive-sub">10-year catcher load + weather-reactive pain + diet compounding the problem</div>
+      <div>
+        <div class="deep-dive-title">Sleep &amp; Self-Recovery</div>
+        <div class="deep-dive-sub">The highest-leverage change Hunter can make — even if he doesn't feel it is a problem</div>
       </div>
     </div>
     <div class="deep-dive-body">
 
       <div class="dd-section">
-        <div class="dd-section-label">What's happening</div>
-        <div class="dd-text">The catcher position is the most joint-demanding in baseball. A full catcher's squat compresses the knee cartilage under bodyweight plus the reactive force of receiving pitches — approximately 100-150 times per game. Over 10 years, that accumulated mechanical load produces cumulative cartilage thinning and synovial membrane sensitization that doesn't announce itself dramatically. It shows up as joint discomfort in the mid-20s that peers the same age don't experience, and as pain that responds to weather changes before the rain even arrives.</div>
+        <div class="dd-section-label">Why sleep is the priority</div>
+        <div class="dd-text">Sleep is when the body runs its repair cycle — joints recover, inflammation clears, stress hormones reset, and the gut lining regenerates. Hunter's body has 10 years of joint stress and a diet pattern that is actively pro-inflammatory. That repair cycle needs to be running well. One month of genuinely restorative sleep will do more for his joints, his gut, his focus, and his stress resilience than any supplement taken during poor sleep. This is the area that unlocks everything else.</div>
       </div>
 
       <div class="dd-section">
-        <div class="dd-section-label">Why weather makes it worse</div>
-        <div class="dd-text">Barometric pressure drops 12-24 hours before rain. Inflamed or structurally thinned joint tissue expands slightly under that pressure reduction in a way that triggers a pain response that a well-cushioned joint would not register. The fact that Hunter's joints respond to weather is a meaningful signal — it confirms the joint environment is already sensitized, not just sore from activity.</div>
+        <div class="dd-section-label">Skipping breakfast is disrupting the whole day's hormonal pattern</div>
+        <div class="dd-text">When Hunter skips breakfast, the body interprets morning fasting as a stressor and keeps cortisol elevated to mobilize stored energy. This elevated cortisol baseline carries into the afternoon and evening, making it harder for cortisol to drop enough at night for deep sleep to occur. The 失传营养学 framework is explicit: the body needs the right raw materials at the right times. Breakfast anchors the cortisol rhythm and signals that resources are available — without it, the system stays in a low-grade stress state all day.</div>
+        <div class="insight-box">Breakfast doesn't have to be large. A protein bar or shake within 45 minutes of waking is enough to break the cortisol loop. The habit of eating — not the size — is what matters here.</div>
       </div>
 
       <div class="dd-section">
-        <div class="dd-section-label">Why diet is making it worse right now</div>
-        <div class="dd-text">A diet of rice and red meat with almost no vegetables creates a reliable omega-6 to omega-3 imbalance. Animal fats from red meat are high in omega-6 fatty acids. Without fish, walnuts, or produce in the diet, there is virtually no omega-3 source. This ratio matters because omega-6 and omega-3 compete for the same enzyme pathways (cyclooxygenase, lipoxygenase) that produce either pro-inflammatory or anti-inflammatory signals at the joint level. A skewed ratio keeps the joint environment locked in an inflammatory state, amplifying the structural damage that was already there from the catcher years.</div>
-        <div class="insight-box">The 失传营养学 framework puts it simply: the body has damage, it has repair mechanisms, but it needs the right raw materials to execute the repair. The repair material for joint inflammation is omega-3 fatty acids. Without them, the repair cycle stalls — not because the body can't do it, but because the supply chain is missing.</div>
+        <div class="dd-section-label">The 3-4 AM waking — blood sugar and the sleep pathway nutrient gap</div>
+        <div class="dd-text">Hunter wakes at 3-4 AM without bladder urgency. Two factors from his diet pattern may be contributing. First, white rice is a high-glycemic carbohydrate that causes a blood sugar spike after dinner, followed by a faster overnight drop — when blood glucose dips in the early morning, the body releases cortisol to restore it, and that cortisol pulse is often enough to produce partial or full waking. Second, a diet of red meat and rice with almost no vegetables depletes the body's primary dietary source of magnesium. Magnesium is a required cofactor in the serotonin → melatonin conversion pathway that governs sleep depth. Without adequate magnesium, the sleep cycle is shallower and more easily interrupted by normal overnight hormonal fluctuations.</div>
       </div>
 
       <div class="dd-section">
-        <div class="dd-section-label">The bigger picture</div>
-        <div class="dd-text">Hunter's father works in orthopedic sales and sees the downstream end of this story every day — surgical interventions and replacements that happen when inflammatory joint damage compounds over 15-20 years. At 26, with a still-strong body composition, the window to change the trajectory is genuinely open. The upstream version of that story is omega-3 supplementation and diet quality now, not cortisone injections later.</div>
+        <div class="dd-section-label">Alcohol and the early morning waking pattern</div>
+        <div class="dd-text">When Hunter drinks in the evening under stress, alcohol is metabolized to acetaldehyde during the night. As alcohol clears from the system — typically 3-5 hours after drinking — the body experiences a "REM rebound" effect: sleep shifts to lighter stages and arousal threshold drops. For someone drinking at 10-11 PM, this clearance window lands directly in the 3-4 AM range, which may be a significant driver of those waking episodes. The gut also takes a hit from alcohol, which accelerates microbiome disruption and liver stress — compounding the next-day recovery picture.</div>
+        <div class="flag-box">⚑ Confirm in session: On nights when Hunter drinks, does he wake more easily or feel less rested the next morning? This helps distinguish which nights the waking is alcohol-driven vs. blood sugar driven.</div>
       </div>
 
     </div>
   </div>
 
 
-  <!-- ── DEEP DIVE: AREA 2 — SLEEP ── -->
+  <!-- DEEP DIVE 2: GUT -->
   <div class="deep-dive area-2">
     <div class="deep-dive-header">
       <div class="deep-dive-num">2</div>
-      <div class="deep-dive-heading">
-        <div class="deep-dive-title">Sleep Quality</div>
-        <div class="deep-dive-sub">3-4 AM waking without bladder urgency — likely blood sugar + nutrient pathway</div>
+      <div>
+        <div class="deep-dive-title">Gut as Foundation</div>
+        <div class="deep-dive-sub">Fix the gut and the sleep, inflammation, and joint picture all improve downstream</div>
       </div>
     </div>
     <div class="deep-dive-body">
 
       <div class="dd-section">
-        <div class="dd-section-label">What's happening</div>
-        <div class="dd-text">Hunter wakes at 3-4 AM without any urge to urinate — a pattern that rules out the most obvious cause for nighttime waking in young males. What's left to look at is the intersection of diet, blood sugar regulation, and sleep pathway nutrients — all of which Hunter's current pattern may be affecting.</div>
+        <div class="dd-section-label">What the gut is doing for the whole body</div>
+        <div class="dd-text">The gut is not just a digestive organ — it is the body's largest immune organ, its primary detox partner, and the production site of approximately 90-95% of the body's serotonin. That last point matters directly for sleep: the serotonin that the pineal gland converts to melatonin at night originates largely from gut enterochromaffin cells. A disrupted gut microbiome doesn't just cause loose stool — it reduces the serotonin supply that the sleep pathway depends on.</div>
       </div>
 
       <div class="dd-section">
-        <div class="dd-section-label">The blood sugar angle</div>
-        <div class="dd-text">White rice is a high-glycemic carbohydrate that causes a significant blood sugar spike after dinner, followed by a faster-than-average drop during the night. When blood glucose dips in the early morning hours, the body releases cortisol as an emergency signal to restore it — and that cortisol pulse is often strong enough to pull someone partially or fully out of sleep. The 3-4 AM window is consistent with this mechanism, as white rice digests relatively quickly and the downstream glucose dip tends to land in that range.</div>
-        <div class="insight-box">这是需要在 session 中和 Hunter 确认的：他有没有感觉到早上醒来时有点饿，或者头轻/轻度头晕？这会帮助确认是否是血糖相关。</div>
+        <div class="dd-section-label">Why Hunter's current diet is starving the gut microbiome</div>
+        <div class="dd-text">Beneficial gut bacteria feed primarily on dietary fiber — the component that comes from vegetables, legumes, and whole grains. Hunter's diet is rice and red meat with almost no vegetables, which means the microbiome is chronically fiber-deprived. Without fiber, beneficial bacteria populations decline and opportunistic bacteria fill the gap, producing inflammatory metabolites instead of the short-chain fatty acids (SCFAs) that maintain gut barrier integrity. The loose stool 2+ times daily is a direct signal that this balance is off.</div>
+        <div class="insight-box">失传营养学 框架：gut dysbiosis contributes to systemic low-grade inflammation — the same inflammatory environment that is amplifying Hunter's joint pain from the catcher years. Gut health and joint health share an upstream driver.</div>
       </div>
 
       <div class="dd-section">
-        <div class="dd-section-label">The nutrient pathway angle</div>
-        <div class="dd-text">The 失传营养学 knowledge base is specific: sleep quality depends on the serotonin → melatonin conversion pathway, which requires B6, tryptophan, and magnesium as cofactors. Hunter's diet is almost entirely red meat and white rice with almost no vegetables. Green leafy vegetables are the primary dietary source of magnesium. High protein intake (large red meat portions) increases the body's demand for B vitamins to metabolize the amino acids — drawing down reserves faster. The result is a diet that simultaneously increases the demand for sleep-pathway nutrients and eliminates the primary food sources of those same nutrients.</div>
-        <div class="insight-box">失传营养学 第四章: "一些营养素摄入过多会导致其他营养素的消耗" — excess protein depletes B vitamins. This is the exact mechanism at play in a high-meat, no-produce diet.</div>
-      </div>
-
-    </div>
-  </div>
-
-
-  <!-- ── DEEP DIVE: AREA 3 — DIET FOUNDATION ── -->
-  <div class="deep-dive area-3">
-    <div class="deep-dive-header">
-      <div class="deep-dive-num">3</div>
-      <div class="deep-dive-heading">
-        <div class="deep-dive-title">Diet Foundation</div>
-        <div class="deep-dive-sub">Rice + red meat pattern creates compounding gaps across every other area</div>
-      </div>
-    </div>
-    <div class="deep-dive-body">
-
-      <div class="dd-section">
-        <div class="dd-section-label">What's happening</div>
-        <div class="dd-text">Hunter's meal prep centers on white rice and red meat with rarely any vegetables. This creates a diet that is high in macronutrients (protein, refined carbs) but stripped of the micronutrient diversity that the body needs to run its repair and maintenance systems. It is nutritionally predictable: high in iron and saturated fat, near-zero in antioxidants, near-zero in magnesium, near-zero in omega-3s, and B-vitamin depleting through the high protein load.</div>
+        <div class="dd-section-label">Alcohol and the gut</div>
+        <div class="dd-text">Alcohol is one of the fastest ways to disrupt gut microbiome balance. It selectively reduces beneficial Lactobacillus and Bifidobacterium populations while increasing harmful bacteria and gut permeability ("leaky gut"). This allows bacterial endotoxins to enter the bloodstream, triggering the liver immune response and elevating systemic inflammatory markers. For Hunter, who is already dealing with joint inflammation from structural load, the additional inflammatory hit from alcohol-driven gut disruption compounds the problem significantly. Taking a probiotic on evenings when he drinks is a practical way to partially buffer this effect — it won't eliminate the disruption but it helps maintain the baseline faster.</div>
       </div>
 
       <div class="dd-section">
-        <div class="dd-section-label">Why this matters beyond just "eating better"</div>
-        <div class="dd-text">The 失传营养学 framework makes the mechanism explicit: the body is constantly sustaining damage from daily stress, activity, and environment. It has built-in self-repair systems. But those repair systems require raw materials — vitamins, minerals, fatty acids — to execute. When the diet consistently excludes those materials, the repair cycle stalls silently. No dramatic symptoms appear. The body draws on reserves. When the reserves run low enough — often years later — symptoms surface as joint issues, fatigue, poor sleep, or immune problems. Hunter is 26 with a strong body composition, which means his reserves are still good. The question is whether the current diet is replenishing them as fast as it's drawing them down. Right now, it almost certainly isn't.</div>
-        <div class="insight-box">从失传营养学: "一个人可以冠状动脉堵塞70%，完全没有症状。" The body has reserves. Sub-health is the zone where damage accumulates silently before symptoms appear. Hunter's reserve is still strong — 26 is the best time to act.</div>
-      </div>
-
-      <div class="dd-section">
-        <div class="dd-section-label">What the gut signal adds</div>
-        <div class="dd-text">Loose stool occurring 2+ times daily is a secondary signal worth noting. A low-fiber diet from near-zero vegetable intake disrupts gut microbiome balance — fiber is the primary food source for beneficial gut bacteria. Gut dysbiosis at even a mild level contributes to systemic low-grade inflammation, which circulates back to compound both the joint environment (Area 1) and sleep quality (Area 2). The gut, joints, and sleep are not separate issues — they share an upstream driver in the diet pattern.</div>
+        <div class="dd-section-label">The breakfast anchor creates the gut-healing window</div>
+        <div class="dd-text">The most effective time to take a probiotic is with food in the morning, when stomach acidity is lower and the bacteria survive transit better. Building the breakfast habit therefore serves double duty: it anchors the cortisol rhythm (Area 1) and creates the daily window for consistent probiotic delivery (Area 2). One habit, two mechanisms. This is the 30-day focus.</div>
       </div>
 
     </div>
@@ -662,41 +583,41 @@
 
   <!-- 30-DAY PLAN -->
   <div class="card">
-    <div class="card-title">30-Day Action Plan</div>
+    <div class="card-title">30-Day Plan — One Habit to Build</div>
 
     <div class="plan-priority">
-      <div class="plan-priority-label"><span class="plan-num">1</span>Add Omega-3 Daily — the Missing Anti-Inflammatory Signal</div>
+      <div class="plan-priority-label"><span class="plan-num">Morning</span>Eat Breakfast + Take Probiotic</div>
       <ul class="plan-items">
-        <li>Advanced Omega with the largest meal of the day, every day — consistency matters more than timing; missing days resets the accumulation needed to shift the joint environment</li>
-        <li>Reduce high-omega-6 cooking oils (corn, vegetable, soybean) when possible — these compete with omega-3 at the same enzyme level and slow the rebalancing</li>
-        <li>Add one serving of fatty fish or walnuts per week to start building dietary habit alongside supplementation</li>
+        <li>Eat within 45 minutes of waking — even a protein bar, shake, or eggs is sufficient; the cortisol-anchoring effect comes from eating, not from the size of the meal</li>
+        <li>Take the probiotic with breakfast — morning is the optimal window when stomach acid is lower and bacteria survive to reach the gut</li>
+        <li>On days when Hunter had alcohol the night before, this morning routine is especially important — the microbiome disruption from alcohol peaks overnight and the probiotic helps begin restoring balance</li>
+        <li>Switching from XS whey to Nutrilite Plant Protein with breakfast reduces the animal-protein inflammatory load while maintaining protein intake — plant amino acid profiles are also easier on the gut microbiome</li>
       </ul>
     </div>
 
     <div class="plan-priority">
-      <div class="plan-priority-label"><span class="plan-num">2</span>Hydration — Joint Lubrication and Sleep Quality</div>
+      <div class="plan-priority-label"><span class="plan-num">Evening</span>Magnesium Before Sleep</div>
       <ul class="plan-items">
-        <li>Build to 2.5L of water daily — at 81kg and active, 1-1.5L is meaningfully below what is needed to maintain synovial fluid quality and support the body's overnight metabolic clearance</li>
-        <li>Drink a full glass upon waking — overnight the body dehydrates and joint tissue needs rehydration before any movement load begins</li>
-        <li>Keep water visible at the desk; set a phone reminder every 90 minutes until the habit is automatic</li>
+        <li>Take magnesium with dinner or 30-60 minutes before sleep — this is the window when it supports the serotonin → melatonin conversion that governs sleep depth</li>
+        <li>Reduce the white rice portion at dinner at least 3-4 nights per week — smaller or slower-digesting carbs (sweet potato, legumes) reduce the overnight blood glucose dip that may be triggering the 3-4 AM cortisol waking</li>
+        <li>Consistent bedtime, even on weekends — the cortisol rhythm stabilizes through regularity, and irregular bedtimes reset the work every week</li>
       </ul>
     </div>
 
     <div class="plan-priority">
-      <div class="plan-priority-label"><span class="plan-num">3</span>Add Vegetables — Rebuild the Micronutrient Foundation</div>
+      <div class="plan-priority-label"><span class="plan-num">When Drinking</span>Protect the Gut</div>
       <ul class="plan-items">
-        <li>Add at least 2-3 vegetable servings daily — this is the single change that most directly addresses the magnesium gap (sleep), the antioxidant gap (joint recovery), and the fiber gap (gut/stool consistency) simultaneously</li>
-        <li>Practical starting point: frozen vegetables added directly to the existing meal prep is the lowest friction path — no new cooking required</li>
-        <li>A green salad at one meal per day with olive oil dressing begins shifting the omega-6:3 ratio at the dietary level</li>
+        <li>Take a probiotic before or with alcohol — this is a practical buffer, not a cure; it helps maintain the microbiome baseline faster after the disruption</li>
+        <li>Drink water between alcoholic drinks to support liver processing and reduce the acetaldehyde buildup that causes the 3-4 AM wake effect</li>
+        <li>Eating before drinking significantly slows alcohol absorption and reduces the overnight blood sugar and acetaldehyde impact on sleep</li>
       </ul>
     </div>
 
     <div class="plan-priority">
-      <div class="plan-priority-label"><span class="plan-num">4</span>Sleep — Reduce the Blood Sugar Swing Before Bed</div>
+      <div class="plan-priority-label"><span class="plan-num">Hydration</span>Build to 2.5L Daily</div>
       <ul class="plan-items">
-        <li>Reduce white rice portion at dinner or substitute with a slower-digesting carb at least 3x per week (sweet potato, brown rice, legumes) — this directly reduces the overnight blood glucose dip that may be triggering the 3-4 AM cortisol wake-up</li>
-        <li>Magnesium with dinner — supports the serotonin → melatonin conversion pathway that determines sleep depth</li>
-        <li>Consistent bedtime (even on weekends) stabilizes the cortisol rhythm and reduces the amplitude of overnight fluctuations</li>
+        <li>Current intake at 1-1.5L is below the threshold for 81kg — joint synovial fluid and gut barrier health both depend on adequate hydration</li>
+        <li>One glass immediately upon waking starts the day right and pairs naturally with the breakfast habit</li>
       </ul>
     </div>
 
@@ -709,41 +630,61 @@
     <div class="wins-grid">
       <div class="win-card">
         <div class="win-timeline">Week 1-2</div>
-        <div class="win-text">Stool frequency and consistency improving as vegetable fiber intake begins to restore gut microbiome balance</div>
+        <div class="win-text">Stool consistency improving as the probiotic begins restoring microbiome balance and morning fiber intake increases</div>
       </div>
       <div class="win-card">
         <div class="win-timeline">Week 2-3</div>
-        <div class="win-text">3-4 AM waking reducing in frequency as magnesium accumulates and the blood sugar dinner pattern improves</div>
+        <div class="win-text">3-4 AM waking reducing in frequency as magnesium accumulates and the dinner carb pattern improves the overnight blood sugar curve</div>
       </div>
       <div class="win-card">
         <div class="win-timeline">Week 3-4</div>
-        <div class="win-text">Morning joint stiffness reducing as hydration improves synovial fluid quality and omega-3 begins building in tissue</div>
+        <div class="win-text">More consistent daytime energy and clearer mornings as the cortisol rhythm stabilizes through the breakfast anchor and better sleep continuity</div>
       </div>
       <div class="win-card">
-        <div class="win-timeline">Month 2</div>
-        <div class="win-text">Weather-reactive joint discomfort becoming less intense as omega-3 shifts the tissue inflammatory environment — this is the slowest change but the most structural</div>
+        <div class="win-timeline">At Recheck</div>
+        <div class="win-text">Body water % trending toward 60%+ with consistent hydration; baseline joint stiffness reduced as systemic inflammation decreases</div>
       </div>
     </div>
   </div>
 
 
-  <!-- PRODUCTS -->
+  <!-- PRODUCTS: PHASE 1 -->
   <div class="card">
-    <div class="card-title">Recommended Support</div>
-    <div class="product-card">
-      <div class="product-icon">🐟</div>
-      <div class="product-body">
-        <div class="product-name">Advanced Omega</div>
-        <div class="product-rationale">Hunter's diet has no fish and almost no omega-3 source, creating a chronic omega-6 to omega-3 imbalance that keeps the joint environment inflammatory. Advanced Omega's rTG form absorbs at roughly 3x the rate of standard fish oil, making it the most efficient way to start shifting the ratio that 10 years of catcher stress has left in a compromised state.</div>
-        <div class="product-note">Take with the largest meal of the day. Allow 4-8 weeks for joint environment effects to build.</div>
-      </div>
-    </div>
+    <div class="card-title">30-Day Support — Phase 1</div>
     <div class="product-card">
       <div class="product-icon">✦</div>
       <div class="product-body">
         <div class="product-name">Magnesium</div>
-        <div class="product-rationale">Hunter's diet pattern — high red meat, near-zero vegetables — depletes the body's primary sources of magnesium while simultaneously increasing demand through high protein processing. Magnesium is the cofactor for the serotonin → melatonin conversion pathway that governs sleep depth and continuity, and the pattern of 3-4 AM waking is consistent with a nutrient environment where that pathway is undersupplied.</div>
-        <div class="product-note">Take with dinner, 30-60 minutes before sleep. Effects on sleep continuity typically appear within 1-2 weeks.</div>
+        <div class="product-rationale">Hunter's diet — heavy red meat, near-zero vegetables — depletes the body's primary dietary source of magnesium while simultaneously increasing demand through high protein processing. Magnesium is the cofactor for the serotonin → melatonin conversion that governs sleep depth; without adequate supply, the sleep cycle is shallower and more easily interrupted by the normal cortisol fluctuations that occur in the early morning hours.</div>
+        <div class="product-note">Take with dinner or 30-60 min before sleep. Effects on sleep continuity typically appear within 1-2 weeks of consistent use.</div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-icon">🌿</div>
+      <div class="product-body">
+        <div class="product-name">Probiotic</div>
+        <div class="product-rationale">A low-fiber diet with near-zero vegetables starves the beneficial gut bacteria that maintain microbiome balance, gut barrier integrity, and serotonin production. Hunter's loose stool 2+ times daily is a direct signal that this balance is disrupted. Restoring it reduces the systemic low-grade inflammation that is amplifying both his joint environment and his sleep-pathway serotonin supply.</div>
+        <div class="product-note">Take with breakfast. On nights when Hunter drinks, take a second dose — alcohol is one of the fastest ways to disrupt the microbiome and the morning dose helps rebuild faster.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- PHASE 2: JOINTS -->
+  <div class="card">
+    <div class="card-title">Phase 2 — After the 4-Week Recheck (Joint Support)</div>
+    <div class="phase2-card">
+      <div class="phase2-header">Introduce at Recheck if Sleep and Gut Are Stabilizing</div>
+      <p style="font-size:13px; color:#55605A; line-height:1.6; margin-bottom:14px;">Hunter has 10 years of catcher load behind him and a diet pattern that keeps the omega-6:omega-3 ratio heavily skewed toward inflammation. Once the sleep and gut foundation is in place (better detox, less systemic inflammation, better cortisol rhythm), the body is in a much better position to respond to joint-specific supplementation. Introducing these at recheck — not now — keeps the 30-day habit simple and measurable.</p>
+      <div class="phase2-products">
+        <div>
+          <div class="phase2-product-name">Advanced Omega</div>
+          <div class="phase2-product-why">Rebalances the omega-6:omega-3 ratio that keeps the joint environment inflammatory. rTG form absorbs at ~3x the rate of standard fish oil. Allow 4-8 weeks for joint tissue effects to build.</div>
+        </div>
+        <div>
+          <div class="phase2-product-name">Nutrilite Joint Health</div>
+          <div class="phase2-product-why">Glucosamine + chondroitin (cartilage structural repair) + 5-LOXIN Boswellia (5-LOX anti-inflammatory, distinct from NSAIDs) + Hyaluronic Acid (synovial fluid lubrication) + Vitamin C from acerola cherry (required for collagen synthesis). Addresses the structural side of the joint problem that 10 years of catching created.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -754,29 +695,29 @@
     <div class="card-title">Next Step</div>
     <div class="next-steps-grid">
       <div class="next-step-box">
-        <div class="next-step-label">Option A — Lifestyle First</div>
-        <div class="next-step-text">Add vegetables daily, increase water to 2.5L, reduce white rice portion at dinner, consistent bedtime. Recheck in 4 weeks on sleep continuity, joint stiffness, and stool quality.</div>
+        <div class="next-step-label">Option A — Habit Only</div>
+        <div class="next-step-text">Start eating breakfast daily, reduce white rice at dinner 3-4 nights per week, build to 2.5L water, consistent bedtime. Recheck in 4 weeks on sleep, stool, and energy.</div>
       </div>
       <div class="next-step-box">
-        <div class="next-step-label">Option B — Lifestyle + Support</div>
-        <div class="next-step-text">All lifestyle changes above, plus Advanced Omega with the largest meal and Magnesium with dinner. The combination addresses the joint inflammatory environment and the sleep pathway nutrient gap simultaneously.</div>
+        <div class="next-step-label">Option B — Habit + Support</div>
+        <div class="next-step-text">All of the above, plus Probiotic with breakfast and Magnesium before sleep. One habit, two anchor moments, two targeted nutrients. Recheck at 4 weeks, then introduce Phase 2 joint support.</div>
       </div>
     </div>
     <div class="recheck-label">4-Week Recheck — What to Track</div>
-    <div class="recheck-items">3-4 AM waking frequency (nights per week), weather-reactive joint pain on a rainy day (rate 1-10, compare to today's baseline), morning joint stiffness duration, stool consistency and frequency, daily water average, vegetable servings average</div>
+    <div class="recheck-items">3-4 AM waking frequency (nights per week), morning energy rating (1-10), stool consistency and frequency, daily water average, breakfast consistency (days per week), weather-reactive joint pain on a rainy day (rate 1-10 today as baseline)</div>
   </div>
 
 
   <!-- CTA -->
   <div class="cta-section">
-    <div class="cta-title">View Your Product Recommendations</div>
-    <div class="cta-sub">Advanced Omega + Magnesium — tailored to your 3 priority areas</div>
-    <a class="cta-btn" href="https://johnnnyay.github.io/product-marketing/#s=magnesium:1,advanced-omega:1" target="_blank">See My Products →</a>
+    <div class="cta-title">View Your Phase 1 Products</div>
+    <div class="cta-sub">Magnesium + Probiotic — 30-day habit support</div>
+    <a class="cta-btn" href="https://johnnnyay.github.io/product-marketing/#s=magnesium:1,probiotic:1" target="_blank">See My Products →</a>
   </div>
 
   <div class="report-footer">
-    Wellspring Health · Confidential Report · 2026-08-10<br>
-    This report is for wellness education only and does not constitute medical advice.
+    Wellspring Health &nbsp;·&nbsp; Confidential Report &nbsp;·&nbsp; 2026-08-10<br>
+    For wellness education only. Not medical advice.
   </div>
 
 </div>
