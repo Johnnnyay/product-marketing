@@ -1,0 +1,46 @@
+{
+ "_note": "Supplement Facts panels read off amway.com product pages. Fetch these before writing any product row: the label often contains the actual argument, and writing from the product name alone produces generic copy. amway.com 403s plain curl, so fetch through the browser tools after navigating to the amway.com origin. The panel sits in an accordion and is not in document.body.innerText, so parse the raw HTML: strip <script>, replace tags with |, then slice from 'Amount Per Serving'.",
+ "_updated": "2026-08-02",
+ "byItem": {
+  "117085": {
+   "name": "Nutrilite Slimmetry",
+   "serving": "1 tablet, 60 per bottle",
+   "actives": [
+    "GreenSelect Phytosome 150 mg",
+    "  of which Phosphatidylcholine 100 mg",
+    "  of which Green Tea Extract (Camellia sinensis, leaf) 50 mg [20 mg EGCG]"
+   ],
+   "other": "Greenselect Phytosome (Soy Lecithin, Green Tea Decaffeinated Dry Extract), Microcrystalline Cellulose, Pregelatinized Corn Starch, Stearic Acid, Gum Acacia, Sodium Starch Glycolate, Maltodextrin, Silicon Dioxide, Hydroxypropyl Methylcellulose, Brown Algae Extract, Glycerin, Carnauba Wax",
+   "note": "The whole product is a bioavailability play. 20mg EGCG is a small fraction of the 200 to 800mg used in ordinary green tea extract trials; the phospholipid complex is what makes the low dose workable, and it also sidesteps the hepatotoxicity signal seen with high-dose extracts."
+  },
+  "100193": {
+   "name": "Carb Blocker",
+   "serving": "1 tablet",
+   "actives": [
+    "Kidney Bean Extract (Phaseolus vulgaris) 500 mg",
+    "Soybean Extract (Glycine max L.) 300 mg",
+    "Parsley Concentrate (leaf, stem) 30 mg"
+   ],
+   "other": "Microcrystalline Cellulose, Stearic Acid, Acacia, Silicon Dioxide, Sodium Carboxymethylcellulose"
+  },
+  "128032": {
+   "name": "Magnesium",
+   "serving": "1 capsule",
+   "actives": [
+    "Magnesium 200 mg (48% DV), as Magnesium Bisglycinate Chelate, Magnesium Hydroxide, DiMagnesium Malate",
+    "Olive Extract (Olea europaea L., fruit) 54 mg, providing 10 mg Hydroxytyrosol"
+   ],
+   "note": "Three magnesium forms rather than oxide. Bisglycinate is the chelated form used when absorption and GI tolerance matter."
+  },
+  "127444": {
+   "name": "Prebiotic Fiber",
+   "serving": "1 scoop",
+   "actives": [
+    "Calories 15",
+    "Total Carbohydrate 8 g",
+    "Dietary Fiber 8 g (29% DV), all of it Soluble Fiber"
+   ],
+   "note": "8g soluble fibre in one scoop is a real dose. Soluble is the fraction that thickens stomach contents and slows gastric emptying."
+  }
+ }
+}
