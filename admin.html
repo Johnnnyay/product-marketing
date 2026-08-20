@@ -483,20 +483,26 @@
 
 <script>
 // ── CONFIG ──
-const PASSCODE = "diamond2026";
-const INDEX_URL = "reports/index.json";
-const SESSION_KEY = "hr_admin_authed";
+// The passcode is no longer in this file. It is checked server-side by the API,
+// which is the only thing that can read the private report store.
+const API_BASE = "https://health-intake-api.vercel.app";
+const SESSION_KEY = "hr_admin_key";
 
 let allClients = [];
 
 // ── AUTH ──
-function tryLogin() {
+async function tryLogin() {
   const val = document.getElementById("passcode-input").value;
-  if (val === PASSCODE) {
-    sessionStorage.setItem(SESSION_KEY, "1");
+  const err = document.getElementById("login-error");
+  err.style.display = "none";
+  try {
+    const r = await fetch(API_BASE + "/api/admin", { headers: { "x-admin-key": val } });
+    if (!r.ok) throw new Error("rejected");
+    sessionStorage.setItem(SESSION_KEY, val);
     showDashboard();
-  } else {
-    document.getElementById("login-error").style.display = "block";
+  } catch (e) {
+    err.textContent = "Incorrect passcode. Try again.";
+    err.style.display = "block";
     document.getElementById("passcode-input").value = "";
     document.getElementById("passcode-input").focus();
   }
@@ -512,7 +518,7 @@ function logout() {
 
 // ── INIT ──
 window.addEventListener("DOMContentLoaded", () => {
-  if (sessionStorage.getItem(SESSION_KEY) === "1") {
+  if (sessionStorage.getItem(SESSION_KEY)) {
     showDashboard();
   }
 });
@@ -526,7 +532,10 @@ function showDashboard() {
 // ── DATA ──
 async function loadData() {
   try {
-    const r = await fetch(INDEX_URL + "?t=" + Date.now());
+    const r = await fetch(API_BASE + "/api/admin", {
+      headers: { "x-admin-key": sessionStorage.getItem(SESSION_KEY) || "" }
+    });
+    if (!r.ok) { logout(); return; }
     const data = await r.json();
     allClients = Object.entries(data.clients).map(([key, client]) => ({
       key,
@@ -537,7 +546,7 @@ async function loadData() {
     renderClients();
   } catch (e) {
     document.getElementById("client-list").innerHTML =
-      '<div class="empty-state">Could not load index.json. Make sure this page is served over HTTP (GitHub Pages).<br><br>' + e.message + '</div>';
+      '<div class="empty-state">Could not reach the report service.<br><br>' + e.message + '</div>';
   }
 }
 
@@ -600,7 +609,7 @@ function renderClients() {
       const isLatest = ri === 0;
 
       return `
-        <a class="report-row" href="reports/${r.file}" target="_blank">
+        <a class="report-row" href="${API_BASE}/api/report?r=${r.rid}" target="_blank" rel="noopener">
           <div class="report-date-block">
             <div class="report-date-month">${monthStr}</div>
             <div class="report-date-day">${dayStr}</div>

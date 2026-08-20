@@ -410,6 +410,8 @@
     }
   });
 
+  const API_BASE = 'https://health-intake-api.vercel.app';
+
   function lookupClient() {
     const initials = document.getElementById('initials').value.trim().toUpperCase();
     const dob = document.getElementById('dob').value;
@@ -427,28 +429,28 @@
       return;
     }
 
-    const key = initials + '_' + dob;
     btn.disabled = true;
     btn.textContent = 'Looking up…';
 
-    // Fetch the index JSON from the same origin
-    fetch('reports/index.json?t=' + Date.now())
-      .then(r => {
-        if (!r.ok) throw new Error('index not found');
-        return r.json();
-      })
-      .then(data => {
-        const client = data.clients[key];
-        if (!client) {
-          showError('No report found for those details. Please double-check your initials and date of birth, or contact your consultant.');
+    // Reports live in a private store. The API returns only this client's own
+    // records, and only when both initials and date of birth match.
+    fetch(API_BASE + '/api/lookup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ initials: initials, dob: dob })
+    })
+      .then(r => r.json().then(data => ({ ok: r.ok, status: r.status, data: data })))
+      .then(res => {
+        if (!res.ok) {
+          showError(res.data.error || 'No report found for those details. Please double-check your initials and date of birth, or contact your consultant.');
           btn.disabled = false;
           btn.textContent = 'View My Reports';
           return;
         }
-        showProfile(client);
+        showProfile(res.data);
       })
       .catch(() => {
-        showError('Unable to load reports right now. If you are testing locally, this page must be served over HTTP — it will work correctly on the live site.');
+        showError('Unable to reach the report service right now. Please try again in a minute.');
         btn.disabled = false;
         btn.textContent = 'View My Reports';
       });
@@ -487,7 +489,9 @@
 
       const card = document.createElement('a');
       card.className = 'report-card';
-      card.href = 'reports/' + r.file;
+      card.href = API_BASE + '/api/report?r=' + r.rid;
+      card.target = '_blank';
+      card.rel = 'noopener';
       card.innerHTML = `
         <div class="report-date-block">
           <div class="report-month">${month}</div>
