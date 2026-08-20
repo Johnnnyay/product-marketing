@@ -498,7 +498,7 @@ async function tryLogin() {
   try {
     const r = await fetch(API_BASE + "/api/admin", { headers: { "x-admin-key": val } });
     if (!r.ok) throw new Error("rejected");
-    sessionStorage.setItem(SESSION_KEY, val);
+    localStorage.setItem(SESSION_KEY, val);
     showDashboard();
   } catch (e) {
     err.textContent = "Incorrect passcode. Try again.";
@@ -509,7 +509,7 @@ async function tryLogin() {
 }
 
 function logout() {
-  sessionStorage.removeItem(SESSION_KEY);
+  localStorage.removeItem(SESSION_KEY);
   document.getElementById("dashboard").style.display = "none";
   document.getElementById("login-screen").style.display = "flex";
   document.getElementById("passcode-input").value = "";
@@ -518,7 +518,10 @@ function logout() {
 
 // ── INIT ──
 window.addEventListener("DOMContentLoaded", () => {
-  if (sessionStorage.getItem(SESSION_KEY)) {
+  const q = new URLSearchParams(location.search).get("key");
+  if (q) { localStorage.setItem(SESSION_KEY, q);
+           history.replaceState(null, "", location.pathname); }
+  if (localStorage.getItem(SESSION_KEY)) {
     showDashboard();
   }
 });
@@ -533,7 +536,7 @@ function showDashboard() {
 async function loadData() {
   try {
     const r = await fetch(API_BASE + "/api/admin", {
-      headers: { "x-admin-key": sessionStorage.getItem(SESSION_KEY) || "" }
+      headers: { "x-admin-key": localStorage.getItem(SESSION_KEY) || "" }
     });
     if (!r.ok) { logout(); return; }
     const data = await r.json();
