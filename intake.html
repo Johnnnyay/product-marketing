@@ -58,6 +58,11 @@
     font:inherit;font-size:11px;font-weight:600;color:var(--green);cursor:pointer;vertical-align:middle}
   .help-btn::before{content:"?";display:inline-grid;place-items:center;width:14px;height:14px;border-radius:50%;
     background:var(--green-light);color:var(--green);font-size:10px;font-weight:800}
+  .show-more{display:block;width:100%;margin-top:8px;padding:8px;background:var(--gray-100);
+    border:0;border-radius:8px;font:inherit;font-size:12.5px;font-weight:600;color:var(--green);cursor:pointer}
+  .show-more:hover{background:var(--green-light)}
+  .more-items{display:none}
+  .more-items.open{display:block}
   .help-btn-inline::before{margin:0}
   .help-btn-inline{margin-left:7px}
   .symptom-name{display:flex;align-items:center}
@@ -346,7 +351,6 @@
       <div class="card-title" id="stoolTitle" data-sec="bowel" style="margin-top:26px">Bowel and Digestion</div>
       <p class="card-sub" id="stoolSub" data-sec="bowelSub" style="font-size:12.5px;color:var(--gray-500);line-height:1.6;margin-bottom:14px"></p>
       <div id="stoolFields"></div>
-      <div class="red-flag" id="stoolRedFlag"></div>
 
       <div id="cycleSection" style="display:none">
         <div class="card-title" id="cycleTitle" data-sec="cycle" style="margin-top:26px">Menstrual Cycle</div>
@@ -571,9 +575,14 @@ function buildSymptoms() {
       gl.appendChild(hb);
       div.appendChild(gl); div.appendChild(box);
     } else div.appendChild(gl);
-    const FEMALE_ONLY = ['Period pain or abnormal discharge','Gynecological infections'];
+    const FEMALE_ONLY = ['Period pain','Abnormal discharge','Gynecological infections'];
+    /* Core items are shown; the rest of the section sits behind a disclosure. The real
+       data showed a median of 19 answers out of ~50 offered, so a longer visible list
+       produced fewer answers, not more. */
+    const extras = [];
     group.items.forEach(item => {
       if (gender === 'Male' && FEMALE_ONLY.indexOf(item[0]) >= 0) return;
+      const isCore = CORE_ITEMS.indexOf(item[0]) >= 0;
       const key = group.g[0] + '__' + item[0];
       const row = document.createElement('div');
       row.className = 'symptom-row';
@@ -610,9 +619,25 @@ function buildSymptoms() {
         btns.appendChild(b);
       });
       row.appendChild(nameDiv); row.appendChild(btns);
-      div.appendChild(row);
-      if (ibox) div.appendChild(ibox);
+      if (isCore) { div.appendChild(row); if (ibox) div.appendChild(ibox); }
+      else { extras.push(row); if (ibox) extras.push(ibox); }
     });
+    if (extras.length) {
+      const more = document.createElement('button');
+      more.type = 'button';
+      more.className = 'show-more';
+      const holder = document.createElement('div');
+      holder.className = 'more-items';
+      extras.forEach(e => holder.appendChild(e));
+      const nExtra = extras.filter(e => e.classList.contains('symptom-row')).length;
+      more.textContent = tx(UI.showMore).replace('{n}', nExtra);
+      more.onclick = () => {
+        const open = holder.classList.toggle('open');
+        more.textContent = open ? tx(UI.showLess) : tx(UI.showMore).replace('{n}', nExtra);
+      };
+      div.appendChild(more);
+      div.appendChild(holder);
+    }
     container.appendChild(div);
   });
 }
@@ -630,16 +655,14 @@ function buildDynamicFields() {
       host.appendChild(w);
     });
   };
+  /* Three questions, not eight. Wiping count alone separates the people who need
+     fibre from the people who need a probiotic, which is the decision this section
+     exists to inform. The rest was detail nobody acts on. */
   mk(document.getElementById('stoolFields'),
-     ['f-bowelFreq','f-stoolForm','f-stoolColor','f-stoolFloat','f-stoolComplete','f-wiping','f-stoolOdor','f-undigested']);
+     ['f-bowelFreq','f-stoolForm','f-wiping']);
   mk(document.getElementById('cycleFields'),
      ['f-cycleRegular','f-menstrualPain','f-heavyFlow','f-pmsMoodSwings']);
-  const sc = document.getElementById('f-stoolColor');
-  if (sc) sc.onchange = () => {
-    const v = sc.value;
-    document.getElementById('stoolRedFlag')
-      .classList.toggle('show', v === 'Red or blood present' || v === 'Very dark or black');
-  };
+
 }
 
 function applyLang() {
@@ -665,7 +688,6 @@ function applyLang() {
   const sh = document.querySelector('.toggle-hint'); if (sh) sh.textContent = tx(UI.scaleHint);
   const lt = document.querySelector('.loading-title'); if (lt) lt.textContent = tx(UI.loadTitle);
   const ls = document.querySelector('.loading-sub'); if (ls) ls.textContent = tx(UI.loadSub);
-  document.getElementById('stoolRedFlag').textContent = tx(UI.redFlag);
   Object.keys(FIELDS).forEach(paintField);
   buildSymptoms();
 }
@@ -716,8 +738,7 @@ async function submitForm() {
 
   /* Bowel and cycle answers. These were previously only collected on the old Google
      form, so reports generated from this page had no stool or cycle data at all. */
-  ['f-bowelFreq','f-stoolForm','f-stoolColor','f-stoolFloat','f-stoolComplete',
-   'f-wiping','f-stoolOdor','f-undigested','f-cycleRegular','f-menstrualPain',
+  ['f-bowelFreq','f-stoolForm','f-wiping','f-cycleRegular','f-menstrualPain',
    'f-heavyFlow','f-pmsMoodSwings'].forEach(function(id){
     var el = document.getElementById(id);
     if (el && el.value) payload[id.replace(/^f-/,'')] = el.value;
