@@ -88,9 +88,8 @@
   .freq-btn{padding:4px 8px;border:1.5px solid var(--gray-200);border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;background:#fff;color:var(--gray-500);transition:all .15s;white-space:nowrap}
   .freq-btn:hover{border-color:var(--green);color:var(--green)}
   .freq-btn.selected-often{background:#d1fae5;border-color:#059669;color:#065f46}
-  .freq-btn.selected-sometimes{background:#fef9c3;border-color:#ca8a04;color:#713f12}
-  .freq-btn.selected-rarely{background:#f3f4f6;border-color:#9ca3af;color:#6b7280}
-  .freq-btn.selected-never{background:#f3f4f6;border-color:#e5e7eb;color:#9ca3af}
+  .freq-btn.selected-occasionally{background:#fef9c3;border-color:#ca8a04;color:#713f12}
+  .freq-btn.selected-barely{background:#f3f4f6;border-color:#9ca3af;color:#6b7280}
 
   /* Step nav */
   .step-nav{display:flex;gap:12px;margin-top:8px}
@@ -554,7 +553,7 @@ function buildSymptoms() {
   if (!container) return;
   const gender = (document.getElementById('f-gender') || {}).value;
   container.innerHTML = '';
-  const FREQ = [['Often', UI.fOften], ['Sometimes', UI.fSometimes], ['Rarely', UI.fRarely], ['Never', UI.fNever]];
+  const FREQ = [['Often', UI.fOften], ['Occasionally', UI.fOcc], ['Barely', UI.fBarely]];
   SYMPTOM_GROUPS.forEach(group => {
     if (group.g[0] === "Women's Health" && gender === 'Male') return;
     const div = document.createElement('div');

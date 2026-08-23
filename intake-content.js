@@ -49,10 +49,13 @@ const UI = {
                '按你出现的频率选择。点最接近的那一档。不适用的可以跳过。',
                'Indique con qué frecuencia experimenta cada uno. Omita lo que no aplique.',
                'बताएँ कि आप हर एक को कितनी बार अनुभव करते हैं। जो लागू न हो उसे छोड़ दें।'],
+  /* Three bands, matching the Google form this instrument comes from. The earlier
+     four-band scale emitted 'Sometimes' and 'Rarely', which appear nowhere in the
+     historical data and which report-spec.md does not reason about -- it reads
+     'Often' and 'Occasionally'. Those two middle answers were being thrown away. */
   fOften:     ['Often', '经常', 'A menudo', 'अक्सर'],
-  fSometimes: ['Sometimes', '有时', 'A veces', 'कभी-कभी'],
-  fRarely:    ['Rarely', '很少', 'Rara vez', 'शायद ही'],
-  fNever:     ['Never', '从不', 'Nunca', 'कभी नहीं'],
+  fOcc:       ['Occasionally', '偶尔', 'A veces', 'कभी-कभी'],
+  fBarely:    ['Barely', '几乎不', 'Casi nunca', 'लगभग कभी नहीं'],
   redFlag:    ['Blood in stool, or black tarry stool, should be looked at by a doctor rather than a consultant. Please see a physician.',
                '便血或柏油样黑便应由医生处理，而不是顾问。请去看医生。',
                'La sangre en las heces o las heces negras y alquitranadas deben ser evaluadas por un médico, no por un consultor.',
