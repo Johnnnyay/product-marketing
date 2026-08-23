@@ -398,9 +398,9 @@
 <footer>Health Progress Reports &nbsp;·&nbsp; For wellness education only, not medical advice.</footer>
 
 <script>
-  document.getElementById('email').addEventListener('input', function() {
-    this.value = this.value.toUpperCase().replace(/[^A-Z]/g, '');
-  });
+  /* No input filter. This field previously held initials and stripped everything
+     that was not A-Z, which silently deleted the @ and every digit from an email
+     address. Normalisation happens at submit time instead. */
 
   // Enter key support
   document.addEventListener('keydown', function(e) {
