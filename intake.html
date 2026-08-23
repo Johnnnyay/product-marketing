@@ -555,7 +555,7 @@ function buildSymptoms() {
   container.innerHTML = '';
   const FREQ = [['Often', UI.fOften], ['Occasionally', UI.fOcc], ['Barely', UI.fBarely]];
   SYMPTOM_GROUPS.forEach(group => {
-    if (group.g[0] === "Women's Health" && gender === 'Male') return;
+    // no group is gender-gated now; individual reproductive items are filtered below
     const div = document.createElement('div');
     div.className = 'symptom-group';
     const gl = document.createElement('div');
@@ -571,7 +571,9 @@ function buildSymptoms() {
       gl.appendChild(hb);
       div.appendChild(gl); div.appendChild(box);
     } else div.appendChild(gl);
+    const FEMALE_ONLY = ['Period pain or abnormal discharge','Gynecological infections'];
     group.items.forEach(item => {
+      if (gender === 'Male' && FEMALE_ONLY.indexOf(item[0]) >= 0) return;
       const key = group.g[0] + '__' + item[0];
       const row = document.createElement('div');
       row.className = 'symptom-row';

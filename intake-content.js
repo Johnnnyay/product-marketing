@@ -352,416 +352,1388 @@ const FIELDS = {
     o: [['No','No','否','No','नहीं'],['Yes','Yes','是','Sí','हाँ']] }
 };
 
-/* Symptom groups. Help sits at group level: 51 individual disclosures on one screen
-   would be noise, and what a reader actually needs is what the cluster means. */
+/* The 97-item instrument, transcribed from Johnny's Google form.
+   English and Chinese are HIS wording. Spanish and Hindi are translated from it and
+   have not been reviewed by a native speaker. Group help explains what the cluster
+   means; every individual item carries its own explanation in SYMPTOM_HELP. */
 const SYMPTOM_GROUPS = [
-  { g: ['Sleep and Nervous System', '睡眠与神经系统', 'Sueño y sistema nervioso', 'नींद और तंत्रिका तंत्र'],
-    h: ['Sleep is when repair happens, so this group is read first. The pattern matters more than any single answer: trouble getting to sleep, waking through the night, and waking unrefreshed point at different things.',
-        '修复发生在睡眠中，所以这一组最先看。整体模式比单个答案更重要：入睡困难、半夜醒来、睡醒仍疲劳，三者指向的问题不同。',
-        'El sueño es cuando ocurre la reparación. El patrón importa más que una sola respuesta.',
-        'नींद के दौरान मरम्मत होती है। पैटर्न किसी एक उत्तर से अधिक मायने रखता है।'],
-    items: [
-      ['Hard to fall asleep','Hard to fall asleep','入睡困难','Dificultad para dormirse','सोने में कठिनाई'],
-      ['Wake up during the night','Wake up during the night','半夜会醒','Me despierto durante la noche','रात में जाग जाता हूँ'],
-      ['Hard to fall back asleep','Hard to fall back asleep after waking','醒来后难以再入睡','Difícil volver a dormirme','जागने के बाद फिर सोना मुश्किल'],
-      ['Vivid dreams or nightmares','Vivid dreams or nightmares','多梦或噩梦','Sueños vívidos o pesadillas','ज्वलंत सपने या बुरे सपने'],
-      ['Restless or poor sleep quality','Restless or poor sleep quality','睡眠浅、质量差','Sueño inquieto o de mala calidad','बेचैन या खराब नींद'],
-      ['Wake up tired even after 8 hours','Wake up tired even after 8 hours','睡够8小时仍然疲惫','Despierto cansado incluso tras 8 horas','8 घंटे बाद भी थका हुआ'],
-      ['Anxiety or mental tension','Anxiety or mental tension','焦虑或精神紧张','Ansiedad o tensión mental','चिंता या मानसिक तनाव'],
-      ['Heart palpitations','Heart palpitations','心悸','Palpitaciones','धड़कन तेज़ होना'],
-      ['Cold sweaty hands or feet','Cold sweaty hands or feet','手脚冰凉出汗','Manos o pies fríos y sudorosos','ठंडे पसीने वाले हाथ-पैर'],
-      ['Difficulty relaxing or winding down','Difficulty relaxing or winding down','难以放松','Dificultad para relajarse','आराम करने में कठिनाई']] },
-  { g: ['Digestion and Gut', '消化与肠道', 'Digestión e intestino', 'पाचन और आंत'],
-    h: ['Most immune tissue sits in the gut wall, so this group is upstream of the immune one below. Poor absorption means the raw material for everything else is not arriving regardless of what you eat.',
-        '大部分免疫组织位于肠壁，所以这一组在下面免疫那组的上游。吸收不好，意味着不管吃什么，其他部分需要的原料都到不了。',
-        'La mayor parte del tejido inmune está en la pared intestinal, así que este grupo antecede al inmune.',
-        'अधिकांश प्रतिरक्षा ऊतक आंत की दीवार में है, इसलिए यह समूह प्रतिरक्षा से पहले आता है।'],
-    items: [
-      ['Poor digestion or feel full quickly','Poor digestion or feel full quickly','消化不良或容易饱','Mala digestión o saciedad rápida','खराब पाचन या जल्दी भरा लगना'],
-      ['Bloating after meals','Bloating after meals','饭后腹胀','Hinchazón después de comer','खाने के बाद फूलना'],
-      ['Excessive gas','Excessive gas','排气多','Exceso de gases','अत्यधिक गैस'],
-      ['Diarrhea or loose stools','Diarrhoea or loose stools','腹泻或大便稀','Diarrea o heces sueltas','दस्त या पतला मल'],
-      ['Constipation','Constipation','便秘','Estreñimiento','कब्ज़'],
-      ['Bad breath or bitter taste in mouth','Bad breath or bitter taste','口臭或口苦','Mal aliento o sabor amargo','मुँह की दुर्गंध या कड़वाहट'],
-      ['Acid reflux or heartburn','Acid reflux or heartburn','反酸或烧心','Reflujo o acidez','एसिड रिफ्लक्स']] },
-  { g: ['Immune and Respiratory', '免疫与呼吸', 'Inmunidad y respiración', 'प्रतिरक्षा और श्वसन'],
-    h: ['Frequent infection and allergic reactivity are two different pictures: one is a defence running below capacity, the other is regulation misfiring. Both trace back to the gut group above.',
-        '反复感染和过敏反应是两种不同的图景：一个是防御能力不足，另一个是调节出错。两者都能追溯到上面的肠道那一组。',
-        'La infección frecuente y la reactividad alérgica son dos cuadros distintos, y ambos remiten al grupo intestinal.',
-        'बार-बार संक्रमण और एलर्जी दो अलग तस्वीरें हैं, दोनों आंत समूह से जुड़ी हैं।'],
-    items: [
-      ['Catch colds frequently','Catch colds frequently','经常感冒','Me resfrío con frecuencia','बार-बार सर्दी'],
-      ['Cough easily','Cough easily','容易咳嗽','Toso con facilidad','आसानी से खांसी'],
-      ['Runny nose easily','Runny nose easily','容易流鼻涕','Nariz que gotea fácilmente','आसानी से नाक बहना'],
-      ['Sneezing a lot','Sneezing a lot','经常打喷嚏','Estornudo mucho','बहुत छींक आना'],
-      ['Nasal allergies','Nasal allergies','鼻炎、鼻子过敏','Alergias nasales','नाक की एलर्जी'],
-      ["Athlete's foot or nail fungus","Athlete's foot or nail fungus",'脚气或灰指甲','Pie de atleta u hongos en uñas','एथलीट फुट या नाखून फफूंद']] },
-  { g: ['Energy and Cognitive', '精力与认知', 'Energía y cognición', 'ऊर्जा और संज्ञान'],
-    h: ['These are usually downstream symptoms rather than a problem of their own. They tend to move first when sleep, breakfast and absorption are corrected, which makes them a useful early progress marker.',
-        '这些通常是下游症状，而不是独立问题。睡眠、早餐和吸收改善后它们往往最先变化，所以是很有用的早期进展指标。',
-        'Suelen ser síntomas derivados. Mejoran primero cuando se corrigen el sueño y la absorción.',
-        'ये आमतौर पर गौण लक्षण हैं और नींद व अवशोषण सुधरने पर सबसे पहले बदलते हैं।'],
-    items: [
-      ['Afternoon energy crash','Afternoon energy crash','下午精力下滑','Bajón de energía por la tarde','दोपहर में ऊर्जा गिरना'],
-      ['Persistent fatigue regardless of sleep','Persistent fatigue regardless of sleep','不管睡多久都累','Fatiga persistente pese al sueño','नींद के बावजूद थकान'],
-      ['Brain fog or mental cloudiness','Brain fog','脑雾、思维不清','Niebla mental','मानसिक धुंध'],
-      ['Forgetfulness','Forgetfulness','健忘','Olvidos','भूलने की आदत'],
-      ['Hard to focus or concentrate','Hard to focus','注意力不集中','Dificultad para concentrarse','ध्यान लगाने में कठिनाई'],
-      ['Reliant on caffeine to function','Rely on caffeine to function','靠咖啡因才能正常运转','Dependo de la cafeína','कैफ़ीन पर निर्भरता'],
-      ['Feel slow or sluggish in the morning','Slow or sluggish in the morning','早上起来迟钝','Lento por la mañana','सुबह सुस्ती']] },
-  { g: ['Skin and Hair', '皮肤与头发', 'Piel y cabello', 'त्वचा और बाल'],
-    h: ['Hair, skin and nails are the body’s discretionary spending: they are funded last when protein and micronutrients are short. That makes them an early visible sign, but a slow one to change back, on the order of three months.',
-        '头发、皮肤、指甲是身体的"可选支出"：蛋白质和微量营养素不足时最后才供给。所以它们是较早出现的可见信号，但变回来很慢，大约要三个月。',
-        'Cabello, piel y uñas son el gasto discrecional del cuerpo: se financian al final cuando falta proteína.',
-        'बाल, त्वचा और नाखून शरीर का विवेकाधीन खर्च हैं, कमी होने पर सबसे बाद में पोषित होते हैं।'],
-    items: [
-      ['Acne or breakouts','Acne or breakouts','长痘','Acné o brotes','मुँहासे'],
-      ['Hair loss or thinning','Hair loss or thinning','掉发或变稀','Caída o adelgazamiento del cabello','बाल झड़ना'],
-      ['Dandruff or itchy scalp','Dandruff or itchy scalp','头皮屑或头皮痒','Caspa o cuero cabelludo con picor','रूसी या खुजली'],
-      ['Dry or brittle hair','Dry or brittle hair','头发干枯易断','Cabello seco o quebradizo','सूखे या भंगुर बाल'],
-      ['Skin allergies or hives','Skin allergies or hives','皮肤过敏或荨麻疹','Alergias cutáneas o urticaria','त्वचा एलर्जी'],
-      ['Dark circles under eyes','Dark circles under eyes','黑眼圈','Ojeras','आँखों के नीचे काले घेरे']] },
-  { g: ["Women's Health", '女性健康', 'Salud femenina', 'महिला स्वास्थ्य'],
-    h: ['Hormones are metabolised and cleared by the liver once they have done their job, which is why this group is read alongside sleep and digestion rather than on its own.',
-        '激素完成作用后由肝脏代谢和清除，所以这一组要和睡眠、消化一起看，而不是单独看。',
-        'Las hormonas se metabolizan en el hígado tras cumplir su función, por eso este grupo se lee junto al sueño y la digestión.',
-        'हार्मोन अपना काम पूरा करने के बाद जिगर द्वारा साफ़ होते हैं।'],
-    items: [
-      ['Heavy menstrual flow','Heavy menstrual flow','经量多','Flujo menstrual abundante','अधिक मासिक रक्तस्राव'],
-      ['Severe period cramps','Severe period cramps','痛经严重','Cólicos menstruales intensos','तेज़ मासिक ऐंठन'],
-      ['PMS (mood, bloating, breast tenderness)','PMS: mood, bloating, breast tenderness','经前综合征（情绪、腹胀、乳房胀痛）','SPM: humor, hinchazón, sensibilidad mamaria','पीएमएस'],
-      ['Irregular periods','Irregular periods','月经不规律','Períodos irregulares','अनियमित मासिक'],
-      ['Low libido','Low libido','性欲低','Libido baja','कम कामेच्छा']] },
-  { g: ['Pain and Inflammation', '疼痛与炎症', 'Dolor e inflamación', 'दर्द और सूजन'],
-    h: ['Pain in a young person with good body composition is rarely mechanical. It usually reflects inflammatory balance, which is set largely by the ratio of fats in the diet and by plant intake.',
-        '年轻、体成分良好的人出现疼痛，很少是机械性的。通常反映炎症平衡，而它主要由饮食脂肪比例和植物摄入量决定。',
-        'El dolor en una persona joven con buena composición rara vez es mecánico; suele reflejar el equilibrio inflamatorio.',
-        'अच्छी शरीर संरचना वाले युवा में दर्द शायद ही यांत्रिक होता है।'],
-    items: [
-      ['Joint pain or stiffness','Joint pain or stiffness','关节痛或僵硬','Dolor o rigidez articular','जोड़ों का दर्द'],
-      ['Back or neck pain','Back or neck pain','腰背或颈部疼痛','Dolor de espalda o cuello','पीठ या गर्दन दर्द'],
-      ['Muscle cramps','Muscle cramps','肌肉抽筋','Calambres musculares','मांसपेशियों में ऐंठन'],
-      ['Numbness or tingling in limbs','Numbness or tingling in limbs','手脚麻木或刺痛','Entumecimiento u hormigueo','अंगों में सुन्नपन'],
-      ['Headaches or migraines','Headaches or migraines','头痛或偏头痛','Dolores de cabeza o migrañas','सिरदर्द या माइग्रेन']] },
-  { g: ['Metabolic', '代谢', 'Metabolismo', 'चयापचय'],
-    h: ['Cravings and binge episodes are usually a blood sugar pattern rather than a willpower problem. That distinction matters, because the fix is meal structure and protein timing, not trying harder.',
-        '嘴馋和暴食通常是血糖模式问题，不是意志力问题。这个区分很重要，因为解法是调整进餐结构和蛋白质时机，而不是更努力地忍。',
-        'Los antojos y atracones suelen ser un patrón de azúcar en sangre, no un problema de voluntad.',
-        'लालसा और अधिक खाना आमतौर पर रक्त शर्करा का पैटर्न है, इच्छाशक्ति की समस्या नहीं।'],
-    items: [
-      ['Unexplained weight gain','Unexplained weight gain','莫名体重增加','Aumento de peso inexplicable','अस्पष्ट वज़न बढ़ना'],
-      ['Difficulty losing weight','Difficulty losing weight','减重困难','Dificultad para perder peso','वज़न घटाने में कठिनाई'],
-      ['Craving sweets or carbs','Craving sweets or carbs','嗜甜或想吃碳水','Antojo de dulces o carbohidratos','मीठे की लालसा'],
-      ['Binge eating episodes','Binge eating episodes','暴食','Episodios de atracones','अधिक खाने के दौरे'],
-      ['Always hungry or never satisfied','Always hungry or never satisfied','总是饿、吃不饱','Siempre con hambre','हमेशा भूख लगना']] }
+ {
+  "key": "lifestyle",
+  "g": [
+   "Lifestyle Habits",
+   "生活习惯",
+   "Hábitos de vida",
+   "जीवनशैली की आदतें"
+  ],
+  "h": [
+   "Your daily habits are the foundation of health, accounting for 60% of what determines your well-being. Staying up late, stress, and poor diet lead to toxin buildup, chronic inflammation, and leave your cells undernourished.",
+   "每天的习惯是健康的基石，占影响健康因素的60%。熬夜、压力、吃不对，会让身体累积毒素、引发慢性炎症，导致细胞吃不饱、营养失衡。",
+   "Sus hábitos diarios son la base de la salud y determinan el 60% de su bienestar. Trasnochar, el estrés y una mala dieta acumulan toxinas, causan inflamación crónica y dejan sus células desnutridas.",
+   "आपकी दैनिक आदतें स्वास्थ्य की नींव हैं और आपकी सेहत का 60% तय करती हैं। देर तक जागना, तनाव और खराब आहार विषाक्त पदार्थ जमा करते हैं।"
+  ],
+  "items": [
+   [
+    "Often stay up late",
+    "Often stay up late",
+    "经常熬夜",
+    "Trasnochar con frecuencia",
+    "अक्सर देर तक जागना"
+   ],
+   [
+    "Feel a lot of pressure from work/life",
+    "Feel a lot of pressure from work or life",
+    "工作生活压力大",
+    "Mucha presión del trabajo o la vida",
+    "काम या जीवन का अधिक दबाव"
+   ],
+   [
+    "Spend excessive time online or prolonged sitting",
+    "Excessive screen time or prolonged sitting",
+    "经常上网、久坐",
+    "Exceso de pantalla o estar sentado mucho tiempo",
+    "अत्यधिक स्क्रीन समय या लंबे समय तक बैठना"
+   ],
+   [
+    "Smoke or drink alcohol frequently",
+    "Smoke or drink alcohol frequently",
+    "经常抽烟、酗酒",
+    "Fumar o beber alcohol con frecuencia",
+    "अक्सर धूम्रपान या शराब"
+   ],
+   [
+    "Hard to get out of bed, sleep-deprived",
+    "Hard to get out of bed, consistently sleep-deprived",
+    "赖床、睡不够",
+    "Cuesta levantarse, falta de sueño constante",
+    "बिस्तर से उठना मुश्किल, लगातार नींद की कमी"
+   ],
+   [
+    "Crave sweets or salty snacks",
+    "Crave sweets or salty snacks",
+    "喜欢吃甜食或咸食",
+    "Antojo de dulces o snacks salados",
+    "मीठे या नमकीन की लालसा"
+   ],
+   [
+    "Prefer eating cold foods",
+    "Prefer eating cold foods",
+    "喜欢吃凉食",
+    "Prefiere comidas frías",
+    "ठंडा भोजन पसंद"
+   ],
+   [
+    "Skip breakfast",
+    "Skip breakfast",
+    "不吃早饭",
+    "Saltarse el desayuno",
+    "नाश्ता छोड़ना"
+   ],
+   [
+    "Engage in binge eating or overeating",
+    "Binge eating or overeating",
+    "暴饮暴食",
+    "Atracones o comer en exceso",
+    "अधिक या तेज़ी से खाना"
+   ]
+  ]
+ },
+ {
+  "key": "digest",
+  "g": [
+   "Digestion",
+   "消化系统",
+   "Digestión",
+   "पाचन"
+  ],
+  "h": [
+   "The digestive system is not only the factory for nutrient absorption but the body's largest immune organ and second brain. Bloating, constipation and bad breath directly reflect gut microbiota, enzyme activity, bile secretion and the integrity of the intestinal barrier. Many systemic diseases begin in the gut, which is why clearing comes first.",
+   "消化系统不仅是营养吸收的工厂，更是人体最大的免疫器官和第二大脑。消化问题如腹胀、便秘、口臭，直接反映了肠道菌群状态、消化酶活性、肝脏胆汁分泌以及肠道粘膜屏障的完整性。许多全身性疾病都始于肠道，因此清肠毒是清调补养中的首要步骤。",
+   "El sistema digestivo es la fábrica de absorción y también el mayor órgano inmune y el segundo cerebro. Muchas enfermedades sistémicas empiezan en el intestino, por eso limpiar es el primer paso.",
+   "पाचन तंत्र न केवल पोषक अवशोषण की फैक्ट्री है, बल्कि शरीर का सबसे बड़ा प्रतिरक्षा अंग भी है। कई रोग आंत से शुरू होते हैं।"
+  ],
+  "items": [
+   [
+    "Bad breath or bitter taste in the mouth",
+    "Bad breath or bitter taste",
+    "口苦口臭",
+    "Mal aliento o sabor amargo",
+    "मुँह की दुर्गंध या कड़वाहट"
+   ],
+   [
+    "Mouth sores",
+    "Mouth sores",
+    "口腔溃疡",
+    "Llagas en la boca",
+    "मुँह के छाले"
+   ],
+   [
+    "Thick tongue coating",
+    "Thick tongue coating",
+    "舌苔厚腻",
+    "Lengua saburral gruesa",
+    "जीभ पर मोटी परत"
+   ],
+   [
+    "Poor digestion",
+    "Poor digestion",
+    "消化不良",
+    "Mala digestión",
+    "खराब पाचन"
+   ],
+   [
+    "Burp or feel bloated easily",
+    "Burp or feel bloated easily",
+    "易打嗝、胀气",
+    "Eructos o hinchazón fácil",
+    "आसानी से डकार या फूलना"
+   ],
+   [
+    "Stomach problems / Gastritis",
+    "Stomach problems or gastritis",
+    "胃炎",
+    "Problemas de estómago o gastritis",
+    "पेट की समस्या या जठरशोथ"
+   ],
+   [
+    "Nausea or feel like throwing up",
+    "Nausea or feeling sick",
+    "易呕吐",
+    "Náuseas o ganas de vomitar",
+    "मतली या उल्टी जैसा"
+   ],
+   [
+    "Fatty liver",
+    "Fatty liver",
+    "脂肪肝",
+    "Hígado graso",
+    "फैटी लिवर"
+   ],
+   [
+    "Liver inflammation",
+    "Liver inflammation",
+    "肝部有炎症",
+    "Inflamación del hígado",
+    "जिगर की सूजन"
+   ],
+   [
+    "Fart a lot",
+    "Fart a lot",
+    "易放屁",
+    "Muchos gases",
+    "अधिक गैस निकलना"
+   ],
+   [
+    "Often have diarrhea",
+    "Often have diarrhoea",
+    "易腹泻",
+    "Diarrea frecuente",
+    "बार-बार दस्त"
+   ],
+   [
+    "Constipation or bloody stool",
+    "Constipation or blood in stool",
+    "便秘、大便带血",
+    "Estreñimiento o sangre en heces",
+    "कब्ज़ या मल में खून"
+   ]
+  ]
+ },
+ {
+  "key": "nerve",
+  "g": [
+   "Nervous System",
+   "神经系统",
+   "Sistema nervioso",
+   "तंत्रिका तंत्र"
+  ],
+  "h": [
+   "Your brain and nerves are the command centre. Headaches, insomnia and mood swings are not just stress: they can signal dysfunction from an overloaded liver or missing nerve nutrients. Please assess the past month.",
+   "大脑和神经是你的指挥中心。头痛、失眠、情绪波动不只是压力大，更可能是肝脏负担过重、神经营养缺乏导致的功能紊乱信号，提醒你需要排毒减压和补充细胞营养。请评估最近一个月的状态。",
+   "El cerebro y los nervios son el centro de mando. Dolores de cabeza, insomnio y cambios de humor pueden señalar disfunción por un hígado sobrecargado o falta de nutrientes nerviosos.",
+   "मस्तिष्क और तंत्रिकाएँ नियंत्रण केंद्र हैं। सिरदर्द, अनिद्रा और मूड बदलाव अधिभारित जिगर या पोषक कमी का संकेत दे सकते हैं।"
+  ],
+  "items": [
+   [
+    "Feel dizzy",
+    "Feel dizzy",
+    "头晕",
+    "Mareos",
+    "चक्कर आना"
+   ],
+   [
+    "Often have headaches",
+    "Often have headaches",
+    "头疼",
+    "Dolores de cabeza frecuentes",
+    "बार-बार सिरदर्द"
+   ],
+   [
+    "Get car sick or motion sickness easily",
+    "Motion sickness easily",
+    "晕车晕船",
+    "Mareo por movimiento",
+    "गति से जी मिचलाना"
+   ],
+   [
+    "Feel your mind is not clear",
+    "Brain fog, mind not clear",
+    "头脑不清",
+    "Mente poco clara",
+    "मन साफ़ नहीं"
+   ],
+   [
+    "Prone to small accidents",
+    "Prone to small accidents",
+    "易生意外",
+    "Propenso a accidentes menores",
+    "छोटी दुर्घटनाओं की प्रवृत्ति"
+   ],
+   [
+    "Hard to focus",
+    "Hard to focus",
+    "注意力不集中",
+    "Dificultad para concentrarse",
+    "ध्यान लगाने में कठिनाई"
+   ],
+   [
+    "Easy to forget things",
+    "Forgetfulness",
+    "健忘",
+    "Olvidos",
+    "भूलने की आदत"
+   ],
+   [
+    "Trouble hearing",
+    "Trouble hearing",
+    "听力障碍",
+    "Problemas de audición",
+    "सुनने में कठिनाई"
+   ],
+   [
+    "Ears ringing",
+    "Ears ringing",
+    "耳鸣",
+    "Zumbido en los oídos",
+    "कानों में घंटी"
+   ],
+   [
+    "Hard to fall asleep or often have vivid dreams",
+    "Hard to fall asleep or vivid dreams",
+    "失眠多梦",
+    "Insomnio o sueños vívidos",
+    "अनिद्रा या ज्वलंत सपने"
+   ],
+   [
+    "Restless sleep",
+    "Restless sleep",
+    "睡不安宁",
+    "Sueño inquieto",
+    "बेचैन नींद"
+   ],
+   [
+    "Wake up easily at night, especially startled",
+    "Wake up startled at night",
+    "夜惊易醒",
+    "Despertar sobresaltado",
+    "रात में चौंककर जागना"
+   ],
+   [
+    "Hard to relax",
+    "Hard to relax",
+    "难放松",
+    "Dificultad para relajarse",
+    "आराम करने में कठिनाई"
+   ],
+   [
+    "Feel mentally tense",
+    "Feel mentally tense",
+    "精神紧张",
+    "Tensión mental",
+    "मानसिक तनाव"
+   ],
+   [
+    "Feel anxious or nervous",
+    "Feel anxious or nervous",
+    "情绪不安",
+    "Ansiedad o nerviosismo",
+    "चिंता या घबराहट"
+   ],
+   [
+    "Often feel down or sad",
+    "Often feel down or sad",
+    "心情郁闷",
+    "Ánimo bajo o tristeza",
+    "उदासी या मन खराब"
+   ],
+   [
+    "Lose temper easily",
+    "Lose temper easily",
+    "易发脾气",
+    "Perder los estribos fácilmente",
+    "जल्दी गुस्सा आना"
+   ],
+   [
+    "Feel out of control with emotions",
+    "Emotions feel out of control",
+    "情绪失控",
+    "Emociones fuera de control",
+    "भावनाएँ नियंत्रण से बाहर"
+   ],
+   [
+    "Eyes sensitive to light, tear easily",
+    "Eyes sensitive to light, tear easily",
+    "眼怕光易流泪",
+    "Ojos sensibles a la luz, lagrimeo",
+    "आँखें प्रकाश के प्रति संवेदनशील"
+   ],
+   [
+    "Eyes feel dry, sore, or achy",
+    "Eyes dry, sore or achy",
+    "眼干涩、胀痛",
+    "Ojos secos o doloridos",
+    "आँखें सूखी या दुखती"
+   ],
+   [
+    "Eyes get infected easily",
+    "Eyes get infected easily",
+    "眼部易感染",
+    "Infecciones oculares frecuentes",
+    "आँखों में बार-बार संक्रमण"
+   ],
+   [
+    "Dark circles, puffy eyes",
+    "Dark circles or puffy eyes",
+    "黑眼圈、易浮肿",
+    "Ojeras o hinchazón ocular",
+    "काले घेरे या सूजी आँखें"
+   ],
+   [
+    "Poor night vision, blurry vision",
+    "Poor night vision or blurry vision",
+    "夜盲、眼花",
+    "Mala visión nocturna o borrosa",
+    "रतौंधी या धुंधली दृष्टि"
+   ],
+   [
+    "Bleed easily when brushing teeth",
+    "Gums bleed when brushing",
+    "刷牙易出血",
+    "Sangrado al cepillarse",
+    "ब्रश करते समय खून"
+   ],
+   [
+    "Gum problems or frequent toothaches",
+    "Gum problems or toothache",
+    "牙龈炎、牙周炎",
+    "Problemas de encías o dolor dental",
+    "मसूड़ों की समस्या या दांत दर्द"
+   ],
+   [
+    "Loose teeth or cavities",
+    "Loose teeth or cavities",
+    "牙齿松动、蛀牙",
+    "Dientes flojos o caries",
+    "ढीले दांत या कैविटी"
+   ]
+  ]
+ },
+ {
+  "key": "skin",
+  "g": [
+   "Skin and Hair",
+   "皮肤系统",
+   "Piel y cabello",
+   "त्वचा और बाल"
+  ],
+  "h": [
+   "The skin is the body's largest organ and a mirror of internal health. Acne, pigmentation, allergies and hair loss are not cosmetic concerns but signals of internal imbalance: liver detoxification, gut health, inflammation, hormonal balance and micronutrient status all show here.",
+   "皮肤是人体最大的器官，也是内脏健康和外排毒素的镜子。痤疮、色斑、皮肤过敏、脱发等问题，不仅是外在美观问题，更是内部失衡的信号——肝脏解毒功能、肠道健康、炎症水平、激素平衡以及微量营养状况，都会直观地反映在皮肤和头发上。",
+   "La piel es el órgano más grande y un espejo de la salud interna. El acné, la pigmentación, las alergias y la caída del cabello no son problemas estéticos sino señales de desequilibrio interno.",
+   "त्वचा शरीर का सबसे बड़ा अंग और आंतरिक स्वास्थ्य का दर्पण है। मुँहासे, रंजकता, एलर्जी और बाल झड़ना आंतरिक असंतुलन के संकेत हैं।"
+  ],
+  "items": [
+   [
+    "Hair falling out easily",
+    "Hair falling out easily",
+    "易掉头发",
+    "Caída fácil del cabello",
+    "बाल आसानी से झड़ना"
+   ],
+   [
+    "Dry, dull, or yellowish hair",
+    "Dry, dull, or yellowish hair",
+    "头发干、枯、黄",
+    "Cabello seco, opaco o amarillento",
+    "सूखे, बेजान या पीले बाल"
+   ],
+   [
+    "Lots of dandruff or itchy scalp",
+    "Lots of dandruff or itchy scalp",
+    "头皮屑多、痒",
+    "Mucha caspa o picor del cuero cabelludo",
+    "अधिक रूसी या खुजली"
+   ],
+   [
+    "A lot of grey hair",
+    "A lot of grey hair",
+    "白头发多",
+    "Mucho cabello gris",
+    "अधिक सफ़ेद बाल"
+   ],
+   [
+    "Acne on the face",
+    "Acne on the face",
+    "面部有痤疮",
+    "Acné en el rostro",
+    "चेहरे पर मुँहासे"
+   ],
+   [
+    "Red blood vessels showing on the face",
+    "Red blood vessels showing on the face",
+    "面部有红血丝",
+    "Vasos rojos visibles en el rostro",
+    "चेहरे पर लाल नसें"
+   ],
+   [
+    "Nail fungus",
+    "Nail fungus",
+    "灰指甲",
+    "Hongos en las uñas",
+    "नाखून में फफूंद"
+   ],
+   [
+    "Skin allergies or itching",
+    "Skin allergies or itching",
+    "皮肤过敏、发痒",
+    "Alergias cutáneas o picor",
+    "त्वचा एलर्जी या खुजली"
+   ],
+   [
+    "Skin grows small lumps easily",
+    "Skin grows small lumps easily",
+    "皮肤易长异物",
+    "La piel forma bultos con facilidad",
+    "त्वचा पर आसानी से गांठें"
+   ],
+   [
+    "Athlete's foot",
+    "Athlete's foot",
+    "脚气",
+    "Pie de atleta",
+    "एथलीट फुट"
+   ]
+  ]
+ },
+ {
+  "key": "bone",
+  "g": [
+   "Bones, Joints and Immunity",
+   "运动系统与免疫",
+   "Huesos, articulaciones e inmunidad",
+   "हड्डियाँ, जोड़ और प्रतिरक्षा"
+  ],
+  "h": [
+   "Back pain, joint stiffness and cramps are not merely strain or ageing. They relate closely to local circulation, inflammation, bone mineral density and the nutritional status of connective tissue.",
+   "腰酸背痛、关节僵硬、抽筋等问题，不仅是劳损或衰老，更与局部血液循环、炎症水平、骨骼矿物质密度以及结缔组织的营养状况息息相关。",
+   "El dolor de espalda, la rigidez articular y los calambres no son solo desgaste o edad. Se relacionan con circulación local, inflamación y densidad mineral ósea.",
+   "पीठ दर्द, जोड़ों की जकड़न और ऐंठन केवल उम्र नहीं हैं। ये स्थानीय संचार और सूजन से जुड़े हैं।"
+  ],
+  "items": [
+   [
+    "Cold, sweaty hands and feet",
+    "Cold, sweaty hands and feet",
+    "手足冰凉、易潮",
+    "Manos y pies fríos y sudorosos",
+    "ठंडे पसीने वाले हाथ-पैर"
+   ],
+   [
+    "Numbness or swelling in arms or legs",
+    "Numbness or swelling in limbs",
+    "四肢麻、胀痛",
+    "Entumecimiento o hinchazón en extremidades",
+    "अंगों में सुन्नपन या सूजन"
+   ],
+   [
+    "Muscle cramps",
+    "Muscle cramps",
+    "易抽筋",
+    "Calambres musculares",
+    "मांसपेशियों में ऐंठन"
+   ],
+   [
+    "Get sick or infected easily",
+    "Get sick or infected easily",
+    "易感染",
+    "Enfermarse o infectarse fácilmente",
+    "आसानी से बीमार या संक्रमित"
+   ],
+   [
+    "Arthritis",
+    "Arthritis",
+    "关节炎",
+    "Artritis",
+    "गठिया"
+   ],
+   [
+    "Cold feeling in lower back",
+    "Cold feeling in the lower back",
+    "腰部发凉",
+    "Sensación de frío en la zona lumbar",
+    "पीठ के निचले हिस्से में ठंडक"
+   ],
+   [
+    "Lumbar disc problems",
+    "Lumbar disc problems",
+    "腰椎间盘突出",
+    "Problemas del disco lumbar",
+    "कमर की डिस्क समस्या"
+   ],
+   [
+    "Bone spurs or bone growth",
+    "Bone spurs",
+    "骨刺、骨质增生",
+    "Espolones óseos",
+    "हड्डी के काँटे"
+   ],
+   [
+    "Back pain",
+    "Back pain",
+    "腰酸背疼",
+    "Dolor de espalda",
+    "पीठ दर्द"
+   ],
+   [
+    "Neck stiffness or neck pain",
+    "Neck stiffness or pain",
+    "颈项僵硬、疼痛",
+    "Rigidez o dolor de cuello",
+    "गर्दन में अकड़न या दर्द"
+   ],
+   [
+    "Spine stiffness or pain",
+    "Spine stiffness or pain",
+    "脊椎僵硬、疼痛",
+    "Rigidez o dolor de columna",
+    "रीढ़ में अकड़न या दर्द"
+   ]
+  ]
+ },
+ {
+  "key": "hormone",
+  "g": [
+   "Hormones",
+   "内分泌系统",
+   "Hormonas",
+   "हार्मोन"
+  ],
+  "h": [
+   "The endocrine system is the body's regulator. Abnormal weight, irregular periods and blood sugar issues are direct manifestations of imbalance. Modern life severely disrupts it, and restoring balance hinges on reducing bodily burden, balanced nutrition and a regular routine.",
+   "内分泌系统是身体的调节器，通过激素调控新陈代谢、生长发育、情绪和生殖等。体重异常、月经不调、血糖问题等，都是内分泌失衡的直观表现。恢复内分泌平衡的关键在于减轻身体负担（排毒）、提供均衡营养和规律生活。",
+   "El sistema endocrino es el regulador del cuerpo. El peso anormal y los problemas de azúcar son manifestaciones directas de desequilibrio.",
+   "अंतःस्रावी तंत्र शरीर का नियामक है। असामान्य वज़न और रक्त शर्करा असंतुलन के प्रत्यक्ष संकेत हैं।"
+  ],
+  "items": [
+   [
+    "Unusual weight gain or weight loss",
+    "Unusual weight gain or loss",
+    "体重不正常增减",
+    "Cambio de peso inusual",
+    "असामान्य वज़न परिवर्तन"
+   ],
+   [
+    "Too skinny or overweight",
+    "Too thin or overweight",
+    "身体肥胖或太瘦",
+    "Demasiado delgado o con sobrepeso",
+    "बहुत पतला या अधिक वज़न"
+   ],
+   [
+    "High or low blood sugar",
+    "High or low blood sugar",
+    "高、低血糖",
+    "Azúcar alto o bajo",
+    "उच्च या निम्न रक्त शर्करा"
+   ]
+  ]
+ },
+ {
+  "key": "resp",
+  "g": [
+   "Respiratory",
+   "呼吸系统",
+   "Sistema respiratorio",
+   "श्वसन तंत्र"
+  ],
+  "h": [
+   "Recurrent colds, coughs and rhinitis are not merely poor immunity. Their roots often lie in gut health, where 70% of immune cells reside, liver detoxification, and deficiencies in anti-inflammatory nutrients.",
+   "反复感冒、咳嗽、鼻炎等问题，不仅是免疫力差的表面现象，其根源往往在于肠道健康（人体70%免疫细胞在肠道）、肝脏解毒功能以及抗炎营养素的缺乏，导致呼吸道粘膜防御力和细胞修复力下降。",
+   "Resfriados, tos y rinitis recurrentes no son solo baja inmunidad. Su raíz suele estar en la salud intestinal, donde reside el 70% de las células inmunes.",
+   "बार-बार सर्दी और राइनाइटिस केवल कम प्रतिरक्षा नहीं है। जड़ आंत स्वास्थ्य में है, जहाँ 70% प्रतिरक्षा कोशिकाएँ हैं।"
+  ],
+  "items": [
+   [
+    "Cough easily",
+    "Cough easily",
+    "易咳嗽",
+    "Tos fácil",
+    "आसानी से खांसी"
+   ],
+   [
+    "Runny nose easily",
+    "Runny nose easily",
+    "易流鼻水",
+    "Nariz que gotea con facilidad",
+    "आसानी से नाक बहना"
+   ],
+   [
+    "Sneeze a lot",
+    "Sneeze a lot",
+    "易打喷嚏",
+    "Estornudar mucho",
+    "बहुत छींक आना"
+   ],
+   [
+    "Catch colds often",
+    "Catch colds often",
+    "常感冒",
+    "Resfriados frecuentes",
+    "बार-बार सर्दी"
+   ],
+   [
+    "Often have nasal allergies",
+    "Nasal allergies",
+    "鼻炎",
+    "Alergias nasales",
+    "नाक की एलर्जी"
+   ],
+   [
+    "Sore throat",
+    "Sore throat",
+    "咽炎",
+    "Dolor de garganta",
+    "गले में खराश"
+   ],
+   [
+    "Nosebleeds easily",
+    "Nosebleeds easily",
+    "易流鼻血",
+    "Sangrado nasal fácil",
+    "आसानी से नकसीर"
+   ],
+   [
+    "Asthma or bronchitis",
+    "Asthma or bronchitis",
+    "气管炎、哮喘",
+    "Asma o bronquitis",
+    "दमा या ब्रोंकाइटिस"
+   ]
+  ]
+ },
+ {
+  "key": "circ",
+  "g": [
+   "Circulation",
+   "循环系统",
+   "Circulación",
+   "रक्त संचार"
+  ],
+  "h": [
+   "The circulatory system delivers oxygen and nutrients and removes waste. Chest tightness, palpitations and leg weakness reflect heart pumping function, vessel elasticity and blood quality, closely linked to lipids, blood sugar, chronic inflammation and oxidative damage to the vessel lining.",
+   "循环系统是身体的运输网络，负责输送氧气、营养和带走代谢废物。胸闷、心慌、下肢无力等问题，直接反映了心脏泵血功能、血管弹性及血液质量的状况。与血脂异常、血糖不稳定、慢性炎症和氧化应激对血管内皮细胞的损伤密切相关。",
+   "El sistema circulatorio entrega oxígeno y nutrientes y retira desechos. La opresión torácica y las palpitaciones reflejan función cardíaca y calidad sanguínea.",
+   "संचार तंत्र ऑक्सीजन पहुँचाता और अपशिष्ट हटाता है। सीने में जकड़न हृदय कार्य दर्शाती है।"
+  ],
+  "items": [
+   [
+    "Chest tightness, hard to breathe",
+    "Chest tightness or breathlessness",
+    "胸闷气喘",
+    "Opresión torácica o falta de aire",
+    "सीने में जकड़न या साँस फूलना"
+   ],
+   [
+    "Heart beating fast or irregular",
+    "Heart beating fast or irregular",
+    "心慌、心律不齐",
+    "Latido rápido o irregular",
+    "तेज़ या अनियमित धड़कन"
+   ],
+   [
+    "Leg weakness",
+    "Leg weakness",
+    "下肢无力",
+    "Debilidad en las piernas",
+    "पैरों में कमज़ोरी"
+   ],
+   [
+    "High blood lipids, thick blood",
+    "High blood lipids or thick blood",
+    "高血脂、血粘",
+    "Lípidos altos o sangre espesa",
+    "उच्च रक्त वसा"
+   ],
+   [
+    "High or low blood pressure",
+    "High or low blood pressure",
+    "高、低血压",
+    "Presión alta o baja",
+    "उच्च या निम्न रक्तचाप"
+   ],
+   [
+    "Anemia",
+    "Anaemia",
+    "贫血",
+    "Anemia",
+    "रक्ताल्पता"
+   ],
+   [
+    "Varicose veins",
+    "Varicose veins",
+    "静脉曲张",
+    "Varices",
+    "वैरिकाज़ नसें"
+   ]
+  ]
+ },
+ {
+  "key": "repro",
+  "g": [
+   "Reproductive and Urinary",
+   "生殖与泌尿系统",
+   "Reproductivo y urinario",
+   "प्रजनन और मूत्र तंत्र"
+  ],
+  "h": [
+   "Reproductive health is tied to sex hormone balance, pelvic circulation and local immunity. The urinary system filters blood and regulates acid-base balance; infections, stones and high uric acid reflect kidney filtration, urinary tract patency and metabolic waste levels.",
+   "生殖系统的健康与性激素平衡、盆腔血液循环及局部免疫力息息相关。泌尿系统负责过滤血液、形成并排出尿液。感染、结石、尿酸高等问题，直接反映了肾脏的过滤功能、尿路的通畅性以及体内代谢废物的水平。",
+   "La salud reproductiva se liga al equilibrio hormonal, la circulación pélvica y la inmunidad local. El sistema urinario filtra la sangre y regula el equilibrio ácido-base.",
+   "प्रजनन स्वास्थ्य हार्मोन संतुलन और श्रोणि संचार से जुड़ा है। मूत्र तंत्र रक्त छानता है।"
+  ],
+  "items": [
+   [
+    "Dark or cloudy urine",
+    "Dark or cloudy urine",
+    "尿色深、浊",
+    "Orina oscura o turbia",
+    "गहरा या धुंधला मूत्र"
+   ],
+   [
+    "Pee often, urgent pee, or bed-wetting",
+    "Frequent or urgent urination",
+    "尿频、尿急、遗尿",
+    "Orinar con frecuencia o urgencia",
+    "बार-बार या तत्काल पेशाब"
+   ],
+   [
+    "Urinary tract infection, painful urination",
+    "Urinary infection or painful urination",
+    "尿道感染、小便疼痛",
+    "Infección urinaria o dolor al orinar",
+    "मूत्र संक्रमण या पेशाब में दर्द"
+   ],
+   [
+    "Low sex drive or sexual problems",
+    "Low libido or sexual difficulty",
+    "性生活障碍",
+    "Libido baja o dificultades sexuales",
+    "कम कामेच्छा"
+   ],
+   [
+    "Period pain or abnormal discharge",
+    "Period pain or abnormal discharge",
+    "痛经、分泌异常",
+    "Dolor menstrual o flujo anormal",
+    "मासिक दर्द या असामान्य स्राव"
+   ],
+   [
+    "Gynecological infections",
+    "Gynaecological infections",
+    "妇科炎症",
+    "Infecciones ginecológicas",
+    "स्त्री रोग संक्रमण"
+   ],
+   [
+    "High uric acid or gout",
+    "High uric acid or gout",
+    "高尿酸、痛风",
+    "Ácido úrico alto o gota",
+    "उच्च यूरिक एसिड या गठिया"
+   ],
+   [
+    "Stones in gallbladder, kidney, or urinary tract",
+    "Gallstones or kidney stones",
+    "胆、尿、肾等有结石",
+    "Cálculos biliares o renales",
+    "पित्त या गुर्दे की पथरी"
+   ]
+  ]
+ }
 ];
 
 const SYMPTOM_HELP = {
- "Hard to fall asleep": [
-  "Trouble getting to sleep is usually a wind-down problem rather than a tiredness problem: the nervous system has not switched out of its alert state. Screens in the last half hour are the most common single cause.",
-  "入睡困难通常不是不够累，而是没能从警觉状态切换下来。睡前半小时用屏幕是最常见的单一原因。",
-  "Costar dormirse suele ser un problema de desconexión, no de cansancio: el sistema nervioso no ha salido de su estado de alerta.",
-  "सोने में कठिनाई आमतौर पर थकान की नहीं, बल्कि शांत होने की समस्या है।"
+ "Often stay up late": [
+  "Staying up late disrupts your liver's nightly detox and repair cycle, leading to toxin buildup, metabolic issues, poor skin, and lowered immunity. It sabotages your next day and long-term health.",
+  "熬夜直接阻碍肝脏夜间排毒与自我修复，导致毒素累积、代谢紊乱、皮肤变差和免疫力下降，让你第二天状态打折，长期拖垮健康。",
+  "Trasnochar interrumpe el ciclo nocturno de desintoxicación y reparación del hígado, causando acumulación de toxinas, problemas metabólicos, mala piel e inmunidad baja.",
+  "देर तक जागना जिगर के रात्रिकालीन विषहरण और मरम्मत चक्र को बाधित करता है, जिससे विषाक्त पदार्थ जमा होते हैं और रोग प्रतिरोधक क्षमता घटती है।"
  ],
- "Wake up during the night": [
-  "Waking through the night breaks sleep into fragments, so total hours can look fine while the restorative depth never arrives. If it happens at a consistent hour that is more informative than the waking itself.",
-  "半夜醒来会把睡眠切成碎片，所以总时长看起来正常，但真正修复性的深睡从未到达。如果每次都在固定时间点醒，这比「醒了」本身更有信息量。",
-  "Despertarse durante la noche fragmenta el sueño, así que las horas totales parecen bien mientras la profundidad reparadora nunca llega.",
-  "रात में जागना नींद को टुकड़ों में बाँट देता है, इसलिए कुल घंटे ठीक दिखते हैं पर गहरी नींद नहीं मिलती।"
+ "Feel a lot of pressure from work/life": [
+  "Chronic stress keeps your body in constant fight-or-flight mode, draining nutrients, suppressing immunity, and increasing inflammation. It is a key driver of anxiety, insomnia, and metabolic issues.",
+  "长期高压状态让身体持续备战，消耗大量营养，抑制免疫，升高炎症水平，是导致焦虑、失眠和代谢问题的核心原因之一。",
+  "El estrés crónico mantiene el cuerpo en modo de lucha o huida, agotando nutrientes, suprimiendo la inmunidad y aumentando la inflamación. Es un motor clave de ansiedad, insomnio y problemas metabólicos.",
+  "पुराना तनाव शरीर को लगातार सतर्क अवस्था में रखता है, पोषक तत्व खर्च करता है, प्रतिरक्षा दबाता है और सूजन बढ़ाता है।"
  ],
- "Hard to fall back asleep": [
-  "Getting back to sleep is a different mechanism from getting to sleep in the first place. Difficulty here often means blood sugar dropped or the stress response fired, rather than a sleep-onset problem.",
-  "再次入睡和最初入睡是两套机制。这里困难，往往说明血糖掉了或应激反应被触发，而不是入睡本身有问题。",
-  "Volver a dormirse es un mecanismo distinto al de dormirse al principio; suele indicar una caída de azúcar o una respuesta de estrés.",
-  "फिर से सोना पहली बार सोने से अलग तंत्र है; यह अक्सर रक्त शर्करा गिरने का संकेत है।"
+ "Spend excessive time online or prolonged sitting": [
+  "Prolonged sitting harms circulation and metabolism. Screen time strains your eyes and liver, while poor posture damages your neck and back: a combination of health risks.",
+  "久坐不动影响血液循环与新陈代谢，长时间用眼加剧眼疲劳和肝脏负担，不良坐姿更会伤害颈椎腰椎，是复合型健康风险。",
+  "Estar sentado mucho tiempo daña la circulación y el metabolismo. La pantalla fatiga los ojos y el hígado, y la mala postura daña cuello y espalda.",
+  "लंबे समय तक बैठना रक्त संचार और चयापचय को नुकसान पहुँचाता है। स्क्रीन आँखों और जिगर पर दबाव डालती है।"
  ],
- "Vivid dreams or nightmares": [
-  "Unusually vivid dreaming often means sleep is light rather than deep, so more of the night is spent in the dreaming stage. It commonly travels with late meals, alcohol, or a busy mind at bedtime.",
-  "梦特别多、特别真实，通常说明睡眠浅而不深，整夜有更多时间停留在做梦阶段。常和晚餐太晚、饮酒或睡前思绪多同时出现。",
-  "Los sueños muy vívidos suelen indicar sueño ligero en vez de profundo, con más noche en la fase de sueño.",
-  "बहुत ज्वलंत सपने आमतौर पर हल्की नींद का संकेत हैं, गहरी नींद का नहीं।"
+ "Smoke or drink alcohol frequently": [
+  "Tobacco and alcohol are direct toxins, damaging cells in your lungs, liver, and heart. They overload your detox system, disrupt gut health, and significantly raise your risk of cancer and chronic disease.",
+  "烟草和酒精是直接毒素，损伤肺、肝和心血管细胞，加重身体解毒负担，破坏肠道菌群，大幅增加患癌及慢性病风险。",
+  "El tabaco y el alcohol son toxinas directas que dañan células de pulmones, hígado y corazón. Sobrecargan la desintoxicación y elevan mucho el riesgo de cáncer y enfermedades crónicas.",
+  "तंबाकू और शराब सीधे विषाक्त पदार्थ हैं जो फेफड़ों, जिगर और हृदय की कोशिकाओं को नुकसान पहुँचाते हैं।"
  ],
- "Restless or poor sleep quality": [
-  "Quality is separate from quantity. Eight restless hours repair less than six settled ones, which is why this is asked apart from bedtime.",
-  "质量和时长是两回事。八小时不安稳的睡眠，修复效果不如六小时安稳的，所以这题和睡觉时间分开问。",
-  "La calidad es distinta de la cantidad: ocho horas inquietas reparan menos que seis tranquilas.",
-  "गुणवत्ता मात्रा से अलग है। आठ बेचैन घंटे छह शांत घंटों से कम मरम्मत करते हैं।"
+ "Hard to get out of bed, sleep-deprived": [
+  "Feeling tired even after long hours in bed signals poor sleep quality and lack of deep, restorative sleep. Your body is not repairing itself effectively, which may indicate underlying issues.",
+  "即使睡很久仍感疲惫，说明睡眠质量差、深度睡眠不足，身体未能有效修复。这可能是代谢低或潜在健康问题的信号。",
+  "Sentirse cansado incluso tras muchas horas en cama indica mala calidad de sueño y falta de sueño profundo reparador. Su cuerpo no se está reparando eficazmente.",
+  "बिस्तर पर लंबे घंटों के बाद भी थकान खराब नींद की गुणवत्ता और गहरी नींद की कमी दर्शाती है।"
  ],
- "Wake up tired even after 8 hours": [
-  "This is the clearest sign that the hours are there but the depth is not. It points at what is interrupting sleep rather than at how long you sleep.",
-  "这是「时长够了但深度不够」最清楚的信号。它指向的是什么在打断睡眠，而不是你睡了多久。",
-  "Es la señal más clara de que las horas están pero la profundidad no.",
-  "यह सबसे स्पष्ट संकेत है कि घंटे तो हैं पर गहराई नहीं।"
+ "Crave sweets or salty snacks": [
+  "A sweet tooth can cause blood sugar spikes and insulin resistance, paving the way for obesity and diabetes. Salty cravings raise blood pressure risk. Both are often tied to emotional eating and inflammation.",
+  "嗜甜易导致血糖剧烈波动和胰岛素抵抗，是肥胖和糖尿病的前奏。嗜咸会增加高血压风险。这两种偏好常与情绪化饮食和炎症有关。",
+  "El gusto por lo dulce provoca picos de azúcar y resistencia a la insulina, abriendo camino a la obesidad y la diabetes. Lo salado eleva el riesgo de hipertensión.",
+  "मीठे की लालसा रक्त शर्करा में उछाल और इंसुलिन प्रतिरोध पैदा करती है। नमकीन की लालसा रक्तचाप का जोखिम बढ़ाती है।"
  ],
- "Anxiety or mental tension": [
-  "Sustained tension keeps the body in its alert state, which burns through B vitamins and magnesium faster than a calm day does. In this framework it also connects to the liver.",
-  "长期紧张会让身体停在警觉状态，比平静的一天消耗更多B族维生素和镁。在这套框架里它也和肝相连。",
-  "La tensión sostenida mantiene el estado de alerta, que consume vitaminas B y magnesio más rápido.",
-  "लगातार तनाव शरीर को सतर्क अवस्था में रखता है, जो बी विटामिन और मैग्नीशियम तेज़ी से खर्च करता है।"
+ "Prefer eating cold foods": [
+  "Regularly eating cold or raw foods can weaken digestion, causing bloating and diarrhoea, and impair nutrient absorption. Long-term, this worsens cellular hidden hunger, sapping your energy at the source.",
+  "常吃生冷食物可能减弱消化功能，导致腹胀、腹泻，影响营养吸收，长期会加剧细胞的隐性饥饿，从根源上影响活力。",
+  "Comer con regularidad alimentos fríos o crudos debilita la digestión, causa hinchazón y diarrea, y afecta la absorción. A largo plazo agrava el hambre oculta celular.",
+  "नियमित रूप से ठंडा या कच्चा भोजन पाचन कमज़ोर करता है और पोषक तत्वों के अवशोषण को बाधित करता है।"
  ],
- "Heart palpitations": [
-  "Usually travels with the stress and sleep picture rather than indicating a cardiac problem, but it is worth mentioning to a physician for completeness.",
-  "通常和压力、睡眠那组一起出现，而不是心脏本身的问题，但为稳妥起见值得跟医生提一句。",
-  "Suele acompañar al cuadro de estrés y sueño más que indicar un problema cardíaco, pero conviene mencionarlo al médico.",
-  "यह आमतौर पर तनाव और नींद के साथ चलता है, फिर भी डॉक्टर को बताना उचित है।"
+ "Skip breakfast": [
+  "Skipping breakfast disrupts your daily metabolic rhythm, leading to low morning energy, overeating at lunch, and harming gallbladder health. It makes weight and blood sugar management harder.",
+  "省略早餐打乱全天代谢节奏，可能导致上午精力不济、午餐暴食，影响胆囊健康，并给体重和血糖管理增加难度。",
+  "Saltarse el desayuno altera el ritmo metabólico diario, provoca poca energía matinal, exceso en el almuerzo y daña la vesícula. Dificulta el manejo del peso y del azúcar.",
+  "नाश्ता छोड़ना दैनिक चयापचय लय बिगाड़ता है, सुबह ऊर्जा कम करता है और दोपहर में अधिक खाने की ओर ले जाता है।"
  ],
- "Cold sweaty hands or feet": [
-  "Peripheral circulation is what the body reduces first when it is conserving or under sustained stress, so cold extremities are usually a signal from the nervous system rather than a circulation defect.",
-  "身体在节省或长期承压时最先减少的就是末梢循环，所以手脚冰凉通常是神经系统发出的信号，而不是循环本身有毛病。",
-  "La circulación periférica es lo primero que el cuerpo reduce bajo estrés sostenido.",
-  "तनाव में शरीर सबसे पहले परिधीय रक्त संचार घटाता है।"
+ "Engage in binge eating or overeating": [
+  "Overloading your system with food in a short time shocks your digestion, causing bloating and acid reflux. Long-term it damages your gut, disrupts blood sugar and hormones, leading directly to obesity and metabolic issues.",
+  "短时内大量进食会严重冲击消化系统，引发胃胀、反酸，长期会损伤胃肠、扰乱血糖和激素，直接导致肥胖和代谢紊乱。",
+  "Sobrecargar el sistema con comida en poco tiempo golpea la digestión, causando hinchazón y reflujo. A largo plazo daña el intestino y altera azúcar y hormonas.",
+  "कम समय में अधिक भोजन पाचन पर आघात करता है, जिससे फूलना और एसिड रिफ्लक्स होता है।"
  ],
- "Difficulty relaxing or winding down": [
-  "Magnesium is what muscle and nervous tissue use to relax, so this answer specifically informs whether that is worth addressing.",
-  "镁是肌肉和神经组织用来放松的原料，所以这一题直接决定要不要处理这一块。",
-  "El magnesio es lo que usan el músculo y el tejido nervioso para relajarse.",
-  "मैग्नीशियम वह है जिससे मांसपेशी और तंत्रिका ऊतक शिथिल होते हैं।"
+ "Bad breath or bitter taste in the mouth": [
+  "A bitter taste is often related to bile reflux, indicating poor liver and gallbladder function. Bad breath mostly comes from oral bacteria, but persistent bad breath may link to gastrointestinal issues (H. pylori, low stomach acid, constipation causing toxin reabsorption) or poor liver and kidney metabolism.",
+  "口苦常与胆汁反流有关，提示肝胆疏泄功能不佳。口臭大部分源于口腔细菌分解食物残渣产生挥发性硫化物，但顽固性口臭可能与胃肠道问题（如幽门螺杆菌感染、胃酸过低、便秘导致毒素重吸收）、或肝肾功能代谢不良有关。",
+  "El sabor amargo suele relacionarse con reflujo biliar, indicando mala función hepatobiliar. El mal aliento persistente puede vincularse a problemas gastrointestinales o mal metabolismo hepático y renal.",
+  "कड़वा स्वाद अक्सर पित्त प्रतिवाह से जुड़ा है। लगातार दुर्गंध जठरांत्र समस्याओं से जुड़ी हो सकती है।"
  ],
- "Poor digestion or feel full quickly": [
-  "Feeling full early usually means the stomach is emptying slowly, which is what happens when digestive capacity is low. Meal size and pace matter more here than what is eaten.",
-  "很快就饱，通常说明胃排空慢，这是消化能力不足的表现。这种情况下进餐的量和速度比吃什么更重要。",
-  "Saciarse pronto suele significar vaciado gástrico lento, señal de baja capacidad digestiva.",
-  "जल्दी भरा लगना धीमे गैस्ट्रिक खाली होने का संकेत है।"
+ "Mouth sores": [
+  "Breaks and ulcers in the oral mucosa relate to reduced local immunity and insufficient mucosal repair. Common triggers include stress, lack of sleep, nutritional deficiency (especially B vitamins, iron, zinc), food allergy or intolerance, or an oral manifestation of gut disease.",
+  "口腔粘膜的破损和溃疡，与局部免疫力下降、粘膜修复能力不足有关。常见诱因包括压力、熬夜、营养缺乏（尤其是维生素B族、铁、锌）、食物过敏或不耐受，或胃肠道问题的口腔表现。",
+  "Úlceras en la mucosa oral por baja inmunidad local y reparación insuficiente. Desencadenantes comunes: estrés, falta de sueño, déficit de vitaminas B, hierro y zinc.",
+  "मौखिक श्लेष्मा के छाले कम स्थानीय प्रतिरक्षा से जुड़े हैं। तनाव, नींद की कमी और बी विटामिन की कमी आम कारण हैं।"
  ],
- "Bloating after meals": [
-  "Gas produced after eating is a fermentation signal: something is reaching the gut bacteria before it has been broken down. Timing after the meal tells us roughly where.",
-  "饭后产气是发酵信号：有东西还没被分解就到了肠道菌群那里。距离进餐多久出现，大致能判断发生在哪一段。",
-  "El gas tras comer es una señal de fermentación: algo llega a las bacterias antes de descomponerse.",
-  "खाने के बाद गैस किण्वन का संकेत है।"
+ "Thick tongue coating": [
+  "The tongue coating mirrors digestive function. A thick greasy coating usually indicates weakened spleen and stomach function, dampness in the body, and poor metabolism of food and fluids. Related to poor dietary habits, gut dysbiosis and insufficient digestive enzymes.",
+  "舌苔是消化系统功能的一面镜子。厚腻的舌苔（尤其是白腻或黄腻）通常表示脾胃运化功能减弱，体内有湿或湿热，食物和水液代谢不畅，可能导致痰湿积聚。这与不良饮食习惯、肠道菌群失调和消化酶不足相关。",
+  "La capa lingual refleja la función digestiva. Una capa gruesa y grasa indica función debilitada y mal metabolismo de alimentos y líquidos.",
+  "जीभ की परत पाचन क्रिया दर्शाती है। मोटी चिकनी परत कमज़ोर पाचन और नमी दर्शाती है।"
  ],
- "Excessive gas": [
-  "Volume of gas reflects what the gut bacteria are being fed. A high meat and low plant intake shifts the population and the byproducts it makes.",
-  "排气量反映肠道菌群吃的是什么。高肉低植物的饮食会改变菌群构成和它产生的副产物。",
-  "El volumen de gas refleja lo que comen las bacterias intestinales.",
-  "गैस की मात्रा दर्शाती है कि आंत के बैक्टीरिया क्या खा रहे हैं।"
+ "Poor digestion": [
+  "Bloating, belching and a feeling of food stuck in the stomach after meals. This directly indicates insufficient gastric motility, possibly low stomach acid, or inadequate digestive enzymes. Long term this leads to poor nutrient absorption and worsens cellular hidden hunger.",
+  "饭后腹胀、嗳气、感觉食物堵在胃里不往下走。这直接表明胃动力不足、胃酸分泌可能偏低、或消化酶（来自胰腺和胃）分泌不足。长期如此会导致营养吸收不良，加剧细胞隐性饥饿。",
+  "Hinchazón, eructos y sensación de comida atascada tras comer. Indica motilidad gástrica insuficiente, posible acidez baja o enzimas inadecuadas.",
+  "खाने के बाद फूलना और भोजन अटकने का अहसास। यह अपर्याप्त गैस्ट्रिक गतिशीलता दर्शाता है।"
  ],
- "Diarrhea or loose stools": [
-  "Loose stool means transit is faster than absorption can keep up with, so nutrients pass through. It quietly undercuts whatever else is being eaten or taken.",
-  "大便稀说明通过速度快过吸收速度，营养素就这样过去了。它会悄悄抵消你吃的其他东西的效果。",
-  "Las heces sueltas significan tránsito más rápido de lo que la absorción puede seguir.",
-  "पतला मल दर्शाता है कि गति अवशोषण से तेज़ है।"
+ "Burp or feel bloated easily": [
+  "Frequent burping is gas rising from the stomach; bloating is gas accumulating in the gut. Both relate to swallowed air (eating fast, carbonated drinks), gas from food fermentation, and disordered gastrointestinal motility. Suggests improving eating habits, adjusting gut flora and strengthening motility.",
+  "频繁打嗝是胃内气体上逆；胀气是气体在胃肠道积聚。两者都与吞咽空气（吃饭快、喝碳酸饮料）、食物发酵产气，以及胃肠蠕动功能紊乱有关。提示需要改善进食习惯、调整肠道菌群和增强胃肠动力。",
+  "Los eructos son gas que sube del estómago; la hinchazón es gas acumulado. Ambos se relacionan con aire tragado, fermentación y motilidad alterada.",
+  "डकार पेट से उठती गैस है; फूलना आंत में जमा गैस। दोनों निगली हवा और किण्वन से जुड़े हैं।"
  ],
- "Constipation": [
-  "Slow transit means waste sits longer, and some of what the liver packaged for removal gets reabsorbed instead. That is added load on the organ that processed it.",
-  "通过慢意味着废物停留更久，肝脏已经打包准备排出的东西有一部分会被重新吸收。这等于给处理它的器官加了负担。",
-  "El tránsito lento significa que parte de lo que el hígado preparó para eliminar se reabsorbe.",
-  "धीमी गति का अर्थ है कि जिगर द्वारा निकालने को तैयार कुछ पदार्थ फिर से सोख लिया जाता है।"
+ "Stomach problems / Gastritis": [
+  "Inflammation of the stomach lining, possibly from H. pylori, long-term medication (such as NSAIDs), alcohol, stress or autoimmune factors. Symptoms include upper abdominal pain, bloating and heartburn. Management requires anti-inflammatory measures, repairing the gastric mucosa, dietary adjustment and stress management.",
+  "胃粘膜的炎症，可能由幽门螺杆菌感染、长期药物刺激（如非甾体抗炎药）、酒精、压力或自身免疫因素引起。症状包括上腹痛、胀气、烧心等。管理需抗炎、修复胃粘膜、调整饮食并管理压力。",
+  "Inflamación del revestimiento gástrico por H. pylori, medicación prolongada, alcohol, estrés o factores autoinmunes. Requiere medidas antiinflamatorias y reparación de la mucosa.",
+  "पेट की परत की सूजन, जो एच. पाइलोरी, दवा, शराब या तनाव से हो सकती है।"
  ],
- "Bad breath or bitter taste in mouth": [
-  "A bitter taste points further upstream than the gut, toward bile and the liver. It is one of the more specific answers on this form.",
-  "口苦指向的位置比肠道更靠上游，指向胆汁和肝。这是本表里比较有指向性的一题。",
-  "Un sabor amargo apunta más arriba que el intestino, hacia la bilis y el hígado.",
-  "कड़वा स्वाद आंत से ऊपर, पित्त और जिगर की ओर संकेत करता है।"
+ "Nausea or feel like throwing up": [
+  "Nausea is the body signalling an attempt to expel an irritant from the stomach. Possible causes include contaminated food, overeating, reflux, motion sickness, liver or gallbladder disease, or raised intracranial pressure. Frequent nausea needs investigation for organic causes.",
+  "恶心感是身体试图排出胃内不良刺激物的信号。可能原因包括：食物不洁、暴饮暴食、胃食管反流、晕动症、肝胆疾病、或颅内压力增高等。频繁恶心需要排查器质性问题，并关注饮食习惯和消化功能。",
+  "La náusea es la señal del cuerpo para expulsar un irritante. Las náuseas frecuentes requieren investigar causas orgánicas.",
+  "मतली शरीर का उत्तेजक पदार्थ निकालने का संकेत है। बार-बार होने पर जाँच आवश्यक है।"
  ],
- "Acid reflux or heartburn": [
-  "Often assumed to be too much acid when it is frequently the opposite, or a timing problem: eating late, lying down soon after, or eating too fast.",
-  "常被当成胃酸太多，但很多时候恰恰相反，或者只是时机问题：吃太晚、吃完就躺、吃太快。",
-  "A menudo se asume exceso de ácido cuando suele ser lo contrario, o un problema de horario.",
-  "इसे अक्सर अधिक अम्ल समझा जाता है जबकि अक्सर उल्टा होता है।"
+ "Fatty liver": [
+  "Excess fat accumulating in liver cells, directly related to obesity, insulin resistance, a high-fat high-sugar diet and excess alcohol. It is metabolic syndrome showing up in the liver, indicating severely impaired fat metabolism, and a potential step toward cirrhosis. The core intervention is lifestyle change and liver support.",
+  "肝脏细胞中脂肪过度堆积。与肥胖、胰岛素抵抗、高脂高糖饮食、过量饮酒直接相关。它是代谢综合征在肝脏的表现，提示肝脏的脂肪代谢功能严重受损，是迈向肝硬化、肝癌的潜在危险步骤。核心干预是生活方式改变和肝脏支持。",
+  "Acumulación excesiva de grasa en las células hepáticas, ligada a obesidad, resistencia a la insulina y dieta alta en grasa y azúcar. La intervención central es el cambio de estilo de vida.",
+  "जिगर कोशिकाओं में अत्यधिक वसा, जो मोटापे और इंसुलिन प्रतिरोध से जुड़ी है।"
  ],
- "Catch colds frequently": [
-  "Frequency over a year is what matters, not any single illness. More than three or four a year suggests a defence running below capacity rather than bad luck.",
-  "看的是一年的频率，不是某一次生病。一年超过三四次，说明防御能力不足，而不是运气差。",
-  "Lo que importa es la frecuencia anual, no una enfermedad puntual.",
-  "महत्वपूर्ण वार्षिक आवृत्ति है, कोई एक बीमारी नहीं।"
+ "Liver inflammation": [
+  "Liver cells damaged by viruses, alcohol, drugs, toxins or autoimmune attack, triggering inflammation (raised ALT/AST on a blood panel). Chronic inflammation leads to fibrosis and cirrhosis. Management focuses on removing the cause and strengthening the liver's detoxification and repair capacity.",
+  "指肝脏细胞因病毒（乙肝/丙肝）、酒精、药物、毒素或自身免疫攻击而受损，引发炎症反应（化验单上转氨酶ALT/AST升高）。长期炎症会导致肝纤维化、硬化。管理关键在于去除病因、强化肝脏解毒和抗炎修复能力。",
+  "Células hepáticas dañadas por virus, alcohol, fármacos o toxinas, con inflamación (ALT/AST elevadas). La inflamación crónica lleva a fibrosis.",
+  "वायरस, शराब या दवाओं से जिगर कोशिकाओं की क्षति और सूजन।"
  ],
- "Cough easily": [
-  "A cough that starts readily suggests the airway lining is reactive or under-protected. Carotenoids maintain that lining, and they come from coloured vegetables.",
-  "一咳就来，说明气道黏膜反应性高或保护不足。维护这层黏膜的是类胡萝卜素，来自有颜色的蔬菜。",
-  "Una tos que aparece con facilidad sugiere que el revestimiento de las vías respiratorias está reactivo.",
-  "आसानी से खांसी वायुमार्ग की परत के प्रतिक्रियाशील होने का संकेत है।"
+ "Fart a lot": [
+  "Passing gas is normal, but excessive or foul gas indicates abnormal fermentation in the intestines. Often related to small intestinal bacterial overgrowth, gut dysbiosis, excessive intake of hard-to-digest carbohydrates, or poorly digested protein.",
+  "排气是正常现象，但过多、过臭的气体产生，是食物在肠道内异常发酵的标志。这通常与小肠细菌过度生长（SIBO）、肠道菌群失调、摄入过多难以消化的碳水化合物（如豆类、某些蔬菜）或蛋白质消化不良有关。",
+  "Expulsar gases es normal, pero el exceso o el mal olor indican fermentación anormal, a menudo por sobrecrecimiento bacteriano o disbiosis.",
+  "गैस निकलना सामान्य है, पर अधिक या दुर्गंधयुक्त गैस असामान्य किण्वन दर्शाती है।"
  ],
- "Runny nose easily": [
-  "Worth separating from a cold: a nose that runs without illness is usually an allergic or reactive pattern, which is immune regulation rather than immune weakness.",
-  "要和感冒区分开：没生病也流鼻涕，通常是过敏或反应性模式，属于免疫调节问题，而不是免疫力弱。",
-  "Conviene separarlo de un resfriado: una nariz que gotea sin enfermedad suele ser un patrón alérgico.",
-  "सर्दी से अलग: बिना बीमारी नाक बहना एलर्जी पैटर्न है।"
+ "Often have diarrhea": [
+  "Diarrhoea is a defence mechanism speeding up transit to expel harmful substances. Frequent occurrence indicates severe gut dysbiosis, mucosal inflammation, food intolerance, or maldigestion. The root lies in an unhealthy intestinal environment and dysfunctional digestion.",
+  "腹泻是肠道加速蠕动以排出有害物质的防御机制。但频繁发生则提示肠道菌群严重失衡（有害菌占优）、肠粘膜炎症、食物不耐受，或消化吸收功能不良（如乳糖不耐受、脂肪泻）。根源在于肠道环境不健康和消化系统功能紊乱。",
+  "La diarrea es un mecanismo de defensa. Su frecuencia indica disbiosis grave, inflamación mucosa, intolerancia alimentaria o maldigestión.",
+  "दस्त एक रक्षा तंत्र है। बार-बार होना गंभीर आंत असंतुलन दर्शाता है।"
  ],
- "Sneezing a lot": [
-  "Sneezing in bouts, particularly on waking or on exposure to dust, points at an allergic pattern rather than infection.",
-  "成串打喷嚏，尤其是早上起床或接触灰尘时，指向过敏而不是感染。",
-  "Estornudar en rachas, sobre todo al despertar o con polvo, apunta a un patrón alérgico.",
-  "लगातार छींक, खासकर जागने पर, एलर्जी की ओर संकेत करती है।"
+ "Constipation or bloody stool": [
+  "Constipation means difficult or infrequent bowel movements, related to low fibre, low water intake, weak motility, dysbiosis or stress. Blood in the stool requires immediate attention: it may be haemorrhoids, but could also signal polyps, inflammatory bowel disease or colorectal cancer, and needs prompt medical evaluation.",
+  "便秘指排便困难、次数减少，与膳食纤维摄入不足、饮水少、肠道蠕动无力、菌群失调或精神压力有关。大便带血必须警惕，可能为痔疮出血，也可能是结肠息肉、炎症性肠病甚至结直肠癌的征兆，需立即就医检查。",
+  "El estreñimiento se relaciona con poca fibra, poca agua y motilidad débil. La sangre en heces requiere atención médica inmediata.",
+  "कब्ज़ कम फ़ाइबर और पानी से जुड़ा है। मल में खून पर तुरंत डॉक्टर को दिखाएँ।"
  ],
- "Nasal allergies": [
-  "An allergic pattern means the immune system is misidentifying harmless things as threats. That is a regulation problem, and a large share of immune regulation happens at the gut wall.",
-  "过敏意味着免疫系统把无害的东西误判成威胁。这是调节问题，而免疫调节有很大一部分发生在肠壁。",
-  "Un patrón alérgico significa que el sistema inmune identifica mal cosas inofensivas.",
-  "एलर्जी का अर्थ है प्रतिरक्षा तंत्र हानिरहित चीज़ों को खतरा समझ रहा है।"
+ "Feel dizzy": [
+  "Dizziness has many causes: inner ear balance issues, reduced blood supply from the neck, abnormal blood pressure or anaemia. From a health management view it indicates possible poor circulation, reduced oxygen delivery to cells, or energy metabolism disorders from nutritional imbalance.",
+  "头晕可能由多种原因引起，如内耳平衡问题、颈椎供血不足、血压异常或贫血。从健康管理角度，它提示可能存在血液循环不良、细胞（特别是脑细胞）携氧能力下降，或营养失衡导致的能量代谢障碍。",
+  "El mareo tiene muchas causas: oído interno, riego cervical reducido, presión anormal o anemia. Indica posible mala circulación o menor entrega de oxígeno a las células.",
+  "चक्कर के कई कारण हैं। यह खराब रक्त संचार या कोशिकाओं तक कम ऑक्सीजन दर्शाता है।"
  ],
- "Athlete's foot or nail fungus": [
-  "Persistent fungal issues on the skin surface usually reflect what is happening internally rather than local hygiene, and they tend to follow the gut and immune picture.",
-  "皮肤表面反复的真菌问题，通常反映的是体内状况而不是局部卫生，它往往跟着肠道和免疫那条线走。",
-  "Los hongos persistentes en la piel suelen reflejar lo interno más que la higiene local.",
-  "लगातार फफूंद संक्रमण स्थानीय सफ़ाई से अधिक आंतरिक स्थिति दर्शाता है।"
+ "Often have headaches": [
+  "A common alarm. Can be linked to blood vessel issues in the brain, neck problems, or an overloaded liver detox system. Stress and a lack of minerals such as magnesium are also triggers.",
+  "常见警报，可能与脑部血管异常、颈椎问题或肝脏解毒负担过重有关。压力大和缺乏镁等矿物质也会引发。",
+  "Una alarma común. Puede vincularse a vasos cerebrales, problemas cervicales o un hígado sobrecargado. El estrés y la falta de magnesio también son desencadenantes.",
+  "एक सामान्य चेतावनी। यह मस्तिष्क वाहिकाओं, गर्दन या अधिभारित जिगर से जुड़ा हो सकता है।"
  ],
- "Afternoon energy crash": [
-  "A predictable afternoon dip is a blood sugar pattern, and it is usually set by what happened at breakfast rather than at lunch.",
-  "下午定时犯困是血糖模式，而且通常由早餐决定，不是午餐。",
-  "Un bajón vespertino predecible es un patrón de azúcar en sangre, fijado por el desayuno.",
-  "दोपहर की गिरावट रक्त शर्करा का पैटर्न है, जो नाश्ते से तय होता है।"
+ "Get car sick or motion sickness easily": [
+  "An overly sensitive vestibular system may relate to inner ear function or how the brain integrates sensory information. It may indicate poor inner ear circulation, insufficient nerve support nutrients such as vitamin B6 and magnesium, or a generally weak constitution.",
+  "前庭系统（平衡系统）过于敏感，可能与内耳功能或中枢神经整合信息的能力有关。从健康管理角度看，可能提示内耳循环不佳、神经营养支持不足（如维生素B6、镁），或整体体质偏弱、适应性较差。",
+  "Un sistema vestibular hipersensible puede indicar mala circulación en el oído interno o falta de nutrientes nerviosos como B6 y magnesio.",
+  "अति संवेदनशील वेस्टिबुलर तंत्र आंतरिक कान के संचार या बी6 और मैग्नीशियम की कमी दर्शा सकता है।"
  ],
- "Persistent fatigue regardless of sleep": [
-  "Fatigue that sleep does not fix points away from sleep and toward absorption, iron status, or thyroid. It is the answer most likely to justify a blood test.",
-  "睡觉解决不了的疲劳，指向的就不是睡眠，而是吸收、铁状态或甲状腺。这是本表里最可能需要去验血的一项。",
-  "La fatiga que el sueño no arregla apunta a absorción, hierro o tiroides.",
-  "जो थकान नींद से ठीक न हो, वह अवशोषण या आयरन की ओर संकेत करती है।"
+ "Feel your mind is not clear": [
+  "Feeling mentally sluggish or as if the mind is shrouded in fog. Closely linked to chronic inflammation, poor gut health, unstable blood sugar, poor sleep quality, and deficiencies in nutrients supporting brain energy metabolism such as B vitamins, CoQ10 and antioxidants.",
+  "感觉思维迟钝、注意力涣散、脑子像蒙了一层雾。这是典型的脑雾现象，与慢性炎症、肠道健康不佳（肠漏导致炎症物质入血）、血糖不稳定、睡眠质量差、以及支持脑细胞能量代谢的营养素（如B族维生素、CoQ10、抗氧化剂）缺乏密切相关。",
+  "Sentirse mentalmente lento o con la mente nublada. Vinculado a inflamación crónica, mala salud intestinal, azúcar inestable y déficit de vitaminas B, CoQ10 y antioxidantes.",
+  "मानसिक सुस्ती या धुंध जैसा अनुभव। यह पुरानी सूजन, खराब आंत स्वास्थ्य और बी विटामिन की कमी से जुड़ा है।"
  ],
- "Brain fog or mental cloudiness": [
-  "The brain is the organ least tolerant of low blood volume and unstable glucose, so fog is often the first thing to appear and the first to improve.",
-  "大脑是最不能忍受血容量不足和血糖不稳的器官，所以脑雾往往最先出现，也最先改善。",
-  "El cerebro es el órgano menos tolerante al bajo volumen sanguíneo y la glucosa inestable.",
-  "मस्तिष्क कम रक्त मात्रा और अस्थिर ग्लूकोज़ को सबसे कम सहन करता है।"
+ "Prone to small accidents": [
+  "Frequent bumps, falls or minor accidents reflect declining coordination, reaction speed and concentration. May relate to reduced nervous system efficiency from nutritional deficiency or toxin interference, decreased muscle control, or overall low energy.",
+  "经常磕碰、摔倒或出现小意外，反映的是身体协调性、反应速度和专注力的下降。这可能与神经系统功能因营养不足或毒素干扰而效率降低，肌肉控制能力下降，或整体精力不济有关。",
+  "Golpes, caídas o accidentes menores frecuentes reflejan menor coordinación, velocidad de reacción y concentración.",
+  "बार-बार टकराना या गिरना समन्वय और प्रतिक्रिया गति में गिरावट दर्शाता है।"
  ],
- "Forgetfulness": [
-  "Short-term forgetfulness usually travels with sleep debt and B vitamin status rather than indicating anything about memory itself.",
-  "短期健忘通常和睡眠债、B族维生素状态有关，而不是记忆力本身出了问题。",
-  "El olvido a corto plazo suele acompañar la deuda de sueño y el estado de vitaminas B.",
-  "अल्पकालिक भूलना नींद की कमी और बी विटामिन से जुड़ा है।"
+ "Hard to focus": [
+  "Difficulty maintaining focus, easily distracted. Possible causes: blood sugar fluctuation making brain energy supply unstable; sleep deprivation affecting nerve cell repair; lack of phospholipids and B vitamins needed to maintain healthy nerve cell membranes; or toxins interfering with nerve transmission.",
+  "难以长时间专注于任务，容易分心。这与大脑前额叶皮层的功能状态密切相关。可能的原因包括：血糖波动导致脑能量供应不稳定；睡眠不足影响神经细胞修复；缺乏磷脂、B族维生素等构建和维持神经细胞膜健康的营养素；或体内毒素干扰神经传导。",
+  "Dificultad para mantener el foco. Causas posibles: fluctuación del azúcar, privación de sueño, falta de fosfolípidos y vitaminas B, o toxinas que interfieren la transmisión nerviosa.",
+  "ध्यान बनाए रखने में कठिनाई। कारण: रक्त शर्करा में उतार-चढ़ाव, नींद की कमी, या फॉस्फोलिपिड और बी विटामिन की कमी।"
  ],
- "Hard to focus or concentrate": [
-  "Concentration is expensive metabolically, so it is one of the first functions the body downgrades when fuel or raw material is short.",
-  "集中注意力的代谢成本很高，所以燃料或原料不足时，身体最先降级的功能之一就是它。",
-  "La concentración es metabólicamente costosa, así que es de lo primero que el cuerpo degrada.",
-  "एकाग्रता चयापचय की दृष्टि से महंगी है।"
+ "Easy to forget things": [
+  "Short-term memory decline is not merely a natural consequence of ageing. It is more likely linked to chronic stress, sleep deprivation, inadequate brain cell nutrition such as Omega-3, B vitamins and antioxidants, and impaired cerebral microcirculation. A signal that brain cells are in hidden hunger.",
+  "短期记忆下降、注意力不集中，不仅是年龄增长的自然现象。它更可能与长期压力、睡眠不足、脑细胞营养（如Omega-3脂肪酸、B族维生素、抗氧化剂）供给不足，以及脑内微循环障碍有关，是大脑细胞处于隐性饥饿和毒素干扰状态的信号。",
+  "El declive de la memoria a corto plazo no es solo envejecimiento. Se vincula a estrés crónico, falta de sueño y nutrición cerebral inadecuada.",
+  "अल्पकालिक स्मृति में गिरावट केवल उम्र नहीं है। यह तनाव, नींद की कमी और मस्तिष्क पोषण से जुड़ा है।"
  ],
- "Reliant on caffeine to function": [
-  "Caffeine borrows energy rather than supplying it. Needing it to function is a useful measure of how large the underlying deficit is.",
-  "咖啡因是借能量，不是给能量。需要靠它才能正常运转，是衡量底层亏空有多大的一个好指标。",
-  "La cafeína pide prestada energía en vez de aportarla.",
-  "कैफ़ीन ऊर्जा देती नहीं, उधार लेती है।"
+ "Trouble hearing": [
+  "Hearing loss, aside from age and physical damage, may relate to poor inner ear microcirculation or damage to the auditory nerve from toxins or inflammation. Improving circulation, reducing inflammation and providing nerve nutrition may help protect hearing.",
+  "听力下降或耳鸣，除了年龄和物理损伤，也可能与内耳微循环障碍、听觉神经因毒素或炎症受损有关。从健康管理角度，改善全身血液循环、抗炎和提供神经营养支持可能有助于保护听力功能。",
+  "La pérdida auditiva, más allá de la edad, puede relacionarse con mala microcirculación del oído interno o daño del nervio auditivo por toxinas o inflamación.",
+  "सुनने की क्षमता में कमी आंतरिक कान के खराब संचार या श्रवण तंत्रिका क्षति से जुड़ी हो सकती है।"
  ],
- "Feel slow or sluggish in the morning": [
-  "Morning sluggishness usually reflects what happened overnight rather than the morning itself: sleep depth, late eating, or the overnight blood sugar dip.",
-  "早上迟钝通常反映的是夜里发生了什么，而不是早上本身：睡眠深度、吃太晚，或者夜间血糖下降。",
-  "La lentitud matinal refleja lo ocurrido durante la noche más que la mañana misma.",
-  "सुबह की सुस्ती रात में हुई घटनाओं को दर्शाती है।"
+ "Ears ringing": [
+  "Tinnitus is often associated with poor inner ear microcirculation, auditory nerve dysfunction or neck problems. In health management it is seen as a signal that toxins may be affecting nerves, or that long-term deficiency and nutritional imbalance are reducing nerve cell repair capacity.",
+  "耳鸣常与内耳微循环障碍、听觉神经功能异常或颈椎问题相关。在健康管理中，它被视为体内毒素（如药物代谢物、重金属）可能影响神经，或长期肝肾阴虚、营养失衡导致神经细胞修复能力下降的信号。",
+  "El tinnitus se asocia a mala microcirculación del oído interno o disfunción del nervio auditivo. Puede señalar toxinas afectando los nervios.",
+  "टिनिटस आंतरिक कान के खराब संचार या श्रवण तंत्रिका की खराबी से जुड़ा है।"
  ],
- "Acne or breakouts": [
-  "Responds to blood sugar swings and to hormonal clearance rather than to washing. Skin turns over on roughly a 28 day cycle, so it is a useful early progress marker.",
-  "痘痘反应的是血糖波动和激素清除，不是洗脸。皮肤大约28天更新一次，所以它是很好用的早期进展指标。",
-  "Responde a los cambios de azúcar y al aclaramiento hormonal, no al lavado. La piel se renueva en unos 28 días.",
-  "यह रक्त शर्करा और हार्मोन सफ़ाई पर प्रतिक्रिया करता है। त्वचा लगभग 28 दिनों में नवीनीकृत होती है।"
+ "Hard to fall asleep or often have vivid dreams": [
+  "Sleep is the golden time for repair and detoxification. Insomnia and vivid dreams indicate a restless mind, directly related to high stress, excessive worry and depletion of liver resources. The underlying causes are insufficient nutrients for neurotransmitter synthesis and daytime toxin accumulation interfering with the nervous system.",
+  "睡眠是身体修复和排毒的黄金时间。失眠多梦表明肝不藏血或心神不宁，与压力大、思虑过度、肝血消耗过多直接相关。深层次原因是神经递质（如血清素、褪黑素）合成所需营养不足，以及日间毒素积累对神经系统的干扰。",
+  "El sueño es el momento dorado de reparación. El insomnio y los sueños vívidos se relacionan con estrés alto y nutrientes insuficientes para sintetizar neurotransmisores.",
+  "नींद मरम्मत का स्वर्णिम समय है। अनिद्रा उच्च तनाव और न्यूरोट्रांसमीटर के लिए अपर्याप्त पोषक तत्वों से जुड़ी है।"
  ],
- "Hair loss or thinning": [
-  "Hair is metabolically expensive and non-essential, so it is among the first tissues defunded when protein, iron or micronutrients run short. It is also slow to recover, around three months.",
-  "头发代谢成本高又非必需，所以蛋白质、铁或微量营养素不足时最先被断供。它恢复也慢，大约三个月。",
-  "El cabello es costoso y no esencial, así que es de los primeros tejidos que se desfinancian.",
-  "बाल महंगे और गैर-आवश्यक हैं, इसलिए कमी में सबसे पहले प्रभावित होते हैं।"
+ "Restless sleep": [
+  "Even after falling asleep, frequent tossing, waking or light sleep indicates poor sleep quality. Possible causes include indigestion, deficiency in trace minerals such as calcium and magnesium affecting nerve stability, or unresolved daytime emotional stress continuing at night.",
+  "即使入睡，也容易翻身、惊醒或感觉睡眠很浅，这代表睡眠质量差。原因可能包括消化不良（胃不和则卧不安）、微量矿物质（如钙、镁）缺乏影响神经稳定性，或日间未解决的情绪压力在夜间持续影响神经系统。",
+  "Dar vueltas o despertarse indica mala calidad de sueño. Puede deberse a indigestión, déficit de calcio y magnesio, o estrés emocional no resuelto.",
+  "करवट बदलना या जागना खराब नींद गुणवत्ता दर्शाता है। यह अपच या कैल्शियम-मैग्नीशियम की कमी से हो सकता है।"
  ],
- "Dandruff or itchy scalp": [
-  "Often fungal in origin, which links it to the immune picture rather than to shampoo.",
-  "很多时候是真菌来源，所以它连的是免疫那条线，而不是洗发水。",
-  "A menudo de origen fúngico, lo que lo vincula al cuadro inmune más que al champú.",
-  "अक्सर फफूंदजन्य, जो इसे प्रतिरक्षा से जोड़ता है।"
+ "Wake up easily at night, especially startled": [
+  "Waking easily at specific times, such as 1 to 3 AM when the liver is most active, signals that the liver is doing intensive detoxification but may be overloaded. If accompanied by palpitations it may also relate to cardiopulmonary function or blood quality.",
+  "在特定时间（如凌晨1-3点肝经当令时）易醒，是肝脏正在进行高强度解毒工作但可能负担过重的信号。如果伴有心慌，也可能与心肺功能或血液质量有关。这表明身体需要更有力的排毒支持和更均衡的神经营养。",
+  "Despertar a horas concretas, como entre la 1 y las 3 AM cuando el hígado está más activo, señala una desintoxicación intensa pero posiblemente sobrecargada.",
+  "विशेष समय पर जागना, जैसे 1-3 बजे जब जिगर सबसे सक्रिय है, अधिभार का संकेत है।"
  ],
- "Dry or brittle hair": [
-  "Texture reflects the raw material available while the strand was being built, so it reports on the last few months rather than on today.",
-  "发质反映的是这根头发长出来那段时间可用的原料，所以它报告的是过去几个月，不是今天。",
-  "La textura refleja el material disponible mientras crecía el cabello, informa de los últimos meses.",
-  "बनावट पिछले कुछ महीनों की स्थिति दर्शाती है।"
+ "Hard to relax": [
+  "Being in constant physical and mental tension is a classic sign of chronic stress response. The sympathetic nervous system is persistently dominant, depleting nutrients essential for relaxation and repair such as magnesium and GABA precursors, possibly with adrenal fatigue.",
+  "身体和精神长期处于紧绷状态，无法有效放松，是慢性压力反应的典型表现。这表明自主神经系统（特别是交感神经）持续占主导，消耗了大量维持放松和修复状态的营养（如镁、GABA前体），同时可能伴有肾上腺疲劳。",
+  "La tensión física y mental constante es señal de estrés crónico. El sistema simpático domina, agotando magnesio y precursores de GABA.",
+  "लगातार शारीरिक-मानसिक तनाव पुराने तनाव का संकेत है, जो मैग्नीशियम और GABA अग्रदूत खर्च करता है।"
  ],
- "Skin allergies or hives": [
-  "A reactive skin response is the same regulation issue as nasal allergies, showing up in a different tissue.",
-  "皮肤的反应性反应，和鼻子过敏是同一个调节问题，只是出现在不同组织。",
-  "Una respuesta cutánea reactiva es el mismo problema de regulación que las alergias nasales.",
-  "त्वचा की प्रतिक्रिया वही नियमन समस्या है जो नाक की एलर्जी है।"
+ "Feel mentally tense": [
+  "A persistent feeling of psychological tension. This results from chronic stress causing cortisol dysregulation, depleting nutrients that support nerve relaxation such as B vitamins and vitamin C, and keeping the nervous system in a prolonged alert state that disrupts cellular repair cycles.",
+  "一种持续性的心理紧绷感，难以感到轻松。这是长期压力导致皮质醇水平失调，消耗了支持神经放松的营养素（如B族维生素、维生素C），并使神经系统长期处于备战状态，影响了细胞的正常修复周期。",
+  "Sensación persistente de tensión psicológica por desregulación del cortisol, que agota vitaminas B y C y mantiene el sistema nervioso en alerta.",
+  "लगातार मानसिक तनाव कोर्टिसोल असंतुलन से होता है, जो बी विटामिन और विटामिन सी खर्च करता है।"
  ],
- "Dark circles under eyes": [
-  "The skin under the eyes is thin enough to show what is happening in the small blood vessels beneath it, which is why hydration and sleep both show up here first.",
-  "眼下皮肤薄到能透出下方小血管的状况，所以补水和睡眠的变化最先在这里显现。",
-  "La piel bajo los ojos es lo bastante fina para mostrar lo que ocurre en los vasos pequeños.",
-  "आँखों के नीचे की त्वचा पतली है, इसलिए यहाँ पहले दिखता है।"
+ "Feel anxious or nervous": [
+  "Unexplained anxiety is a classic sign of nervous system imbalance. It may relate to insufficient synthesis of calming neurotransmitters such as GABA, or an excess of excitatory ones. Gut health via the gut-brain axis and liver detoxification significantly affect this.",
+  "无缘无故的焦虑、心慌，是神经系统失衡的典型表现。可能与γ-氨基丁酸（GABA）等镇静型神经递质合成不足，或兴奋型神经递质过多有关。肠道健康（肠脑轴）和肝脏解毒功能对此有重大影响。",
+  "La ansiedad inexplicable es señal de desequilibrio nervioso. Puede relacionarse con síntesis insuficiente de GABA o exceso de neurotransmisores excitatorios.",
+  "अकारण चिंता तंत्रिका असंतुलन का संकेत है, जो GABA की कमी से जुड़ा हो सकता है।"
  ],
- "Heavy menstrual flow": [
-  "Heavy flow over years is the most common route to low iron, and low iron shows up as fatigue and hair loss long before anything else.",
-  "长期经量大是缺铁最常见的路径，而缺铁会以疲劳和掉发的形式出现，远早于其他表现。",
-  "El flujo abundante durante años es la vía más común hacia el hierro bajo.",
-  "वर्षों तक अधिक रक्तस्राव आयरन की कमी का सबसे आम कारण है।"
+ "Often feel down or sad": [
+  "Persistent low mood is not only psychological but reflects the body's biochemical state. Synthesis of serotonin and dopamine requires specific amino acids and cofactors such as vitamin B6, iron and magnesium. Nutritional deficiency, gut dysbiosis or chronic inflammation all affect their levels.",
+  "持续的情绪低落，不仅与心理因素有关，更是身体生化状态的反应。血清素、多巴胺等快乐激素的合成需要特定氨基酸和辅因子（如维生素B6、铁、镁）。营养缺乏、肠道菌群失调或慢性炎症都会影响它们的水平。",
+  "El ánimo bajo persistente refleja el estado bioquímico. La síntesis de serotonina y dopamina requiere aminoácidos y cofactores como B6, hierro y magnesio.",
+  "लगातार उदासी शरीर की जैव-रासायनिक स्थिति दर्शाती है। सेरोटोनिन संश्लेषण को बी6, आयरन और मैग्नीशियम चाहिए।"
  ],
- "Severe period cramps": [
-  "Cramping severity is set largely by prostaglandins, whose balance follows the ratio of fats in the diet. That makes it one of the more changeable symptoms here.",
-  "痛经程度主要由前列腺素决定，而它的平衡取决于饮食里脂肪的比例。所以这是本表里比较容易改变的症状。",
-  "La intensidad depende de las prostaglandinas, cuyo equilibrio sigue la proporción de grasas.",
-  "ऐंठन की तीव्रता प्रोस्टाग्लैंडिन से तय होती है।"
+ "Lose temper easily": [
+  "The liver governs smooth flow and emotion. Irritability is a classic outward sign of liver strain. The root lies in excessive detoxification and metabolic stress on the liver, or a lack of nutrients supporting liver function and nerve stability such as B vitamins, choline and antioxidants.",
+  "肝主疏泄，主情志。易怒是肝火旺或肝气郁结的典型外在表现。根本原因在于肝脏解毒代谢压力过大，或缺乏支持肝脏功能和神经稳定的营养素（如B族维生素、胆碱、抗氧化剂），导致情绪调控能力下降。",
+  "El hígado gobierna el flujo suave y la emoción. La irritabilidad es señal clásica de sobrecarga hepática o falta de vitaminas B, colina y antioxidantes.",
+  "जिगर भावनाओं के सहज प्रवाह को नियंत्रित करता है। चिड़चिड़ापन जिगर पर दबाव का संकेत है।"
  ],
- "PMS (mood, bloating, breast tenderness)": [
-  "Premenstrual symptoms track with how completely oestrogen is cleared after it has done its job, which is liver work rather than a purely reproductive matter.",
-  "经前症状和雌激素完成作用后被清除得是否彻底有关，这是肝脏的工作，不纯粹是生殖系统的事。",
-  "Los síntomas premenstruales siguen a qué tan completamente se elimina el estrógeno.",
-  "मासिक-पूर्व लक्षण एस्ट्रोजन की सफ़ाई पर निर्भर करते हैं।"
+ "Feel out of control with emotions": [
+  "Intense, uncontrollable mood swings indicate severe nervous system dysregulation. Usually the combined result of long-term stress, sleep deprivation, severe nutritional imbalance affecting neurotransmitter synthesis, and possible hormonal imbalance. A strong distress signal from the body.",
+  "情绪波动剧烈，难以自控，表明神经系统调节功能严重紊乱。这通常是长期压力、睡眠剥夺、严重营养失衡（特别是影响神经递质合成的营养素）以及可能的激素失衡共同作用的结果，是身体发出的强烈求救信号。",
+  "Cambios de humor intensos e incontrolables indican desregulación nerviosa grave, resultado de estrés prolongado, falta de sueño y desequilibrio nutricional.",
+  "तीव्र अनियंत्रित मूड परिवर्तन गंभीर तंत्रिका असंतुलन दर्शाते हैं।"
  ],
- "Irregular periods": [
-  "Common and usually information rather than an alarm. What it changes is how the rest of the hormonal answers should be read.",
-  "很常见，通常是信息而不是警报。它改变的是其他激素相关答案该怎么解读。",
-  "Común y normalmente información, no una alarma.",
-  "सामान्य है और आमतौर पर जानकारी है, चेतावनी नहीं।"
+ "Eyes sensitive to light, tear easily": [
+  "Oversensitivity to light or unexplained tearing indicates sensitive ocular surface nerves or abnormal tear regulation. May relate to insufficient liver blood, since the liver opens into the eyes, long-term eye strain, or a lack of protective antioxidants such as lutein, zeaxanthin and vitamin A.",
+  "眼睛对光线过度敏感或无故流泪，是眼表神经敏感或泪液分泌调节异常的表现。可能与肝血不足（肝开窍于目）、长期用眼过度导致视神经疲劳，或缺乏保护眼睛的抗氧化营养素（如叶黄素、玉米黄质、维生素A）有关。",
+  "La sensibilidad a la luz o el lagrimeo indican nervios oculares sensibles. Puede relacionarse con fatiga visual o falta de luteína, zeaxantina y vitamina A.",
+  "प्रकाश संवेदनशीलता या आँसू आना संवेदनशील नेत्र तंत्रिकाओं का संकेत है।"
  ],
- "Low libido": [
-  "Usually downstream of sleep, stress and thyroid rather than a standalone finding, which is why it sits with the rest of the picture.",
-  "通常是睡眠、压力和甲状腺的下游结果，而不是一个独立发现，所以它和整体图景放在一起看。",
-  "Suele ser consecuencia del sueño, el estrés y la tiroides más que un hallazgo aislado.",
-  "यह आमतौर पर नींद, तनाव और थायरॉइड का परिणाम है।"
+ "Eyes feel dry, sore, or achy": [
+  "A common dry eye symptom, related to prolonged screen time, reduced blinking and poor tear quality. Deeper causes involve the liver's reduced ability to nourish the eyes, and insufficient anti-inflammatory nutrients such as Omega-3, affecting tear glands and ocular surface cells.",
+  "现代人常见的干眼症症状，与长时间盯着电子屏幕、眨眼减少、泪液质量下降有关。深层原因涉及肝阴/肝血亏虚，无法充分滋养目窍，以及Omega-3脂肪酸等抗炎营养素摄入不足，影响了泪腺和眼表细胞的健康。",
+  "Síntoma común de ojo seco por pantallas y menor parpadeo. Las causas profundas incluyen falta de nutrientes antiinflamatorios como el Omega-3.",
+  "स्क्रीन समय से सूखी आँख का सामान्य लक्षण। गहरे कारणों में ओमेगा-3 की कमी शामिल है।"
  ],
- "Joint pain or stiffness": [
-  "In a younger person with good body composition this is rarely mechanical. It usually reflects inflammatory balance, and it needs raw material for cartilage as well as a change in that balance.",
-  "年轻、体成分良好的人出现这个，很少是机械性的。通常反映炎症平衡，而且除了改变平衡，还需要给软骨提供原料。",
-  "En una persona joven con buena composición rara vez es mecánico; refleja el equilibrio inflamatorio.",
-  "अच्छी संरचना वाले युवा में यह शायद ही यांत्रिक होता है।"
+ "Eyes get infected easily": [
+  "Frequent styes or conjunctivitis indicate low local immunity on the ocular surface. This may be a local manifestation of reduced overall immunity, related to deficiency in vitamins A and C and zinc affecting mucous membrane health, or poor blood sugar control providing an environment for bacteria.",
+  "频繁患麦粒肿、结膜炎等，表明眼表局部免疫力低下。这可能是整体免疫力下降的局部表现，与营养失衡（如维生素A、C、锌缺乏影响粘膜健康）、血糖控制不良为细菌提供滋生环境，或肝火旺上炎至目有关。",
+  "Orzuelos o conjuntivitis frecuentes indican baja inmunidad ocular local, relacionada con déficit de vitaminas A y C y zinc, o mal control glucémico.",
+  "बार-बार गुहेरी या नेत्रश्लेष्मलाशोथ कम स्थानीय प्रतिरक्षा दर्शाता है।"
  ],
- "Back or neck pain": [
-  "Worth separating posture and prolonged sitting from an inflammatory pattern, because the two need different answers.",
-  "要把姿势、久坐和炎症模式区分开，因为这两者需要不同的解法。",
-  "Conviene separar la postura y el sedentarismo de un patrón inflamatorio.",
-  "मुद्रा और लंबे समय तक बैठने को सूजन से अलग करना ज़रूरी है।"
+ "Dark circles, puffy eyes": [
+  "Persistent dark circles may relate to poor microcirculation around the eyes and venous congestion from poor sleep. Puffiness may indicate suboptimal kidney or lymphatic drainage, or excess salt and fluid before bed. Both can reflect a need to support liver and kidney metabolism.",
+  "长期黑眼圈可能与血液循环不畅（尤其是眼部微循环）、睡眠质量差导致静脉淤血有关。眼睑浮肿则可能提示肾脏或淋巴排水功能不佳，或睡前摄入过多盐分和水分。两者都可能反映肝、肾代谢功能需要支持。",
+  "Las ojeras persistentes se relacionan con mala microcirculación y congestión venosa por mal sueño. La hinchazón puede indicar drenaje renal o linfático subóptimo.",
+  "लगातार काले घेरे खराब सूक्ष्म संचार और खराब नींद से जुड़े हैं।"
+ ],
+ "Poor night vision, blurry vision": [
+  "Poor dark adaptation or blurry vision is directly related to retinal photoreceptor function. Vitamin A is the key raw material for synthesising rhodopsin. Deficiency in vitamin A or zinc, or oxidative damage to the retina, can cause these symptoms.",
+  "暗适应能力差或视物模糊，直接与视网膜感光细胞的功能有关。维生素A是合成感光物质视紫红质的关键原料。缺乏维生素A、锌或抗氧化能力下降导致的视网膜氧化损伤，都会引起这些症状，提示需要加强眼部特异性营养。",
+  "La mala adaptación a la oscuridad se relaciona con los fotorreceptores retinianos. La vitamina A es la materia prima clave para sintetizar rodopsina.",
+  "अंधेरे में अनुकूलन की कमी रेटिना कोशिकाओं से जुड़ी है। विटामिन ए मुख्य कच्चा माल है।"
+ ],
+ "Bleed easily when brushing teeth": [
+  "Bleeding gums is a classic early sign of gingivitis, indicating chronic inflammation and fragile gum tissue. Beyond oral hygiene, deeper causes may include vitamin C deficiency affecting collagen synthesis and increasing vessel fragility, or high systemic inflammation.",
+  "牙龈出血是牙龈炎的典型早期症状，反映牙龈组织存在慢性炎症和脆弱。除了口腔卫生，更深层原因可能与维生素C缺乏（影响胶原蛋白合成，血管脆性增加）、或全身性炎症水平高有关，是身体抗氧化和抗炎能力不足的信号。",
+  "El sangrado de encías es señal temprana de gingivitis. Más allá de la higiene, puede implicar déficit de vitamina C o inflamación sistémica alta.",
+  "मसूड़ों से खून मसूड़े की सूजन का शुरुआती संकेत है, जो विटामिन सी की कमी से जुड़ा हो सकता है।"
+ ],
+ "Gum problems or frequent toothaches": [
+  "Red, swollen or receding gums indicate chronic oral infection and inflammation. Research links periodontitis to systemic inflammation and increased cardiovascular risk. Managing it requires both local hygiene and systemic anti-inflammatory measures.",
+  "牙龈红肿、疼痛或退缩，是口腔慢性感染和炎症的表现。这不仅影响牙齿健康，研究表明牙周炎与全身性炎症、心血管疾病风险增加相关。控制口腔炎症需要局部清洁和全身抗炎、提升免疫力的双重管理。",
+  "Encías rojas, hinchadas o retraídas indican infección oral crónica. La periodontitis se vincula a inflamación sistémica y mayor riesgo cardiovascular.",
+  "लाल, सूजे मसूड़े पुराने मौखिक संक्रमण का संकेत हैं, जो हृदय जोखिम से जुड़े हैं।"
+ ],
+ "Loose teeth or cavities": [
+  "Dental health reflects bone health. Loose teeth may relate to alveolar bone loss, an oral manifestation of osteoporosis. Cavities relate to imbalanced oral microbiota, high sugar intake, and changes in saliva composition. Signals a need to attend to mineral balance and diet.",
+  "牙齿健康是骨骼健康的缩影。牙齿松动可能与牙槽骨流失（骨质疏松的口腔表现）有关；蛀牙则与口腔菌群失衡、饮食中糖分过高、以及唾液成分（受全身营养和酸碱平衡影响）改变有关。提示需要关注矿物质（钙、磷、镁）平衡和饮食结构。",
+  "La salud dental refleja la ósea. Los dientes flojos pueden indicar pérdida de hueso alveolar; las caries, microbiota oral desequilibrada y azúcar alto.",
+  "दंत स्वास्थ्य हड्डी के स्वास्थ्य को दर्शाता है। ढीले दांत हड्डी क्षय दर्शा सकते हैं।"
+ ],
+ "Hair falling out easily": [
+  "Losing more than 100 hairs a day is abnormal. May relate to stress (telogen effluvium), hormonal change (postpartum, menopause), nutritional deficiency (iron, zinc, biotin, protein), thyroid disorders or autoimmune hair loss. Reflects poor blood supply and nutrition to the scalp follicles.",
+  "每日脱发超过100根视为异常。可能与压力大（休止期脱发）、激素变化（如产后、更年期）、营养缺乏（铁、锌、生物素、蛋白质）、甲状腺疾病或自身免疫性脱发（斑秃）有关。反映头皮毛囊的血液供应和营养状况不佳。",
+  "Perder más de 100 cabellos al día es anormal. Puede relacionarse con estrés, cambios hormonales, deficiencias nutricionales (hierro, zinc, biotina, proteína), trastornos tiroideos o alopecia autoinmune.",
+  "रोज़ 100 से अधिक बाल झड़ना असामान्य है। यह तनाव, हार्मोनल बदलाव, पोषण की कमी (आयरन, ज़िंक, बायोटिन, प्रोटीन) या थायरॉइड से जुड़ा हो सकता है।"
+ ],
+ "Dry, dull, or yellowish hair": [
+  "Hair lacking shine, brittle or yellowish indicates damaged hair quality. Related to perming, dyeing and sun exposure, but may also reflect insufficient protein intake, essential fatty acid deficiency, or abnormal copper metabolism. Suggests a need to strengthen keratin nutrition.",
+  "头发失去光泽、易断裂、发黄，是发质健康受损的表现。与频繁烫染、日晒等外部损伤有关，但也可能反映内在问题，如蛋白质摄入不足、必需脂肪酸缺乏、或铜代谢异常。提示需要加强头发角蛋白的营养支持。",
+  "El cabello sin brillo, quebradizo o amarillento indica calidad dañada. Puede reflejar poca proteína, falta de ácidos grasos esenciales o metabolismo anormal del cobre.",
+  "चमक रहित, भंगुर या पीले बाल क्षतिग्रस्त गुणवत्ता दर्शाते हैं। यह कम प्रोटीन या आवश्यक वसा अम्ल की कमी दर्शा सकता है।"
+ ],
+ "Lots of dandruff or itchy scalp": [
+  "Excessive shedding of the scalp with itching. May relate to imbalanced sebum, Malassezia overgrowth, or contact dermatitis. From a health management view it is linked to systemic inflammation from a diet high in fat and sugar, B vitamin deficiency, stress, and poor gut health.",
+  "头皮角质层过度脱落伴瘙痒。可能与头皮油脂分泌失衡、马拉色菌过度增殖、或接触性皮炎有关。从健康管理角度，与饮食过于油腻、高糖、B族维生素缺乏、压力及肠道健康不良导致的全身性炎症状态相关。",
+  "Descamación excesiva con picor. Puede deberse a sebo desequilibrado o exceso de Malassezia, y se vincula a inflamación sistémica por dieta grasa y azucarada, déficit de vitaminas B, estrés y mala salud intestinal.",
+  "खुजली के साथ अत्यधिक पपड़ी। यह असंतुलित सीबम, तनाव, बी विटामिन की कमी और खराब आंत स्वास्थ्य से जुड़ी है।"
+ ],
+ "A lot of grey hair": [
+  "Premature or excessive greying relates to declining melanocyte function in the follicle. Besides genetics and age, stress, chronic illness, severe deficiency (especially copper, iron, B12, folate) or thyroid issues can accelerate it. One sign of the body ageing prematurely.",
+  "白发过早或过多出现，与毛囊黑色素细胞功能衰退有关。除了遗传和年龄，压力、慢性消耗性疾病、严重的营养缺乏（特别是铜、铁、维生素B12、叶酸）或甲状腺问题都可能加速白发进程。是身体未老先衰的迹象之一。",
+  "El encanecimiento prematuro se relaciona con el declive de los melanocitos. Además de genética y edad, el estrés, enfermedades crónicas y deficiencias graves (cobre, hierro, B12, folato) pueden acelerarlo.",
+  "समय से पहले सफ़ेद होना मेलानोसाइट की गिरती कार्यक्षमता से जुड़ा है। तनाव और गंभीर पोषण कमी इसे तेज़ करती है।"
+ ],
+ "Acne on the face": [
+  "Chronic inflammation of the follicle and sebaceous gland. Related to raised androgens, excess sebum, abnormal keratinisation and bacterial involvement. Deeper drivers include high-sugar high-fat diet, stress, gut dysbiosis (the gut-skin axis) and a burdened liver, all raising inflammation.",
+  "毛囊皮脂腺的慢性炎症。与雄激素水平升高、皮脂分泌旺盛、毛囊角化异常和痤疮丙酸杆菌感染有关。但深层驱动因素包括高糖高脂饮食、压力、肠道菌群失调（肠-皮轴）、肝脏解毒功能负担重等，导致炎症水平升高。",
+  "Inflamación crónica del folículo y la glándula sebácea. Los impulsores profundos incluyen dieta alta en azúcar y grasa, estrés, disbiosis intestinal (eje intestino-piel) y un hígado sobrecargado.",
+  "रोमकूप और वसामय ग्रंथि की पुरानी सूजन। गहरे कारणों में उच्च शर्करा-वसा आहार, तनाव और आंत असंतुलन शामिल हैं।"
+ ],
+ "Red blood vessels showing on the face": [
+  "Persistently dilated visible capillaries, typically on the cheeks and sides of the nose where skin is thinner. May relate to a damaged skin barrier, long-term topical steroids, over-cleansing, sun exposure or rosacea. Reflects abnormal microcirculation and increased vessel fragility.",
+  "面部毛细血管持续扩张、可见，通常出现在皮肤较薄的脸颊和鼻翼。可能与皮肤屏障受损、长期外用激素、过度清洁、日晒、或玫瑰痤疮有关。反映皮肤微循环异常和血管壁脆性增加，需要温和修复屏障和抗炎管理。",
+  "Capilares dilatados visibles, típicamente en mejillas y alas de la nariz. Puede deberse a barrera cutánea dañada, corticoides tópicos prolongados, limpieza excesiva, sol o rosácea.",
+  "फैली हुई दिखने वाली केशिकाएँ, आमतौर पर गाल और नाक पर। क्षतिग्रस्त त्वचा अवरोध या रोसैसिया से जुड़ी।"
+ ],
+ "Nail fungus": [
+  "Fungal infection of the nails causing thickening, discoloration and brittleness. Local dampness, trauma and low immunity are predisposing factors. Holistically it reflects insufficient immunity against fungal infection, potentially related to nutritional status, gut health and circulation.",
+  "指（趾）甲被真菌感染，导致增厚、变色、浑浊、易碎。局部潮湿、外伤、免疫力低下是易感因素。从整体看，反映身体对抗真菌感染的免疫力不足，可能与营养状况、肠道健康及循环代谢有关。",
+  "Infección fúngica de las uñas con engrosamiento y decoloración. Refleja inmunidad insuficiente frente a hongos, relacionada con nutrición, salud intestinal y circulación.",
+  "नाखूनों का फफूंद संक्रमण। यह फफूंद के विरुद्ध अपर्याप्त प्रतिरक्षा दर्शाता है।"
+ ],
+ "Skin allergies or itching": [
+  "The skin overreacts to normally harmless substances, producing redness, bumps and intense itching. The direct cause is immune dysregulation. The root often lies in a leaky gut allowing allergens into the bloodstream, insufficient liver detoxification, chronic stress, and a lack of anti-inflammatory nutrients such as Omega-3.",
+  "皮肤对通常无害的物质产生过度免疫反应，出现红斑、丘疹、剧烈瘙痒。直接原因是免疫系统紊乱。根源常与肠漏导致过敏原入血、肝脏解毒功能不足、慢性压力、以及缺乏Omega-3等抗炎营养素有关。",
+  "La piel reacciona en exceso a sustancias inofensivas. La raíz suele estar en un intestino permeable, desintoxicación hepática insuficiente, estrés crónico y falta de nutrientes antiinflamatorios como el Omega-3.",
+  "त्वचा हानिरहित पदार्थों पर अत्यधिक प्रतिक्रिया करती है। जड़ अक्सर आंत की पारगम्यता और ओमेगा-3 की कमी है।"
+ ],
+ "Skin grows small lumps easily": [
+  "Prone to milia, skin tags and small cysts. Mostly benign, but suggests skin metabolism and waste elimination may be impaired. May relate to abnormal sebum, local microcirculation problems, or holistically to internal toxin accumulation and poor lymphatic circulation.",
+  "容易长脂肪粒、皮赘、小囊肿等。虽然多为良性，但提示皮肤新陈代谢和废物排出可能不畅。可能与皮脂分泌异常、局部微循环障碍，或从整体上看，与体内毒素堆积、淋巴循环不佳有关。",
+  "Propensión a milia, acrocordones y quistes pequeños. Sugiere metabolismo cutáneo y eliminación de residuos deteriorados, o mala circulación linfática.",
+  "मिलिया और छोटी गांठों की प्रवृत्ति। यह त्वचा चयापचय और अपशिष्ट निष्कासन में बाधा दर्शाती है।"
+ ],
+ "Athlete's foot": [
+  "A fungal skin infection of the foot causing itching, peeling and blisters. Although externally acquired, susceptibility relates to local sweating and reduced immunity. Holistically, regulating immunity, improving microcirculation and keeping the feet dry all matter.",
+  "由真菌感染引起的足部皮肤病，表现为瘙痒、脱皮、水疱。虽然由外部感染引起，但易感性增加与局部多汗、免疫力下降有关。从整体健康看，调节免疫力、改善微循环和保持足部干燥清洁同样重要。",
+  "Infección fúngica del pie con picor y descamación. La susceptibilidad se relaciona con sudoración local e inmunidad reducida.",
+  "पैर का फफूंद संक्रमण। संवेदनशीलता स्थानीय पसीने और घटी प्रतिरक्षा से जुड़ी है।"
+ ],
+ "Cold, sweaty hands and feet": [
+  "Low temperature in the extremities, or cold yet sweaty hands and feet. Mostly related to peripheral circulation problems and autonomic dysregulation. May also indicate insufficient qi and blood, or a metabolic issue such as hypothyroidism.",
+  "四肢末端温度低，或又冷又容易出汗。多与末梢血液循环障碍、自主神经功能调节紊乱（支配血管收缩和汗腺）有关。也可能提示气血不足、阳气不能达于四末，或存在甲状腺功能减退等代谢性问题。",
+  "Temperatura baja en las extremidades, o manos y pies fríos pero sudorosos. Relacionado con circulación periférica y desregulación autonómica.",
+  "हाथ-पैरों का ठंडा या ठंडा-पसीने वाला होना परिधीय संचार समस्या दर्शाता है।"
+ ],
+ "Numbness or swelling in arms or legs": [
+  "Numbness may stem from nerve compression or peripheral neuropathy. Swelling is often related to impaired venous or lymphatic return, heart failure, kidney disease or local inflammation. A signal requiring careful differentiation of cause.",
+  "肢体感觉异常（麻木、针刺感）或肿胀疼痛。麻木可能源于神经受压（如颈椎病、腰椎病）或周围神经病变（如糖尿病引起）。肿胀常与静脉或淋巴回流受阻、心力衰竭、肾脏疾病或局部炎症有关。是需要仔细甄别病因的信号。",
+  "El entumecimiento puede venir de compresión nerviosa o neuropatía. La hinchazón suele relacionarse con retorno venoso o linfático deteriorado.",
+  "सुन्नपन तंत्रिका दबाव से हो सकता है। सूजन शिरापरक या लसीका वापसी में बाधा दर्शाती है।"
  ],
  "Muscle cramps": [
-  "Cramping is the most recognisable magnesium signal there is, and it often appears alongside difficulty relaxing and restless sleep.",
-  "抽筋是镁最容易辨认的信号，而且常和难以放松、睡不安稳一起出现。",
-  "Los calambres son la señal de magnesio más reconocible.",
-  "ऐंठन मैग्नीशियम का सबसे पहचानने योग्य संकेत है।"
+  "Sudden involuntary contraction with severe pain. Common causes include electrolyte imbalance (magnesium, calcium, potassium), dehydration, muscle fatigue, poor circulation or neurological abnormality. Night-time calf cramps are especially common.",
+  "肌肉突然、不自主的强直收缩，伴剧烈疼痛。常见原因包括：电解质失衡（缺镁、钙、钾）、脱水、肌肉疲劳、血液循环不良、或神经系统异常。夜间小腿抽筋尤其常见，提示需要关注矿物质营养和局部循环。",
+  "Contracción súbita e involuntaria con dolor intenso. Causas: desequilibrio de electrolitos (magnesio, calcio, potasio), deshidratación o mala circulación.",
+  "अचानक अनैच्छिक संकुचन। कारण: इलेक्ट्रोलाइट असंतुलन (मैग्नीशियम, कैल्शियम, पोटैशियम)।"
  ],
- "Numbness or tingling in limbs": [
-  "Tingling in the hands and feet is one of the more specific B12 signals, and it is worth mentioning to a physician rather than only supplementing.",
-  "手脚发麻是B12比较有指向性的信号之一，值得跟医生说，而不是只靠补充剂。",
-  "El hormigueo en manos y pies es una de las señales más específicas de B12.",
-  "हाथ-पैर में झुनझुनी बी12 का विशिष्ट संकेत है।"
+ "Get sick or infected easily": [
+  "More susceptible than others to colds and flu, or minor wounds easily becoming infected. A clear sign of low immunity. Roots may include poor nutrition (protein, vitamins A/C/D, zinc), chronic sleep deprivation, excessive stress, or gut dysbiosis impairing immune cell development.",
+  "比别人更容易患感冒、流感，或小伤口容易感染、化脓。这是免疫力低下的明确标志。根源可能在于：营养状况差（蛋白质、维生素A/C/D、锌缺乏）、长期睡眠不足、压力过大、肠道菌群失调导致免疫细胞发育不良，或慢性疾病消耗。",
+  "Más susceptible a resfriados o infecciones de heridas menores. Señal clara de baja inmunidad por mala nutrición, falta de sueño, estrés o disbiosis.",
+  "सर्दी या संक्रमण के प्रति अधिक संवेदनशील। यह कम प्रतिरक्षा का स्पष्ट संकेत है।"
  ],
- "Headaches or migraines": [
-  "Frequency and trigger matter more than severity. Dehydration, blood sugar dips and sleep debt account for most recurring headaches before anything else is considered.",
-  "频率和诱因比疼痛程度更重要。在考虑其他原因之前，脱水、血糖下降和睡眠债能解释大部分反复出现的头痛。",
-  "La frecuencia y el desencadenante importan más que la intensidad.",
-  "आवृत्ति और कारण तीव्रता से अधिक मायने रखते हैं।"
+ "Arthritis": [
+  "Inflammatory joint disease, commonly osteoarthritis (degenerative) or rheumatoid (autoimmune). Core pathology is cartilage destruction and synovial inflammation. Management requires anti-inflammatory measures, cartilage protection, immune modulation and a healthy weight.",
+  "关节的炎症性疾病，常见有骨关节炎（退行性）和类风湿关节炎（自身免疫性）。表现为关节红、肿、热、痛和功能障碍。核心病理是关节软骨破坏和滑膜炎症。管理需抗炎、保护软骨、调节免疫（针对类风湿）并维持健康体重。",
+  "Enfermedad inflamatoria articular. La patología central es destrucción del cartílago e inflamación sinovial. Requiere antiinflamatorios y protección del cartílago.",
+  "जोड़ों की सूजन संबंधी बीमारी। मुख्य विकृति उपास्थि विनाश और श्लेष सूजन है।"
  ],
- "Unexplained weight gain": [
-  "Weight that moves without a change in habits usually points at thyroid, sleep or a medication rather than at eating, and it deserves a blood test rather than a stricter diet.",
-  "习惯没变但体重变了，通常指向甲状腺、睡眠或某种药物，而不是吃得多，这种情况该去验血而不是更严格地节食。",
-  "El peso que cambia sin cambiar hábitos apunta a tiroides, sueño o medicación.",
-  "बिना आदत बदले वज़न बढ़ना थायरॉइड या नींद की ओर संकेत करता है।"
+ "Cold feeling in lower back": [
+  "A subjective feeling of coldness in the lower back even in a warm environment. May relate to poor circulation there, local muscle tension reducing blood flow, or autonomic dysregulation. Suggests improving local circulation and warming the body.",
+  "自觉腰部有寒冷感，即使环境不冷。中医认为是肾阳虚或寒湿滞留的表现。现代视角可能与腰部血液循环不良、局部肌肉紧张痉挛导致血流减少，或自主神经调节功能异常有关。提示需要改善局部循环和温煦身体。",
+  "Sensación de frío lumbar incluso en ambiente cálido. Puede deberse a mala circulación local o tensión muscular que reduce el flujo sanguíneo.",
+  "गर्म वातावरण में भी पीठ में ठंडक। यह स्थानीय खराब संचार दर्शा सकता है।"
  ],
- "Difficulty losing weight": [
-  "Usually a muscle mass and insulin question rather than a calorie one. Muscle is where glucose gets disposed of, so losing it makes the next attempt harder.",
-  "通常是肌肉量和胰岛素的问题，而不是热量问题。肌肉是葡萄糖的去处，掉了肌肉会让下一次更难。",
-  "Suele ser una cuestión de masa muscular e insulina, no de calorías.",
-  "यह आमतौर पर मांसपेशी और इंसुलिन का प्रश्न है, कैलोरी का नहीं।"
+ "Lumbar disc problems": [
+  "A disc's fibrous ring ruptures and the nucleus compresses nerve roots, causing low back pain and leg numbness. Related to disc degeneration, poor posture, heavy lifting and trauma. Fundamentally, insufficient nutrient supply to disc tissue and muscular imbalance reducing stability.",
+  "椎间盘的纤维环破裂，髓核突出压迫神经根，引起腰痛、腿麻。与椎间盘退变、长期不良姿势、负重、急性外伤有关。根本上是椎间盘组织营养供应不足、修复能力下降，以及周围肌肉力量不平衡导致稳定性差。",
+  "El anillo fibroso se rompe y el núcleo comprime raíces nerviosas. Relacionado con degeneración discal, mala postura y desequilibrio muscular.",
+  "डिस्क का रेशेदार छल्ला फटने से तंत्रिका दबती है, जिससे कमर दर्द होता है।"
  ],
- "Craving sweets or carbs": [
-  "Cravings are a blood sugar pattern, not a willpower problem. They usually trace back to a missing or protein-free breakfast several hours earlier.",
-  "嘴馋是血糖模式，不是意志力问题。通常能追溯到几小时前那顿缺失的、或者没有蛋白质的早餐。",
-  "Los antojos son un patrón de azúcar en sangre, no de fuerza de voluntad.",
-  "लालसा रक्त शर्करा का पैटर्न है, इच्छाशक्ति की समस्या नहीं।"
+ "Bone spurs or bone growth": [
+  "Bony growths at joint edges are a compensatory response where the body tries to stabilise a joint under uneven stress or degeneration. Not a disease in themselves, but they may irritate surrounding tissue and indicate pre-existing chronic strain and inflammation.",
+  "关节边缘的骨质增生，是关节在长期受力不均、不稳定或退变过程中，人体试图增加接触面积、稳定关节的代偿性反应。本身不是病，但可能刺激周围软组织引发疼痛。提示关节已存在慢性劳损和炎症。",
+  "Crecimientos óseos en los bordes articulares son una respuesta compensatoria ante estrés desigual. Indican desgaste e inflamación crónicos previos.",
+  "जोड़ों के किनारों पर हड्डी की वृद्धि एक क्षतिपूरक प्रतिक्रिया है।"
  ],
- "Binge eating episodes": [
-  "Episodes are usually produced by the gap before them rather than by the food itself. Long gaps between meals are the most common trigger.",
-  "暴食通常是它之前那段空档造成的，而不是食物本身。两餐间隔太长是最常见的诱因。",
-  "Los episodios suelen producirse por el intervalo previo más que por la comida en sí.",
-  "ये आमतौर पर पहले के अंतराल से होते हैं, भोजन से नहीं।"
+ "Back pain": [
+  "Very common, and can originate from muscle strain, ligament sprain, disc issues, arthritis, osteoporosis or referred visceral pain. Long-term poor posture, weak core muscles and excess weight are common triggers.",
+  "非常普遍的症状，可源于肌肉劳损、韧带拉伤、椎间盘问题、关节炎、骨质疏松或内脏疾病牵涉痛。长期姿势不良、核心肌群无力、体重超标是常见诱因。提示运动系统存在失衡和劳损，需要综合评估和针对性强化。",
+  "Muy común. Puede originarse en distensión muscular, discos, artritis u osteoporosis. La mala postura y el core débil son desencadenantes frecuentes.",
+  "बहुत सामान्य। यह मांसपेशी खिंचाव, डिस्क या गठिया से हो सकता है।"
  ],
- "Always hungry or never satisfied": [
-  "Satiety is driven by protein and fibre more than by volume, so this answer usually reports on meal composition rather than on appetite.",
-  "饱腹感主要由蛋白质和纤维决定，而不是食物体积，所以这一题反映的通常是进餐结构，而不是食欲。",
-  "La saciedad depende de la proteína y la fibra más que del volumen.",
-  "तृप्ति प्रोटीन और फ़ाइबर से आती है, मात्रा से नहीं।"
+ "Neck stiffness or neck pain": [
+  "Restricted neck movement with pain, often from muscle spasm or cervical joint dysfunction. Directly related to prolonged forward head posture using phones and computers. Indicates chronically tense neck and shoulder muscles with impaired circulation and nutrient supply.",
+  "颈部活动受限伴疼痛，常由肌肉痉挛、颈椎小关节紊乱、颈椎病或落枕引起。与现代人长期低头使用手机电脑直接相关。提示颈肩部肌肉长期处于紧张状态，血液循环和营养供应受阻，需纠正姿势并放松肌肉。",
+  "Movimiento restringido con dolor, a menudo por espasmo muscular. Directamente ligado a la postura de cabeza adelantada con móviles y ordenadores.",
+  "दर्द के साथ सीमित गति, अक्सर मांसपेशी ऐंठन से। यह झुकी गर्दन की मुद्रा से जुड़ा है।"
+ ],
+ "Spine stiffness or pain": [
+  "Reduced mobility and pain throughout the spine may indicate widespread degenerative change, severe osteoporosis or multi-level disc disease. A signal of serious compromise to spinal health requiring professional medical evaluation.",
+  "整个脊柱（颈、胸、腰）活动度下降并伴有疼痛。可能提示广泛的退行性改变（如强直性脊柱炎早期、弥漫性特发性骨肥厚）、严重的骨质疏松或多节段椎间盘病变。是脊柱健康严重受损的信号，需要专业医学评估。",
+  "La movilidad reducida y el dolor en toda la columna pueden indicar cambios degenerativos amplios u osteoporosis grave. Requiere evaluación médica.",
+  "पूरी रीढ़ में गति की कमी और दर्द व्यापक अपक्षयी परिवर्तन दर्शा सकता है।"
+ ],
+ "Unusual weight gain or weight loss": [
+  "Significant weight change without deliberate diet or exercise change. Gain often relates to insulin resistance, hypothyroidism or raised cortisol; loss may link to hyperthyroidism, diabetes, malabsorption or chronic wasting. A sensitive indicator of altered metabolic status.",
+  "在没有刻意改变饮食运动的情况下，体重短期内显著增加或减少。增重常与胰岛素抵抗、甲状腺功能减退、皮质醇升高（压力激素）有关；减重可能与甲状腺功能亢进、糖尿病、消化吸收障碍或慢性消耗性疾病有关。是代谢状态改变的敏感指标。",
+  "Cambio de peso importante sin cambiar dieta ni ejercicio. La ganancia suele ligarse a resistencia a la insulina o hipotiroidismo; la pérdida, a hipertiroidismo o malabsorción.",
+  "बिना आहार बदले वज़न में बड़ा बदलाव। वृद्धि इंसुलिन प्रतिरोध से, कमी अतिगलग्रंथिता से जुड़ी हो सकती है।"
+ ],
+ "Too skinny or overweight": [
+  "Long-term deviation from an ideal weight range. Obesity is excess fat tissue, a breeding ground for inflammation and metabolic disease; being underweight may indicate inadequate nutrition, poor absorption or hypermetabolism. Both reflect imbalanced energy and nutrient metabolism.",
+  "长期偏离理想体重范围。肥胖是脂肪组织过量堆积，是炎症和代谢疾病的温床；过度消瘦可能意味着营养摄入不足、吸收不良或代谢亢进。两者都是身体组成不健康、营养能量代谢失衡的长期表现，需要综合调整。",
+  "Desviación prolongada del peso ideal. La obesidad es caldo de cultivo de inflamación; el bajo peso puede indicar mala nutrición o absorción.",
+  "आदर्श वज़न से लंबे समय तक विचलन। मोटापा सूजन का आधार है।"
+ ],
+ "High or low blood sugar": [
+  "Persistently abnormal blood sugar. High blood sugar stems from insulin resistance or deficiency; low blood sugar may come from reactive hypoglycaemia or irregular eating. Instability damages vessels and nerves and causes energy and mood swings. Management centres on diet and insulin sensitivity.",
+  "血糖水平持续异常。高血糖（糖尿病前期或糖尿病）源于胰岛素抵抗或分泌不足；低血糖可能由反应性低血糖、胰岛素瘤或饮食不规律引起。血糖不稳定会损伤血管和神经，并引发能量波动和情绪问题。管理核心是饮食调整和改善胰岛素敏感性。",
+  "Azúcar persistentemente anormal. La inestabilidad daña vasos y nervios y causa oscilaciones de energía y ánimo.",
+  "लगातार असामान्य रक्त शर्करा वाहिकाओं और तंत्रिकाओं को नुकसान पहुँचाती है।"
+ ],
+ "Cough easily": [
+  "Coughing is a defensive reflex clearing the airways. Chronic coughing without clear infection may stem from airway hyperresponsiveness, allergic inflammation or reflux irritation. Requires reducing allergen exposure, lowering systemic inflammation and repairing respiratory epithelium.",
+  "咳嗽是呼吸道清除异物的防御反射。无明确感染的长期慢性咳嗽或易咳，可能源于呼吸道高反应性、过敏性炎症，或胃食管反流刺激。从健康管理看，需要减少接触过敏原、降低全身炎症水平，并修复呼吸道上皮细胞。",
+  "La tos es un reflejo defensivo. La tos crónica sin infección clara puede venir de hiperreactividad, inflamación alérgica o reflujo.",
+  "खांसी एक रक्षात्मक प्रतिवर्त है। बिना संक्रमण की पुरानी खांसी एलर्जी सूजन से हो सकती है।"
+ ],
+ "Runny nose easily": [
+  "Excessive nasal discharge is the mucosa's response to irritants. Frequent occurrence indicates sensitive and unstable mucosal defence, potentially related to low overall immunity, insufficient nutrients for mucosal repair such as vitamin A and zinc, or poor autonomic regulation.",
+  "鼻水分泌过多是鼻粘膜对刺激（感染、过敏原、冷空气）的反应。频繁发生表明鼻粘膜敏感、防御功能不稳定，可能与整体免疫力低下、粘膜修复所需的营养（如维生素A、锌）不足，或自主神经功能调节不佳有关。",
+  "La secreción nasal excesiva es la respuesta de la mucosa a irritantes. Su frecuencia indica defensa mucosa sensible e inestable.",
+  "अत्यधिक नाक स्राव उत्तेजकों के प्रति श्लेष्मा की प्रतिक्रिया है।"
+ ],
+ "Sneeze a lot": [
+  "Sneezing expels irritants through a forceful burst of air. Frequent sneezing, especially in specific environments, is a classic symptom of allergic rhinitis, indicating a hypersensitive immune system. Management focuses on modulating immune balance and repairing gut health.",
+  "打喷嚏是鼻粘膜受到刺激后通过爆发式排气来清除异物的反射。频繁打喷嚏，尤其在接触特定环境时，是过敏性鼻炎的典型症状，提示免疫系统处于高敏状态。管理重点在于调整免疫平衡、抗炎和修复肠道健康。",
+  "Estornudar expulsa irritantes. Los estornudos frecuentes, sobre todo en entornos concretos, son un síntoma clásico de rinitis alérgica.",
+  "छींक उत्तेजकों को बाहर निकालती है। बार-बार छींक एलर्जिक राइनाइटिस का क्लासिक लक्षण है।"
+ ],
+ "Catch colds often": [
+  "More than three or four colds a year, or prolonged recovery, is a clear sign of low immunity. Immunity is rooted in nutrition (protein, vitamins A/C/D, zinc), gut health, adequate sleep and stress management. Frequent colds indicate deficiencies in these areas.",
+  "每年感冒超过3-4次，或病程迁延不愈，是免疫力低下的明确标志。免疫力根植于营养（蛋白质、维生素A/C/D、锌等）、肠道健康、充足的睡眠和压力管理。常感冒提示在这些方面存在短板，身体需要全面的支持来重建免疫防线。",
+  "Más de tres o cuatro resfriados al año es señal clara de baja inmunidad, arraigada en nutrición, salud intestinal, sueño y manejo del estrés.",
+  "साल में तीन-चार से अधिक सर्दी कम प्रतिरक्षा का स्पष्ट संकेत है।"
+ ],
+ "Often have nasal allergies": [
+  "Allergic rhinitis is an overreaction to common substances such as pollen and dust mites. The root lies in immune dysregulation, closely linked to gut dysbiosis, a leaky gut allowing easier entry of allergens, and deficiency in anti-inflammatory nutrients such as Omega-3.",
+  "过敏性鼻炎是免疫系统对普通物质（如花粉、尘螨）的过度反应。根本原因在于免疫调节紊乱（Th1/Th2失衡），与肠道菌群失调、肠漏导致过敏原和炎症物质更容易进入体内，以及缺乏Omega-3等抗炎营养素密切相关。",
+  "La rinitis alérgica es una reacción exagerada a sustancias comunes. La raíz está en la desregulación inmune ligada a la disbiosis intestinal.",
+  "एलर्जिक राइनाइटिस आम पदार्थों पर अति प्रतिक्रिया है, जिसकी जड़ आंत असंतुलन है।"
+ ],
+ "Sore throat": [
+  "Inflammation of the throat mucosa. Frequent episodes indicate weak local immunity, linked to immunity decline from late nights and stress, deficiency in vitamins A and C and zinc that maintain mucosal health, or acid reflux irritation.",
+  "咽喉部粘膜的炎症，常由病毒或细菌感染引起，但频繁发作提示局部免疫力薄弱。与熬夜、压力导致的免疫力下降，缺乏维生素A、C、锌等维护粘膜健康的营养素，或胃酸反流刺激有关。需要从提升整体免疫和抗炎能力入手。",
+  "Inflamación de la mucosa faríngea. Los episodios frecuentes indican inmunidad local débil por trasnochar, estrés o déficit de vitaminas A y C y zinc.",
+  "गले की श्लेष्मा की सूजन। बार-बार होना कमज़ोर स्थानीय प्रतिरक्षा दर्शाता है।"
+ ],
+ "Nosebleeds easily": [
+  "Fragile nasal vessels rupture easily. May relate to dry air or local trauma, but can also indicate systemic issues such as vitamin C or K deficiency affecting vessel strength and clotting, or blood pressure fluctuation.",
+  "鼻腔内血管脆弱易破裂出血。可能与空气干燥、局部外伤有关，但也可能提示全身性问题，如维生素C或维生素K缺乏（影响血管壁强度和凝血功能）、血压波动，或中医所说的肺热、肝火上炎。",
+  "Vasos nasales frágiles que se rompen con facilidad. Puede indicar déficit de vitamina C o K que afecta la fuerza vascular y la coagulación.",
+  "नाक की नाज़ुक वाहिकाएँ आसानी से फटती हैं। यह विटामिन सी या के की कमी दर्शा सकता है।"
+ ],
+ "Asthma or bronchitis": [
+  "Chronic inflammatory disease of the lower airways. Both asthma and bronchitis are closely linked to abnormal immune function, chronic inflammation and oxidative stress. Core management is anti-inflammatory, antioxidant, immune modulation and repair of respiratory tissue.",
+  "下呼吸道的慢性炎症性疾病。哮喘是气道高反应性和可逆性气流受限；支气管炎是气管粘膜的炎症。两者都与免疫系统功能异常、慢性炎症、氧化应激密切相关。健康管理核心是抗炎、抗氧化、调节免疫和修复呼吸道组织。",
+  "Enfermedad inflamatoria crónica de las vías bajas. Ambas se ligan a función inmune anormal, inflamación crónica y estrés oxidativo.",
+  "निचले वायुमार्ग की पुरानी सूजन। दोनों असामान्य प्रतिरक्षा और ऑक्सीडेटिव तनाव से जुड़े हैं।"
+ ],
+ "Chest tightness, hard to breathe": [
+  "A feeling of pressure in the chest and difficulty breathing may stem from cardiopulmonary issues: insufficient heart blood supply, lung disease, severe anaemia or anxiety. A serious alarm regarding inadequate oxygen supply, requiring comprehensive assessment.",
+  "感觉胸口发闷、呼吸不畅，可能源于心肺功能问题。心脏供血不足（如冠心病）、肺部疾病（如哮喘、慢阻肺）、严重贫血或焦虑情绪都可能引起。这是身体对氧气供应不足或代谢废物堆积的严重警报，需要综合评估心肺和血液健康。",
+  "Presión en el pecho y dificultad para respirar pueden venir de problemas cardiopulmonares. Es una alarma seria sobre oxígeno insuficiente.",
+  "सीने में दबाव और साँस लेने में कठिनाई हृदय-फेफड़े की समस्या से हो सकती है।"
+ ],
+ "Heart beating fast or irregular": [
+  "Awareness of a heart beating too fast, slow or irregularly. May be caused by cardiac issues, electrolyte imbalance (potassium, magnesium), hyperthyroidism, anaemia or anxiety. Requires medical examination to rule out organic problems alongside nutritional support and stress management.",
+  "自觉心跳过快、过慢或不规则。可能由心脏本身问题（如房颤）、电解质紊乱（钾、镁缺乏）、甲状腺功能亢进、贫血、或焦虑引起。是心脏电生理活动不稳定的信号，需要医学检查排除器质性问题，同时关注营养支持和压力管理。",
+  "Percibir latidos rápidos, lentos o irregulares. Puede deberse a problemas cardíacos, desequilibrio de electrolitos, hipertiroidismo o ansiedad.",
+  "तेज़, धीमी या अनियमित धड़कन का अहसास। यह हृदय समस्या या इलेक्ट्रोलाइट असंतुलन से हो सकता है।"
+ ],
+ "Leg weakness": [
+  "Heaviness, fatigue or difficulty walking. Besides neurological issues, circulatory causes may include insufficient arterial supply to the legs, poor venous return causing oedema, or severe malnutrition causing muscle wasting.",
+  "感觉双腿沉重、乏力，行走困难。除了神经系统问题，循环系统原因可能包括下肢动脉供血不足（如外周动脉疾病）、静脉回流不畅导致水肿，或严重营养不良导致的肌肉消耗。提示需要关注血管通畅性和肌肉营养状况。",
+  "Pesadez o dificultad para caminar. Las causas circulatorias incluyen riego arterial insuficiente, mal retorno venoso o desnutrición grave.",
+  "भारीपन या चलने में कठिनाई। कारणों में अपर्याप्त धमनी आपूर्ति शामिल है।"
+ ],
+ "High blood lipids, thick blood": [
+  "Elevated triglycerides and cholesterol, or increased blood viscosity, significantly raise the risk of atherosclerosis, thrombosis and cardiovascular events. Directly related to a high-fat high-sugar diet, lack of exercise, obesity, alcohol and disordered liver fat metabolism.",
+  "血液中甘油三酯、胆固醇过高，或血液粘稠度增加，会显著增加动脉粥样硬化、血栓形成和心脑血管事件的风险。这与高脂高糖饮食、缺乏运动、肥胖、饮酒以及肝脏脂肪代谢功能紊乱直接相关。改善生活方式和调节血脂是管理核心。",
+  "Triglicéridos y colesterol elevados aumentan mucho el riesgo de aterosclerosis y eventos cardiovasculares.",
+  "उच्च ट्राइग्लिसराइड और कोलेस्ट्रॉल एथेरोस्क्लेरोसिस का जोखिम बढ़ाते हैं।"
+ ],
+ "High or low blood pressure": [
+  "Blood pressure consistently outside the normal range. Hypertension is a silent killer damaging the vessel lining; hypotension may cause dizziness and fatigue. Nutrition, exercise, stress management and limiting sodium are key intervention points.",
+  "血压长期偏离正常范围。高血压是无声杀手，损伤血管内皮；低血压可能导致头晕、乏力。两者都与血管弹性、血容量、心脏功能以及神经内分泌调节有关。营养、运动、压力管理和限制钠盐是关键干预点。",
+  "Presión fuera del rango normal. La hipertensión es un asesino silencioso; la hipotensión puede causar mareo y fatiga.",
+  "सामान्य सीमा से बाहर रक्तचाप। उच्च रक्तचाप मूक हत्यारा है।"
+ ],
+ "Anemia": [
+  "Insufficient red cells or haemoglobin, reducing oxygen-carrying capacity. Common causes include iron, B12 or folate deficiency, chronic blood loss such as heavy menstruation, or bone marrow dysfunction. Requires identifying the cause and targeted supplementation.",
+  "血液中红细胞数量或血红蛋白含量不足，导致携氧能力下降。常见原因包括铁、维生素B12、叶酸缺乏（营养性贫血）、慢性失血（如月经过多、消化道出血）或骨髓造血功能障碍。表现为乏力、苍白、心悸。需查明原因并针对性补充营养。",
+  "Glóbulos rojos o hemoglobina insuficientes. Causas comunes: déficit de hierro, B12 o folato, o pérdida crónica de sangre.",
+  "अपर्याप्त लाल कोशिकाएँ या हीमोग्लोबिन। कारण: आयरन, बी12 या फोलेट की कमी।"
+ ],
+ "Varicose veins": [
+  "Leg veins become twisted and enlarged from valve incompetence and raised pressure. Related to prolonged standing, heavy labour, obesity, constipation and genetics. Indicates excessive burden on venous return, requiring improved circulation and bioflavonoid-rich foods.",
+  "腿部静脉因瓣膜功能不全、压力增高而迂曲、扩张。与长期站立、重体力劳动、肥胖、便秘腹压增高及遗传有关。提示下肢静脉回流系统负担过重，需要改善血液循环、减轻腿部压力，并增加富含生物类黄酮的食物以增强静脉壁韧性。",
+  "Venas de las piernas dilatadas por insuficiencia valvular. Relacionadas con estar de pie mucho tiempo, obesidad y genética.",
+  "वाल्व की खराबी से पैरों की नसें फैल जाती हैं।"
+ ],
+ "Dark or cloudy urine": [
+  "Normal urine is pale yellow and clear. Very dark colour may indicate dehydration, but can also come from food, medication or liver and gallbladder disease. Cloudiness may indicate infection, crystals preceding stones, or chyluria. An important window on hydration and urinary health.",
+  "正常尿液为淡黄色、清亮。颜色过深可能提示饮水不足、浓缩尿，也可能由食物（如胡萝卜）、药物或肝胆疾病（胆红素尿）引起。浑浊可能提示脓尿（感染）、晶体尿（结石前兆）或乳糜尿。是观察水合状态和泌尿系统健康的重要窗口。",
+  "La orina normal es amarillo pálido y clara. El color muy oscuro puede indicar deshidratación; la turbidez, infección o cristales previos a cálculos.",
+  "सामान्य मूत्र हल्का पीला और साफ़ होता है। गहरा रंग निर्जलीकरण दर्शा सकता है।"
+ ],
+ "Pee often, urgent pee, or bed-wetting": [
+  "Abnormally frequent urination, urgency or night-time bed-wetting. Possible causes include urinary tract infection, overactive bladder, prostate enlargement, pelvic floor relaxation, diabetes or neurological disorders. Requires distinguishing functional from organic causes.",
+  "排尿次数异常增多、有急迫感，或夜间遗尿。可能原因包括：泌尿系感染、膀胱过度活动症、前列腺增生（男性）、盆底肌松弛（女性）、糖尿病或神经系统疾病。需要区分是功能性问题还是器质性疾病，并针对原因管理。",
+  "Micción anormalmente frecuente o urgente. Causas posibles: infección urinaria, vejiga hiperactiva, próstata, suelo pélvico o diabetes.",
+  "असामान्य रूप से बार-बार पेशाब। कारण: मूत्र संक्रमण, अतिसक्रिय मूत्राशय या मधुमेह।"
+ ],
+ "Urinary tract infection, painful urination": [
+  "Inflammation from bacteria entering the urethra, more common in women. Predisposing factors include low water intake, holding urine, poor hygiene and decreased immunity. Recurrent infection requires investigation for anatomical abnormality or diabetes.",
+  "细菌侵入尿道引起的炎症，女性更常见。症状包括尿频、尿急、排尿痛。易感因素包括饮水少、憋尿、卫生习惯不良、免疫力下降等。反复感染需排查有无解剖结构异常或糖尿病。管理需抗炎、提高免疫力并保证充足饮水。",
+  "Inflamación por bacterias en la uretra, más común en mujeres. Factores: poca agua, retener la orina, higiene deficiente e inmunidad baja.",
+  "मूत्रमार्ग में बैक्टीरिया से सूजन, महिलाओं में अधिक आम।"
+ ],
+ "Low sex drive or sexual problems": [
+  "Reduced libido or sexual dysfunction involves both physiological and psychological factors. Physiologically it may relate to hormone levels, vascular function, neurological issues or chronic disease. Reflects overall vitality, hormonal balance and circulatory health.",
+  "性欲减退或性功能障碍。与生理和心理因素都有关。生理上可能与激素水平（睾酮、雌激素）异常、血管功能（影响勃起或润滑）、神经系统问题或慢性疾病有关。心理压力、情绪问题也是重要因素。反映整体的活力、激素平衡和循环健康状况。",
+  "La libido reducida implica factores fisiológicos y psicológicos. Refleja vitalidad general, equilibrio hormonal y salud circulatoria.",
+  "कम कामेच्छा में शारीरिक और मानसिक दोनों कारक शामिल हैं।"
+ ],
+ "Period pain or abnormal discharge": [
+  "Dysmenorrhoea is abdominal pain during menstruation, primary or secondary. Abnormal discharge means changes in colour, odour or consistency, possibly indicating infection. Both relate to pelvic inflammation, hormonal imbalance with excess prostaglandins, uterine spasm or nutritional deficiency such as magnesium.",
+  "痛经指经期腹痛，分原发性和继发性（如子宫内膜异位症、腺肌症）。异常白带指颜色、气味、性状改变，可能提示感染。两者均与盆腔炎症、激素失衡（前列腺素过高）、子宫肌肉痉挛或营养缺乏（如镁）有关。是生殖系统发出的重要健康警报。",
+  "La dismenorrea es dolor abdominal menstrual. El flujo anormal puede indicar infección. Ambos se relacionan con inflamación pélvica y exceso de prostaglandinas.",
+  "मासिक दर्द और असामान्य स्राव श्रोणि सूजन और हार्मोन असंतुलन से जुड़े हैं।"
+ ],
+ "Gynecological infections": [
+  "Vaginitis, cervicitis or pelvic inflammatory disease from bacterial, fungal or parasitic infection. Frequent episodes indicate low local immunity and vaginal microbiome imbalance, and may relate to poor blood sugar control. Holistically connected to overall immunity and gut health.",
+  "阴道炎、宫颈炎、盆腔炎等。由细菌、真菌或寄生虫感染引起。频繁发作提示局部免疫力低下、菌群失衡（阴道微生态），也可能与血糖控制不良、个人卫生、性卫生有关。从整体看，与全身免疫力、炎症水平和肠道健康存在关联。",
+  "Vaginitis, cervicitis o enfermedad pélvica inflamatoria. Los episodios frecuentes indican baja inmunidad local y desequilibrio del microbioma vaginal.",
+  "योनिशोथ या श्रोणि सूजन। बार-बार होना कम स्थानीय प्रतिरक्षा दर्शाता है।"
+ ],
+ "High uric acid or gout": [
+  "Uric acid is the end product of purine metabolism. High levels form urate crystals in joints, causing intense gout pain, and in the kidneys. Related to a high-purine diet, alcohol, obesity and reduced kidney excretion. A manifestation of metabolic syndrome.",
+  "尿酸是嘌呤代谢的终产物，过高会形成尿酸盐结晶沉积在关节（引发痛风剧痛）和肾脏。与高嘌呤饮食（内脏、海鲜、肉汤）、饮酒、肥胖、肾脏排泄功能下降有关。是代谢综合征的表现之一，管理需调整饮食、促进排泄和抗炎。",
+  "El ácido úrico es el producto final del metabolismo de purinas. Niveles altos forman cristales en articulaciones y riñones.",
+  "यूरिक एसिड प्यूरीन चयापचय का अंतिम उत्पाद है। उच्च स्तर जोड़ों में क्रिस्टल बनाता है।"
+ ],
+ "Stones in gallbladder, kidney, or urinary tract": [
+  "Hard deposits from minerals and salts. Gallstones relate to cholesterol supersaturation and bile stasis; kidney stones to high concentrations of calcium, oxalate or uric acid in urine. Formation is closely linked to diet, insufficient water intake and metabolic abnormality.",
+  "矿物质和盐类在胆囊或泌尿系统中形成硬块。胆结石与胆固醇过饱和、胆汁淤积有关；肾结石与尿中钙、草酸、尿酸等浓度过高有关。形成与饮食、饮水不足、代谢异常密切相关。预防和调理需针对性调整饮食和增加液体摄入。",
+  "Depósitos duros de minerales y sales. Su formación se liga a la dieta, poca ingesta de agua y anomalías metabólicas.",
+  "खनिजों और लवणों से बने कठोर जमाव। इनका बनना आहार और कम पानी से जुड़ा है।"
  ]
 };
 
