@@ -58,6 +58,9 @@
     font:inherit;font-size:11px;font-weight:600;color:var(--green);cursor:pointer;vertical-align:middle}
   .help-btn::before{content:"?";display:inline-grid;place-items:center;width:14px;height:14px;border-radius:50%;
     background:var(--green-light);color:var(--green);font-size:10px;font-weight:800}
+  .help-btn-inline::before{margin:0}
+  .help-btn-inline{margin-left:7px}
+  .symptom-name{display:flex;align-items:center}
   .help-box{display:none;background:var(--green-light);border-radius:9px;padding:9px 11px;margin:0 0 8px;
     font-size:12.5px;line-height:1.6;color:var(--gray-600)}
   .help-box.open{display:block}
@@ -576,6 +579,21 @@ function buildSymptoms() {
       const nameDiv = document.createElement('div');
       nameDiv.className = 'symptom-name';
       nameDiv.textContent = item[1 + LI()] || item[1];
+      /* Every symptom gets its own disclosure, keyed off the canonical English label
+         so the help survives a language switch. */
+      const ih = SYMPTOM_HELP[item[0]];
+      let ibox = null;
+      if (ih) {
+        const ib = document.createElement('button');
+        ib.type = 'button';
+        ib.className = 'help-btn help-btn-inline';
+        ib.setAttribute('aria-label', tx(UI.why));
+        ibox = document.createElement('div');
+        ibox.className = 'help-box';
+        ibox.textContent = tx(ih);
+        ib.onclick = () => ibox.classList.toggle('open');
+        nameDiv.appendChild(ib);
+      }
       const btns = document.createElement('div');
       btns.className = 'freq-btns';
       FREQ.forEach(f => {
@@ -592,6 +610,7 @@ function buildSymptoms() {
       });
       row.appendChild(nameDiv); row.appendChild(btns);
       div.appendChild(row);
+      if (ibox) div.appendChild(ibox);
     });
     container.appendChild(div);
   });

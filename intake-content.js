@@ -453,4 +453,313 @@ const SYMPTOM_GROUPS = [
       ['Always hungry or never satisfied','Always hungry or never satisfied','总是饿、吃不饱','Siempre con hambre','हमेशा भूख लगना']] }
 ];
 
-if (typeof module !== 'undefined') module.exports = { LANGS, UI, SECTIONS, FIELDS, SYMPTOM_GROUPS };
+const SYMPTOM_HELP = {
+ "Hard to fall asleep": [
+  "Trouble getting to sleep is usually a wind-down problem rather than a tiredness problem: the nervous system has not switched out of its alert state. Screens in the last half hour are the most common single cause.",
+  "入睡困难通常不是不够累，而是没能从警觉状态切换下来。睡前半小时用屏幕是最常见的单一原因。",
+  "Costar dormirse suele ser un problema de desconexión, no de cansancio: el sistema nervioso no ha salido de su estado de alerta.",
+  "सोने में कठिनाई आमतौर पर थकान की नहीं, बल्कि शांत होने की समस्या है।"
+ ],
+ "Wake up during the night": [
+  "Waking through the night breaks sleep into fragments, so total hours can look fine while the restorative depth never arrives. If it happens at a consistent hour that is more informative than the waking itself.",
+  "半夜醒来会把睡眠切成碎片，所以总时长看起来正常，但真正修复性的深睡从未到达。如果每次都在固定时间点醒，这比「醒了」本身更有信息量。",
+  "Despertarse durante la noche fragmenta el sueño, así que las horas totales parecen bien mientras la profundidad reparadora nunca llega.",
+  "रात में जागना नींद को टुकड़ों में बाँट देता है, इसलिए कुल घंटे ठीक दिखते हैं पर गहरी नींद नहीं मिलती।"
+ ],
+ "Hard to fall back asleep": [
+  "Getting back to sleep is a different mechanism from getting to sleep in the first place. Difficulty here often means blood sugar dropped or the stress response fired, rather than a sleep-onset problem.",
+  "再次入睡和最初入睡是两套机制。这里困难，往往说明血糖掉了或应激反应被触发，而不是入睡本身有问题。",
+  "Volver a dormirse es un mecanismo distinto al de dormirse al principio; suele indicar una caída de azúcar o una respuesta de estrés.",
+  "फिर से सोना पहली बार सोने से अलग तंत्र है; यह अक्सर रक्त शर्करा गिरने का संकेत है।"
+ ],
+ "Vivid dreams or nightmares": [
+  "Unusually vivid dreaming often means sleep is light rather than deep, so more of the night is spent in the dreaming stage. It commonly travels with late meals, alcohol, or a busy mind at bedtime.",
+  "梦特别多、特别真实，通常说明睡眠浅而不深，整夜有更多时间停留在做梦阶段。常和晚餐太晚、饮酒或睡前思绪多同时出现。",
+  "Los sueños muy vívidos suelen indicar sueño ligero en vez de profundo, con más noche en la fase de sueño.",
+  "बहुत ज्वलंत सपने आमतौर पर हल्की नींद का संकेत हैं, गहरी नींद का नहीं।"
+ ],
+ "Restless or poor sleep quality": [
+  "Quality is separate from quantity. Eight restless hours repair less than six settled ones, which is why this is asked apart from bedtime.",
+  "质量和时长是两回事。八小时不安稳的睡眠，修复效果不如六小时安稳的，所以这题和睡觉时间分开问。",
+  "La calidad es distinta de la cantidad: ocho horas inquietas reparan menos que seis tranquilas.",
+  "गुणवत्ता मात्रा से अलग है। आठ बेचैन घंटे छह शांत घंटों से कम मरम्मत करते हैं।"
+ ],
+ "Wake up tired even after 8 hours": [
+  "This is the clearest sign that the hours are there but the depth is not. It points at what is interrupting sleep rather than at how long you sleep.",
+  "这是「时长够了但深度不够」最清楚的信号。它指向的是什么在打断睡眠，而不是你睡了多久。",
+  "Es la señal más clara de que las horas están pero la profundidad no.",
+  "यह सबसे स्पष्ट संकेत है कि घंटे तो हैं पर गहराई नहीं।"
+ ],
+ "Anxiety or mental tension": [
+  "Sustained tension keeps the body in its alert state, which burns through B vitamins and magnesium faster than a calm day does. In this framework it also connects to the liver.",
+  "长期紧张会让身体停在警觉状态，比平静的一天消耗更多B族维生素和镁。在这套框架里它也和肝相连。",
+  "La tensión sostenida mantiene el estado de alerta, que consume vitaminas B y magnesio más rápido.",
+  "लगातार तनाव शरीर को सतर्क अवस्था में रखता है, जो बी विटामिन और मैग्नीशियम तेज़ी से खर्च करता है।"
+ ],
+ "Heart palpitations": [
+  "Usually travels with the stress and sleep picture rather than indicating a cardiac problem, but it is worth mentioning to a physician for completeness.",
+  "通常和压力、睡眠那组一起出现，而不是心脏本身的问题，但为稳妥起见值得跟医生提一句。",
+  "Suele acompañar al cuadro de estrés y sueño más que indicar un problema cardíaco, pero conviene mencionarlo al médico.",
+  "यह आमतौर पर तनाव और नींद के साथ चलता है, फिर भी डॉक्टर को बताना उचित है।"
+ ],
+ "Cold sweaty hands or feet": [
+  "Peripheral circulation is what the body reduces first when it is conserving or under sustained stress, so cold extremities are usually a signal from the nervous system rather than a circulation defect.",
+  "身体在节省或长期承压时最先减少的就是末梢循环，所以手脚冰凉通常是神经系统发出的信号，而不是循环本身有毛病。",
+  "La circulación periférica es lo primero que el cuerpo reduce bajo estrés sostenido.",
+  "तनाव में शरीर सबसे पहले परिधीय रक्त संचार घटाता है।"
+ ],
+ "Difficulty relaxing or winding down": [
+  "Magnesium is what muscle and nervous tissue use to relax, so this answer specifically informs whether that is worth addressing.",
+  "镁是肌肉和神经组织用来放松的原料，所以这一题直接决定要不要处理这一块。",
+  "El magnesio es lo que usan el músculo y el tejido nervioso para relajarse.",
+  "मैग्नीशियम वह है जिससे मांसपेशी और तंत्रिका ऊतक शिथिल होते हैं।"
+ ],
+ "Poor digestion or feel full quickly": [
+  "Feeling full early usually means the stomach is emptying slowly, which is what happens when digestive capacity is low. Meal size and pace matter more here than what is eaten.",
+  "很快就饱，通常说明胃排空慢，这是消化能力不足的表现。这种情况下进餐的量和速度比吃什么更重要。",
+  "Saciarse pronto suele significar vaciado gástrico lento, señal de baja capacidad digestiva.",
+  "जल्दी भरा लगना धीमे गैस्ट्रिक खाली होने का संकेत है।"
+ ],
+ "Bloating after meals": [
+  "Gas produced after eating is a fermentation signal: something is reaching the gut bacteria before it has been broken down. Timing after the meal tells us roughly where.",
+  "饭后产气是发酵信号：有东西还没被分解就到了肠道菌群那里。距离进餐多久出现，大致能判断发生在哪一段。",
+  "El gas tras comer es una señal de fermentación: algo llega a las bacterias antes de descomponerse.",
+  "खाने के बाद गैस किण्वन का संकेत है।"
+ ],
+ "Excessive gas": [
+  "Volume of gas reflects what the gut bacteria are being fed. A high meat and low plant intake shifts the population and the byproducts it makes.",
+  "排气量反映肠道菌群吃的是什么。高肉低植物的饮食会改变菌群构成和它产生的副产物。",
+  "El volumen de gas refleja lo que comen las bacterias intestinales.",
+  "गैस की मात्रा दर्शाती है कि आंत के बैक्टीरिया क्या खा रहे हैं।"
+ ],
+ "Diarrhea or loose stools": [
+  "Loose stool means transit is faster than absorption can keep up with, so nutrients pass through. It quietly undercuts whatever else is being eaten or taken.",
+  "大便稀说明通过速度快过吸收速度，营养素就这样过去了。它会悄悄抵消你吃的其他东西的效果。",
+  "Las heces sueltas significan tránsito más rápido de lo que la absorción puede seguir.",
+  "पतला मल दर्शाता है कि गति अवशोषण से तेज़ है।"
+ ],
+ "Constipation": [
+  "Slow transit means waste sits longer, and some of what the liver packaged for removal gets reabsorbed instead. That is added load on the organ that processed it.",
+  "通过慢意味着废物停留更久，肝脏已经打包准备排出的东西有一部分会被重新吸收。这等于给处理它的器官加了负担。",
+  "El tránsito lento significa que parte de lo que el hígado preparó para eliminar se reabsorbe.",
+  "धीमी गति का अर्थ है कि जिगर द्वारा निकालने को तैयार कुछ पदार्थ फिर से सोख लिया जाता है।"
+ ],
+ "Bad breath or bitter taste in mouth": [
+  "A bitter taste points further upstream than the gut, toward bile and the liver. It is one of the more specific answers on this form.",
+  "口苦指向的位置比肠道更靠上游，指向胆汁和肝。这是本表里比较有指向性的一题。",
+  "Un sabor amargo apunta más arriba que el intestino, hacia la bilis y el hígado.",
+  "कड़वा स्वाद आंत से ऊपर, पित्त और जिगर की ओर संकेत करता है।"
+ ],
+ "Acid reflux or heartburn": [
+  "Often assumed to be too much acid when it is frequently the opposite, or a timing problem: eating late, lying down soon after, or eating too fast.",
+  "常被当成胃酸太多，但很多时候恰恰相反，或者只是时机问题：吃太晚、吃完就躺、吃太快。",
+  "A menudo se asume exceso de ácido cuando suele ser lo contrario, o un problema de horario.",
+  "इसे अक्सर अधिक अम्ल समझा जाता है जबकि अक्सर उल्टा होता है।"
+ ],
+ "Catch colds frequently": [
+  "Frequency over a year is what matters, not any single illness. More than three or four a year suggests a defence running below capacity rather than bad luck.",
+  "看的是一年的频率，不是某一次生病。一年超过三四次，说明防御能力不足，而不是运气差。",
+  "Lo que importa es la frecuencia anual, no una enfermedad puntual.",
+  "महत्वपूर्ण वार्षिक आवृत्ति है, कोई एक बीमारी नहीं।"
+ ],
+ "Cough easily": [
+  "A cough that starts readily suggests the airway lining is reactive or under-protected. Carotenoids maintain that lining, and they come from coloured vegetables.",
+  "一咳就来，说明气道黏膜反应性高或保护不足。维护这层黏膜的是类胡萝卜素，来自有颜色的蔬菜。",
+  "Una tos que aparece con facilidad sugiere que el revestimiento de las vías respiratorias está reactivo.",
+  "आसानी से खांसी वायुमार्ग की परत के प्रतिक्रियाशील होने का संकेत है।"
+ ],
+ "Runny nose easily": [
+  "Worth separating from a cold: a nose that runs without illness is usually an allergic or reactive pattern, which is immune regulation rather than immune weakness.",
+  "要和感冒区分开：没生病也流鼻涕，通常是过敏或反应性模式，属于免疫调节问题，而不是免疫力弱。",
+  "Conviene separarlo de un resfriado: una nariz que gotea sin enfermedad suele ser un patrón alérgico.",
+  "सर्दी से अलग: बिना बीमारी नाक बहना एलर्जी पैटर्न है।"
+ ],
+ "Sneezing a lot": [
+  "Sneezing in bouts, particularly on waking or on exposure to dust, points at an allergic pattern rather than infection.",
+  "成串打喷嚏，尤其是早上起床或接触灰尘时，指向过敏而不是感染。",
+  "Estornudar en rachas, sobre todo al despertar o con polvo, apunta a un patrón alérgico.",
+  "लगातार छींक, खासकर जागने पर, एलर्जी की ओर संकेत करती है।"
+ ],
+ "Nasal allergies": [
+  "An allergic pattern means the immune system is misidentifying harmless things as threats. That is a regulation problem, and a large share of immune regulation happens at the gut wall.",
+  "过敏意味着免疫系统把无害的东西误判成威胁。这是调节问题，而免疫调节有很大一部分发生在肠壁。",
+  "Un patrón alérgico significa que el sistema inmune identifica mal cosas inofensivas.",
+  "एलर्जी का अर्थ है प्रतिरक्षा तंत्र हानिरहित चीज़ों को खतरा समझ रहा है।"
+ ],
+ "Athlete's foot or nail fungus": [
+  "Persistent fungal issues on the skin surface usually reflect what is happening internally rather than local hygiene, and they tend to follow the gut and immune picture.",
+  "皮肤表面反复的真菌问题，通常反映的是体内状况而不是局部卫生，它往往跟着肠道和免疫那条线走。",
+  "Los hongos persistentes en la piel suelen reflejar lo interno más que la higiene local.",
+  "लगातार फफूंद संक्रमण स्थानीय सफ़ाई से अधिक आंतरिक स्थिति दर्शाता है।"
+ ],
+ "Afternoon energy crash": [
+  "A predictable afternoon dip is a blood sugar pattern, and it is usually set by what happened at breakfast rather than at lunch.",
+  "下午定时犯困是血糖模式，而且通常由早餐决定，不是午餐。",
+  "Un bajón vespertino predecible es un patrón de azúcar en sangre, fijado por el desayuno.",
+  "दोपहर की गिरावट रक्त शर्करा का पैटर्न है, जो नाश्ते से तय होता है।"
+ ],
+ "Persistent fatigue regardless of sleep": [
+  "Fatigue that sleep does not fix points away from sleep and toward absorption, iron status, or thyroid. It is the answer most likely to justify a blood test.",
+  "睡觉解决不了的疲劳，指向的就不是睡眠，而是吸收、铁状态或甲状腺。这是本表里最可能需要去验血的一项。",
+  "La fatiga que el sueño no arregla apunta a absorción, hierro o tiroides.",
+  "जो थकान नींद से ठीक न हो, वह अवशोषण या आयरन की ओर संकेत करती है।"
+ ],
+ "Brain fog or mental cloudiness": [
+  "The brain is the organ least tolerant of low blood volume and unstable glucose, so fog is often the first thing to appear and the first to improve.",
+  "大脑是最不能忍受血容量不足和血糖不稳的器官，所以脑雾往往最先出现，也最先改善。",
+  "El cerebro es el órgano menos tolerante al bajo volumen sanguíneo y la glucosa inestable.",
+  "मस्तिष्क कम रक्त मात्रा और अस्थिर ग्लूकोज़ को सबसे कम सहन करता है।"
+ ],
+ "Forgetfulness": [
+  "Short-term forgetfulness usually travels with sleep debt and B vitamin status rather than indicating anything about memory itself.",
+  "短期健忘通常和睡眠债、B族维生素状态有关，而不是记忆力本身出了问题。",
+  "El olvido a corto plazo suele acompañar la deuda de sueño y el estado de vitaminas B.",
+  "अल्पकालिक भूलना नींद की कमी और बी विटामिन से जुड़ा है।"
+ ],
+ "Hard to focus or concentrate": [
+  "Concentration is expensive metabolically, so it is one of the first functions the body downgrades when fuel or raw material is short.",
+  "集中注意力的代谢成本很高，所以燃料或原料不足时，身体最先降级的功能之一就是它。",
+  "La concentración es metabólicamente costosa, así que es de lo primero que el cuerpo degrada.",
+  "एकाग्रता चयापचय की दृष्टि से महंगी है।"
+ ],
+ "Reliant on caffeine to function": [
+  "Caffeine borrows energy rather than supplying it. Needing it to function is a useful measure of how large the underlying deficit is.",
+  "咖啡因是借能量，不是给能量。需要靠它才能正常运转，是衡量底层亏空有多大的一个好指标。",
+  "La cafeína pide prestada energía en vez de aportarla.",
+  "कैफ़ीन ऊर्जा देती नहीं, उधार लेती है।"
+ ],
+ "Feel slow or sluggish in the morning": [
+  "Morning sluggishness usually reflects what happened overnight rather than the morning itself: sleep depth, late eating, or the overnight blood sugar dip.",
+  "早上迟钝通常反映的是夜里发生了什么，而不是早上本身：睡眠深度、吃太晚，或者夜间血糖下降。",
+  "La lentitud matinal refleja lo ocurrido durante la noche más que la mañana misma.",
+  "सुबह की सुस्ती रात में हुई घटनाओं को दर्शाती है।"
+ ],
+ "Acne or breakouts": [
+  "Responds to blood sugar swings and to hormonal clearance rather than to washing. Skin turns over on roughly a 28 day cycle, so it is a useful early progress marker.",
+  "痘痘反应的是血糖波动和激素清除，不是洗脸。皮肤大约28天更新一次，所以它是很好用的早期进展指标。",
+  "Responde a los cambios de azúcar y al aclaramiento hormonal, no al lavado. La piel se renueva en unos 28 días.",
+  "यह रक्त शर्करा और हार्मोन सफ़ाई पर प्रतिक्रिया करता है। त्वचा लगभग 28 दिनों में नवीनीकृत होती है।"
+ ],
+ "Hair loss or thinning": [
+  "Hair is metabolically expensive and non-essential, so it is among the first tissues defunded when protein, iron or micronutrients run short. It is also slow to recover, around three months.",
+  "头发代谢成本高又非必需，所以蛋白质、铁或微量营养素不足时最先被断供。它恢复也慢，大约三个月。",
+  "El cabello es costoso y no esencial, así que es de los primeros tejidos que se desfinancian.",
+  "बाल महंगे और गैर-आवश्यक हैं, इसलिए कमी में सबसे पहले प्रभावित होते हैं।"
+ ],
+ "Dandruff or itchy scalp": [
+  "Often fungal in origin, which links it to the immune picture rather than to shampoo.",
+  "很多时候是真菌来源，所以它连的是免疫那条线，而不是洗发水。",
+  "A menudo de origen fúngico, lo que lo vincula al cuadro inmune más que al champú.",
+  "अक्सर फफूंदजन्य, जो इसे प्रतिरक्षा से जोड़ता है।"
+ ],
+ "Dry or brittle hair": [
+  "Texture reflects the raw material available while the strand was being built, so it reports on the last few months rather than on today.",
+  "发质反映的是这根头发长出来那段时间可用的原料，所以它报告的是过去几个月，不是今天。",
+  "La textura refleja el material disponible mientras crecía el cabello, informa de los últimos meses.",
+  "बनावट पिछले कुछ महीनों की स्थिति दर्शाती है।"
+ ],
+ "Skin allergies or hives": [
+  "A reactive skin response is the same regulation issue as nasal allergies, showing up in a different tissue.",
+  "皮肤的反应性反应，和鼻子过敏是同一个调节问题，只是出现在不同组织。",
+  "Una respuesta cutánea reactiva es el mismo problema de regulación que las alergias nasales.",
+  "त्वचा की प्रतिक्रिया वही नियमन समस्या है जो नाक की एलर्जी है।"
+ ],
+ "Dark circles under eyes": [
+  "The skin under the eyes is thin enough to show what is happening in the small blood vessels beneath it, which is why hydration and sleep both show up here first.",
+  "眼下皮肤薄到能透出下方小血管的状况，所以补水和睡眠的变化最先在这里显现。",
+  "La piel bajo los ojos es lo bastante fina para mostrar lo que ocurre en los vasos pequeños.",
+  "आँखों के नीचे की त्वचा पतली है, इसलिए यहाँ पहले दिखता है।"
+ ],
+ "Heavy menstrual flow": [
+  "Heavy flow over years is the most common route to low iron, and low iron shows up as fatigue and hair loss long before anything else.",
+  "长期经量大是缺铁最常见的路径，而缺铁会以疲劳和掉发的形式出现，远早于其他表现。",
+  "El flujo abundante durante años es la vía más común hacia el hierro bajo.",
+  "वर्षों तक अधिक रक्तस्राव आयरन की कमी का सबसे आम कारण है।"
+ ],
+ "Severe period cramps": [
+  "Cramping severity is set largely by prostaglandins, whose balance follows the ratio of fats in the diet. That makes it one of the more changeable symptoms here.",
+  "痛经程度主要由前列腺素决定，而它的平衡取决于饮食里脂肪的比例。所以这是本表里比较容易改变的症状。",
+  "La intensidad depende de las prostaglandinas, cuyo equilibrio sigue la proporción de grasas.",
+  "ऐंठन की तीव्रता प्रोस्टाग्लैंडिन से तय होती है।"
+ ],
+ "PMS (mood, bloating, breast tenderness)": [
+  "Premenstrual symptoms track with how completely oestrogen is cleared after it has done its job, which is liver work rather than a purely reproductive matter.",
+  "经前症状和雌激素完成作用后被清除得是否彻底有关，这是肝脏的工作，不纯粹是生殖系统的事。",
+  "Los síntomas premenstruales siguen a qué tan completamente se elimina el estrógeno.",
+  "मासिक-पूर्व लक्षण एस्ट्रोजन की सफ़ाई पर निर्भर करते हैं।"
+ ],
+ "Irregular periods": [
+  "Common and usually information rather than an alarm. What it changes is how the rest of the hormonal answers should be read.",
+  "很常见，通常是信息而不是警报。它改变的是其他激素相关答案该怎么解读。",
+  "Común y normalmente información, no una alarma.",
+  "सामान्य है और आमतौर पर जानकारी है, चेतावनी नहीं।"
+ ],
+ "Low libido": [
+  "Usually downstream of sleep, stress and thyroid rather than a standalone finding, which is why it sits with the rest of the picture.",
+  "通常是睡眠、压力和甲状腺的下游结果，而不是一个独立发现，所以它和整体图景放在一起看。",
+  "Suele ser consecuencia del sueño, el estrés y la tiroides más que un hallazgo aislado.",
+  "यह आमतौर पर नींद, तनाव और थायरॉइड का परिणाम है।"
+ ],
+ "Joint pain or stiffness": [
+  "In a younger person with good body composition this is rarely mechanical. It usually reflects inflammatory balance, and it needs raw material for cartilage as well as a change in that balance.",
+  "年轻、体成分良好的人出现这个，很少是机械性的。通常反映炎症平衡，而且除了改变平衡，还需要给软骨提供原料。",
+  "En una persona joven con buena composición rara vez es mecánico; refleja el equilibrio inflamatorio.",
+  "अच्छी संरचना वाले युवा में यह शायद ही यांत्रिक होता है।"
+ ],
+ "Back or neck pain": [
+  "Worth separating posture and prolonged sitting from an inflammatory pattern, because the two need different answers.",
+  "要把姿势、久坐和炎症模式区分开，因为这两者需要不同的解法。",
+  "Conviene separar la postura y el sedentarismo de un patrón inflamatorio.",
+  "मुद्रा और लंबे समय तक बैठने को सूजन से अलग करना ज़रूरी है।"
+ ],
+ "Muscle cramps": [
+  "Cramping is the most recognisable magnesium signal there is, and it often appears alongside difficulty relaxing and restless sleep.",
+  "抽筋是镁最容易辨认的信号，而且常和难以放松、睡不安稳一起出现。",
+  "Los calambres son la señal de magnesio más reconocible.",
+  "ऐंठन मैग्नीशियम का सबसे पहचानने योग्य संकेत है।"
+ ],
+ "Numbness or tingling in limbs": [
+  "Tingling in the hands and feet is one of the more specific B12 signals, and it is worth mentioning to a physician rather than only supplementing.",
+  "手脚发麻是B12比较有指向性的信号之一，值得跟医生说，而不是只靠补充剂。",
+  "El hormigueo en manos y pies es una de las señales más específicas de B12.",
+  "हाथ-पैर में झुनझुनी बी12 का विशिष्ट संकेत है।"
+ ],
+ "Headaches or migraines": [
+  "Frequency and trigger matter more than severity. Dehydration, blood sugar dips and sleep debt account for most recurring headaches before anything else is considered.",
+  "频率和诱因比疼痛程度更重要。在考虑其他原因之前，脱水、血糖下降和睡眠债能解释大部分反复出现的头痛。",
+  "La frecuencia y el desencadenante importan más que la intensidad.",
+  "आवृत्ति और कारण तीव्रता से अधिक मायने रखते हैं।"
+ ],
+ "Unexplained weight gain": [
+  "Weight that moves without a change in habits usually points at thyroid, sleep or a medication rather than at eating, and it deserves a blood test rather than a stricter diet.",
+  "习惯没变但体重变了，通常指向甲状腺、睡眠或某种药物，而不是吃得多，这种情况该去验血而不是更严格地节食。",
+  "El peso que cambia sin cambiar hábitos apunta a tiroides, sueño o medicación.",
+  "बिना आदत बदले वज़न बढ़ना थायरॉइड या नींद की ओर संकेत करता है।"
+ ],
+ "Difficulty losing weight": [
+  "Usually a muscle mass and insulin question rather than a calorie one. Muscle is where glucose gets disposed of, so losing it makes the next attempt harder.",
+  "通常是肌肉量和胰岛素的问题，而不是热量问题。肌肉是葡萄糖的去处，掉了肌肉会让下一次更难。",
+  "Suele ser una cuestión de masa muscular e insulina, no de calorías.",
+  "यह आमतौर पर मांसपेशी और इंसुलिन का प्रश्न है, कैलोरी का नहीं।"
+ ],
+ "Craving sweets or carbs": [
+  "Cravings are a blood sugar pattern, not a willpower problem. They usually trace back to a missing or protein-free breakfast several hours earlier.",
+  "嘴馋是血糖模式，不是意志力问题。通常能追溯到几小时前那顿缺失的、或者没有蛋白质的早餐。",
+  "Los antojos son un patrón de azúcar en sangre, no de fuerza de voluntad.",
+  "लालसा रक्त शर्करा का पैटर्न है, इच्छाशक्ति की समस्या नहीं।"
+ ],
+ "Binge eating episodes": [
+  "Episodes are usually produced by the gap before them rather than by the food itself. Long gaps between meals are the most common trigger.",
+  "暴食通常是它之前那段空档造成的，而不是食物本身。两餐间隔太长是最常见的诱因。",
+  "Los episodios suelen producirse por el intervalo previo más que por la comida en sí.",
+  "ये आमतौर पर पहले के अंतराल से होते हैं, भोजन से नहीं।"
+ ],
+ "Always hungry or never satisfied": [
+  "Satiety is driven by protein and fibre more than by volume, so this answer usually reports on meal composition rather than on appetite.",
+  "饱腹感主要由蛋白质和纤维决定，而不是食物体积，所以这一题反映的通常是进餐结构，而不是食欲。",
+  "La saciedad depende de la proteína y la fibra más que del volumen.",
+  "तृप्ति प्रोटीन और फ़ाइबर से आती है, मात्रा से नहीं।"
+ ]
+};
+
+if (typeof module !== 'undefined') module.exports = { LANGS, UI, SECTIONS, FIELDS, SYMPTOM_GROUPS, SYMPTOM_HELP };
