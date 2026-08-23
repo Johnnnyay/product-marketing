@@ -358,11 +358,11 @@
   <div id="login-view">
     <div class="lock-icon">🔒</div>
     <h1>My Health Reports</h1>
-    <p class="subtitle">Enter your initials and date of birth to view your assessment history.</p>
+    <p class="subtitle">Enter the email you used on the form and your date of birth to view your assessment history.</p>
 
     <div class="field">
-      <label for="initials">Your Initials</label>
-      <input type="text" id="initials" placeholder="e.g. JH" maxlength="4" autocomplete="off" autocapitalize="characters" spellcheck="false">
+      <label for="email">Your Email</label>
+      <input type="email" id="email" placeholder="you@example.com" autocomplete="email" autocapitalize="off" spellcheck="false">
       <div class="hint">First letter of first name + first letter of last name</div>
     </div>
 
@@ -398,8 +398,7 @@
 <footer>Health Progress Reports &nbsp;·&nbsp; For wellness education only, not medical advice.</footer>
 
 <script>
-  // Auto-uppercase initials
-  document.getElementById('initials').addEventListener('input', function() {
+  document.getElementById('email').addEventListener('input', function() {
     this.value = this.value.toUpperCase().replace(/[^A-Z]/g, '');
   });
 
@@ -413,15 +412,15 @@
   const API_BASE = 'https://health-intake-api.vercel.app';
 
   function lookupClient() {
-    const initials = document.getElementById('initials').value.trim().toUpperCase();
+    const email = document.getElementById('email').value.trim().toLowerCase();
     const dob = document.getElementById('dob').value;
     const errorBox = document.getElementById('error-box');
     const btn = document.getElementById('lookup-btn');
 
     errorBox.style.display = 'none';
 
-    if (!initials || initials.length < 2) {
-      showError('Please enter your initials (first + last name initial).');
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      showError('Please enter the email address you used on the assessment form.');
       return;
     }
     if (!dob) {
@@ -433,16 +432,16 @@
     btn.textContent = 'Looking up…';
 
     // Reports live in a private store. The API returns only this client's own
-    // records, and only when both initials and date of birth match.
+    // records, and only when both email and date of birth match.
     fetch(API_BASE + '/api/lookup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ initials: initials, dob: dob })
+      body: JSON.stringify({ email: email, dob: dob })
     })
       .then(r => r.json().then(data => ({ ok: r.ok, status: r.status, data: data })))
       .then(res => {
         if (!res.ok) {
-          showError(res.data.error || 'No report found for those details. Please double-check your initials and date of birth, or contact your consultant.');
+          showError(res.data.error || 'No report found for those details. Please double-check the email you used on the form and your date of birth, or contact your consultant.');
           btn.disabled = false;
           btn.textContent = 'View My Reports';
           return;
