@@ -144,12 +144,12 @@
     </button>
     <div class="lang-menu" id="lang-menu"></div>
   </div>
-  <a href="index.html" class="back-link">← Back to products</a>
+  <a href="index.html" class="back-link" data-ui="backLink">← Back to products</a>
 </header>
 
 <div class="hero">
-  <h1>Personal Health Assessment</h1>
-  <p>Fill this out once and receive a personalized report with root cause analysis and targeted recommendations.</p>
+  <h1 data-ui="heroTitle">Personal Health Assessment</h1>
+  <p data-ui="heroSub">Fill this out once and receive a personalized report with root cause analysis and targeted recommendations.</p>
 </div>
 
 <div class="wrap" id="mainWrap">
@@ -159,7 +159,7 @@
     <div class="progress-step" id="prog1"></div>
     <div class="progress-step" id="prog2"></div>
   </div>
-  <div class="step-label" id="stepLabel">Step 1 of 3 — About You</div>
+  <div class="step-label" id="stepLabel" data-ui="stepLabel">Step 1 of 3 — About You</div>
 
   <div class="error-box" id="errorBox"></div>
 
@@ -167,7 +167,7 @@
   <div class="step active" id="step0">
 
     <div class="card">
-      <div class="card-title">Personal Information</div>
+      <div class="card-title" data-sec="personal">Personal Information</div>
       <div class="field-row">
         <div class="field"><label>First and Last Name *</label><input type="text" id="f-name" placeholder="Jane Smith" required></div>
         <div class="field"><label>Email *</label><input type="email" id="f-email" placeholder="you@example.com" required></div>
@@ -190,10 +190,10 @@
     </div>
 
     <div class="card">
-      <div class="card-title">Body Composition (Smart Scale)</div>
+      <div class="card-title" data-sec="bodyComp">Body Composition (Smart Scale)</div>
       <label class="toggle-row">
         <input type="checkbox" class="toggle" id="hasScale" onchange="toggleScale(this.checked)">
-        <span class="toggle-label">I have smart scale data to enter</span>
+        <span class="toggle-label" data-ui="scaleToggle">I have smart scale data to enter</span>
         <span class="toggle-hint">Optional but improves accuracy</span>
       </label>
       <div class="body-comp-fields" id="scaleFields">
@@ -225,14 +225,14 @@
   <div class="step" id="step1">
 
     <div class="card">
-      <div class="card-title">Symptoms</div>
+      <div class="card-title" data-sec="symptoms">Symptoms</div>
       <p style="font-size:13px;color:var(--gray-500);margin-bottom:18px">Rate how often you experience each. Tap the frequency that fits best. Skip anything that doesn't apply.</p>
 
       <div id="symptomContainer"></div>
     </div>
 
     <div class="step-nav">
-      <button class="btn btn-secondary" onclick="goStep(0)">← Back</button>
+      <button class="btn btn-secondary" onclick="goStep(0)" data-ui="back">← Back</button>
       <button class="btn btn-primary" onclick="goStep(2)">Continue → Lifestyle</button>
     </div>
   </div>
@@ -241,7 +241,7 @@
   <div class="step" id="step2">
 
     <div class="card">
-      <div class="card-title">Daily Habits</div>
+      <div class="card-title" data-sec="habits">Daily Habits</div>
 
       <div class="field-row">
         <div class="field"><label>Daily water intake</label>
@@ -327,7 +327,7 @@
     </div>
 
     <div class="card">
-      <div class="card-title">Supplements</div>
+      <div class="card-title" data-sec="supplements">Supplements</div>
       <div class="field">
         <label>What supplements do you currently take?</label>
         <textarea id="f-supplements" placeholder="e.g. Vitamin D, fish oil, magnesium, Double X... or 'none'"></textarea>
@@ -341,13 +341,13 @@
           <option value="Not currently taking any">Not currently taking any</option>
         </select>
       </div>
-      <div class="card-title" id="stoolTitle" style="margin-top:26px">Bowel and Digestion</div>
-      <p class="card-sub" id="stoolSub" style="font-size:12.5px;color:var(--gray-500);line-height:1.6;margin-bottom:14px"></p>
+      <div class="card-title" id="stoolTitle" data-sec="bowel" style="margin-top:26px">Bowel and Digestion</div>
+      <p class="card-sub" id="stoolSub" data-sec="bowelSub" style="font-size:12.5px;color:var(--gray-500);line-height:1.6;margin-bottom:14px"></p>
       <div id="stoolFields"></div>
       <div class="red-flag" id="stoolRedFlag"></div>
 
       <div id="cycleSection" style="display:none">
-        <div class="card-title" id="cycleTitle" style="margin-top:26px">Menstrual Cycle</div>
+        <div class="card-title" id="cycleTitle" data-sec="cycle" style="margin-top:26px">Menstrual Cycle</div>
         <div id="cycleFields"></div>
       </div>
 
@@ -358,8 +358,8 @@
     </div>
 
     <div class="step-nav">
-      <button class="btn btn-secondary" onclick="goStep(1)">← Back</button>
-      <button class="btn btn-primary" id="submitBtn" onclick="submitForm()">Generate My Report →</button>
+      <button class="btn btn-secondary" onclick="goStep(1)" data-ui="back">← Back</button>
+      <button class="btn btn-primary" id="submitBtn" onclick="submitForm()" data-ui="submit">Generate My Report →</button>
     </div>
   </div>
 
@@ -389,123 +389,17 @@
 </div>
 
 <script>
-// ─── SYMPTOM DATA ──────────────────────────────────────────────────────────
-
-const SYMPTOMS = [
-  { group: 'Sleep and Nervous System', items: [
-    'Hard to fall asleep',
-    'Restless or poor sleep quality',
-    'Wake up tired even after 8 hours',
-    'Anxiety or mental tension',
-    'Heart palpitations',
-    'Cold sweaty hands or feet',
-    'Difficulty relaxing or winding down'
-  ]},
-  { group: 'Digestion and Gut', items: [
-    'Poor digestion or feel full quickly',
-    'Bloating after meals',
-    'Excessive gas',
-    'Diarrhea or loose stools',
-    'Constipation',
-    'Bad breath or bitter taste in mouth',
-    'Acid reflux or heartburn'
-  ]},
-  { group: 'Immune and Respiratory', items: [
-    'Catch colds frequently',
-    'Cough easily',
-    'Runny nose easily',
-    'Sneezing a lot',
-    'Nasal allergies',
-    "Athlete's foot or nail fungus",
-    'Infections take a long time to clear'
-  ]},
-  { group: 'Energy and Cognitive', items: [
-    'Afternoon energy crash',
-    'Persistent fatigue regardless of sleep',
-    'Brain fog or mental cloudiness',
-    'Forgetfulness',
-    'Hard to focus or concentrate',
-    'Reliant on caffeine to function',
-    'Feel slow or sluggish in the morning'
-  ]},
-  { group: 'Skin and Hair', items: [
-    'Acne or breakouts',
-    'Hair loss or thinning',
-    'Dandruff or itchy scalp',
-    'Dry or brittle hair',
-    'Skin allergies or hives',
-    'Dark circles under eyes'
-  ]},
-  { group: "Women's Health", items: [
-    'Heavy menstrual flow',
-    'Severe period cramps',
-    'PMS (mood, bloating, breast tenderness)',
-    'Irregular periods',
-    'Low libido'
-  ]},
-  { group: 'Pain and Inflammation', items: [
-    'Joint pain or stiffness',
-    'Back or neck pain',
-    'Muscle cramps',
-    'Numbness or tingling in limbs',
-    'Headaches or migraines'
-  ]},
-  { group: 'Metabolic', items: [
-    'Unexplained weight gain',
-    'Difficulty losing weight',
-    'Craving sweets or carbs',
-    'Binge eating episodes',
-    'Always hungry or never satisfied'
-  ]}
-];
-
-const FREQ = ['Often', 'Sometimes', 'Rarely', 'Never'];
-const symptomValues = {};
-
-function buildSymptoms() {
-  const container = document.getElementById('symptomContainer');
-  container.innerHTML = '';
-  SYMPTOMS.forEach(group => {
-    // Hide women's health for males if gender is already selected
-    const gender = document.getElementById('f-gender').value;
-    if (group.group === "Women's Health" && gender === 'Male') return;
-
-    const div = document.createElement('div');
-    div.className = 'symptom-group';
-    div.innerHTML = `<div class="symptom-group-label">${group.group}</div>`;
-    group.items.forEach(item => {
-      const key = group.group + '__' + item;
-      const row = document.createElement('div');
-      row.className = 'symptom-row';
-      const nameDiv = document.createElement('div');
-      nameDiv.className = 'symptom-name';
-      nameDiv.textContent = item;
-      const btns = document.createElement('div');
-      btns.className = 'freq-btns';
-      FREQ.forEach(f => {
-        const btn = document.createElement('button');
-        btn.className = 'freq-btn';
-        btn.textContent = f;
-        btn.type = 'button';
-        btn.onclick = () => {
-          btns.querySelectorAll('.freq-btn').forEach(b => b.className = 'freq-btn');
-          btn.className = `freq-btn selected-${f.toLowerCase()}`;
-          symptomValues[key] = f;
-        };
-        btns.appendChild(btn);
-      });
-      row.appendChild(nameDiv);
-      row.appendChild(btns);
-      div.appendChild(row);
-    });
-    container.appendChild(div);
-  });
-}
+// Symptom data moved to intake-content.js so it can carry four languages and
+// per-group help. The renderer for it lives with the rest of the language code below.
 
 // ─── STEP NAVIGATION ────────────────────────────────────────────────────────
 
 let currentStep = 0;
-const LABELS = ['Step 1 of 3 — About You', 'Step 2 of 3 — How I Feel', 'Step 3 of 3 — Lifestyle'];
+/* Step names come from the content file so they translate with everything else. */
+function stepLabel(n) {
+  const names = [UI.step1, UI.step2, UI.step3];
+  return tx(UI.stepFmt).replace('{n}', n + 1).replace('{t}', tx(names[n] || names[0]));
+}
 
 function goStep(n) {
   if (n > currentStep) {
@@ -517,7 +411,7 @@ function goStep(n) {
   currentStep = n;
   document.getElementById(`step${currentStep}`).classList.add('active');
   document.getElementById(`prog${currentStep}`).classList.add('active');
-  document.getElementById('stepLabel').textContent = LABELS[currentStep];
+  document.getElementById('stepLabel').textContent = stepLabel(currentStep);
   // Build symptoms on step 2
   if (n === 1) buildSymptoms();
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -532,7 +426,7 @@ function validateStep(n) {
     const dob = document.getElementById('f-dob').value;
     const gender = document.getElementById('f-gender').value;
     if (!name || !email || !dob || !gender) {
-      err.textContent = 'Please fill in your name, email, date of birth, and gender before continuing.';
+      err.textContent = tx(UI.required);
       err.style.display = 'block';
       return false;
     }
@@ -569,22 +463,24 @@ function advanceLoad() {
 // ─── SUBMIT ──────────────────────────────────────────────────────────────────
 
 
+
 // ─── LANGUAGE + HELP ────────────────────────────────────────────────────────
-// Question text lives in intake-content.js, one entry per question with all four
-// languages. Adding a language is a change to that file only.
+// Everything visible comes from intake-content.js. Nothing user-facing is written
+// into the markup, because the previous version translated only the new questions
+// and left every older label in English -- which is what happens whenever strings
+// live in HTML instead of in one content file.
 
 let currentLang = (localStorage.getItem('intakeLang') || (navigator.language || 'en').slice(0,2));
 if (!LANGS.some(l => l.code === currentLang)) currentLang = 'en';
 const LI = () => LANGS.findIndex(l => l.code === currentLang);
-const tx = arr => Array.isArray(arr) ? (arr[LI()] || arr[0]) : arr;
+const tx = a => Array.isArray(a) ? (a[LI()] || a[0]) : a;
 
 function renderLangMenu() {
   document.getElementById('lang-current').textContent =
     (LANGS.find(l => l.code === currentLang) || LANGS[0]).label;
   document.getElementById('lang-menu').innerHTML = LANGS.map(l =>
     `<button type="button" class="lang-opt${l.code === currentLang ? ' on' : ''}" onclick="setLang('${l.code}')">
-       <span class="lang-opt-label">${l.label}</span><span>${l.name}</span>
-     </button>`).join('');
+       <span class="lang-opt-label">${l.label}</span><span>${l.name}</span></button>`).join('');
 }
 function toggleLangMenu(force) {
   const m = document.getElementById('lang-menu');
@@ -603,99 +499,166 @@ function setLang(code) {
   applyLang();
 }
 
-/* Attach a "why we ask" disclosure under a field's label. */
-function attachHelp(fieldEl, key) {
-  if (!HELP[key]) return;
+/* A "why we ask" disclosure under a field's label. Every field that has help gets one. */
+function ensureHelp(fieldEl, key) {
+  const def = FIELDS[key];
+  if (!def || !def.h) return;
   const label = fieldEl.querySelector('label');
   if (!label) return;
   let btn = label.querySelector('.help-btn');
+  let box = fieldEl.querySelector(':scope > .help-box');
+  if (!box) {
+    box = document.createElement('div');
+    box.className = 'help-box';
+    label.after(box);
+  }
   if (!btn) {
     btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'help-btn';
-    const box = document.createElement('div');
-    box.className = 'help-box';
-    box.dataset.helpFor = key;
-    label.after(box);
     btn.onclick = () => box.classList.toggle('open');
     label.appendChild(btn);
   }
-  btn.lastChild && btn.textContent !== undefined && (btn.textContent = tx(UI.why));
-  const box = fieldEl.querySelector('.help-box[data-help-for="' + key + '"]');
-  if (box) box.textContent = tx(HELP[key]);
+  btn.textContent = tx(UI.why);
+  box.textContent = tx(def.h);
 }
 
-function buildQuestion(q) {
-  const wrap = document.createElement('div');
-  wrap.className = 'field';
-  const label = document.createElement('label');
-  label.textContent = tx(q.label);
-  wrap.appendChild(label);
-  const sel = document.createElement('select');
-  sel.id = q.id;
-  wrap.appendChild(sel);
-  return wrap;
+function paintField(key) {
+  const el = document.getElementById(key);
+  const def = FIELDS[key];
+  if (!el || !def) return;
+  const field = el.closest('.field');
+  if (!field) return;
+  const label = field.querySelector('label');
+  if (label) {
+    // first text node is the label; the help button is appended after it
+    if (label.childNodes.length && label.childNodes[0].nodeType === 3) label.childNodes[0].nodeValue = tx(def.l);
+    else label.insertBefore(document.createTextNode(tx(def.l)), label.firstChild);
+  }
+  if (def.o && el.tagName === 'SELECT') {
+    const keep = el.value;
+    el.innerHTML = '<option value="">' + tx(UI.select) + '</option>' +
+      def.o.map(o => `<option value="${o[0]}">${o[1 + LI()] || o[1]}</option>`).join('');
+    if (keep) el.value = keep;
+  }
+  ensureHelp(field, key);
 }
 
-function paintOptions(q) {
-  const sel = document.getElementById(q.id);
-  if (!sel) return;
-  const keep = sel.value;
-  sel.innerHTML = '<option value="">' + tx(UI.select) + '</option>' +
-    q.options.map(o => `<option value="${o[0]}">${o[1 + LI()] || o[1]}</option>`).join('');
-  if (keep) sel.value = keep;
+/* Symptoms are rebuilt rather than patched, because the labels are the button text. */
+const symptomValues = {};
+function buildSymptoms() {
+  const container = document.getElementById('symptomContainer');
+  if (!container) return;
+  const gender = (document.getElementById('f-gender') || {}).value;
+  container.innerHTML = '';
+  const FREQ = [['Often', UI.fOften], ['Sometimes', UI.fSometimes], ['Rarely', UI.fRarely], ['Never', UI.fNever]];
+  SYMPTOM_GROUPS.forEach(group => {
+    if (group.g[0] === "Women's Health" && gender === 'Male') return;
+    const div = document.createElement('div');
+    div.className = 'symptom-group';
+    const gl = document.createElement('div');
+    gl.className = 'symptom-group-label';
+    gl.textContent = tx(group.g);
+    if (group.h) {
+      const hb = document.createElement('button');
+      hb.type = 'button'; hb.className = 'help-btn'; hb.textContent = tx(UI.why);
+      const box = document.createElement('div');
+      box.className = 'help-box';
+      box.textContent = tx(group.h);
+      hb.onclick = () => box.classList.toggle('open');
+      gl.appendChild(hb);
+      div.appendChild(gl); div.appendChild(box);
+    } else div.appendChild(gl);
+    group.items.forEach(item => {
+      const key = group.g[0] + '__' + item[0];
+      const row = document.createElement('div');
+      row.className = 'symptom-row';
+      const nameDiv = document.createElement('div');
+      nameDiv.className = 'symptom-name';
+      nameDiv.textContent = item[1 + LI()] || item[1];
+      const btns = document.createElement('div');
+      btns.className = 'freq-btns';
+      FREQ.forEach(f => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'freq-btn' + (symptomValues[key] === f[0] ? ' selected-' + f[0].toLowerCase() : '');
+        b.textContent = tx(f[1]);
+        b.onclick = () => {
+          btns.querySelectorAll('.freq-btn').forEach(x => x.className = 'freq-btn');
+          b.className = 'freq-btn selected-' + f[0].toLowerCase();
+          symptomValues[key] = f[0];
+        };
+        btns.appendChild(b);
+      });
+      row.appendChild(nameDiv); row.appendChild(btns);
+      div.appendChild(row);
+    });
+    container.appendChild(div);
+  });
 }
 
-/* Blood or black stool is a physician matter, not a consultant one. Say so immediately
-   rather than letting it surface in a report days later. */
-function wireRedFlag() {
-  const sel = document.getElementById('f-stoolColor');
-  const flag = document.getElementById('stoolRedFlag');
-  if (!sel || !flag) return;
-  sel.onchange = () => {
-    const v = sel.value;
-    flag.classList.toggle('show', v === 'Red or blood present' || v === 'Very dark or black');
+function buildDynamicFields() {
+  const mk = (host, keys) => {
+    if (!host || host.children.length) return;
+    keys.forEach(k => {
+      const w = document.createElement('div');
+      w.className = 'field';
+      w.appendChild(document.createElement('label'));
+      const sel = document.createElement('select');
+      sel.id = k;
+      w.appendChild(sel);
+      host.appendChild(w);
+    });
+  };
+  mk(document.getElementById('stoolFields'),
+     ['f-bowelFreq','f-stoolForm','f-stoolColor','f-stoolFloat','f-stoolComplete','f-wiping','f-stoolOdor','f-undigested']);
+  mk(document.getElementById('cycleFields'),
+     ['f-cycleRegular','f-menstrualPain','f-heavyFlow','f-pmsMoodSwings']);
+  const sc = document.getElementById('f-stoolColor');
+  if (sc) sc.onchange = () => {
+    const v = sc.value;
+    document.getElementById('stoolRedFlag')
+      .classList.toggle('show', v === 'Red or blood present' || v === 'Very dark or black');
   };
 }
 
-function buildNewSections() {
-  const sf = document.getElementById('stoolFields');
-  const cf = document.getElementById('cycleFields');
-  if (sf && !sf.children.length) NEW_QUESTIONS.stool.forEach(q => sf.appendChild(buildQuestion(q)));
-  if (cf && !cf.children.length) NEW_QUESTIONS.cycle.forEach(q => cf.appendChild(buildQuestion(q)));
-  wireRedFlag();
-}
-
 function applyLang() {
-  document.getElementById('stoolTitle').textContent = tx(UI.stoolTitle);
-  document.getElementById('stoolSub').textContent  = tx(UI.stoolSub);
-  document.getElementById('cycleTitle').textContent = tx(UI.cycleTitle);
+  document.title = tx(UI.pageTitle);
+  document.querySelectorAll('[data-ui]').forEach(el => {
+    const k = el.dataset.ui;
+    if (k === 'stepLabel') return;
+    if (UI[k]) el.textContent = tx(UI[k]);
+  });
+  document.querySelectorAll('[data-sec]').forEach(el => {
+    const k = el.dataset.sec;
+    if (SECTIONS[k]) el.textContent = tx(SECTIONS[k]);
+  });
+  // step label
+  const sl = document.getElementById('stepLabel');
+  if (sl) sl.textContent = stepLabel(currentStep);
+  // nav buttons by role
+  document.querySelectorAll('.step-nav .btn-secondary').forEach(b => b.textContent = tx(UI.back));
+  document.querySelectorAll('.step-nav .btn-primary').forEach(b => {
+    b.textContent = (b.id === 'submitBtn') ? tx(UI.submit) : tx(UI.next);
+  });
+  const bl = document.querySelector('.back-link'); if (bl) bl.textContent = tx(UI.backLink);
+  const sh = document.querySelector('.toggle-hint'); if (sh) sh.textContent = tx(UI.scaleHint);
+  const lt = document.querySelector('.loading-title'); if (lt) lt.textContent = tx(UI.loadTitle);
+  const ls = document.querySelector('.loading-sub'); if (ls) ls.textContent = tx(UI.loadSub);
   document.getElementById('stoolRedFlag').textContent = tx(UI.redFlag);
-  NEW_QUESTIONS.stool.forEach(q => {
-    const el = document.getElementById(q.id);
-    if (el) { el.closest('.field').querySelector('label').childNodes[0].nodeValue = tx(q.label); paintOptions(q); }
-  });
-  NEW_QUESTIONS.cycle.forEach(q => {
-    const el = document.getElementById(q.id);
-    if (el) { el.closest('.field').querySelector('label').childNodes[0].nodeValue = tx(q.label); paintOptions(q); }
-  });
-  // help disclosures on every field that has one, new and pre-existing alike
-  Object.keys(HELP).forEach(key => {
-    const el = document.getElementById(key);
-    if (el && el.closest('.field')) attachHelp(el.closest('.field'), key);
-  });
-  document.querySelectorAll('.help-btn').forEach(b => b.textContent = tx(UI.why));
+  Object.keys(FIELDS).forEach(paintField);
+  buildSymptoms();
 }
 
-/* Women's cycle questions follow the gender answer, same rule the symptom list uses. */
 function syncCycleVisibility() {
   const g = (document.getElementById('f-gender') || {}).value;
   const sec = document.getElementById('cycleSection');
   if (sec) sec.style.display = (g && g !== 'Male') ? 'block' : 'none';
+  buildSymptoms();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  buildNewSections();
+  buildDynamicFields();
   renderLangMenu();
   applyLang();
   syncCycleVisibility();
