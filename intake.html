@@ -283,14 +283,6 @@
             <option value="Rarely or never">Rarely or never</option>
           </select>
         </div>
-        <div class="field"><label>Protein at breakfast?</label>
-          <select id="f-breakfastProtein">
-            <option value="">Select...</option>
-            <option value="Yes">Yes (eggs, yogurt, protein shake, meat)</option>
-            <option value="No">No (mainly carbs or fruit)</option>
-            <option value="N/A — skip breakfast">N/A, I skip breakfast</option>
-          </select>
-        </div>
       </div>
 
       <div class="field-row">
@@ -692,7 +684,6 @@ async function submitForm() {
     produce: document.getElementById('f-produce').value || null,
     diet: document.getElementById('f-diet').value || null,
     breakfastFreq: document.getElementById('f-breakfastFreq').value || null,
-    breakfastProtein: document.getElementById('f-breakfastProtein').value || null,
     bedtime: document.getElementById('f-bedtime').value || null,
     waking13: document.getElementById('f-waking13').value || null,
     supplements: document.getElementById('f-supplements').value.trim() || null,
