@@ -45,10 +45,21 @@ const UI = {
                'Analizando sus datos según su perfil de salud.', 'आपके स्वास्थ्य प्रोफ़ाइल के अनुसार डेटा का विश्लेषण।'],
   scaleToggle:['I have smart scale data to enter', '我有体脂秤数据要填', 'Tengo datos de báscula inteligente', 'मेरे पास स्मार्ट स्केल डेटा है'],
   scaleHint:  ['Optional but improves accuracy', '选填，但会显著提高准确度', 'Opcional pero mejora la precisión', 'वैकल्पिक, पर सटीकता बढ़ाता है'],
-  symptomsSub:['Rate how often you experience each. Tap the frequency that fits best. Skip anything that does not apply.',
-               '按你出现的频率选择。点最接近的那一档。不适用的可以跳过。',
-               'Indique con qué frecuencia experimenta cada uno. Omita lo que no aplique.',
-               'बताएँ कि आप हर एक को कितनी बार अनुभव करते हैं। जो लागू न हो उसे छोड़ दें।'],
+  scaleHelp:  ['Enter values from your smart scale app (e.g. FitIndex, Renpho, Xiaomi Health). Body fat and muscle entries should be percentages, not decimals.',
+               '填体脂秤 App 里的数值（如 FitIndex、Renpho、小米运动健康）。体脂和肌肉请填百分数，不要填小数。',
+               'Introduzca los valores de su app de báscula inteligente (FitIndex, Renpho, Xiaomi Health). La grasa y el músculo van en porcentaje, no en decimales.',
+               'अपने स्मार्ट स्केल ऐप के मान भरें (FitIndex, Renpho, Xiaomi Health)। वसा और मांसपेशी प्रतिशत में भरें, दशमलव में नहीं।'],
+  okTitle:    ['Your report is ready.', '你的报告已生成。', 'Su informe está listo.', 'आपकी रिपोर्ट तैयार है।'],
+  okSub:      ['A personalized analysis with your health signals, the root causes behind them, and a plan for the first month.',
+               '一份属于你的分析：你的健康信号、背后的成因，以及第一个月的方案。',
+               'Un análisis personalizado con sus señales de salud, las causas que hay detrás y un plan para el primer mes.',
+               'आपके स्वास्थ्य संकेतों, उनके मूल कारणों और पहले महीने की योजना के साथ एक व्यक्तिगत विश्लेषण।'],
+  okNote:     ['You can also share this link with your consultant.', '这个链接也可以发给你的顾问。',
+               'También puede compartir este enlace con su consultor.', 'आप यह लिंक अपने सलाहकार के साथ भी साझा कर सकते हैं।'],
+  symptomsSub:['Tap how often each one happens. Tap N/A if it does not apply to you, and tap your answer again to clear it.',
+               '点选每一项发生的频率。不适用的选"不适用"，再点一次已选的就能取消。',
+               'Toque con qué frecuencia ocurre cada uno. Toque N/A si no aplica, y toque de nuevo su respuesta para borrarla.',
+               'हर एक की आवृत्ति चुनें। लागू न हो तो N/A चुनें, और अपना उत्तर दोबारा दबाकर हटा दें।'],
   /* Three bands, matching the Google form this instrument comes from. The earlier
      four-band scale emitted 'Sometimes' and 'Rarely', which appear nowhere in the
      historical data and which report-spec.md does not reason about -- it reads
@@ -56,6 +67,7 @@ const UI = {
   fOften:     ['Often', '经常', 'A menudo', 'अक्सर'],
   fOcc:       ['Occasionally', '偶尔', 'A veces', 'कभी-कभी'],
   fBarely:    ['Barely', '几乎不', 'Casi nunca', 'लगभग कभी नहीं'],
+  fNA:        ['N/A', '不适用', 'N/A', 'लागू नहीं'],
   showMore:   ['Show the rest of this section ({n} more)', '展开这一节其余 {n} 项',
                'Ver el resto de esta sección ({n} más)', 'इस भाग के बाकी {n} देखें'],
   showLess:   ['Hide the rest', '收起其余项', 'Ocultar el resto', 'बाकी छिपाएँ'],
@@ -177,24 +189,20 @@ const FIELDS = {
         ['2–3 servings','2–3 servings','2–3 份','2–3 porciones','2–3 हिस्से'],
         ['4–5 servings','4–5 servings','4–5 份','4–5 porciones','4–5 हिस्से'],
         ['5+ servings','5+ servings','5 份以上','5+ porciones','5+ हिस्से']] },
-  'f-diet': { l: ['Best describes your diet', '最接近你的饮食结构', 'Lo que mejor describe su dieta', 'आपका आहार सबसे अच्छा वर्णन'],
-    h: ['Dietary pattern sets the balance of fats, which in turn sets how readily the body starts and stops inflammation. It is the single answer that most changes what gets recommended.',
-        '饮食结构决定脂肪的比例，而脂肪比例决定身体启动和停止炎症的难易。这一题最能改变最终推荐什么。',
-        'El patrón dietético fija el equilibrio de grasas, que a su vez determina la inflamación.',
-        'आहार पैटर्न वसा संतुलन तय करता है, जो सूजन को नियंत्रित करता है।'],
-    o: [['Balanced — varies daily','Balanced, varies daily','均衡，每天有变化','Equilibrada, varía a diario','संतुलित, रोज़ बदलता है'],
-        ['High meat, low produce','High meat, low vegetables','高肉、少蔬菜','Mucha carne, pocas verduras','अधिक मांस, कम सब्ज़ी'],
-        ['Vegetarian or vegan','Vegetarian or vegan','素食或纯素','Vegetariana o vegana','शाकाहारी या वीगन'],
-        ['Fast food / processed heavy','Mostly fast food or processed','以快餐/加工食品为主','Principalmente comida rápida o procesada','अधिकतर फास्ट फूड'],
-        ['Chinese traditional diet','Chinese traditional diet','中式传统饮食','Dieta tradicional china','चीनी पारंपरिक आहार']] },
-  'f-coldFood': { l: ['Cold food and drink preference', '冷食冷饮偏好', 'Preferencia por comida y bebida fría', 'ठंडे भोजन की पसंद'],
-    h: ['In this framework digestion runs on warmth, and consistently cold food and drink lowers its efficiency at the point where it starts. It is one of the most common causes of the digestive cluster.',
-        '在这套框架里消化靠温度运行，长期吃冷食冷饮会在消化的起点上降低效率。这是消化类症状最常见的原因之一。',
-        'En este marco la digestión funciona con calor, y lo frío constante reduce su eficiencia desde el inicio.',
-        'इस ढांचे में पाचन गर्मी पर चलता है; लगातार ठंडा भोजन शुरुआत में ही क्षमता घटाता है।'],
-    o: [['Yes, I prefer cold/iced','Yes, I prefer cold or iced','是，我偏好冷饮冰饮','Sí, prefiero frío o con hielo','हाँ, मुझे ठंडा पसंद है'],
-        ['Sometimes','Sometimes','有时','A veces','कभी-कभी'],
-        ['No, I prefer room temp or warm','No, I prefer warm or room temperature','否，我偏好温的或常温','No, prefiero tibio o temperatura ambiente','नहीं, मुझे गर्म पसंद है']] },
+  'f-diet': { t: 'textarea',
+    l: ['Describe what you typically eat in a day',
+        '描述你一天通常怎么吃',
+        'Describa lo que come normalmente en un día',
+        'बताएँ कि आप आमतौर पर दिन भर क्या खाते हैं'],
+    ph: ['Breakfast, lunch, dinner, snacks, and what you drink. Rough is fine.',
+         '早餐、午餐、晚餐、零食，还有平时喝什么。大概写写就行。',
+         'Desayuno, comida, cena, snacks y qué bebe. Una idea general basta.',
+         'नाश्ता, दोपहर का भोजन, रात का खाना, स्नैक्स, और आप क्या पीते हैं। मोटा-मोटी ठीक है।'],
+    h: ['A dropdown could only ever return one of four labels, and what you actually eat is the answer that most changes what gets recommended. Two lines in your own words is worth more than the closest tick box.',
+        '下拉框最多只能返回四个标签之一，而你到底吃什么，是最能改变最终推荐的一题。用自己的话写两行，比选一个最接近的选项有用得多。',
+        'Un desplegable solo puede devolver una de cuatro etiquetas, y lo que realmente come es la respuesta que más cambia la recomendación.',
+        'ड्रॉपडाउन केवल चार लेबल में से एक लौटा सकता है, जबकि आप वास्तव में क्या खाते हैं यह सबसे अधिक मायने रखता है।'] },
+
   'f-breakfastFreq': { l: ['Do you eat breakfast?', '你吃早餐吗？', '¿Desayuna?', 'क्या आप नाश्ता करते हैं?'],
     h: ['The 7 to 9 AM window is when the digestive system is at its strongest, so a skipped breakfast is the meal that would have counted most.',
         '上午7到9点是消化系统最强的时段（胃经当令），所以跳过的这一餐本来是最有价值的。',
@@ -219,14 +227,20 @@ const FIELDS = {
         ['10–11 PM','10–11 PM','10–11点','10–11 PM','10–11 बजे'],
         ['11 PM–midnight','11 PM to midnight','11点到午夜','11 PM a medianoche','11 बजे से आधी रात'],
         ['After midnight','After midnight','午夜以后','Después de medianoche','आधी रात के बाद']] },
-  'f-waking13': { l: ['Do you wake between 1–3 AM?', '你会在凌晨1-3点醒吗？', '¿Se despierta entre la 1 y las 3 AM?', 'क्या आप रात 1–3 बजे जागते हैं?'],
-    h: ['The 1 to 3 AM window is when the liver does its heaviest processing. Waking in it consistently is read as information rather than as insomnia, and it connects to the eyes, emotional regulation and hormones.',
-        '凌晨1到3点是肝脏处理负荷最重的时段（肝经当令）。持续在这个时段醒来被视为一条信息而不是失眠，它和眼睛、情绪调节、激素都相连。',
-        'La ventana de 1 a 3 AM es cuando el hígado hace su procesamiento más pesado. Despertarse ahí se lee como información.',
-        '1 से 3 बजे जिगर सबसे भारी कार्य करता है। उस समय जागना जानकारी है, अनिद्रा नहीं।'],
-    o: [['Yes, regularly','Yes, regularly','是，经常','Sí, con regularidad','हाँ, नियमित रूप से'],
-        ['Occasionally','Occasionally','偶尔','A veces','कभी-कभी'],
-        ['No','No','否','No','नहीं']] },
+  'f-waking13': { l: ['How often do you wake up during the night?',
+        '你夜里醒来的频率是？',
+        '¿Con qué frecuencia se despierta por la noche?',
+        'आप रात में कितनी बार जागते हैं?'],
+    h: ['Waking at night is worth separating from trouble falling asleep, because they have different causes. The 1 to 3 AM window matters specifically: it is when the liver does its heaviest processing, so waking in it regularly is read as information rather than as insomnia, and it connects to the eyes, emotional regulation and hormones.',
+        '夜醒和入睡困难要分开看，因为成因不同。凌晨1到3点这个时段尤其有意义：那是肝脏处理负荷最重的时候（肝经当令），持续在这个时段醒来被视为一条信息而不是失眠，它和眼睛、情绪调节、激素都相连。',
+        'Despertarse de noche conviene separarlo de la dificultad para dormirse, porque tienen causas distintas. La ventana de 1 a 3 AM importa en particular: es cuando el hígado hace su procesamiento más pesado.',
+        'रात में जागना और नींद आने में कठिनाई अलग-अलग हैं। 1 से 3 बजे की खिड़की विशेष रूप से मायने रखती है: तब जिगर सबसे भारी कार्य करता है।'],
+    o: [['Most nights, usually 1-3 AM','Most nights, usually between 1 and 3 AM','几乎每晚，通常在凌晨1-3点','Casi todas las noches, entre la 1 y las 3 AM','ज़्यादातर रातें, आमतौर पर 1-3 बजे'],
+        ['Most nights, other times','Most nights, but at other times','几乎每晚，但不是这个时段','Casi todas las noches, a otras horas','ज़्यादातर रातें, अन्य समय'],
+        ['A few nights a week','A few nights a week','每周几晚','Algunas noches por semana','सप्ताह में कुछ रातें'],
+        ['Occasionally','Occasionally','偶尔','De vez en cuando','कभी-कभार'],
+        ['Rarely or never','Rarely or never','很少或从不','Rara vez o nunca','शायद ही या कभी नहीं']] },
+
   'f-supplements': { l: ['What supplements do you currently take?', '你目前在吃哪些补充剂？', '¿Qué suplementos toma actualmente?', 'आप वर्तमान में कौन से अनुपूरक लेते हैं?'],
     h: ['List everything, including what you take irregularly. Knowing what you already take is what stops a recommendation duplicating it, and duplication is the most common way people overspend.',
         '请全部列出，包括吃得不规律的。知道你已经在吃什么，才能避免重复推荐，而重复正是最常见的浪费钱的方式。',
@@ -258,21 +272,9 @@ const FIELDS = {
         ['Every other day','Every other day','隔天一次','Cada dos días','हर दूसरे दिन'],
         ['2-3 times a week','2–3 times a week','每周2-3次','2–3 veces por semana','सप्ताह में 2–3 बार'],
         ['Less than twice a week','Less than twice a week','每周不到2次','Menos de dos veces por semana','सप्ताह में दो बार से कम']] },
-  'f-stoolForm': { l: ['What does it usually look like?', '通常是什么形状？', '¿Qué aspecto suele tener?', 'यह आमतौर पर कैसा दिखता है?'],
-    h: ['Form is a fibre and water readout. Hard pellets mean slow transit and too little fibre; loose means it is moving faster than the gut can work with. Smooth and soft is what the clearing stage aims at.',
-        '形状反映纤维和水分。硬球说明通过慢、纤维不足；稀软说明通过太快，肠道来不及处理。成形柔软正是"清"这一阶段的目标。',
-        'La forma es una lectura de fibra y agua. Los trozos duros indican tránsito lento y poca fibra.',
-        'आकार फ़ाइबर और पानी का संकेत है। कठोर गोलियाँ धीमी गति दर्शाती हैं।'],
-    o: [['Separate hard lumps','Separate hard lumps, hard to pass','一颗颗硬球，难排出','Trozos duros separados','अलग कठोर गोलियाँ'],
-        ['Lumpy sausage','Sausage-shaped but lumpy','香肠状但表面有块','Con forma de salchicha pero grumosa','सॉसेज जैसा पर गांठदार'],
-        ['Cracked sausage','Sausage-shaped with surface cracks','香肠状，表面有裂痕','Con forma de salchicha con grietas','सतह पर दरारों के साथ'],
-        ['Smooth and soft','Smooth and soft, easy to pass','光滑柔软，排出顺畅','Lisa y blanda, fácil','चिकना और नरम'],
-        ['Soft blobs','Soft blobs with clear edges','软块，边缘清晰','Masas blandas con bordes definidos','नरम टुकड़े'],
-        ['Mushy','Mushy with ragged edges','糊状，边缘不整齐','Pastosa con bordes irregulares','गूदेदार'],
-        ['Watery','Watery, no solid pieces','水样，无固体','Acuosa, sin sólidos','पानी जैसा']] },
   'f-wiping': { l: ['How many wipes, typically?', '通常擦几次？', '¿Cuántas limpiezas?', 'कितनी बार पोंछना पड़ता है?'],
-    h: ['A single wipe means the stool was well formed. Repeated wiping usually means it was either too soft or evacuation did not complete, so this cross-checks the form answer above.',
-        '一次擦净说明成形良好。反复擦拭通常说明太软或没排干净，所以这题用来交叉验证上面的形状。',
+    h: ['A single wipe means the stool was well formed. Repeated wiping usually means it was either too soft or evacuation did not complete, so it is a quick read on whether things are moving the way they should.',
+        '一次擦净说明成形良好。反复擦拭通常说明太软或没排干净，所以这一题能快速看出排便是否顺畅。',
         'Una sola limpieza indica heces bien formadas. Limpiar repetidamente sugiere lo contrario.',
         'एक बार में साफ़ होना अच्छे आकार का संकेत है।'],
     o: [['1 wipe','1 wipe','1次','1 vez','1 बार'],
@@ -330,13 +332,6 @@ const SYMPTOM_GROUPS = [
   ],
   "items": [
    [
-    "Often stay up late",
-    "Often stay up late",
-    "经常熬夜",
-    "Trasnochar con frecuencia",
-    "अक्सर देर तक जागना"
-   ],
-   [
     "Feel a lot of pressure from work/life",
     "Feel a lot of pressure from work or life",
     "工作生活压力大",
@@ -373,17 +368,10 @@ const SYMPTOM_GROUPS = [
    ],
    [
     "Prefer eating cold foods",
-    "Prefer eating cold foods",
-    "喜欢吃凉食",
-    "Prefiere comidas frías",
-    "ठंडा भोजन पसंद"
-   ],
-   [
-    "Skip breakfast",
-    "Skip breakfast",
-    "不吃早饭",
-    "Saltarse el desayuno",
-    "नाश्ता छोड़ना"
+    "Prefer cold or iced food and drinks",
+    "偏好冷食冷饮",
+    "Prefiere comida y bebidas frías o con hielo",
+    "ठंडा या बर्फ़ वाला भोजन और पेय पसंद"
    ],
    [
     "Engage in binge eating or overeating",
@@ -595,18 +583,11 @@ const SYMPTOM_GROUPS = [
     "रात में चौंककर जागना"
    ],
    [
-    "Hard to relax",
-    "Hard to relax",
-    "难放松",
-    "Dificultad para relajarse",
-    "आराम करने में कठिनाई"
-   ],
-   [
     "Feel anxious or nervous",
-    "Feel anxious or nervous",
-    "情绪不安",
-    "Ansiedad o nerviosismo",
-    "चिंता या घबराहट"
+    "Feel anxious, nervous, or unable to relax",
+    "焦虑紧张，或放松不下来",
+    "Se siente ansioso, nervioso o incapaz de relajarse",
+    "चिंतित, घबराया हुआ, या आराम न कर पाना"
    ],
    [
     "Often feel down or sad",
@@ -673,31 +654,24 @@ const SYMPTOM_GROUPS = [
    ],
    [
     "Poor night vision",
-    "Poor night vision",
-    "夜视差",
-    "Mala visión nocturna",
-    "रतौंधी"
+    "Hard to see in dim light, or slow to adjust after a bright light",
+    "光线暗时看不清，或从亮处进暗处适应很慢",
+    "Cuesta ver con poca luz, o tarda en adaptarse tras una luz fuerte",
+    "कम रोशनी में देखने में कठिनाई, या तेज़ रोशनी के बाद धीमा समायोजन"
    ],
    [
     "Blurry vision",
-    "Blurry vision",
-    "视物模糊",
-    "Visión borrosa",
-    "धुंधली दृष्टि"
+    "Vision blurs or goes hazy at times, apart from needing glasses",
+    "视力时清时糊、发花（不是指近视需要戴眼镜）",
+    "La visión se nubla por momentos, aparte de necesitar gafas",
+    "दृष्टि कभी-कभी धुंधली हो जाती है, चश्मे की ज़रूरत से अलग"
    ],
    [
     "Bleed easily when brushing teeth",
-    "Gums bleed when brushing",
-    "刷牙易出血",
-    "Sangrado al cepillarse",
-    "ब्रश करते समय खून"
-   ],
-   [
-    "Gum problems",
-    "Gum inflammation or bleeding",
-    "牙龈发炎、出血",
-    "Encías inflamadas",
-    "मसूड़ों की सूजन"
+    "Gums bleed when brushing, or are swollen and sore",
+    "刷牙出血，或牙龈红肿疼痛",
+    "Encías sangran al cepillar, o están hinchadas y doloridas",
+    "ब्रश करते समय मसूड़ों से खून, या सूजन और दर्द"
    ],
    [
     "Toothache",
@@ -1212,12 +1186,6 @@ const SYMPTOM_GROUPS = [
 ];
 
 const SYMPTOM_HELP = {
- "Often stay up late": [
-  "Staying up late disrupts your liver's nightly detox and repair cycle, leading to toxin buildup, metabolic issues, poor skin, and lowered immunity. It sabotages your next day and long-term health.",
-  "熬夜直接阻碍肝脏夜间排毒与自我修复，导致毒素累积、代谢紊乱、皮肤变差和免疫力下降，让你第二天状态打折，长期拖垮健康。",
-  "Trasnochar interrumpe el ciclo nocturno de desintoxicación y reparación del hígado, causando acumulación de toxinas, problemas metabólicos, mala piel e inmunidad baja.",
-  "देर तक जागना जिगर के रात्रिकालीन विषहरण और मरम्मत चक्र को बाधित करता है, जिससे विषाक्त पदार्थ जमा होते हैं और रोग प्रतिरोधक क्षमता घटती है।"
- ],
  "Feel a lot of pressure from work/life": [
   "Chronic stress keeps your body in constant fight-or-flight mode, draining nutrients, suppressing immunity, and increasing inflammation. It is a key driver of anxiety, insomnia, and metabolic issues.",
   "长期高压状态让身体持续备战，消耗大量营养，抑制免疫，升高炎症水平，是导致焦虑、失眠和代谢问题的核心原因之一。",
@@ -1253,12 +1221,6 @@ const SYMPTOM_HELP = {
   "常吃生冷食物可能减弱消化功能，导致腹胀、腹泻，影响营养吸收，长期会加剧细胞的隐性饥饿，从根源上影响活力。",
   "Comer con regularidad alimentos fríos o crudos debilita la digestión, causa hinchazón y diarrea, y afecta la absorción. A largo plazo agrava el hambre oculta celular.",
   "नियमित रूप से ठंडा या कच्चा भोजन पाचन कमज़ोर करता है और पोषक तत्वों के अवशोषण को बाधित करता है।"
- ],
- "Skip breakfast": [
-  "Skipping breakfast disrupts your daily metabolic rhythm, leading to low morning energy, overeating at lunch, and harming gallbladder health. It makes weight and blood sugar management harder.",
-  "省略早餐打乱全天代谢节奏，可能导致上午精力不济、午餐暴食，影响胆囊健康，并给体重和血糖管理增加难度。",
-  "Saltarse el desayuno altera el ritmo metabólico diario, provoca poca energía matinal, exceso en el almuerzo y daña la vesícula. Dificulta el manejo del peso y del azúcar.",
-  "नाश्ता छोड़ना दैनिक चयापचय लय बिगाड़ता है, सुबह ऊर्जा कम करता है और दोपहर में अधिक खाने की ओर ले जाता है।"
  ],
  "Engage in binge eating or overeating": [
   "Overloading your system with food in a short time shocks your digestion, causing bloating and acid reflux. Long-term it damages your gut, disrupts blood sugar and hormones, leading directly to obesity and metabolic issues.",
@@ -1380,17 +1342,11 @@ const SYMPTOM_HELP = {
   "Despertar a horas concretas, como entre la 1 y las 3 AM cuando el hígado está más activo, señala una desintoxicación intensa pero posiblemente sobrecargada.",
   "विशेष समय पर जागना, जैसे 1-3 बजे जब जिगर सबसे सक्रिय है, अधिभार का संकेत है।"
  ],
- "Hard to relax": [
-  "Being in constant physical and mental tension is a classic sign of chronic stress response. The sympathetic nervous system is persistently dominant, depleting nutrients essential for relaxation and repair such as magnesium and GABA precursors, possibly with adrenal fatigue.",
-  "身体和精神长期处于紧绷状态，无法有效放松，是慢性压力反应的典型表现。这表明自主神经系统（特别是交感神经）持续占主导，消耗了大量维持放松和修复状态的营养（如镁、GABA前体），同时可能伴有肾上腺疲劳。",
-  "La tensión física y mental constante es señal de estrés crónico. El sistema simpático domina, agotando magnesio y precursores de GABA.",
-  "लगातार शारीरिक-मानसिक तनाव पुराने तनाव का संकेत है, जो मैग्नीशियम और GABA अग्रदूत खर्च करता है।"
- ],
  "Feel anxious or nervous": [
-  "Unexplained anxiety is a classic sign of nervous system imbalance. It may relate to insufficient synthesis of calming neurotransmitters such as GABA, or an excess of excitatory ones. Gut health via the gut-brain axis and liver detoxification significantly affect this.",
-  "无缘无故的焦虑、心慌，是神经系统失衡的典型表现。可能与γ-氨基丁酸（GABA）等镇静型神经递质合成不足，或兴奋型神经递质过多有关。肠道健康（肠脑轴）和肝脏解毒功能对此有重大影响。",
-  "La ansiedad inexplicable es señal de desequilibrio nervioso. Puede relacionarse con síntesis insuficiente de GABA o exceso de neurotransmisores excitatorios.",
-  "अकारण चिंता तंत्रिका असंतुलन का संकेत है, जो GABA की कमी से जुड़ा हो सकता है।"
+  "Anxiety, nervousness, or simply being unable to switch off. Both are the same underlying picture: the sympathetic nervous system stays dominant, and the nutrients that let the body stand down, magnesium and the GABA precursors, get used up faster than they are replaced. Gut health and liver clearance both feed into it.",
+  "焦虑、紧张，或者就是放松不下来。这两者背后是同一件事：交感神经持续占上风，而让身体降下来的营养素（镁、GABA前体）消耗得比补充得快。肠道状况和肝脏代谢都会影响它。",
+  "Ansiedad, nerviosismo, o simplemente no poder desconectar. Ambos son el mismo cuadro de fondo: el sistema nervioso simpático permanece dominante y los nutrientes que permiten al cuerpo bajar revoluciones, magnesio y precursores de GABA, se agotan más rápido de lo que se reponen.",
+  "चिंता, घबराहट, या बस स्विच ऑफ़ न कर पाना। दोनों एक ही अंतर्निहित तस्वीर हैं: सहानुभूति तंत्रिका तंत्र हावी रहता है, और शरीर को शांत करने वाले पोषक तत्व मैग्नीशियम और GABA अग्रदूत तेज़ी से खर्च होते हैं।"
  ],
  "Often feel down or sad": [
   "Persistent low mood is not only psychological but reflects the body's biochemical state. Synthesis of serotonin and dopamine requires specific amino acids and cofactors such as vitamin B6, iron and magnesium. Nutritional deficiency, gut dysbiosis or chronic inflammation all affect their levels.",
@@ -1423,10 +1379,10 @@ const SYMPTOM_HELP = {
   "बार-बार गुहेरी या नेत्रश्लेष्मलाशोथ कम स्थानीय प्रतिरक्षा दर्शाता है।"
  ],
  "Bleed easily when brushing teeth": [
-  "Bleeding gums is a classic early sign of gingivitis, indicating chronic inflammation and fragile gum tissue. Beyond oral hygiene, deeper causes may include vitamin C deficiency affecting collagen synthesis and increasing vessel fragility, or high systemic inflammation.",
-  "牙龈出血是牙龈炎的典型早期症状，反映牙龈组织存在慢性炎症和脆弱。除了口腔卫生，更深层原因可能与维生素C缺乏（影响胶原蛋白合成，血管脆性增加）、或全身性炎症水平高有关，是身体抗氧化和抗炎能力不足的信号。",
-  "El sangrado de encías es señal temprana de gingivitis. Más allá de la higiene, puede implicar déficit de vitamina C o inflamación sistémica alta.",
-  "मसूड़ों से खून मसूड़े की सूजन का शुरुआती संकेत है, जो विटामिन सी की कमी से जुड़ा हो सकता है।"
+  "Bleeding when you brush, and gums that are red, swollen, sore or receding. It is the same problem at two stages. Vitamin C builds the collagen that holds gum tissue and small vessels together, so fragile bleeding gums are often the first visible sign of a shortfall. Left alone it becomes periodontitis, which raises inflammation body-wide.",
+  "刷牙出血，以及牙龈红肿、疼痛或萎缩。这是同一个问题的两个阶段。维生素C负责合成把牙龈组织和微血管连在一起的胶原，所以牙龈脆弱出血常常是缺乏最早看得见的信号。放着不管会发展成牙周炎，全身炎症水平随之升高。",
+  "Sangrado al cepillar, y encías rojas, hinchadas, doloridas o retraídas. Es el mismo problema en dos etapas. La vitamina C forma el colágeno que mantiene unidos el tejido de la encía y los vasos pequeños, así que encías frágiles suelen ser el primer signo visible de una carencia.",
+  "ब्रश करते समय खून आना, और मसूड़ों का लाल, सूजा, दर्दनाक या सिकुड़ा होना। यह एक ही समस्या के दो चरण हैं। विटामिन C वह कोलेजन बनाता है जो मसूड़े के ऊतक और छोटी वाहिकाओं को जोड़े रखता है।"
  ],
  "Hair falling out easily": [
   "Losing more than 100 hairs a day is abnormal. May relate to stress (telogen effluvium), hormonal change (postpartum, menopause), nutritional deficiency (iron, zinc, biotin, protein), thyroid disorders or autoimmune hair loss. Reflects poor blood supply and nutrition to the scalp follicles.",
@@ -1705,22 +1661,16 @@ const SYMPTOM_HELP = {
   "लगातार काले घेरे खराब सूक्ष्म संचार और खराब नींद से जुड़े हैं।"
  ],
  "Poor night vision": [
-  "Poor dark adaptation or blurry vision is directly related to retinal photoreceptor function. Vitamin A is the key raw material for synthesising rhodopsin. Deficiency in vitamin A or zinc, or oxidative damage to the retina, can cause these symptoms.",
-  "暗适应能力差或视物模糊，直接与视网膜感光细胞的功能有关。维生素A是合成感光物质视紫红质的关键原料。缺乏维生素A、锌或抗氧化能力下降导致的视网膜氧化损伤，都会引起这些症状，提示需要加强眼部特异性营养。",
-  "La mala adaptación a la oscuridad se relaciona con los fotorreceptores retinianos. La vitamina A es la materia prima clave para sintetizar rodopsina.",
-  "अंधेरे में अनुकूलन की कमी रेटिना कोशिकाओं से जुड़ी है। विटामिन ए मुख्य कच्चा माल है।"
+  "Whether you see badly in dim light, and how long your eyes take to adjust after a bright light. This is about the retina's low-light cells, which run on vitamin A and zinc. It is not the same as needing glasses.",
+  "指光线暗的时候看不清，以及从亮处进暗处需要多久才适应。这一题问的是视网膜暗视觉细胞，它靠维生素A和锌工作。和近视需要戴眼镜是两回事。",
+  "Si ve mal con poca luz y cuánto tardan sus ojos en adaptarse tras una luz fuerte. Trata de las células de visión nocturna de la retina, que dependen de la vitamina A y el zinc. No es lo mismo que necesitar gafas.",
+  "कम रोशनी में देखने की कठिनाई, और तेज़ रोशनी के बाद आँखों को समायोजित होने में लगने वाला समय। यह रेटिना की कम-प्रकाश कोशिकाओं के बारे में है, जो विटामिन A और ज़िंक पर चलती हैं। चश्मे की ज़रूरत से अलग बात है।"
  ],
  "Blurry vision": [
-  "Poor dark adaptation or blurry vision is directly related to retinal photoreceptor function. Vitamin A is the key raw material for synthesising rhodopsin. Deficiency in vitamin A or zinc, or oxidative damage to the retina, can cause these symptoms.",
-  "暗适应能力差或视物模糊，直接与视网膜感光细胞的功能有关。维生素A是合成感光物质视紫红质的关键原料。缺乏维生素A、锌或抗氧化能力下降导致的视网膜氧化损伤，都会引起这些症状，提示需要加强眼部特异性营养。",
-  "La mala adaptación a la oscuridad se relaciona con los fotorreceptores retinianos. La vitamina A es la materia prima clave para sintetizar rodopsina.",
-  "अंधेरे में अनुकूलन की कमी रेटिना कोशिकाओं से जुड़ी है। विटामिन ए मुख्य कच्चा माल है।"
- ],
- "Gum problems": [
-  "Red, swollen or receding gums indicate chronic oral infection and inflammation. Research links periodontitis to systemic inflammation and increased cardiovascular risk. Managing it requires both local hygiene and systemic anti-inflammatory measures.",
-  "牙龈红肿、疼痛或退缩，是口腔慢性感染和炎症的表现。这不仅影响牙齿健康，研究表明牙周炎与全身性炎症、心血管疾病风险增加相关。控制口腔炎症需要局部清洁和全身抗炎、提升免疫力的双重管理。",
-  "Encías rojas, hinchadas o retraídas indican infección oral crónica. La periodontitis se vincula a inflamación sistémica y mayor riesgo cardiovascular.",
-  "लाल, सूजे मसूड़े पुराने मौखिक संक्रमण का संकेत हैं, जो हृदय जोखिम से जुड़े हैं।"
+  "Vision that goes in and out of focus, or hazes over, at times when it is otherwise fine. If you are short-sighted and things are simply blurry without glasses, that is not this question. What matters here is blurring that comes and goes, which points at focusing fatigue, blood sugar swings, or the liver, rather than at the shape of your eye.",
+  "指视力时清时糊、发花，本来看得清的东西有时候糊了。如果你是近视，不戴眼镜本来就看不清，那不算这一题。这里问的是时有时无的模糊，指向调节疲劳、血糖波动或肝，而不是眼球的形状。",
+  "Visión que entra y sale de foco, o se nubla, en momentos en que por lo demás está bien. Si es miope y ve borroso sin gafas, esa no es esta pregunta. Aquí importa el desenfoque intermitente, que apunta a fatiga de enfoque, oscilaciones de azúcar o el hígado.",
+  "दृष्टि जो कभी-कभी फ़ोकस से हट जाती है या धुंधली हो जाती है, जबकि बाकी समय ठीक रहती है। यदि आप निकट-दृष्टि दोष से ग्रस्त हैं और चश्मे के बिना धुंधला दिखता है, तो यह वह प्रश्न नहीं है। यहाँ आने-जाने वाला धुंधलापन मायने रखता है।"
  ],
  "Toothache": [
   "Red, swollen or receding gums indicate chronic oral infection and inflammation. Research links periodontitis to systemic inflammation and increased cardiovascular risk. Managing it requires both local hygiene and systemic anti-inflammatory measures.",
@@ -1853,38 +1803,8 @@ const SYMPTOM_HELP = {
 /* Items everyone answers. The rest sit behind "show the rest of this section",
    because the real data shows a median of 19 answers out of ~50 offered:
    more questions on one screen produced fewer answers, not more. */
-const CORE_ITEMS = [
- "Acne on the face",
- "Back pain",
- "Bad breath",
- "Catch colds often",
- "Cold hands and feet",
- "Constipation",
- "Crave sweets or salty snacks",
- "Dandruff",
- "Dry eyes",
- "Easy to forget things",
- "Fart a lot",
- "Feel a lot of pressure from work/life",
- "Feel anxious or nervous",
- "Hair falling out easily",
- "Hard to fall asleep",
- "Hard to focus",
- "Hard to relax",
- "Heart beating fast or irregular",
- "Muscle cramps",
- "Neck stiffness or neck pain",
- "Often have diarrhea",
- "Often have headaches",
- "Often have nasal allergies",
- "Often stay up late",
- "Overweight",
- "Period pain",
- "Poor digestion",
- "Skip breakfast",
- "Unexplained weight gain",
- "Urinate often",
- "Wake up easily at night, especially startled"
-];
+/* CORE_ITEMS used to decide which symptoms showed before the disclosure.
+   Every item is visible now, so nothing reads it. */
+const CORE_ITEMS = [];
 
 if (typeof module !== 'undefined') module.exports = { LANGS, UI, SECTIONS, FIELDS, SYMPTOM_GROUPS, SYMPTOM_HELP, CORE_ITEMS };

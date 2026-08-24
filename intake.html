@@ -58,11 +58,8 @@
     font:inherit;font-size:11px;font-weight:600;color:var(--green);cursor:pointer;vertical-align:middle}
   .help-btn::before{content:"?";display:inline-grid;place-items:center;width:14px;height:14px;border-radius:50%;
     background:var(--green-light);color:var(--green);font-size:10px;font-weight:800}
-  .show-more{display:block;width:100%;margin-top:8px;padding:8px;background:var(--gray-100);
-    border:0;border-radius:8px;font:inherit;font-size:12.5px;font-weight:600;color:var(--green);cursor:pointer}
-  .show-more:hover{background:var(--green-light)}
-  .more-items{display:none}
-  .more-items.open{display:block}
+.freq-btn.selected-na{background:#eef2ff;border-color:#818cf8;color:#3730a3}
+
   .help-btn-inline::before{margin:0}
   .help-btn-inline{margin-left:7px}
   .symptom-name{display:flex;align-items:center}
@@ -219,7 +216,7 @@
           <div class="field"><label>Muscle Mass (lb)</label><input type="number" step="0.1" id="f-muscleMass" placeholder="140"></div>
           <div class="field"><label>Fat-free Mass (lb)</label><input type="number" step="0.1" id="f-fatFreeMass" placeholder="148"></div>
         </div>
-        <p class="hint" style="margin-top:4px">Enter values from your smart scale app (e.g. FitIndex, Renpho, Xiaomi Health). Body fat and muscle entries should be percentages, not decimals.</p>
+        <p class="hint" style="margin-top:4px" data-ui="scaleHelp">Enter values from your smart scale app (e.g. FitIndex, Renpho, Xiaomi Health). Body fat and muscle entries should be percentages, not decimals.</p>
       </div>
     </div>
 
@@ -233,7 +230,7 @@
 
     <div class="card">
       <div class="card-title" data-sec="symptoms">Symptoms</div>
-      <p style="font-size:13px;color:var(--gray-500);margin-bottom:18px">Rate how often you experience each. Tap the frequency that fits best. Skip anything that doesn't apply.</p>
+      <p style="font-size:13px;color:var(--gray-500);margin-bottom:18px" data-ui="symptomsSub">Tap how often each one happens. Tap N/A if it does not apply to you, and tap your answer again to clear it.</p>
 
       <div id="symptomContainer"></div>
     </div>
@@ -272,25 +269,9 @@
         </div>
       </div>
 
-      <div class="field-row">
-        <div class="field"><label>Best describes your diet</label>
-          <select id="f-diet">
-            <option value="">Select...</option>
-            <option value="Balanced — varies daily">Balanced (varies daily)</option>
-            <option value="High meat, low produce">High meat, low produce</option>
-            <option value="Vegetarian or vegan">Vegetarian or vegan</option>
-            <option value="Fast food / processed heavy">Fast food / processed heavy</option>
-            <option value="Chinese traditional diet">Chinese traditional diet</option>
-          </select>
-        </div>
-        <div class="field"><label>Cold food and drink preference</label>
-          <select id="f-coldFood">
-            <option value="">Select...</option>
-            <option value="Yes, I prefer cold/iced">Yes, I prefer cold or iced</option>
-            <option value="Sometimes">Sometimes</option>
-            <option value="No, I prefer room temp or warm">No, room temp or warm</option>
-          </select>
-        </div>
+      <div class="field">
+        <label>Describe what you typically eat in a day</label>
+        <textarea id="f-diet" rows="4"></textarea>
       </div>
 
       <div class="field-row">
@@ -374,8 +355,8 @@
 <!-- Loading overlay -->
 <div class="loading-overlay" id="loadingOverlay">
   <div class="spinner"></div>
-  <div class="loading-title">Generating your report...</div>
-  <div class="loading-sub">Claude is analyzing your data against your health profile.</div>
+  <div class="loading-title" data-ui="loadTitle">Generating your report...</div>
+  <div class="loading-sub" data-ui="loadSub">Analyzing your data against your health profile.</div>
   <ul class="loading-steps" id="loadingSteps">
     <li class="active" id="ls0">Analyzing symptom patterns</li>
     <li id="ls1">Identifying root causes</li>
@@ -387,11 +368,11 @@
 <!-- Success screen (replaces form) -->
 <div class="success-screen" id="successScreen">
   <div class="success-icon">✅</div>
-  <div class="success-title">Your report is ready.</div>
-  <div class="success-sub">We've put together a personalized analysis with your top health signals, root cause breakdown, and a 30-day plan.</div>
+  <div class="success-title" data-ui="okTitle">Your report is ready.</div>
+  <div class="success-sub" data-ui="okSub">A personalized analysis with your health signals, the root causes behind them, and a plan for the first month.</div>
   <a class="success-link" id="reportLink" href="#" target="_blank">Open My Report →</a>
   <br>
-  <div class="success-note">You can also share this link with your consultant.</div>
+  <div class="success-note" data-ui="okNote">You can also share this link with your consultant.</div>
 </div>
 
 <script>
@@ -541,6 +522,7 @@ function paintField(key) {
     if (label.childNodes.length && label.childNodes[0].nodeType === 3) label.childNodes[0].nodeValue = tx(def.l);
     else label.insertBefore(document.createTextNode(tx(def.l)), label.firstChild);
   }
+  if (def.ph && (el.tagName === 'TEXTAREA' || el.tagName === 'INPUT')) el.placeholder = tx(def.ph);
   if (def.o && el.tagName === 'SELECT') {
     const keep = el.value;
     el.innerHTML = '<option value="">' + tx(UI.select) + '</option>' +
@@ -557,7 +539,7 @@ function buildSymptoms() {
   if (!container) return;
   const gender = (document.getElementById('f-gender') || {}).value;
   container.innerHTML = '';
-  const FREQ = [['Often', UI.fOften], ['Occasionally', UI.fOcc], ['Barely', UI.fBarely]];
+  const FREQ = [['Often', UI.fOften], ['Occasionally', UI.fOcc], ['Barely', UI.fBarely], ['NA', UI.fNA]];
   SYMPTOM_GROUPS.forEach(group => {
     // no group is gender-gated now; individual reproductive items are filtered below
     const div = document.createElement('div');
@@ -576,13 +558,9 @@ function buildSymptoms() {
       div.appendChild(gl); div.appendChild(box);
     } else div.appendChild(gl);
     const FEMALE_ONLY = ['Period pain','Abnormal discharge','Gynecological infections'];
-    /* Core items are shown; the rest of the section sits behind a disclosure. The real
-       data showed a median of 19 answers out of ~50 offered, so a longer visible list
-       produced fewer answers, not more. */
-    const extras = [];
+    /* Every item is visible. The list gets trimmed by editing it, not by hiding it. */
     group.items.forEach(item => {
       if (gender === 'Male' && FEMALE_ONLY.indexOf(item[0]) >= 0) return;
-      const isCore = CORE_ITEMS.indexOf(item[0]) >= 0;
       const key = group.g[0] + '__' + item[0];
       const row = document.createElement('div');
       row.className = 'symptom-row';
@@ -612,32 +590,19 @@ function buildSymptoms() {
         b.className = 'freq-btn' + (symptomValues[key] === f[0] ? ' selected-' + f[0].toLowerCase() : '');
         b.textContent = tx(f[1]);
         b.onclick = () => {
+          /* Tapping the answer you already gave clears it. Without this a mis-tap was
+             permanent: there was no way back to "unanswered" once anything was chosen. */
+          const already = symptomValues[key] === f[0];
           btns.querySelectorAll('.freq-btn').forEach(x => x.className = 'freq-btn');
+          if (already) { delete symptomValues[key]; return; }
           b.className = 'freq-btn selected-' + f[0].toLowerCase();
           symptomValues[key] = f[0];
         };
         btns.appendChild(b);
       });
       row.appendChild(nameDiv); row.appendChild(btns);
-      if (isCore) { div.appendChild(row); if (ibox) div.appendChild(ibox); }
-      else { extras.push(row); if (ibox) extras.push(ibox); }
+      div.appendChild(row); if (ibox) div.appendChild(ibox);
     });
-    if (extras.length) {
-      const more = document.createElement('button');
-      more.type = 'button';
-      more.className = 'show-more';
-      const holder = document.createElement('div');
-      holder.className = 'more-items';
-      extras.forEach(e => holder.appendChild(e));
-      const nExtra = extras.filter(e => e.classList.contains('symptom-row')).length;
-      more.textContent = tx(UI.showMore).replace('{n}', nExtra);
-      more.onclick = () => {
-        const open = holder.classList.toggle('open');
-        more.textContent = open ? tx(UI.showLess) : tx(UI.showMore).replace('{n}', nExtra);
-      };
-      div.appendChild(more);
-      div.appendChild(holder);
-    }
     container.appendChild(div);
   });
 }
@@ -655,11 +620,11 @@ function buildDynamicFields() {
       host.appendChild(w);
     });
   };
-  /* Three questions, not eight. Wiping count alone separates the people who need
-     fibre from the people who need a probiotic, which is the decision this section
-     exists to inform. The rest was detail nobody acts on. */
+  /* Two questions. Wiping count alone separates the people who need fibre from the
+     people who need a probiotic, which is the decision this section exists to inform,
+     and asking what it looks like on top of that bought nothing. */
   mk(document.getElementById('stoolFields'),
-     ['f-bowelFreq','f-stoolForm','f-wiping']);
+     ['f-bowelFreq','f-wiping']);
   mk(document.getElementById('cycleFields'),
      ['f-cycleRegular','f-menstrualPain','f-heavyFlow','f-pmsMoodSwings']);
 
@@ -726,7 +691,6 @@ async function submitForm() {
     water: document.getElementById('f-water').value || null,
     produce: document.getElementById('f-produce').value || null,
     diet: document.getElementById('f-diet').value || null,
-    coldFood: document.getElementById('f-coldFood').value || null,
     breakfastFreq: document.getElementById('f-breakfastFreq').value || null,
     breakfastProtein: document.getElementById('f-breakfastProtein').value || null,
     bedtime: document.getElementById('f-bedtime').value || null,
@@ -738,7 +702,7 @@ async function submitForm() {
 
   /* Bowel and cycle answers. These were previously only collected on the old Google
      form, so reports generated from this page had no stool or cycle data at all. */
-  ['f-bowelFreq','f-stoolForm','f-wiping','f-cycleRegular','f-menstrualPain',
+  ['f-bowelFreq','f-wiping','f-cycleRegular','f-menstrualPain',
    'f-heavyFlow','f-pmsMoodSwings'].forEach(function(id){
     var el = document.getElementById(id);
     if (el && el.value) payload[id.replace(/^f-/,'')] = el.value;
