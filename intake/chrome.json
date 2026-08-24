@@ -1,0 +1,903 @@
+{
+ "_note": "UI chrome and the fields questions.json does not own. Generated intake-content.js = chrome.json + questions.json.",
+ "UI": {
+  "pageTitle": [
+   "Health Assessment",
+   "健康评估",
+   "Evaluación de Salud",
+   "स्वास्थ्य मूल्यांकन"
+  ],
+  "heroTitle": [
+   "Personal Health Assessment",
+   "个人健康评估",
+   "Evaluación Personal de Salud",
+   "व्यक्तिगत स्वास्थ्य मूल्यांकन"
+  ],
+  "heroSub": [
+   "Fill this out once and receive a personalized report with root cause analysis and targeted recommendations.",
+   "填写一次，即可获得一份包含根本原因分析和针对性建议的个人报告。",
+   "Complete esto una vez y reciba un informe personalizado con análisis de causa raíz y recomendaciones específicas.",
+   "इसे एक बार भरें और मूल कारण विश्लेषण तथा लक्षित सिफ़ारिशों के साथ व्यक्तिगत रिपोर्ट पाएँ।"
+  ],
+  "backLink": [
+   "← Back to products",
+   "← 返回产品页",
+   "← Volver a productos",
+   "← उत्पादों पर लौटें"
+  ],
+  "stepFmt": [
+   "Step {n} of 3 — {t}",
+   "第 {n} 步，共 3 步 — {t}",
+   "Paso {n} de 3 — {t}",
+   "चरण {n} / 3 — {t}"
+  ],
+  "step1": [
+   "About You",
+   "关于你",
+   "Sobre usted",
+   "आपके बारे में"
+  ],
+  "step2": [
+   "How I Feel",
+   "身体感受",
+   "Cómo me siento",
+   "मैं कैसा महसूस करता हूँ"
+  ],
+  "step3": [
+   "Daily Habits",
+   "日常习惯",
+   "Hábitos diarios",
+   "दैनिक आदतें"
+  ],
+  "next": [
+   "Continue →",
+   "继续 →",
+   "Continuar →",
+   "आगे →"
+  ],
+  "back": [
+   "← Back",
+   "← 返回",
+   "← Atrás",
+   "← पीछे"
+  ],
+  "submit": [
+   "Generate My Report →",
+   "生成我的报告 →",
+   "Generar mi informe →",
+   "मेरी रिपोर्ट बनाएँ →"
+  ],
+  "why": [
+   "Why we ask",
+   "为什么问这个",
+   "Por qué preguntamos",
+   "हम क्यों पूछते हैं"
+  ],
+  "select": [
+   "Select...",
+   "请选择...",
+   "Seleccione...",
+   "चुनें..."
+  ],
+  "required": [
+   "Please fill in your name, email, date of birth, and gender before continuing.",
+   "请先填写姓名、邮箱、出生日期和性别，然后继续。",
+   "Complete su nombre, correo, fecha de nacimiento y sexo antes de continuar.",
+   "आगे बढ़ने से पहले कृपया नाम, ईमेल, जन्म तिथि और लिंग भरें।"
+  ],
+  "loadTitle": [
+   "Generating your report...",
+   "正在生成你的报告...",
+   "Generando su informe...",
+   "आपकी रिपोर्ट बन रही है..."
+  ],
+  "loadSub": [
+   "Analyzing your data against your health profile.",
+   "正在结合你的健康档案分析数据。",
+   "Analizando sus datos según su perfil de salud.",
+   "आपके स्वास्थ्य प्रोफ़ाइल के अनुसार डेटा का विश्लेषण।"
+  ],
+  "scaleToggle": [
+   "I have smart scale data to enter",
+   "我有体脂秤数据要填",
+   "Tengo datos de báscula inteligente",
+   "मेरे पास स्मार्ट स्केल डेटा है"
+  ],
+  "scaleHint": [
+   "Optional but improves accuracy",
+   "选填，但会显著提高准确度",
+   "Opcional pero mejora la precisión",
+   "वैकल्पिक, पर सटीकता बढ़ाता है"
+  ],
+  "scaleHelp": [
+   "Enter values from your smart scale app (e.g. FitIndex, Renpho, Xiaomi Health). Body fat and muscle entries should be percentages, not decimals.",
+   "填体脂秤 App 里的数值（如 FitIndex、Renpho、小米运动健康）。体脂和肌肉请填百分数，不要填小数。",
+   "Introduzca los valores de su app de báscula inteligente (FitIndex, Renpho, Xiaomi Health). La grasa y el músculo van en porcentaje, no en decimales.",
+   "अपने स्मार्ट स्केल ऐप के मान भरें (FitIndex, Renpho, Xiaomi Health)। वसा और मांसपेशी प्रतिशत में भरें, दशमलव में नहीं।"
+  ],
+  "okTitle": [
+   "Your report is ready.",
+   "你的报告已生成。",
+   "Su informe está listo.",
+   "आपकी रिपोर्ट तैयार है।"
+  ],
+  "okSub": [
+   "A personalized analysis with your health signals, the root causes behind them, and a plan for the first month.",
+   "一份属于你的分析：你的健康信号、背后的成因，以及第一个月的方案。",
+   "Un análisis personalizado con sus señales de salud, las causas que hay detrás y un plan para el primer mes.",
+   "आपके स्वास्थ्य संकेतों, उनके मूल कारणों और पहले महीने की योजना के साथ एक व्यक्तिगत विश्लेषण।"
+  ],
+  "okNote": [
+   "You can also share this link with your consultant.",
+   "这个链接也可以发给你的顾问。",
+   "También puede compartir este enlace con su consultor.",
+   "आप यह लिंक अपने सलाहकार के साथ भी साझा कर सकते हैं।"
+  ],
+  "symptomsSub": [
+   "Tap how often each one happens. Tap N/A if it does not apply to you, and tap your answer again to clear it.",
+   "点选每一项发生的频率。不适用的选\"不适用\"，再点一次已选的就能取消。",
+   "Toque con qué frecuencia ocurre cada uno. Toque N/A si no aplica, y toque de nuevo su respuesta para borrarla.",
+   "हर एक की आवृत्ति चुनें। लागू न हो तो N/A चुनें, और अपना उत्तर दोबारा दबाकर हटा दें।"
+  ],
+  "fOften": [
+   "Often",
+   "经常",
+   "A menudo",
+   "अक्सर"
+  ],
+  "fOcc": [
+   "Occasionally",
+   "偶尔",
+   "A veces",
+   "कभी-कभी"
+  ],
+  "fBarely": [
+   "Barely",
+   "几乎不",
+   "Casi nunca",
+   "लगभग कभी नहीं"
+  ],
+  "fNA": [
+   "N/A",
+   "不适用",
+   "N/A",
+   "लागू नहीं"
+  ],
+  "showMore": [
+   "Show the rest of this section ({n} more)",
+   "展开这一节其余 {n} 项",
+   "Ver el resto de esta sección ({n} más)",
+   "इस भाग के बाकी {n} देखें"
+  ],
+  "showLess": [
+   "Hide the rest",
+   "收起其余项",
+   "Ocultar el resto",
+   "बाकी छिपाएँ"
+  ],
+  "redFlag": [
+   "Blood in stool, or black tarry stool, should be looked at by a doctor rather than a consultant. Please see a physician.",
+   "便血或柏油样黑便应由医生处理，而不是顾问。请去看医生。",
+   "La sangre en las heces o las heces negras y alquitranadas deben ser evaluadas por un médico, no por un consultor.",
+   "मल में खून या काला चिपचिपा मल डॉक्टर को दिखाएँ, सलाहकार को नहीं।"
+  ]
+ },
+ "SECTIONS": {
+  "personal": [
+   "Personal Information",
+   "基本信息",
+   "Información personal",
+   "व्यक्तिगत जानकारी"
+  ],
+  "bodyComp": [
+   "Body Composition (Smart Scale)",
+   "身体成分（体脂秤）",
+   "Composición corporal (báscula inteligente)",
+   "शरीर संरचना (स्मार्ट स्केल)"
+  ],
+  "symptoms": [
+   "Symptoms",
+   "症状",
+   "Síntomas",
+   "लक्षण"
+  ],
+  "habits": [
+   "Daily Habits",
+   "日常习惯",
+   "Hábitos diarios",
+   "दैनिक आदतें"
+  ],
+  "supplements": [
+   "Supplements",
+   "补充剂",
+   "Suplementos",
+   "अनुपूरक"
+  ],
+  "bowel": [
+   "Bowel and Digestion",
+   "排便与消化",
+   "Intestino y digestión",
+   "मल और पाचन"
+  ],
+  "bowelSub": [
+   "The most direct read on gut health there is, and the one people skip. Nothing here is embarrassing; it is just data.",
+   "这是判断肠道健康最直接的依据，也是最常被跳过的部分。这里没什么难为情的，都只是数据。",
+   "La lectura más directa que existe sobre la salud intestinal, y la que la gente omite. No hay nada vergonzoso aquí.",
+   "आंत के स्वास्थ्य का सबसे सीधा संकेत, जिसे लोग अक्सर छोड़ देते हैं। यहाँ कुछ भी शर्मनाक नहीं है।"
+  ],
+  "cycle": [
+   "Menstrual Cycle",
+   "月经周期",
+   "Ciclo menstrual",
+   "मासिक चक्र"
+  ]
+ },
+ "FIELDS": {
+  "f-name": {
+   "l": [
+    "First and Last Name *",
+    "姓名 *",
+    "Nombre y apellido *",
+    "पूरा नाम *"
+   ],
+   "h": [
+    "Used on the report itself so you can tell yours apart from a family member’s, and to match a follow-up assessment to this one.",
+    "会印在报告上，方便和家人的报告区分，也用于把后续复查和这一次对应起来。",
+    "Aparece en el informe para distinguirlo del de un familiar y vincular una evaluación de seguimiento con esta.",
+    "रिपोर्ट पर दिखता है ताकि परिवार के किसी सदस्य की रिपोर्ट से अलग पहचाना जा सके।"
+   ]
+  },
+  "f-email": {
+   "l": [
+    "Email *",
+    "邮箱 *",
+    "Correo electrónico *",
+    "ईमेल *"
+   ],
+   "h": [
+    "Where the report link goes. It is a private link, not a public page, so it is worth using an address you actually check.",
+    "报告链接会发到这里。这是私密链接不是公开页面，所以请填你常用的邮箱。",
+    "Adonde va el enlace del informe. Es un enlace privado, no una página pública.",
+    "रिपोर्ट लिंक यहीं जाता है। यह निजी लिंक है, सार्वजनिक पृष्ठ नहीं।"
+   ]
+  },
+  "f-dob": {
+   "l": [
+    "Date of Birth *",
+    "出生日期 *",
+    "Fecha de nacimiento *",
+    "जन्म तिथि *"
+   ],
+   "h": [
+    "Reference intakes differ by age, and several body-composition readings are interpreted against it. Metabolic age only means something next to your real age.",
+    "参考摄入量按年龄不同，多项体成分指标也要对照年龄解读。代谢年龄只有和实际年龄比较才有意义。",
+    "Las ingestas de referencia varían con la edad, y varias lecturas corporales se interpretan en relación con ella.",
+    "संदर्भ मात्राएँ उम्र के अनुसार बदलती हैं, और शरीर संरचना के कई माप इसी के सापेक्ष पढ़े जाते हैं।"
+   ]
+  },
+  "f-gender": {
+   "l": [
+    "Gender *",
+    "性别 *",
+    "Sexo *",
+    "लिंग *"
+   ],
+   "h": [
+    "Reference intakes for iron, calcium and several B vitamins differ by sex, so this changes the amounts recommended, not just the wording.",
+    "铁、钙和多种B族维生素的参考摄入量按性别不同，所以这会改变推荐的用量，而不只是措辞。",
+    "Las ingestas de referencia de hierro, calcio y varias vitaminas B difieren por sexo, así que cambian las cantidades.",
+    "आयरन, कैल्शियम और कई बी विटामिनों की संदर्भ मात्राएँ लिंग के अनुसार भिन्न हैं।"
+   ],
+   "o": [
+    [
+     "Male",
+     "Male",
+     "男",
+     "Masculino",
+     "पुरुष"
+    ],
+    [
+     "Female",
+     "Female",
+     "女",
+     "Femenino",
+     "महिला"
+    ],
+    [
+     "Other",
+     "Other",
+     "其他",
+     "Otro",
+     "अन्य"
+    ]
+   ]
+  },
+  "f-height": {
+   "l": [
+    "Height",
+    "身高",
+    "Estatura",
+    "कद"
+   ],
+   "h": [
+    "Needed with weight to compute BMI. BMI is a poor measure for anyone carrying a lot of muscle, which is why the scale readings below matter more.",
+    "和体重一起用来算BMI。对肌肉量大的人BMI不准，所以下面体脂秤的数据更重要。",
+    "Se necesita con el peso para calcular el IMC. El IMC es una mala medida para quien tiene mucha masa muscular.",
+    "बीएमआई निकालने के लिए वज़न के साथ चाहिए।"
+   ]
+  },
+  "f-weight": {
+   "l": [
+    "Weight (lb)",
+    "体重（磅）",
+    "Peso (lb)",
+    "वज़न (lb)"
+   ],
+   "h": [
+    "Protein requirement is calculated per kilogram of body weight, so without this the protein part of the plan is guesswork.",
+    "蛋白质需要量按每公斤体重计算，没有这个数字，方案里蛋白质那部分只能靠猜。",
+    "El requerimiento de proteína se calcula por kilogramo de peso corporal.",
+    "प्रोटीन की आवश्यकता प्रति किलोग्राम वज़न से निकाली जाती है।"
+   ]
+  },
+  "f-bmi": {
+   "l": [
+    "BMI",
+    "身体质量指数 BMI",
+    "IMC",
+    "बीएमआई"
+   ],
+   "h": [
+    "A rough screen only. It cannot tell muscle from fat, so a strong person can read \"overweight\" while being metabolically fine.",
+    "只是粗筛。它分不出肌肉和脂肪，所以肌肉多的人可能显示\"超重\"但代谢完全正常。",
+    "Solo un cribado aproximado. No distingue músculo de grasa.",
+    "केवल मोटा अनुमान। यह मांसपेशी और वसा में अंतर नहीं कर सकता।"
+   ]
+  },
+  "f-bodyFat": {
+   "l": [
+    "Body Fat %",
+    "体脂率 %",
+    "% de grasa corporal",
+    "शरीर में वसा %"
+   ],
+   "h": [
+    "More useful than weight, because it separates fat from everything else. Healthy bands differ by sex and age.",
+    "比体重有用，因为它把脂肪和其他成分分开了。健康区间按性别和年龄不同。",
+    "Más útil que el peso, porque separa la grasa del resto.",
+    "वज़न से अधिक उपयोगी, क्योंकि यह वसा को बाकी सबसे अलग करता है।"
+   ]
+  },
+  "f-skeletalMuscle": {
+   "l": [
+    "Skeletal Muscle %",
+    "骨骼肌 %",
+    "% de músculo esquelético",
+    "कंकाल पेशी %"
+   ],
+   "h": [
+    "Muscle is where glucose gets disposed of, so it is the asset to protect while fat comes down. Losing muscle to lose weight is a bad trade.",
+    "肌肉是葡萄糖的去处，所以减脂过程中它是要保护的资产。靠掉肌肉来减重是笔坏买卖。",
+    "El músculo es donde se elimina la glucosa, así que es el activo a proteger mientras baja la grasa.",
+    "मांसपेशी वह जगह है जहाँ ग्लूकोज़ निपटाया जाता है, इसलिए इसे बचाना ज़रूरी है।"
+   ]
+  },
+  "f-visceralFat": {
+   "l": [
+    "Visceral Fat (1–20)",
+    "内脏脂肪（1–20）",
+    "Grasa visceral (1–20)",
+    "आंतरिक वसा (1–20)"
+   ],
+   "h": [
+    "Visceral fat sits around the organs and is the single reading that tracks metabolic risk. Total weight cannot see it, which is why a person can look fine and still read high. Under 10 is the target.",
+    "内脏脂肪包在器官周围，是唯一能反映代谢风险的指标。体重看不出它，所以有人外表正常但这项偏高。目标是低于10。",
+    "La grasa visceral rodea los órganos y es la lectura que sigue el riesgo metabólico. Menos de 10 es el objetivo.",
+    "आंतरिक वसा अंगों के आसपास होती है और चयापचय जोखिम दर्शाती है। 10 से कम लक्ष्य है।"
+   ]
+  },
+  "f-bodyWater": {
+   "l": [
+    "Body Water %",
+    "身体水分 %",
+    "% de agua corporal",
+    "शरीर में जल %"
+   ],
+   "h": [
+    "Tracks with muscle, because muscle tissue holds most of the body’s water. A low reading usually means low muscle or genuine under-drinking.",
+    "和肌肉同步，因为身体大部分水分储存在肌肉组织里。数值低通常意味着肌肉少或确实喝水不足。",
+    "Sigue al músculo, porque el tejido muscular retiene la mayor parte del agua del cuerpo.",
+    "यह मांसपेशी के साथ चलता है, क्योंकि अधिकांश पानी मांसपेशी ऊतक में होता है।"
+   ]
+  },
+  "f-metabolicAge": {
+   "l": [
+    "Metabolic Age",
+    "代谢年龄",
+    "Edad metabólica",
+    "चयापचय आयु"
+   ],
+   "h": [
+    "Only meaningful next to your real age. Reading several years above it is a summary of the other numbers, not a separate finding.",
+    "只有和实际年龄对比才有意义。高出几岁是其他指标的汇总结果，不是一个独立的发现。",
+    "Solo tiene sentido junto a su edad real. Leer varios años por encima resume las otras cifras.",
+    "यह केवल आपकी वास्तविक आयु के साथ अर्थपूर्ण है।"
+   ]
+  },
+  "f-protein": {
+   "l": [
+    "Protein %",
+    "蛋白质 %",
+    "% de proteína",
+    "प्रोटीन %"
+   ],
+   "h": [
+    "Where a shortage shows up before you feel it. Below about 16% is low, and hair and nails are usually the first visible sign.",
+    "缺乏最早出现的地方，早于你的感觉。低于约16%偏低，头发和指甲通常是最先看得出来的。",
+    "Donde una carencia aparece antes de sentirla. Por debajo del 16% es bajo.",
+    "जहाँ कमी महसूस होने से पहले दिखती है। लगभग 16% से नीचे कम है।"
+   ]
+  },
+  "f-muscleMass": {
+   "l": [
+    "Muscle Mass (lb)",
+    "肌肉量（磅）",
+    "Masa muscular (lb)",
+    "मांसपेशी द्रव्यमान (lb)"
+   ],
+   "h": [
+    "The absolute figure behind the muscle percentage. Watching it hold steady while fat falls is the sign a plan is working properly.",
+    "肌肉百分比背后的绝对值。减脂期间它保持稳定，才说明方案是对的。",
+    "La cifra absoluta detrás del porcentaje muscular. Que se mantenga mientras baja la grasa indica que el plan funciona.",
+    "मांसपेशी प्रतिशत के पीछे की वास्तविक संख्या।"
+   ]
+  },
+  "f-fatFreeMass": {
+   "l": [
+    "Fat-free Mass (lb)",
+    "去脂体重（磅）",
+    "Masa libre de grasa (lb)",
+    "वसा-रहित द्रव्यमान (lb)"
+   ],
+   "h": [
+    "Everything that is not fat: muscle, bone, organs and water. Used as a cross-check on the other readings.",
+    "除脂肪以外的全部：肌肉、骨骼、器官和水分。用来交叉验证其他数据。",
+    "Todo lo que no es grasa: músculo, hueso, órganos y agua.",
+    "वह सब जो वसा नहीं है: मांसपेशी, हड्डी, अंग और पानी।"
+   ]
+  },
+  "f-breakfastFreq": {
+   "l": [
+    "Do you eat breakfast?",
+    "你吃早餐吗？",
+    "¿Desayuna?",
+    "क्या आप नाश्ता करते हैं?"
+   ],
+   "h": [
+    "The 7 to 9 AM window is when the digestive system is at its strongest, so a skipped breakfast is the meal that would have counted most.",
+    "上午7到9点是消化系统最强的时段（胃经当令），所以跳过的这一餐本来是最有价值的。",
+    "La ventana de 7 a 9 AM es cuando el sistema digestivo está más fuerte.",
+    "सुबह 7 से 9 बजे पाचन तंत्र सबसे मज़बूत होता है।"
+   ],
+   "o": [
+    [
+     "Yes, daily",
+     "Yes, every day",
+     "是，每天",
+     "Sí, todos los días",
+     "हाँ, रोज़"
+    ],
+    [
+     "Sometimes (3–4x/week)",
+     "Sometimes, 3–4 days a week",
+     "有时，每周3-4天",
+     "A veces, 3–4 días por semana",
+     "कभी-कभी, सप्ताह में 3–4 दिन"
+    ],
+    [
+     "Rarely or never",
+     "Rarely or never",
+     "很少或从不",
+     "Rara vez o nunca",
+     "शायद ही या कभी नहीं"
+    ]
+   ]
+  },
+  "f-bedtime": {
+   "l": [
+    "Typical bedtime",
+    "通常几点睡",
+    "Hora habitual de acostarse",
+    "सामान्य सोने का समय"
+   ],
+   "h": [
+    "Deep sleep is weighted toward the early part of the night, so a late bedtime cuts into it regardless of total hours slept.",
+    "深睡集中在前半夜，所以睡得晚就会切掉这部分，和总睡眠时长无关。",
+    "El sueño profundo se concentra al principio de la noche, así que acostarse tarde lo recorta.",
+    "गहरी नींद रात के पहले हिस्से में केंद्रित होती है।"
+   ],
+   "o": [
+    [
+     "Before 10 PM",
+     "Before 10 PM",
+     "晚上10点前",
+     "Antes de las 10 PM",
+     "रात 10 बजे से पहले"
+    ],
+    [
+     "10–11 PM",
+     "10–11 PM",
+     "10–11点",
+     "10–11 PM",
+     "10–11 बजे"
+    ],
+    [
+     "11 PM–midnight",
+     "11 PM to midnight",
+     "11点到午夜",
+     "11 PM a medianoche",
+     "11 बजे से आधी रात"
+    ],
+    [
+     "After midnight",
+     "After midnight",
+     "午夜以后",
+     "Después de medianoche",
+     "आधी रात के बाद"
+    ]
+   ]
+  },
+  "f-waking13": {
+   "l": [
+    "How often do you wake up during the night?",
+    "你夜里醒来的频率是？",
+    "¿Con qué frecuencia se despierta por la noche?",
+    "आप रात में कितनी बार जागते हैं?"
+   ],
+   "h": [
+    "Waking at night is worth separating from trouble falling asleep, because they have different causes. The 1 to 3 AM window matters specifically: it is when the liver does its heaviest processing, so waking in it regularly is read as information rather than as insomnia, and it connects to the eyes, emotional regulation and hormones.",
+    "夜醒和入睡困难要分开看，因为成因不同。凌晨1到3点这个时段尤其有意义：那是肝脏处理负荷最重的时候（肝经当令），持续在这个时段醒来被视为一条信息而不是失眠，它和眼睛、情绪调节、激素都相连。",
+    "Despertarse de noche conviene separarlo de la dificultad para dormirse, porque tienen causas distintas. La ventana de 1 a 3 AM importa en particular: es cuando el hígado hace su procesamiento más pesado.",
+    "रात में जागना और नींद आने में कठिनाई अलग-अलग हैं। 1 से 3 बजे की खिड़की विशेष रूप से मायने रखती है: तब जिगर सबसे भारी कार्य करता है।"
+   ],
+   "o": [
+    [
+     "Most nights, usually 1-3 AM",
+     "Most nights, usually between 1 and 3 AM",
+     "几乎每晚，通常在凌晨1-3点",
+     "Casi todas las noches, entre la 1 y las 3 AM",
+     "ज़्यादातर रातें, आमतौर पर 1-3 बजे"
+    ],
+    [
+     "Most nights, other times",
+     "Most nights, but at other times",
+     "几乎每晚，但不是这个时段",
+     "Casi todas las noches, a otras horas",
+     "ज़्यादातर रातें, अन्य समय"
+    ],
+    [
+     "A few nights a week",
+     "A few nights a week",
+     "每周几晚",
+     "Algunas noches por semana",
+     "सप्ताह में कुछ रातें"
+    ],
+    [
+     "Occasionally",
+     "Occasionally",
+     "偶尔",
+     "De vez en cuando",
+     "कभी-कभार"
+    ],
+    [
+     "Rarely or never",
+     "Rarely or never",
+     "很少或从不",
+     "Rara vez o nunca",
+     "शायद ही या कभी नहीं"
+    ]
+   ]
+  },
+  "f-supplements": {
+   "l": [
+    "What supplements do you currently take?",
+    "你目前在吃哪些补充剂？",
+    "¿Qué suplementos toma actualmente?",
+    "आप वर्तमान में कौन से अनुपूरक लेते हैं?"
+   ],
+   "h": [
+    "List everything, including what you take irregularly. Knowing what you already take is what stops a recommendation duplicating it, and duplication is the most common way people overspend.",
+    "请全部列出，包括吃得不规律的。知道你已经在吃什么，才能避免重复推荐，而重复正是最常见的浪费钱的方式。",
+    "Liste todo, incluso lo irregular. Saber lo que ya toma evita duplicar una recomendación.",
+    "सब कुछ सूचीबद्ध करें। इससे सिफ़ारिश दोहराई नहीं जाएगी।"
+   ]
+  },
+  "f-supplementFreq": {
+   "l": [
+    "How consistently do you take them?",
+    "你吃得有多规律？",
+    "¿Con qué constancia los toma?",
+    "आप उन्हें कितनी नियमितता से लेते हैं?"
+   ],
+   "h": [
+    "Consistency usually matters more than the number of products. Four taken daily does more than ten taken sometimes.",
+    "规律性通常比产品数量更重要。每天吃四种，胜过偶尔吃十种。",
+    "La constancia importa más que el número de productos. Cuatro a diario hacen más que diez a veces.",
+    "निरंतरता उत्पादों की संख्या से अधिक मायने रखती है।"
+   ],
+   "o": [
+    [
+     "Daily without fail",
+     "Daily without fail",
+     "每天，从不间断",
+     "A diario sin falta",
+     "रोज़, बिना चूके"
+    ],
+    [
+     "Sometimes (3–4x/week)",
+     "Sometimes, 3–4 days a week",
+     "有时，每周3-4天",
+     "A veces, 3–4 días por semana",
+     "कभी-कभी, सप्ताह में 3–4 दिन"
+    ],
+    [
+     "Rarely (1–2x/week)",
+     "Rarely, 1–2 days a week",
+     "很少，每周1-2天",
+     "Rara vez, 1–2 días por semana",
+     "शायद ही, सप्ताह में 1–2 दिन"
+    ],
+    [
+     "Not currently taking any",
+     "Not taking any right now",
+     "目前没有在吃",
+     "No tomo ninguno ahora",
+     "अभी कोई नहीं ले रहा"
+    ]
+   ]
+  },
+  "f-notes": {
+   "l": [
+    "Anything else you want the consultant to know?",
+    "还有什么想让顾问知道的？",
+    "¿Algo más que deba saber el consultor?",
+    "सलाहकार को और क्या बताना चाहेंगे?"
+   ],
+   "h": [
+    "Recent changes, a diagnosis, medication, or a goal. Anything that would change how the answers above should be read belongs here.",
+    "最近的变化、诊断、正在吃的药，或者你的目标。任何会改变上面答案解读方式的事情都写在这里。",
+    "Cambios recientes, un diagnóstico, medicación o un objetivo.",
+    "हाल के बदलाव, कोई निदान, दवा, या लक्ष्य।"
+   ]
+  },
+  "f-bowelFreq": {
+   "l": [
+    "How often do you have a bowel movement?",
+    "你多久排便一次？",
+    "¿Con qué frecuencia evacúa?",
+    "आप कितनी बार शौच जाते हैं?"
+   ],
+   "h": [
+    "Once or twice a day with an easy pass is the target. Less than that and material is sitting too long; much more and it is moving through faster than it can be absorbed.",
+    "每天一到两次、排出顺畅是目标。少于这个，废物停留过久；明显多于这个，说明通过太快，来不及吸收。",
+    "Una o dos veces al día con paso fácil es el objetivo.",
+    "दिन में एक या दो बार आसानी से निकलना लक्ष्य है।"
+   ],
+   "o": [
+    [
+     "3+ times a day",
+     "3 or more times a day",
+     "每天3次以上",
+     "3 o más veces al día",
+     "दिन में 3+ बार"
+    ],
+    [
+     "1-2 times a day",
+     "1–2 times a day",
+     "每天1-2次",
+     "1–2 veces al día",
+     "दिन में 1–2 बार"
+    ],
+    [
+     "Every other day",
+     "Every other day",
+     "隔天一次",
+     "Cada dos días",
+     "हर दूसरे दिन"
+    ],
+    [
+     "2-3 times a week",
+     "2–3 times a week",
+     "每周2-3次",
+     "2–3 veces por semana",
+     "सप्ताह में 2–3 बार"
+    ],
+    [
+     "Less than twice a week",
+     "Less than twice a week",
+     "每周不到2次",
+     "Menos de dos veces por semana",
+     "सप्ताह में दो बार से कम"
+    ]
+   ]
+  },
+  "f-wiping": {
+   "l": [
+    "How many wipes, typically?",
+    "通常擦几次？",
+    "¿Cuántas limpiezas?",
+    "कितनी बार पोंछना पड़ता है?"
+   ],
+   "h": [
+    "A single wipe means the stool was well formed. Repeated wiping usually means it was either too soft or evacuation did not complete, so it is a quick read on whether things are moving the way they should.",
+    "一次擦净说明成形良好。反复擦拭通常说明太软或没排干净，所以这一题能快速看出排便是否顺畅。",
+    "Una sola limpieza indica heces bien formadas. Limpiar repetidamente sugiere lo contrario.",
+    "एक बार में साफ़ होना अच्छे आकार का संकेत है।"
+   ],
+   "o": [
+    [
+     "1 wipe",
+     "1 wipe",
+     "1次",
+     "1 vez",
+     "1 बार"
+    ],
+    [
+     "2-3 wipes",
+     "2–3 wipes",
+     "2-3次",
+     "2–3 veces",
+     "2–3 बार"
+    ],
+    [
+     "4+ wipes",
+     "4 or more wipes",
+     "4次以上",
+     "4 o más veces",
+     "4 या अधिक बार"
+    ]
+   ]
+  },
+  "f-cycleRegular": {
+   "l": [
+    "Is your cycle regular?",
+    "你的周期规律吗？",
+    "¿Su ciclo es regular?",
+    "क्या आपका चक्र नियमित है?"
+   ],
+   "h": [
+    "A regular cycle is one of the better general signals that hormones are clearing properly. Irregularity is common and is information, not an alarm.",
+    "周期规律是激素清除正常的较好整体信号之一。不规律很常见，它是信息，不是警报。",
+    "Un ciclo regular es una buena señal de que las hormonas se eliminan bien.",
+    "नियमित चक्र दर्शाता है कि हार्मोन ठीक से साफ़ हो रहे हैं।"
+   ],
+   "o": [
+    [
+     "Regular",
+     "Regular",
+     "规律",
+     "Regular",
+     "नियमित"
+    ],
+    [
+     "Irregular",
+     "Irregular",
+     "不规律",
+     "Irregular",
+     "अनियमित"
+    ],
+    [
+     "No longer menstruating",
+     "No longer menstruating",
+     "已绝经",
+     "Ya no menstrúo",
+     "अब मासिक नहीं होता"
+    ]
+   ]
+  },
+  "f-menstrualPain": {
+   "l": [
+    "Period pain",
+    "经期疼痛",
+    "Dolor menstrual",
+    "मासिक दर्द"
+   ],
+   "h": [
+    "Cramping severity is largely set by prostaglandins, and prostaglandin balance follows the ratio of fats in the diet. That makes it one of the more changeable symptoms here.",
+    "痛经的严重程度主要由前列腺素决定，而前列腺素的平衡取决于饮食里脂肪的比例。所以这是本表里较容易改变的症状之一。",
+    "La intensidad de los cólicos depende de las prostaglandinas, cuyo equilibrio sigue la proporción de grasas.",
+    "ऐंठन की तीव्रता मुख्यतः प्रोस्टाग्लैंडिन से तय होती है।"
+   ],
+   "o": [
+    [
+     "None",
+     "None",
+     "没有",
+     "Ninguno",
+     "कोई नहीं"
+    ],
+    [
+     "Mild",
+     "Mild",
+     "轻微",
+     "Leve",
+     "हल्का"
+    ],
+    [
+     "Moderate",
+     "Moderate",
+     "中等",
+     "Moderado",
+     "मध्यम"
+    ],
+    [
+     "Severe",
+     "Severe",
+     "严重",
+     "Intenso",
+     "गंभीर"
+    ]
+   ]
+  },
+  "f-heavyFlow": {
+   "l": [
+    "Heavy flow?",
+    "经量大吗？",
+    "¿Flujo abundante?",
+    "क्या रक्तस्राव अधिक है?"
+   ],
+   "h": [
+    "Heavy flow over years is the most common route to low iron, and low iron shows up as fatigue, brain fog and hair loss long before anything else.",
+    "长期经量大是缺铁最常见的路径，而缺铁会以疲劳、脑雾、掉发的形式出现，远早于其他表现。",
+    "El flujo abundante durante años es la vía más común hacia el hierro bajo.",
+    "वर्षों तक अधिक रक्तस्राव आयरन की कमी का सबसे आम कारण है।"
+   ],
+   "o": [
+    [
+     "No",
+     "No",
+     "否",
+     "No",
+     "नहीं"
+    ],
+    [
+     "Yes",
+     "Yes",
+     "是",
+     "Sí",
+     "हाँ"
+    ]
+   ]
+  },
+  "f-pmsMoodSwings": {
+   "l": [
+    "PMS mood swings?",
+    "经前情绪波动？",
+    "¿Cambios de humor premenstruales?",
+    "मासिक-पूर्व मूड बदलाव?"
+   ],
+   "h": [
+    "Premenstrual mood change tracks with how completely oestrogen is cleared after it has done its job, which is liver work rather than a purely reproductive matter.",
+    "经前情绪波动，和雌激素完成作用后被清除得是否彻底有关，这是肝脏的工作，而不纯粹是生殖系统的事。",
+    "El cambio de humor premenstrual sigue a qué tan completamente se elimina el estrógeno.",
+    "मासिक-पूर्व मूड परिवर्तन एस्ट्रोजन की सफ़ाई पर निर्भर करता है।"
+   ],
+   "o": [
+    [
+     "No",
+     "No",
+     "否",
+     "No",
+     "नहीं"
+    ],
+    [
+     "Yes",
+     "Yes",
+     "是",
+     "Sí",
+     "हाँ"
+    ]
+   ]
+  }
+ }
+}

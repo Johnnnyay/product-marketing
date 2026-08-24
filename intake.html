@@ -58,6 +58,31 @@
     font:inherit;font-size:11px;font-weight:600;color:var(--green);cursor:pointer;vertical-align:middle}
   .help-btn::before{content:"?";display:inline-grid;place-items:center;width:14px;height:14px;border-radius:50%;
     background:var(--green-light);color:var(--green);font-size:10px;font-weight:800}
+  /* Page one opens on why this exists, not on what it produces. */
+  .stage-card{background:linear-gradient(180deg,#f6faf7 0%,#fff 100%);border-left:3px solid var(--green)}
+  .stage-body{font-size:14px;line-height:1.75;color:var(--gray-600)}
+  .stage-body p{margin:0 0 12px}
+  .stage-body p:last-child{margin-bottom:0}
+  .stage-foot{margin-top:14px;padding-top:12px;border-top:1px solid var(--gray-200);
+    font-size:12px;color:var(--gray-500)}
+  /* Multi-select, used by the motivation question and the diagnosis list. Both
+     need "as many as apply" rather than one of N. */
+  .chip-grid{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px}
+  .chip{padding:7px 12px;border:1.5px solid var(--gray-200);border-radius:999px;background:#fff;
+    font-size:12.5px;line-height:1.4;color:var(--gray-600);cursor:pointer;transition:all .15s;
+    text-align:left;font-family:inherit}
+  .chip:hover{border-color:var(--green);color:var(--green)}
+  .chip.on{background:var(--green-light);border-color:var(--green);color:#065f46;font-weight:600}
+  /* Diet frequency rows reuse the symptom row layout, so the form reads as one
+     instrument while the band labels stay appropriate to food. */
+  .diet-row{display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:9px 0;border-bottom:1px solid var(--gray-100)}
+  .diet-row:last-child{border-bottom:0}
+  .diet-name{font-size:13.5px;color:var(--gray-700);line-height:1.45}
+  .freq-btn.selected-mostdays{background:#d1fae5;border-color:#059669;color:#065f46}
+  .freq-btn.selected-fewweekly{background:#ecfdf5;border-color:#34d399;color:#065f46}
+  .freq-btn.selected-rarely{background:#fef9c3;border-color:#ca8a04;color:#713f12}
+  .freq-btn.selected-never{background:#f3f4f6;border-color:#9ca3af;color:#6b7280}
 .freq-btn.selected-na{background:#eef2ff;border-color:#818cf8;color:#3730a3}
 
   .help-btn-inline::before{margin:0}
@@ -167,8 +192,16 @@
 
   <div class="error-box" id="errorBox"></div>
 
-  <!-- ═══ STEP 1: Personal + Body Comp ═══ -->
+  <!-- ═══ STEP 1: Why this exists, then Personal + Body Comp ═══ -->
   <div class="step active" id="step0">
+
+    <!-- The page used to open on a description of the deliverable, which gives
+         nobody a reason to answer 65 questions carefully. -->
+    <div class="card stage-card">
+      <div class="card-title" id="stageHeadline"></div>
+      <div class="stage-body" id="stageBody"></div>
+      <div class="stage-foot" id="stageFoot"></div>
+    </div>
 
     <div class="card">
       <div class="card-title" data-sec="personal">Personal Information</div>
@@ -190,6 +223,11 @@
       <div class="field-row">
         <div class="field"><label>Height</label><input type="text" id="f-height" placeholder="e.g. 175 cm or 5'9&quot;"></div>
         <div class="field"><label>Weight (lb)</label><input type="number" id="f-weight" placeholder="e.g. 160"></div>
+      </div>
+
+      <div class="field" id="motivationField">
+        <label id="motivationLabel"></label>
+        <div class="chip-grid" id="motivationChips"></div>
       </div>
     </div>
 
@@ -247,31 +285,21 @@
     <div class="card">
       <div class="card-title" data-sec="habits">Daily Habits</div>
 
-      <div class="field-row">
-        <div class="field"><label>Daily water intake</label>
-          <select id="f-water">
-            <option value="">Select...</option>
-            <option value="Less than 1L">Less than 1L</option>
-            <option value="1–1.5L">1–1.5L</option>
-            <option value="1.5–2L">1.5–2L</option>
-            <option value="2–2.5L">2–2.5L</option>
-            <option value="2.5L+">2.5L or more</option>
-          </select>
-        </div>
-        <div class="field"><label>Fruit and vegetable servings per day</label>
-          <select id="f-produce">
-            <option value="">Select...</option>
-            <option value="0–1 servings">0–1 servings</option>
-            <option value="2–3 servings">2–3 servings</option>
-            <option value="4–5 servings">4–5 servings</option>
-            <option value="5+ servings">5+ servings</option>
-          </select>
-        </div>
+      <!-- The nutrient estimate is built here. Structured answers do the
+           arithmetic and are comparable at the next assessment; the free text
+           supplies the specifics neither a dropdown nor a scale can carry. -->
+      <div class="card-title" id="dietTitle" style="margin-top:4px"></div>
+      <p class="card-sub" id="dietSub" style="font-size:12.5px;color:var(--gray-500);line-height:1.6;margin-bottom:12px"></p>
+      <div id="dietRows"></div>
+
+      <div class="field-row" style="margin-top:16px">
+        <div class="field"><label></label><select id="f-water"></select></div>
+        <div class="field"><label></label><select id="f-smoking"></select></div>
       </div>
 
       <div class="field">
-        <label>Describe what you typically eat in a day</label>
-        <textarea id="f-diet" rows="4"></textarea>
+        <label></label>
+        <textarea id="f-diet" rows="5"></textarea>
       </div>
 
       <div class="field-row">
@@ -328,6 +356,20 @@
       <div id="cycleSection" style="display:none">
         <div class="card-title" id="cycleTitle" data-sec="cycle" style="margin-top:26px">Menstrual Cycle</div>
         <div id="cycleFields"></div>
+      </div>
+
+      <div class="card-title" id="diagTitle" style="margin-top:26px"></div>
+      <div class="field" id="diagField">
+        <label id="diagLabel"></label>
+        <div class="chip-grid" id="diagChips"></div>
+      </div>
+      <div class="field" id="diagNoteField" style="display:none">
+        <label></label>
+        <textarea id="f-diagnosedNote" rows="2"></textarea>
+      </div>
+      <div class="field">
+        <label></label>
+        <textarea id="f-medication" rows="2"></textarea>
       </div>
 
       <div class="field">
@@ -526,13 +568,149 @@ function paintField(key) {
 
 /* Symptoms are rebuilt rather than patched, because the labels are the button text. */
 const symptomValues = {};
+/* ── the pieces added in form v2.0 ───────────────────────────────────────── */
+
+const motivationValues = {};
+const diagnosisValues  = {};
+const dietValues       = {};
+
+/* Age at the moment of filling this in, which is what the report needs. Never
+   computed from "today" later, because that answer drifts after the fact. */
+function currentAge(){
+  const v = (document.getElementById('f-dob') || {}).value;
+  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(v || '');
+  if (!m) return null;
+  const n = new Date();
+  let a = n.getFullYear() - +m[1];
+  if (n.getMonth()+1 < +m[2] || (n.getMonth()+1 === +m[2] && n.getDate() < +m[3])) a--;
+  return (a >= 0 && a < 130) ? a : null;
+}
+
+/* One multi-select used twice. Tapping an on chip turns it off, same as the
+   symptom buttons, so nothing on this form is a one-way door. */
+function renderChips(host, options, store){
+  if (!host) return;
+  host.innerHTML = '';
+  options.forEach(o => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'chip' + (store[o[0]] ? ' on' : '');
+    b.textContent = o[1 + LI()] || o[1];
+    b.onclick = () => {
+      if (store[o[0]]) { delete store[o[0]]; b.classList.remove('on'); }
+      else { store[o[0]] = true; b.classList.add('on'); }
+      if (host.id === 'diagChips') {
+        const any = Object.keys(diagnosisValues).length > 0;
+        const nf = document.getElementById('diagNoteField');
+        if (nf) nf.style.display = any ? '' : 'none';
+      }
+    };
+    host.appendChild(b);
+  });
+}
+
+function buildStageSetting(){
+  const h = document.getElementById('stageHeadline');
+  const b = document.getElementById('stageBody');
+  const f = document.getElementById('stageFoot');
+  if (!h) return;
+  h.textContent = tx(STAGE_SETTING.headline);
+  b.innerHTML = '';
+  tx(STAGE_SETTING.body).split('\n\n').forEach(par => {
+    const el = document.createElement('p');
+    el.textContent = par;
+    b.appendChild(el);
+  });
+  f.textContent = tx(STAGE_SETTING.footnote);
+}
+
+function buildMotivation(){
+  const l = document.getElementById('motivationLabel');
+  if (!l) return;
+  l.textContent = tx(MOTIVATION.l);
+  ensureHelpFor(document.getElementById('motivationField'), MOTIVATION.h);
+  renderChips(document.getElementById('motivationChips'), MOTIVATION.o, motivationValues);
+}
+
+function buildDiagnoses(){
+  const t = document.getElementById('diagTitle');
+  const l = document.getElementById('diagLabel');
+  if (!l) return;
+  if (t) t.textContent = tx(DIAGNOSES.l);
+  l.textContent = '';
+  ensureHelpFor(document.getElementById('diagField'), DIAGNOSES.h);
+  renderChips(document.getElementById('diagChips'), DIAGNOSES.o, diagnosisValues);
+}
+
+/* A help disclosure for a block that is not a plain FIELDS entry. */
+function ensureHelpFor(host, helpArr){
+  if (!host || !helpArr) return;
+  const label = host.querySelector('label');
+  if (!label) return;
+  let btn = label.querySelector('.help-btn');
+  let box = host.querySelector(':scope > .help-box');
+  if (!box) { box = document.createElement('div'); box.className = 'help-box'; label.after(box); }
+  if (!btn) {
+    btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'help-btn';
+    btn.onclick = () => box.classList.toggle('open');
+    label.appendChild(btn);
+  }
+  btn.textContent = tx(UI.why);
+  box.textContent = tx(helpArr);
+}
+
+function buildDiet(){
+  const host = document.getElementById('dietRows');
+  if (!host) return;
+  const t = document.getElementById('dietTitle'), sub = document.getElementById('dietSub');
+  if (t)   t.textContent   = tx(DIET_SECTION.title);
+  if (sub) sub.textContent = tx(DIET_SECTION.sub);
+  host.innerHTML = '';
+  DIET_FREQ.forEach(q => {
+    const row = document.createElement('div');
+    row.className = 'diet-row';
+    const name = document.createElement('div');
+    name.className = 'diet-name';
+    name.textContent = q.l[LI()] || q.l[0];
+    const btns = document.createElement('div');
+    btns.className = 'freq-btns';
+    SCALES.diet.bands.forEach(band => {
+      const cls = 'selected-' + band.value.toLowerCase().replace(/[^a-z]/g, '');
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'freq-btn' + (dietValues[q.id] === band.value ? ' ' + cls : '');
+      b.textContent = band.l[LI()] || band.l[0];
+      b.onclick = () => {
+        const already = dietValues[q.id] === band.value;
+        btns.querySelectorAll('.freq-btn').forEach(x => x.className = 'freq-btn');
+        if (already) { delete dietValues[q.id]; return; }
+        b.className = 'freq-btn ' + cls;
+        dietValues[q.id] = band.value;
+      };
+      btns.appendChild(b);
+    });
+    row.appendChild(name); row.appendChild(btns);
+    host.appendChild(row);
+  });
+}
+
 function buildSymptoms() {
   const container = document.getElementById('symptomContainer');
   if (!container) return;
   const gender = (document.getElementById('f-gender') || {}).value;
   container.innerHTML = '';
-  const FREQ = [['Often', UI.fOften], ['Occasionally', UI.fOcc], ['Barely', UI.fBarely], ['NA', UI.fNA]];
-  SYMPTOM_GROUPS.forEach(group => {
+  const FREQ = SCALES.symptom.bands.map(b => [b.value, b.l]);
+  /* Age and sex ADD groups, they never hide one. Hiding by age is what loses the
+     19 year old with a fatty liver, so the core set is the same for everybody. */
+  const age = currentAge();
+  const extra = ADDITIVE_GROUPS.filter(g => {
+    const w = g.when || {};
+    if (w.gender && w.gender !== gender) return false;
+    if (w.minAge !== undefined && (age === null || age < w.minAge)) return false;
+    return true;
+  });
+  [].concat(SYMPTOM_GROUPS, extra).forEach(group => {
     // no group is gender-gated now; individual reproductive items are filtered below
     const div = document.createElement('div');
     div.className = 'symptom-group';
@@ -549,10 +727,9 @@ function buildSymptoms() {
       gl.appendChild(hb);
       div.appendChild(gl); div.appendChild(box);
     } else div.appendChild(gl);
-    const FEMALE_ONLY = ['Period pain','Abnormal discharge','Gynecological infections'];
-    /* Every item is visible. The list gets trimmed by editing it, not by hiding it. */
+    /* Every item in a group that is shown is visible. Which groups are shown is
+       decided above, by the additive rules, not by filtering items in here. */
     group.items.forEach(item => {
-      if (gender === 'Male' && FEMALE_ONLY.indexOf(item[0]) >= 0) return;
       const key = group.g[0] + '__' + item[0];
       const row = document.createElement('div');
       row.className = 'symptom-row';
@@ -646,6 +823,10 @@ function applyLang() {
   const lt = document.querySelector('.loading-title'); if (lt) lt.textContent = tx(UI.loadTitle);
   const ls = document.querySelector('.loading-sub'); if (ls) ls.textContent = tx(UI.loadSub);
   Object.keys(FIELDS).forEach(paintField);
+  buildStageSetting();
+  buildMotivation();
+  buildDiet();
+  buildDiagnoses();
   buildSymptoms();
 }
 
@@ -672,7 +853,12 @@ async function submitForm() {
   err.style.display = 'none';
 
   // Build payload
+  const val = (id) => { const e = document.getElementById(id); return e ? (e.value || '').trim() : ''; };
   const payload = {
+    /* Which question set produced these answers. Without it, comparing an
+       assessment taken before a question changed against one taken after is
+       comparing two different instruments. */
+    formVersion: FORM_VERSION,
     name: document.getElementById('f-name').value.trim(),
     email: document.getElementById('f-email').value.trim(),
     dob: document.getElementById('f-dob').value,
@@ -680,8 +866,13 @@ async function submitForm() {
     height: document.getElementById('f-height').value.trim() || null,
     weight: document.getElementById('f-weight').value || null,
     symptoms: symptomValues,
+    motivation: Object.keys(motivationValues),
+    diagnosed: Object.keys(diagnosisValues),
+    diagnosedNote: val('f-diagnosedNote') || null,
+    medication: val('f-medication') || null,
+    dietFrequency: dietValues,
+    smoking: val('f-smoking') || null,
     water: document.getElementById('f-water').value || null,
-    produce: document.getElementById('f-produce').value || null,
     diet: document.getElementById('f-diet').value || null,
     breakfastFreq: document.getElementById('f-breakfastFreq').value || null,
     bedtime: document.getElementById('f-bedtime').value || null,
