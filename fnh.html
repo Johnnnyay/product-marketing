@@ -242,7 +242,7 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
 <div class="wrap" id="p1">
   <nav class="topnav" id="nav1"></nav>
   <h1>JL Team <span>Jeopardy</span></h1>
-  <p class="sub">Friday Night Hangout &nbsp;·&nbsp; September 11 &nbsp;·&nbsp; 8:00–9:15 PM ET</p>
+  <p class="sub">Friday Night Hangout &nbsp;·&nbsp; September 11, 2026</p>
 
   <div class="card" id="form">
     <label for="nm">Your name, whatever people actually call you</label>
@@ -293,7 +293,7 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
 <div class="wrap" id="p3" hidden>
   <nav class="topnav" id="nav3"></nav>
   <h1>How to <span>play</span></h1>
-  <p class="sub">怎么玩 &nbsp;·&nbsp; Friday Night Hangout &nbsp;·&nbsp; September 11</p>
+  <p class="sub">Friday Night Hangout &nbsp;·&nbsp; September 11, 2026</p>
 
   <p>Jeopardy is an American TV quiz show. The format is a grid: topics across the top,
   point values down the side, and the bigger the number the harder it is. Someone opens a
@@ -790,13 +790,6 @@ ovl.addEventListener("click", function(e){
   if(e.target === ovl){ ovl.dataset.open = "0"; clearInterval(tickH); } });
 document.addEventListener("keydown", function(e){
   if(e.key === "Escape"){ ovl.dataset.open = "0"; clearInterval(tickH); } });
-
-
-
-
-document.querySelectorAll(".pagenav .navset button").forEach(function(b){
-  b.addEventListener("click", function(){ showSection(b.dataset.v); });
-});
 
 
 drawScores(); drawBoard();
