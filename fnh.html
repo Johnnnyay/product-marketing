@@ -260,12 +260,13 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
   <h2>The four groups</h2>
   <div class="roster" id="groups"></div>
 
-  <div class="note"><b>How it works.</b> Four categories, five squares each.
-  On <b>100, 300 and 500</b> anyone can raise a hand, first hand answers, points go to your
-  group. You get <b>20 seconds</b> once you're called on, and <b>get it wrong and your group
-  loses the square</b> — it goes to the floor and the other groups fight over it. So put your
-  hand up when you know it, not when you hope. <b>800 and 1000 are for 3/6 and above</b>,
-  where somebody stands up and delivers rather than answers.</div>
+  <div class="note"><b>How it works.</b> Four categories, five squares each, and
+  <b>you raise your hand on every row</b>. On <b>100, 300 and 500</b> anyone can go for it.
+  First hand answers, 20 seconds on the clock, and <b>get it wrong and your group loses the
+  square</b> — it goes to the floor and the other groups fight over it. So put your hand up
+  when you know it, not when you hope. On <b>800 and 1000</b> only 3/6 and above may raise a
+  hand, and there is nothing to guess: the first hand up stands and delivers on the topic.
+  One 800 and one 1000 per group.</div>
 
   <div class="foot">
     <button id="hostlink">Host and leaders</button>
@@ -319,9 +320,9 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
         <span>Open racing, about 2 minutes a square. Running late? Drop squares here, never
         from the next block.</span></dd>
       <dt>8:35</dt><dd><b>The 800 and 1000 rows · 8 squares</b>
-        <span>One 800 and one 1000 per group. Their own 3/6 stands up and delivers it.
-        Thirty-five minutes for 3 + 5 per group, which is 32, so there is three minutes of
-        slack and no more.</span></dd>
+        <span>Hands up, same as the first half, but only 3/6 and above. First hand delivers.
+        One 800 and one 1000 per group. Thirty-five minutes for 3 + 5 per group, which is
+        32, so three minutes of slack and no more.</span></dd>
       <dt>9:10</dt><dd><b>Closing thoughts and announcements · 5 min</b></dd>
       <dt>9:15</dt><dd><b>Hangout</b><span>Zoom stays open.</span></dd>
     </dl>
@@ -330,16 +331,20 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
 
     <h3>The rules, as the host says them</h3>
     <ol>
-      <li>Open the square. On 100 to 500 the clock starts by itself. <b>Hands up</b> — on Zoom
-        the raise-hand list is already in order, in the room Johnny calls who was first.</li>
-      <li><b>Twenty seconds.</b> Wrong or out of time, hit Restart and it goes to the floor.
-        That is why nobody switches off between turns.</li>
-      <li>Reveal, then tap the group on the card. The score lands and the square goes dark.
-        Tap the same group again to undo it, a different one to move it.</li>
-      <li>Every card carries a line of context under the answer. Read it if it's worth
-        reading and move on. On the open rows the point is pace, not teaching.</li>
-      <li><b>800 and 1000 are not a race.</b> The group's own 3/6 takes their square and
-        delivers it. Deliver it and the points are theirs. That is where the teaching is.</li>
+      <li>Open the square. On 100 to 500 the clock starts by itself.</li>
+      <li><b>Hands up on every row.</b> On Zoom the raise-hand list is already in order, in
+        the room Johnny calls who was first.</li>
+      <li><b>100 to 500:</b> twenty seconds to answer. Wrong or out of time, it goes to the
+        floor and the next hand takes it.</li>
+      <li><b>800 and 1000:</b> the first hand up delivers it. Three minutes on an 800, five
+        on a 1000. No wrong answer here, so the fight is for the microphone, not the
+        answer.</li>
+      <li><b>One 800 and one 1000 per group, no more.</b> Once your group has taken an 800,
+        your hands stay down for the rest of that row. Without this the two fastest groups
+        take all eight and half the room never speaks.</li>
+      <li>Eight people prepared a topic each. <b>If no hand goes up on a square, that person
+        takes it.</b> The prep is the floor, not the schedule.</li>
+      <li>Tap the group on the card to score it. Tap again to undo.</li>
     </ol>
     <div class="note"><b>No buzzers.</b> Buzz-in across Zoom and a room is decided by latency,
     not knowledge. Zoom's raise-hand list orders itself and cannot be argued with. The room is
@@ -640,8 +645,8 @@ function openQ(k){
       (secs && !shown ? '<div class="timer" id="timer"><span class="t" id="tval"></span>'
             +   '<span class="lab" id="tlab"></span>'
             +   '<button id="trestart">Restart</button></div>' : '')
-      + (!secs && !shown ? '<p class="kicker">'+(v === 800 ? 'Share your own experience'
-                                                           : 'Training topic')+'</p>' : '')
+      + (!secs && !shown ? '<p class="kicker">'+(v === 800 ? 'First hand up · share your own experience · 3 min'
+                                                           : 'First hand up · training topic · 5 min')+'</p>' : '')
       + (shown ? '<p class="qprompt">'+esc(d.q)+'</p><p class="ansline">'+esc(d.a)+'</p>'
                +   '<div class="cue"><span class="eyebrow">cue · 60 to 90 seconds</span><p>'
                +   esc(d.t)+'</p></div>'
