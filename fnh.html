@@ -38,6 +38,11 @@ button{font-family:inherit}
 :focus-visible{outline:3px solid var(--g2);outline-offset:2px}
 
 .card{background:var(--panel);border:2px solid var(--line);border-radius:14px;padding:22px}
+.where{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0 18px}
+.where button{background:#fff;border:3px solid var(--line);color:var(--ink-2);border-radius:11px;
+  font:inherit;font-size:17px;font-weight:700;padding:15px 8px;cursor:pointer}
+.where button[aria-pressed="true"]{background:var(--sage);color:#fff;border-color:var(--sage)}
+.where button:hover[aria-pressed="false"]{border-color:var(--line-2);color:var(--ink)}
 label{display:block;font-size:14px;font-weight:600;color:var(--ink-2);margin:0 0 8px}
 input[type=text],input[type=password]{width:100%;background:#fff;border:2px solid var(--line-2);
   border-radius:10px;color:var(--ink);font:inherit;font-size:18px;padding:13px 14px}
@@ -223,13 +228,16 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
   <div class="card" id="form">
     <label for="nm">Your name</label>
     <input type="text" id="nm" autocomplete="name" placeholder="Kevin" enterkeyhint="go">
-    <label style="margin-top:16px">Your group — the number you counted off, or take any one</label>
-    <div class="awrow" id="pickgroups"></div>
-    <div style="height:16px"></div>
+    <div class="where" role="group" aria-label="How do you want a group">
+      <button type="button" data-m="pick" aria-pressed="true">I counted off</button>
+      <button type="button" data-m="draw" aria-pressed="false">Give me one</button>
+    </div>
+    <div id="pickrow">
+      <label>Which number?</label>
+      <div class="awrow" id="pickgroups"></div>
+    </div>
+    <div style="height:18px"></div>
     <button class="go" id="go">That's me</button>
-    <p style="margin:10px 0 0;font-size:14px;color:var(--muted)">Didn't catch a number?
-      <button type="button" id="drawme" style="background:none;border:0;padding:0;font:inherit;
-      color:var(--sage);font-weight:700;text-decoration:underline;cursor:pointer">Pick one for me</button></p>
     <p class="err" id="err"></p>
   </div>
 
@@ -532,7 +540,17 @@ function saveGame(){
 }
 
 /* ---------- draw a group ---------- */
-let picked = null;
+let mode = "pick", picked = null;
+document.querySelectorAll(".where button").forEach(function(b){
+  b.addEventListener("click", function(){
+    mode = b.dataset.m;
+    document.querySelectorAll(".where button").forEach(function(x){
+      x.setAttribute("aria-pressed", String(x === b)); });
+    $("pickrow").hidden = (mode !== "pick");
+    $("go").textContent = mode === "pick" ? "That's me" : "Give me a group";
+    $("err").textContent = "";
+  });
+});
 $("pickgroups").innerHTML = GROUPS.map(function(g){
   return '<button type="button" data-g="'+g+'">'+g+'</button>'; }).join("");
 $("pickgroups").addEventListener("click", function(e){
@@ -544,10 +562,10 @@ $("pickgroups").addEventListener("click", function(e){
 function claim(){
   const raw = $("nm").value.trim();
   if(!raw){ $("err").textContent = "Put a name in first."; return; }
-  if(!picked){ $("err").textContent = "Tap your group number."; return; }
+  if(mode === "pick" && !picked){ $("err").textContent = "Tap your group number."; return; }
   $("err").textContent = "";
   const seeded = LEADERS[norm(raw)];
-  me = {name: raw, group: seeded || picked};
+  me = {name: raw, group: seeded || (mode === "pick" ? picked : hashGroup(raw))};
   try{ localStorage.setItem("fnh-me", JSON.stringify(me)); }catch(e){}
   showMe();
 }
@@ -561,20 +579,13 @@ function showMe(){
   $("newname").textContent = me.group + " " + me.name;
   drawGroups();
 }
-$("drawme").addEventListener("click", function(){
-  const raw = $("nm").value.trim();
-  if(!raw){ $("err").textContent = "Put a name in first, then I'll pick."; $("nm").focus(); return; }
-  picked = LEADERS[norm(raw)] || hashGroup(raw);
-  $("pickgroups").querySelectorAll("button").forEach(function(x){
-    x.classList.toggle("done", +x.dataset.g === picked); });
-  $("err").textContent = "";
-});
 $("go").addEventListener("click", claim);
 $("nm").addEventListener("keydown", function(e){ if(e.key === "Enter") claim(); });
 $("again").addEventListener("click", function(){
   me = null; picked = null;
   try{ localStorage.removeItem("fnh-me"); }catch(e){}
   $("form").hidden = false; $("result").hidden = true; $("nm").value = "";
+  $("pickrow").hidden = (mode !== "pick");
   $("pickgroups").querySelectorAll("button").forEach(function(x){ x.classList.remove("done"); });
   drawGroups(); $("nm").focus();
 });
