@@ -145,6 +145,8 @@ input:focus{border-color:var(--sage)}
 .stage.fade{opacity:0}
 .qtext{font-weight:700;font-size:36px;line-height:1.22;letter-spacing:-.02em;margin:0 auto;
   max-width:24ch;color:var(--ink)}
+.beats{font-size:16px;line-height:1.5;color:var(--muted);margin:20px auto 0;max-width:56ch;
+  padding-top:16px;border-top:2px solid var(--line)}
 .kicker{font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;
   color:var(--amber);margin:0 0 16px}
 .qprompt{font-weight:600;font-size:16px;color:var(--muted);margin:0 auto 16px;max-width:52ch;
@@ -402,14 +404,16 @@ const Q = {
  a:"A multivitamin and multimineral supplement, 1934. It was the first one ever sold in North America.",
  t:"Carl Rehnborg got the idea living in China in the early 1920s. He noticed that in farming villages with fresh food people were healthy, and in the cities, on sugar, salt and fat, they were not. It was not even called Nutrilite yet, that name arrived in 1939. So the brand predates the company that owns it by twenty-five years, and it invented the category everyone else is now competing in.",
  w:"Johnny", s:"Nutrilite history"},
-"0-800":{q:"Tell us about your own first retail sale. Or the one where you froze and didn't ask. What did that teach you about how much product knowledge you actually need?",
- a:"No, you don't. The freeze comes from thinking you have to be the authority. You don't. The demo does the convincing and the assessment does the technical part. Walk their day, do one thirty-second demo, let the report carry the numbers.",
- t:"Say this out loud to them, it is the whole unlock: we're not branding ourselves as nutritionists, we use AI and credible government information, and this is how you teach people to manage their health, you don't need to be that expert. Then make the first ask small. Not Double X, the mint spray. Two per pack, a few dollars, no decision to make, and it walks itself into the toothpaste conversation. When price comes up: there are two kinds of product in the world, the kind you get paid for and the kind you don't. Don't judge someone's buying power by your own income.",
- w:"Johnny", s:"Volume · How the session runs / From product to retail"},
-"0-1000":{q:"Every PY27 incentive hangs on one number. What is it, and how many of our thirty sit at zero?",
- a:"60% VCS. Twenty-two of thirty are at zero.",
- t:"That is the thinnest column on the whole sheet, thinner than headcount. And the way in is not Double X, it is the mint spray. Two per pack, about three hundred sprays each, a few dollars, no decision to make. People buy it and then they move to the toothpaste. First customers come from there. It is also why the product appointment sits before the story appointment: with no product experience and no first customer, a new IBO has nothing of their own to tell.",
- w:"Irene", s:"Volume · Glister / Budget · Appointment order"},
+"0-800":{q:"You are not a product expert and you are not a salesperson. So how do you create retail anyway?",
+ sub:"Three beats · why expertise was never the bar · how you get a candidate who dropped out into a product session without it being weird · how you close as an introvert",
+ a:"Personal delivery, no set answer.",
+ t:"Hit all three or it turns into one anecdote. The expertise beat: we're not branding ourselves as nutritionists, we use AI and credible government information, and the report carries the technical part. The dropout beat: they said no to a business, not to their own health, and the product session is a different conversation with a different door. The introvert beat: a thirty-second demo does the talking, and the smallest first ask, the mint spray, needs no persuasion at all.",
+ w:"Blair", s:"Volume · How the session runs / From product to retail"},
+"0-1000":{q:"Volume past the basics. What is the mindset, and what would you tell someone who set their Ditto and then stopped there?",
+ sub:"A training block, not a story. Where volume actually comes from once the easy 200 PV is done",
+ a:"Training delivery.",
+ t:"Ditto is the floor, not the plan. The next volume comes from customers, and customers come from the smallest possible first ask rather than the biggest. Somewhere in here the room needs the 60% VCS number and what it costs them personally to sit at zero. Close on a specific action for the next thirty days, not a principle.",
+ w:"Wyatt", s:"Volume · Glister / Budget · Appointment order"},
 "1-100":{q:"Five things go beside every name on the list. What are they?",
  a:"Name, location, profession, ambitious or not, and when you last spoke.",
  t:"Two more you have to ask about: does this friend prefer a call or a text, and how close are you really. Then the mindset that matters most. Don't play God when you build the list. Everyone is equal. Write them down and have the conversation. Plenty of people give off no signal at all about whether they're looking.",
@@ -422,14 +426,16 @@ const Q = {
  a:"Because it's cheap and it empowers nobody. Turn it round: what would an entrepreneur running eight figures charge you for an hour of consulting? Do you think I have that kind of money? I'm lucky my mentor wants to give back.",
  t:"Only a question makes somebody think. Same line: never say “if you're interested”, say “if you think a connection like that would be worth something to you”. And the common mistake is explaining harder. Instead ask how much do you know about this, then say honestly I didn't know much either, it took me six or seven sessions with my mentor before it clicked.",
  w:"Wyatt", s:"Networking · Friends ask questions"},
-"1-800":{q:"Tell your story the way you'd tell a candidate tonight. Then tell us what you changed about it since the first time you told it.",
- a:"Three things, then stop and hand it back. This is my experience. This is what I'm doing. This is the progress I've made. Then: so what about you? You're not selling, you're telling them what happened to you.",
- t:"Think about the last time an MLM approached you. Were they selling you, or telling you what happened to them? You know which one worked. The full story session runs the same shape: send the audio ahead so they've already heard it, then make them talk first, walk me through your takeaway, then you bridge the gap, then land it on which meeting and which sentence. He says it back to you and it's his; you say it and it stays yours. And don't dump it all. Feed ducks. Throw the whole loaf and they scatter.",
- w:"Huansong", s:"Networking · Story session"},
-"1-1000":{q:"What's the mindset that builds a networking habit that actually holds, online and face to face?",
- a:"Treat it like interviewing for a role you have to fill, not like needing one of these ten people to say yes. With enough candidates in front of you, one or two dropping out stops mattering. And don't play God on the list. Write everybody down, because plenty of people give off no signal at all.",
- t:"Two reads that make it practical. First: unless somebody is very close to you, they don't complain to you about work. So if they complain a lot, that person needs money. Looks good, smells good, still broke is extremely common. Second, the opener differs by distance. Online, start from a life event you actually saw. A close friend gets no warm-up. Someone in between gets all four steps and you don't skip one. Underneath all of it: be a buyer, not a seller. If it feels like selling, it's because you're desperate.",
- w:"Wyatt", s:"Networking · Make the list / Approach scripts / Driver's seat"},
+"1-800":{q:"A-list dos and don'ts. And how you actually share your story with a C-list.",
+ sub:"Two beats · what you would never do again with an A-list · and how the story changes for someone who barely knows you",
+ a:"Personal delivery, no set answer.",
+ t:"The A-list half wants your mistakes, not the rules — the friend you burned by warming them up for twenty minutes, the one you gave four hours of information to. The C-list half is the opposite problem: they don't know you, so the story has to earn the right to exist. Three things and stop, then hand it back. This is my experience, this is what I'm doing, this is the progress I've made, so what about you?",
+ w:"Jerry", s:"Networking · Story session"},
+"1-1000":{q:"The hard parts of a real conversation: the what-do-you-do question, a sceptical candidate, and a friend who drops out the moment they hear Amway.",
+ sub:"Three beats · answering what in an MG · handling scepticism without arguing · and what you say to the friend who walks",
+ a:"Training delivery.",
+ t:"The what question is answered by asking, not explaining: how much do you know about this, and then honestly I didn't know much either, it took me six or seven sessions. Scepticism is not disagreement, it is a request for credibility, so give them something checkable. And the friend who walks: it might not be a no forever, so leave good tastes, unless they start running down your people, and then blood is the only relationship you don't get to choose.",
+ w:"Irene", s:"Networking · Make the list / Approach scripts / Driver's seat"},
 "2-100":{q:"There is the driver, there is the passenger, and there is a third person. Who?",
  a:"The one who climbed into the trunk.",
  t:"Most people end up in the trunk without noticing they got in. Jerry admits he was in the trunk early on. After every process meeting he had exactly one question: how do you feel about my candidate, he's pretty cool huh. His own verdict, dumb question. I didn't care about the process at all, I just wanted the guy to launch. If you feel that, don't hide from it. It's human, don't beat yourself up. But know where it comes from and why it will cost you.",
@@ -442,14 +448,16 @@ const Q = {
  a:"Your faith, the supplier, the education system and mentorship, and yourself. The fourth is hardest.",
  t:"The third layer carries the most weight: whether you're growing or I'm growing, the system is growing. Which means somebody is doing the same thing and getting results, which means we simply haven't done what they did yet. The actions are identical, the volume of work has to catch up. Building the fourth starts with how rare the opportunity is. Very few things pay you back for effort. A job doesn't. Day trading really doesn't. Then the arithmetic of this business. Then the conference finishes it. At your first Orlando you only need to find one person on that stage you can connect yourself to.",
  w:"Boyan", s:"Networking · The four beliefs"},
-"2-800":{q:"Tell us about someone who didn't back you. A friend who walked, family who called it a scheme, a candidate who went quiet at the word Amway. What did you say, what did you stop saying, and where did it land?",
- a:"Three different people, three different boundaries. Someone who just declines is not someone you cut off. It might not be a no forever, so give them love and space, and they may need you in a few years. Someone who declines and then runs your people down is toxic. Blood you're stuck with; outside of blood you have a choice, and the choice is stay away. And a candidate who vanished at the word Amway told you what they think, not what you're worth.",
- t:"Everything you do in life will have people who love it, people who hate it and people who don't care, and the ones who hate it are always the loudest. Human nature is to talk somebody out of what you couldn't do yourself. The person who won't go to the gym talks their friend out of going too. There will be voices around you frightened you'll pull off what they didn't. Always leave good tastes only, and the one exception is somebody running down your people. And accept this: most friendships aren't built on a shared value system, so it's normal that you can't bring all of them with you.",
- w:"Jerry", s:"Retention · Removing doubt / Why PHP / DCR · Friends' negativity"},
-"2-1000":{q:"How do you grow your adversity quotient, your ability to handle stress and things not going your way? And how do you overcome the personal shortcomings holding your growth back?",
- a:"You don't build it by avoiding the hit. People develop confidence by getting through something themselves, so a leader's job is to know how somebody reacts to adversity and be there in a healthy way, not to take the adversity away.",
- t:"The frame that does the most work: no emotional attachment to the outcome. Don't lose your composure because one candidate is exciting, and don't overshare, because if they hit a setback later they're holding everything you told them about how hard the work is. Then the numbers, because numbers are what dissolve a bad week. Five to seven A-list to launch one. Ten through the full process to get one. Two years to Platinum. Success principles don't care how you feel and the universe doesn't care how hard you worked. The line that goes deepest is the one you ask yourself: what if I could have, and I didn't give it my best shot?",
- w:"Leann", s:"Retention · Relationship building / DCR · Mindset of abundance", draft:true},
+"2-800":{q:"Time and emotion are the two things that break people in their first year. How do you manage yours?",
+ sub:"Two beats · your actual system for time, not the theory · and what you do with stress and self-doubt on a week that goes badly",
+ a:"Personal delivery, no set answer.",
+ t:"Be specific about the time half: when you actually do the work, what you gave up to make room, what you stopped saying yes to. The emotional half lands hardest when you name a real bad week rather than describing a technique. No emotional attachment to the outcome is the frame, but it only means something attached to a week you can describe.",
+ w:"Vemon", s:"Retention · Removing doubt / Why PHP / DCR · Friends' negativity"},
+"2-1000":{q:"You are closing this meeting tonight. What do you tell the team?",
+ sub:"Five minutes, no slides. The thing you would want people driving home thinking about",
+ a:"Training delivery.",
+ t:"This is the last square of the night on purpose, so play it last. It is not a summary of the game. It is what a leader says when they have the room's attention and one shot at what people remember on Monday morning.",
+ w:"Leann", s:"Retention · Relationship building / DCR · Mindset of abundance"},
 "3-100":{q:"What year was Amway founded, by which two men, and in what town?",
  a:"1959, by Rich DeVos and Jay Van Andel, in Ada, Michigan.",
  t:"They had already been distributing Nutrilite for ten years before they founded it, which is why the nutrition brand carries a 1934 date and the company carries 1959. Head office is still on Fulton Street in Ada.",
@@ -462,13 +470,15 @@ const Q = {
  a:"The Orlando Magic, in 1991.",
  t:"Careful with the wording, because somebody will check: the DeVos family bought the Magic, not the company. Rich DeVos was still chairman when he died in 2018 and the family still owns it. Amway did hold the arena naming rights, the Amway Center, from 2010 until 2023, when it became the Kia Center. The point is not basketball. It is that the founders' family bought an NBA franchise out of a business people still ask whether it is legitimate.",
  w:"Johnny", s:"Amway · DeVos family"},
-"3-800":{q:"Walk us through your own finance and time budget when you started. What did you have to move, what did you cut, and what would you do differently now?",
- a:"Because until cash flow and a calendar are settled, everything after it is talk. Jerry's opening line is: once you've got everything settled down, we're gonna re-look at your finance again, so we plan out how we're gonna knock down those credit card balances first. Credit card balances first, then things with a fixed payment like a car loan.",
- t:"The order after that doesn't bend: write short, medium and long-term goals; the coach turns them into a work rate, how many specific actions per week; check that against what they can actually carry, where too much means move the deadline and not the goal, and too easy means add volume; then go back to the debt, where you can now see exactly when each balance clears. This is the input to the game plan appointment, which is why it can't come second. And send them the Money and Rewards document, because if you love money you have to understand how the game is played.",
- w:"Blair", s:"Budget · Finance and time budget / Prioritization", draft:true},
-"3-1000":{q:"Why is the China market worth a serious look from a US team? Three reasons.",
- a:"One, a single leg counts as two, so six legs can be 5+1, 4+2 or 3+3. Two, the sheer number of people, and our age bracket is a gap in that market. Three, sixty RMB gets you started and there is no monthly subscription.",
- t:"Why is the age bracket empty? Because the older generation's heavy-selling approach doesn't land with young people. Meanwhile young people there are under enormous pressure and a great many are looking. Anyone registered in the US knows people in China and the other way round, so combining the two grows fast, and the product knowledge transfers directly. There is a new Diamond couple there who made seven million RMB in the last two years, and a Q12 in China is 400,000 RMB.",
+"3-800":{q:"What does profitability actually look like at each level before Platinum? And what do you do when you're halfway through a game plan and behind it?",
+ sub:"Two beats · real numbers at each pin, not the brochure · then the halfway conversation, honestly",
+ a:"Personal delivery, no set answer.",
+ t:"The numbers half is why people trust the second half. Say what came in and what went out at each level, including the levels where it did not look good. The halfway half is the one people need: behind the plan means you move the deadline, not the goal. Work rate against capacity, and if the capacity was never there the plan was wrong, not the person.",
+ w:"Lina", s:"Budget · Finance and time budget / Prioritization"},
+"3-1000":{q:"Why Amway, and why now — at a global scale.",
+ sub:"A training block. The case as it looks from outside this room",
+ a:"Training delivery.",
+ t:"Scale is the argument: $7.3 billion a year, more than 100 countries, sixty-six years old, privately held so it answers to nobody quarterly. Then now: what has changed in the last five years about how people build income, and why the timing sits where it does. Bring one number the room has not heard before.",
  w:"Angela", s:"Retention · Why the Chinese market"}
 };
 
@@ -634,7 +644,8 @@ function openQ(k){
       + (shown ? '<p class="qprompt">'+esc(d.q)+'</p><p class="ansline">'+esc(d.a)+'</p>'
                +   '<div class="cue"><span class="eyebrow">cue · 60 to 90 seconds</span><p>'
                +   esc(d.t)+'</p></div>'
-               : '<p class="qtext">'+esc(d.q)+'</p>')
+               : '<p class="qtext">'+esc(d.q)+'</p>'
+                 + (!secs && d.sub ? '<p class="beats">'+esc(d.sub)+'</p>' : ''))
       + (secs ? '<div class="btnrow"><button class="btn'+(shown?' ghost':'')+'" id="rev">'
               +   (shown ? 'Hide answer' : 'Reveal answer')+'</button></div>' : '');
     if(secs){
