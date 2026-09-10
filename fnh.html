@@ -103,6 +103,19 @@ input:focus{border-color:var(--sage)}
 .foot button{background:none;border:0;color:var(--muted);font:inherit;font-size:14px;
   text-decoration:underline;cursor:pointer;padding:0}
 
+/* ---- how to play. Drawn rather than screenshotted: a screenshot goes stale the moment
+   the board changes, and these stay crisp on a projector and on a phone. ---- */
+.step{margin:0 0 40px}
+.step h3{margin:0 0 4px;color:var(--ink);font-size:22px}
+.step .zh{margin:0 0 14px;color:var(--muted);font-size:16px;font-weight:600}
+.step figure{margin:0 0 14px;background:var(--panel);border:2px solid var(--line);
+  border-radius:14px;padding:18px}
+.step figure svg{display:block;width:100%;height:auto}
+.step p{margin:0 0 10px}
+.step p.cn{color:var(--ink-2)}
+.stepno{display:inline-block;background:var(--sage);color:#fff;font-weight:800;font-size:13px;
+  border-radius:999px;padding:3px 12px;margin:0 0 10px;letter-spacing:.06em}
+
 /* ---- host board. The nav sits at the very bottom because the host is screen-sharing
    this, and a tab bar across the top puts the words "run of show" in front of the room. ---- */
 #hostnav{gap:14px 20px}
@@ -268,9 +281,119 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
   hand, and there is nothing to guess: the first hand up stands and delivers on the topic.
   One 800 and one 1000 per group.</div>
 
+  <button class="go" id="howlink" style="margin-top:22px;background:#fff;color:var(--sage);
+    border:3px solid var(--sage)">How to play &nbsp;·&nbsp; 怎么玩</button>
+
   <div class="foot">
     <button id="hostlink">Host and leaders</button>
   </div>
+</div>
+
+<!-- ===================== HOW TO PLAY ===================== -->
+<div class="wrap" id="p3" hidden>
+  <h1>How to <span>play</span></h1>
+  <p class="sub">怎么玩 &nbsp;·&nbsp; Friday Night Hangout &nbsp;·&nbsp; September 11</p>
+
+  <p>Jeopardy is an American TV quiz show. The format is a grid: topics across the top,
+  point values down the side, and the bigger the number the harder it is. Someone opens a
+  square, people race to answer, and whoever gets it wins those points for their group.</p>
+  <p class="cn" style="color:var(--ink-2)">Jeopardy 是美国的一档电视问答节目。规则很简单：一块格子板，横排是主题，
+  竖排是分数，分数越高题越难。翻开一格，大家抢答，谁抢到并且答对，分数就归他那一组。</p>
+
+  <div class="step" style="margin-top:34px">
+    <span class="stepno">1</span>
+    <h3>Get your group</h3>
+    <p class="zh">先拿组号</p>
+    <figure><svg viewBox="0 0 520 250" role="img" aria-label="The name and group form">
+<rect x="1" y="1" width="518" height="248" rx="14" fill="#fff" stroke="#C8D2C9" stroke-width="2"/>
+<text x="28" y="38" font-family="Inter,sans-serif" font-size="14" font-weight="600" fill="#3A453C">Your name</text>
+<rect x="28" y="50" width="464" height="44" rx="9" fill="#fff" stroke="#A8B6AA" stroke-width="2"/>
+<text x="44" y="79" font-family="Inter,sans-serif" font-size="18" fill="#A8B6AA">Kevin</text>
+<rect x="28" y="108" width="226" height="42" rx="10" fill="#345043"/>
+<text x="141" y="135" text-anchor="middle" font-family="Inter,sans-serif" font-size="15" font-weight="700" fill="#fff">Draw one for me</text>
+<rect x="266" y="108" width="226" height="42" rx="10" fill="#fff" stroke="#C8D2C9" stroke-width="2"/>
+<text x="379" y="135" text-anchor="middle" font-family="Inter,sans-serif" font-size="15" font-weight="700" fill="#3A453C">Let me choose</text>
+<rect x="28" y="166" width="464" height="52" rx="11" fill="#345043"/>
+<text x="260" y="199" text-anchor="middle" font-family="Inter,sans-serif" font-size="19" font-weight="800" fill="#fff">Draw my group</text>
+</svg></figure>
+    <p>Type your name and you get a group number, 1 to 4. Everyone is in one of four groups.
+    If you're on Zoom, rename yourself with the number in front, like <b>2 Kevin</b>, so the
+    host knows which group just raised a hand.</p>
+    <p class="cn">输入名字就会拿到一个组号，1 到 4，每个人都在四个组里的一个。在 Zoom 上的请把自己的名字
+    改成「组号 + 名字」，比如 <b>2 Kevin</b>，这样主持人一看就知道是哪一组举的手。</p>
+  </div>
+
+  <div class="step">
+    <span class="stepno">2</span>
+    <h3>The board</h3>
+    <p class="zh">这就是板子</p>
+    <figure><svg viewBox="0 0 520 290" role="img" aria-label="The board, four topics and five rows"><rect x="8" y="6" width="120" height="34" rx="7" fill="#fff" stroke="#345043" stroke-width="2"/><text x="68" y="28" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" font-weight="800" fill="#345043">Retail &amp; Volume</text><rect x="136" y="6" width="120" height="34" rx="7" fill="#fff" stroke="#345043" stroke-width="2"/><text x="196" y="28" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" font-weight="800" fill="#345043">Networking</text><rect x="264" y="6" width="120" height="34" rx="7" fill="#fff" stroke="#345043" stroke-width="2"/><text x="324" y="28" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" font-weight="800" fill="#345043">Leadership</text><rect x="392" y="6" width="120" height="34" rx="7" fill="#fff" stroke="#345043" stroke-width="2"/><text x="452" y="28" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" font-weight="800" fill="#345043">The Business</text><rect x="8" y="48" width="120" height="40" rx="7" fill="#345043"/><text x="68" y="76" text-anchor="middle" font-family="Inter,sans-serif" font-size="21" font-weight="800" fill="#fff">100</text><rect x="136" y="48" width="120" height="40" rx="7" fill="#345043"/><text x="196" y="76" text-anchor="middle" font-family="Inter,sans-serif" font-size="21" font-weight="800" fill="#fff">100</text><rect x="264" y="48" width="120" height="40" rx="7" fill="#345043"/><text x="324" y="76" text-anchor="middle" font-family="Inter,sans-serif" font-size="21" font-weight="800" fill="#fff">100</text><rect x="392" y="48" width="120" height="40" rx="7" fill="#345043"/><text x="452" y="76" text-anchor="middle" font-family="Inter,sans-serif" font-size="21" font-weight="800" fill="#fff">100</text><rect x="8" y="94" width="120" height="40" rx="7" fill="#345043"/><text x="68" y="122" text-anchor="middle" font-family="Inter,sans-serif" font-size="21" font-weight="800" fill="#fff">300</text><rect x="136" y="94" width="120" height="40" rx="7" fill="#345043"/><text x="196" y="122" text-anchor="middle" font-family="Inter,sans-serif" font-size="21" font-weight="800" fill="#fff">300</text><rect x="264" y="94" width="120" height="40" rx="7" fill="#345043"/><text x="324" y="122" text-anchor="middle" font-family="Inter,sans-serif" font-size="21" font-weight="800" fill="#fff">300</text><rect x="392" y="94" width="120" height="40" rx="7" fill="#345043"/><text x="452" y="122" text-anchor="middle" font-family="Inter,sans-serif" font-size="21" font-weight="800" fill="#fff">300</text><rect x="8" y="140" width="120" height="40" rx="7" fill="#345043"/><text x="68" y="168" text-anchor="middle" font-family="Inter,sans-serif" font-size="21" font-weight="800" fill="#fff">500</text><rect x="136" y="140" width="120" height="40" rx="7" fill="#345043"/><text x="196" y="168" text-anchor="middle" font-family="Inter,sans-serif" font-size="21" font-weight="800" fill="#fff">500</text><rect x="264" y="140" width="120" height="40" rx="7" fill="#345043"/><text x="324" y="168" text-anchor="middle" font-family="Inter,sans-serif" font-size="21" font-weight="800" fill="#fff">500</text><rect x="392" y="140" width="120" height="40" rx="7" fill="#345043"/><text x="452" y="168" text-anchor="middle" font-family="Inter,sans-serif" font-size="21" font-weight="800" fill="#fff">500</text><line x1="8" y1="192" x2="512" y2="192" stroke="#96420A" stroke-width="3"/><rect x="196" y="182" width="128" height="20" fill="#F2F5F1"/><text x="260" y="197" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="800" fill="#96420A" letter-spacing="1.2">3/6 AND ABOVE</text><rect x="8" y="208" width="120" height="40" rx="7" fill="#96420A"/><text x="68" y="236" text-anchor="middle" font-family="Inter,sans-serif" font-size="21" font-weight="800" fill="#fff">800</text><rect x="136" y="208" width="120" height="40" rx="7" fill="#96420A"/><text x="196" y="236" text-anchor="middle" font-family="Inter,sans-serif" font-size="21" font-weight="800" fill="#fff">800</text><rect x="264" y="208" width="120" height="40" rx="7" fill="#96420A"/><text x="324" y="236" text-anchor="middle" font-family="Inter,sans-serif" font-size="21" font-weight="800" fill="#fff">800</text><rect x="392" y="208" width="120" height="40" rx="7" fill="#96420A"/><text x="452" y="236" text-anchor="middle" font-family="Inter,sans-serif" font-size="21" font-weight="800" fill="#fff">800</text><rect x="8" y="254" width="120" height="40" rx="7" fill="#96420A"/><text x="68" y="282" text-anchor="middle" font-family="Inter,sans-serif" font-size="21" font-weight="800" fill="#fff">1000</text><rect x="136" y="254" width="120" height="40" rx="7" fill="#96420A"/><text x="196" y="282" text-anchor="middle" font-family="Inter,sans-serif" font-size="21" font-weight="800" fill="#fff">1000</text><rect x="264" y="254" width="120" height="40" rx="7" fill="#96420A"/><text x="324" y="282" text-anchor="middle" font-family="Inter,sans-serif" font-size="21" font-weight="800" fill="#fff">1000</text><rect x="392" y="254" width="120" height="40" rx="7" fill="#96420A"/><text x="452" y="282" text-anchor="middle" font-family="Inter,sans-serif" font-size="21" font-weight="800" fill="#fff">1000</text></svg></figure>
+    <p>Four topics across, five rows down. The <b>green rows are open to everyone</b>,
+    new or experienced. The <b>orange rows below the line are 3/6 and above only</b>.
+    Twenty squares, and we play until they're gone.</p>
+    <p class="cn">横排四个主题，竖排五个分数。<b>绿色那三排所有人都能抢</b>，新伙伴也一样。
+    <b>橙线以下的橙色两排只有 3/6 以上</b>。一共二十格，打完为止。</p>
+  </div>
+
+  <div class="step">
+    <span class="stepno">3</span>
+    <h3>Green squares · 20 seconds</h3>
+    <p class="zh">绿色格子，20 秒</p>
+    <figure><svg viewBox="0 0 520 300" role="img" aria-label="A green square with a countdown">
+<rect x="1" y="1" width="518" height="298" rx="14" fill="#fff" stroke="#345043" stroke-width="3"/>
+<path d="M4 4h512a10 10 0 0 1 10 10v40H-6V14A10 10 0 0 1 4 4z" fill="#345043"/>
+<rect x="4" y="4" width="512" height="48" fill="#345043"/>
+<text x="24" y="37" font-family="Inter,sans-serif" font-size="24" font-weight="800" fill="#fff">300</text>
+<text x="76" y="36" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#fff" letter-spacing="1.4">NETWORKING</text>
+<text x="260" y="128" text-anchor="middle" font-family="Inter,sans-serif" font-size="64" font-weight="800" fill="#1F6B4E">20</text>
+<text x="260" y="148" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#5F6C62" letter-spacing="2">SECONDS</text>
+<text x="260" y="188" text-anchor="middle" font-family="Inter,sans-serif" font-size="17" font-weight="700" fill="#141A16">How many A-list names does it</text>
+<text x="260" y="210" text-anchor="middle" font-family="Inter,sans-serif" font-size="17" font-weight="700" fill="#141A16">take to launch one person?</text>
+<rect x="180" y="230" width="160" height="34" rx="9" fill="#345043"/>
+<text x="260" y="253" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="700" fill="#fff">Reveal answer</text>
+</svg></figure>
+    <p>A question goes up with a 20 second clock. <b>Raise your hand</b> — the button on
+    Zoom, or your actual hand in the room. The fastest hand answers. Right, your group takes
+    the points. Wrong or out of time, your group <b>loses</b> the square and it goes to the
+    next hand up. So raise it when you know it, not when you hope.</p>
+    <p class="cn">题目出来，20 秒倒计时。<b>举手</b>，Zoom 上按举手键，现场就直接举手。最快的那只手来答。
+    答对，分数归你们组；答错或者超时，这一格你们组就<b>丢了</b>，换下一只手。所以有把握再举。</p>
+  </div>
+
+  <div class="step">
+    <span class="stepno">4</span>
+    <h3>Orange squares · you talk</h3>
+    <p class="zh">橙色格子，你来讲</p>
+    <figure><svg viewBox="0 0 520 300" role="img" aria-label="An orange square, a topic to deliver">
+<rect x="1" y="1" width="518" height="298" rx="14" fill="#fff" stroke="#345043" stroke-width="3"/>
+<rect x="4" y="4" width="512" height="48" fill="#345043"/>
+<text x="24" y="37" font-family="Inter,sans-serif" font-size="24" font-weight="800" fill="#fff">800</text>
+<text x="76" y="36" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#fff" letter-spacing="1.4">LEADERSHIP</text>
+<text x="260" y="90" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="#96420A" letter-spacing="1.6">FIRST HAND UP · 3 MIN</text>
+<text x="260" y="130" text-anchor="middle" font-family="Inter,sans-serif" font-size="19" font-weight="700" fill="#141A16">How do you manage your time</text>
+<text x="260" y="154" text-anchor="middle" font-family="Inter,sans-serif" font-size="19" font-weight="700" fill="#141A16">and your emotions?</text>
+<line x1="60" y1="190" x2="460" y2="190" stroke="#C8D2C9" stroke-width="2"/>
+<text x="260" y="212" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" font-weight="700" fill="#5F6C62" letter-spacing="1.4">DELIVERED · AWARD 800 TO</text>
+<g font-family="Inter,sans-serif" font-size="20" font-weight="800" text-anchor="middle">
+<rect x="60" y="226" width="92" height="44" rx="10" fill="#fff" stroke="#96420A" stroke-width="3"/><text x="106" y="255" fill="#96420A">1</text>
+<rect x="164" y="226" width="92" height="44" rx="10" fill="#fff" stroke="#1546B0" stroke-width="3"/><text x="210" y="255" fill="#1546B0">2</text>
+<rect x="268" y="226" width="92" height="44" rx="10" fill="#fff" stroke="#345043" stroke-width="3"/><text x="314" y="255" fill="#345043">3</text>
+<rect x="372" y="226" width="92" height="44" rx="10" fill="#fff" stroke="#5B3391" stroke-width="3"/><text x="418" y="255" fill="#5B3391">4</text>
+</g></svg></figure>
+    <p>Not a quiz. There's no answer to guess — a <b>topic</b> comes up instead. Same race,
+    hands up, and the first hand <b>stands up and talks about it</b>. 800 is three minutes,
+    1000 is five. Deliver it and the points are your group's. Each group takes one 800 and
+    one 1000, no more.</p>
+    <p class="cn">这两排不是问答，没有标准答案，出来的是一个<b>话题</b>。一样举手抢，抢到的人
+    <b>站起来讲</b>。800 讲三分钟，1000 讲五分钟，讲完分数就是你们组的。每组只能拿一个 800 和一个 1000。</p>
+  </div>
+
+  <div class="note"><b>Timing 时间</b><br>
+    8:10–8:35 &nbsp; green rows &nbsp; 绿色格子<br>
+    8:35–9:10 &nbsp; orange rows &nbsp; 橙色格子<br>
+    9:10 &nbsp; closing thoughts &nbsp; 收尾总结</div>
+
+  <div class="foot"><button id="backto1c">Back</button></div>
 </div>
 
 <!-- ===================== GATE ===================== -->
@@ -495,12 +618,15 @@ function esc(s){ return String(s).replace(/[&<>"]/g,function(c){
 /* ---------- pages ---------- */
 function goPage(n){
   $("p1").hidden = n !== 1; $("gate").hidden = n !== 0; $("p2").hidden = n !== 2;
+  $("p3").hidden = n !== 3;
   window.scrollTo({top:0, behavior:"instant"});
 }
 $("hostlink").onclick = function(){
   let ok = false; try{ ok = localStorage.getItem("fnh-host") === "1"; }catch(e){}
   goPage(ok ? 2 : 0); if(!ok) setTimeout(function(){ $("pw").focus(); }, 60);
 };
+$("howlink").onclick = function(){ goPage(3); };
+$("backto1c").onclick = function(){ goPage(1); };
 $("backto1").onclick = function(){ goPage(1); };
 $("backto1b").onclick = function(){ goPage(1); };
 function tryPass(){
