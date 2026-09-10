@@ -226,18 +226,18 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
   <p class="sub">Friday Night Hangout &nbsp;·&nbsp; September 11 &nbsp;·&nbsp; 8:00–9:15 PM ET</p>
 
   <div class="card" id="form">
-    <label for="nm">Your name</label>
+    <label for="nm">Your name, whatever people actually call you</label>
     <input type="text" id="nm" autocomplete="name" placeholder="Kevin" enterkeyhint="go">
     <div class="where" role="group" aria-label="How do you want a group">
-      <button type="button" data-m="pick" aria-pressed="true">I counted off</button>
-      <button type="button" data-m="draw" aria-pressed="false">Give me one</button>
+      <button type="button" data-m="draw" aria-pressed="true">Draw one for me</button>
+      <button type="button" data-m="pick" aria-pressed="false">Let me choose</button>
     </div>
-    <div id="pickrow">
-      <label>Which number?</label>
+    <div id="pickrow" hidden>
+      <label>Pick a group</label>
       <div class="awrow" id="pickgroups"></div>
+      <div style="height:16px"></div>
     </div>
-    <div style="height:18px"></div>
-    <button class="go" id="go">That's me</button>
+    <button class="go" id="go">Draw my group</button>
     <p class="err" id="err"></p>
   </div>
 
@@ -540,14 +540,14 @@ function saveGame(){
 }
 
 /* ---------- draw a group ---------- */
-let mode = "pick", picked = null;
+let mode = "draw", picked = null;
 document.querySelectorAll(".where button").forEach(function(b){
   b.addEventListener("click", function(){
     mode = b.dataset.m;
     document.querySelectorAll(".where button").forEach(function(x){
       x.setAttribute("aria-pressed", String(x === b)); });
     $("pickrow").hidden = (mode !== "pick");
-    $("go").textContent = mode === "pick" ? "That's me" : "Give me a group";
+    $("go").textContent = mode === "pick" ? "Join that group" : "Draw my group";
     $("err").textContent = "";
   });
 });
