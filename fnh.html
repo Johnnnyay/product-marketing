@@ -1,0 +1,726 @@
+<title>JL Team Jeopardy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+/* Built for a projector that isn't very good, which decides almost everything here.
+   A projector cannot make black — it makes dark grey, and ambient light lifts that further,
+   so a dark theme collapses into murk and every subtle panel tone disappears. Light ground,
+   near-black text, and solid blocks of saturated colour instead of borders and tints.
+   Palette follows the health site: deep sage, with its amber, blue and purple as the four
+   group colours, chosen as far apart in hue AND darkness as they can be so a washed-out
+   beam still separates them. */
+:root{
+  --ground:#F2F5F1; --panel:#FFFFFF; --panel-2:#E8EEE8; --line:#C8D2C9; --line-2:#A8B6AA;
+  --ink:#141A16; --ink-2:#3A453C; --muted:#5F6C62;
+  --sage:#345043; --sage-2:#4A7060; --sage-light:#E4EDE6;
+  --amber:#96420A; --amber-light:#FBEEE2;
+  --red:#A81C1C; --jade:#1F6B4E;
+  --g1:#96420A; --g2:#1546B0; --g3:#345043; --g4:#5B3391;
+  --shadow:0 10px 34px rgba(20,26,22,.20);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:660px;margin:0 auto;padding:26px 20px 70px}
+.wrap.wide{max-width:1240px}
+h1,h2,h3{font-weight:800;letter-spacing:-.02em;text-wrap:balance}
+h1{font-size:38px;line-height:1.02;margin:0 0 4px}
+h1 span{color:var(--sage)}
+.sub{color:var(--ink-2);font-size:15px;margin:0 0 24px}
+.eyebrow{font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h2{font-size:26px;margin:36px 0 4px}
+h3{font-size:20px;margin:26px 0 4px;color:var(--sage)}
+p{max-width:70ch}
+a{color:var(--sage);font-weight:600}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--g2);outline-offset:2px}
+
+.card{background:var(--panel);border:2px solid var(--line);border-radius:14px;padding:22px}
+label{display:block;font-size:14px;font-weight:600;color:var(--ink-2);margin:0 0 8px}
+input[type=text],input[type=password]{width:100%;background:#fff;border:2px solid var(--line-2);
+  border-radius:10px;color:var(--ink);font:inherit;font-size:18px;padding:13px 14px}
+input:focus{border-color:var(--sage)}
+.go{width:100%;background:var(--sage);color:#fff;border:0;border-radius:11px;font-weight:800;
+  font-size:19px;letter-spacing:.01em;padding:16px;cursor:pointer}
+.go:hover{background:var(--sage-2)}
+.go:disabled{opacity:.5;cursor:default}
+.err{color:var(--red);font-size:15px;font-weight:600;margin:12px 0 0;min-height:1px}
+
+.big{text-align:center;padding:26px 20px 22px;border-radius:14px;border:2px solid var(--line);
+  background:var(--panel)}
+.big .lbl{font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.big .num{font-weight:800;font-size:116px;line-height:.9;margin:4px 0 4px;
+  font-variant-numeric:tabular-nums;letter-spacing:-.04em}
+.big .who{color:var(--ink-2);font-size:16px;font-weight:600}
+.rename{margin-top:14px;background:var(--sage-light);border:2px solid var(--line);border-radius:12px;
+  padding:16px 18px}
+.rename p{margin:0 0 10px;font-size:15px;color:var(--ink-2)}
+.newname{display:flex;gap:8px;align-items:center}
+.newname code{flex:1;background:#fff;border:2px solid var(--line-2);border-radius:9px;
+  padding:12px 14px;font-family:inherit;font-weight:800;font-size:24px;color:var(--ink);
+  overflow-x:auto;white-space:nowrap}
+.copy{background:#fff;border:2px solid var(--line-2);color:var(--ink-2);border-radius:9px;
+  font:inherit;font-size:14px;font-weight:600;padding:12px 15px;cursor:pointer;white-space:nowrap}
+
+/* scores */
+.sc{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}
+.scteam{background:var(--panel);border:2px solid var(--line);border-top:8px solid var(--line-2);
+  border-radius:11px;padding:12px 6px;text-align:center}
+.scteam[data-g="1"]{border-top-color:var(--g1)} .scteam[data-g="2"]{border-top-color:var(--g2)}
+.scteam[data-g="3"]{border-top-color:var(--g3)} .scteam[data-g="4"]{border-top-color:var(--g4)}
+.scteam .nm{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.scteam .pt{font-weight:800;font-size:40px;color:var(--ink);font-variant-numeric:tabular-nums;
+  line-height:1.08;letter-spacing:-.03em}
+.scteam.lead{border-color:var(--sage);background:var(--sage-light)}
+
+.roster{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+.grp{background:var(--panel);border:2px solid var(--line);border-radius:12px;padding:14px 15px;
+  border-top:8px solid var(--line-2)}
+.grp[data-g="1"]{border-top-color:var(--g1)} .grp[data-g="2"]{border-top-color:var(--g2)}
+.grp[data-g="3"]{border-top-color:var(--g3)} .grp[data-g="4"]{border-top-color:var(--g4)}
+.grp h3{font-size:20px;margin:0;color:var(--ink)}
+.grp .score{font-weight:800;font-size:46px;line-height:1;margin:4px 0 0;color:var(--ink);
+  font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.grp.ahead{border-color:var(--sage);background:var(--sage-light)}
+.grp.ahead .score{color:var(--sage)}
+.grp .leadline{margin:6px 0 0;font-size:14px;color:var(--sage);font-weight:700;line-height:1.35}
+.grp ul{list-style:none;margin:0;padding:0;font-size:15px;color:var(--ink-2)}
+.grp li{padding:2px 0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.grp li.me{color:var(--jade);font-weight:800}
+
+.note{background:var(--panel);border:2px solid var(--line);border-left:8px solid var(--sage);
+  border-radius:0 12px 12px 0;padding:16px 18px;margin:22px 0;color:var(--ink-2);font-size:15.5px}
+.note b{color:var(--ink)}
+.foot{margin-top:26px;padding-top:16px;border-top:2px solid var(--line);font-size:14px;
+  color:var(--muted);display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.foot button{background:none;border:0;color:var(--muted);font:inherit;font-size:14px;
+  text-decoration:underline;cursor:pointer;padding:0}
+
+/* ---- host board. The nav sits at the very bottom because the host is screen-sharing
+   this, and a tab bar across the top puts the words "run of show" in front of the room. ---- */
+#hostnav{gap:14px 20px}
+#hostnav .navset{display:inline-flex;gap:2px;background:var(--panel);border:2px solid var(--line);
+  border-radius:9px;padding:2px}
+#hostnav .navset button{background:none;border:0;color:var(--muted);font:inherit;font-size:13px;
+  text-decoration:none;padding:6px 12px;border-radius:6px;cursor:pointer}
+#hostnav .navset button[aria-pressed="true"]{background:var(--sage);color:#fff}
+
+/* ---- the board. Solid colour blocks, white numerals. A weak beam keeps a filled block and
+   loses a thin border, so nothing here depends on a border to be legible. ---- */
+.board{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.cat{background:var(--panel);border:3px solid var(--sage);border-radius:10px;padding:12px 8px;
+  text-align:center;min-height:74px;display:flex;align-items:center;justify-content:center}
+.cat span{font-weight:800;font-size:19px;line-height:1.08;letter-spacing:-.01em;color:var(--sage)}
+.cell{background:var(--sage);border:0;border-radius:10px;font-weight:800;font-size:42px;
+  font-variant-numeric:tabular-nums;letter-spacing:-.03em;color:#fff;cursor:pointer;
+  padding:24px 6px;position:relative;transition:transform .12s,filter .12s}
+.cell:hover{filter:brightness(1.18);transform:translateY(-2px)}
+.cell.locked{background:var(--amber)}
+.cell.played{background:var(--panel-2);color:#B3C0B6;box-shadow:none}
+.cell.played:hover{filter:none;transform:none}
+.divider{grid-column:1 / -1;display:flex;align-items:center;gap:14px;margin:14px 0 4px}
+.divider::before,.divider::after{content:"";flex:1;height:3px;background:var(--amber)}
+.divider span{font-weight:800;font-size:17px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--amber);white-space:nowrap}
+.legend{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin:16px 0 0;font-size:14px;
+  color:var(--muted)}
+
+/* ---- question card ---- */
+.ovl{position:fixed;inset:0;background:rgba(20,26,22,.55);display:none;z-index:40;padding:22px;
+  overflow-y:auto}
+.ovl[data-open="1"]{display:block}
+.qcard{max-width:940px;margin:20px auto;background:var(--panel);border:3px solid var(--sage);
+  border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.qhead{display:flex;gap:16px;align-items:center;padding:14px 22px;background:var(--sage);color:#fff}
+.qhead .v{font-weight:800;font-size:34px;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.qhead .c{font-weight:700;font-size:19px;letter-spacing:.06em;text-transform:uppercase;opacity:.92}
+.qhead .x{margin-left:auto;background:rgba(255,255,255,.16);border:0;color:#fff;border-radius:8px;
+  width:38px;height:38px;font-size:22px;cursor:pointer;line-height:1}
+.qhead .x:hover{background:rgba(255,255,255,.3)}
+.qbody{padding:32px 32px 26px;text-align:center}
+.stage{min-height:250px;display:flex;flex-direction:column;justify-content:center;
+  transition:opacity .16s ease}
+.stage.fade{opacity:0}
+.qtext{font-weight:700;font-size:36px;line-height:1.22;letter-spacing:-.02em;margin:0 auto;
+  max-width:24ch;color:var(--ink)}
+.kicker{font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--amber);margin:0 0 16px}
+.qprompt{font-weight:600;font-size:16px;color:var(--muted);margin:0 auto 16px;max-width:52ch;
+  line-height:1.45}
+.ansline{font-weight:800;font-size:31px;line-height:1.26;letter-spacing:-.02em;color:var(--jade);
+  margin:0 auto;max-width:30ch}
+.reveal[hidden]{display:none}
+.cue{margin:24px auto 0;padding-top:16px;border-top:2px solid var(--line);max-width:66ch;text-align:left}
+.cue .eyebrow{color:var(--line-2)}
+.cue p{margin:6px 0 0;color:var(--muted);font-size:14.5px;line-height:1.62}
+.timer{display:flex;flex-direction:column;align-items:center;gap:0;margin:0 0 24px}
+.timer .t{font-weight:800;font-size:104px;line-height:.88;font-variant-numeric:tabular-nums;
+  color:var(--jade);letter-spacing:-.05em}
+.timer.warn .t{color:var(--amber)}
+.timer.out .t{color:var(--red)}
+.timer .lab{font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-top:4px}
+.timer.out .lab{color:var(--red)}
+.timer button{margin-top:12px;background:#fff;border:2px solid var(--line);color:var(--muted);
+  border-radius:8px;font:inherit;font-size:13px;font-weight:600;padding:7px 15px;cursor:pointer}
+.timer button:hover{color:var(--ink-2);border-color:var(--line-2)}
+.btn{font-weight:700;font-size:17px;background:var(--sage);color:#fff;border:0;border-radius:10px;
+  padding:13px 26px;cursor:pointer}
+.btn:hover{background:var(--sage-2)}
+.btn.ghost{background:#fff;color:var(--ink-2);border:2px solid var(--line)}
+.btn.ghost:hover{background:var(--panel-2)}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px;justify-content:center}
+.award{margin-top:26px;padding-top:20px;border-top:2px solid var(--line)}
+.award .eyebrow{margin-bottom:10px;display:block}
+.awrow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.awrow button{font-weight:800;font-size:28px;background:#fff;border:3px solid var(--line);
+  color:var(--ink);border-radius:11px;padding:14px 6px;cursor:pointer;
+  font-variant-numeric:tabular-nums}
+.awrow button[data-g="1"]{border-color:var(--g1);color:var(--g1)}
+.awrow button[data-g="2"]{border-color:var(--g2);color:var(--g2)}
+.awrow button[data-g="3"]{border-color:var(--g3);color:var(--g3)}
+.awrow button[data-g="4"]{border-color:var(--g4);color:var(--g4)}
+.awrow button:hover{background:var(--panel-2)}
+.awrow button.done[data-g="1"]{background:var(--g1);color:#fff}
+.awrow button.done[data-g="2"]{background:var(--g2);color:#fff}
+.awrow button.done[data-g="3"]{background:var(--g3);color:#fff}
+.awrow button.done[data-g="4"]{background:var(--g4);color:#fff}
+.awnote{margin:11px 0 0;font-size:13px;color:var(--muted)}
+
+.tw{overflow-x:auto;margin:14px 0}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}
+th,td{text-align:left;padding:10px 12px;border-bottom:2px solid var(--line);vertical-align:top}
+th{font-weight:700;font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);
+  border-bottom:3px solid var(--line-2)}
+td b{color:var(--ink)}
+.clock{display:grid;grid-template-columns:88px 1fr;gap:0 18px;margin:16px 0}
+.clock dt{font-weight:800;font-size:20px;color:var(--sage);font-variant-numeric:tabular-nums;
+  padding:10px 0;border-top:2px solid var(--line)}
+.clock dd{margin:0;padding:10px 0;border-top:2px solid var(--line)}
+.clock dd b{display:block;color:var(--ink);font-size:16.5px}
+.clock dd span{color:var(--ink-2);font-size:15px}
+ol,ul{max-width:70ch;padding-left:22px} li{margin:6px 0}
+pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;padding:18px;
+  overflow-x:auto;white-space:pre-wrap;font-family:inherit;font-size:14.5px;color:var(--ink-2);
+  line-height:1.7;max-width:78ch}
+[hidden]{display:none!important}
+@media (max-width:820px){
+  h1{font-size:31px}.big .num{font-size:96px}.board{gap:6px}
+  .cell{font-size:23px;padding:16px 3px}.cat{min-height:56px}.cat span{font-size:13px}
+  .qtext{font-size:24px}.ansline{font-size:22px}.timer .t{font-size:76px}
+  .awrow button{font-size:22px}.clock{grid-template-columns:64px 1fr;gap:0 12px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<!-- ===================== PAGE ONE ===================== -->
+<div class="wrap" id="p1">
+  <h1>JL Team<br><span>Jeopardy</span></h1>
+  <p class="sub">Friday Night Hangout &nbsp;·&nbsp; September 11 &nbsp;·&nbsp; 8:00–9:15 PM ET</p>
+
+  <div class="card" id="form">
+    <label for="nm">Your name</label>
+    <input type="text" id="nm" autocomplete="name" placeholder="Kevin" enterkeyhint="go">
+    <label style="margin-top:16px">Your group — the number you counted off, or take any one</label>
+    <div class="awrow" id="pickgroups"></div>
+    <div style="height:16px"></div>
+    <button class="go" id="go">That's me</button>
+    <p style="margin:10px 0 0;font-size:14px;color:var(--muted)">Didn't catch a number?
+      <button type="button" id="drawme" style="background:none;border:0;padding:0;font:inherit;
+      color:var(--sage);font-weight:700;text-decoration:underline;cursor:pointer">Pick one for me</button></p>
+    <p class="err" id="err"></p>
+  </div>
+
+  <div id="result" hidden>
+    <div class="big">
+      <div class="lbl">Your group</div>
+      <div class="num" id="mynum">—</div>
+      <div class="who" id="mywho"></div>
+    </div>
+    <div class="rename" id="renamebox">
+      <p><b style="color:var(--ink)">On Zoom, rename yourself to this.</b><br>
+        Click your own tile, More, Rename, paste. The host reads the raise-hand list, and the
+        number is how they know which group just scored. In the room, just remember it.</p>
+      <div class="newname"><code id="newname"></code>
+        <button class="copy" id="copy">Copy</button></div>
+      <p style="margin:12px 0 0"><button id="again" class="copy">Wrong name? Start over</button></p>
+    </div>
+  </div>
+
+  <h2>The four groups</h2>
+  <div class="roster" id="groups"></div>
+
+  <div class="note"><b>How it works.</b> Four categories, five squares each.
+  On <b>100, 300 and 500</b> anyone can raise a hand, first hand answers, points go to your
+  group. You get <b>20 seconds</b> once you're called on, and <b>get it wrong and your group
+  loses the square</b> — it goes to the floor and the other groups fight over it. So put your
+  hand up when you know it, not when you hope. <b>800 and 1000 are for 3/6 and above</b>,
+  where somebody stands up and delivers rather than answers.</div>
+
+  <div class="foot">
+    <button id="hostlink">Host and leaders</button>
+  </div>
+</div>
+
+<!-- ===================== GATE ===================== -->
+<div class="wrap" id="gate" hidden>
+  <h1>Host and<br><span>leaders</span></h1>
+  <p class="sub">Every question and every answer is behind this. Please don't put it in the
+  main group chat.</p>
+  <div class="card">
+    <label for="pw">Passcode</label>
+    <input type="password" id="pw" inputmode="numeric" enterkeyhint="go" autocomplete="off">
+    <div style="height:14px"></div>
+    <button class="go" id="pwgo">Open the board</button>
+    <p class="err" id="pwerr"></p>
+  </div>
+  <div class="foot"><button id="backto1">Back to the scoreboard</button></div>
+</div>
+
+<!-- ===================== PAGE TWO ===================== -->
+<div class="wrap wide" id="p2" hidden>
+  <h1 style="font-size:30px;margin-bottom:14px">JL Team Jeopardy</h1>
+
+  <section data-view="board">
+    <div class="board" id="board"></div>
+    <div class="legend">
+      <span>Open a square, the clock starts, then award it. Scores are live on every phone.</span>
+    </div>
+    <h2>Scores</h2>
+    <div class="sc" id="scores2"></div>
+  </section>
+
+  <section data-view="show" hidden>
+    <h2>Run of show</h2>
+
+    <dl class="clock">
+      <dt>7:50</dt><dd><b>Doors and Zoom open</b>
+        <span>Online host warms the room. Count off one to four, in the room and down the
+        Zoom participant list. That is what makes the groups even. Then post the link so
+        people can see who leads their group and how the game works.</span></dd>
+      <dt>8:00</dt><dd><b>Johnny kicks off</b></dd>
+      <dt>8:00</dt><dd><b>First-timers introduce themselves · 3 min</b>
+        <span>Name, city, what they're excited about.</span></dd>
+      <dt>8:03</dt><dd><b>Upcoming events and tonight's agenda · 5 min</b></dd>
+      <dt>8:08</dt><dd><b>How the game works · 2 min</b>
+        <span>Hands up, first hand answers, 20 seconds, points to that person's group. Wrong
+        and it goes to the floor. 100 to 500 anyone, 800 and 1000 are 3/6 and above.</span></dd>
+      <dt>8:10</dt><dd><b>The 100, 300 and 500 rows · 12 squares</b>
+        <span>Open racing, about 2 minutes a square. Running late? Drop squares here, never
+        from the next block.</span></dd>
+      <dt>8:35</dt><dd><b>The 800 and 1000 rows · 8 squares</b>
+        <span>One 800 and one 1000 per group. Their own 3/6 stands up and delivers it.
+        Thirty-five minutes for 3 + 5 per group, which is 32, so there is three minutes of
+        slack and no more.</span></dd>
+      <dt>9:10</dt><dd><b>Closing thoughts and announcements · 5 min</b></dd>
+      <dt>9:15</dt><dd><b>Hangout</b><span>Zoom stays open.</span></dd>
+    </dl>
+
+    
+
+    <h3>The rules, as the host says them</h3>
+    <ol>
+      <li>Open the square. On 100 to 500 the clock starts by itself. <b>Hands up</b> — on Zoom
+        the raise-hand list is already in order, in the room Johnny calls who was first.</li>
+      <li><b>Twenty seconds.</b> Wrong or out of time, hit Restart and it goes to the floor.
+        That is why nobody switches off between turns.</li>
+      <li>Reveal, then tap the group on the card. The score lands and the square goes dark.
+        Tap the same group again to undo it, a different one to move it.</li>
+      <li>Every card carries a line of context under the answer. Read it if it's worth
+        reading and move on. On the open rows the point is pace, not teaching.</li>
+      <li><b>800 and 1000 are not a race.</b> The group's own 3/6 takes their square and
+        delivers it. Deliver it and the points are theirs. That is where the teaching is.</li>
+    </ol>
+    <div class="note"><b>No buzzers.</b> Buzz-in across Zoom and a room is decided by latency,
+    not knowledge. Zoom's raise-hand list orders itself and cannot be argued with. The room is
+    the half that needs a judge, which is why Johnny sits where he can see every hand.</div>
+
+    <h3>Roles</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Role</th><th>Who</th></tr></thead>
+      <tbody>
+        <tr><td><b>Local host</b></td><td>Johnny</td></tr>
+        <tr><td><b>Online host</b></td><td>TBD</td></tr>
+        <tr><td><b>Online CEO</b></td><td>TBD</td></tr>
+        <tr><td><b>Tech</b></td><td>As usual</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  
+
+  
+
+  <div class="foot" id="hostnav">
+    <span class="navset">
+      <button data-v="board" aria-pressed="true">board</button>
+      <button data-v="show" aria-pressed="false">run of show</button>
+    </span>
+    <button id="backto1b">participant page</button>
+  </div>
+</div>
+
+<div class="ovl" id="ovl"><div class="qcard" id="qcard"></div></div>
+
+<script>
+const PASS = "66866";
+const GROUPS = [1,2,3,4];
+const VALUES = [100,300,500,800,1000];
+const CATS = ["Retail & Volume","Networking","Leadership","The Business"];
+const LEADERS = {wyatt:1,sean:2,blair:2,huansong:4,vemon:4,
+  lina:1,ramos:1,angela:2,boyan:2,leann:3,jerry:3,irene:4};
+const LEAD_BY_GROUP = {1:["Wyatt","Lina","Ramos"], 2:["Sean","Blair","Angela","Boyan"],
+  3:["Leann","Jerry"], 4:["Vemon","Huansong","Irene"]};
+/* Counting off is what makes the four groups even; this page cannot, because there is no
+   server behind it to keep a tally. So the number people tap is the one they counted, and
+   the hash below is only for whoever missed it: stable, so the same name always gets the
+   same answer, but over seventy names it can land 12 in one group and 25 in another. Do not
+   use it as the primary method. */
+function hashGroup(name){
+  let h = 2166136261;
+  const n = norm(name);
+  for(let i = 0; i < n.length; i++){ h ^= n.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return (Math.abs(h) % 4) + 1;
+}
+const OPEN_ROWS = [100,300,500], LOCKED_ROWS = [800,1000];
+/* Only the open rows are a race, so only they get a clock. An 800 or a 1000 is a leader
+   teaching, and a countdown on screen would rush the one part of the night worth time. */
+const SECONDS = {100:20, 300:20, 500:20};
+
+const Q = {
+"0-100":{q:"Nutrilite has been the official nutrition sponsor of China's Olympic team since which Games?",
+ a:"Sydney, 2000.",
+ t:"Renewed for Athens, then London, then again with the Chinese Olympic Committee through 2020. Use it the moment somebody says they have never heard of it. A national Olympic team does not hand its athletes' nutrition to a brand it has not audited, and they have re-signed for twenty-five years.",
+ w:"Blair", s:"Nutrilite · Olympic sponsorship"},
+"0-300":{q:"Nutrilite grows its own botanicals on certified organic farms. Where are the two biggest?",
+ a:"Southwest Mexico and Washington State.",
+ t:"Rancho El Petacal in Mexico is 1,589 acres. Trout Lake in Washington is 886 and is the largest certified organic herb farm in the United States. There is a fourth farm in Brazil. This is the answer to “how do you know what's actually in it”: nobody else in this aisle owns the dirt. They buy powder from a broker, and the trail ends there.",
+ w:"Sean", s:"Nutrilite · Farms"},
+"0-500":{q:"What was the first Nutrilite product, what year did it go on sale, and what was the first about it?",
+ a:"A multivitamin and multimineral supplement, 1934. It was the first one ever sold in North America.",
+ t:"Carl Rehnborg got the idea living in China in the early 1920s. He noticed that in farming villages with fresh food people were healthy, and in the cities, on sugar, salt and fat, they were not. It was not even called Nutrilite yet, that name arrived in 1939. So the brand predates the company that owns it by twenty-five years, and it invented the category everyone else is now competing in.",
+ w:"Johnny", s:"Nutrilite history"},
+"0-800":{q:"Tell us about your own first retail sale. Or the one where you froze and didn't ask. What did that teach you about how much product knowledge you actually need?",
+ a:"No, you don't. The freeze comes from thinking you have to be the authority. You don't. The demo does the convincing and the assessment does the technical part. Walk their day, do one thirty-second demo, let the report carry the numbers.",
+ t:"Say this out loud to them, it is the whole unlock: we're not branding ourselves as nutritionists, we use AI and credible government information, and this is how you teach people to manage their health, you don't need to be that expert. Then make the first ask small. Not Double X, the mint spray. Two per pack, a few dollars, no decision to make, and it walks itself into the toothpaste conversation. When price comes up: there are two kinds of product in the world, the kind you get paid for and the kind you don't. Don't judge someone's buying power by your own income.",
+ w:"Johnny", s:"Volume · How the session runs / From product to retail"},
+"0-1000":{q:"Every PY27 incentive hangs on one number. What is it, and how many of our thirty sit at zero?",
+ a:"60% VCS. Twenty-two of thirty are at zero.",
+ t:"That is the thinnest column on the whole sheet, thinner than headcount. And the way in is not Double X, it is the mint spray. Two per pack, about three hundred sprays each, a few dollars, no decision to make. People buy it and then they move to the toothpaste. First customers come from there. It is also why the product appointment sits before the story appointment: with no product experience and no first customer, a new IBO has nothing of their own to tell.",
+ w:"Irene", s:"Volume · Glister / Budget · Appointment order"},
+"1-100":{q:"Five things go beside every name on the list. What are they?",
+ a:"Name, location, profession, ambitious or not, and when you last spoke.",
+ t:"Two more you have to ask about: does this friend prefer a call or a text, and how close are you really. Then the mindset that matters most. Don't play God when you build the list. Everyone is equal. Write them down and have the conversation. Plenty of people give off no signal at all about whether they're looking.",
+ w:"Huansong", s:"Networking · Make the list"},
+"1-300":{q:"With a genuinely close friend, what is the one thing you must not do?",
+ a:"Warm them up. Don't ask about their mother, their dog and what they had for lunch and then get to the point twenty minutes later.",
+ t:"It is like asking someone to a film. You don't circle for twenty minutes first, and if you do they will ask whether you are okay. With a close friend go straight at it: I recently started a business and I'm working with a great group of successful entrepreneurs, I've learned a lot from them, and I think this connection could help you too. Then stop. The full four-step approach is for people you know less well, and there you don't skip steps.",
+ w:"Angela", s:"Networking · Approach scripts"},
+"1-500":{q:"Someone asks what it costs to join. Why is “it doesn't cost anything” the wrong answer?",
+ a:"Because it's cheap and it empowers nobody. Turn it round: what would an entrepreneur running eight figures charge you for an hour of consulting? Do you think I have that kind of money? I'm lucky my mentor wants to give back.",
+ t:"Only a question makes somebody think. Same line: never say “if you're interested”, say “if you think a connection like that would be worth something to you”. And the common mistake is explaining harder. Instead ask how much do you know about this, then say honestly I didn't know much either, it took me six or seven sessions with my mentor before it clicked.",
+ w:"Wyatt", s:"Networking · Friends ask questions"},
+"1-800":{q:"Tell your story the way you'd tell a candidate tonight. Then tell us what you changed about it since the first time you told it.",
+ a:"Three things, then stop and hand it back. This is my experience. This is what I'm doing. This is the progress I've made. Then: so what about you? You're not selling, you're telling them what happened to you.",
+ t:"Think about the last time an MLM approached you. Were they selling you, or telling you what happened to them? You know which one worked. The full story session runs the same shape: send the audio ahead so they've already heard it, then make them talk first, walk me through your takeaway, then you bridge the gap, then land it on which meeting and which sentence. He says it back to you and it's his; you say it and it stays yours. And don't dump it all. Feed ducks. Throw the whole loaf and they scatter.",
+ w:"Huansong", s:"Networking · Story session"},
+"1-1000":{q:"What's the mindset that builds a networking habit that actually holds, online and face to face?",
+ a:"Treat it like interviewing for a role you have to fill, not like needing one of these ten people to say yes. With enough candidates in front of you, one or two dropping out stops mattering. And don't play God on the list. Write everybody down, because plenty of people give off no signal at all.",
+ t:"Two reads that make it practical. First: unless somebody is very close to you, they don't complain to you about work. So if they complain a lot, that person needs money. Looks good, smells good, still broke is extremely common. Second, the opener differs by distance. Online, start from a life event you actually saw. A close friend gets no warm-up. Someone in between gets all four steps and you don't skip one. Underneath all of it: be a buyer, not a seller. If it feels like selling, it's because you're desperate.",
+ w:"Wyatt", s:"Networking · Make the list / Approach scripts / Driver's seat"},
+"2-100":{q:"There is the driver, there is the passenger, and there is a third person. Who?",
+ a:"The one who climbed into the trunk.",
+ t:"Most people end up in the trunk without noticing they got in. Jerry admits he was in the trunk early on. After every process meeting he had exactly one question: how do you feel about my candidate, he's pretty cool huh. His own verdict, dumb question. I didn't care about the process at all, I just wanted the guy to launch. If you feel that, don't hide from it. It's human, don't beat yourself up. But know where it comes from and why it will cost you.",
+ w:"Jerry", s:"Networking · Driver's seat"},
+"2-300":{q:"What does feeding ducks mean?",
+ a:"Ducks like being fed a little at a time. Throw the whole loaf and they scatter. Give information in small pieces.",
+ t:"This isn't stringing somebody along. It is not overwhelming them, and giving them time to answer two questions on their own: is this something I want to do, and do I believe these people? In behaviour, the trunk is four hours dumping everything at once. The driver's seat is a little at a time, and the detail doesn't come until the sixth meeting.",
+ w:"Vemon", s:"Networking · Driver's seat"},
+"2-500":{q:"The four beliefs, from the outside in. What are they, and which is hardest?",
+ a:"Your faith, the supplier, the education system and mentorship, and yourself. The fourth is hardest.",
+ t:"The third layer carries the most weight: whether you're growing or I'm growing, the system is growing. Which means somebody is doing the same thing and getting results, which means we simply haven't done what they did yet. The actions are identical, the volume of work has to catch up. Building the fourth starts with how rare the opportunity is. Very few things pay you back for effort. A job doesn't. Day trading really doesn't. Then the arithmetic of this business. Then the conference finishes it. At your first Orlando you only need to find one person on that stage you can connect yourself to.",
+ w:"Boyan", s:"Networking · The four beliefs"},
+"2-800":{q:"Tell us about someone who didn't back you. A friend who walked, family who called it a scheme, a candidate who went quiet at the word Amway. What did you say, what did you stop saying, and where did it land?",
+ a:"Three different people, three different boundaries. Someone who just declines is not someone you cut off. It might not be a no forever, so give them love and space, and they may need you in a few years. Someone who declines and then runs your people down is toxic. Blood you're stuck with; outside of blood you have a choice, and the choice is stay away. And a candidate who vanished at the word Amway told you what they think, not what you're worth.",
+ t:"Everything you do in life will have people who love it, people who hate it and people who don't care, and the ones who hate it are always the loudest. Human nature is to talk somebody out of what you couldn't do yourself. The person who won't go to the gym talks their friend out of going too. There will be voices around you frightened you'll pull off what they didn't. Always leave good tastes only, and the one exception is somebody running down your people. And accept this: most friendships aren't built on a shared value system, so it's normal that you can't bring all of them with you.",
+ w:"Jerry", s:"Retention · Removing doubt / Why PHP / DCR · Friends' negativity"},
+"2-1000":{q:"How do you grow your adversity quotient, your ability to handle stress and things not going your way? And how do you overcome the personal shortcomings holding your growth back?",
+ a:"You don't build it by avoiding the hit. People develop confidence by getting through something themselves, so a leader's job is to know how somebody reacts to adversity and be there in a healthy way, not to take the adversity away.",
+ t:"The frame that does the most work: no emotional attachment to the outcome. Don't lose your composure because one candidate is exciting, and don't overshare, because if they hit a setback later they're holding everything you told them about how hard the work is. Then the numbers, because numbers are what dissolve a bad week. Five to seven A-list to launch one. Ten through the full process to get one. Two years to Platinum. Success principles don't care how you feel and the universe doesn't care how hard you worked. The line that goes deepest is the one you ask yourself: what if I could have, and I didn't give it my best shot?",
+ w:"Leann", s:"Retention · Relationship building / DCR · Mindset of abundance", draft:true},
+"3-100":{q:"What year was Amway founded, by which two men, and in what town?",
+ a:"1959, by Rich DeVos and Jay Van Andel, in Ada, Michigan.",
+ t:"They had already been distributing Nutrilite for ten years before they founded it, which is why the nutrition brand carries a 1934 date and the company carries 1959. Head office is still on Fulton Street in Ada.",
+ w:"Ramos", s:"Amway history"},
+"3-300":{q:"Amway is the largest direct selling company in the world. Roughly what were its global sales last year, and how many countries and territories does it operate in?",
+ a:"About $7.3 billion, in more than 100 countries and territories.",
+ t:"Worth having the number ready, because “is this thing real” is really a question about size. Seven billion a year, sixty-six years old, privately held so it answers to nobody quarterly, and it has been paying bonuses through every recession since 1959. Compare that with the average age of a company somebody is asked to leave a job for.",
+ w:"Lina", s:"Amway scale"},
+"3-500":{q:"Amway's co-founding family owns an NBA team. Which one, and what year did they buy it?",
+ a:"The Orlando Magic, in 1991.",
+ t:"Careful with the wording, because somebody will check: the DeVos family bought the Magic, not the company. Rich DeVos was still chairman when he died in 2018 and the family still owns it. Amway did hold the arena naming rights, the Amway Center, from 2010 until 2023, when it became the Kia Center. The point is not basketball. It is that the founders' family bought an NBA franchise out of a business people still ask whether it is legitimate.",
+ w:"Johnny", s:"Amway · DeVos family"},
+"3-800":{q:"Walk us through your own finance and time budget when you started. What did you have to move, what did you cut, and what would you do differently now?",
+ a:"Because until cash flow and a calendar are settled, everything after it is talk. Jerry's opening line is: once you've got everything settled down, we're gonna re-look at your finance again, so we plan out how we're gonna knock down those credit card balances first. Credit card balances first, then things with a fixed payment like a car loan.",
+ t:"The order after that doesn't bend: write short, medium and long-term goals; the coach turns them into a work rate, how many specific actions per week; check that against what they can actually carry, where too much means move the deadline and not the goal, and too easy means add volume; then go back to the debt, where you can now see exactly when each balance clears. This is the input to the game plan appointment, which is why it can't come second. And send them the Money and Rewards document, because if you love money you have to understand how the game is played.",
+ w:"Blair", s:"Budget · Finance and time budget / Prioritization", draft:true},
+"3-1000":{q:"Why is the China market worth a serious look from a US team? Three reasons.",
+ a:"One, a single leg counts as two, so six legs can be 5+1, 4+2 or 3+3. Two, the sheer number of people, and our age bracket is a gap in that market. Three, sixty RMB gets you started and there is no monthly subscription.",
+ t:"Why is the age bracket empty? Because the older generation's heavy-selling approach doesn't land with young people. Meanwhile young people there are under enormous pressure and a great many are looking. Anyone registered in the US knows people in China and the other way round, so combining the two grows fast, and the product knowledge transfers directly. There is a new Diamond couple there who made seven million RMB in the last two years, and a Q12 in China is 400,000 RMB.",
+ w:"Angela", s:"Retention · Why the Chinese market"}
+};
+
+const $ = function(id){ return document.getElementById(id); };
+let me = null, game = {scores:{}, played:{}, awarded:{}};
+function norm(n){ return String(n||"").trim().toLowerCase().replace(/\s+/g," "); }
+function key(n){ return norm(n).replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,60); }
+function esc(s){ return String(s).replace(/[&<>"]/g,function(c){
+  return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+
+/* ---------- pages ---------- */
+function goPage(n){
+  $("p1").hidden = n !== 1; $("gate").hidden = n !== 0; $("p2").hidden = n !== 2;
+  window.scrollTo({top:0, behavior:"instant"});
+}
+$("hostlink").onclick = function(){
+  let ok = false; try{ ok = localStorage.getItem("fnh-host") === "1"; }catch(e){}
+  goPage(ok ? 2 : 0); if(!ok) setTimeout(function(){ $("pw").focus(); }, 60);
+};
+$("backto1").onclick = function(){ goPage(1); };
+$("backto1b").onclick = function(){ goPage(1); };
+function tryPass(){
+  if($("pw").value.trim() === PASS){
+    try{ localStorage.setItem("fnh-host","1"); }catch(e){}
+    $("pwerr").textContent = ""; $("pw").value = ""; goPage(2);
+  }else{ $("pwerr").textContent = "Not that one. Ask Johnny."; }
+}
+$("pwgo").onclick = tryPass;
+$("pw").addEventListener("keydown", function(e){ if(e.key === "Enter") tryPass(); });
+
+/* ---------- roster and scores ---------- */
+function drawGroups(){
+  /* Leaders only. Scores live on the projected board, not on seventy phones: there is no
+     server behind this page, so a number here would be a number only you can see. */
+  $("groups").innerHTML = GROUPS.map(function(g){
+    return '<div class="grp'+(me && me.group === g ? " ahead" : "")+'" data-g="'+g+'">'
+      + '<h3>Group '+g+'</h3>'
+      + '<p class="leadline">'+esc((LEAD_BY_GROUP[g]||[]).join(", "))+'</p></div>';
+  }).join("");
+}
+function drawScores(){
+  /* Display only. Points are awarded on the question card, which also moves them between
+     groups and takes them back, so a row of plus and minus buttons here is a second way to
+     do the same job and a second way to get it wrong. */
+  const vals = GROUPS.map(function(g){ return game.scores[g]||0; });
+  const top = Math.max.apply(null, vals);
+  $("scores2").innerHTML = GROUPS.map(function(g, i){
+    return '<div class="scteam'+(top>0 && vals[i]===top ? " lead":"")+'" data-g="'+g+'">'
+      + '<div class="nm">Group '+g+'</div><div class="pt">'+vals[i]+'</div></div>';
+  }).join("");
+  drawGroups();
+}
+function bump(g, d){
+  game.scores[g] = (game.scores[g]||0) + d;
+  drawScores(); saveGame();
+}
+/* The host is the only person who scores, and the room reads the projection. So the game
+   state lives in the host's own browser and survives a reload, which is all it needs to do. */
+function saveGame(){
+  try{ localStorage.setItem("fnh-game", JSON.stringify(game)); }catch(e){}
+}
+
+/* ---------- draw a group ---------- */
+let picked = null;
+$("pickgroups").innerHTML = GROUPS.map(function(g){
+  return '<button type="button" data-g="'+g+'">'+g+'</button>'; }).join("");
+$("pickgroups").addEventListener("click", function(e){
+  const b = e.target.closest("button"); if(!b) return;
+  picked = (picked === +b.dataset.g) ? null : +b.dataset.g;   /* tap again to unpick */
+  $("pickgroups").querySelectorAll("button").forEach(function(x){
+    x.classList.toggle("done", picked !== null && +x.dataset.g === picked); });
+});
+function claim(){
+  const raw = $("nm").value.trim();
+  if(!raw){ $("err").textContent = "Put a name in first."; return; }
+  if(!picked){ $("err").textContent = "Tap your group number."; return; }
+  $("err").textContent = "";
+  const seeded = LEADERS[norm(raw)];
+  me = {name: raw, group: seeded || picked};
+  try{ localStorage.setItem("fnh-me", JSON.stringify(me)); }catch(e){}
+  showMe();
+}
+function showMe(){
+  if(!me) return;
+  $("form").hidden = true; $("result").hidden = false;
+  $("mynum").textContent = me.group;
+  $("mynum").style.color = ["","var(--g1)","var(--g2)","var(--g3)","var(--g4)"][me.group];
+  const leads = LEAD_BY_GROUP[me.group] || [];
+  $("mywho").textContent = leads.length ? "Your leaders: " + leads.join(", ") : "";
+  $("newname").textContent = me.group + " " + me.name;
+  drawGroups();
+}
+$("drawme").addEventListener("click", function(){
+  const raw = $("nm").value.trim();
+  if(!raw){ $("err").textContent = "Put a name in first, then I'll pick."; $("nm").focus(); return; }
+  picked = LEADERS[norm(raw)] || hashGroup(raw);
+  $("pickgroups").querySelectorAll("button").forEach(function(x){
+    x.classList.toggle("done", +x.dataset.g === picked); });
+  $("err").textContent = "";
+});
+$("go").addEventListener("click", claim);
+$("nm").addEventListener("keydown", function(e){ if(e.key === "Enter") claim(); });
+$("again").addEventListener("click", function(){
+  me = null; picked = null;
+  try{ localStorage.removeItem("fnh-me"); }catch(e){}
+  $("form").hidden = false; $("result").hidden = true; $("nm").value = "";
+  $("pickgroups").querySelectorAll("button").forEach(function(x){ x.classList.remove("done"); });
+  drawGroups(); $("nm").focus();
+});
+$("copy").addEventListener("click", function(){
+  const t = $("newname").textContent;
+  navigator.clipboard.writeText(t).then(function(){
+    $("copy").textContent = "Copied"; setTimeout(function(){ $("copy").textContent = "Copy"; }, 1600);
+  }).catch(function(){ $("err").textContent = "Couldn't copy. Type it: " + t; });
+});
+
+/* ---------- board ---------- */
+function drawBoard(){
+  let h = CATS.map(function(c){ return '<div class="cat"><span>'+c+'</span></div>'; }).join("");
+  OPEN_ROWS.forEach(function(v){ h += rowHTML(v, false); });
+  h += '<div class="divider"><span>3/6 and above only</span></div>';
+  LOCKED_ROWS.forEach(function(v){ h += rowHTML(v, true); });
+  $("board").innerHTML = h;
+}
+function rowHTML(v, locked){
+  return CATS.map(function(c, ci){
+    const k = ci+"-"+v;
+    const d = Q[k];
+    return '<button class="cell'+(locked?" locked":"")+(game.played[k]?" played":"")
+      + '" data-k="'+k+'">'+v+'</button>';
+  }).join("");
+}
+const ovl = $("ovl");
+function openQ(k){
+  const d = Q[k]; if(!d) return;
+  const ci = +k.split("-")[0], v = +k.split("-")[1];
+  const secs = SECONDS[v];
+  $("qcard").innerHTML =
+    '<div class="qhead"><span class="v">'+v+'</span><span class="c">'+CATS[ci]+'</span>'
+    + '<button class="x" id="qx" aria-label="Close">&times;</button></div><div class="qbody">'
+    + '<div class="stage" id="stage"></div>'
+    + '<div class="award"><span class="eyebrow">'
+    +   (SECONDS[v] ? 'Award '+v+' to' : 'Delivered · award '+v+' to')
+    +   '</span><div class="awrow" id="awrow">'
+    +   GROUPS.map(function(g){ return '<button data-g="'+g+'">'+g+'</button>'; }).join("")
+    + '</div><p class="awnote">One tap scores it and blacks the square out. '
+    + 'Tap another group to move it, tap the same one to take it back.</p></div></div>';
+
+  /* An 800 or a 1000 has no right answer to reveal. Somebody stands up and delivers it,
+     and if they deliver it the points are theirs. So those cards carry the topic and the
+     award row, nothing else. The notes for whoever owns it live in the prep table. */
+  /* Every control on this card is its own undo. Reveal toggles back to the question, an
+     award tapped twice takes the points off again. Nothing here needs a separate Back or
+     Reset button, and during a live game a second button is a second thing to get wrong. */
+  let shown = false;
+  const render = function(){
+    $("stage").innerHTML =
+      (secs && !shown ? '<div class="timer" id="timer"><span class="t" id="tval"></span>'
+            +   '<span class="lab" id="tlab"></span>'
+            +   '<button id="trestart">Restart</button></div>' : '')
+      + (!secs && !shown ? '<p class="kicker">'+(v === 800 ? 'Share your own experience'
+                                                           : 'Training topic')+'</p>' : '')
+      + (shown ? '<p class="qprompt">'+esc(d.q)+'</p><p class="ansline">'+esc(d.a)+'</p>'
+               +   '<div class="cue"><span class="eyebrow">cue · 60 to 90 seconds</span><p>'
+               +   esc(d.t)+'</p></div>'
+               : '<p class="qtext">'+esc(d.q)+'</p>')
+      + (secs ? '<div class="btnrow"><button class="btn'+(shown?' ghost':'')+'" id="rev">'
+              +   (shown ? 'Hide answer' : 'Reveal answer')+'</button></div>' : '');
+    if(secs){
+      $("rev").onclick = function(){
+        const st = $("stage");
+        st.classList.add("fade");
+        setTimeout(function(){ shown = !shown; render(); $("stage").classList.remove("fade"); }, 160);
+      };
+      if(!shown) startTimer(secs); else clearInterval(tickH);
+    }
+  };
+  render();
+  ovl.dataset.open = "1";
+  $("qx").onclick = function(){ ovl.dataset.open = "0"; clearInterval(tickH); };
+  $("awrow").addEventListener("click", function(e){
+    const b = e.target.closest("button"); if(!b) return;
+    const g = +b.dataset.g, was = game.awarded && game.awarded[k];
+    if(was === g){ bump(g, -v); delete game.awarded[k]; setPlayed(k, false); b.classList.remove("done"); }
+    else{
+      if(was){ bump(was, -v); }
+      bump(g, v);
+      game.awarded = game.awarded || {}; game.awarded[k] = g;
+      setPlayed(k, true);
+      $("awrow").querySelectorAll("button").forEach(function(x){
+        x.classList.toggle("done", +x.dataset.g === g); });
+    }
+  });
+  const cur = game.awarded && game.awarded[k];
+  if(cur){ $("awrow").querySelectorAll("button").forEach(function(x){
+    x.classList.toggle("done", +x.dataset.g === cur); }); }
+}
+
+/* One clock per square. Twenty seconds on the open rows, because a slow answer is
+   somebody thinking out loud and the point is the race. Three and five minutes on the
+   3/6 rows, because those are a leader teaching, not a buzz-in. */
+let tickH = null;
+function startTimer(total){
+  clearInterval(tickH);
+  const box = $("timer"), val = $("tval"), lab = $("tlab");
+  if(!box) return;
+  let left = total;
+  const paint = function(){
+    val.textContent = left;
+    box.classList.toggle("warn", left <= 7 && left > 0);
+    box.classList.toggle("out", left <= 0);
+    lab.textContent = left > 0 ? "seconds" : "time · it goes to the floor";
+  };
+  paint();
+  tickH = setInterval(function(){
+    left--; if(left < 0){ left = 0; clearInterval(tickH); } paint();
+  }, 1000);
+  $("trestart").onclick = function(){ startTimer(total); };
+}
+function setPlayed(k, on){
+  game.played[k] = on; if(!on) delete game.played[k];
+  drawBoard(); saveGame();
+}
+$("board").addEventListener("click", function(e){
+  const b = e.target.closest(".cell"); if(b) openQ(b.dataset.k);
+});
+ovl.addEventListener("click", function(e){
+  if(e.target === ovl){ ovl.dataset.open = "0"; clearInterval(tickH); } });
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape"){ ovl.dataset.open = "0"; clearInterval(tickH); } });
+
+
+
+
+function showSection(v){
+  document.querySelectorAll("#hostnav .navset button").forEach(function(x){
+    x.setAttribute("aria-pressed", String(x.dataset.v === v)); });
+  document.querySelectorAll("section[data-view]").forEach(function(sec){
+    sec.hidden = sec.dataset.view !== v; });
+  window.scrollTo({top:0, behavior:"instant"});
+}
+document.querySelectorAll("#hostnav .navset button").forEach(function(b){
+  b.addEventListener("click", function(){ showSection(b.dataset.v); });
+});
+
+
+drawScores(); drawBoard();
+
+try{
+  const g = localStorage.getItem("fnh-game"); if(g) game = JSON.parse(g);
+  const k = localStorage.getItem("fnh-me");   if(k) me = JSON.parse(k);
+}catch(e){}
+drawScores(); drawBoard();
+if(me) showMe();
+</script>
