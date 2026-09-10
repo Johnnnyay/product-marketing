@@ -116,14 +116,19 @@ input:focus{border-color:var(--sage)}
 .stepno{display:inline-block;background:var(--sage);color:#fff;font-weight:800;font-size:13px;
   border-radius:999px;padding:3px 12px;margin:0 0 10px;letter-spacing:.06em}
 
+.topnav{display:flex;justify-content:center;margin:0 0 28px}
+.topnav .navset{display:inline-flex;gap:3px;background:var(--panel);border:2px solid var(--line);
+  border-radius:13px;padding:4px}
+.topnav .navset button{background:none;border:0;color:var(--ink-2);font:inherit;font-size:16px;
+  font-weight:600;padding:11px 22px;border-radius:10px;cursor:pointer;white-space:nowrap}
+.topnav .navset button[aria-pressed="true"]{background:var(--sage);color:#fff}
+.topnav .navset button:hover[aria-pressed="false"]{background:var(--panel-2);color:var(--ink)}
+@media (max-width:460px){
+  .topnav .navset button{font-size:13.5px;padding:10px 12px}
+}
+
 /* ---- host board. The nav sits at the very bottom because the host is screen-sharing
    this, and a tab bar across the top puts the words "run of show" in front of the room. ---- */
-.pagenav{gap:14px 18px}
-.pagenav .navset{display:inline-flex;gap:2px;background:var(--panel);border:2px solid var(--line);
-  border-radius:9px;padding:2px}
-.pagenav .navset button{background:none;border:0;color:var(--muted);font:inherit;font-size:13px;
-  text-decoration:none;padding:6px 12px;border-radius:6px;cursor:pointer}
-.pagenav .navset button[aria-pressed="true"]{background:var(--sage);color:#fff}
 
 /* ---- the board. Solid colour blocks, white numerals. A weak beam keeps a filled block and
    loses a thin border, so nothing here depends on a border to be legible. ---- */
@@ -235,6 +240,7 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
 
 <!-- ===================== PAGE ONE ===================== -->
 <div class="wrap" id="p1">
+  <nav class="topnav" id="nav1"></nav>
   <h1>JL Team <span>Jeopardy</span></h1>
   <p class="sub">Friday Night Hangout &nbsp;·&nbsp; September 11 &nbsp;·&nbsp; 8:00–9:15 PM ET</p>
 
@@ -281,11 +287,11 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
   hand, and there is nothing to guess: the first hand up stands and delivers on the topic.
   One 800 and one 1000 per group.</div>
 
-  <div class="foot pagenav" id="nav1"></div>
 </div>
 
 <!-- ===================== HOW TO PLAY ===================== -->
 <div class="wrap" id="p3" hidden>
+  <nav class="topnav" id="nav3"></nav>
   <h1>How to <span>play</span></h1>
   <p class="sub">怎么玩 &nbsp;·&nbsp; Friday Night Hangout &nbsp;·&nbsp; September 11</p>
 
@@ -388,11 +394,11 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
     8:35–9:10 &nbsp; orange rows &nbsp; 橙色格子<br>
     9:10 &nbsp; closing thoughts &nbsp; 收尾总结</div>
 
-  <div class="foot pagenav" id="nav3"></div>
 </div>
 
 <!-- ===================== GATE ===================== -->
 <div class="wrap" id="gate" hidden>
+  <nav class="topnav" id="nav0"></nav>
   <h1>Game <span>board</span></h1>
   <p class="sub">For the host and the 3/6 leaders. Every question and every answer is behind
   this, so please don't put the passcode in the main group chat.</p>
@@ -403,11 +409,11 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
     <button class="go" id="pwgo">Open the board</button>
     <p class="err" id="pwerr"></p>
   </div>
-  <div class="foot pagenav" id="nav0"></div>
 </div>
 
 <!-- ===================== PAGE TWO ===================== -->
 <div class="wrap wide" id="p2" hidden>
+  <nav class="topnav" id="nav2"></nav>
   <h1 style="font-size:30px;margin-bottom:14px">JL Team Jeopardy</h1>
 
   <div>
@@ -424,7 +430,6 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
 
   
 
-  <div class="foot pagenav" id="nav2"></div>
 </div>
 
 <div class="ovl" id="ovl"><div class="qcard" id="qcard"></div></div>
@@ -555,7 +560,7 @@ function paintNav(cur){
     const el = $(id); if(!el) return;
     el.innerHTML = html;
   });
-  document.querySelectorAll(".pagenav [data-p]").forEach(function(b){
+  document.querySelectorAll(".topnav [data-p]").forEach(function(b){
     b.addEventListener("click", function(){ goTo(+b.dataset.p); });
   });
 }
