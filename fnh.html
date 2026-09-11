@@ -380,14 +380,16 @@ p.cn,.cn{color:var(--ink-2)}
 .stage{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;
   font-size:var(--fs,56px);transition:opacity .16s ease}
 .stage.fade{opacity:0}
-.qtext{font-weight:700;font-size:1em;line-height:1.18;letter-spacing:-.02em;margin:0 auto;max-width:28ch;color:var(--ink)}
+.qtext{font-weight:700;font-size:1em;line-height:1.2;letter-spacing:-.01em;margin:0 auto;max-width:28ch;color:var(--ink)}
 .kicker{font-weight:800;font-size:max(16px,.34em);letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin:0 0 .6em}
-.qprompt{font-weight:600;font-size:max(18px,.44em);color:var(--ink-2);margin:0 auto .35em;max-width:44ch;line-height:1.35}
-.ansline{font-weight:800;font-size:1em;line-height:1.18;letter-spacing:-.02em;color:var(--jade);margin:0 auto;max-width:26ch}
+/* After the reveal the question, the answer and why it matters are all the same size, told apart
+   by colour only. The only small type on the card is the app's own labels and hints. */
+.qprompt{font-weight:700;font-size:1em;color:var(--ink);margin:0 auto .4em;max-width:none;line-height:1.2;letter-spacing:-.01em}
+.ansline{font-weight:800;font-size:1em;line-height:1.2;letter-spacing:-.01em;color:var(--jade);margin:0 auto;max-width:none}
 .reveal[hidden]{display:none}
-.cue{margin:.55em auto 0;padding-top:.45em;border-top:3px solid var(--line);max-width:72ch;text-align:left;width:100%}
+.cue{margin:.5em auto 0;padding-top:.35em;border-top:3px solid var(--line);max-width:none;width:100%}
 .cue .eyebrow{display:block;color:var(--muted);font-size:max(13px,.24em);line-height:1.3}
-.cue p{margin:.2em 0 0;color:var(--ink-2);font-size:max(17px,.36em);line-height:1.5;max-width:none}
+.cue p{margin:.15em auto 0;color:var(--ink-2);font-weight:700;font-size:1em;line-height:1.2;letter-spacing:-.01em;max-width:none}
 .btn{font-weight:700;font-size:clamp(16px,2.2vh,22px);background:var(--sage);color:#fff;border:0;border-radius:10px;
   padding:1.1vh 26px;cursor:pointer}
 .btn:hover{background:var(--sage-2)}
