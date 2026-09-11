@@ -481,6 +481,13 @@ p.cn,.cn{color:var(--ink-2)}
 .qprompt{font-weight:700;font-size:1em;color:var(--ink);margin:0 auto .3em;max-width:none;line-height:1.2;letter-spacing:-.01em;text-wrap:balance}
 .ansline{font-weight:800;font-size:1em;line-height:1.2;letter-spacing:-.01em;color:var(--jade);margin:0 auto;max-width:none;text-wrap:balance}
 .reveal[hidden]{display:none}
+.opts4{display:grid;gap:.22em;margin:.45em auto 0;text-align:left;width:100%;max-width:none}
+.opts4 div{display:flex;gap:.45em;align-items:baseline;font-weight:700;font-size:1em;line-height:1.2;color:var(--ink);
+  background:var(--panel-2);border-radius:.4em;padding:.22em .55em}
+.opts4 b{flex:none;display:inline-grid;place-items:center;width:1.3em;height:1.3em;border-radius:50%;background:var(--sage);color:#fff;font-size:.8em}
+.opts4 .ok{background:var(--sage-light);color:var(--jade);outline:3px solid var(--jade)}
+.opts4 .ok b{background:var(--jade)}
+.opts4 .no{opacity:.4}
 .cue{margin:.4em auto 0;padding-top:.3em;border-top:3px solid var(--line);max-width:none;width:100%}
 .cue .eyebrow{display:block;color:var(--muted);font-size:max(13px,.24em);line-height:1.3}
 .cue p{margin:.15em auto 0;color:var(--ink-2);font-weight:700;font-size:1em;line-height:1.2;letter-spacing:-.01em;max-width:none;text-wrap:balance}
@@ -862,7 +869,7 @@ const Q = {
  a:"National Sanitation Foundation.",
  t:"Supplements don't need FDA approval before they're sold, so a label is only as honest as the company behind it. NSF checks that what's on the label is really in the product, tests for contaminants, and audits Nutrilite's plants twice a year. It started in 1944 at the University of Michigan and is a World Health Organization Collaborating Centre. Keeping the mark means passing audits and retests every year, which is why many brands never try.",
  w:"", s:"NSF: Our History \u00b7 WHO Collaborating Centre \u00b7 Amway newsroom: Verified"},
-"g2-300":{q:"When the Space Shuttle Enterprise was restored for the Smithsonian in 2003, the crew washed it with Amway L.O.C. on NASA's recommendation. What ratio of L.O.C. to water did they use?",
+"g2-300":{q:"In NASA Johnson Space Center's own oral history, the crew restoring a space shuttle say they washed it with Amway L.O.C., on NASA's recommendation. What ratio of L.O.C. to water did they use?",
  a:"1 part L.O.C. to 10 parts water.",
  t:"That's how concentrated L.O.C. is. From NASA's own records:",
  w:"", s:"NASA JSC Oral History, Ed Mautner, 22 Mar 2012, p.11 \u00b7 Spring 2026 Home Catalog p.21"},
@@ -870,10 +877,11 @@ const Q = {
  a:"Coconut husks.",
  t:"Activated coconut-husk carbon is full of tiny connected pores, so one filter has the surface area of about 220 football fields. It traps odors from smoke, cooking and pets, plus chemicals like formaldehyde.",
  w:"", s:"Spring 2026 Home Catalog p.14-15"},
-"g2-1000":{q:"NSF International independently certifies eSpring to four NSF/ANSI standards. Name any two of the four numbers.",
- a:"Any two of: 42, 53, 55B, 401.",
- t:"NSF is an independent testing organization. 42 covers taste and odor, 53 health-related contaminants, 55 UV treatment, and 401 emerging contaminants like traces of pharmaceuticals. Independent proof, not just a claim.",
- w:"", s:"Spring 2026 Home Catalog p.4"},
+"g2-1000":{q:"NSF International independently certifies eSpring to four NSF/ANSI standards. Which list is right?",
+ a:"A.",
+ t:"eSpring also carries NSF Protocol P477 for PFOA and PFOS, reduces more than 170 contaminants, and holds the Water Quality Association's Gold Seal. Every claim on the box is backed by an independent lab, not by marketing.",
+ w:"", s:"Spring 2026 Home Catalog p.4-5, 9",
+ o:["42 taste and odor, 53 health-related contaminants, 55B UV treatment, 401 emerging contaminants", "007 license to filter, 911 emergency hydration, 404 contaminants not found, 1-800 call your upline", "42 health-related contaminants, 53 UV treatment, 55B emerging contaminants, 401 taste and odor", "8 glasses a day, 24/7 freshness, 365 happy days, 0 bad vibes"], ok:0},
 "g3-100":{q:"Before they started Amway, what did Rich DeVos and Jay Van Andel do together for ten years, and what does the name Amway stand for?",
  a:"They were Nutrilite distributors, and Amway stands for American Way.",
  t:"They built Amway on four Founders' Fundamentals. Freedom: the chance to change your life by owning a business. Family: a community that cheers you on. Hope: the belief that a better future is possible for anyone. Reward: earning in proportion to the effort you put in. Two friends started it in their basements in 1959, and those four ideas still guide the company.",
@@ -1527,6 +1535,14 @@ function cellHTML(k, v, locked){
     + '" data-k="'+k+'">'+v+'</button>';
 }
 const ovl = $("ovl");
+/* Multiple-choice squares list their options A to D under the question, at the same size as
+   the question; on reveal the right one turns green and the rest fade back. */
+function opts4(d, shown){
+  if(!d.o) return "";
+  return '<div class="opts4">' + d.o.map(function(x, i){
+    return '<div class="' + (shown ? (i === d.ok ? "ok" : "no") : "") + '"><b>' + "ABCD"[i] + '</b><span>' + esc(x) + '</span></div>';
+  }).join("") + '</div>';
+}
 function openQ(k){
   const d = Q[k]; if(!d) return;
   const key = parseKey(k), v = key.v;
@@ -1555,13 +1571,13 @@ function openQ(k){
             +   '<p class="phpnote" id="phpnote" hidden>The answer has to come from the player. If a leader says it, it doesn\'t count.</p>' : '')
       + (!secs && !shown ? '<p class="kicker">'+(v === 1500 ? 'First hand up · share your own experience · 3 min'
                                                            : 'First hand up · training topic · 5 min')+'</p>' : '')
-      + (shown ? '<p class="qprompt">'+esc(d.q)+'</p><p class="ansline">'+esc(d.a)+'</p>'
+      + (shown ? '<p class="qprompt">'+esc(d.q)+'</p>' + (d.o ? opts4(d, true) : '<p class="ansline">'+esc(d.a)+'</p>')
                +   (SOURCES[k]
                    ? '<div class="cue claim"><span class="eyebrow">Why it matters</span>' + (d.t ? '<p>' + esc(d.t) + '</p>' : '')
                      + '<blockquote>' + esc(SOURCES[k].quote) + '</blockquote>'
                      + '<p class="qsrc">' + esc(SOURCES[k].who) + ' · ' + (SOURCES[k].url ? '<a href="' + SOURCES[k].url + '" target="_blank" rel="noopener">' + esc(SOURCES[k].site) + '</a>' : esc(SOURCES[k].site)) + '</p></div>'
                    : '<div class="cue"><span class="eyebrow">Why it matters</span><p>' + esc(d.t) + '</p></div>')
-               : '<p class="qtext">'+esc(d.q)+'</p>');
+               : '<p class="qtext">'+esc(d.q)+'</p>' + opts4(d, false));
     $("revrow").innerHTML = secs ? '<button class="btn'+(shown?' ghost':'')+'" id="rev">'
               +   (shown ? 'Hide answer' : 'Reveal answer')+'</button>' : '';
     $("phprow").dataset.on = secs && !shown ? "1" : "";
