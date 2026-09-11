@@ -713,6 +713,11 @@ const LEAD_ROWS = [1500,2000];
 /* Claim cards: squares whose "why it matters" rests on an outside source. The card quotes it
    word for word, names the source and links to the page with the sentence highlighted. */
 const SOURCES = {
+  "g4-600": {
+    who: "Dean Whalen",
+    site: "Mindset of Process training",
+    quote: "Before you make a play, huddle with the coach, and don't make two plays in a row without a huddle."
+  },
   "g0-300": {
     who: "National Institutes of Health · Office of Dietary Supplements",
     site: "ods.od.nih.gov",
@@ -797,18 +802,18 @@ const Q = {
  a:"The Orlando Magic, since 1991.",
  t:"You can't just buy an NBA team: every new owner goes through a league review and needs the approval of at least three-quarters of the other team owners. Rich DeVos bought the Magic for $85 million, and it's now valued at over $3 billion, still in the family 35 years later. That's how far a business built on sharing products person to person can go.",
  w:"Johnny", s:"Washington Post, Sep 1991 ($85M) \u00b7 Forbes NBA valuations \u00b7 NBA Constitution and By-Laws (3/4 vote)"},
-"g3-300":{q:"Before they founded Amway, Rich DeVos and Jay Van Andel spent about ten years doing what, and starting in what year?",
- a:"Selling Nutrilite as distributors, starting in 1949.",
- t:"They began exactly where an IBO begins today: using a product they believed in and sharing it. Through their company, Ja-Ri, they built a network of more than 5,000 Nutrilite distributors, and that became the model Amway grew from.",
- w:"", s:"Encyclopedia.com: DeVos and Van Andel \u00b7 Amway history"},
-"g3-600":{q:"What year was Amway founded, by which two men, and in what town?",
- a:"1959, by Rich DeVos and Jay Van Andel, in Ada, Michigan.",
- t:"Founded by two friends and still privately owned by the DeVos and Van Andel families. No outside shareholders means Amway can make long-term decisions for the people who build it.",
- w:"Ramos", s:"Amway history"},
-"g3-1000":{q:"Amway is the largest direct selling company in the world. Roughly what were its global sales last year, and how many countries and territories does it operate in?",
- a:"About $7.3 billion, in more than 100 countries and territories.",
- t:"$7.3 billion a year across more than 100 countries makes Amway the largest direct selling company in the world. When you build this business, you build on the biggest and most proven platform in the industry.",
- w:"Lina", s:"Amway scale"},
+"g3-300":{q:"Before they started Amway, what did Rich DeVos and Jay Van Andel do together for ten years, and what does the name Amway stand for?",
+ a:"They were Nutrilite distributors, starting in 1949. Amway stands for American Way.",
+ t:"Two high school friends from Grand Rapids, with a string of small ventures behind them, started Amway in the basements of their homes in 1959. They named it for what they believed: that anyone willing to work can own a business. Jay Van Andel said Amway gets people into \"a new life of excitement, promise, profit, and hope.\"",
+ w:"", s:"Amway: Our founders \u00b7 Encyclopedia.com: DeVos and Van Andel \u00b7 Wikipedia: Amway"},
+"g3-600":{q:"In 1979, after years of investigation, the U.S. Federal Trade Commission ruled on Amway's business model. What did it rule, and name one safeguard it pointed to.",
+ a:"That Amway is not a pyramid scheme. Safeguards: buying back unsold products, the 10 retail customers rule, the 70% rule.",
+ t:"Few companies have had their business model examined that closely by a federal regulator and come out ruled legitimate. Those three \"Amway safeguards\" became the standard direct selling is measured against: a real business is built on products reaching real customers, not on recruiting.",
+ w:"Ramos", s:"In re Amway Corp., FTC 1979 \u00b7 DSA: the 70% rule"},
+"g3-1000":{q:"In Amway's recognition plan, Crown takes 12 Founders Platinum legs plus how many FAA points, now called Qualification Credits, in one year? And how many FAA points have the world's top leaders been recognized for?",
+ a:"64. At the very top, Founders Crown Ambassadors like Holly Chen and Barry Chi have been recognized for 70 FAA.",
+ t:"FAA points measure the leaders you've built, not just the volume you move: 1 for every Founders Platinum leg, 1.5 for an Emerald, 3 for a Diamond and 6 for a Founders Diamond. Crown sits near the very top of Amway, above Triple Diamond. It's recognition for developing people.",
+ w:"Lina", s:"Amway Global Award Recognition, Sep 2025 (PY26) \u00b7 Holly Chen & Barry Chi 70 FAA recognition"},
 "g4-100":{q:"GP. What does it stand for?",
  a:"Game Plan.",
  t:"A Game Plan turns your goals into a weekly work rate, and the work rate into a calendar. It's how our team makes a dream measurable, and it's the last of the four appointments after launch.",
@@ -819,7 +824,7 @@ const Q = {
  w:"", s:"CLAUDE.md glossary"},
 "g4-600":{q:"What is the full six-step workflow of an ideal PHP?",
  a:"When a candidate replies: 1, take a screenshot. 2, send it to your coach with what you plan to say. 3, your coach edits the reply. 4, you rewrite it so it sounds like you. 5, your coach agrees. 6, send it to the candidate.",
- t:"Step four is the one people skip. Your coach makes it right, your rewrite makes it yours, so every candidate hears a real person and never a script.",
+ t:"Scripts don't stick. People learn one real reply at a time with a coach, and step four, making it sound like you, is the one they skip. Dean Whalen's rule:",
  w:"Vemon", s:"Johnny · PHP workflow"},
 "g4-1000":{q:"Spell out the full name of our EDC mentor, Rashmi.",
  a:"Rashmiranjan Jyotiprakash.  R-A-S-H-M-I-R-A-N-J-A-N  J-Y-O-T-I-P-R-A-K-A-S-H",
@@ -1549,7 +1554,7 @@ function openQ(k){
                +   (SOURCES[k]
                    ? '<div class="cue claim"><span class="eyebrow">Why it matters</span><p>' + esc(d.t) + '</p>'
                      + '<blockquote>' + esc(SOURCES[k].quote) + '</blockquote>'
-                     + '<p class="qsrc">' + esc(SOURCES[k].who) + ' · <a href="' + SOURCES[k].url + '" target="_blank" rel="noopener">' + esc(SOURCES[k].site) + '</a></p></div>'
+                     + '<p class="qsrc">' + esc(SOURCES[k].who) + ' · ' + (SOURCES[k].url ? '<a href="' + SOURCES[k].url + '" target="_blank" rel="noopener">' + esc(SOURCES[k].site) + '</a>' : esc(SOURCES[k].site)) + '</p></div>'
                    : '<div class="cue"><span class="eyebrow">Why it matters</span><p>' + esc(d.t) + '</p></div>')
                : '<p class="qtext">'+esc(d.q)+'</p>');
     $("revrow").innerHTML = secs ? '<button class="btn'+(shown?' ghost':'')+'" id="rev">'
