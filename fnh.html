@@ -766,6 +766,12 @@ const LEAD_ROWS = [1500,2000];
 /* Claim cards: squares whose "why it matters" rests on an outside source. The card quotes it
    word for word, names the source and links to the page with the sentence highlighted. */
 const SOURCES = {
+  "g2-300": {
+    who: "NASA Johnson Space Center Oral History · Edward M. Mautner, 2012",
+    site: "nasa.gov",
+    quote: "We were using, on NASA\u2019s recommendation, Amway LOC [liquid organic cleaner] cut, one part LOC to ten parts water, to wash everything. It\u2019s a mild organic detergent, and it\u2019s biodegradable.",
+    url: "https://www.nasa.gov/wp-content/uploads/2025/08/mautnerem-3-22-12.pdf#:~:text=We%20were%20using%2C%20on%20NASA's,mild%20organic%20detergent%2C%20and%20it's"
+  },
   "g4-600": {
     who: "Dean Whalen",
     site: "Mindset of Process training",
@@ -811,10 +817,10 @@ const Q = {
  a:"Food. And there is no UL.",
  t:"That's how one can holds 6,960% of your daily value.",
  w:"", s:"NIH Office of Dietary Supplements, Vitamin B12 fact sheet"},
-"g0-600":{q:"Nutrilite grows its own botanicals on certified organic farms. Where are the two biggest?",
- a:"Southwest Mexico and Washington State.",
- t:"Nutrilite is one of very few supplement brands that grows its own plants on its own certified organic farms, so it controls every ingredient from seed to supplement. Most brands buy ingredients from a supplier and never see where they came from.",
- w:"Sean", s:"Nutrilite · Farms"},
+"g0-600":{q:"Nutrilite grows its own plants on its own certified organic farms. They're in three countries. Name all three.",
+ a:"Brazil, Mexico and the United States.",
+ t:"Fazenda Nutrilite in Ubajara, Brazil is 3,136 acres with 416,000 acerola trees. El Petacal in Mexico is 1,589 acres. Trout Lake in Washington, at 886 acres, is the largest certified organic herb farm in the United States. Most of the big supplement brands people know buy plant powder from a supplier and never see where it was grown.",
+ w:"Sean", s:"Amway newsroom: Organic farming 101 \u00b7 Nutrilite traceability: Fazenda Brazil \u00b7 Amway: Nutrilite farms"},
 "g0-1000":{q:"Nutrilite's first product went on sale in 1934 and later grew into the famous Double X, with XX on the label. What did XX stand for and why?",
  a:"The Roman numeral 20, because a month's supply cost about $20. Today it carries plant nutrients from 22 fruits, vegetables and herbs.",
  t:"Double X was believed to be North America's first plant-based multivitamin-multimineral, and it has been improved for more than 75 years, most recently in 2017. Its 450+ mg of plant nutrients are something the leading multivitamin brand doesn't have at all.",
@@ -841,7 +847,7 @@ const Q = {
  w:"", s:"NSF: Our History \u00b7 WHO Collaborating Centre \u00b7 Amway newsroom: Verified"},
 "g2-300":{q:"When the Space Shuttle Enterprise was restored for the Smithsonian in 2003, the crew washed it with Amway L.O.C. on NASA's recommendation. What ratio of L.O.C. to water did they use?",
  a:"1 part L.O.C. to 10 parts water.",
- t:"The restoration team called it a mild, biodegradable detergent, and because it's concentrated, a little goes a long way. The same bottle at home has over 1,000 cleaning uses and is gentle enough to use on your hands.",
+ t:"That's how concentrated L.O.C. is. From NASA's own records:",
  w:"", s:"NASA JSC Oral History, Ed Mautner, 22 Mar 2012, p.11 \u00b7 Spring 2026 Home Catalog p.21"},
 "g2-600":{q:"The carbon filter in the Atmosphere Sky air purifier is made from what natural material?",
  a:"Coconut husks.",
@@ -871,13 +877,13 @@ const Q = {
  a:"60 is skill development: you initiate conversations daily. 90 is business development: you share your story daily.",
  t:"Each run stacks on the last. The 30 builds you: read, listen, reflect, use the products. The 60 builds the skill of starting conversations, and the 90 turns it into business by sharing your story every day. Phase B habits and PHP run through both, so every conversation gets coached.",
  w:"", s:"Phases of Partnership, HY Team 2026"},
-"g4-300":{q:"Building internationally, what's the difference between markets like China and India, and markets like Australia, France, Germany and the UK?",
- a:"China and India don't allow foreigners to own an Amway business, so you can only sponsor a local partner there. In Australia and Europe you can also open a business of your own.",
- t:"International sponsoring works at any pin level: you open the door, and a local foster sponsor supports your partner day to day. A business of your own abroad costs more and is harder culturally and legally, so Amway requires you to be a Qualified Platinum, or have residency or family there, and recommends growing your home business to Emerald first.",
- w:"", s:"Amway International Sponsoring & Multiple Business FAQ (2021) \u00b7 China Direct Selling Regulations Art. 15 \u00b7 Amway India"},
+"g4-300":{q:"What pin level do you need before you can sponsor someone in another country?",
+ a:"None. Any IBO can sponsor someone in another market, and a local foster sponsor supports them there.",
+ t:"Your network doesn't stop at the border. Amway runs in more than 100 countries and territories, so a friend in Shanghai, Paris or Sydney can build with you from day one. Amway's own training lists what you get: more bonuses, more pin qualifications and a much bigger reach. Our team already builds in China, France and Germany.",
+ w:"", s:"Amway International Sponsoring FAQ (2021) and Going International training \u00b7 Amway 2025 results"},
 "g4-600":{q:"What is the full six-step workflow of an ideal PHP?",
  a:"When a candidate replies: 1, take a screenshot. 2, send it to your coach with what you plan to say. 3, your coach edits the reply. 4, you rewrite it so it sounds like you. 5, your coach agrees. 6, send it to the candidate.",
- t:"Scripts don't stick. People learn one real reply at a time with a coach, and step four, making it sound like you, is the one they skip. Dean Whalen's rule:",
+ t:"",
  w:"Vemon", s:"Johnny · PHP workflow"},
 "g4-1000":{q:"Spell out the full name of our EDC mentor, Rashmi.",
  a:"Rashmiranjan Jyotiprakash.  R-A-S-H-M-I-R-A-N-J-A-N  J-Y-O-T-I-P-R-A-K-A-S-H",
@@ -1512,7 +1518,7 @@ function openQ(k){
                                                            : 'First hand up · training topic · 5 min')+'</p>' : '')
       + (shown ? '<p class="qprompt">'+esc(d.q)+'</p><p class="ansline">'+esc(d.a)+'</p>'
                +   (SOURCES[k]
-                   ? '<div class="cue claim"><span class="eyebrow">Why it matters</span><p>' + esc(d.t) + '</p>'
+                   ? '<div class="cue claim"><span class="eyebrow">Why it matters</span>' + (d.t ? '<p>' + esc(d.t) + '</p>' : '')
                      + '<blockquote>' + esc(SOURCES[k].quote) + '</blockquote>'
                      + '<p class="qsrc">' + esc(SOURCES[k].who) + ' · ' + (SOURCES[k].url ? '<a href="' + SOURCES[k].url + '" target="_blank" rel="noopener">' + esc(SOURCES[k].site) + '</a>' : esc(SOURCES[k].site)) + '</p></div>'
                    : '<div class="cue"><span class="eyebrow">Why it matters</span><p>' + esc(d.t) + '</p></div>')
