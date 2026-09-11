@@ -266,6 +266,10 @@ p.cn,.cn{color:var(--ink-2)}
 .pt-big{font-weight:800;font-size:84px;line-height:1;text-align:center;color:var(--g2)}
 .pt-lead{font-size:13px;font-weight:700;text-align:center;color:var(--sage)}
 .tgroups{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tour .mclock{text-align:center}
+.sc.simsc.one{grid-template-columns:minmax(0,240px);justify-content:center}
+.sc.simsc.one .scteam .pt{font-size:30px}
+.sc.simsc.one .scteam .phpd .hearts svg{width:20px;height:18px}
 .ztile{align-self:center;width:280px;max-width:100%;aspect-ratio:16/10;background:#2A2F2C;border-radius:14px;position:relative;display:flex;align-items:center;justify-content:center}
 .zav{width:72px;height:72px;border-radius:50%;background:#5B6B9A;color:#fff;font-weight:800;font-size:32px;display:grid;place-items:center}
 .zname{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.6);color:#fff;font-weight:700;font-size:15px;padding:4px 10px;border-radius:6px;transition:transform .3s;transform-origin:left bottom}
@@ -1121,7 +1125,9 @@ function tiles(sc, opt){
   const vals = GROUPS.map(function(x){ return sc[x] || 0; });
   const top = Math.max.apply(null, vals);
   const leads = GROUPS.filter(function(x, i){ return top > 0 && vals[i] === top; });
-  return '<div class="sc simsc">' + GROUPS.map(function(x, i){
+  const show = opt.only || GROUPS;
+  return '<div class="sc simsc' + (opt.only ? ' one' : '') + '">' + GROUPS.filter(function(x){ return show.indexOf(x) > -1; }).map(function(x){
+    const i = GROUPS.indexOf(x);
     const on = leads.indexOf(x) > -1;
     return '<div class="scteam' + (on ? " lead" : "") + (opt.hl === x ? " me" : "") + '" data-g="' + x + '">'
       + (on ? '<span class="crown">' + CROWN + (leads.length > 1 ? T("Tied", "并列") : T("Winning", "领先")) + '</span>' : "")
@@ -1261,10 +1267,9 @@ const TOUR_GAME = [
     draw: function(el, tr){
       el.innerHTML = '<div class="mclock" id="pclock"><span class="s" id="psec">14</span><small>' + T("seconds · Group 2 on a PHP", "秒 · 第 2 组正在 PHP") + '</small></div>'
         + '<p class="phpnote" style="font-size:15px">' + T("The answer has to come from the player. If a leader says it, it doesn't count.", "答案必须由答题的人说出来，leader 说的不算。") + '</p>'
-        + tiles({ 2: 300, 4: 600 }, { hearts: { 2: 1 }, hl: 2 });
+        + tiles({ 2: 300 }, { hearts: { 2: 1 }, only: [2] });
       let left = 14;
-      tr.every(function(){ left = Math.max(0, left - 1); const s = el.querySelector("#psec"); if(s) s.textContent = left;
-        const b = el.querySelector("#pclock"); if(b){ b.classList.toggle("warn", left <= 7 && left > 0); b.classList.toggle("out", left <= 0); } }, 1000);
+      tr.every(function(){ if(left <= 8) return; left--; const s = el.querySelector("#psec"); if(s) s.textContent = left; }, 1000);
     } },
   { t: ["Orange squares: you talk", "橙色格子：你来分享"],
     c: ["Orange isn't a quiz. 3/6 and above pick a topic and share: 3 minutes for a 1500, 5 for a 2000. Deliver it and the points are your group's. One of each per group.",
