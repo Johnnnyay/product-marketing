@@ -371,8 +371,8 @@ p.cn,.cn{color:var(--ink-2)}
 .timer.out .t{color:var(--red)}
 .timer .lab{font-weight:800;font-size:max(12px,.26em);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:.15em}
 .timer.out .lab{color:var(--red)}
-/* PHP: a lifeline, three per group, shown as hearts. The clock pauses, a 30 second huddle runs in its own colour,
-   then the answer clock picks up where it stopped. */
+/* PHP: a lifeline, three per group, shown as hearts. The clock keeps running: the huddle comes
+   out of the player's own time, so the card only marks which group is on a PHP. */
 .timer.php .t,.timer.php .lab{color:#0E6E8C}
 /* claim cards: the answer's evidence is quoted word for word on the card itself */
 .cue.claim blockquote{margin:.25em 0 0;font-size:1em;font-weight:700;line-height:1.28;color:var(--ink);text-align:left;
@@ -503,8 +503,8 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
   <div class="note"><b>How it works.</b> The host counts 3, 2, 1 and the <b>first hand up picks
   any square</b>. The host reads the question, then you have <b>20 seconds</b> (35 on the 600s and 1000s). Right, your group
   takes the points. Wrong or out of time, <b>your group loses the square</b> and the other side
-  races for it. Each group gets <b>three PHPs</b>: the player can pause the clock and huddle 30 seconds
-  with a leader, but the answer has to come from the player. The <b>green board</b> is open to everyone. The <b>orange board</b>, 1500 and 2000,
+  races for it. Each group gets <b>three PHPs</b>: the player can huddle with a leader, but the
+  clock keeps running and the answer has to come from the player. The <b>green board</b> is open to everyone. The <b>orange board</b>, 1500 and 2000,
   is 3/6 and above, and you share on a topic instead of answering.
   <a href="#" id="howlink">See how to play</a></div>
 
@@ -567,8 +567,8 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
     </div>
     <div class="rule php">
       <h4 lang="en">PHP: three per group ❤️❤️❤️</h4><h4 lang="zh">PHP：每组三次 ❤️❤️❤️</h4>
-      <p lang="en">On a green square, the player who got picked can call a PHP. The clock pauses and they get 30 seconds to huddle with any leader from their group: whisper in the room, private chat on Zoom. Then the clock picks up where it stopped, and the player has to say the answer. If it comes out of a leader's mouth, it doesn't count.</p>
-      <p lang="zh">绿色格子上，被点到的人可以叫 PHP。计时暂停，给你 30 秒找自己组的任意一位 leader 商量：现场小声说，Zoom 上私聊。商量完计时接着走，答案必须由你本人说出来。答案要是从 leader 嘴里说出来的，不算。</p>
+      <p lang="en">On a green square, the player who got picked can call a PHP and huddle with any leader from their group: whisper in the room, private chat on Zoom. The clock keeps running, so the huddle comes out of their own time. The player has to say the answer. If it comes out of a leader's mouth, it doesn't count.</p>
+      <p lang="zh">绿色格子上，被点到的人可以叫 PHP，找自己组的任意一位 leader 商量：现场小声说，Zoom 上私聊。计时不停，商量的时间就算在你自己的答题时间里。答案必须由你本人说出来，要是从 leader 嘴里说出来的，不算。</p>
     </div>
     <div class="rule honest">
       <h4 lang="en">Play it straight</h4><h4 lang="zh">靠诚信来玩</h4>
@@ -644,7 +644,7 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
       <p><b>Three.</b> I read the question out, and then the clock starts: 20 seconds on the 100s and 300s, 35 seconds on the harder 600s and 1000s. If it asks for two things, I need both.</p>
       <p><b>Four.</b> Get it right, and the points go to your group. Get it wrong or run out of time, and your group loses the square. It crosses to the other side. The room and Zoom take turns, so if the room misses, the other three groups on Zoom race for it, and the other way round.</p>
       <p>So put your hand up when you know it, not when you hope.</p>
-      <p><b>And you have a lifeline: PHP.</b> Every group gets three, the red hearts on the scoreboard, for the whole game, on the green board only. If you get picked and you're stuck, say "PHP". The clock pauses, and you get 30 seconds to huddle with any leader in your group. In the room, go and whisper. On Zoom, send them a private chat. Then the clock picks up where it stopped, and the answer has to come out of your mouth. If your leader says it, it doesn't count. Leaders, keep your Zoom chat open so your Zoom players can reach you.</p>
+      <p><b>And you have a lifeline: PHP.</b> Every group gets three, the red hearts on the scoreboard, for the whole game, on the green board only. If you get picked and you're stuck, say "PHP" and huddle with any leader in your group. In the room, go and whisper. On Zoom, send them a private chat. The clock does not stop, so the huddle comes out of your own time, and the answer has to come out of your mouth. If your leader says it, it doesn't count. Leaders, keep your Zoom chat open so your Zoom players can reach you.</p>
       <p>Two boards tonight. The green board, Fitness, Beauty, Home, Amway and Education, is open to everyone. The orange board underneath, 1500 and 2000, is for 3/6 and above, and it's not a quiz. You pick a topic and share. We get there at 8:35.</p>
       <p>One more thing, and it matters. Tonight runs on integrity and honesty. No Google, no ChatGPT, no AI of any kind. Some of our leaders have seen these questions, so we're trusting everyone to play it straight. If you know it, you know it.</p>
       <p>Keep an eye on the scores at the top. Whoever's in front wears the crown.</p>
@@ -1217,36 +1217,24 @@ function simClock(k, q, resumeAt){
     + '<div class="simbtns"><button class="go simgo" id="simans">' + T("I've answered", "我答完了") + '</button>'
     + (sim.php > 0 ? '<button class="btn ghost" id="simphp">' + T("Call a PHP (" + sim.php + " left)", "叫 PHP（还剩 " + sim.php + " 次）") + '</button>' : '') + '</div>';
   let left = resumeAt != null ? resumeAt : SECONDS[sk(k).v];
-  simZh(resumeAt != null ? "计时接着走。答案必须由你自己说出来，leader 说的不算。"
-                         : left + " 秒开始了。像今晚一样把答案大声说出来，说完点下面的按钮。卡住了可以叫 PHP。");
+  simZh(left + " 秒开始了。像今晚一样把答案大声说出来，说完点下面的按钮。卡住了可以叫 PHP，但计时不会停。");
   const box = $("mclock"); box.classList.remove("wait", "php"); $("mlab").textContent = T("seconds", "秒"); $("msec").textContent = left;
-  if($("simphp")) $("simphp").onclick = function(){ simPHP(k, q, left); };
+  if($("simphp")) $("simphp").onclick = function(){
+    /* a PHP spends a heart, but the clock never stops: the huddle comes out of the player's time */
+    sim.php--; const g = simG();
+    simHost(T("Group " + g + " calls a PHP! Go huddle with your leader, the clock is still running. The answer has to come from you.",
+              "第 " + g + " 组叫 PHP！快去找你们的 leader 商量，计时没有停。答案必须由你自己说出来。"));
+    $("simphp").remove();
+    $("mopts").querySelector(".say").textContent = T("In the room, whisper with a leader from your group. On Zoom, send them a private chat. Then answer out loud yourself.",
+                                                     "现场找自己组的 leader 小声商量，Zoom 上私聊。然后你自己把答案说出来。");
+    simZh("PHP 不会让计时停下，商量的时间算在你自己的答题时间里。");
+  };
   every(function(){
     left--; $("msec").textContent = Math.max(0, left);
     box.classList.toggle("warn", left <= 7 && left > 0); box.classList.toggle("out", left <= 0);
     if(left <= 0) simMiss(k, q, "time");
   }, 1000);
   $("simans").onclick = function(){ simCheck(k, q); };
-}
-function simPHP(k, q, resumeAt){
-  simClear(); sim.php--;
-  const g = simG();
-  let left = PHP_SECS;
-  simHost(T("Group " + g + " calls a PHP! Thirty seconds to huddle with your leader. Remember, the answer has to come from you.",
-            "第 " + g + " 组叫 PHP！30 秒去找你们的 leader 商量。记住，答案必须由你自己说出来。"));
-  const box = $("mclock"); box.classList.remove("warn", "out"); box.classList.add("php");
-  $("msec").textContent = left; $("mlab").textContent = T("PHP huddle · sped up for practice", "PHP 商量 · 练习加速");
-  $("mopts").innerHTML = '<p class="say">' + T("In the room, go and whisper with a leader from your group. On Zoom, send them a private chat.",
-                                              "现场就去找自己组的 leader 小声商量，Zoom 上就私聊。") + '</p>';
-  simZh("PHP：计时暂停，30 秒找自己组的 leader 商量。现场小声说，Zoom 上私聊。");
-  every(function(){
-    left = Math.max(0, left - 1); $("msec").textContent = left;
-    if(left === 0){
-      simClear();
-      simHost(T("Huddle's over. Your answer, and it has to come from you, not your leader.", "商量时间到。请作答，答案必须由你自己说，不能是 leader 说。"));
-      simClock(k, q, resumeAt);
-    }
-  }, 100);
 }
 function simCheck(k, q){
   simClear();
@@ -1578,11 +1566,11 @@ function openQ(k){
   $("phprow").onclick = function(e){
     const b = e.target.closest("button"); if(!b || b.disabled) return;
     const g = +b.dataset.g;
-    if(clk && clk.mode === "php" && clk.g === g){
-      game.php[g] = Math.max(0, (game.php[g] || 0) - 1); saveGame(); drawScores(); endPHP(); return;
+    if(clk && clk.php === g){   /* tapped again: take it back */
+      game.php[g] = Math.max(0, (game.php[g] || 0) - 1); clk.php = null; saveGame(); drawScores(); paintClock(); fitStage(); return;
     }
-    if(!clk || clk.mode !== "answer" || clk.left <= 0 || (game.php[g] || 0) >= PHP_MAX) return;
-    game.php[g] = (game.php[g] || 0) + 1; saveGame(); drawScores(); startPHP(g);
+    if(!clk || clk.php || clk.left <= 0 || (game.php[g] || 0) >= PHP_MAX) return;
+    game.php[g] = (game.php[g] || 0) + 1; clk.php = g; saveGame(); drawScores(); paintClock(); fitStage();
   };
   $("awrow").addEventListener("click", function(e){
     const b = e.target.closest("button"); if(!b) return;
@@ -1606,7 +1594,7 @@ function openQ(k){
    somebody thinking out loud and the point is the race; 35 on the 600s and 1000s, which are
    genuinely harder. Three and five minutes on the
    3/6 rows, because those are a leader teaching, not a buzz-in. */
-const PHP_MAX = 3, PHP_SECS = 30;
+const PHP_MAX = 3;
 let tickH = null, clk = null;
 const HEART = '<svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 21.4l-1.4-1.3C5.4 15.4 2 12.3 2 8.5 2 5.4 4.4 3 7.5 3c1.7 0 3.4.8 4.5 2.1C13.1 3.8 14.8 3 16.5 3 19.6 3 22 5.4 22 8.5c0 3.8-3.4 6.9-8.6 11.6L12 21.4z"/></svg>';
 function phpDots(left){
@@ -1618,37 +1606,32 @@ function runClock(){
   clearInterval(tickH); paintClock();
   tickH = setInterval(function(){
     clk.left = Math.max(0, clk.left - 1); paintClock();
-    if(clk.left === 0){ clearInterval(tickH); if(clk.mode === "php") endPHP(); }
+    if(clk.left === 0) clearInterval(tickH);
   }, 1000);
 }
 function paintClock(){
   const box = $("timer"); if(!box || !clk) return;
-  const php = clk.mode === "php";
   $("tval").textContent = clk.left;
-  box.classList.toggle("php", php);
-  box.classList.toggle("warn", !php && clk.left <= 7 && clk.left > 0);
-  box.classList.toggle("out", !php && clk.left <= 0);
-  $("tlab").textContent = php ? "PHP · Group " + clk.g + " huddle" : (clk.left > 0 ? "seconds" : "time's up");
-  $("phpnote").hidden = !php;
+  box.classList.toggle("warn", clk.left <= 7 && clk.left > 0);
+  box.classList.toggle("out", clk.left <= 0);
+  $("tlab").textContent = clk.left > 0 ? (clk.php ? "seconds · Group " + clk.php + " on a PHP" : "seconds") : "time's up";
+  $("phpnote").hidden = !clk.php;
   paintPHP();
 }
 function paintPHP(){
   const row = $("phprow"); if(!row || !row.dataset.on) return;
   row.innerHTML = '<span class="plbl">PHP</span>' + GROUPS.map(function(g){
-    const left = PHP_MAX - (game.php[g] || 0), live = clk && clk.mode === "php" && clk.g === g;
-    const off = !live && (left <= 0 || !clk || clk.mode !== "answer" || clk.left <= 0);
+    const left = PHP_MAX - (game.php[g] || 0), live = clk && clk.php === g;
+    const off = !live && (left <= 0 || !clk || clk.left <= 0 || !!clk.php);
     return '<button data-g="'+g+'"'+(live ? ' class="live"' : '')+(off ? ' disabled' : '')+'>Group '+g+' '+phpDots(left)+'</button>';
   }).join("");
 }
 function startTimer(total){
-  clk = { mode: "answer", total: total, left: total };
+  clk = { total: total, left: total, php: null };
   if(!$("timer")) return;
   $("trestart").onclick = function(){ startTimer(total); fitStage(); };
   runClock();
 }
-/* The huddle pauses the answer clock and remembers where it was. */
-function startPHP(g){ clk = { mode: "php", total: clk.total, left: PHP_SECS, g: g, resume: clk.left }; runClock(); fitStage(); }
-function endPHP(){ clk = { mode: "answer", total: clk.total, left: clk.resume }; runClock(); fitStage(); }
 /* Start as big as the wall allows, then step down until the question (or the answer and its
    note) fits the card without scrolling. Long questions end up smaller, short ones huge. */
 function fitStage(){
