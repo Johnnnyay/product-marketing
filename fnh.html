@@ -279,10 +279,10 @@ p.cn,.cn{color:var(--ink-2)}
 .mkick{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin:0 0 6px}
 .mtopic{font-weight:700;font-size:19px;line-height:1.35;color:var(--ink);margin:4px auto 12px;max-width:30ch}
 .mopts{display:grid;gap:8px;margin-top:12px}
-.mopts button{font:inherit;font-weight:700;font-size:16px;background:#fff;border:2px solid var(--line-2);border-radius:10px;
-  padding:12px;cursor:pointer;color:var(--ink)}
-.mopts button:hover{border-color:var(--sage);background:var(--sage-light)}
-.mopts .say{font-size:12.5px;color:var(--muted);margin:0}
+.mopts .say{font-size:14px;color:var(--muted);margin:0}
+.ansbox{border:2px solid var(--jade);border-radius:10px;padding:10px 12px;background:var(--sage-light)}
+.ansbox small{display:block;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.ansbox b{font-size:20px;color:var(--jade)}
 .res{font-weight:800;font-size:24px;text-align:center;border-radius:12px;padding:14px;line-height:1.25}
 .res.good{background:var(--sage-light);color:var(--jade)}
 .res.bad{background:#FBE9E9;color:var(--red)}
@@ -1059,13 +1059,13 @@ document.addEventListener("keydown", function(e){ if(e.key === "Escape" && !$("w
    square, the host reads, and only then the clock. The questions are deliberately not
    tonight's, and nothing here touches the real scores. */
 const PRACTICE = [
-  ["What does FNH stand for?", "Friday Night Hangout", ["Friday Night Huddle", "Family Night Hangout"]],
-  ["What does DCR stand for?", "Daily Core Run", ["Daily Call Report", "Daily Check-in Routine"]],
-  ["What does IBO stand for?", "Independent Business Owner", ["International Business Office", "Independent Brand Operator"]],
-  ["What does DTM stand for?", "Dropping the Message", ["Daily Team Meeting", "Direct to Mentor"]],
-  ["What does HTP stand for?", "Honoring the Partnership", ["Help the Partner", "Hold the Plan"]],
-  ["What does MG stand for?", "Meet and Greet", ["Mentor Group", "Main Goal"]],
-  ["In our team, what does LLC stand for?", "Legacy Leadership Collective", ["Local Leaders Circle", "Leaders Learning Club"]]
+  ["What does FNH stand for?", "Friday Night Hangout"],
+  ["What does DCR stand for?", "Daily Core Run"],
+  ["What does IBO stand for?", "Independent Business Owner"],
+  ["What does DTM stand for?", "Dropping the Message"],
+  ["What does HTP stand for?", "Honoring the Partnership"],
+  ["What does MG stand for?", "Meet and Greet"],
+  ["In our team, what does LLC stand for?", "Legacy Leadership Collective"]
 ];
 const PRACTICE_TOPIC = {
   1500: "The best advice a mentor ever gave you, and what you did with it.",
@@ -1190,11 +1190,11 @@ function simRead(k){
   simHost(p.cat + ", " + p.v + ". Here's your question: " + q[0], true, function(){ simClock(k, q); });
 }
 function simClock(k, q){
-  const p = parseKey(k);
-  const opts = [q[1]].concat(q[2]).sort(function(){ return Math.random() - .5; });
-  $("mopts").innerHTML = '<p class="say">Tonight you say it out loud. Here, tap it.</p>'
-    + opts.map(function(o){ return '<button data-a="' + esc(o) + '">' + esc(o) + '</button>'; }).join("");
-  simZh("20 秒开始了。今晚是直接喊出答案，这里点一下就行。");
+  /* No answer choices: tonight nobody gets options, they say it out loud, so the practice
+     keeps the answer off the screen until they have committed to one. */
+  $("mopts").innerHTML = '<p class="say">Say your answer out loud, the way you will tonight.</p>'
+    + '<button class="go simgo" id="simans">I\'ve answered</button>';
+  simZh("20 秒开始了。像今晚一样把答案大声说出来，说完点下面的按钮。");
   let left = 20;
   const box = $("mclock"); box.classList.remove("wait"); $("mlab").textContent = "seconds";
   every(function(){
@@ -1202,9 +1202,18 @@ function simClock(k, q){
     box.classList.toggle("warn", left <= 7 && left > 0); box.classList.toggle("out", left <= 0);
     if(left <= 0) simMiss(k, q, "time");
   }, 1000);
-  $("mopts").querySelectorAll("button").forEach(function(b){
-    b.onclick = function(){ b.dataset.a === q[1] ? simRight(k, q) : simMiss(k, q, "wrong"); };
-  });
+  $("simans").onclick = function(){ simCheck(k, q); };
+}
+function simCheck(k, q){
+  simClear();
+  simHost("Here's the answer: " + q[1] + ". Did you get it?");
+  $("mopts").innerHTML = '<div class="ansbox"><small>Answer</small><b>' + esc(q[1]) + '</b></div>'
+    + '<div class="simbtns" style="margin-top:10px"><button class="go simgo" id="simyes">I got it</button>'
+    + '<button class="btn ghost" id="simno">I missed it</button></div>'
+    + '<p class="say" style="margin-top:8px">Tonight the host decides.</p>';
+  simZh("答案出来了，你答对了吗？今晚由主持人来判。");
+  $("simyes").onclick = function(){ simRight(k, q); };
+  $("simno").onclick = function(){ simMiss(k, q, "wrong"); };
 }
 function simRight(k, q){
   simClear(); simSteps(3);
