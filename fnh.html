@@ -463,6 +463,11 @@ p.cn,.cn{color:var(--ink-2)}
 .phprow button.live .hearts svg{fill:rgba(255,255,255,.35)}
 .phprow button.live .hearts i.on svg{fill:#FF6B8B}
 .scteam .phpd .hearts svg{width:16px;height:15px}
+/* host resets: tucked at the bottom of the board, each one asks first */
+.hostreset{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:44px 0 0;padding-top:16px;border-top:2px solid var(--line)}
+.hostreset .hr-l{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:6px}
+.hostreset button{font:inherit;font-size:13px;font-weight:700;background:#fff;border:2px solid var(--line);color:var(--ink-2);border-radius:8px;padding:6px 12px;cursor:pointer}
+.hostreset button:hover{border-color:var(--red);color:var(--red)}
 .scteam .phpd{display:flex;justify-content:center;align-items:center;gap:5px;margin-top:3px;font-size:10.5px;font-weight:800;
   letter-spacing:.1em;color:#0E6E8C}
 .mclock.php .s{color:#0E6E8C}
@@ -725,6 +730,14 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
     <div class="board" id="board"></div>
   </div>
 
+  <div class="hostreset" id="hostreset">
+    <span class="hr-l">Reset on this laptop</span>
+    <button type="button" data-r="scores">Scores &amp; squares</button>
+    <button type="button" data-r="php">PHP hearts</button>
+    <button type="button" data-r="group">My group on this device</button>
+    <button type="button" data-r="all">Everything</button>
+  </div>
+
   
   
 
@@ -861,14 +874,14 @@ const Q = {
  a:"Any two of: 42, 53, 55B, 401.",
  t:"NSF is an independent testing organization. 42 covers taste and odor, 53 health-related contaminants, 55 UV treatment, and 401 emerging contaminants like traces of pharmaceuticals. Independent proof, not just a claim.",
  w:"", s:"Spring 2026 Home Catalog p.4"},
-"g3-100":{q:"Amway's co-founding DeVos family owns an NBA team. Which team, and since what year?",
- a:"The Orlando Magic, since 1991.",
- t:"You can't just buy an NBA team: every new owner goes through a league review and needs the approval of at least three-quarters of the other team owners. Rich DeVos bought the Magic for $85 million, and it's now valued at over $3 billion, still in the family 35 years later. That's how far a business built on sharing products person to person can go.",
- w:"Johnny", s:"Washington Post, Sep 1991 ($85M) \u00b7 Forbes NBA valuations \u00b7 NBA Constitution and By-Laws (3/4 vote)"},
-"g3-300":{q:"Before they started Amway, what did Rich DeVos and Jay Van Andel do together for ten years, and what does the name Amway stand for?",
+"g3-100":{q:"Before they started Amway, what did Rich DeVos and Jay Van Andel do together for ten years, and what does the name Amway stand for?",
  a:"They were Nutrilite distributors, and Amway stands for American Way.",
  t:"They built Amway on four Founders' Fundamentals. Freedom: the chance to change your life by owning a business. Family: a community that cheers you on. Hope: the belief that a better future is possible for anyone. Reward: earning in proportion to the effort you put in. Two friends started it in their basements in 1959, and those four ideas still guide the company.",
  w:"", s:"Amway: Our Principles (Founders' Fundamentals) \u00b7 Amway: Our founders"},
+"g3-300":{q:"Amway's co-founding DeVos family owns an NBA team. Which team, and since what year?",
+ a:"The Orlando Magic, since 1991.",
+ t:"You can't just buy an NBA team: every new owner goes through a league review and needs the approval of at least three-quarters of the other team owners. Rich DeVos bought the Magic for $85 million, and it's now valued at over $3 billion, still in the family 35 years later. That's how far a business built on sharing products person to person can go.",
+ w:"Johnny", s:"Washington Post, Sep 1991 ($85M) \u00b7 Forbes NBA valuations \u00b7 NBA Constitution and By-Laws (3/4 vote)"},
 "g3-600":{q:"In 1979, after years of investigation, the U.S. Federal Trade Commission ruled on Amway's business model. What did it rule, and name one safeguard it pointed to.",
  a:"That Amway is not a pyramid scheme. Safeguards: buying back unsold products, the 10 retail customers rule, the 70% rule.",
  t:"Few companies have had their business model examined that closely by a federal regulator and come out ruled legitimate. Those three \"Amway safeguards\" became the standard direct selling is measured against: a real business is built on products reaching real customers, not on recruiting.",
@@ -1416,6 +1429,27 @@ function bump(g, d){
 function saveGame(){
   try{ localStorage.setItem("fnh-game-v2", JSON.stringify(game)); }catch(e){}
 }
+
+/* ---------- host resets ----------
+   Scores, PHP hearts and a phone's own group all live in this browser only, so these clear
+   this machine and nothing else. Every one asks before it does anything. */
+function hostReset(what){
+  const ask = {
+    scores: "Reset every score and reopen every square on this laptop?",
+    php: "Give every group its three PHP hearts back?",
+    group: "Clear the group saved on this device?",
+    all: "Reset scores, squares, PHP hearts and this device's group?"
+  }[what];
+  if(!confirm(ask)) return;
+  if(what === "scores" || what === "all"){ game.scores = {}; game.awarded = {}; game.played = {}; }
+  if(what === "php" || what === "all"){ game.php = {}; }
+  if(what === "group" || what === "all"){
+    me = null; try{ localStorage.removeItem("fnh-me"); }catch(e){}
+    $("form").hidden = false; $("result").hidden = true;
+  }
+  saveGame(); lastLeads = ""; drawScores(); drawBoard();
+}
+document.querySelectorAll("#hostreset [data-r]").forEach(function(b){ b.onclick = function(){ hostReset(b.dataset.r); }; });
 
 /* ---------- draw a group ---------- */
 let mode = "draw", picked = null;
