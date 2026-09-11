@@ -85,6 +85,44 @@ input:focus{border-color:var(--sage)}
 /* On the game board the scores sit under the nav and stick to the top of the screen, so
    the room can see them whichever part of the board the host has scrolled to. */
 #scores2{position:sticky;top:0;z-index:5;background:var(--ground);margin:0 0 8px;padding:8px 0}
+#scores2 .scteam{cursor:pointer;position:relative}
+#scores2 .scteam.arm{outline:4px solid var(--amber);outline-offset:3px}
+#scores2 .scteam.arm::after{content:"Tap again to celebrate";position:absolute;left:0;right:0;
+  bottom:-24px;font-size:12px;font-weight:800;color:var(--amber);letter-spacing:.02em}
+
+/* ---- the winner's screen. The whole screen goes the winning group's colour, which is
+   the one thing a weak projector shows at full strength, and the type sits on it in white. */
+#win{position:fixed;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;
+  background:var(--wc,#345043);color:#fff;overflow:hidden;cursor:pointer}
+#confetti{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.win-card{position:relative;text-align:center;padding:40px 30px;width:100%;max-width:1140px}
+.win-eyebrow{font-weight:800;font-size:clamp(14px,1.7vw,22px);letter-spacing:.24em;
+  text-transform:uppercase;opacity:.86}
+.win-group{font-weight:800;font-size:clamp(76px,13vw,200px);line-height:.92;letter-spacing:-.045em;
+  margin:14px 0 12px}
+.win-leads{font-weight:700;font-size:clamp(18px,2.4vw,32px);opacity:.94}
+.win-score{font-weight:800;font-size:clamp(30px,4.4vw,62px);margin:24px 0 30px;
+  font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.win-stand{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.win-stand div{background:rgba(255,255,255,.14);border:2px solid rgba(255,255,255,.32);
+  border-radius:14px;padding:12px 22px;min-width:160px}
+.win-stand div.me{background:#fff;color:var(--wc);border-color:#fff}
+.win-stand b{display:block;font-size:13px;letter-spacing:.14em;text-transform:uppercase;opacity:.82}
+.win-stand span{font-weight:800;font-size:30px;font-variant-numeric:tabular-nums}
+.win-won{margin:26px auto 0;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:960px}
+.win-won .won-h{flex-basis:100%;font-size:14px;font-weight:800;letter-spacing:.16em;
+  text-transform:uppercase;opacity:.8;margin-bottom:4px}
+.win-won span{background:rgba(255,255,255,.16);border-radius:999px;padding:6px 15px;font-weight:600;font-size:15px}
+.win-close{position:absolute;bottom:18px;left:0;right:0;text-align:center;font-size:13px;opacity:.55}
+@media (prefers-reduced-motion:no-preference){
+  #win:not([hidden]){animation:winIn .35s ease}
+  #win:not([hidden]) .win-group{animation:winPop .85s cubic-bezier(.2,1.5,.4,1) .12s both}
+  #win:not([hidden]) .win-leads{animation:winUp .5s ease .55s both}
+  #win:not([hidden]) .win-stand,#win:not([hidden]) .win-won{animation:winUp .6s ease 1s both}
+}
+@keyframes winIn{from{opacity:0}to{opacity:1}}
+@keyframes winPop{from{transform:scale(.35);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes winUp{from{transform:translateY(22px);opacity:0}to{transform:none;opacity:1}}
 
 .roster{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
 .grp{background:var(--panel);border:2px solid var(--line);border-radius:12px;padding:14px 15px;
@@ -441,6 +479,19 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
 
 <div class="ovl" id="ovl"><div class="qcard" id="qcard"></div></div>
 
+<div id="win" hidden>
+  <canvas id="confetti"></canvas>
+  <div class="win-card">
+    <div class="win-eyebrow">JL Team Jeopardy &nbsp;·&nbsp; Champions</div>
+    <div class="win-group" id="winGroup"></div>
+    <div class="win-leads" id="winLeads"></div>
+    <div class="win-score"><span id="winScore">0</span> points</div>
+    <div class="win-stand" id="winStand"></div>
+    <div class="win-won" id="winWon"></div>
+  </div>
+  <div class="win-close">Click anywhere to close</div>
+</div>
+
 <script>
 const PASS = "66866";
 const GROUPS = [1,2,3,4];
@@ -598,6 +649,108 @@ function key(n){ return norm(n).replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").
 function esc(s){ return String(s).replace(/[&<>"]/g,function(c){
   return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
 
+
+
+/* ---------- the winner's screen ----------
+   Tap a group's score twice to celebrate it. One tap only arms it, for three seconds, because
+   those tiles sit at the top of the projection all night and a stray click at 8:20 should not
+   crown anybody. The host decides who won; the standings underneath show the real numbers. */
+const GROUP_COLOURS = ["", "#96420A", "#1546B0", "#345043", "#5B3391"];
+const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let armed = 0, armT = null, confRAF = null;
+function fmtN(n){ return Number(n || 0).toLocaleString("en-US"); }
+$("scores2").addEventListener("click", function(e){
+  const t = e.target.closest(".scteam"); if(!t) return;
+  const g = +t.dataset.g;
+  clearTimeout(armT);
+  document.querySelectorAll("#scores2 .scteam.arm").forEach(function(x){ x.classList.remove("arm"); });
+  if(armed === g){ armed = 0; celebrate(g); return; }
+  armed = g; t.classList.add("arm");
+  armT = setTimeout(function(){ armed = 0; t.classList.remove("arm"); }, 3000);
+});
+function celebrate(g){
+  const col = GROUP_COLOURS[g];
+  $("win").style.setProperty("--wc", col);
+  $("winGroup").textContent = "Group " + g;
+  $("winLeads").textContent = (LEAD_BY_GROUP[g] || []).join("  ·  ");
+  const sc = function(x){ return game.scores[x] || 0; };
+  const ranked = GROUPS.slice().sort(function(a, b){ return sc(b) - sc(a) || a - b; });
+  const ORD = ["", "1st", "2nd", "3rd", "4th"];
+  $("winStand").innerHTML = ranked.map(function(x){
+    const rank = 1 + GROUPS.filter(function(y){ return sc(y) > sc(x); }).length;   /* ties share a place */
+    return '<div class="' + (x === g ? "me" : "") + '"><b>' + ORD[rank] + ' · Group ' + x + '</b>'
+      + '<span>' + fmtN(sc(x)) + '</span></div>';
+  }).join("");
+  const won = Object.keys(game.awarded || {}).filter(function(k){ return game.awarded[k] === g; })
+    .map(parseKey).sort(function(a, b){ return b.v - a.v; });
+  $("winWon").innerHTML = won.length
+    ? '<div class="won-h">' + won.length + (won.length === 1 ? " square" : " squares") + ' won</div>'
+      + won.map(function(p){ return '<span>' + esc(p.cat) + ' ' + p.v + '</span>'; }).join("")
+    : "";
+  $("win").hidden = false;
+  countUp($("winScore"), sc(g));
+  startConfetti();
+}
+function countUp(el, to){
+  if(REDUCE){ el.textContent = fmtN(to); return; }
+  const t0 = performance.now(), d = 1700;
+  (function step(t){
+    const p = Math.min(1, (t - t0) / d);
+    el.textContent = fmtN(Math.round(to * (1 - Math.pow(1 - p, 3))));
+    if(p < 1) requestAnimationFrame(step);
+  })(t0);
+}
+/* Hand-rolled rather than a library: nothing to load, nothing to fail on the venue's wifi.
+   Two cannons from the bottom corners, two more rounds, and a light rain from the top. */
+function startConfetti(){
+  if(REDUCE) return;
+  const cv = $("confetti"), ctx = cv.getContext("2d");
+  const dpr = Math.min(2, window.devicePixelRatio || 1);
+  cv.width = innerWidth * dpr; cv.height = innerHeight * dpr;
+  const W = cv.width, H = cv.height;
+  const COLS = ["#FFFFFF", "#F4D06F", "#E8B64C", "#CFE0D4", "#FFD9C2", "#C9D8FF"];
+  const parts = [];
+  function spawn(x, y, n, a0, a1, speed){
+    for(let i = 0; i < n; i++){
+      const a = (a0 + Math.random() * (a1 - a0)) * Math.PI / 180;
+      const v = speed * (0.55 + Math.random() * 0.6) * dpr;
+      parts.push({ x: x, y: y, vx: Math.cos(a) * v, vy: Math.sin(a) * v,
+        w: (7 + Math.random() * 8) * dpr, h: (4 + Math.random() * 5) * dpr,
+        r: Math.random() * 6.28, vr: (Math.random() - 0.5) * 0.32, c: COLS[i % COLS.length] });
+    }
+  }
+  function cannons(n, speed){ spawn(0, H, n, -78, -44, speed); spawn(W, H, n, -136, -102, speed); }
+  cannons(150, 27);
+  const t0 = performance.now(), rainUntil = t0 + 3800, rounds = [1150, 2300];
+  let last = t0;
+  cancelAnimationFrame(confRAF);
+  function frame(now){
+    const dt = Math.min(2.5, (now - last) / 16.67); last = now;
+    if(rounds.length && now - t0 > rounds[0]){ rounds.shift(); cannons(95, 25); }
+    if(now < rainUntil) spawn(Math.random() * W, -20 * dpr, 3, 80, 100, 3);
+    ctx.clearRect(0, 0, W, H);
+    for(let i = parts.length - 1; i >= 0; i--){
+      const p = parts[i];
+      p.vy += 0.34 * dpr * dt;
+      p.vx *= Math.pow(0.99, dt); p.vy *= Math.pow(0.992, dt);
+      p.x += p.vx * dt; p.y += p.vy * dt; p.r += p.vr * dt;
+      if(p.y > H + 40 * dpr){ parts.splice(i, 1); continue; }
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r);
+      ctx.fillStyle = p.c;
+      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, Math.abs(Math.cos(p.r * 1.7)) * p.h + 1);
+      ctx.restore();
+    }
+    if(parts.length || now < rainUntil || rounds.length) confRAF = requestAnimationFrame(frame);
+  }
+  confRAF = requestAnimationFrame(frame);
+}
+function closeWin(){
+  $("win").hidden = true;
+  cancelAnimationFrame(confRAF);
+  const cv = $("confetti"); cv.getContext("2d").clearRect(0, 0, cv.width, cv.height);
+}
+$("win").addEventListener("click", closeWin);
+document.addEventListener("keydown", function(e){ if(e.key === "Escape" && !$("win").hidden) closeWin(); });
 
 /* ---------- one navigation, three destinations, identical on every page ---------- */
 const PAGES = [[3,"instruction"],[1,"participant page"],[2,"game board"]];
