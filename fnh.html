@@ -82,6 +82,9 @@ input:focus{border-color:var(--sage)}
 .scteam .pt{font-weight:800;font-size:40px;color:var(--ink);font-variant-numeric:tabular-nums;
   line-height:1.08;letter-spacing:-.03em}
 .scteam.lead{border-color:var(--sage);background:var(--sage-light)}
+/* On the game board the scores sit under the nav and stick to the top of the screen, so
+   the room can see them whichever part of the board the host has scrolled to. */
+#scores2{position:sticky;top:0;z-index:5;background:var(--ground);margin:0 0 8px;padding:8px 0}
 
 .roster{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
 .grp{background:var(--panel);border:2px solid var(--line);border-radius:12px;padding:14px 15px;
@@ -422,15 +425,11 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
 <!-- ===================== PAGE TWO ===================== -->
 <div class="wrap wide" id="p2" hidden>
   <nav class="topnav" id="nav2"></nav>
+  <div class="sc" id="scores2"></div>
   <h1 style="font-size:30px;margin-bottom:14px">JL Team Jeopardy</h1>
 
   <div>
     <div class="board" id="board"></div>
-    <div class="legend">
-      <span>Open a square, the clock starts, then award it. Scores live in this browser, so drive the whole game from one machine.</span>
-    </div>
-    <h2>Scores</h2>
-    <div class="sc" id="scores2"></div>
   </div>
 
   
@@ -550,14 +549,14 @@ const Q = {
  a:"Play Huddle Play.",
  t:"You work it through with your coach before the live action, you go and do it, then you come back and debrief. It is how the skill gets built between meetings.",
  w:"", s:"CLAUDE.md glossary"},
-"g4-600":{q:"CAPTain is not a rank. What does it stand for?",
- a:"Call After Prime Time.",
- t:"The call you make after the day is done, which is the one that builds the line between circles. Once there's a weekly meeting people stop reaching out in between and just wait for it, and that is exactly when this call is worth the most. People stay because of the relationship with their upline, not the instruction.",
- w:"Vemon", s:"Retention · Relationship building"},
-"g4-1000":{q:"The four beliefs, outside in. All four, and which one is hardest?",
- a:"Your faith, the supplier, the education system and mentorship, and yourself. The fourth is hardest.",
- t:"The third does the most work: whether you're growing or I'm growing, the system is growing, which means somebody is doing the same thing and getting results, which means we simply haven't done what they did yet. Same actions, the volume of work has to catch up. The fourth is the only one you cannot look up.",
- w:"Boyan", s:"Networking · The four beliefs"},
+"g4-600":{q:"What is the full six-step workflow of an ideal PHP?",
+ a:"When a candidate replies: 1, take a screenshot. 2, send it to your coach with what you plan to say. 3, your coach edits the reply. 4, you rewrite it so it sounds like you. 5, your coach agrees. 6, send it to the candidate.",
+ t:"Step four is the one people skip. The coach gets the substance right; your rewrite is what makes it sound like you, so the candidate never feels they are talking to a script.",
+ w:"Vemon", s:"Johnny · PHP workflow"},
+"g4-1000":{q:"Spell out the full name of our EDC mentor, Rashmi.",
+ a:"Rashmiranjan Jyotiprakash.  R-A-S-H-M-I-R-A-N-J-A-N  J-Y-O-T-I-P-R-A-K-A-S-H",
+ t:"Knowing your line of sponsorship by name, and spelling it right, is part of plugging in to the mentorship.",
+ w:"Boyan", s:"Johnny · line of sponsorship"},
 "a0-1500":{q:"You're not a product expert and you're not a salesperson. How do you still create retail, and how do you get a candidate who dropped out into a product session?",
  a:"Personal delivery, no set answer.",
  t:"Hit all three or it turns into one anecdote. The expertise beat: we're not branding ourselves as nutritionists, we use AI and credible government information, and the report carries the technical part. The dropout beat: they said no to a business, not to their own health, and the product session is a different conversation with a different door. The introvert beat: a thirty-second demo does the talking, and the smallest first ask, the mint spray, needs no persuasion at all.",
