@@ -175,7 +175,8 @@ input:focus{border-color:var(--sage)}
   font-variant-numeric:tabular-nums;letter-spacing:-.03em}
 .grp.ahead{border-color:var(--sage);background:var(--sage-light)}
 .grp.ahead .score{color:var(--sage)}
-.grp .leadline{margin:6px 0 0;font-size:14px;color:var(--sage);font-weight:700;line-height:1.35}
+.grp .leadlbl{margin:6px 0 0;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.grp .leadline{margin:2px 0 0;font-size:20px;color:var(--ink);font-weight:800;line-height:1.3}
 .grp ul{list-style:none;margin:0;padding:0;font-size:15px;color:var(--ink-2)}
 .grp li{padding:2px 0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .grp li.me{color:var(--jade);font-weight:800}
@@ -219,6 +220,69 @@ p.cn,.cn{color:var(--ink-2)}
 .rule.turn{--rc:#4B5E91;--rbg:#EBEFF7}
 .rule.php{--rc:#0E6E8C;--rbg:#E3F1F5}
 .rule.honest{--rc:var(--amber);--rbg:var(--amber-light)}
+/* ---- the two click-through tours on the instruction page, built to be screen-shared ---- */
+#p3 .part{display:flex;align-items:center;gap:12px;margin:38px 0 12px}
+#p3 .part h2{margin:0}
+.partno{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--sage);color:#fff;font-weight:800;font-size:20px;flex:none}
+.tour{background:var(--panel);border:2px solid var(--line);border-radius:18px;padding:16px 18px 18px}
+.tour-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.tour-n{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.tour-dots{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.tour-dots button{width:10px;height:10px;border-radius:999px;border:0;background:var(--line);padding:0;cursor:pointer}
+.tour-dots button.on{background:var(--sage);width:24px}
+.tour-stage{min-height:300px;display:flex;flex-direction:column;justify-content:center;gap:10px;background:var(--ground);border-radius:14px;padding:16px}
+.tour-t{margin:16px 0 4px;font-size:24px;color:var(--ink)}
+.tour-c{margin:0 0 14px;font-size:17px;line-height:1.5;color:var(--ink-2);max-width:none}
+.tour-nav{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.tour-nav .go{width:auto;padding:12px 28px;font-size:17px}
+.tour-nav .btn{padding:10px 20px;font-size:16px}
+.tour-nav .btn:disabled{opacity:.35;cursor:default}
+.tour .mc{cursor:default}
+.tour .mc.pick{outline:4px solid #FFC928;outline-offset:2px}
+@media (prefers-reduced-motion:no-preference){ .tour .mc.pick{animation:pickPulse 1.2s ease-in-out infinite} }
+@keyframes pickPulse{50%{outline-offset:6px}}
+.tag-pr{align-self:center;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.tdiv{display:flex;align-items:center;gap:10px;margin:2px 0}
+.tdiv::before,.tdiv::after{content:"";flex:1;height:3px;background:var(--amber)}
+.tdiv span{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
+.linkbox{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap}
+.qr{background:#fff;padding:10px;border-radius:12px;border:2px solid var(--line);width:192px;height:192px}
+.qr img,.qr canvas{display:block}
+.lk-l{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.lk-u{font-weight:800;font-size:22px;color:var(--sage);line-height:1.3;max-width:15ch}
+.phone{width:230px;margin:0 auto;border:10px solid #1D2420;border-radius:32px;background:#fff;padding:22px 14px 18px;position:relative;box-shadow:0 10px 30px rgba(20,26,22,.18)}
+.pnotch{position:absolute;top:6px;left:50%;transform:translateX(-50%);width:60px;height:6px;border-radius:9px;background:#1D2420}
+.pscreen{display:flex;flex-direction:column;gap:8px;min-height:210px;justify-content:center}
+.pt-h{font-weight:800;font-size:15px;text-align:center;margin-bottom:4px}
+.pt-l{font-size:11px;font-weight:700;color:var(--muted)}
+.pt-in{border:2px solid var(--line-2);border-radius:8px;padding:8px 10px;font-weight:700;min-height:38px}
+.caret{display:inline-block;width:2px;height:16px;background:var(--sage);vertical-align:-3px;margin-left:1px}
+@media (prefers-reduced-motion:no-preference){ .caret{animation:blink 1s steps(1) infinite} }
+@keyframes blink{50%{opacity:0}}
+.pt-two{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.pt-two span{border:2px solid var(--line);border-radius:8px;padding:7px 4px;font-size:11px;font-weight:700;text-align:center;color:var(--ink-2)}
+.pt-two span.on{background:var(--sage);border-color:var(--sage);color:#fff}
+.pt-go{background:var(--sage);color:#fff;border-radius:9px;text-align:center;font-weight:800;padding:10px;font-size:14px}
+.pt-big{font-weight:800;font-size:84px;line-height:1;text-align:center;color:var(--g2)}
+.pt-lead{font-size:13px;font-weight:700;text-align:center;color:var(--sage)}
+.tgroups{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ztile{align-self:center;width:280px;max-width:100%;aspect-ratio:16/10;background:#2A2F2C;border-radius:14px;position:relative;display:flex;align-items:center;justify-content:center}
+.zav{width:72px;height:72px;border-radius:50%;background:#5B6B9A;color:#fff;font-weight:800;font-size:32px;display:grid;place-items:center}
+.zname{position:absolute;left:10px;bottom:10px;background:rgba(0,0,0,.6);color:#fff;font-weight:700;font-size:15px;padding:4px 10px;border-radius:6px;transition:transform .3s;transform-origin:left bottom}
+.zname.on{transform:scale(1.2)} .zname b{color:#FFC928}
+.thand{min-height:30px;text-align:center;font-weight:800;font-size:18px;color:var(--ink)}
+.straight{display:grid;gap:10px;justify-items:center}
+.straight span{font-weight:800;font-size:clamp(26px,5vw,42px);color:var(--amber);letter-spacing:-.01em}
+@media (min-width:1000px){ #p3{max-width:900px} .tour-stage{min-height:360px} .tour-t{font-size:28px} .tour-c{font-size:19px}
+  .tour .mb .mc{font-size:20px;padding:14px 0} .tour .mb .mh{font-size:13px} }
+/* host script: step labels that match the tour, and the tech cue */
+.scr .sstep{display:flex;align-items:center;gap:10px;margin:18px 0 6px}
+.scr .sstep:first-of-type{margin-top:4px}
+.scr .sn{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--sage);color:#fff;font-weight:800;font-size:14px;flex:none}
+.scr .st{font-weight:800;font-size:15px;color:var(--sage);letter-spacing:.02em}
+.scr p.tnext{margin:-4px 0 6px;text-align:right}
+.tcue{display:inline-block;background:#20558A;color:#fff;border-radius:999px;padding:3px 12px;font-size:14px;font-weight:800;font-style:normal;white-space:nowrap}
+
 .move .zt{margin:0 0 8px;color:var(--muted);font-weight:700;font-size:14px}
 .move p{margin:0 0 8px;font-size:15px;line-height:1.5}
 .move p.cn{font-size:14.5px}
@@ -500,13 +564,6 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
   <h2>The four groups</h2>
   <div class="roster" id="groups"></div>
 
-  <div class="note"><b>How it works.</b> The host counts 3, 2, 1 and the <b>first hand up picks
-  any square</b>. The host reads the question, then you have <b>20 seconds</b> (35 on the 600s and 1000s). Right, your group
-  takes the points. Wrong or out of time, <b>your group loses the square</b> and the other side
-  races for it. Each group gets <b>three PHPs</b>: the player can huddle with a leader, but the
-  clock keeps running and the answer has to come from the player. The <b>green board</b> is open to everyone. The <b>orange board</b>, 1500 and 2000,
-  is 3/6 and above, and you share on a topic instead of answering.
-  <a href="#" id="howlink">See how to play</a></div>
 
 </div>
 
@@ -525,35 +582,16 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
   square, and a right answer wins the points for your group.</p>
   <p class="lede" lang="zh">四个组的抢答游戏。主持人一喊开始，大家抢着举手，最快的人挑一格来答，答对了分数就归你们组。</p>
 
-  <h2 lang="en">The whole game in four moves</h2>
-  <h2 lang="zh">整个游戏就四步</h2>
-  <div class="moves">
-    <div class="move">
-      <div class="mtop"><span class="n">1</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="3.2"/><circle cx="16.5" cy="9" r="2.6"/><path d="M2.5 19c.6-3.3 2.8-5 5.5-5s4.9 1.7 5.5 5M13.5 15.2c.9-.8 1.9-1.2 3-1.2 2.2 0 3.9 1.4 4.5 4.3"/></svg></div>
-      <h3 lang="en">Get a group</h3><h3 lang="zh">先拿组号</h3>
-      <p lang="en">On the participant page, draw a group or choose one. On Zoom, put the number in front of your name, like <b>2 Kevin</b>.</p>
-      <p lang="zh">在 participant page 输入名字，抽一个组或者自己选。Zoom 上把组号加在名字前面，比如 <b>2 Kevin</b>。</p>
-    </div>
-    <div class="move">
-      <div class="mtop"><span class="n">2</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12V5.5a1.5 1.5 0 0 1 3 0V11M11 10.5V4a1.5 1.5 0 0 1 3 0v6.5M14 10.5V5.5a1.5 1.5 0 0 1 3 0V13M17 11.5a1.5 1.5 0 0 1 3 0V15a7 7 0 0 1-7 7h-.5a6.5 6.5 0 0 1-5.3-2.7L4.4 15.4a1.6 1.6 0 0 1 2.5-2L8 14.7V12"/></svg></div>
-      <h3 lang="en">Hands up on 1</h3><h3 lang="zh">喊到 1 再举手</h3>
-      <p lang="en">The host counts <b>3, 2, 1</b>. On 1, hands up. On Zoom, use Raise Hand. A hand before 1 doesn't count.</p>
-      <p lang="zh">主持人喊 <b>3、2、1</b>，喊到 1 才举手，Zoom 上点 Raise Hand。抢跑不算。</p>
-    </div>
-    <div class="move">
-      <div class="mtop"><span class="n">3</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5" class="fill"/></svg></div>
-      <h3 lang="en">Pick any square</h3><h3 lang="zh">任选一格</h3>
-      <p lang="en">The first hand picks any topic, any number. The host reads the question out, and <b>then</b> the clock starts: 20 seconds, or 35 on the 600s and 1000s.</p>
-      <p lang="zh">最快举手的人挑一格，哪个主题、多少分都行。主持人把题读完<b>才</b>开始计时：100 和 300 是 20 秒，600 和 1000 是 35 秒。</p>
-    </div>
-    <div class="move">
-      <div class="mtop"><span class="n">4</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h10v5a5 5 0 0 1-10 0V4zM7 6H4v1.5A3.5 3.5 0 0 0 7.5 11M17 6h3v1.5a3.5 3.5 0 0 1-3.5 3.5M12 14v4M8 21h8M9.5 18h5"/></svg></div>
-      <h3 lang="en">Score, or it passes</h3><h3 lang="zh">答对得分，答错换人</h3>
-      <p lang="en">Right: the points are your group's. Wrong or out of time: your group loses the square, and the <b>other side</b> gets a shot.</p>
-      <p lang="zh">答对，分数归你们组。答错或超时，这一格你们组就丢了，交给<b>另一边</b>来抢。</p>
-    </div>
-  </div>
+  <div class="part"><span class="partno">1</span>
+    <div><h2 lang="en">Get your group</h2><h2 lang="zh">先拿组号</h2></div></div>
+  <section class="tour" id="tourGroup" aria-label="Get your group, step by step"></section>
 
+  <div class="part"><span class="partno">2</span>
+    <div><h2 lang="en">How the game runs</h2><h2 lang="zh">游戏怎么进行</h2></div></div>
+  <section class="tour" id="tourGame" aria-label="How the game runs, step by step"></section>
+
+  <h2 lang="en">House rules</h2>
+  <h2 lang="zh">规则一览</h2>
   <div class="rules">
     <div class="rule boards">
       <h4 lang="en">Two boards</h4><h4 lang="zh">两块板</h4>
@@ -575,24 +613,6 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
       <p lang="en">This game runs on integrity and honesty. No Google, no ChatGPT, no AI of any kind. If you know it, you know it.</p>
       <p lang="zh">这个游戏靠的是诚信。不查 Google，不用 ChatGPT，任何 AI 都不用。会就是会。</p>
     </div>
-  </div>
-
-  <h2 lang="en">Try a practice round</h2>
-  <h2 lang="zh">先玩一局试试</h2>
-  <p class="small" lang="en">Easy practice questions, nothing counts, and tonight's real questions stay secret. Play it the way the room will.</p>
-  <p class="small" lang="zh">练习用的都是简单题，不计分，今晚的正式题目不会出现在这里。按今晚的流程玩一遍。</p>
-
-  <div class="sim" id="sim">
-    <div class="simtabs" role="group" aria-label="Which board to practise">
-      <button type="button" data-m="green" aria-pressed="true"><span lang="en">Green · everyone</span><span lang="zh">绿色 · 所有人</span></button>
-      <button type="button" data-m="orange" aria-pressed="false"><span lang="en">Orange · 3/6+</span><span lang="zh">橙色 · 3/6+</span></button>
-    </div>
-    <div class="steps4" id="simsteps"></div>
-    <div class="sc simsc" id="simsc"></div>
-    <div class="hs"><span class="who"><span lang="en">Host</span><span lang="zh">主持人</span></span><p id="simhost" aria-live="polite"></p></div>
-    <div class="simstage" id="simstage"></div>
-    <p class="simzh" id="simzh" lang="zh"></p>
-    <div class="simfoot"><span id="simme"></span><button type="button" id="simreset"><span lang="en">Start the practice over</span><span lang="zh">重新开始练习</span></button></div>
   </div>
 
   <button class="go" id="togroup" style="margin-top:26px"><span lang="en">Get my group</span><span lang="zh">拿我的组号</span></button>
@@ -619,41 +639,74 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
 <div class="wrap" id="p4" hidden>
   <nav class="topnav" id="nav4"></nav>
   <h1>Host <span>script</span></h1>
-  <p class="sub">Everything you say before the first question, about three minutes. After that,
-  read from the board.</p>
+  <p class="sub">Everything you say before the first question. The tech shares the Instruction page;
+  every time you reach <span class="tcue">Tech: Next ▶</span> they click Next, and the screen moves with you.</p>
   <div class="scr">
     <section>
       <div class="when">~8:10 · Take over from Wyatt</div>
       <p>Thank you, Wyatt! Alright everyone, it's game time. Tonight we're playing JL Team Jeopardy.</p>
       <p>Quick show of hands, who's never seen Jeopardy? Perfect, this one's for you.</p>
+      <p class="dir">Tech: share the Instruction page, Part 1 on screen.</p>
     </section>
+
     <section>
-      <div class="when">Get a group · 30 sec</div>
-      <p>First, everybody needs a group. Open the link in the chat: <b>johnnnyay.github.io/product-marketing/fnh.html</b></p>
-      <p>Type your name, then tap "Draw one for me" or "Let me choose". New friends, if you're not sure, just draw.</p>
-      <p>On Zoom, rename yourself with your group number in front, like "2 Kevin", so we know which group just raised a hand.</p>
+      <div class="when">Part 1 · Get your group</div>
+      <div class="sstep"><span class="sn">1</span><span class="st">Open the link</span></div>
+      <p>First, everybody grab your phone. Open the link in the Zoom chat, or scan the code on the screen.</p>
+      <p class="tnext"><span class="tcue">Tech: Next ▶</span></p>
+      <div class="sstep"><span class="sn">2</span><span class="st">Type your name</span></div>
+      <p>On the participant page, type your name, whatever people actually call you.</p>
+      <p class="tnext"><span class="tcue">Tech: Next ▶</span></p>
+      <div class="sstep"><span class="sn">3</span><span class="st">Draw one, or choose one</span></div>
+      <p>Then you have two ways to get a group. Not sure where to go? Tap "Draw one for me". Know which group you want? Tap "Let me choose". New friends, just draw.</p>
+      <p class="tnext"><span class="tcue">Tech: Next ▶</span></p>
+      <div class="sstep"><span class="sn">4</span><span class="st">Meet your leaders</span></div>
+      <p>Under your number you'll see your group's leaders. Remember them, you'll need them in a minute.</p>
+      <p class="tnext"><span class="tcue">Tech: Next ▶</span></p>
+      <div class="sstep"><span class="sn">5</span><span class="st">On Zoom, rename yourself</span></div>
+      <p>On Zoom, put your group number in front of your name, like "2 Kevin", so I know which group just raised a hand.</p>
       <p>I'll give you thirty seconds.</p>
       <p class="dir">[Wait 30 seconds.]</p>
       <p>Everybody got a number? Group 1, make some noise! Group 2! Group 3! Group 4! Zoom, wave at us!</p>
+      <p class="tnext"><span class="tcue">Tech: Next ▶ (on to Part 2)</span></p>
     </section>
+
     <section>
-      <div class="when">How it works · 90 sec</div>
-      <p>Here's the whole game in four moves.</p>
-      <p><b>One.</b> I count 3, 2, 1. On 1, hands up. On Zoom, use Raise Hand. If your hand goes up before 1, it doesn't count.</p>
-      <p><b>Two.</b> The first hand picks any square. Any topic, any number, you don't have to start at 100. Bigger number, harder question, more points.</p>
-      <p><b>Three.</b> I read the question out, and then the clock starts: 20 seconds on the 100s and 300s, 35 seconds on the harder 600s and 1000s. If it asks for two things, I need both.</p>
-      <p><b>Four.</b> Get it right, and the points go to your group. Get it wrong or run out of time, and your group loses the square. It crosses to the other side. The room and Zoom take turns, so if the room misses, the other three groups on Zoom race for it, and the other way round.</p>
-      <p>So put your hand up when you know it, not when you hope.</p>
-      <p><b>And you have a lifeline: PHP.</b> Every group gets three, the red hearts on the scoreboard, for the whole game, on the green board only. If you get picked and you're stuck, say "PHP" and huddle with any leader in your group. In the room, go and whisper. On Zoom, send them a private chat. The clock does not stop, so the huddle comes out of your own time, and the answer has to come out of your mouth. If your leader says it, it doesn't count. Leaders, keep your Zoom chat open so your Zoom players can reach you.</p>
-      <p>Two boards tonight. The green board, Fitness, Beauty, Home, Amway and Education, is open to everyone. The orange board underneath, 1500 and 2000, is for 3/6 and above, and it's not a quiz. You pick a topic and share. We get there at 8:35.</p>
-      <p>One more thing, and it matters. Tonight runs on integrity and honesty. No Google, no ChatGPT, no AI of any kind. Some of our leaders have seen these questions, so we're trusting everyone to play it straight. If you know it, you know it.</p>
-      <p>Keep an eye on the scores at the top. Whoever's in front wears the crown.</p>
+      <div class="when">Part 2 · How the game runs</div>
+      <div class="sstep"><span class="sn">1</span><span class="st">Two boards</span></div>
+      <p>Two boards tonight. Green, 100 to 1000, is open to everyone, and the bigger the number, the harder the question. Orange, 1500 and 2000, is for 3/6 and above. We get there at 8:35.</p>
+      <p class="tnext"><span class="tcue">Tech: Next ▶</span></p>
+      <div class="sstep"><span class="sn">2</span><span class="st">Hands up on 1</span></div>
+      <p>I count 3, 2, 1. On 1, hands up. On Zoom, use Raise Hand. If your hand goes up before 1, it doesn't count. The room and Zoom take turns.</p>
+      <p class="tnext"><span class="tcue">Tech: Next ▶</span></p>
+      <div class="sstep"><span class="sn">3</span><span class="st">First hand picks any square</span></div>
+      <p>The first hand picks any square. Any topic, any number, you don't have to start at 100.</p>
+      <p class="tnext"><span class="tcue">Tech: Next ▶</span></p>
+      <div class="sstep"><span class="sn">4</span><span class="st">The host reads, then the clock starts</span></div>
+      <p>I read the question out, and then the clock starts: 20 seconds on the 100s and 300s, 35 on the 600s and 1000s. If it asks for two things, I need both.</p>
+      <p class="tnext"><span class="tcue">Tech: Next ▶</span></p>
+      <div class="sstep"><span class="sn">5</span><span class="st">Right: your group scores</span></div>
+      <p>Get it right, and the points go to your group. Keep an eye on the top: whoever's in front wears the crown.</p>
+      <p class="tnext"><span class="tcue">Tech: Next ▶</span></p>
+      <div class="sstep"><span class="sn">6</span><span class="st">Wrong or out of time: it crosses over</span></div>
+      <p>Get it wrong or run out of time, and your group loses the square. It crosses to the other side, and the other three groups race for it. So put your hand up when you know it, not when you hope.</p>
+      <p class="tnext"><span class="tcue">Tech: Next ▶</span></p>
+      <div class="sstep"><span class="sn">7</span><span class="st">Stuck? Call a PHP</span></div>
+      <p>Stuck? You have a lifeline: PHP. Every group gets three, the red hearts under your score. Say "PHP" and huddle with one of your leaders: whisper in the room, private chat on Zoom. The clock does not stop, and the answer has to come out of your mouth. If your leader says it, it doesn't count. Leaders, keep your Zoom chat open.</p>
+      <p class="tnext"><span class="tcue">Tech: Next ▶</span></p>
+      <div class="sstep"><span class="sn">8</span><span class="st">Orange squares: you talk</span></div>
+      <p>The orange squares aren't a quiz. 3/6 and above, you pick a topic and share: three minutes for a 1500, five for a 2000. Deliver it, and the points are your group's. One of each per group.</p>
+      <p class="tnext"><span class="tcue">Tech: Next ▶</span></p>
+      <div class="sstep"><span class="sn">9</span><span class="st">Play it straight</span></div>
+      <p>One more thing, and it matters. Some of our leaders have seen these questions, so tonight runs on integrity and honesty. No Google, no ChatGPT, no AI of any kind. If you know it, you know it.</p>
     </section>
+
     <section>
       <div class="when">Kick off</div>
+      <p class="dir">Tech: switch to the game board.</p>
       <p>Alright, the room goes first. Everybody ready? <b>3, 2, 1!</b></p>
       <p class="dir">[Point to the first hand.] [Name], you got it. Stand up. Which square do you want?</p>
-      <p class="dir">If they freeze: "Want to start easy? Fitness 100?" Read the question first, then say "Tech, open it." The clock starts when Mark opens it. When someone calls a PHP: "Group [N] calls a PHP! Tech, PHP for Group [N]." From here, read from the board.</p>
+      <p class="dir">If they freeze: "Want to start easy? Fitness 100?" Read the question first, then "Tech, open it." The clock starts when Mark opens it. When someone calls a PHP: "Group [N] calls a PHP! Tech, PHP for Group [N]." From here, read from the board.</p>
     </section>
   </div>
 </div>
@@ -1045,306 +1098,225 @@ function closeWin(){
 $("win").addEventListener("click", closeWin);
 document.addEventListener("keydown", function(e){ if(e.key === "Escape" && !$("win").hidden) closeWin(); });
 
-/* ---------- practice round on the instruction page ----------
-   Plays the real flow in the order the room will live it: 3, 2, 1, the first hand picks a
-   square, the host reads, and only then the clock. Everything on the practice board is made
-   up on purpose: its own categories, general-knowledge questions and neutral topics, so
-   nothing here hints at tonight's board. Nothing here touches the real scores either. */
+/* ---------- the instruction page: two click-through tours ----------
+   Built to be screen-shared while the host talks. Every step draws a fixed state, so the tech
+   only ever presses Next and nothing can go off-script live: no random groups, no timing traps.
+   The practice board, question and topic are made up on purpose; nothing here is from tonight. */
 let LANG = "en";
 try{ LANG = localStorage.getItem("fnh-lang") === "zh" ? "zh" : "en"; }catch(e){}
 function T(en, zh){ return LANG === "zh" ? zh : en; }
+const SITE_URL = "https://johnnnyay.github.io/product-marketing/fnh.html";
 const PR_TOP = [["Food", "美食"], ["Travel", "旅行"], ["Movies", "电影"], ["Music", "音乐"], ["Sports", "运动"]];
 const PR_LEAD = [["Life", "生活"], ["Work", "工作"], ["Habits", "习惯"], ["Goals", "目标"]];
-/* [question, answer, 问题, 答案] for each practice category, two per category */
-const PRACTICE = [
-  [["What fruit is dried to make raisins?", "Grapes", "葡萄干是用什么水果晒成的？", "葡萄"],
-   ["What's the main ingredient in guacamole?", "Avocado", "墨西哥酱 guacamole 的主要食材是什么？", "牛油果"]],
-  [["What's the capital of Japan?", "Tokyo", "日本的首都是哪里？", "东京"],
-   ["Which country is home to the Eiffel Tower?", "France", "埃菲尔铁塔在哪个国家？", "法国"]],
-  [["What kind of animal is Simba in The Lion King?", "A lion", "《狮子王》里的辛巴是什么动物？", "狮子"],
-   ["What color is Shrek?", "Green", "史瑞克是什么颜色的？", "绿色"]],
-  [["How many strings does a standard guitar have?", "Six", "一把标准吉他有几根弦？", "六根"],
-   ["How many keys does a standard piano have?", "88", "一架标准钢琴有多少个键？", "88 个"]],
-  [["How many players does a soccer team have on the field?", "Eleven", "一支足球队场上有几名球员？", "11 名"],
-   ["In basketball, how many points is a shot from behind the arc?", "Three", "篮球在三分线外投进算几分？", "3 分"]]
-];
-const PRACTICE_TOPIC = {
-  1500: ["The best trip you've ever taken, and what it taught you.", "你去过最棒的一次旅行，它教会了你什么。"],
-  2000: ["How to build a morning routine that sticks.", "怎么养成一个能坚持下来的早晨习惯。"]
-};
-const sim = { mode: "green", sc: {}, played: {}, took: {}, qn: {}, missed: false, php: 3, timers: [] };
-/* practice keys look like the real ones, "g2-600", but map to the practice categories */
-function sk(k){
-  const m = /^([ga])(\d+)-(\d+)$/.exec(k), top = m[1] === "g", ci = +m[2];
-  const c = (top ? PR_TOP : PR_LEAD)[ci];
-  return { top: top, ci: ci, v: +m[3], cat: T(c[0], c[1]) };
-}
-function pq(k){
-  const p = sk(k), pool = PRACTICE[p.ci], n = sim.qn[p.ci] || 0;
-  sim.qn[p.ci] = n + 1;
-  const q = pool[n % pool.length];
-  return { q: T(q[0], q[2]), a: T(q[1], q[3]) };
-}
-function simG(){ return (me && me.group) || 2; }
+
 function gname(g){ return T("Group " + g, "第 " + g + " 组"); }
-function simOther(){ const o = GROUPS.filter(function(x){ return x !== simG(); }); return o[Math.random() * o.length | 0]; }
-function simClear(){ sim.timers.forEach(function(h){ clearTimeout(h); clearInterval(h); }); sim.timers = []; }
-function later(fn, ms){ sim.timers.push(setTimeout(fn, ms)); }
-function every(fn, ms){ const h = setInterval(fn, ms); sim.timers.push(h); return h; }
-function simStage(h){ $("simstage").innerHTML = h; }
-function simZh(t){ $("simzh").textContent = t; }
-function simHost(t, typed, then){
-  const el = $("simhost");
-  if(!typed || REDUCE){ el.textContent = t; if(then) then(); return; }
-  let i = 0; el.textContent = "";
-  const h = every(function(){
-    i += 2; el.textContent = t.slice(0, i);
-    if(i >= t.length){ clearInterval(h); if(then) later(then, 250); }
-  }, 32);
-}
-function simSteps(on){
-  const L = sim.mode === "green" ? T(["Hands up", "Pick", "Answer", "Score"], ["举手", "选格", "作答", "得分"])
-                                 : T(["Hands up", "Pick", "Talk", "Score"], ["举手", "选格", "分享", "得分"]);
-  $("simsteps").innerHTML = L.map(function(x, i){
-    return '<span class="' + (i < on ? "past" : i === on ? "on" : "") + '">' + x + '</span>'; }).join("");
-}
-function simScores(){
-  const g = simG(), vals = GROUPS.map(function(x){ return sim.sc[x] || 0; });
+function tiles(sc, opt){
+  opt = opt || {};
+  const vals = GROUPS.map(function(x){ return sc[x] || 0; });
   const top = Math.max.apply(null, vals);
   const leads = GROUPS.filter(function(x, i){ return top > 0 && vals[i] === top; });
-  $("simsc").innerHTML = GROUPS.map(function(x, i){
+  return '<div class="sc simsc">' + GROUPS.map(function(x, i){
     const on = leads.indexOf(x) > -1;
-    return '<div class="scteam' + (on ? " lead" : "") + (x === g ? " me" : "") + '" data-g="' + x + '">'
+    return '<div class="scteam' + (on ? " lead" : "") + (opt.hl === x ? " me" : "") + '" data-g="' + x + '">'
       + (on ? '<span class="crown">' + CROWN + (leads.length > 1 ? T("Tied", "并列") : T("Winning", "领先")) + '</span>' : "")
-      + '<div class="nm">' + gname(x) + (x === g ? T(" · you", " · 你") : "") + '</div><div class="pt">' + fmtN(vals[i]) + '</div></div>';
-  }).join("");
-  $("simme").textContent = me ? T("You're practising as your own group, Group " + g + ".", "现在按你自己的组练习：第 " + g + " 组。")
-    : T("Practising as Group 2. Get your group and it switches to yours.", "现在按第 2 组练习。拿到组号后会自动换成你的组。");
+      + '<div class="nm">' + gname(x) + '</div><div class="pt">' + fmtN(vals[i]) + '</div>'
+      + (opt.hearts ? '<div class="phpd">PHP ' + phpDots(3 - ((opt.hearts[x]) || 0)) + '</div>' : '') + '</div>';
+  }).join("") + '</div>';
 }
-function simMode(m){
-  sim.mode = m;
-  $("sim").classList.toggle("or", m === "orange");
-  document.querySelectorAll(".simtabs button").forEach(function(b){ b.setAttribute("aria-pressed", String(b.dataset.m === m)); });
-  simReady();
+function board(opt){
+  opt = opt || {};
+  let h = '<div class="tag-pr">' + T("Practice board", "练习板") + '</div><div class="mb g5">'
+    + PR_TOP.map(function(c){ return '<div class="mh">' + T(c[0], c[1]) + '</div>'; }).join("");
+  TOP_ROWS.forEach(function(v){ PR_TOP.forEach(function(c, ci){
+    h += '<div class="mc' + (opt.pick === "g" + ci + "-" + v ? " pick" : "") + '">' + v + '</div>'; }); });
+  h += '</div>';
+  if(opt.orange){
+    h += '<div class="tdiv"><span>' + T("3/6 and above", "3/6 以上") + '</span></div><div class="mb g4">'
+      + PR_LEAD.map(function(c){ return '<div class="mh">' + T(c[0], c[1]) + '</div>'; }).join("");
+    LEAD_ROWS.forEach(function(v){ PR_LEAD.forEach(function(){ h += '<div class="mc">' + v + '</div>'; }); });
+    h += '</div>';
+  }
+  return h;
+}
+function phone(inner){ return '<div class="phone"><div class="pnotch"></div><div class="pscreen">' + inner + '</div></div>'; }
+function pform(name, mode){
+  return '<div class="pt-h">JL Team Jeopardy</div><div class="pt-l">' + T("Your name", "你的名字") + '</div>'
+    + '<div class="pt-in" id="pin">' + (name || '') + '<span class="caret"></span></div>'
+    + '<div class="pt-two"><span class="' + (mode === "draw" ? "on" : "") + '">Draw one for me</span><span class="' + (mode === "pick" ? "on" : "") + '">Let me choose</span></div>'
+    + '<div class="pt-go">' + (mode === "pick" ? "Join that group" : "Draw my group") + '</div>';
+}
+function qr(el){
+  const draw = function(){ try{ el.innerHTML = ""; new QRCode(el, { text: SITE_URL, width: 168, height: 168, correctLevel: QRCode.CorrectLevel.M }); }catch(e){} };
+  if(window.QRCode) return draw();
+  const s = document.createElement("script");
+  s.src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js";
+  s.onload = draw; document.head.appendChild(s);
 }
 
-function simReady(){
-  simClear(); simSteps(0); simScores();
-  const green = sim.mode === "green";
-  simHost(green ? T("Room, are you ready? When I say 1, hands up.", "现场准备好了吗？我喊到 1 再举手。")
-                : T("3/6 and above, are you ready? When I say 1, hands up.", "3/6 以上的准备好了吗？我喊到 1 再举手。"));
-  simStage('<button class="go simgo" id="simstart">' + T("Start the countdown", "开始倒数") + '</button>');
-  simZh(green ? "主持人喊 3、2、1，喊到 1 再举手。抢跑不算。" : "橙色只有 3/6 以上可以抢，规则一样：喊到 1 再举手。");
-  $("simstart").onclick = simCount;
-}
-function simCount(){
-  simClear(); simSteps(0);
-  let live = false;
-  simHost("3…");
-  simStage('<div class="cnt pop" id="cnt">3</div><button class="hand" id="hand">✋ ' + T("Hands up", "举手") + '</button>');
-  simZh("还没到 1 就举手不算，等主持人喊到 1。");
-  const show = function(n, say){ const c = $("cnt"); c.textContent = n; c.classList.remove("pop"); void c.offsetWidth; c.classList.add("pop"); simHost(say); };
-  later(function(){ show("2", "3… 2…"); }, 900);
-  later(function(){
-    show("1", T("3, 2, 1!", "3、2、1！")); $("cnt").classList.add("on"); live = true;
-    later(simSlow, 6000);
-  }, 1800);
-  $("hand").onclick = function(){ if(live) simPick(); else simEarly(); };
-}
-function simEarly(){
-  simClear();
-  simHost(T("Too early! A hand before 1 doesn't count.", "抢跑了！喊到 1 之前举手不算。"));
-  simStage('<div class="res bad">' + T("Too early", "抢跑了") + '<small>' + T("Wait for 1, then hands up.", "等喊到 1 再举手。") + '</small></div>'
-    + '<button class="go simgo" id="simagain">' + T("Try again", "再来一次") + '</button>');
-  simZh("喊到 1 之前举手不算，再来一次。");
-  $("simagain").onclick = simCount;
-}
-function simSlow(){
-  simClear();
-  const o = simOther();
-  simHost(T("Group " + o + " was faster that time. Let's go again.", "这次第 " + o + " 组更快。再来一次。"));
-  simStage('<div class="res bad">' + T("Too slow", "慢了一步") + '<small>' + T("The first hand after 1 wins the turn.", "喊到 1 之后最快的那只手拿到机会。") + '</small></div>'
-    + '<button class="go simgo" id="simagain">' + T("Try again", "再来一次") + '</button>');
-  simZh("喊到 1 之后最快的那只手拿到机会。再来一次。");
-  $("simagain").onclick = simCount;
-}
-function simPick(){
-  simClear(); simSteps(1);
-  const green = sim.mode === "green", g = simG();
-  simHost(green ? T("You're first! Stand up. Which square do you want?", "你最快！站起来，想选哪一格？")
-                : T("You're first. Which one?", "你最快。选哪一个？"));
-  let h;
-  if(green){
-    h = '<div class="mb g5">' + PR_TOP.map(function(c){ return '<div class="mh">' + T(c[0], c[1]) + '</div>'; }).join("");
-    TOP_ROWS.forEach(function(v){ PR_TOP.forEach(function(c, ci){ const k = "g" + ci + "-" + v;
-      h += '<button class="mc" data-k="' + k + '"' + (sim.played[k] ? " disabled" : "") + '>' + v + '</button>'; }); });
-    h += '</div><p class="mhint">' + T("A practice board. Any topic, any number, you don't have to start at 100.", "这是练习用的板。任意主题、任意分数，不用从 100 开始。") + '</p>';
-  }else{
-    h = '<div class="mb g4">' + PR_LEAD.map(function(c){ return '<div class="mh">' + T(c[0], c[1]) + '</div>'; }).join("");
-    LEAD_ROWS.forEach(function(v){ PR_LEAD.forEach(function(c, ci){ const k = "a" + ci + "-" + v;
-      h += '<button class="mc" data-k="' + k + '"' + (sim.played[k] ? " disabled" : "") + '>' + v + '</button>'; }); });
-    h += '</div><p class="mhint">' + T("1500 is your own experience. 2000 is a training topic.", "1500 讲自己的经历，2000 讲一个培训主题。") + '</p>';
-  }
-  simStage(h);
-  simZh(green ? "最快的人来挑。任意主题、任意分数都行，不用从 100 开始。分数越高题越难。"
-              : "挑一个话题。每组只能拿一个 1500 和一个 2000。");
-  $("simstage").querySelectorAll(".mc").forEach(function(b){
-    b.onclick = function(){
-      const k = b.dataset.k, p = sk(k);
-      if(!green && sim.took[g + "-" + p.v]){
-        simHost(T("Group " + g + " already has a " + p.v + ". One 1500 and one 2000 per group, so pick from the other row.",
-                  "第 " + g + " 组已经拿过 " + p.v + " 了。每组只能拿一个 1500 和一个 2000，选另一排吧。"));
-        return;
-      }
-      green ? simRead(k) : simTalk(k);
-    };
-  });
-}
-function simRead(k){
-  simClear(); simSteps(2);
-  const p = sk(k), q = pq(k);
-  simStage('<div class="mq"><div class="mqh"><b>' + p.v + '</b><span>' + p.cat + '</span></div><div class="mqb">'
-    + '<div class="mclock wait" id="mclock"><span class="s" id="msec">' + SECONDS[p.v] + '</span><small id="mlab">' + T("starts when the host finishes reading", "主持人读完才开始") + '</small></div>'
-    + '<p class="mnote">' + T("Practice question, not from tonight's board.", "练习题，不是今晚板上的题。") + '</p>'
-    + '<div class="mopts" id="mopts"></div></div></div>');
-  simZh("先听主持人把题读完，读完才开始 " + SECONDS[p.v] + " 秒倒计时。");
-  simHost(T(p.cat + ", " + p.v + ". Here's your question: " + q.q, p.cat + "，" + p.v + " 分。题目是：" + q.q), true, function(){ simClock(k, q); });
-}
-function simClock(k, q, resumeAt){
-  /* No answer choices: tonight nobody gets options, they say it out loud, so the practice
-     keeps the answer off the screen until they have committed to one. */
-  $("mopts").innerHTML = '<p class="say">' + T("Say your answer out loud, the way you will tonight.", "像今晚一样，把答案大声说出来。") + '</p>'
-    + '<div class="simbtns"><button class="go simgo" id="simans">' + T("I've answered", "我答完了") + '</button>'
-    + (sim.php > 0 ? '<button class="btn ghost" id="simphp">' + T("Call a PHP (" + sim.php + " left)", "叫 PHP（还剩 " + sim.php + " 次）") + '</button>' : '') + '</div>';
-  let left = resumeAt != null ? resumeAt : SECONDS[sk(k).v];
-  simZh(left + " 秒开始了。像今晚一样把答案大声说出来，说完点下面的按钮。卡住了可以叫 PHP，但计时不会停。");
-  const box = $("mclock"); box.classList.remove("wait", "php"); $("mlab").textContent = T("seconds", "秒"); $("msec").textContent = left;
-  if($("simphp")) $("simphp").onclick = function(){
-    /* a PHP spends a heart, but the clock never stops: the huddle comes out of the player's time */
-    sim.php--; const g = simG();
-    simHost(T("Group " + g + " calls a PHP! Go huddle with your leader, the clock is still running. The answer has to come from you.",
-              "第 " + g + " 组叫 PHP！快去找你们的 leader 商量，计时没有停。答案必须由你自己说出来。"));
-    $("simphp").remove();
-    $("mopts").querySelector(".say").textContent = T("In the room, whisper with a leader from your group. On Zoom, send them a private chat. Then answer out loud yourself.",
-                                                     "现场找自己组的 leader 小声商量，Zoom 上私聊。然后你自己把答案说出来。");
-    simZh("PHP 不会让计时停下，商量的时间算在你自己的答题时间里。");
-  };
-  every(function(){
-    left--; $("msec").textContent = Math.max(0, left);
-    box.classList.toggle("warn", left <= 7 && left > 0); box.classList.toggle("out", left <= 0);
-    if(left <= 0) simMiss(k, q, "time");
-  }, 1000);
-  $("simans").onclick = function(){ simCheck(k, q); };
-}
-function simCheck(k, q){
-  simClear();
-  simHost(T("Here's the answer: " + q.a + ". Did you get it?", "答案是：" + q.a + "。你答对了吗？"));
-  $("mopts").innerHTML = '<div class="ansbox"><small>' + T("Answer", "答案") + '</small><b>' + esc(q.a) + '</b></div>'
-    + '<div class="simbtns" style="margin-top:10px"><button class="go simgo" id="simyes">' + T("I got it", "答对了") + '</button>'
-    + '<button class="btn ghost" id="simno">' + T("I missed it", "没答对") + '</button></div>'
-    + '<p class="say" style="margin-top:8px">' + T("Tonight the host decides.", "今晚由主持人来判。") + '</p>';
-  simZh("答案出来了，你答对了吗？今晚由主持人来判。");
-  $("simyes").onclick = function(){ simRight(k, q); };
-  $("simno").onclick = function(){ simMiss(k, q, "wrong"); };
-}
-function simRight(k, q){
-  simClear(); simSteps(3);
-  const g = simG(), v = sk(k).v;
-  sim.sc[g] = (sim.sc[g] || 0) + v; sim.played[k] = g; simScores();
-  simHost(T("That's it, " + q.a + "! " + v + " to Group " + g + ".", "答对了，" + q.a + "！第 " + g + " 组 +" + v + "。"));
-  simStage('<div class="res good">' + T("+" + fmtN(v) + " to Group " + g, "第 " + g + " 组 +" + fmtN(v))
-    + '<small>' + T("Right answer, your group keeps the points.", "答对了，分数归你们组。") + '</small></div>'
-    + '<div class="simbtns"><button class="go simgo" id="simnext">' + T("Play another square", "再玩一格") + '</button>'
-    + '<button class="btn ghost" id="simor">' + T("Try the orange round", "试试橙色") + '</button></div>'
-    + (sim.missed ? "" : '<p class="mhint">' + T("Want to see what happens on a miss? Play another and tap “I missed it”.", "想看看答错会怎样？再玩一格，点“没答对”。") + '</p>'));
-  simZh("答对了，分数归你们组。分数最高的那组头上有皇冠。");
-  $("simnext").onclick = simNextGreen; $("simor").onclick = function(){ simMode("orange"); };
-}
-function simMiss(k, q, why){
-  simClear(); simSteps(3);
-  const g = simG(), o = simOther(), v = sk(k).v;
-  sim.missed = true;
-  simHost(why === "time"
-    ? T("That's time! Group " + g + " loses the square. Over to Zoom. Other three groups, 3, 2, 1!", "时间到！第 " + g + " 组丢了这一格。交给 Zoom，其他三组，3、2、1！")
-    : T("Not quite! Group " + g + " loses the square. Over to Zoom. Other three groups, 3, 2, 1!", "不对！第 " + g + " 组丢了这一格。交给 Zoom，其他三组，3、2、1！"));
-  simStage('<div class="res bad">' + T("Group " + g + " loses the square", "第 " + g + " 组丢了这一格")
-    + '<small>' + T("It crosses to the other side, and the other three groups race for it.", "题交给另一边，剩下三组来抢。") + '</small></div>'
-    + '<div id="pass"></div>');
-  simZh((why === "time" ? "时间到了" : "答错了") + "，这一格你们组就丢了。题交给另一边（现场到 Zoom），剩下三组来抢。");
-  later(function(){ $("pass").insertAdjacentHTML("beforeend", '<p class="pline">✋ ' + T("Group " + o + " raised first on Zoom.", "Zoom 上第 " + o + " 组最先举手。") + '</p>'); }, 1700);
-  later(function(){
-    sim.sc[o] = (sim.sc[o] || 0) + v; sim.played[k] = o; simScores();
-    simHost(T("Group " + o + ": " + q.a + ". That's correct! " + v + " to Group " + o + ".", "第 " + o + " 组：" + q.a + "。答对了！第 " + o + " 组 +" + v + "。"));
-    $("pass").insertAdjacentHTML("beforeend", '<p class="pline" style="color:var(--jade)">'
-      + T("“" + esc(q.a) + "”, correct. +" + fmtN(v) + " to Group " + o + ".", "“" + esc(q.a) + "”，答对。第 " + o + " 组 +" + fmtN(v) + "。") + '</p>'
-      + '<div class="simbtns" style="margin-top:10px"><button class="go simgo" id="simnext">' + T("Play another square", "再玩一格") + '</button></div>');
-    $("simnext").onclick = simNextGreen;
-  }, 3400);
-}
-function simNextGreen(){
-  const all = TOP_ROWS.length * PR_TOP.length;
-  if(Object.keys(sim.played).filter(function(k){ return k[0] === "g"; }).length >= all){
-    Object.keys(sim.played).forEach(function(k){ if(k[0] === "g") delete sim.played[k]; });
-  }
-  simReady();
-}
-function simTalk(k){
-  simClear(); simSteps(2);
-  const p = sk(k), total = p.v === 1500 ? 180 : 300, tp = PRACTICE_TOPIC[p.v];
-  simStage('<div class="mq or"><div class="mqh"><b>' + p.v + '</b><span>' + p.cat + '</span></div><div class="mqb">'
-    + '<p class="mkick">' + (p.v === 1500 ? T("Share your own experience · 3 min", "分享自己的经历 · 3 分钟") : T("Training topic · 5 min", "培训主题 · 5 分钟")) + '</p>'
-    + '<p class="mnote" style="margin-top:0">' + T("Practice topic, not from tonight's board:", "练习话题，不是今晚板上的：") + '</p>'
-    + '<p class="mtopic">' + T(tp[0], tp[1]) + '</p>'
-    + '<div class="mclock" id="mclock"><span class="s" id="msec"></span><small id="mlab">' + T("sped up for practice", "练习加速") + '</small></div>'
-    + '<div class="simbtns" style="margin-top:12px"><button class="go simgo" id="simdone">' + T("Done talking", "讲完了") + '</button></div></div></div>');
-  simHost(T(p.cat + ", " + p.v + ". The floor is yours. " + (p.v === 1500 ? "Three" : "Five") + " minutes.",
-            p.cat + "，" + p.v + " 分。舞台交给你，" + (p.v === 1500 ? "3" : "5") + " 分钟。"));
-  simZh(p.v === 1500 ? "1500：分享你自己的经历，讲 3 分钟。不是问答，没有标准答案，讲完就得分。"
-                     : "2000：讲一个培训主题，讲 5 分钟。不是问答，没有标准答案，讲完就得分。");
-  let left = total;
-  const paint = function(){ $("msec").textContent = Math.floor(left / 60) + ":" + String(left % 60).padStart(2, "0"); };
-  paint();
-  every(function(){
-    left = Math.max(0, left - 1); paint();
-    if(left === 0){
-      $("mclock").classList.add("out"); $("mlab").textContent = T("time · wrap it up", "时间到 · 收尾");
-      simClear(); simHost(T("That's time. Bring it home in one sentence.", "时间到，用一句话收尾。"));
-      $("simdone").onclick = function(){ simDelivered(k); };
-    }
-  }, 45);
-  $("simdone").onclick = function(){ simDelivered(k); };
-}
-function simDelivered(k){
-  simClear(); simSteps(3);
-  const g = simG(), v = sk(k).v;
-  sim.sc[g] = (sim.sc[g] || 0) + v; sim.played[k] = g; sim.took[g + "-" + v] = 1; simScores();
-  const both = sim.took[g + "-1500"] && sim.took[g + "-2000"];
-  simHost(T("Give it up! " + v + " to Group " + g + ".", "掌声送给他！第 " + g + " 组 +" + v + "。"));
-  simStage('<div class="res good">' + T("+" + fmtN(v) + " to Group " + g, "第 " + g + " 组 +" + fmtN(v))
-    + '<small>' + T("Delivered, so the points are your group's.", "讲完了，分数归你们组。") + '</small></div>'
-    + (both ? '<p class="pline">' + T("Group " + g + " has its 1500 and its 2000. That's the orange board done for your group.", "第 " + g + " 组的 1500 和 2000 都拿到了，橙色这块你们组就完成了。") + '</p>'
-              + '<div class="simbtns"><button class="go simgo" id="simnext">' + T("Start the practice over", "重新开始练习") + '</button></div>'
-            : '<p class="mhint">' + T("Each group takes one 1500 and one 2000.", "每组只能拿一个 1500 和一个 2000。") + '</p>'
-              + '<div class="simbtns"><button class="go simgo" id="simnext">' + T("Take the other one", "拿另一个") + '</button></div>'));
-  simZh(both ? "你们组的 1500 和 2000 都拿到了，橙色这块就结束了。" : "讲完，分数归你们组。每组只能拿一个 1500 和一个 2000。");
-  $("simnext").onclick = both ? simReset : simReady;
-}
-function simReset(){ sim.sc = {}; sim.played = {}; sim.took = {}; sim.qn = {}; sim.missed = false; sim.php = 3; simMode("green"); }
-document.querySelectorAll(".simtabs button").forEach(function(b){ b.onclick = function(){ simMode(b.dataset.m); }; });
-$("simreset").onclick = simReset;
+const TOUR_GROUP = [
+  { t: ["Open the link", "打开链接"],
+    c: ["Everyone opens this page on their phone. The link is in the Zoom chat, or scan the code.",
+        "每个人用手机打开这个页面。链接在 Zoom 聊天框里，也可以直接扫码。"],
+    draw: function(el){
+      el.innerHTML = '<div class="linkbox"><div class="qr" id="tourqr"></div><div><div class="lk-l">' + T("On your phone", "用手机打开") + '</div>'
+        + '<div class="lk-u">johnnnyay.github.io/<wbr>product-marketing/<wbr>fnh.html</div></div></div>';
+      qr(el.querySelector("#tourqr"));
+    } },
+  { t: ["Type your name", "输入名字"],
+    c: ["On the participant page, type your name, whatever people actually call you.",
+        "在 participant page 输入名字，大家平时怎么叫你就写什么。"],
+    draw: function(el, tr){
+      el.innerHTML = phone(pform("", "draw"));
+      let i = 0; const nm = "Kevin";
+      tr.every(function(){ if(i > nm.length) return; const p = el.querySelector("#pin"); if(p) p.innerHTML = nm.slice(0, i) + '<span class="caret"></span>'; i++; }, 180);
+    } },
+  { t: ["Draw one, or choose one", "抽一个，或者自己选"],
+    c: ["Not sure where to go? Tap Draw one for me. Know which group you want? Tap Let me choose. Either way you land in one of four.",
+        "不确定去哪组，就点 Draw one for me；想去哪组，就点 Let me choose 自己选。两种方式最后都会落在四个组里的一个。"],
+    draw: function(el, tr){
+      el.innerHTML = phone(pform("Kevin", "draw"));
+      tr.later(function(){
+        el.innerHTML = phone('<div class="pt-l">' + T("Your group", "你的组号") + '</div><div class="pt-big">2</div>'
+          + '<div class="pt-lead">' + T("Your leaders: ", "你的 leader：") + esc(LEAD_BY_GROUP[2].join(", ")) + '</div>');
+      }, 1300);
+    } },
+  { t: ["Meet your leaders", "认识你的 leader"],
+    c: ["Your group's leaders are listed under your number. They're the people you huddle with when you call a PHP.",
+        "组号下面就是你们组的 leader。叫 PHP 的时候，就找他们商量。"],
+    draw: function(el){
+      el.innerHTML = '<div class="tgroups">' + GROUPS.map(function(g){
+        return '<div class="grp' + (g === 2 ? " ahead" : "") + '" data-g="' + g + '"><h3>' + gname(g) + '</h3><p class="leadline">'
+          + esc(LEAD_BY_GROUP[g].join(", ")) + '</p></div>'; }).join("") + '</div>';
+    } },
+  { t: ["On Zoom, rename yourself", "Zoom 上改名字"],
+    c: ["On Zoom, put your group number in front of your name, like 2 Kevin, so the host knows which group just raised a hand.",
+        "在 Zoom 上把名字改成「组号 + 名字」，比如 2 Kevin，主持人才知道是哪一组举的手。"],
+    draw: function(el, tr){
+      el.innerHTML = '<div class="ztile"><div class="zav">K</div><div class="zname" id="zn">Kevin</div></div>';
+      tr.later(function(){ const z = el.querySelector("#zn"); if(z){ z.innerHTML = '<b>2</b> Kevin'; z.classList.add("on"); } }, 1100);
+    } }
+];
+
+const TOUR_GAME = [
+  { t: ["Two boards", "两块板"],
+    c: ["Green, 100 to 1000, is open to everyone: the bigger the number, the harder the question. Orange, 1500 and 2000, is for 3/6 and above.",
+        "绿色 100 到 1000，所有人都能抢，分数越高题越难。橙色 1500 和 2000，只给 3/6 以上。"],
+    draw: function(el){ el.innerHTML = board({ orange: true }); } },
+  { t: ["Hands up on 1", "喊到 1 再举手"],
+    c: ["The host counts 3, 2, 1. On 1, hands up; on Zoom, Raise Hand. A hand before 1 doesn't count. The room and Zoom take turns.",
+        "主持人喊 3、2、1，喊到 1 再举手，Zoom 上点 Raise Hand。抢跑不算。现场和 Zoom 轮流来。"],
+    draw: function(el, tr){
+      el.innerHTML = '<div class="cnt pop" id="tcnt">3</div><div class="thand" id="thand"></div>';
+      const show = function(n){ const c = el.querySelector("#tcnt"); if(!c) return; c.textContent = n; c.classList.remove("pop"); void c.offsetWidth; c.classList.add("pop"); };
+      tr.later(function(){ show("2"); }, 800);
+      tr.later(function(){ show("1"); el.querySelector("#tcnt").classList.add("on"); }, 1600);
+      tr.later(function(){ const h = el.querySelector("#thand"); if(h) h.innerHTML = '✋ ' + T("First hand wins the turn", "最快的那只手拿到机会"); }, 2300);
+    } },
+  { t: ["First hand picks any square", "最快的人任选一格"],
+    c: ["The first hand picks any square: any topic, any number. No need to start at 100.",
+        "最快举手的人挑一格，任意主题、任意分数，不用从 100 开始。"],
+    draw: function(el){ el.innerHTML = board({ pick: "g1-300" }); } },
+  { t: ["The host reads, then the clock starts", "主持人读完题，才开始计时"],
+    c: ["The host reads the question out, then the clock starts: 20 seconds on the 100s and 300s, 35 on the 600s and 1000s. If it asks for two things, you need both.",
+        "主持人把题读完才开始计时：100 和 300 是 20 秒，600 和 1000 是 35 秒。题目要两个答案，就得都答出来。"],
+    draw: function(el, tr){
+      el.innerHTML = '<div class="mq"><div class="mqh"><b>300</b><span>' + T("Travel", "旅行") + '</span></div><div class="mqb">'
+        + '<div class="mclock wait" id="tclock"><span class="s" id="tsec">20</span><small id="tlab2">' + T("starts after the question is read", "读完题才开始") + '</small></div>'
+        + '<p class="mtopic">' + T("What's the capital of Japan?", "日本的首都是哪里？") + '</p>'
+        + '<p class="mnote">' + T("Practice question, not from tonight's board.", "练习题，不是今晚板上的题。") + '</p></div></div>';
+      tr.later(function(){
+        const box = el.querySelector("#tclock"); if(!box) return;
+        box.classList.remove("wait"); el.querySelector("#tlab2").textContent = T("seconds", "秒");
+        let left = 20;
+        tr.every(function(){ left = Math.max(0, left - 1); const s = el.querySelector("#tsec"); if(s) s.textContent = left;
+          box.classList.toggle("warn", left <= 7 && left > 0); box.classList.toggle("out", left <= 0); }, 1000);
+      }, 1500);
+    } },
+  { t: ["Right: your group scores", "答对：分数归你们组"],
+    c: ["Right answer, and the points go to your group. Whoever is in front wears the crown.",
+        "答对了，分数归你们组。分数最高的那组头上有皇冠。"],
+    draw: function(el){
+      el.innerHTML = '<div class="ansbox"><small>' + T("Answer", "答案") + '</small><b>' + T("Tokyo", "东京") + '</b></div>'
+        + '<div class="res good">' + T("+300 to Group 2", "第 2 组 +300") + '</div>' + tiles({ 2: 300 }, { hl: 2 });
+    } },
+  { t: ["Wrong or out of time: it crosses over", "答错或超时：交给另一边"],
+    c: ["Wrong, or out of time, and your group loses the square. It crosses to the other side, and the other three groups race for it.",
+        "答错或超时，这一格你们组就丢了。题交给另一边，剩下三组来抢。"],
+    draw: function(el, tr){
+      el.innerHTML = '<div class="res bad">' + T("Room: Group 2 misses Food 600", "现场：第 2 组答错美食 600") + '</div><div id="tpass"></div>' + '<div id="tsc">' + tiles({ 2: 300 }) + '</div>';
+      tr.later(function(){ const p = el.querySelector("#tpass"); if(p) p.innerHTML = '<p class="pline">✋ ' + T("Over to Zoom: Group 4 raises first", "交给 Zoom：第 4 组最先举手") + '</p>'; }, 900);
+      tr.later(function(){ const p = el.querySelector("#tpass"); if(!p) return;
+        p.insertAdjacentHTML("beforeend", '<p class="pline" style="color:var(--jade)">' + T("Correct. +600 to Group 4", "答对了，第 4 组 +600") + '</p>');
+        el.querySelector("#tsc").innerHTML = tiles({ 2: 300, 4: 600 }); }, 2000);
+    } },
+  { t: ["Stuck? Call a PHP", "卡住了？叫 PHP"],
+    c: ["Each group has three PHPs, the hearts under its score. Huddle with a leader, but the clock keeps running, and the answer has to come from the player.",
+        "每组有三次 PHP，就是分数下面的红心。可以找 leader 商量，但计时不停，答案必须由答题的人自己说出来。"],
+    draw: function(el, tr){
+      el.innerHTML = '<div class="mclock" id="pclock"><span class="s" id="psec">14</span><small>' + T("seconds · Group 2 on a PHP", "秒 · 第 2 组正在 PHP") + '</small></div>'
+        + '<p class="phpnote" style="font-size:15px">' + T("The answer has to come from the player. If a leader says it, it doesn't count.", "答案必须由答题的人说出来，leader 说的不算。") + '</p>'
+        + tiles({ 2: 300, 4: 600 }, { hearts: { 2: 1 }, hl: 2 });
+      let left = 14;
+      tr.every(function(){ left = Math.max(0, left - 1); const s = el.querySelector("#psec"); if(s) s.textContent = left;
+        const b = el.querySelector("#pclock"); if(b){ b.classList.toggle("warn", left <= 7 && left > 0); b.classList.toggle("out", left <= 0); } }, 1000);
+    } },
+  { t: ["Orange squares: you talk", "橙色格子：你来分享"],
+    c: ["Orange isn't a quiz. 3/6 and above pick a topic and share: 3 minutes for a 1500, 5 for a 2000. Deliver it and the points are your group's. One of each per group.",
+        "橙色不是问答。3/6 以上的挑一个话题分享：1500 讲 3 分钟，2000 讲 5 分钟，讲完分数就归你们组。每组各拿一个。"],
+    draw: function(el){
+      el.innerHTML = '<div class="mq or"><div class="mqh"><b>1500</b><span>' + T("Life", "生活") + '</span></div><div class="mqb">'
+        + '<p class="mkick">' + T("Share your own experience · 3 min", "分享自己的经历 · 3 分钟") + '</p>'
+        + '<p class="mtopic">' + T("The best trip you've ever taken, and what it taught you.", "你去过最棒的一次旅行，它教会了你什么。") + '</p>'
+        + '<p class="mnote">' + T("Practice topic, not from tonight's board.", "练习话题，不是今晚板上的。") + '</p></div></div>';
+    } },
+  { t: ["Play it straight", "靠诚信来玩"],
+    c: ["Some leaders have seen the questions, so tonight runs on integrity and honesty. If you know it, you know it.",
+        "有些 leader 提前看过题，所以今晚靠的是诚信。会就是会。"],
+    draw: function(el){
+      el.innerHTML = '<div class="straight"><span>' + T("No Google", "不查 Google") + '</span><span>' + T("No ChatGPT", "不用 ChatGPT") + '</span><span>' + T("No AI", "不用 AI") + '</span></div>';
+    } }
+];
+
+function Tour(el, steps, opt){ this.el = el; this.steps = steps; this.opt = opt || {}; this.i = 0; this.timers = []; }
+Tour.prototype.stop = function(){ this.timers.forEach(function(h){ clearTimeout(h); clearInterval(h); }); this.timers = []; };
+Tour.prototype.later = function(fn, ms){ this.timers.push(setTimeout(fn, ms)); };
+Tour.prototype.every = function(fn, ms){ const h = setInterval(fn, ms); this.timers.push(h); return h; };
+Tour.prototype.go = function(i){ this.i = Math.max(0, Math.min(this.steps.length - 1, i)); this.render(); };
+Tour.prototype.render = function(){
+  this.stop();
+  const self = this, st = this.steps[this.i], n = this.steps.length, last = this.i === n - 1;
+  this.el.innerHTML = '<div class="tour-top"><span class="tour-n">' + T("Step " + (this.i + 1) + " of " + n, "第 " + (this.i + 1) + " 步 / 共 " + n + " 步") + '</span>'
+    + '<span class="tour-dots">' + this.steps.map(function(s, j){ return '<button type="button" data-j="' + j + '" class="' + (j === self.i ? "on" : "") + '" aria-label="' + (j + 1) + '"></button>'; }).join("") + '</span></div>'
+    + '<div class="tour-stage"></div>'
+    + '<h3 class="tour-t">' + T(st.t[0], st.t[1]) + '</h3><p class="tour-c">' + T(st.c[0], st.c[1]) + '</p>'
+    + '<div class="tour-nav"><button type="button" class="btn ghost tour-back"' + (this.i === 0 ? " disabled" : "") + '>' + T("Back", "上一步") + '</button>'
+    + '<button type="button" class="go tour-next">' + (last ? T(this.opt.last[0], this.opt.last[1]) : T("Next", "下一步")) + '</button></div>';
+  st.draw(this.el.querySelector(".tour-stage"), this);
+  this.el.querySelector(".tour-back").onclick = function(){ self.go(self.i - 1); };
+  this.el.querySelector(".tour-next").onclick = function(){ last ? self.opt.onLast(self) : self.go(self.i + 1); };
+  this.el.querySelectorAll(".tour-dots button").forEach(function(b){ b.onclick = function(){ self.go(+b.dataset.j); }; });
+};
+const TOURS = [
+  new Tour($("tourGroup"), TOUR_GROUP, { last: ["Next: how the game runs ↓", "下一部分：游戏怎么进行 ↓"],
+    onLast: function(){ $("tourGame").scrollIntoView({ behavior: REDUCE ? "auto" : "smooth", block: "start" }); } }),
+  new Tour($("tourGame"), TOUR_GAME, { last: ["Start over", "从头再看"], onLast: function(t){ t.go(0); } })
+];
+function tourRefresh(){ TOURS.forEach(function(t){ t.render(); }); }
+function tourStop(){ TOURS.forEach(function(t){ t.stop(); }); }
+
 $("togroup").onclick = function(){ goTo(1); };
 $("hostlink").onclick = function(){ goTo(4); };
-/* English by default; the switch at the top turns the whole instruction page, practice round
-   included, into Chinese, and remembers the choice on this phone. */
+/* English by default; the switch at the top turns the whole instruction page, tours included,
+   into Chinese, and remembers the choice on this phone. */
 function setLang(l){
   LANG = l === "zh" ? "zh" : "en";
   try{ localStorage.setItem("fnh-lang", LANG); }catch(e){}
   $("p3").classList.toggle("lang-zh", LANG === "zh"); $("p3").classList.toggle("lang-en", LANG === "en");
   document.querySelectorAll(".langsw button").forEach(function(b){ b.setAttribute("aria-pressed", String(b.dataset.lang === LANG)); });
-  simReady();
+  if(!$("p3").hidden) tourRefresh();
 }
 document.querySelectorAll(".langsw button").forEach(function(b){ b.onclick = function(){ setLang(b.dataset.lang); }; });
-$("howlink").onclick = function(e){ e.preventDefault(); goTo(3); };
+
 
 /* ---------- one navigation, three destinations, identical on every page ---------- */
 const PAGES = [[3,"instruction"],[1,"participant page"],[2,"game board"]];
@@ -1383,7 +1355,7 @@ function paintGate(){
 function goPage(n){
   $("p1").hidden = n !== 1; $("gate").hidden = n !== 0; $("p2").hidden = n !== 2;
   $("p3").hidden = n !== 3; $("p4").hidden = n !== 4;
-  if(n === 3) simReady(); else simClear();
+  if(n === 3) tourRefresh(); else tourStop();
   window.scrollTo({top:0, behavior:"instant"});
 }
 function tryPass(){
@@ -1401,7 +1373,7 @@ function drawGroups(){
      server behind this page, so a number here would be a number only you can see. */
   $("groups").innerHTML = GROUPS.map(function(g){
     return '<div class="grp'+(me && me.group === g ? " ahead" : "")+'" data-g="'+g+'">'
-      + '<h3>Group '+g+'</h3>'
+      + '<h3>Group '+g+'</h3><p class="leadlbl">Leaders</p>'
       + '<p class="leadline">'+esc((LEAD_BY_GROUP[g]||[]).join(", "))+'</p></div>';
   }).join("");
 }
