@@ -14,7 +14,7 @@
 :root{
   --ground:#F2F5F1; --panel:#FFFFFF; --line:#C8D2C9; --line-2:#A8B6AA;
   --ink:#141A16; --ink-2:#3A453C; --muted:#5F6C62;
-  --sage:#345043; --sage-light:#E4EDE6; --amber:#96420A; --amber-light:#FBEEE2;
+  --sage:#345043; --sage-2:#4A7060; --sage-light:#E4EDE6; --amber:#96420A; --amber-light:#FBEEE2;
 }
 *{box-sizing:border-box}
 html,body{margin:0;height:100%;background:#1D2620;overflow:hidden}
@@ -22,57 +22,82 @@ body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;co
   -webkit-font-smoothing:antialiased}
 #stage{position:absolute;left:50%;top:50%;width:1600px;height:900px;transform-origin:center;
   background:var(--ground);overflow:hidden}
-.slide{position:absolute;inset:0;padding:84px 110px 90px;display:none;flex-direction:column}
+.slide{position:absolute;inset:0;padding:78px 110px 84px;display:none;flex-direction:column}
 .slide.on{display:flex}
 .eyebrow{font-weight:700;font-size:24px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage)}
-h1{font-weight:800;font-size:92px;line-height:1.02;letter-spacing:-.035em;margin:14px 0 0}
+h1{font-weight:800;font-size:88px;line-height:1.02;letter-spacing:-.035em;margin:12px 0 0}
 h1 span{color:var(--sage)}
-.lede{font-size:34px;color:var(--ink-2);margin:26px 0 0;font-weight:500}
-.foot{position:absolute;left:110px;right:110px;bottom:44px;display:flex;justify-content:space-between;
-  font-size:21px;color:var(--muted);font-weight:600}
+.lede{font-size:32px;color:var(--ink-2);margin:20px 0 0;font-weight:500}
 
-/* 1 · first-timers */
-.prompts{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:54px}
+/* 1 · cover. A solid block of sage is the one thing a weak projector always shows well. */
+.cover{background:var(--sage);color:#fff;justify-content:center}
+.cover .eyebrow{color:#CFE0D4}
+.cover h1{font-size:150px;line-height:.96;color:#fff;margin-top:22px}
+.cover .what{font-size:56px;font-weight:700;margin-top:30px;color:#fff;letter-spacing:-.01em}
+.cover .where{font-size:30px;font-weight:500;margin-top:14px;color:#CFE0D4}
+.cover .vision{position:absolute;left:110px;right:110px;bottom:56px;padding-top:22px;
+  border-top:2px solid rgba(255,255,255,.28);font-size:23px;font-weight:600;color:#DDE9E0;
+  letter-spacing:.01em}
+
+/* 2 · first-timers */
+.prompts{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:48px}
 .prompt{background:var(--panel);border:3px solid var(--line);border-left:14px solid var(--sage);
   border-radius:18px;padding:30px 36px}
-.prompt b{display:block;font-size:50px;font-weight:800;letter-spacing:-.02em}
-.prompt i{display:block;font-style:normal;font-size:27px;color:var(--muted);margin-top:6px}
+.prompt b{display:block;font-size:48px;font-weight:800;letter-spacing:-.02em}
+.prompt i{display:block;font-style:normal;font-size:26px;color:var(--muted);margin-top:6px}
 
-/* 2 · the month */
-.cal{margin-top:40px;display:flex;flex-direction:column;gap:12px}
-.ev{display:grid;grid-template-columns:168px 170px 1fr;align-items:center;gap:0 28px;
-  background:var(--panel);border:3px solid var(--line);border-radius:14px;padding:15px 26px}
-.ev .d{font-weight:800;font-size:28px;letter-spacing:.01em;font-variant-numeric:tabular-nums}
-.ev .t{font-size:25px;font-weight:600;color:var(--ink-2);font-variant-numeric:tabular-nums}
-.ev .n{font-size:30px;font-weight:800;letter-spacing:-.01em}
-.ev .n small{display:block;font-size:22px;font-weight:500;color:var(--muted);letter-spacing:0;margin-top:2px}
-.ev.off{background:var(--amber-light);border-color:var(--amber)}
-.ev.off .d,.ev.off .n{color:var(--amber)}
-.strip{margin-top:auto;display:flex;gap:18px}
-.strip div{flex:1;background:var(--sage);color:#fff;border-radius:14px;padding:18px 26px;
-  font-size:26px;font-weight:700}
-.strip div span{font-weight:500;opacity:.85}
+/* 3 · coming up */
+.cal{margin-top:40px;display:flex;flex-direction:column;gap:16px}
+.ev{display:grid;grid-template-columns:190px 230px 1fr;align-items:center;gap:0 30px;
+  background:var(--panel);border:3px solid var(--line);border-radius:16px;padding:22px 30px}
+.ev .d{font-weight:800;font-size:34px;font-variant-numeric:tabular-nums}
+.ev .t{font-size:28px;font-weight:600;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.ev .n{font-size:36px;font-weight:800;letter-spacing:-.015em;line-height:1.15}
+.ev .n small{display:block;font-size:25px;font-weight:500;color:var(--muted);letter-spacing:0;margin-top:4px}
 
-/* 3 · Orlando */
+/* 4 · team qualifiers */
+.qual{margin-top:30px;background:var(--sage);color:#fff;border-radius:18px;padding:26px 36px;
+  display:flex;align-items:baseline;gap:26px}
+.qual b{font-size:24px;letter-spacing:.14em;text-transform:uppercase;color:#CFE0D4;font-weight:700;flex:none}
+.qual span{font-size:40px;font-weight:800;letter-spacing:-.015em}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:26px}
+.reward{background:var(--panel);border:3px solid var(--line);border-top:14px solid var(--sage);
+  border-radius:18px;padding:28px 34px}
+.reward.far{border-top-color:#1546B0}
+.reward .who{font-size:23px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.reward .what{font-size:46px;font-weight:800;letter-spacing:-.02em;margin-top:8px}
+.reward .how{font-size:27px;color:var(--ink-2);margin-top:10px;line-height:1.4}
+.tag{margin-top:auto;font-size:28px;font-weight:700;color:var(--sage)}
+
+/* 5 · Orlando */
 .hero{margin:auto 0;display:flex;flex-direction:column}
-.hero h1{font-size:150px}
-.hero .where{font-size:52px;font-weight:700;color:var(--amber);margin-top:18px;letter-spacing:-.01em}
-.checks{display:flex;gap:26px;margin-top:64px}
+.hero h1{font-size:140px}
+.hero .where{font-size:54px;font-weight:700;color:var(--amber);margin-top:18px;letter-spacing:-.01em}
+.hero .note{font-size:30px;color:var(--ink-2);margin-top:24px;font-weight:500}
+.checks{display:flex;gap:26px;margin-top:52px}
 .check{display:flex;align-items:center;gap:22px;background:var(--panel);border:3px solid var(--line);
-  border-radius:18px;padding:26px 36px;font-size:38px;font-weight:700}
-.box{width:48px;height:48px;border:5px solid var(--sage);border-radius:10px;flex:none}
+  border-radius:18px;padding:24px 34px;font-size:36px;font-weight:700}
+.box{width:46px;height:46px;border:5px solid var(--sage);border-radius:10px;flex:none}
 
-/* 4 · tonight */
-.run{margin-top:52px;display:flex;flex-direction:column;gap:18px}
-.row{display:grid;grid-template-columns:190px 1fr;align-items:center;gap:0 34px;background:var(--panel);
-  border:3px solid var(--line);border-radius:16px;padding:24px 34px}
-.row .t{font-size:40px;font-weight:800;color:var(--sage);font-variant-numeric:tabular-nums}
-.row .n{font-size:40px;font-weight:800;letter-spacing:-.02em}
-.row .n small{display:block;font-size:25px;font-weight:500;color:var(--muted);margin-top:3px;letter-spacing:0}
-.row.gold .t{color:var(--amber)}
-.link{margin-top:auto;background:var(--sage);color:#fff;border-radius:16px;padding:22px 34px;
-  font-size:31px;font-weight:700}
-.link span{font-weight:500;opacity:.85;margin-right:14px}
+/* 6 · Puerto Rico */
+.pr{display:grid;grid-template-columns:1.05fr 1fr;gap:30px;margin-top:38px}
+.col{background:var(--panel);border:3px solid var(--line);border-radius:18px;padding:28px 34px}
+.col h2{margin:0 0 18px;font-size:24px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--amber)}
+.tier{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:0 22px;padding:16px 0;
+  border-top:2px solid var(--line)}
+.tier:first-of-type{border-top:0;padding-top:4px}
+.tier .m{font-size:54px;font-weight:800;color:var(--sage);font-variant-numeric:tabular-nums;
+  letter-spacing:-.03em;line-height:1;min-width:62px}
+.tier .x{font-size:30px;font-weight:700;line-height:1.25}
+.tier .x em{display:inline-block;font-style:normal;font-size:22px;font-weight:700;background:var(--amber-light);
+  color:var(--amber);border-radius:8px;padding:3px 12px;margin-top:8px}
+.old{list-style:none;margin:0;padding:0;counter-reset:q}
+.old li{counter-increment:q;display:grid;grid-template-columns:52px 1fr;gap:0 18px;align-items:start;
+  font-size:29px;font-weight:600;line-height:1.3;padding:15px 0;border-top:2px solid var(--line)}
+.old li:first-child{border-top:0;padding-top:4px}
+.old li::before{content:counter(q);width:48px;height:48px;border-radius:50%;background:var(--amber);
+  color:#fff;font-weight:800;font-size:25px;display:flex;align-items:center;justify-content:center}
 
 /* chrome, kept off the slide so it never lands on the projection */
 #hud{position:fixed;right:18px;bottom:14px;font:600 13px Inter,sans-serif;color:#9FB0A4;
@@ -84,43 +109,58 @@ h1 span{color:var(--sage)}
 <body>
 <div id="stage">
 
-  <section class="slide on">
-    <div class="eyebrow">Friday Night Hangout · September 11, 2026</div>
-    <h1>Welcome. <span>First time here?</span></h1>
-    <p class="lede">Tell us in about thirty seconds.</p>
+  <section class="slide cover on">
+    <div class="eyebrow">JL Team · September 11, 2026</div>
+    <h1>Friday Night<br>Hangout</h1>
+    <div class="what">Potluck &amp; Jeopardy</div>
+    <div class="where">Cre8ive Studio, Space 4</div>
+    <div class="vision">JL Team Vision &nbsp;·&nbsp; 300 Subs (US) &nbsp;·&nbsp; 300 Subs (CHN) &nbsp;·&nbsp; 40 Subs (AUS) &nbsp;·&nbsp; Diamond 2027–2028</div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Candidates and new partners</div>
+    <h1>First time here? <span>Introduce yourself.</span></h1>
     <div class="prompts">
-      <div class="prompt"><b>Name</b><i>what people actually call you</i></div>
-      <div class="prompt"><b>City</b><i>where you're joining from</i></div>
-      <div class="prompt"><b>Background</b><i>what you do, what you studied</i></div>
-      <div class="prompt"><b>What you're excited about</b><i>what brought you here tonight</i></div>
+      <div class="prompt"><b>Your name</b><i>what people actually call you</i></div>
+      <div class="prompt"><b>Your background</b><i>what you do, where you're from</i></div>
+      <div class="prompt"><b>Who's qualifying you</b><i>the partner who brought you tonight</i></div>
+      <div class="prompt"><b>A few lines</b><i>anything you'd like to share with the team</i></div>
     </div>
   </section>
 
   <section class="slide">
-    <div class="eyebrow">Coming up</div>
-    <h1>September</h1>
+    <div class="eyebrow">Upcoming events</div>
+    <h1>Coming up in September</h1>
     <div class="cal">
-      <div class="ev"><div class="d">MON 9/14</div><div class="t">9:00 PM</div>
-        <div class="n">Clickner Combined Virtual Team Meeting<small>Zoom · optional</small></div></div>
-      <div class="ev"><div class="d">WED 9/16</div><div class="t">8:00 PM</div>
-        <div class="n">JL Team Evaluation<small>Host: JP Kapoor · Zoom</small></div></div>
-      <div class="ev off"><div class="d">FRI 9/18</div><div class="t"></div>
-        <div class="n">No FNH this week</div></div>
-      <div class="ev"><div class="d">SAT 9/19</div><div class="t">Time TBC</div>
-        <div class="n">JYT East Coast Team Meeting<small>ft. Kyle Wilz · Element by Marriott, Harrison NJ</small></div></div>
-      <div class="ev"><div class="d">WED 9/23</div><div class="t">8:00 PM</div>
-        <div class="n">JL Team Evaluation<small>Host: Oliver Lei · Cre8ive Studio + Zoom</small></div></div>
-      <div class="ev"><div class="d">FRI 9/25</div><div class="t">7:30 PM</div>
-        <div class="n">Friday Night Hangout<small>Individual teams · Cre8ive Studio</small></div></div>
-      <div class="ev"><div class="d">WED 9/30</div><div class="t">8:00 PM</div>
-        <div class="n">JL Team Evaluation<small>Host: Ramos Chen · Zoom</small></div></div>
+      <div class="ev"><div class="d">TUE 9/15</div><div class="t">9:00 PM EST</div>
+        <div class="n">Clickner Combined Virtual Team Meeting<small>Optional</small></div></div>
+      <div class="ev"><div class="d">WED 9/16</div><div class="t">8:00 PM EST</div>
+        <div class="n">JL Team Evaluation<small>Ramos Chen &nbsp;·&nbsp; Zoom ID 708-033-8832</small></div></div>
+      <div class="ev"><div class="d">SAT 9/19</div><div class="t">Time TBA</div>
+        <div class="n">JYT East Coast Team Meeting<small>Featuring guest speaker Kyle Wilz</small></div></div>
+      <div class="ev"><div class="d">TUE 9/29</div><div class="t">10:30 PM EST</div>
+        <div class="n">Clickner 4th Week Leadership<small>Craig Clickner &amp; Carrie Bohlig &nbsp;·&nbsp; Phase B + 8 MGs</small></div></div>
     </div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">JL 2 BP promotion</div>
+    <h1>September <span>Team Qualifiers</span></h1>
+    <p class="lede">Same goals. Different locations. One team.</p>
+    <div class="qual"><b>Qualification</b><span>Two personal candidates at BP stage, each</span></div>
+    <div class="two">
+      <div class="reward"><div class="who">Local team</div><div class="what">Hiking &amp; Eating</div>
+        <div class="how">Get outside, enjoy the fresh air, and celebrate together.</div></div>
+      <div class="reward far"><div class="who">Long distance team</div><div class="what">Orlando Hangout</div>
+        <div class="how">Team hangout at the Orlando conference, Friday morning.</div></div>
+    </div>
+    <div class="tag">Let's qualify. Let's celebrate. Let's grow together.</div>
   </section>
 
   <section class="slide">
     <div class="hero">
-      <div class="eyebrow">LLC fiscal-year kickoff conference</div>
-      <h1>Breakthrough <span>2026</span></h1>
+      <div class="eyebrow">Conference</div>
+      <h1>Spartans <span>Breakthrough</span></h1>
       <div class="where">Orlando, FL · October 2–4</div>
       <div class="checks">
         <div class="check"><span class="box"></span>Ticket confirmed</div>
@@ -130,17 +170,24 @@ h1 span{color:var(--sage)}
   </section>
 
   <section class="slide">
-    <div class="eyebrow">Tonight</div>
-    <h1>JL Team <span>Jeopardy</span></h1>
-    <div class="run">
-      <div class="row"><div class="t">8:10</div>
-        <div class="n">100 · 300 · 500<small>Everyone. Hands up, fastest hand answers, 20 seconds.</small></div></div>
-      <div class="row gold"><div class="t">8:35</div>
-        <div class="n">800 · 1000<small>3/6 and above. First hand up stands and delivers.</small></div></div>
-      <div class="row"><div class="t">9:10</div>
-        <div class="n">Closing thoughts and announcements</div></div>
+    <div class="eyebrow">BBI paid trip</div>
+    <h1>BBI Trip to <span>Puerto Rico</span></h1>
+    <div class="pr">
+      <div class="col">
+        <h2>New BBI in 2026–27</h2>
+        <div class="tier"><div class="m">1</div><div class="x">month qualification</div></div>
+        <div class="tier"><div class="m">2</div><div class="x">month qualification<br><em>1 night room paid</em></div></div>
+        <div class="tier"><div class="m">3</div><div class="x">month qualification<br><em>2 nights room paid</em></div></div>
+      </div>
+      <div class="col">
+        <h2>Old BBI qualifiers</h2>
+        <ol class="old">
+          <li>1 leg qualifies for the BBI trip, and 1 more leg BFI</li>
+          <li>Qualify a new 7,500 PV for at least 1 month in 2026–27</li>
+          <li>Qualified Platinums in 2026–27</li>
+        </ol>
+      </div>
     </div>
-    <div class="link"><span>Get your group</span>johnnnyay.github.io/product-marketing/fnh.html</div>
   </section>
 
 </div>
