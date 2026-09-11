@@ -81,48 +81,89 @@ input:focus{border-color:var(--sage)}
 .scteam .nm{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
 .scteam .pt{font-weight:800;font-size:40px;color:var(--ink);font-variant-numeric:tabular-nums;
   line-height:1.08;letter-spacing:-.03em}
-.scteam.lead{border-color:var(--sage);background:var(--sage-light)}
+/* The group in front gets a yellow ring and a small crown badge sitting on its top edge. The
+   badge overlaps the tile's own border, so it costs no height. */
+.scteam{position:relative}
+.scteam.lead{border-color:#E3A400;background:#FFF7DA;box-shadow:0 0 0 3px #FFC928}
+.scteam .crown{position:absolute;top:-15px;left:50%;transform:translateX(-50%);display:inline-flex;
+  align-items:center;gap:5px;background:#FFC928;color:#3A2A00;border:2px solid var(--ground);
+  border-radius:999px;padding:2px 10px 2px 8px;font-size:11px;font-weight:800;letter-spacing:.12em;
+  text-transform:uppercase;white-space:nowrap;line-height:16px}
+.scteam .crown svg{width:16px;height:12px;display:block}
+@media (prefers-reduced-motion:no-preference){ .scteam .crown.fresh{animation:crownIn .5s cubic-bezier(.2,1.6,.4,1)} }
+@keyframes crownIn{from{transform:translate(-50%,-8px) scale(.4);opacity:0}to{transform:translateX(-50%);opacity:1}}
 /* On the game board the scores sit under the nav and stick to the top of the screen, so
    the room can see them whichever part of the board the host has scrolled to. */
-#scores2{position:sticky;top:0;z-index:5;background:var(--ground);margin:0 0 8px;padding:8px 0}
+#scores2{position:sticky;top:0;z-index:5;background:var(--ground);margin:0 0 8px;padding:12px 0 8px}
 #scores2 .scteam{cursor:pointer;position:relative}
 #scores2 .scteam.arm{outline:4px solid var(--amber);outline-offset:3px}
 #scores2 .scteam.arm::after{content:"Tap again to celebrate";position:absolute;left:0;right:0;
   bottom:-24px;font-size:12px;font-weight:800;color:var(--amber);letter-spacing:.02em}
 
-/* ---- the winner's screen. The whole screen goes the winning group's colour, which is
-   the one thing a weak projector shows at full strength, and the type sits on it in white. */
-#win{position:fixed;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;
-  background:var(--wc,#345043);color:#fff;overflow:hidden;cursor:pointer}
-#confetti{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-.win-card{position:relative;text-align:center;padding:40px 30px;width:100%;max-width:1140px}
-.win-eyebrow{font-weight:800;font-size:clamp(14px,1.7vw,22px);letter-spacing:.24em;
-  text-transform:uppercase;opacity:.86}
-.win-group{font-weight:800;font-size:clamp(76px,13vw,200px);line-height:.92;letter-spacing:-.045em;
-  margin:14px 0 12px}
-.win-leads{font-weight:700;font-size:clamp(18px,2.4vw,32px);opacity:.94}
-.win-score{font-weight:800;font-size:clamp(30px,4.4vw,62px);margin:24px 0 30px;
-  font-variant-numeric:tabular-nums;letter-spacing:-.02em}
-.win-stand{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.win-stand div{background:rgba(255,255,255,.14);border:2px solid rgba(255,255,255,.32);
-  border-radius:14px;padding:12px 22px;min-width:160px}
+/* ---- the winner's screen. The whole screen takes the winning group's colour, the one thing
+   a weak projector shows at full strength, with white type on it. Fireworks and confetti run
+   on two canvases behind the content and keep going until the host closes it. */
+#win{position:fixed;inset:0;z-index:80;color:#fff;overflow:hidden;cursor:pointer;
+  background:var(--wc,#345043);
+  background:radial-gradient(120% 95% at 28% 30%, color-mix(in srgb, var(--wc) 76%, #fff) 0%,
+    var(--wc) 50%, color-mix(in srgb, var(--wc) 84%, #000) 100%)}
+#win canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.win-wrap{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;
+  padding:clamp(20px,3.4vh,42px) clamp(24px,4.2vw,68px) clamp(18px,3vh,34px)}
+.win-top{display:flex;align-items:center;gap:16px}
+.win-eyebrow{font-weight:800;font-size:clamp(13px,1.5vw,20px);letter-spacing:.24em;text-transform:uppercase;opacity:.9}
+.win-badge{font-weight:800;font-size:clamp(13px,1.4vw,18px);letter-spacing:.18em;text-transform:uppercase;
+  background:#FFD166;color:#2A2008;border-radius:999px;padding:7px 18px}
+.win-main{flex:1;min-height:0;display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,4vw,64px);
+  align-items:center;margin:clamp(10px,2vh,24px) 0}
+.win-hero{min-width:0}
+.win-group{font-weight:800;font-size:clamp(72px,11.5vw,210px);line-height:.88;letter-spacing:-.05em}
+.win-score{display:flex;align-items:baseline;gap:14px;margin:clamp(12px,2.2vh,24px) 0 clamp(20px,3.8vh,42px);
+  font-weight:800;font-size:clamp(40px,5.8vw,100px);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.win-score small{font-size:.32em;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.82}
+.win-lbl{font-weight:800;font-size:clamp(12px,1.2vw,16px);letter-spacing:.2em;text-transform:uppercase;
+  opacity:.8;margin:0 0 12px}
+.win-names{display:flex;flex-wrap:wrap;gap:10px}
+.win-names span{background:#fff;color:var(--wc);border-radius:999px;padding:9px 20px;font-weight:800;
+  font-size:clamp(16px,1.9vw,27px)}
+.win-q{min-width:0;height:min(62vh,620px);display:flex;flex-direction:column;
+  background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.26);border-radius:22px;padding:22px 24px 6px}
+.tick{position:relative;flex:1;min-height:0;overflow:hidden;
+  -webkit-mask-image:linear-gradient(transparent,#000 8%,#000 92%,transparent);
+  mask-image:linear-gradient(transparent,#000 8%,#000 92%,transparent)}
+.tick-track{display:flex;flex-direction:column;gap:12px;padding:12px 0}
+.tick-track.run{animation:tick var(--dur,30s) linear infinite}
+@keyframes tick{from{transform:translateY(0)}to{transform:translateY(calc(-50% - 6px))}}
+.qi{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;background:rgba(255,255,255,.12);
+  border-radius:14px;padding:14px 16px}
+.qi .qv{background:#fff;color:var(--wc);font-weight:800;font-size:clamp(15px,1.5vw,21px);border-radius:10px;
+  padding:6px 10px;min-width:70px;text-align:center;font-variant-numeric:tabular-nums}
+.qi .qv.lead{background:#FFD166;color:#2A2008}
+.qi b{display:block;font-size:clamp(12px,1.1vw,15px);letter-spacing:.14em;text-transform:uppercase;opacity:.82}
+.qi p{margin:4px 0 0;font-weight:600;font-size:clamp(15px,1.45vw,21px);line-height:1.36}
+.win-stand{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.win-stand div{display:flex;align-items:baseline;gap:12px;background:rgba(255,255,255,.12);
+  border:2px solid rgba(255,255,255,.28);border-radius:14px;padding:10px 22px}
 .win-stand div.me{background:#fff;color:var(--wc);border-color:#fff}
-.win-stand b{display:block;font-size:13px;letter-spacing:.14em;text-transform:uppercase;opacity:.82}
-.win-stand span{font-weight:800;font-size:30px;font-variant-numeric:tabular-nums}
-.win-won{margin:26px auto 0;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:960px}
-.win-won .won-h{flex-basis:100%;font-size:14px;font-weight:800;letter-spacing:.16em;
-  text-transform:uppercase;opacity:.8;margin-bottom:4px}
-.win-won span{background:rgba(255,255,255,.16);border-radius:999px;padding:6px 15px;font-weight:600;font-size:15px}
-.win-close{position:absolute;bottom:18px;left:0;right:0;text-align:center;font-size:13px;opacity:.55}
+.win-stand b{font-size:clamp(12px,1.1vw,14px);letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.win-stand span{font-weight:800;font-size:clamp(20px,2.3vw,32px);font-variant-numeric:tabular-nums}
+.win-close{position:absolute;right:18px;bottom:10px;z-index:1;font-size:12px;opacity:.5}
+@media (max-width:900px){ .win-main{grid-template-columns:1fr;align-items:start} .win-q{height:38vh} }
 @media (prefers-reduced-motion:no-preference){
   #win:not([hidden]){animation:winIn .35s ease}
-  #win:not([hidden]) .win-group{animation:winPop .85s cubic-bezier(.2,1.5,.4,1) .12s both}
-  #win:not([hidden]) .win-leads{animation:winUp .5s ease .55s both}
-  #win:not([hidden]) .win-stand,#win:not([hidden]) .win-won{animation:winUp .6s ease 1s both}
+  #win:not([hidden]) .win-group{animation:winPop .9s cubic-bezier(.2,1.5,.4,1) .12s both}
+  #win:not([hidden]) .win-score{animation:winUp .5s ease .45s both}
+  #win:not([hidden]) .win-names span{animation:winUp .45s ease both}
+  #win:not([hidden]) .win-q{animation:winSide .7s ease .7s both}
+  #win:not([hidden]) .win-stand{animation:winUp .6s ease 1.1s both}
+  #win:not([hidden]) .win-badge{animation:winPulse 2.4s ease-in-out 1.3s infinite}
 }
+@media (prefers-reduced-motion:reduce){ .tick{overflow-y:auto;-webkit-mask-image:none;mask-image:none} }
 @keyframes winIn{from{opacity:0}to{opacity:1}}
 @keyframes winPop{from{transform:scale(.35);opacity:0}to{transform:scale(1);opacity:1}}
 @keyframes winUp{from{transform:translateY(22px);opacity:0}to{transform:none;opacity:1}}
+@keyframes winSide{from{transform:translateX(40px);opacity:0}to{transform:none;opacity:1}}
+@keyframes winPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
 
 .roster{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
 .grp{background:var(--panel);border:2px solid var(--line);border-radius:12px;padding:14px 15px;
@@ -480,14 +521,23 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
 <div class="ovl" id="ovl"><div class="qcard" id="qcard"></div></div>
 
 <div id="win" hidden>
+  <canvas id="fw"></canvas>
   <canvas id="confetti"></canvas>
-  <div class="win-card">
-    <div class="win-eyebrow">JL Team Jeopardy &nbsp;·&nbsp; Champions</div>
-    <div class="win-group" id="winGroup"></div>
-    <div class="win-leads" id="winLeads"></div>
-    <div class="win-score"><span id="winScore">0</span> points</div>
+  <div class="win-wrap">
+    <div class="win-top"><span class="win-eyebrow">JL Team Jeopardy</span><span class="win-badge">Champions</span></div>
+    <div class="win-main">
+      <section class="win-hero">
+        <div class="win-group" id="winGroup"></div>
+        <div class="win-score"><span id="winScore">0</span><small>points</small></div>
+        <div class="win-lbl">Led by</div>
+        <div class="win-names" id="winNames"></div>
+      </section>
+      <section class="win-q">
+        <div class="win-lbl" id="winQLbl"></div>
+        <div class="tick" id="tick"><div class="tick-track" id="tickTrack"></div></div>
+      </section>
+    </div>
     <div class="win-stand" id="winStand"></div>
-    <div class="win-won" id="winWon"></div>
   </div>
   <div class="win-close">Click anywhere to close</div>
 </div>
@@ -657,7 +707,7 @@ function esc(s){ return String(s).replace(/[&<>"]/g,function(c){
    crown anybody. The host decides who won; the standings underneath show the real numbers. */
 const GROUP_COLOURS = ["", "#96420A", "#1546B0", "#345043", "#5B3391"];
 const REDUCE = matchMedia("(prefers-reduced-motion: reduce)").matches;
-let armed = 0, armT = null, confRAF = null;
+let armed = 0, armT = null;
 function fmtN(n){ return Number(n || 0).toLocaleString("en-US"); }
 $("scores2").addEventListener("click", function(e){
   const t = e.target.closest(".scteam"); if(!t) return;
@@ -672,82 +722,153 @@ function celebrate(g){
   const col = GROUP_COLOURS[g];
   $("win").style.setProperty("--wc", col);
   $("winGroup").textContent = "Group " + g;
-  $("winLeads").textContent = (LEAD_BY_GROUP[g] || []).join("  ·  ");
-  const sc = function(x){ return game.scores[x] || 0; };
-  const ranked = GROUPS.slice().sort(function(a, b){ return sc(b) - sc(a) || a - b; });
-  const ORD = ["", "1st", "2nd", "3rd", "4th"];
-  $("winStand").innerHTML = ranked.map(function(x){
-    const rank = 1 + GROUPS.filter(function(y){ return sc(y) > sc(x); }).length;   /* ties share a place */
-    return '<div class="' + (x === g ? "me" : "") + '"><b>' + ORD[rank] + ' · Group ' + x + '</b>'
-      + '<span>' + fmtN(sc(x)) + '</span></div>';
+  $("winNames").innerHTML = (LEAD_BY_GROUP[g] || []).map(function(n, i){
+    return '<span style="animation-delay:' + (0.6 + i * 0.12).toFixed(2) + 's">' + esc(n) + '</span>';
   }).join("");
+
+  const sc = function(x){ return game.scores[x] || 0; };
+  const ORD = ["", "1st", "2nd", "3rd", "4th"];
+  $("winStand").innerHTML = GROUPS.slice().sort(function(a, b){ return sc(b) - sc(a) || a - b; })
+    .map(function(x){
+      const rank = 1 + GROUPS.filter(function(y){ return sc(y) > sc(x); }).length;   /* ties share a place */
+      return '<div class="' + (x === g ? "me" : "") + '"><b>' + ORD[rank] + ' · Group ' + x + '</b>'
+        + '<span>' + fmtN(sc(x)) + '</span></div>';
+    }).join("");
+
+  /* Every square this group won, biggest first, rolling upward on a loop. The list is written
+     twice so the second copy is already in place when the first scrolls off, and the speed
+     comes from the list's height so a long list does not race and a short one does not crawl. */
   const won = Object.keys(game.awarded || {}).filter(function(k){ return game.awarded[k] === g; })
-    .map(parseKey).sort(function(a, b){ return b.v - a.v; });
-  $("winWon").innerHTML = won.length
-    ? '<div class="won-h">' + won.length + (won.length === 1 ? " square" : " squares") + ' won</div>'
-      + won.map(function(p){ return '<span>' + esc(p.cat) + ' ' + p.v + '</span>'; }).join("")
-    : "";
+    .map(function(k){ return { k: k, p: parseKey(k) }; })
+    .sort(function(a, b){ return b.p.v - a.p.v; });
+  $("winQLbl").textContent = won.length
+    ? won.length + (won.length === 1 ? " square won" : " squares won") : "Squares won";
+  const one = won.map(function(w){
+    const d = Q[w.k] || {};
+    return '<div class="qi"><span class="qv' + (w.p.top ? "" : " lead") + '">' + fmtN(w.p.v) + '</span>'
+      + '<div><b>' + esc(w.p.cat) + '</b><p>' + esc(d.q || "") + '</p></div></div>';
+  }).join("");
+  const track = $("tickTrack");
+  track.classList.remove("run"); track.style.removeProperty("--dur");
+  track.innerHTML = one;
+
   $("win").hidden = false;
+  requestAnimationFrame(function(){
+    const box = $("tick");
+    if(REDUCE || !won.length || track.scrollHeight <= box.clientHeight) return;
+    const h = track.scrollHeight;
+    track.innerHTML = one + one;
+    track.style.setProperty("--dur", Math.max(12, (h + 12) / 34).toFixed(1) + "s");
+    track.classList.add("run");
+  });
   countUp($("winScore"), sc(g));
-  startConfetti();
+  startShow();
 }
 function countUp(el, to){
   if(REDUCE){ el.textContent = fmtN(to); return; }
-  const t0 = performance.now(), d = 1700;
+  const t0 = performance.now(), d = 1800;
   (function step(t){
     const p = Math.min(1, (t - t0) / d);
     el.textContent = fmtN(Math.round(to * (1 - Math.pow(1 - p, 3))));
     if(p < 1) requestAnimationFrame(step);
   })(t0);
 }
-/* Hand-rolled rather than a library: nothing to load, nothing to fail on the venue's wifi.
-   Two cannons from the bottom corners, two more rounds, and a light rain from the top. */
-function startConfetti(){
+
+/* Fireworks and confetti, on until the host closes the screen. Hand-rolled on two canvases, so
+   there is nothing to load on the venue wifi. Both are cleared every frame and each spark draws
+   its own short streak, because fading the last frame out instead leaves a haze that never
+   quite clears. Particle counts are capped so an hour-long celebration will not slow down. */
+let showRAF = null, showOn = false, onSize = null;
+function startShow(){
   if(REDUCE) return;
-  const cv = $("confetti"), ctx = cv.getContext("2d");
+  stopShow();
+  showOn = true;
+  const fw = $("fw"), cf = $("confetti"), fx = fw.getContext("2d"), cx = cf.getContext("2d");
   const dpr = Math.min(2, window.devicePixelRatio || 1);
-  cv.width = innerWidth * dpr; cv.height = innerHeight * dpr;
-  const W = cv.width, H = cv.height;
-  const COLS = ["#FFFFFF", "#F4D06F", "#E8B64C", "#CFE0D4", "#FFD9C2", "#C9D8FF"];
-  const parts = [];
-  function spawn(x, y, n, a0, a1, speed){
+  let W = 0, H = 0;
+  onSize = function(){ W = fw.width = cf.width = innerWidth * dpr; H = fw.height = cf.height = innerHeight * dpr; };
+  onSize(); addEventListener("resize", onSize);
+  const SPARK = ["#FFD166", "#FFFFFF", "#FF8FAB", "#7FDBFF", "#B8F2A1", "#FFB385", "#E0C3FC"];
+  const PAPER = ["#FFFFFF", "#FFD166", "#F4D06F", "#CFE0D4", "#FFD9C2", "#C9D8FF", "#FF8FAB"];
+  const rockets = [], sparks = [], paper = [];
+  const rnd = function(a, b){ return a + Math.random() * (b - a); };
+  const G = 0.16;
+  function launch(){
+    const ty = rnd(0.12, 0.42) * H;
+    rockets.push({ x: rnd(0.12, 0.88) * W, y: H, vx: rnd(-0.7, 0.7) * dpr,
+      vy: -Math.sqrt(2 * G * dpr * (H - ty)), c: SPARK[Math.random() * SPARK.length | 0] });
+  }
+  function burst(x, y, c){
+    const n = 70 + (Math.random() * 55 | 0), c2 = SPARK[Math.random() * SPARK.length | 0];
+    if(sparks.length > 900) return;
     for(let i = 0; i < n; i++){
-      const a = (a0 + Math.random() * (a1 - a0)) * Math.PI / 180;
-      const v = speed * (0.55 + Math.random() * 0.6) * dpr;
-      parts.push({ x: x, y: y, vx: Math.cos(a) * v, vy: Math.sin(a) * v,
-        w: (7 + Math.random() * 8) * dpr, h: (4 + Math.random() * 5) * dpr,
-        r: Math.random() * 6.28, vr: (Math.random() - 0.5) * 0.32, c: COLS[i % COLS.length] });
+      const a = Math.random() * 6.283, v = rnd(1.2, 6.4) * dpr;
+      sparks.push({ x: x, y: y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, life: 1,
+        decay: rnd(0.009, 0.017), c: i % 3 ? c : c2, r: rnd(1.4, 2.7) * dpr });
     }
   }
-  function cannons(n, speed){ spawn(0, H, n, -78, -44, speed); spawn(W, H, n, -136, -102, speed); }
-  cannons(150, 27);
-  const t0 = performance.now(), rainUntil = t0 + 3800, rounds = [1150, 2300];
-  let last = t0;
-  cancelAnimationFrame(confRAF);
+  function toss(x, y, n, a0, a1, speed){
+    for(let i = 0; i < n && paper.length < 560; i++){
+      const a = rnd(a0, a1) * Math.PI / 180, v = speed * rnd(0.55, 1.15) * dpr;
+      paper.push({ x: x, y: y, vx: Math.cos(a) * v, vy: Math.sin(a) * v,
+        w: rnd(7, 15) * dpr, h: rnd(4, 9) * dpr, r: rnd(0, 6.28), vr: rnd(-0.16, 0.16),
+        c: PAPER[i % PAPER.length] });
+    }
+  }
+  toss(0, H, 150, -78, -44, 27); toss(W, H, 150, -136, -102, 27);
+  let last = performance.now(), nextFw = last + 350, nextToss = last + 2600, side = 0;
   function frame(now){
+    if(!showOn) return;
     const dt = Math.min(2.5, (now - last) / 16.67); last = now;
-    if(rounds.length && now - t0 > rounds[0]){ rounds.shift(); cannons(95, 25); }
-    if(now < rainUntil) spawn(Math.random() * W, -20 * dpr, 3, 80, 100, 3);
-    ctx.clearRect(0, 0, W, H);
-    for(let i = parts.length - 1; i >= 0; i--){
-      const p = parts[i];
-      p.vy += 0.34 * dpr * dt;
-      p.vx *= Math.pow(0.99, dt); p.vy *= Math.pow(0.992, dt);
-      p.x += p.vx * dt; p.y += p.vy * dt; p.r += p.vr * dt;
-      if(p.y > H + 40 * dpr){ parts.splice(i, 1); continue; }
-      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r);
-      ctx.fillStyle = p.c;
-      ctx.fillRect(-p.w / 2, -p.h / 2, p.w, Math.abs(Math.cos(p.r * 1.7)) * p.h + 1);
-      ctx.restore();
+    if(now >= nextFw){ launch(); if(Math.random() < 0.35) launch(); nextFw = now + rnd(600, 1200); }
+    if(now >= nextToss){
+      if(side) toss(W, H, 85, -136, -102, 25); else toss(0, H, 85, -78, -44, 25);
+      side ^= 1; nextToss = now + 2600;
     }
-    if(parts.length || now < rainUntil || rounds.length) confRAF = requestAnimationFrame(frame);
+    toss(Math.random() * W, -20 * dpr, 2, 80, 100, 3);
+
+    fx.clearRect(0, 0, W, H);
+    fx.globalCompositeOperation = "lighter"; fx.lineCap = "round";
+    for(let i = rockets.length - 1; i >= 0; i--){
+      const r = rockets[i];
+      r.vy += G * dpr * dt; r.x += r.vx * dt; r.y += r.vy * dt;
+      fx.strokeStyle = r.c; fx.lineWidth = 3 * dpr; fx.globalAlpha = 0.9;
+      fx.beginPath(); fx.moveTo(r.x - r.vx * 4, r.y - r.vy * 4); fx.lineTo(r.x, r.y); fx.stroke();
+      if(r.vy >= -0.5 * dpr){ burst(r.x, r.y, r.c); rockets.splice(i, 1); }
+    }
+    for(let i = sparks.length - 1; i >= 0; i--){
+      const p = sparks[i];
+      p.vx *= Math.pow(0.975, dt); p.vy = p.vy * Math.pow(0.975, dt) + 0.045 * dpr * dt;
+      p.x += p.vx * dt; p.y += p.vy * dt; p.life -= p.decay * dt;
+      if(p.life <= 0){ sparks.splice(i, 1); continue; }
+      fx.globalAlpha = p.life; fx.strokeStyle = p.c; fx.lineWidth = p.r * 1.6;
+      fx.beginPath(); fx.moveTo(p.x - p.vx * 3.5, p.y - p.vy * 3.5); fx.lineTo(p.x, p.y); fx.stroke();
+    }
+    fx.globalAlpha = 1; fx.globalCompositeOperation = "source-over";
+
+    cx.clearRect(0, 0, W, H);
+    for(let i = paper.length - 1; i >= 0; i--){
+      const p = paper[i];
+      p.vy += 0.3 * dpr * dt; p.vx *= Math.pow(0.99, dt); p.vy *= Math.pow(0.992, dt);
+      p.x += p.vx * dt; p.y += p.vy * dt; p.r += p.vr * dt;
+      if(p.y > H + 40 * dpr){ paper.splice(i, 1); continue; }
+      cx.save(); cx.translate(p.x, p.y); cx.rotate(p.r); cx.fillStyle = p.c;
+      cx.fillRect(-p.w / 2, -p.h / 2, p.w, Math.abs(Math.cos(p.r * 1.7)) * p.h + 1);
+      cx.restore();
+    }
+    showRAF = requestAnimationFrame(frame);
   }
-  confRAF = requestAnimationFrame(frame);
+  showRAF = requestAnimationFrame(frame);
+}
+function stopShow(){
+  showOn = false; cancelAnimationFrame(showRAF);
+  if(onSize){ removeEventListener("resize", onSize); onSize = null; }
+  ["fw", "confetti"].forEach(function(id){ const c = $(id); c.getContext("2d").clearRect(0, 0, c.width, c.height); });
 }
 function closeWin(){
   $("win").hidden = true;
-  cancelAnimationFrame(confRAF);
-  const cv = $("confetti"); cv.getContext("2d").clearRect(0, 0, cv.width, cv.height);
+  stopShow();
+  $("tickTrack").classList.remove("run");
 }
 $("win").addEventListener("click", closeWin);
 document.addEventListener("keydown", function(e){ if(e.key === "Escape" && !$("win").hidden) closeWin(); });
@@ -799,14 +920,20 @@ function drawGroups(){
       + '<p class="leadline">'+esc((LEAD_BY_GROUP[g]||[]).join(", "))+'</p></div>';
   }).join("");
 }
+const CROWN = '<svg viewBox="0 0 24 18" aria-hidden="true"><path fill="currentColor" d="M2 6l5.5 4L12 2l4.5 8L22 6l-2 9H4z"/><rect fill="currentColor" x="4" y="15.5" width="16" height="2.5" rx="1"/></svg>';
+let lastLeads = "";
 function drawScores(){
   /* Display only. Points are awarded on the question card, which also moves them between
      groups and takes them back, so a row of plus and minus buttons here is a second way to
      do the same job and a second way to get it wrong. */
   const vals = GROUPS.map(function(g){ return game.scores[g]||0; });
   const top = Math.max.apply(null, vals);
+  const leads = GROUPS.filter(function(g, i){ return top > 0 && vals[i] === top; });
+  const fresh = leads.join() !== lastLeads; lastLeads = leads.join();   /* only animate a change */
   $("scores2").innerHTML = GROUPS.map(function(g, i){
-    return '<div class="scteam'+(top>0 && vals[i]===top ? " lead":"")+'" data-g="'+g+'">'
+    const on = leads.indexOf(g) > -1;
+    return '<div class="scteam'+(on ? " lead":"")+'" data-g="'+g+'">'
+      + (on ? '<span class="crown'+(fresh ? " fresh" : "")+'">'+CROWN+(leads.length > 1 ? "Tied" : "Winning")+'</span>' : "")
       + '<div class="nm">Group '+g+'</div><div class="pt">'+vals[i]+'</div></div>';
   }).join("");
   drawGroups();
