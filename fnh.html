@@ -1129,8 +1129,8 @@ function tiles(sc, opt){
   return '<div class="sc simsc' + (opt.only ? ' one' : '') + '">' + GROUPS.filter(function(x){ return show.indexOf(x) > -1; }).map(function(x){
     const i = GROUPS.indexOf(x);
     const on = leads.indexOf(x) > -1;
-    return '<div class="scteam' + (on ? " lead" : "") + (opt.hl === x ? " me" : "") + '" data-g="' + x + '">'
-      + (on ? '<span class="crown">' + CROWN + (leads.length > 1 ? T("Tied", "并列") : T("Winning", "领先")) + '</span>' : "")
+    return '<div class="scteam' + (on && !opt.only ? " lead" : "") + (opt.hl === x ? " me" : "") + '" data-g="' + x + '">'
+      + (on && !opt.only ? '<span class="crown">' + CROWN + (leads.length > 1 ? T("Tied", "并列") : T("Winning", "领先")) + '</span>' : "")
       + '<div class="nm">' + gname(x) + '</div><div class="pt">' + fmtN(vals[i]) + '</div>'
       + (opt.hearts ? '<div class="phpd">PHP ' + phpDots(3 - ((opt.hearts[x]) || 0)) + '</div>' : '') + '</div>';
   }).join("") + '</div>';
