@@ -362,34 +362,36 @@ p.cn,.cn{color:var(--ink-2)}
   border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
 .qhead{flex:none;display:flex;gap:2vw;align-items:center;padding:1.2vh 1.6vw 1.2vh 2.2vw;background:var(--sage);color:#fff;
   transition:background .25s}
-.qhead.warn{background:var(--amber)} .qhead.out{background:var(--red)}
 .qhead .v{font-weight:800;font-size:clamp(34px,6.4vh,76px);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
 .qhead .c{flex:1;font-weight:800;font-size:clamp(18px,3.4vh,40px);letter-spacing:.08em;text-transform:uppercase}
-.qtimer{display:flex;align-items:center;gap:14px}
-.qtimer .t{font-weight:800;font-size:clamp(46px,8.5vh,104px);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.04em;
-  min-width:1.3em;text-align:right}
-.qtimer .side{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
-.qtimer .lab{font-weight:800;font-size:clamp(12px,1.8vh,20px);letter-spacing:.14em;text-transform:uppercase}
-.qtimer button{background:rgba(255,255,255,.16);border:2px solid rgba(255,255,255,.4);color:#fff;border-radius:8px;
-  font:inherit;font-size:13px;font-weight:700;padding:5px 12px;cursor:pointer}
-.qtimer button:hover{background:rgba(255,255,255,.3)}
 .qhead .x{flex:none;background:rgba(255,255,255,.16);border:0;color:#fff;border-radius:10px;
   width:48px;height:48px;font-size:28px;cursor:pointer;line-height:1}
 .qhead .x:hover{background:rgba(255,255,255,.3)}
-.qbody{flex:1;min-height:0;display:flex;flex-direction:column;padding:2vh 3vw 1.6vh;text-align:center}
+.qbody{flex:1;min-height:0;display:flex;flex-direction:column;padding:1.6vh 2.4vw 1.4vh;text-align:center}
 .stage{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;
   font-size:var(--fs,56px);transition:opacity .16s ease}
 .stage.fade{opacity:0}
-.qtext{font-weight:700;font-size:1em;line-height:1.2;letter-spacing:-.01em;margin:0 auto;max-width:28ch;color:var(--ink)}
+/* The clock sits above the question, in the middle, and scales with it: the fit shrinks both
+   together, so the clock is always the biggest thing on the card. */
+.timer{display:flex;flex-direction:column;align-items:center;margin:0 0 .3em}
+.timer .t{font-weight:800;font-size:1.7em;line-height:.9;font-variant-numeric:tabular-nums;color:var(--jade);letter-spacing:-.04em}
+.timer.warn .t{color:var(--amber)}
+.timer.out .t{color:var(--red)}
+.timer .lab{font-weight:800;font-size:max(12px,.26em);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:.15em}
+.timer.out .lab{color:var(--red)}
+.timer button{margin-top:.5em;background:#fff;border:2px solid var(--line);color:var(--muted);border-radius:8px;
+  font:inherit;font-size:13px;font-weight:600;padding:5px 14px;cursor:pointer}
+.timer button:hover{color:var(--ink-2);border-color:var(--line-2)}
+.qtext{font-weight:700;font-size:1em;line-height:1.2;letter-spacing:-.01em;margin:0 auto;max-width:none;color:var(--ink);text-wrap:balance}
 .kicker{font-weight:800;font-size:max(16px,.34em);letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin:0 0 .6em}
 /* After the reveal the question, the answer and why it matters are all the same size, told apart
    by colour only. The only small type on the card is the app's own labels and hints. */
-.qprompt{font-weight:700;font-size:1em;color:var(--ink);margin:0 auto .4em;max-width:none;line-height:1.2;letter-spacing:-.01em}
-.ansline{font-weight:800;font-size:1em;line-height:1.2;letter-spacing:-.01em;color:var(--jade);margin:0 auto;max-width:none}
+.qprompt{font-weight:700;font-size:1em;color:var(--ink);margin:0 auto .3em;max-width:none;line-height:1.2;letter-spacing:-.01em;text-wrap:balance}
+.ansline{font-weight:800;font-size:1em;line-height:1.2;letter-spacing:-.01em;color:var(--jade);margin:0 auto;max-width:none;text-wrap:balance}
 .reveal[hidden]{display:none}
-.cue{margin:.5em auto 0;padding-top:.35em;border-top:3px solid var(--line);max-width:none;width:100%}
+.cue{margin:.4em auto 0;padding-top:.3em;border-top:3px solid var(--line);max-width:none;width:100%}
 .cue .eyebrow{display:block;color:var(--muted);font-size:max(13px,.24em);line-height:1.3}
-.cue p{margin:.15em auto 0;color:var(--ink-2);font-weight:700;font-size:1em;line-height:1.2;letter-spacing:-.01em;max-width:none}
+.cue p{margin:.15em auto 0;color:var(--ink-2);font-weight:700;font-size:1em;line-height:1.2;letter-spacing:-.01em;max-width:none;text-wrap:balance}
 .btn{font-weight:700;font-size:clamp(16px,2.2vh,22px);background:var(--sage);color:#fff;border:0;border-radius:10px;
   padding:1.1vh 26px;cursor:pointer}
 .btn:hover{background:var(--sage-2)}
@@ -758,79 +760,79 @@ const SECONDS = {100:20, 300:20, 600:20, 1000:20};
 const Q = {
 "g0-100":{q:"Nutrilite has been the official nutrition sponsor of China's Olympic team since which Games?",
  a:"Sydney, 2000.",
- t:"Renewed for Athens, then London, then again with the Chinese Olympic Committee through 2020. Use it the moment somebody says they have never heard of it. A national Olympic team does not hand its athletes' nutrition to a brand it has not audited, and they have re-signed for twenty-five years.",
+ t:"An Olympic team can't gamble on what goes into its athletes, and China's team kept renewing with Nutrilite Games after Games. That trust is the best answer to \"I've never heard of it.\"",
  w:"Blair", s:"Nutrilite · Olympic sponsorship"},
 "g0-300":{q:"How much caffeine is in one can of XS Energy?",
  a:"80 mg.",
- t:"A little less than a regular cup of coffee, with no sugar. That is why it is the gym and study drink, and the easiest first product for anyone who already buys energy drinks.",
+ t:"Less caffeine than a cup of coffee, and no sugar. Anyone already buying energy drinks for the gym or for studying is your easiest first customer.",
  w:"", s:"XS · Amway/PRODUCTS.md"},
 "g0-600":{q:"Nutrilite grows its own botanicals on certified organic farms. Where are the two biggest?",
  a:"Southwest Mexico and Washington State.",
- t:"Rancho El Petacal in Mexico is 1,589 acres. Trout Lake in Washington is 886 and is the largest certified organic herb farm in the United States. There is a fourth farm in Brazil. This is the answer to “how do you know what's actually in it”: nobody else in this aisle owns the dirt. They buy powder from a broker, and the trail ends there.",
+ t:"Nutrilite grows its own plants instead of buying powder from a broker, so it can trace every ingredient from seed to supplement. That's the answer to \"how do I know what's actually in it?\"",
  w:"Sean", s:"Nutrilite · Farms"},
 "g0-1000":{q:"What was the first Nutrilite product, what year did it go on sale, and what was the first about it?",
  a:"A multivitamin and multimineral supplement, 1934. It was the first one ever sold in North America.",
- t:"Carl Rehnborg got the idea living in China in the early 1920s. He noticed that in farming villages with fresh food people were healthy, and in the cities, on sugar, salt and fat, they were not. It was not even called Nutrilite yet, that name arrived in 1939. So the brand predates the company that owns it by twenty-five years, and it invented the category everyone else is now competing in.",
+ t:"Nutrilite didn't join the supplement market, it started it. When someone compares it with a store brand, that's the difference: the brand that created the category.",
  w:"Johnny", s:"Nutrilite history"},
 "g1-100":{q:"Artistry is the only beauty brand backed by which supplement brand?",
  a:"Nutrilite.",
- t:"The world's number one selling vitamin and dietary supplement brand. Nutrilite grows the botanicals for Artistry on the same farms it uses for its own supplements.",
+ t:"Artistry uses plant extracts grown on Nutrilite's own farms. Artistry cares for skin from the outside and Nutrilite from the inside, which is why we recommend them together.",
  w:"", s:"Artistry · Amway/PRODUCTS.md"},
 "g1-300":{q:"Almost everyone skips one step of their skincare routine. Which one, and what does it do?",
  a:"Toner. It closes the pores after cleansing and brings the skin's pH back into balance.",
- t:"Cleanser is slightly acidic and opens the pores to clean them. Go straight to serum or moisturizer and the pores are still open, so the dirt goes in with it. Blackheads on the nose are usually a skipped toner.",
+ t:"Cleanser opens the pores. Toner closes them and resets the skin's pH so the serum can work. Blackheads on the nose are usually a skipped toner, and that's a great way into a skin session.",
  w:"", s:"Volume · Artistry"},
 "g1-600":{q:"The Artistry vitamin C serum keeps its vitamin C sealed in the cap until the first use. Why?",
  a:"Vitamin C breaks down once it is exposed to light and air, so it stays potent until you push the cap in and mix it.",
- t:"Use it within a month. You can watch the bottle turn yellow over a few weeks, which is the vitamin C oxidising, and that is the easiest demo there is for why the cap exists.",
+ t:"Vitamin C fades fast once it meets air and light, so sealing it in the cap means the dose you paid for is still there on day one. Use it within a month.",
  w:"", s:"Volume · Artistry"},
 "g1-1000":{q:"Artistry Skin Nutrition is a five-step routine. Name all five, in order.",
  a:"Purify, Balance, Rebuild, Moisturize, Protect.",
- t:"In plain terms: cleanser, toner, serum, moisturizer, sunscreen. Protect matters most for how skin ages, because sunlight is the number one cause of skin aging.",
+ t:"In plain words: cleanser, toner, serum, moisturizer, sunscreen. Protect matters most, because the sun is the number one cause of skin aging.",
  w:"", s:"Artistry · Amway/PRODUCTS.md"},
 "g2-100":{q:"eSpring is the world's number one selling brand of what?",
  a:"Home water treatment systems.",
- t:"A carbon block filter and an ultraviolet lamp in one cartridge. It is the answer when somebody says a filter jug does the same job.",
+ t:"A carbon filter and a UV lamp in one system, removing 140+ contaminants. Everyone drinks water every day, which makes it one of the easiest product conversations to start.",
  w:"", s:"eSpring"},
 "g2-300":{q:"What kind of light does eSpring use to destroy bacteria and viruses in your water?",
  a:"Ultraviolet light. The newest model uses UV-C LEDs.",
- t:"The carbon filter takes out taste, odour and chemicals. The UV light deals with bacteria and viruses. A filter jug only does the first half.",
+ t:"The carbon filter takes out taste, odor and chemicals. The UV light takes care of bacteria and viruses. A filter jug only does the first half.",
  w:"", s:"eSpring"},
 "g2-600":{q:"Legacy of Clean beats Tide on one number. Which one?",
  a:"Cost per load.",
- t:"Most Amway products cost more than the supermarket because of the quality. This one is genuinely cheaper, because it is a concentrate and you add the water yourself. With Tide, a lot of what you are paying for is water.",
+ t:"It's a concentrate, so you add the water yourself instead of paying to ship it. Proof that a better product can also cost less to use.",
  w:"", s:"Volume · Legacy of Clean"},
 "g2-1000":{q:"eSpring is the first and only brand certified to all four NSF/ANSI standards for a countertop carbon and UV system. Name any two of the four numbers.",
  a:"42, 53, 55 and 401.",
- t:"42 covers taste, odour and chlorine. 53 covers health-related contaminants. 55 covers ultraviolet treatment. 401 covers emerging contaminants like traces of pharmaceuticals. So when somebody asks whether it really beats a filter jug, you do not argue, you name the four standards.",
+ t:"Each number is an independent test: 42 for taste and chlorine, 53 for health contaminants, 55 for UV treatment, 401 for emerging contaminants like traces of medicine. Third-party proof beats any sales pitch.",
  w:"", s:"eSpring · NSF certification"},
 "g3-100":{q:"What year was Amway founded, by which two men, and in what town?",
  a:"1959, by Rich DeVos and Jay Van Andel, in Ada, Michigan.",
- t:"Head office is still in Ada, Michigan, and the company is still privately owned by the two founding families.",
+ t:"Still headquartered in Ada and still owned by the two founding families. A family-owned company can plan in decades instead of quarters.",
  w:"Ramos", s:"Amway history"},
 "g3-300":{q:"Amway is the largest direct selling company in the world. Roughly what were its global sales last year, and how many countries and territories does it operate in?",
  a:"About $7.3 billion, in more than 100 countries and territories.",
- t:"Seven billion a year and sixty-seven years old. Privately held, so it answers to nobody quarterly. When someone asks whether this is real, they are really asking about size.",
+ t:"When someone asks if this is real, they're really asking about size. The business we build on is already proven in more than 100 countries.",
  w:"Lina", s:"Amway scale"},
 "g3-600":{q:"Amway's co-founding family owns an NBA team. Which one, and what year did they buy it?",
  a:"The Orlando Magic, in 1991.",
- t:"Careful with the wording, because somebody will check: the DeVos family bought the Magic, not the company. Rich DeVos was still chairman when he died in 2018 and the family still owns it. Amway did hold the arena naming rights, the Amway Center, from 2010 until 2023, when it became the Kia Center. The point is not basketball. It is that the founders' family bought an NBA franchise out of a business people still ask whether it is legitimate.",
+ t:"The founders built enough through this business for the DeVos family to buy an NBA team. When someone doubts it's a real business, that's success they can look up.",
  w:"Johnny", s:"Amway · DeVos family"},
 "g3-1000":{q:"Before they founded Amway, Rich DeVos and Jay Van Andel spent years selling another company's products. Which company, and for how long?",
  a:"Nutrilite, for about ten years.",
- t:"So the founders were Nutrilite distributors first. The nutrition brand is older than the company that now owns it.",
+ t:"The founders started exactly where an IBO starts today: using a product they believed in and sharing it. They learned the business as distributors before they built a company.",
  w:"", s:"Nutrilite history"},
 "g4-100":{q:"GP. What does it stand for?",
  a:"Game Plan.",
- t:"The last of the four post-launch appointments. Goals get turned into a weekly work rate, and the work rate gets turned into a calendar.",
+ t:"The Game Plan turns your goals into a weekly work rate, and the work rate into a calendar. It's the last of the four appointments after launch.",
  w:"", s:"Budget · Appointment order"},
 "g4-300":{q:"PHP. What do the three letters stand for?",
  a:"Play Huddle Play.",
- t:"You work it through with your coach before the live action, you go and do it, then you come back and debrief. It is how the skill gets built between meetings.",
+ t:"Plan it with your coach, go do it, then debrief. That loop is how skills get built between meetings, and why nobody has to figure this out alone.",
  w:"", s:"CLAUDE.md glossary"},
 "g4-600":{q:"What is the full six-step workflow of an ideal PHP?",
  a:"When a candidate replies: 1, take a screenshot. 2, send it to your coach with what you plan to say. 3, your coach edits the reply. 4, you rewrite it so it sounds like you. 5, your coach agrees. 6, send it to the candidate.",
- t:"Step four is the one people skip. The coach gets the substance right; your rewrite is what makes it sound like you, so the candidate never feels they are talking to a script.",
+ t:"Step four is the one people skip. Your coach gets the substance right, and your rewrite makes it sound like you, so the candidate never feels a script.",
  w:"Vemon", s:"Johnny · PHP workflow"},
 "g4-1000":{q:"Spell out the full name of our EDC mentor, Rashmi.",
  a:"Rashmiranjan Jyotiprakash.  R-A-S-H-M-I-R-A-N-J-A-N  J-Y-O-T-I-P-R-A-K-A-S-H",
@@ -1459,8 +1461,6 @@ function openQ(k){
   const secs = key.top ? SECONDS[v] : 0;
   $("qcard").innerHTML =
     '<div class="qhead" id="qhead"><span class="v">'+v+'</span><span class="c">'+key.cat+'</span>'
-    + (secs ? '<div class="qtimer" id="timer"><span class="t" id="tval"></span>'
-            +   '<span class="side"><span class="lab" id="tlab"></span><button id="trestart">Restart</button></span></div>' : '')
     + '<button class="x" id="qx" aria-label="Close">&times;</button></div><div class="qbody">'
     + '<div class="stage" id="stage"></div><div class="btnrow" id="revrow"></div>'
     + '<div class="award"><span class="eyebrow">'
@@ -1478,7 +1478,9 @@ function openQ(k){
   let shown = false;
   const render = function(){
     $("stage").innerHTML =
-      (!secs && !shown ? '<p class="kicker">'+(v === 1500 ? 'First hand up · share your own experience · 3 min'
+      (secs && !shown ? '<div class="timer" id="timer"><span class="t" id="tval"></span>'
+            +   '<span class="lab" id="tlab"></span><button id="trestart">Restart</button></div>' : '')
+      + (!secs && !shown ? '<p class="kicker">'+(v === 1500 ? 'First hand up · share your own experience · 3 min'
                                                            : 'First hand up · training topic · 5 min')+'</p>' : '')
       + (shown ? '<p class="qprompt">'+esc(d.q)+'</p><p class="ansline">'+esc(d.a)+'</p>'
                +   '<div class="cue"><span class="eyebrow">Why it matters</span><p>'
@@ -1487,8 +1489,6 @@ function openQ(k){
     $("revrow").innerHTML = secs ? '<button class="btn'+(shown?' ghost':'')+'" id="rev">'
               +   (shown ? 'Hide answer' : 'Reveal answer')+'</button>' : '';
     if(secs){
-      $("timer").hidden = shown;
-      if(shown) $("qhead").classList.remove("warn", "out");
       $("rev").onclick = function(){
         const st = $("stage");
         st.classList.add("fade");
@@ -1528,11 +1528,10 @@ function startTimer(total){
   const box = $("timer"), val = $("tval"), lab = $("tlab");
   if(!box) return;
   let left = total;
-  const head = $("qhead");
   const paint = function(){
     val.textContent = left;
-    head.classList.toggle("warn", left <= 7 && left > 0);
-    head.classList.toggle("out", left <= 0);
+    box.classList.toggle("warn", left <= 7 && left > 0);
+    box.classList.toggle("out", left <= 0);
     lab.textContent = left > 0 ? "seconds" : "time's up";
   };
   paint();
@@ -1545,7 +1544,7 @@ function startTimer(total){
    note) fits the card without scrolling. Long questions end up smaller, short ones huge. */
 function fitStage(){
   const st = $("stage"); if(!st || ovl.dataset.open !== "1") return;
-  let fs = Math.round(Math.min(innerWidth * 0.056, innerHeight * 0.095, 96));
+  let fs = Math.round(Math.min(innerWidth * 0.09, innerHeight * 0.16));
   const lo = 20;
   st.style.setProperty("--fs", fs + "px");
   while(fs > lo && (st.scrollHeight > st.clientHeight + 1 || st.scrollWidth > st.clientWidth + 1)){
