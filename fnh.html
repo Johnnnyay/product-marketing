@@ -370,7 +370,7 @@ p.cn,.cn{color:var(--ink-2)}
 .timer.out .t{color:var(--red)}
 .timer .lab{font-weight:800;font-size:max(12px,.26em);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:.15em}
 .timer.out .lab{color:var(--red)}
-/* PHP: a lifeline, two per group. The clock pauses, a 30 second huddle runs in its own colour,
+/* PHP: a lifeline, three per group, shown as hearts. The clock pauses, a 30 second huddle runs in its own colour,
    then the answer clock picks up where it stopped. */
 .timer.php .t,.timer.php .lab{color:#0E6E8C}
 .phpnote{font-weight:800;font-size:max(15px,.34em);color:#0E6E8C;margin:0 auto .45em;max-width:none}
@@ -381,9 +381,13 @@ p.cn,.cn{color:var(--ink-2)}
 .phprow button:hover:not(:disabled){border-color:#0E6E8C;color:#0E6E8C}
 .phprow button.live{background:#0E6E8C;border-color:#0E6E8C;color:#fff}
 .phprow button:disabled{opacity:.4;cursor:default}
-.dots{display:inline-flex;gap:3px}
-.dots i{width:9px;height:9px;border-radius:50%;border:2px solid currentColor;display:inline-block}
-.dots i.on{background:currentColor}
+.hearts{display:inline-flex;gap:2px;align-items:center}
+.hearts i{display:inline-flex}
+.hearts svg{width:15px;height:14px;fill:#D3D9D4}
+.hearts i.on svg{fill:#E0245E}
+.phprow button.live .hearts svg{fill:rgba(255,255,255,.35)}
+.phprow button.live .hearts i.on svg{fill:#FF6B8B}
+.scteam .phpd .hearts svg{width:16px;height:15px}
 .scteam .phpd{display:flex;justify-content:center;align-items:center;gap:5px;margin-top:3px;font-size:10.5px;font-weight:800;
   letter-spacing:.1em;color:#0E6E8C}
 .phpbox{background:#E3F1F5;border-left:6px solid #0E6E8C;border-radius:0 12px 12px 0;padding:12px 16px;font-size:15px;margin:10px 0 0;max-width:none}
@@ -495,7 +499,7 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
   <div class="note"><b>How it works.</b> The host counts 3, 2, 1 and the <b>first hand up picks
   any square</b>. The host reads the question, then you have <b>20 seconds</b> (35 on the 600s and 1000s). Right, your group
   takes the points. Wrong or out of time, <b>your group loses the square</b> and the other side
-  races for it. Each group gets <b>two PHPs</b>: the player can pause the clock and huddle 30 seconds
+  races for it. Each group gets <b>three PHPs</b>: the player can pause the clock and huddle 30 seconds
   with a leader, but the answer has to come from the player. The <b>green board</b> is open to everyone. The <b>orange board</b>, 1500 and 2000,
   is 3/6 and above, and you share on a topic instead of answering.
   <a href="#" id="howlink">See how to play</a></div>
@@ -546,8 +550,8 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
   </div>
   <p class="turns"><b>Room and Zoom take turns.</b> The room goes first, then Zoom, then the room. When one side misses, the question crosses over and the other three groups race for it.<br>
   <span class="cn">现场和 Zoom 轮流来，现场先。一边没答对，这题就交给另一边，剩下三组来抢。</span></p>
-  <p class="phpbox"><b>PHP: two per group.</b> On a green square, the player who got picked can call a PHP. The clock pauses and they get <b>30 seconds</b> to huddle with any leader from their group. In the room, go and whisper. On Zoom, send them a private chat. Then the clock picks up where it stopped, and <b>the player has to say the answer</b>. If it comes out of a leader's mouth, it doesn't count.<br>
-  <span class="cn">PHP：每组两次。绿色格子上，被点到的人可以叫 PHP。计时暂停，给你 30 秒去找自己组的任意一位 leader 商量：现场就走过去小声说，Zoom 上就私聊。商量完计时接着走，答案必须由你本人说出来。如果答案是从 leader 嘴里说出来的，不算。</span></p>
+  <p class="phpbox"><b>PHP: three per group ❤️❤️❤️</b> On a green square, the player who got picked can call a PHP. The clock pauses and they get <b>30 seconds</b> to huddle with any leader from their group. In the room, go and whisper. On Zoom, send them a private chat. Then the clock picks up where it stopped, and <b>the player has to say the answer</b>. If it comes out of a leader's mouth, it doesn't count.<br>
+  <span class="cn">PHP：每组三次 ❤️❤️❤️。绿色格子上，被点到的人可以叫 PHP。计时暂停，给你 30 秒去找自己组的任意一位 leader 商量：现场就走过去小声说，Zoom 上就私聊。商量完计时接着走，答案必须由你本人说出来。如果答案是从 leader 嘴里说出来的，不算。</span></p>
   <p class="honor"><b>Play it straight.</b> This game runs on integrity and honesty. No Google, no ChatGPT, no AI of any kind. If you know it, you know it.<br>
   <span class="cn">这个游戏靠的是诚信。不查 Google，不用 ChatGPT，任何 AI 都不用。会就是会。</span></p>
 
@@ -578,10 +582,10 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
         <li>Fitness, Beauty, Home, Amway, Education</li>
         <li>A quiz question. Once it's read: 20 seconds, or 35 on the 600s and 1000s.</li>
         <li>If it asks for two things, you need both.</li>
-        <li>Two PHP huddles per group for the whole game.</li>
+        <li>Three PHP huddles per group for the whole game ❤️❤️❤️</li>
         <li>We play this first, until 8:35.</li>
       </ul>
-      <p class="cn">所有人都能抢。问答题，读完题后开始计时，100 和 300 是 20 秒，600 和 1000 是 35 秒；题目要两个答案就得都答出来。每组有两次 PHP。先打这块，打到 8:35。</p>
+      <p class="cn">所有人都能抢。问答题，读完题后开始计时，100 和 300 是 20 秒，600 和 1000 是 35 秒；题目要两个答案就得都答出来。每组有三次 PHP。先打这块，打到 8:35。</p>
     </div>
     <div class="bd or">
       <div class="tag">Orange · 1500 and 2000</div>
@@ -646,7 +650,7 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
       <p><b>Three.</b> I read the question out, and then the clock starts: 20 seconds on the 100s and 300s, 35 seconds on the harder 600s and 1000s. If it asks for two things, I need both.</p>
       <p><b>Four.</b> Get it right, and the points go to your group. Get it wrong or run out of time, and your group loses the square. It crosses to the other side. The room and Zoom take turns, so if the room misses, the other three groups on Zoom race for it, and the other way round.</p>
       <p>So put your hand up when you know it, not when you hope.</p>
-      <p><b>And you have a lifeline: PHP.</b> Every group gets two for the whole game, on the green board only. If you get picked and you're stuck, say "PHP". The clock pauses, and you get 30 seconds to huddle with any leader in your group. In the room, go and whisper. On Zoom, send them a private chat. Then the clock picks up where it stopped, and the answer has to come out of your mouth. If your leader says it, it doesn't count. Leaders, keep your Zoom chat open so your Zoom players can reach you.</p>
+      <p><b>And you have a lifeline: PHP.</b> Every group gets three, the red hearts on the scoreboard, for the whole game, on the green board only. If you get picked and you're stuck, say "PHP". The clock pauses, and you get 30 seconds to huddle with any leader in your group. In the room, go and whisper. On Zoom, send them a private chat. Then the clock picks up where it stopped, and the answer has to come out of your mouth. If your leader says it, it doesn't count. Leaders, keep your Zoom chat open so your Zoom players can reach you.</p>
       <p>Two boards tonight. The green board, Fitness, Beauty, Home, Amway and Education, is open to everyone. The orange board underneath, 1500 and 2000, is for 3/6 and above, and it's not a quiz. You pick a topic and share. We get there at 8:35.</p>
       <p>One more thing, and it matters. Tonight runs on integrity and honesty. No Google, no ChatGPT, no AI of any kind. Some of our leaders have seen these questions, so we're trusting everyone to play it straight. If you know it, you know it.</p>
       <p>Keep an eye on the scores at the top. Whoever's in front wears the crown.</p>
@@ -739,8 +743,8 @@ const SECONDS = {100:20, 300:20, 600:35, 1000:35};
 const Q = {
 "g0-100":{q:"Nutrilite has been the official nutrition sponsor of China's Olympic team since which Games?",
  a:"Sydney, 2000.",
- t:"Olympic athletes are tested for everything they take, so their teams only trust supplements they can rely on completely. Nutrilite earned that trust at the highest level of sport, and kept it for two decades.",
- w:"Blair", s:"Nutrilite · Olympic sponsorship"},
+ t:"A national Olympic team doesn't hand its athletes' nutrition to a brand it hasn't audited, and China's team has kept renewing with Nutrilite since Sydney 2000. Athletes are responsible for anything found in their body, even from a contaminated supplement, so products like Nutrilite Double X earned NSF Certified for Sport, which screens for banned substances.",
+ w:"Blair", s:"Nutrilite x China Olympic team since 2000 \u00b7 NSF Certified for Sport (2012)"},
 "g0-300":{q:"How much caffeine is in one can of XS Energy?",
  a:"80 mg.",
  t:"A little less caffeine than a cup of coffee, with zero sugar and added B vitamins. Energy without the sugar most energy drinks are full of.",
@@ -1049,7 +1053,7 @@ const PRACTICE_TOPIC = {
   1500: "The best advice a mentor ever gave you, and what you did with it.",
   2000: "How to run a great first coffee chat."
 };
-const sim = { mode: "green", sc: {}, played: {}, took: {}, qi: 0, missed: false, php: 2, timers: [] };
+const sim = { mode: "green", sc: {}, played: {}, took: {}, qi: 0, missed: false, php: 3, timers: [] };
 function simG(){ return (me && me.group) || 2; }
 function simOther(){ const o = GROUPS.filter(function(x){ return x !== simG(); }); return o[Math.random() * o.length | 0]; }
 function simClear(){ sim.timers.forEach(function(h){ clearTimeout(h); clearInterval(h); }); sim.timers = []; }
@@ -1281,7 +1285,7 @@ function simDelivered(k){
   simZh(both ? "你们组的 1500 和 2000 都拿到了，橙色这块就结束了。" : "讲完，分数归你们组。每组只能拿一个 1500 和一个 2000。");
   $("simnext").onclick = both ? simReset : simReady;
 }
-function simReset(){ sim.sc = {}; sim.played = {}; sim.took = {}; sim.qi = 0; sim.missed = false; sim.php = 2; simMode("green"); }
+function simReset(){ sim.sc = {}; sim.played = {}; sim.took = {}; sim.qi = 0; sim.missed = false; sim.php = 3; simMode("green"); }
 document.querySelectorAll(".simtabs button").forEach(function(b){ b.onclick = function(){ simMode(b.dataset.m); }; });
 $("simreset").onclick = simReset;
 $("togroup").onclick = function(){ goTo(1); };
@@ -1533,11 +1537,12 @@ function openQ(k){
    somebody thinking out loud and the point is the race; 35 on the 600s and 1000s, which are
    genuinely harder. Three and five minutes on the
    3/6 rows, because those are a leader teaching, not a buzz-in. */
-const PHP_MAX = 2, PHP_SECS = 30;
+const PHP_MAX = 3, PHP_SECS = 30;
 let tickH = null, clk = null;
+const HEART = '<svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 21.4l-1.4-1.3C5.4 15.4 2 12.3 2 8.5 2 5.4 4.4 3 7.5 3c1.7 0 3.4.8 4.5 2.1C13.1 3.8 14.8 3 16.5 3 19.6 3 22 5.4 22 8.5c0 3.8-3.4 6.9-8.6 11.6L12 21.4z"/></svg>';
 function phpDots(left){
-  let h = '<span class="dots">';
-  for(let i = 0; i < PHP_MAX; i++) h += '<i' + (i < left ? ' class="on"' : '') + '></i>';
+  let h = '<span class="hearts" aria-label="' + left + ' left">';
+  for(let i = 0; i < PHP_MAX; i++) h += '<i' + (i < left ? ' class="on"' : '') + '>' + HEART + '</i>';
   return h + '</span>';
 }
 function runClock(){
