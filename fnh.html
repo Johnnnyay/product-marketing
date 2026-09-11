@@ -353,57 +353,52 @@ p.cn,.cn{color:var(--ink-2)}
 .legend{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin:16px 0 0;font-size:14px;
   color:var(--muted)}
 
-/* ---- question card ---- */
-.ovl{position:fixed;inset:0;background:rgba(20,26,22,.55);display:none;z-index:40;padding:22px;
-  overflow-y:auto}
+/* ---- question card. It is projected, so it takes the whole wall: the text is sized to the
+   screen and then shrunk only as far as it has to be to fit, and the clock sits in the header
+   bar, which turns amber and then red so the back row can see time running out. ---- */
+.ovl{position:fixed;inset:0;background:rgba(20,26,22,.72);display:none;z-index:40;padding:1.4vh 1.4vw}
 .ovl[data-open="1"]{display:block}
-.qcard{max-width:940px;margin:20px auto;background:var(--panel);border:3px solid var(--sage);
-  border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
-.qhead{display:flex;gap:16px;align-items:center;padding:14px 22px;background:var(--sage);color:#fff}
-.qhead .v{font-weight:800;font-size:34px;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
-.qhead .c{font-weight:700;font-size:19px;letter-spacing:.06em;text-transform:uppercase;opacity:.92}
-.qhead .x{margin-left:auto;background:rgba(255,255,255,.16);border:0;color:#fff;border-radius:8px;
-  width:38px;height:38px;font-size:22px;cursor:pointer;line-height:1}
+.qcard{height:100%;display:flex;flex-direction:column;background:var(--panel);border:4px solid var(--sage);
+  border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+.qhead{flex:none;display:flex;gap:2vw;align-items:center;padding:1.2vh 1.6vw 1.2vh 2.2vw;background:var(--sage);color:#fff;
+  transition:background .25s}
+.qhead.warn{background:var(--amber)} .qhead.out{background:var(--red)}
+.qhead .v{font-weight:800;font-size:clamp(34px,6.4vh,76px);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+.qhead .c{flex:1;font-weight:800;font-size:clamp(18px,3.4vh,40px);letter-spacing:.08em;text-transform:uppercase}
+.qtimer{display:flex;align-items:center;gap:14px}
+.qtimer .t{font-weight:800;font-size:clamp(46px,8.5vh,104px);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.04em;
+  min-width:1.3em;text-align:right}
+.qtimer .side{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.qtimer .lab{font-weight:800;font-size:clamp(12px,1.8vh,20px);letter-spacing:.14em;text-transform:uppercase}
+.qtimer button{background:rgba(255,255,255,.16);border:2px solid rgba(255,255,255,.4);color:#fff;border-radius:8px;
+  font:inherit;font-size:13px;font-weight:700;padding:5px 12px;cursor:pointer}
+.qtimer button:hover{background:rgba(255,255,255,.3)}
+.qhead .x{flex:none;background:rgba(255,255,255,.16);border:0;color:#fff;border-radius:10px;
+  width:48px;height:48px;font-size:28px;cursor:pointer;line-height:1}
 .qhead .x:hover{background:rgba(255,255,255,.3)}
-.qbody{padding:32px 32px 26px;text-align:center}
-.stage{min-height:250px;display:flex;flex-direction:column;justify-content:center;
-  transition:opacity .16s ease}
+.qbody{flex:1;min-height:0;display:flex;flex-direction:column;padding:2vh 3vw 1.6vh;text-align:center}
+.stage{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  font-size:var(--fs,56px);transition:opacity .16s ease}
 .stage.fade{opacity:0}
-.qtext{font-weight:700;font-size:36px;line-height:1.22;letter-spacing:-.02em;margin:0 auto;
-  max-width:24ch;color:var(--ink)}
-.kicker{font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--amber);margin:0 0 16px}
-.qprompt{font-weight:600;font-size:16px;color:var(--muted);margin:0 auto 16px;max-width:52ch;
-  line-height:1.45}
-.ansline{font-weight:800;font-size:31px;line-height:1.26;letter-spacing:-.02em;color:var(--jade);
-  margin:0 auto;max-width:30ch}
+.qtext{font-weight:700;font-size:1em;line-height:1.18;letter-spacing:-.02em;margin:0 auto;max-width:28ch;color:var(--ink)}
+.kicker{font-weight:800;font-size:max(16px,.34em);letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin:0 0 .6em}
+.qprompt{font-weight:600;font-size:max(18px,.44em);color:var(--ink-2);margin:0 auto .35em;max-width:44ch;line-height:1.35}
+.ansline{font-weight:800;font-size:1em;line-height:1.18;letter-spacing:-.02em;color:var(--jade);margin:0 auto;max-width:26ch}
 .reveal[hidden]{display:none}
-.cue{margin:24px auto 0;padding-top:16px;border-top:2px solid var(--line);max-width:66ch;text-align:left}
-.cue .eyebrow{color:var(--line-2)}
-.cue p{margin:6px 0 0;color:var(--muted);font-size:14.5px;line-height:1.62}
-.timer{display:flex;flex-direction:column;align-items:center;gap:0;margin:0 0 24px}
-.timer .t{font-weight:800;font-size:104px;line-height:.88;font-variant-numeric:tabular-nums;
-  color:var(--jade);letter-spacing:-.05em}
-.timer.warn .t{color:var(--amber)}
-.timer.out .t{color:var(--red)}
-.timer .lab{font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--muted);margin-top:4px}
-.timer.out .lab{color:var(--red)}
-.timer button{margin-top:12px;background:#fff;border:2px solid var(--line);color:var(--muted);
-  border-radius:8px;font:inherit;font-size:13px;font-weight:600;padding:7px 15px;cursor:pointer}
-.timer button:hover{color:var(--ink-2);border-color:var(--line-2)}
-.btn{font-weight:700;font-size:17px;background:var(--sage);color:#fff;border:0;border-radius:10px;
-  padding:13px 26px;cursor:pointer}
+.cue{margin:.55em auto 0;padding-top:.45em;border-top:3px solid var(--line);max-width:72ch;text-align:left;width:100%}
+.cue .eyebrow{display:block;color:var(--muted);font-size:max(13px,.24em);line-height:1.3}
+.cue p{margin:.2em 0 0;color:var(--ink-2);font-size:max(17px,.36em);line-height:1.5;max-width:none}
+.btn{font-weight:700;font-size:clamp(16px,2.2vh,22px);background:var(--sage);color:#fff;border:0;border-radius:10px;
+  padding:1.1vh 26px;cursor:pointer}
 .btn:hover{background:var(--sage-2)}
 .btn.ghost{background:#fff;color:var(--ink-2);border:2px solid var(--line)}
 .btn.ghost:hover{background:var(--panel-2)}
-.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px;justify-content:center}
-.award{margin-top:26px;padding-top:20px;border-top:2px solid var(--line)}
-.award .eyebrow{margin-bottom:10px;display:block}
-.awrow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.awrow button{font-weight:800;font-size:28px;background:#fff;border:3px solid var(--line);
-  color:var(--ink);border-radius:11px;padding:14px 6px;cursor:pointer;
-  font-variant-numeric:tabular-nums}
+.btnrow{flex:none;display:flex;gap:10px;flex-wrap:wrap;margin-top:1.4vh;justify-content:center}
+.award{flex:none;margin-top:1.4vh;padding-top:1.4vh;border-top:3px solid var(--line)}
+.award .eyebrow{margin-bottom:1vh;display:block;font-size:clamp(13px,1.9vh,20px);color:var(--ink-2)}
+.awrow{display:grid;grid-template-columns:repeat(4,1fr);gap:1vw}
+.awrow button{font-weight:800;font-size:clamp(26px,5vh,56px);line-height:1.1;background:#fff;border:4px solid var(--line);
+  color:var(--ink);border-radius:12px;padding:1.1vh 6px;cursor:pointer;font-variant-numeric:tabular-nums}
 .awrow button[data-g="1"]{border-color:var(--g1);color:var(--g1)}
 .awrow button[data-g="2"]{border-color:var(--g2);color:var(--g2)}
 .awrow button[data-g="3"]{border-color:var(--g3);color:var(--g3)}
@@ -413,7 +408,7 @@ p.cn,.cn{color:var(--ink-2)}
 .awrow button.done[data-g="2"]{background:var(--g2);color:#fff}
 .awrow button.done[data-g="3"]{background:var(--g3);color:#fff}
 .awrow button.done[data-g="4"]{background:var(--g4);color:#fff}
-.awnote{margin:11px 0 0;font-size:13px;color:var(--muted)}
+.awnote{margin:.8vh auto 0;font-size:12.5px;color:var(--muted)}
 
 .tw{overflow-x:auto;margin:14px 0}
 table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}
@@ -435,7 +430,7 @@ pre.msg{background:var(--panel);border:2px solid var(--line);border-radius:10px;
 @media (max-width:820px){
   h1{font-size:31px}.big .num{font-size:96px}.board{gap:6px}
   .cell{font-size:23px;padding:16px 3px}.cat{min-height:56px}.cat span{font-size:13px}.row5 .cat span{font-size:11px}
-  .qtext{font-size:24px}.ansline{font-size:22px}.timer .t{font-size:76px}
+  
   .awrow button{font-size:22px}.clock{grid-template-columns:64px 1fr;gap:0 12px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -1461,15 +1456,16 @@ function openQ(k){
   const key = parseKey(k), v = key.v;
   const secs = key.top ? SECONDS[v] : 0;
   $("qcard").innerHTML =
-    '<div class="qhead"><span class="v">'+v+'</span><span class="c">'+key.cat+'</span>'
+    '<div class="qhead" id="qhead"><span class="v">'+v+'</span><span class="c">'+key.cat+'</span>'
+    + (secs ? '<div class="qtimer" id="timer"><span class="t" id="tval"></span>'
+            +   '<span class="side"><span class="lab" id="tlab"></span><button id="trestart">Restart</button></span></div>' : '')
     + '<button class="x" id="qx" aria-label="Close">&times;</button></div><div class="qbody">'
-    + '<div class="stage" id="stage"></div>'
+    + '<div class="stage" id="stage"></div><div class="btnrow" id="revrow"></div>'
     + '<div class="award"><span class="eyebrow">'
     +   (SECONDS[v] ? 'Award '+v+' to' : 'Delivered · award '+v+' to')
     +   '</span><div class="awrow" id="awrow">'
     +   GROUPS.map(function(g){ return '<button data-g="'+g+'">'+g+'</button>'; }).join("")
-    + '</div><p class="awnote">One tap scores it and blacks the square out. '
-    + 'Tap another group to move it, tap the same one to take it back.</p></div></div>';
+    + '</div><p class="awnote">Tap again to take it back. Tap another group to move it.</p></div></div>';
 
   /* An 800 or a 1000 has no right answer to reveal. Somebody stands up and delivers it,
      and if they deliver it the points are theirs. So those cards carry the topic and the
@@ -1480,28 +1476,28 @@ function openQ(k){
   let shown = false;
   const render = function(){
     $("stage").innerHTML =
-      (secs && !shown ? '<div class="timer" id="timer"><span class="t" id="tval"></span>'
-            +   '<span class="lab" id="tlab"></span>'
-            +   '<button id="trestart">Restart</button></div>' : '')
-      + (!secs && !shown ? '<p class="kicker">'+(v === 1500 ? 'First hand up · share your own experience · 3 min'
+      (!secs && !shown ? '<p class="kicker">'+(v === 1500 ? 'First hand up · share your own experience · 3 min'
                                                            : 'First hand up · training topic · 5 min')+'</p>' : '')
       + (shown ? '<p class="qprompt">'+esc(d.q)+'</p><p class="ansline">'+esc(d.a)+'</p>'
-               +   '<div class="cue"><span class="eyebrow">cue · 60 to 90 seconds</span><p>'
+               +   '<div class="cue"><span class="eyebrow">Why it matters</span><p>'
                +   esc(d.t)+'</p></div>'
-               : '<p class="qtext">'+esc(d.q)+'</p>')
-      + (secs ? '<div class="btnrow"><button class="btn'+(shown?' ghost':'')+'" id="rev">'
-              +   (shown ? 'Hide answer' : 'Reveal answer')+'</button></div>' : '');
+               : '<p class="qtext">'+esc(d.q)+'</p>');
+    $("revrow").innerHTML = secs ? '<button class="btn'+(shown?' ghost':'')+'" id="rev">'
+              +   (shown ? 'Hide answer' : 'Reveal answer')+'</button>' : '';
     if(secs){
+      $("timer").hidden = shown;
+      if(shown) $("qhead").classList.remove("warn", "out");
       $("rev").onclick = function(){
         const st = $("stage");
         st.classList.add("fade");
-        setTimeout(function(){ shown = !shown; render(); $("stage").classList.remove("fade"); }, 160);
+        setTimeout(function(){ shown = !shown; render(); fitStage(); $("stage").classList.remove("fade"); }, 160);
       };
       if(!shown) startTimer(secs); else clearInterval(tickH);
     }
   };
   render();
   ovl.dataset.open = "1";
+  fitStage();
   $("qx").onclick = function(){ ovl.dataset.open = "0"; clearInterval(tickH); };
   $("awrow").addEventListener("click", function(e){
     const b = e.target.closest("button"); if(!b) return;
@@ -1530,11 +1526,12 @@ function startTimer(total){
   const box = $("timer"), val = $("tval"), lab = $("tlab");
   if(!box) return;
   let left = total;
+  const head = $("qhead");
   const paint = function(){
     val.textContent = left;
-    box.classList.toggle("warn", left <= 7 && left > 0);
-    box.classList.toggle("out", left <= 0);
-    lab.textContent = left > 0 ? "seconds" : "time · it goes to the floor";
+    head.classList.toggle("warn", left <= 7 && left > 0);
+    head.classList.toggle("out", left <= 0);
+    lab.textContent = left > 0 ? "seconds" : "time's up";
   };
   paint();
   tickH = setInterval(function(){
@@ -1542,6 +1539,20 @@ function startTimer(total){
   }, 1000);
   $("trestart").onclick = function(){ startTimer(total); };
 }
+/* Start as big as the wall allows, then step down until the question (or the answer and its
+   note) fits the card without scrolling. Long questions end up smaller, short ones huge. */
+function fitStage(){
+  const st = $("stage"); if(!st || ovl.dataset.open !== "1") return;
+  let fs = Math.round(Math.min(innerWidth * 0.056, innerHeight * 0.095, 96));
+  const lo = 20;
+  st.style.setProperty("--fs", fs + "px");
+  while(fs > lo && (st.scrollHeight > st.clientHeight + 1 || st.scrollWidth > st.clientWidth + 1)){
+    fs -= 2; st.style.setProperty("--fs", fs + "px");
+  }
+}
+addEventListener("resize", fitStage);
+if(document.fonts && document.fonts.ready) document.fonts.ready.then(fitStage);
+
 function setPlayed(k, on){
   game.played[k] = on; if(!on) delete game.played[k];
   drawBoard(); saveGame();
