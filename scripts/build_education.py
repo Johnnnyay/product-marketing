@@ -26,9 +26,9 @@ SRC = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_SRC
 
 VIDEO_NOTE = "（此处播放了一段视频，录音无法准确转写。）"
 SERIES = [
-    # id, folder, title, kind
-    ("xzc52", "肖子程52健康课", "肖子程52健康课", "plain"),
-    ("qtby", "清调补养", "清调补养", "speaker"),
+    # id, folder, title, kind, English title
+    ("xzc52", "肖子程52健康课", "肖子程52健康课", "plain", "Family Health Management, 52 Lessons"),
+    ("qtby", "清调补养", "清调补养", "speaker", "Clear, Regulate, Replenish, Nourish"),
 ]
 
 TS_LINE = re.compile(r"^说话人(\d+)\s+\d{1,2}:\d{2}(?::\d{2})?\s*$")
@@ -107,7 +107,7 @@ def squash(x):
 
 def main():
     index = {"series": []}
-    for sid, folder, title, kind in SERIES:
+    for sid, folder, title, kind, title_en in SERIES:
         src = os.path.join(SRC, folder)
         out_dir = os.path.join(ROOT, "education", sid)
         os.makedirs(out_dir, exist_ok=True)
@@ -130,10 +130,18 @@ def main():
             entry = {"id": lid, "n": n, "title": ltitle, "mins": max(1, round(chars / 450))}
             if speaker:
                 entry["speaker"] = speaker
+            # English edition, written by hand to TRANSLATION_SPEC.md: first line is '# Title'.
+            en_path = os.path.join(out_dir, lid + ".en.txt")
+            if os.path.exists(en_path):
+                first = open(en_path, encoding="utf-8").readline().strip()
+                assert first.startswith("# "), en_path + ": first line must be '# Title'"
+                entry["titleEn"] = first[2:].strip()
+                words = len(open(en_path, encoding="utf-8").read().split())
+                entry["minsEn"] = max(1, round(words / 230))
             lessons.append(entry)
         lessons.sort(key=lambda e: e["n"])
-        index["series"].append({"id": sid, "title": title, "lessons": lessons})
-        print(f"{title}: {len(lessons)} lessons, {videos} video note(s)")
+        index["series"].append({"id": sid, "title": title, "titleEn": title_en, "lessons": lessons})
+        print(f"{title}: {len(lessons)} lessons, {videos} video note(s), {sum(1 for l in lessons if 'titleEn' in l)} English")
     os.makedirs(os.path.join(ROOT, "education"), exist_ok=True)
     with open(os.path.join(ROOT, "education", "index.json"), "w", encoding="utf-8") as f:
         json.dump(index, f, ensure_ascii=False, indent=1)

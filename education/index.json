@@ -3,6 +3,7 @@
   {
    "id": "xzc52",
    "title": "肖子程52健康课",
+   "titleEn": "Family Health Management, 52 Lessons",
    "lessons": [
     {
      "id": "01",
@@ -309,48 +310,61 @@
   {
    "id": "qtby",
    "title": "清调补养",
+   "titleEn": "Clear, Regulate, Replenish, Nourish",
    "lessons": [
     {
      "id": "01",
      "n": 1,
      "title": "健康启航 开启健康管理新篇章",
      "mins": 12,
-     "speaker": "刘建军"
+     "speaker": "刘建军",
+     "titleEn": "The Root Logic of Disease and the Path Back to Health",
+     "minsEn": 15
     },
     {
      "id": "02",
      "n": 2,
      "title": "飞驰人生 从掌握健康仪表盘开始",
      "mins": 12,
-     "speaker": "刘锦"
+     "speaker": "刘锦",
+     "titleEn": "Your Personal Health Record Is Your Dashboard",
+     "minsEn": 14
     },
     {
      "id": "04",
      "n": 4,
      "title": "健康密码 读懂体检报告",
      "mins": 12,
-     "speaker": "李玲"
+     "speaker": "李玲",
+     "titleEn": "Reading Your Physical Exam Report as a Health Manager",
+     "minsEn": 14
     },
     {
      "id": "05",
      "n": 5,
      "title": "读懂身体的求救信号",
      "mins": 11,
-     "speaker": "李玲"
+     "speaker": "李玲",
+     "titleEn": "Reading Your Body's Distress Signals",
+     "minsEn": 13
     },
     {
      "id": "06",
      "n": 6,
      "title": "把握健康脉搏 读懂人体成分分析报告",
      "mins": 12,
-     "speaker": "刘锦"
+     "speaker": "刘锦",
+     "titleEn": "Reading Your Body Composition Report",
+     "minsEn": 14
     },
     {
      "id": "07",
      "n": 7,
      "title": "万病始于肠",
      "mins": 12,
-     "speaker": "凌敏"
+     "speaker": "凌敏",
+     "titleEn": "Most Disease Begins in the Gut",
+     "minsEn": 16
     },
     {
      "id": "08",
@@ -399,42 +413,54 @@
      "n": 14,
      "title": "守护抗衰密码神奇的抗氧化三剑客与矿物质",
      "mins": 13,
-     "speaker": "丁桂珍"
+     "speaker": "丁桂珍",
+     "titleEn": "The Antioxidant Trio and the Minerals That Guard Aging",
+     "minsEn": 18
     },
     {
      "id": "15",
      "n": 15,
      "title": "营养早餐 健康相伴每一天",
      "mins": 11,
-     "speaker": "刘锦"
+     "speaker": "刘锦",
+     "titleEn": "A Nourishing Breakfast for Health Every Day",
+     "minsEn": 14
     },
     {
      "id": "16",
      "n": 16,
      "title": "夏季养心篇让心强大 你才强大",
      "mins": 11,
-     "speaker": "李玲"
+     "speaker": "李玲",
+     "titleEn": "Summer Heart Care: A Strong Heart Makes You Strong",
+     "minsEn": 14
     },
     {
      "id": "17",
      "n": 17,
      "title": "将军指令：养肝之道 护卫全身",
      "mins": 13,
-     "speaker": "莫军晔"
+     "speaker": "莫军晔",
+     "titleEn": "Caring for the Liver, the Body's General",
+     "minsEn": 17
     },
     {
      "id": "18",
      "n": 18,
      "title": "守护先天之本 肾脏的养生智慧",
      "mins": 12,
-     "speaker": "凌敏"
+     "speaker": "凌敏",
+     "titleEn": "Guarding the Root of Life: Kidney Care",
+     "minsEn": 16
     },
     {
      "id": "19",
      "n": 19,
      "title": "健康之路 清调补养",
      "mins": 12,
-     "speaker": "刘建军"
+     "speaker": "刘建军",
+     "titleEn": "The Logic of Disease and the Road to Health",
+     "minsEn": 16
     }
    ]
   }

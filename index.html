@@ -443,6 +443,15 @@
     .edu-text p { margin: 0 0 1.2em; }
     .edu-text .edu-aside { font-size: 15px; font-style: italic; line-height: 1.7; color: var(--gray-500); background: var(--gray-100); border-radius: 10px; padding: 10px 14px; }
     .edu-note { margin: 34px 0 0; font-size: 12.5px; color: var(--gray-500); }
+    .edu-text.en { font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 17px; line-height: 1.75; letter-spacing: 0; }
+    .edu-text .term { position: relative; cursor: help; border-bottom: 1.5px dotted var(--green); color: var(--navy); outline: none; }
+    .edu-text .term-q { display: inline-block; margin-left: 2px; width: 14px; height: 14px; line-height: 14px; border-radius: 50%; background: var(--green-light); color: var(--green); font-size: 10px; font-weight: 700; text-align: center; vertical-align: 2px; }
+    .edu-text .term-pop { display: none; position: absolute; left: 0; top: calc(100% + 8px); z-index: 400; width: min(320px, 80vw); background: #fff; border: 1px solid var(--gray-200); border-radius: 12px; box-shadow: var(--shadow-lg); padding: 12px 14px; font-size: 13.5px; line-height: 1.55; color: var(--gray-600); font-style: normal; }
+    .edu-text .term:hover .term-pop, .edu-text .term:focus .term-pop, .edu-text .term:focus-within .term-pop { display: block; }
+    .edu-text .term-pop a { display: inline-block; margin-top: 6px; color: var(--green); font-weight: 600; text-decoration: none; }
+    .edu-text .term-pop a:hover { text-decoration: underline; }
+    .edu-text .term-pop.flip { left: auto; right: 0; }
+    .edu-fallback { margin: 0 0 22px; padding: 12px 14px; border-radius: 10px; background: var(--gray-100); font-size: 13.5px; color: var(--gray-600); }
     .edu-pn { display: flex; gap: 14px; margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--gray-200); }
     .edu-pn-btn { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 3px; padding: 14px 16px; background: #fff; border: 1px solid var(--gray-200); border-radius: 12px; text-align: left; cursor: pointer; font: inherit; }
     .edu-pn-btn.next { text-align: right; }
@@ -2444,6 +2453,35 @@ const eduText = {};                   // lesson text already fetched, keyed 'ser
 const EDU_VIDEO_NOTE = '（此处播放了一段视频，录音无法准确转写。）';
 
 function eduEsc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+/* English editions exist for some lessons (NN.en.txt, see education/TRANSLATION_SPEC.md).
+   Any language other than Chinese reads the English edition when there is one. */
+function eduWantsEn() { return currentLang !== 'zh'; }
+function eduTitle(l) { return eduWantsEn() && l.titleEn ? l.titleEn : l.title; }
+function eduMins(l) { return eduWantsEn() && l.minsEn ? l.minsEn : l.mins; }
+function eduSeriesTitle(sr) { return eduWantsEn() && sr.titleEn ? sr.titleEn : sr.title; }
+/* [[words in the sentence|note|url]] becomes a term with a bubble; url is optional. */
+function eduPara(p) {
+  let html = '', last = 0;
+  const re = /\[\[([^\]|]+)\|([^\]|]*)(?:\|([^\]]*))?\]\]/g;
+  let m;
+  while ((m = re.exec(p))) {
+    html += eduEsc(p.slice(last, m.index));
+    const url = (m[3] || '').trim();
+    const safe = /^https?:\/\//.test(url) ? url : '';
+    html += `<span class="term" tabindex="0">${eduEsc(m[1])}<span class="term-q">?</span><span class="term-pop">${eduEsc(m[2])}${safe ? `<br><a href="${eduEsc(safe)}" target="_blank" rel="noopener">${t('Source', '来源')} ↗</a>` : ''}</span></span>`;
+    last = m.index + m[0].length;
+  }
+  return html + eduEsc(p.slice(last));
+}
+function eduPlaceBubbles() {
+  const vw = document.documentElement.clientWidth;
+  document.querySelectorAll('.edu-text .term').forEach(tm => {
+    const pop = tm.querySelector('.term-pop'); if (!pop) return;
+    pop.classList.remove('flip'); pop.style.display = 'block';
+    if (pop.getBoundingClientRect().right > vw - 8) pop.classList.add('flip');
+    pop.style.display = '';
+  });
+}
 function eduTop() { window.scrollTo({ top: 0, behavior: 'auto' }); }
 function eduOpenSeries(id) { eduSeries = id; eduLesson = null; renderEducationView(); eduTop(); }
 function eduOpenLesson(sid, lid) { eduSeries = sid; eduLesson = lid; renderEducationView(); eduTop(); }
@@ -2464,7 +2502,7 @@ function eduCardsHtml() {
           return `
         <button class="edu-card" onclick="eduOpenSeries('${s.id}')">
           <span class="edu-card-kicker">${t(`${s.lessons.length} lessons · about ${hrs} hours`, `共${s.lessons.length}课 · 约${hrs}小时`)}</span>
-          <span class="edu-card-title">${eduEsc(s.title)}</span>
+          <span class="edu-card-title">${eduEsc(eduSeriesTitle(s))}</span>${eduWantsEn() && s.titleEn ? `<span class="edu-card-kicker">${eduEsc(s.title)}</span>` : ''}
           <span class="edu-card-sub">${blurb(s)}</span>
           <span class="edu-card-go">${t('Start reading', '开始阅读')} ›</span>
         </button>`;
@@ -2477,15 +2515,15 @@ function eduListHtml(series) {
   return `
     <div class="edu-wrap">
       <button class="edu-back" onclick="eduBack()">‹ ${t('Education', '培训')}</button>
-      <h1 class="edu-h1">${eduEsc(series.title)}</h1>
-      <p class="edu-sub">${t(`${series.lessons.length} lessons`, `共${series.lessons.length}课`)}</p>
+      <h1 class="edu-h1">${eduEsc(eduSeriesTitle(series))}</h1>
+      <p class="edu-sub">${t(`${series.lessons.length} lessons`, `共${series.lessons.length}课`)}${eduWantsEn() ? ` · ${series.lessons.filter(l => l.titleEn).length} ${t('in English', '')}` : ''}</p>
       <ol class="edu-list">
         ${series.lessons.map(l => `
         <li><button class="edu-item" onclick="eduOpenLesson('${series.id}','${l.id}')">
           <span class="edu-item-n">${l.n}</span>
           <span class="edu-item-main">
-            <span class="edu-item-title">${eduEsc(l.title)}</span>
-            <span class="edu-item-meta">${l.speaker ? eduEsc(l.speaker) + ' · ' : ''}${t(`${l.mins} min read`, `约${l.mins}分钟`)}</span>
+            <span class="edu-item-title">${eduEsc(eduTitle(l))}</span>
+            <span class="edu-item-meta">${l.speaker ? eduEsc(l.speaker) + ' · ' : ''}${t(`${eduMins(l)} min read`, `约${l.mins}分钟`)}${eduWantsEn() && !l.titleEn ? ' · ' + t('Chinese only for now', '') : ''}</span>
           </span>
           <span class="edu-item-chev" aria-hidden="true">›</span>
         </button></li>`).join('')}
@@ -2493,25 +2531,31 @@ function eduListHtml(series) {
     </div>`;
 }
 
-function eduLessonHtml(series, idx, text) {
+function eduLessonHtml(series, idx, text, isEn) {
   const l = series.lessons[idx], prev = series.lessons[idx - 1], next = series.lessons[idx + 1];
-  const body = text.trim().split(/\n\s*\n/)
-    .map(p => `<p${p === EDU_VIDEO_NOTE ? ' class="edu-aside"' : ''}>${eduEsc(p)}</p>`).join('');
+  let paras = text.trim().split(/\n\s*\n/);
+  if (isEn && paras[0] && paras[0].startsWith('# ')) paras = paras.slice(1);
+  const body = paras.map(p => `<p${p === EDU_VIDEO_NOTE ? ' class="edu-aside"' : ''}>${isEn ? eduPara(p) : eduEsc(p)}</p>`).join('');
   const nav = (x, dir, label) => x ? `
     <button class="edu-pn-btn ${dir}" onclick="eduOpenLesson('${series.id}','${x.id}')">
       <span class="edu-pn-dir">${dir === 'next' ? label + ' ›' : '‹ ' + label}</span>
-      <span class="edu-pn-title">${x.n}. ${eduEsc(x.title)}</span>
+      <span class="edu-pn-title">${x.n}. ${eduEsc(eduTitle(x))}</span>
     </button>` : '';
+  const fallback = (eduWantsEn() && !isEn) ? `<div class="edu-fallback">${t('The English edition of this lesson is not ready yet. This is the original Chinese.', '')}</div>` : '';
+  const note = isEn
+    ? t('English edition, edited from the recorded lesson. Underlined terms open a note with its source.', '')
+    : t('Transcribed automatically from the recording. A few words may be wrong.', '根据录音自动转写，个别用字可能有误。');
   return `
     <article class="edu-wrap edu-read">
-      <button class="edu-back" onclick="eduBack()">‹ ${eduEsc(series.title)}</button>
+      <button class="edu-back" onclick="eduBack()">‹ ${eduEsc(eduSeriesTitle(series))}</button>
       <div class="edu-head">
-        <div class="edu-kicker">${t(`Lesson ${l.n} · ${l.mins} min read`, `第${l.n}课 · 约${l.mins}分钟`)}</div>
-        <h1 class="edu-lesson-title">${eduEsc(l.title)}</h1>
-        ${l.speaker ? `<div class="edu-speaker">${eduEsc(l.speaker)}</div>` : ''}
+        <div class="edu-kicker">${t(`Lesson ${l.n} · ${eduMins(l)} min read`, `第${l.n}课 · 约${l.mins}分钟`)}</div>
+        <h1 class="edu-lesson-title">${eduEsc(isEn ? l.titleEn : l.title)}</h1>
+        ${isEn && l.title ? `<div class="edu-speaker">${eduEsc(l.title)}${l.speaker ? ' · ' + eduEsc(l.speaker) : ''}</div>` : (l.speaker ? `<div class="edu-speaker">${eduEsc(l.speaker)}</div>` : '')}
       </div>
-      <div class="edu-text" lang="zh-CN">${body}</div>
-      <p class="edu-note">${t('Transcribed automatically from the recording. A few words may be wrong.', '根据录音自动转写，个别用字可能有误。')}</p>
+      ${fallback}
+      <div class="edu-text${isEn ? ' en' : ''}" lang="${isEn ? 'en' : 'zh-CN'}">${body}</div>
+      <p class="edu-note">${note}</p>
       <nav class="edu-pn">${nav(prev, 'prev', t('Previous', '上一课'))}${nav(next, 'next', t('Next', '下一课'))}</nav>
     </article>`;
 }
@@ -2540,14 +2584,16 @@ async function renderEducationView() {
 
   const idx = series.lessons.findIndex(l => l.id === eduLesson);
   if (idx < 0) { eduLesson = null; host.innerHTML = eduListHtml(series); return; }
-  const key = series.id + '/' + eduLesson;
+  const isEn = eduWantsEn() && !!series.lessons[idx].titleEn;
+  const key = series.id + '/' + eduLesson + (isEn ? '.en' : '');
   if (!(key in eduText)) {
     loading();
     try { const r = await fetch('education/' + key + '.txt'); if (!r.ok) throw 0; eduText[key] = await r.text(); }
     catch (e) { if (tok === eduTok) failed(); return; }
     if (tok !== eduTok || viewMode !== 'education') return;
   }
-  host.innerHTML = eduLessonHtml(series, idx, eduText[key]);
+  host.innerHTML = eduLessonHtml(series, idx, eduText[key], isEn);
+  if (isEn) requestAnimationFrame(eduPlaceBubbles);
 }
 
 /* ════════════════════════════════════════════════
