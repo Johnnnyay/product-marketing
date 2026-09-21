@@ -9,13 +9,17 @@
      "id": "01",
      "n": 1,
      "title": "有没有健康观念，对你重不重要",
-     "mins": 10
+     "mins": 10,
+     "titleEn": "Immunity First: Why Health Management Starts With Mindset",
+     "minsEn": 14
     },
     {
      "id": "02",
      "n": 2,
      "title": "涵养自己的健康观念",
-     "mins": 7
+     "mins": 7,
+     "titleEn": "Building a Health Mindset in Yourself and Your Family",
+     "minsEn": 10
     },
     {
      "id": "03",
@@ -53,19 +57,25 @@
      "id": "08",
      "n": 8,
      "title": "健康管理重在学习",
-     "mins": 9
+     "mins": 9,
+     "titleEn": "Who Is Responsible for Your Health",
+     "minsEn": 13
     },
     {
      "id": "09",
      "n": 9,
      "title": "让你越老越有价值的健康管理四步",
-     "mins": 9
+     "mins": 9,
+     "titleEn": "The Four Steps of Health Management",
+     "minsEn": 11
     },
     {
      "id": "10",
      "n": 10,
      "title": "超过100岁？这个可以有",
-     "mins": 6
+     "mins": 6,
+     "titleEn": "How Long Can We Live",
+     "minsEn": 8
     },
     {
      "id": "11",
@@ -97,25 +107,33 @@
      "id": "15",
      "n": 15,
      "title": "补充营养素的观念是哪儿来的",
-     "mins": 6
+     "mins": 6,
+     "titleEn": "Why Every Health Factor Comes Back to Diet",
+     "minsEn": 7
     },
     {
      "id": "16",
      "n": 16,
      "title": "营养素与隐性饥饿（上）",
-     "mins": 8
+     "mins": 8,
+     "titleEn": "Nutrition, Nutrients and Hidden Hunger",
+     "minsEn": 9
     },
     {
      "id": "17",
      "n": 17,
      "title": "营养素与隐性饥饿（下）",
-     "mins": 5
+     "mins": 5,
+     "titleEn": "Hungry Cells Need Food, Not Medicine",
+     "minsEn": 7
     },
     {
      "id": "18",
      "n": 18,
      "title": "营养素的参考摄入量",
-     "mins": 13
+     "mins": 13,
+     "titleEn": "How Much to Take: Understanding Reference Intakes",
+     "minsEn": 16
     },
     {
      "id": "19",
@@ -169,25 +187,33 @@
      "id": "25",
      "n": 25,
      "title": "女性和儿童与维生素B2的缺乏",
-     "mins": 8
+     "mins": 8,
+     "titleEn": "Why Children Run Short of B Vitamins, and What B2 Does",
+     "minsEn": 12
     },
     {
      "id": "26",
      "n": 26,
      "title": "B2与癌症肿瘤预防",
-     "mins": 8
+     "mins": 8,
+     "titleEn": "Vitamin B2, Ulcers and Cancer Risk, and How Much to Take",
+     "minsEn": 11
     },
     {
      "id": "27",
      "n": 27,
      "title": "维生素B家族的烟酸叶酸泛酸",
-     "mins": 9
+     "mins": 9,
+     "titleEn": "The Rest of the B Family: Niacin, B5, B6, B12 and Folate",
+     "minsEn": 12
     },
     {
      "id": "28",
      "n": 28,
      "title": "B族与胎儿神经发育神经炎心脑血管的关系",
-     "mins": 10
+     "mins": 10,
+     "titleEn": "The B Vitamins in Review: Teamwork and Homocysteine",
+     "minsEn": 13
     },
     {
      "id": "29",
@@ -225,55 +251,73 @@
      "id": "34",
      "n": 34,
      "title": "维生素A与生殖系统",
-     "mins": 5
+     "mins": 5,
+     "titleEn": "Vitamin A and the Reproductive System",
+     "minsEn": 8
     },
     {
      "id": "35",
      "n": 35,
      "title": "维生素A抗氧化与儿童生长发育及器官病变",
-     "mins": 8
+     "mins": 8,
+     "titleEn": "Vitamin A, Immunity, Growth and Inflammation",
+     "minsEn": 11
     },
     {
      "id": "36",
      "n": 36,
      "title": "维生素A如何安全摄取",
-     "mins": 7
+     "mins": 7,
+     "titleEn": "How Vitamin A Works in the Eye, and How to Take It Safely",
+     "minsEn": 9
     },
     {
      "id": "37",
      "n": 37,
      "title": "身体“有矿”",
-     "mins": 8
+     "mins": 8,
+     "titleEn": "An Overview of Minerals",
+     "minsEn": 10
     },
     {
      "id": "38",
      "n": 38,
      "title": "补钙无需过量",
-     "mins": 7
+     "mins": 7,
+     "titleEn": "How Much Calcium We Need, and Why Balance Matters",
+     "minsEn": 9
     },
     {
      "id": "39",
      "n": 39,
      "title": "分清骨质疏松和骨质增生（一）",
-     "mins": 9
+     "mins": 9,
+     "titleEn": "How to Choose Calcium, and Osteoporosis Versus Bone Spurs",
+     "minsEn": 12
     },
     {
      "id": "40",
      "n": 40,
      "title": "给孩子存本儿“钙”",
-     "mins": 10
+     "mins": 10,
+     "titleEn": "Calcium Every Day, in Full: Protecting Your Bone Bank",
+     "minsEn": 13
     },
     {
      "id": "41",
      "n": 41,
      "title": "膳食纤维不可替代",
-     "mins": 6
+     "mins": 6,
+     "titleEn": "Dietary Fiber: The Overlooked Nutrient",
+     "minsEn": 8
     },
     {
      "id": "42",
      "n": 42,
      "title": "净肠瘦身美颜的益生菌",
-     "mins": 9
+     "mins": 9,
+     "titleEn": "Probiotics: Our Resident Bacteria and What They Do",
+     "minsEn": 12
     },
     {
      "id": "43",
@@ -311,13 +355,17 @@
      "id": "48",
      "n": 48,
      "title": "卵磷脂-细胞健康的基础",
-     "mins": 10
+     "mins": 10,
+     "titleEn": "Lecithin: A Foundation Nutrient for Every Cell",
+     "minsEn": 12
     },
     {
      "id": "49",
      "n": 49,
      "title": "血管的清道夫-卵磷脂",
-     "mins": 13
+     "mins": 13,
+     "titleEn": "Lecithin and Young Blood Vessels",
+     "minsEn": 16
     },
     {
      "id": "50",
