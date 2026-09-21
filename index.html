@@ -1349,75 +1349,55 @@
       .product-grid { gap: 10px; }
       .p-img { height: 118px; }
     }
-  /* ── ASSESSMENT DROPDOWN ──────────────────────────────────────── */
-  .assess-wrap { position: relative; }
-  .assess-btn {
-    display: flex; align-items: center; justify-content: center;
-    width: 34px; height: 34px; border-radius: 8px;
-    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18);
-    color: rgba(255,255,255,0.85); cursor: pointer;
-    transition: background 0.15s, color 0.15s;
-  }
-  .assess-btn:hover, .assess-btn.open { background: rgba(255,255,255,0.22); color: #fff; }
-  .assess-menu {
-    position: absolute; top: calc(100% + 8px); right: 0;
-    background: #fff; border-radius: 14px;
-    box-shadow: 0 8px 28px rgba(0,0,0,0.16), 0 2px 8px rgba(0,0,0,0.08);
-    min-width: 240px; overflow: hidden;
-    opacity: 0; transform: translateY(-6px) scale(0.97);
-    pointer-events: none; transition: opacity 0.18s ease, transform 0.18s ease;
-    z-index: 200;
-  }
-  .assess-menu.open { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
-  .assess-item {
-    display: flex; align-items: center; gap: 12px;
-    padding: 14px 16px; text-decoration: none; color: #2A332D;
-    transition: background 0.12s;
-  }
-  .assess-item:hover { background: #F0F3F0; }
-  .assess-item:not(:last-child) { border-bottom: 1px solid #E4E9E5; }
-  .assess-item-icon { font-size: 22px; flex-shrink: 0; }
-  .assess-item-text { display: flex; flex-direction: column; gap: 2px; }
-  .assess-item-text strong { font-size: 14px; font-weight: 600; color: #2A332D; }
-  .assess-item-text span { font-size: 12px; color: #6E7B74; }
 
-  /* ── INTRO PHILOSOPHY CARD ────────────────────────────────────── */
-  .intro-philosophy {
-    background: #fff; border-radius: 18px;
-    padding: 32px 28px; max-width: 640px; margin: 0 auto;
-    grid-column: 1 / -1;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  /* ── HOME ─────────────────────────────────────────────────────── */
+  .home-view { max-width: 1200px; margin: 0 auto; padding: 24px 24px 48px; }
+  .home-hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); background: var(--green-light); border-radius: 18px; overflow: hidden; min-height: 380px; }
+  .home-hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .home-hero-copy { padding: 44px 44px; display: flex; flex-direction: column; justify-content: center; gap: 14px; }
+  .home-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); }
+  .home-hero-copy h1 { font-size: 34px; font-weight: 700; line-height: 1.18; color: var(--gray-800); letter-spacing: -0.4px; }
+  .home-hero-copy p { font-size: 15px; line-height: 1.65; color: var(--gray-600); }
+  .home-cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
+  .home-cta-primary, .home-cta-secondary { display: inline-block; padding: 13px 24px; border-radius: 999px; font-size: 14px; font-weight: 600; text-decoration: none; transition: background 0.15s; }
+  .home-cta-primary { background: var(--navy); color: #fff; }
+  .home-cta-primary:hover { background: var(--navy-hover); }
+  .home-cta-secondary { border: 1.5px solid var(--navy); color: var(--navy); }
+  .home-cta-secondary:hover { background: #fff; }
+  .home-note { font-size: 12px !important; color: var(--gray-500) !important; }
+  .home-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 32px; }
+  .home-tile { display: flex; flex-direction: column; gap: 6px; text-align: left; background: none; border: 0; padding: 0; cursor: pointer; font: inherit; color: inherit; }
+  .home-tile-img { display: block; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 14px; background: var(--gray-100); }
+  .home-tile-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s ease; }
+  .home-tile:hover .home-tile-img img { transform: scale(1.04); }
+  .home-tile-title { font-size: 19px; font-weight: 700; color: var(--gray-800); margin-top: 6px; }
+  .home-tile-sub { font-size: 13.5px; line-height: 1.55; color: var(--gray-500); }
+  .home-tile-go { font-size: 13px; font-weight: 600; color: var(--green); margin-top: 2px; }
+  .home-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--gray-200); }
+  .home-step { display: flex; gap: 14px; align-items: flex-start; }
+  .home-step-n { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: var(--green-light); color: var(--navy); font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .home-step strong { display: block; font-size: 15px; color: var(--gray-800); }
+  .home-step span span, .home-step div span { font-size: 13px; line-height: 1.5; color: var(--gray-500); }
+  .home-why { max-width: 680px; margin: 44px auto 0; }
+  .home-why h2 { font-size: 22px; font-weight: 700; line-height: 1.3; color: var(--gray-800); margin-bottom: 16px; }
+  .home-why p { font-size: 14.5px; line-height: 1.8; color: var(--gray-600); margin-bottom: 14px; }
+  .assess-link { display: inline-flex; align-items: center; height: 30px; padding: 0 13px; border-radius: 18px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.22); color: #fff; font-size: 12.5px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+  .assess-link:hover { background: rgba(255,255,255,0.24); }
+  @media (max-width: 860px) {
+    .home-hero { grid-template-columns: 1fr; min-height: 0; }
+    .home-hero-img { height: 260px; }
+    .home-hero-copy { padding: 28px 28px 32px; }
+    .home-hero-copy h1 { font-size: 28px; }
   }
-  .intro-h2 {
-    font-size: 20px; font-weight: 700; color: #2A332D;
-    line-height: 1.3; margin-bottom: 18px;
-  }
-  .intro-philosophy p {
-    font-size: 14px; line-height: 1.75; color: #55605A;
-    margin-bottom: 14px;
-  }
-  .intro-cta-row {
-    display: flex; gap: 12px; flex-wrap: wrap;
-    margin: 24px 0 16px;
-  }
-  .intro-cta-primary {
-    display: inline-block; padding: 12px 22px;
-    background: #3D5A4C; color: #fff; border-radius: 10px;
-    font-size: 14px; font-weight: 600; text-decoration: none;
-    transition: background 0.15s;
-  }
-  .intro-cta-primary:hover { background: #47695a; }
-  .intro-cta-secondary {
-    display: inline-block; padding: 12px 22px;
-    background: #EDF2EE; color: #3D5A4C; border-radius: 10px;
-    font-size: 14px; font-weight: 600; text-decoration: none;
-    transition: background 0.15s;
-  }
-  .intro-cta-secondary:hover { background: #dde8de; }
-  .intro-note {
-    font-size: 12px !important; color: #9ca3af !important;
-    margin-top: 4px; margin-bottom: 0 !important;
-  }
+  @media (max-width: 760px) {
+    .home-view { padding: 14px 14px 36px; }
+    .home-hero-img { height: 210px; }
+    .home-hero-copy { padding: 24px 22px 28px; }
+    .home-hero-copy h1 { font-size: 26px; }
+    .home-tiles { grid-template-columns: 1fr; gap: 22px; margin-top: 22px; }
+    .home-steps { grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+    .home-why { margin-top: 32px; }
+    }
   </style>
 </head>
 <body>
@@ -1452,28 +1432,7 @@
       <button class="header-calc-clear" onclick="clearCalc()" aria-label="Clear">✕</button>
     </div>
     <div class="header-tools-right">
-      <!-- Assessment quick-access dropdown -->
-      <div class="assess-wrap" id="assess-wrap">
-        <button class="assess-btn" id="assess-toggle" onclick="toggleAssessMenu()" aria-haspopup="true" aria-expanded="false" title="Health Assessment">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>
-        </button>
-        <div class="assess-menu" id="assess-menu">
-          <a class="assess-item" href="intake.html">
-            <span class="assess-item-icon">📋</span>
-            <span class="assess-item-text">
-              <strong id="assess-new-label">New Assessment</strong>
-              <span id="assess-new-sub">Answer 9 minutes of questions</span>
-            </span>
-          </a>
-          <a class="assess-item" href="my-report.html">
-            <span class="assess-item-icon">📊</span>
-            <span class="assess-item-text">
-              <strong id="assess-view-label">My Report</strong>
-              <span id="assess-view-sub">Look up your existing report</span>
-            </span>
-          </a>
-        </div>
-      </div>
+      <a class="assess-link" id="assess-link" href="intake.html">Assessment</a>
       <div class="lang-wrap">
         <button class="lang-btn" id="lang-toggle-btn" onclick="toggleLangMenu()" aria-haspopup="true" aria-expanded="false">
           <span id="lang-current">EN</span><span class="lang-caret"></span>
@@ -1492,10 +1451,11 @@
     </div>
   </div>
 
-  <!-- Primary: mode selector — Areas of Support is the default landing view -->
+  <!-- Primary: mode selector — Home is the default landing view -->
   <nav class="primary-nav" role="navigation" aria-label="View mode">
     <div class="primary-nav-scroll">
-      <button class="primary-tab active" id="vtab-area" onclick="setViewMode('area')">Areas of Support</button>
+      <button class="primary-tab active" id="vtab-home" onclick="setViewMode('home')">Home</button>
+      <button class="primary-tab" id="vtab-area" onclick="setViewMode('area')">Areas of Support</button>
       <button class="primary-tab" id="vtab-category" onclick="setViewMode('category')">By Category</button>
       <button class="primary-tab" id="vtab-solution" onclick="setViewMode('solution')">Solutions</button>
       <button class="primary-tab" id="vtab-education" onclick="setViewMode('education')" style="display:none">Education</button>
@@ -1534,6 +1494,7 @@
     <span class="section-count" id="grid-count"></span>
   </div>
   <div class="product-grid" id="product-grid"></div>
+  <div class="home-view" id="home-view" style="display:none"></div>
   <div class="edu-view" id="edu-view" style="display:none"></div>
 </main>
 
@@ -1848,7 +1809,7 @@ const CATS = {
    STATE
    ════════════════════════════════════════════════ */
 let currentLang = 'en';
-let viewMode = 'area';          // 'area' | 'category' | 'solution' | 'education'
+let viewMode = 'home';          // 'home' | 'area' | 'category' | 'solution' | 'education'
 let currentCat = 'nutrition';
 let currentArea = 'skin';
 let currentSolution = null;     // set after data load
@@ -1914,9 +1875,9 @@ function toggleBizMode() {
     // Education is partner-only, so leaving partner view can't leave it selected
     // as the active mode — that would land a customer on a hidden tab's content.
     if (viewMode === 'education') {
-      viewMode = 'area';
+      viewMode = 'home';
       document.querySelectorAll('.primary-tab').forEach(b => b.classList.remove('active'));
-      document.getElementById('vtab-area').classList.add('active');
+      document.getElementById('vtab-home').classList.add('active');
     }
   }
   try { localStorage.setItem('pv_biz', bizMode === 'ibo' ? '1' : '0'); } catch(e) {}
@@ -1937,7 +1898,6 @@ function updateModeBtn() {
    ════════════════════════════════════════════════ */
 document.addEventListener('click', (e) => {
   if (!e.target.closest('.lang-wrap')) toggleLangMenu(false);
-  if (!e.target.closest('.assess-wrap')) toggleAssessMenu(false);
 });
 
 function renderLangMenu() {
@@ -1947,15 +1907,6 @@ function renderLangMenu() {
     `<button class="lang-opt${l.code === currentLang ? ' on' : ''}" onclick="setLang('${l.code}')">
        <span class="lang-opt-label">${l.label}</span><span>${l.name}</span>
      </button>`).join('');
-}
-
-function toggleAssessMenu(force) {
-  const m = document.getElementById('assess-menu');
-  const btn = document.getElementById('assess-toggle');
-  const open = force === undefined ? !m.classList.contains('open') : force;
-  m.classList.toggle('open', open);
-  btn.classList.toggle('open', open);
-  btn.setAttribute('aria-expanded', open);
 }
 
 function toggleLangMenu(force) {
@@ -2043,12 +1994,15 @@ function tileHtml(group, key, label, active, onclick) {
 function render() {
   renderSecondaryNavs();
   const eduEl = document.getElementById('edu-view');
-  if (viewMode === 'education') {
+  const homeEl = document.getElementById('home-view');
+  if (viewMode !== 'home' && homeEl) { homeEl.style.display = 'none'; homeEl.innerHTML = ''; }
+  if (viewMode === 'home') {
+    renderHomeView();
+  } else if (viewMode === 'education') {
     renderEducationView();
   } else {
-    // The other three views all share the product-grid chrome, so put it back
-    // the way they expect before handing off — renderEducationView is the only
-    // one that hides it, and it is the only one that needs to undo that.
+    // The product views all share the product-grid chrome, so put it back
+    // the way they expect before handing off: Home and Education hide it.
     if (eduEl) { eduEl.style.display = 'none'; eduEl.innerHTML = ''; }
     document.querySelector('main .section-header').style.display = '';
     document.getElementById('product-grid').style.display = '';
@@ -2058,7 +2012,63 @@ function render() {
   }
 }
 
+/* ════════════════════════════════════════════════
+   HOME  (default landing: a navigation page, not a product list)
+   ════════════════════════════════════════════════ */
+function renderHomeView() {
+  const host = document.getElementById('home-view');
+  document.querySelector('main .section-header').style.display = 'none';
+  const grid = document.getElementById('product-grid');
+  grid.style.display = 'none'; grid.innerHTML = '';
+  const eduEl = document.getElementById('edu-view');
+  if (eduEl) { eduEl.style.display = 'none'; eduEl.innerHTML = ''; }
+  heroHide(); narrative([]); setSensitiveNote(false); renderProtocol(null);
+
+  const tile = (mode, img, title, sub) => `
+    <button class="home-tile" onclick="setViewMode('${mode}')">
+      <span class="home-tile-img"><img src="${img}" alt="" loading="lazy" onerror="this.style.display='none'"></span>
+      <span class="home-tile-title">${title}</span>
+      <span class="home-tile-sub">${sub}</span>
+      <span class="home-tile-go">${t('Explore', '查看')} <span aria-hidden="true">›</span></span>
+    </button>`;
+  const step = (n, title, sub) => `<div class="home-step"><span class="home-step-n">${n}</span><div><strong>${title}</strong><span>${sub}</span></div></div>`;
+
+  host.innerHTML = `
+    <section class="home-hero">
+      <div class="home-hero-img"><img src="images/home/hero.jpg" alt=""></div>
+      <div class="home-hero-copy">
+        <div class="home-eyebrow">${t('Your health assessment', '你的健康评估')}</div>
+        <h1>${t('Your body is not average. Find out what it needs.', '每个人的身体都不一样，先弄清你真正需要什么')}</h1>
+        <p>${t('Answer questions about how you feel. Get a report built on your answers, not a generic list.', '回答关于你身体感受的问题，得到一份基于你自己答案的报告，而不是通用清单。')}</p>
+        <div class="home-cta-row">
+          <a class="home-cta-primary" href="intake.html">${t('Take the assessment', '填写健康问卷')} →</a>
+          <a class="home-cta-secondary" href="my-report.html">${t('View my report', '查看我的报告')}</a>
+        </div>
+        <p class="home-note">${t('The assessment takes about 9 minutes. Your report is a private link, not a public page.', '问卷大约需要9分钟。你的报告是一个私人链接，不是公开页面。')}</p>
+      </div>
+    </section>
+    <div class="home-tiles">
+      ${tile('area', 'images/tiles/are-sleep.jpg', t('Areas of Support', '健康支持'), t('Start from what you feel: sleep, skin, weight, energy and more.', '从你的感受出发：睡眠、皮肤、体重、精力等。'))}
+      ${tile('category', 'images/tiles/cat-nutrition.jpg', t('By Category', '按品类'), t('Browse the full range: nutrition, sports, beauty, personal care and home.', '浏览全部产品：营养、运动、美容、个人护理和家居。'))}
+      ${tile('solution', 'images/tiles/sol-family.jpg', t('Solutions', '人群方案'), t('Built around your life: students, professionals, families and more.', '按你的生活方式搭配：学生、职场人、家庭等。'))}
+    </div>
+    <section class="home-steps">
+      ${step(1, t('Answer', '回答'), t('Questions about your symptoms, habits and diet.', '关于你的症状、习惯和饮食的问题。'))}
+      ${step(2, t('Read', '阅读'), t('A private report, in a link only you have.', '一份私人报告，链接只有你自己有。'))}
+      ${step(3, t('Act', '行动'), t('A plan first, then the products that fit it.', '先有方案，再选适合你的产品。'))}
+    </section>
+    <section class="home-why">
+      <h2>${t('What your body actually needs, and why the bottle can\'t tell you', '你的身体真正需要什么，瓶子上的数字告诉不了你')}</h2>
+      <p>${t('Modern medicine is extremely good at treating disease. What it cannot do is out-treat a lifestyle that keeps pushing you in the wrong direction. Sitting all day, running on stress, eating food engineered to spike your blood sugar: none of that shows up as a diagnosis for years, and then it shows up all at once.', '现代医学非常擅长治疗疾病。但它无法抵消一种让你持续走向错误方向的生活方式。整天久坐、长期压力、吃那些专门设计来刺激血糖的食物——这些都不会立刻出现在诊断中，但最终会集中爆发。')}</p>
+      <p>${t('Fitness is 30% workout and 70% diet. This site is not a symptom checker and it is not a shopping list. The areas of support exist to answer one question: for your body, your habits, and what you are actually feeling right now: how much of each nutrient do you need?', '健身效果30%来自运动，70%来自饮食。这个平台不是症状检查工具，也不是购物清单。「健康支持」里的各个方向只为了回答一个问题：以你的身体状况、生活习惯和现在的感受——你需要多少营养素？')}</p>
+      <p>${t('That number is not the one printed on the bottle. The bottle carries a single figure set for the entire population. Yours depends on your weight, your diet, and which things you feel often rather than rarely. It is also not fixed. As your habits change and symptoms settle, the number moves.', '这个数字不是瓶子上印的那个。瓶子上只有一个适用于所有人的数字。而你的数字取决于你的体重、饮食，以及你经常感受到而非偶尔感受到的症状。它也不是固定的——随着你的习惯改变、症状改善，这个数字也会变化。')}</p>
+    </section>`;
+  host.style.display = 'block';
+}
+
 function renderPrimaryTabs() {
+  document.getElementById('vtab-home').textContent = t('Home', '首页');
+  const al = document.getElementById('assess-link'); if (al) al.textContent = t('Assessment', '健康问卷');
   document.getElementById('vtab-area').textContent = t('Areas of Support', '健康支持');
   document.getElementById('vtab-category').textContent = t('By Category', '按品类');
   document.getElementById('vtab-solution').textContent = t('Solutions', '人群方案');
@@ -2077,6 +2087,9 @@ function setViewMode(mode) {
 
 function renderSecondaryNavs() {
   const strip = document.getElementById('tile-scroll');
+  const stripBar = document.getElementById('tile-strip');
+  if (stripBar) stripBar.style.display = viewMode === 'home' ? 'none' : '';
+  if (viewMode === 'home') { if (strip) strip.innerHTML = ''; return; }
   if (strip && !strip.dataset.edgeBound) {
     strip.dataset.edgeBound = '1';
     strip.addEventListener('scroll', updateTileEdges, { passive: true });
@@ -2145,18 +2158,6 @@ function updateHeroCat(cat) {
    ════════════════════════════════════════════════ */
 function selectArea(id) { currentArea = id; protoOpen = {}; renderSecondaryNavs(); renderAreaView(); revealActiveTile(); }
 
-/* ── INTRO AREA ── Always prepend the philosophy card as the first area tile */
-function injectIntroArea() {
-  const INTRO = {
-    id: '__intro',
-    name: 'Start Here',
-    nameZh: '从这里开始',
-    blurb: '',
-    blurbZh: ''
-  };
-  if (!AREAS.length || AREAS[0].id !== '__intro') AREAS.unshift(INTRO);
-}
-
 /* Keep the selected tile on screen, otherwise selecting one off to the right
    scrolls the page but leaves the strip showing a different tile as active. */
 function revealActiveTile() {
@@ -2166,33 +2167,6 @@ function revealActiveTile() {
 
 function renderAreaView() {
   const a = AREAS.find(x => x.id === currentArea) || AREAS[0];
-
-  // ── INTRO / PHILOSOPHY CARD ──────────────────────────────────────────────
-  if (a && a.id === '__intro') {
-    heroSet(t('Areas of Support', '健康支持'), t('Why nutrition is personal', '为什么营养是个人的'), '', 'nutrition');
-    narrative([]);
-    renderProtocol(null, a);
-    document.getElementById('grid-label').textContent = '';
-    document.getElementById('grid-count').textContent = '';
-    document.getElementById('module-narrative').innerHTML = '';
-    document.getElementById('product-grid').innerHTML = `
-      <div class="intro-philosophy">
-        <h2 class="intro-h2">${t('What your body actually needs, and why the bottle can\'t tell you', '你的身体真正需要什么，瓶子上的数字告诉不了你')}</h2>
-        <p>${t('Modern medicine is extremely good at treating disease. What it cannot do is out-treat a lifestyle that keeps pushing you in the wrong direction. Sitting all day, running on stress, eating food engineered to spike your blood sugar: none of that shows up as a diagnosis for years, and then it shows up all at once.', '现代医学非常擅长治疗疾病。但它无法抵消一种让你持续走向错误方向的生活方式。整天久坐、长期压力、吃那些专门设计来刺激血糖的食物——这些都不会立刻出现在诊断中，但最终会集中爆发。')}</p>
-        <p>${t('Fitness is 30% workout and 70% diet. This site is not a symptom checker and it is not a shopping list. The areas below exist to answer one question: for your body, your habits, and what you are actually feeling right now: how much of each nutrient do you need?', '健身效果30%来自运动，70%来自饮食。这个平台不是症状检查工具，也不是购物清单。下面的健康领域只为了回答一个问题：以你的身体状况、生活习惯和现在的感受——你需要多少营养素？')}</p>
-        <p>${t('That number is not the one printed on the bottle. The bottle carries a single figure set for the entire population. Yours depends on your weight, your diet, and which things you feel often rather than rarely. It is also not fixed. As your habits change and symptoms settle, the number moves.', '这个数字不是瓶子上印的那个。瓶子上只有一个适用于所有人的数字。而你的数字取决于你的体重、饮食，以及你经常感受到而非偶尔感受到的症状。它也不是固定的——随着你的习惯改变、症状改善，这个数字也会变化。')}</p>
-        <div class="intro-cta-row">
-          <a class="intro-cta-primary" href="intake.html">${t('Take my health assessment →', '填写健康问卷 →')}</a>
-          <a class="intro-cta-secondary" href="my-report.html">${t('View my report', '查看我的报告')}</a>
-        </div>
-        <p class="intro-note">${t('The assessment takes about 9 minutes. Your report is a private link, not a public page.', '问卷大约需要9分钟。你的报告是一个私人链接，不是公开页面。')}</p>
-      </div>`;
-    if (document.querySelector('main .section-header'))
-      document.querySelector('main .section-header').style.display = 'none';
-    setSensitiveNote(false);
-    return;
-  }
-  // ────────────────────────────────────────────────────────────────────────
 
   heroSet(t('Areas of Support', '健康支持'), tx(a, 'name'), tx(a, 'blurb'), 'nutrition');
   narrative([]);
@@ -2989,7 +2963,7 @@ function goHome(e) {
   if (e) e.preventDefault();
   toggleSearch(false);
   if (AREAS.length) currentArea = AREAS[0].id;
-  setViewMode('area');
+  setViewMode('home');
 }
 
 function updateFooter() {
@@ -3006,6 +2980,9 @@ function runSearch(q) {
   if (!q) { render(); return; }
   heroHide();
   narrative([]);
+  ['home-view', 'edu-view'].forEach(id => { const el = document.getElementById(id); if (el) { el.style.display = 'none'; el.innerHTML = ''; } });
+  document.querySelector('main .section-header').style.display = '';
+  document.getElementById('product-grid').style.display = '';
   const res = visibleProducts().filter(p =>
     [p.name, p.nameZh, p.brand, p.tagline, p.taglineZh].some(s => s && s.toLowerCase().includes(q)));
   document.getElementById('grid-label').textContent = t('Search results', '搜索结果');
@@ -3020,8 +2997,7 @@ document.getElementById('search-input').addEventListener('keydown', e => {
 });
 
 function init() {
-  // Areas follow the 'order' field (pain-point priority). A "Start Here" card is always tile one and the landing view.
-  injectIntroArea();
+  // Areas follow the 'order' field (pain-point priority); the first one is where the Areas tab opens
   if (AREAS.length && !AREAS.find(a => a.id === currentArea)) currentArea = AREAS[0].id;
   else if (AREAS.length) currentArea = AREAS[0].id;
   currentSolution = SOLUTIONS.length ? SOLUTIONS[0].id : null;
