@@ -450,7 +450,6 @@
     .edu-text .term:hover .term-pop, .edu-text .term:focus .term-pop, .edu-text .term:focus-within .term-pop { display: block; }
     .edu-text .term-pop a { display: inline-block; margin-top: 6px; color: var(--green); font-weight: 600; text-decoration: none; }
     .edu-text .term-pop a:hover { text-decoration: underline; }
-    .edu-text .term-pop.flip { left: auto; right: 0; }
     .edu-fallback { margin: 0 0 22px; padding: 12px 14px; border-radius: 10px; background: var(--gray-100); font-size: 13.5px; color: var(--gray-600); }
     .edu-pn { display: flex; gap: 14px; margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--gray-200); }
     .edu-pn-btn { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 3px; padding: 14px 16px; background: #fff; border: 1px solid var(--gray-200); border-radius: 12px; text-align: left; cursor: pointer; font: inherit; }
@@ -2474,14 +2473,22 @@ function eduPara(p) {
   return html + eduEsc(p.slice(last));
 }
 function eduPlaceBubbles() {
-  const vw = document.documentElement.clientWidth;
+  /* A flip left or right is not enough: it moves a short term's bubble off the other edge.
+     Measure each bubble and shift it by exactly the overflow. */
+  const vw = document.documentElement.clientWidth, pad = 8;
   document.querySelectorAll('.edu-text .term').forEach(tm => {
     const pop = tm.querySelector('.term-pop'); if (!pop) return;
-    pop.classList.remove('flip'); pop.style.display = 'block';
-    if (pop.getBoundingClientRect().right > vw - 8) pop.classList.add('flip');
-    pop.style.display = '';
+    pop.style.transform = '';
+    const prev = pop.style.display; pop.style.display = 'block';
+    const r = pop.getBoundingClientRect();
+    let shift = 0;
+    if (r.right > vw - pad) shift = (vw - pad) - r.right;
+    if (r.left + shift < pad) shift = pad - r.left;
+    pop.style.transform = shift ? `translateX(${Math.round(shift)}px)` : '';
+    pop.style.display = prev;
   });
 }
+window.addEventListener('resize', eduPlaceBubbles);
 function eduTop() { window.scrollTo({ top: 0, behavior: 'auto' }); }
 function eduOpenSeries(id) { eduSeries = id; eduLesson = null; renderEducationView(); eduTop(); }
 function eduOpenLesson(sid, lid) { eduSeries = sid; eduLesson = lid; renderEducationView(); eduTop(); }
@@ -2542,9 +2549,10 @@ function eduLessonHtml(series, idx, text, isEn) {
       <span class="edu-pn-title">${x.n}. ${eduEsc(eduTitle(x))}</span>
     </button>` : '';
   const fallback = (eduWantsEn() && !isEn) ? `<div class="edu-fallback">${t('The English edition of this lesson is not ready yet. This is the original Chinese.', '')}</div>` : '';
-  const note = isEn
+  const custom = l.note ? (currentLang === 'zh' ? l.note.zh : l.note.en) : '';
+  const note = custom || (isEn
     ? t('English edition, edited from the recorded lesson. Underlined terms open a note with its source.', '')
-    : t('Transcribed automatically from the recording. A few words may be wrong.', '根据录音自动转写，个别用字可能有误。');
+    : t('Transcribed automatically from the recording. A few words may be wrong.', '根据录音自动转写，个别用字可能有误。'));
   return `
     <article class="edu-wrap edu-read">
       <button class="edu-back" onclick="eduBack()">‹ ${eduEsc(eduSeriesTitle(series))}</button>
@@ -2554,6 +2562,7 @@ function eduLessonHtml(series, idx, text, isEn) {
         ${isEn && l.title ? `<div class="edu-speaker">${eduEsc(l.title)}${l.speaker ? ' · ' + eduEsc(l.speaker) : ''}</div>` : (l.speaker ? `<div class="edu-speaker">${eduEsc(l.speaker)}</div>` : '')}
       </div>
       ${fallback}
+      ${custom ? `<div class="edu-fallback">${eduEsc(custom)}</div>` : ''}
       <div class="edu-text${isEn ? ' en' : ''}" lang="${isEn ? 'en' : 'zh-CN'}">${body}</div>
       <p class="edu-note">${note}</p>
       <nav class="edu-pn">${nav(prev, 'prev', t('Previous', '上一课'))}${nav(next, 'next', t('Next', '下一课'))}</nav>
@@ -2593,7 +2602,7 @@ async function renderEducationView() {
     if (tok !== eduTok || viewMode !== 'education') return;
   }
   host.innerHTML = eduLessonHtml(series, idx, eduText[key], isEn);
-  if (isEn) requestAnimationFrame(eduPlaceBubbles);
+  if (isEn) { eduPlaceBubbles(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(eduPlaceBubbles); }
 }
 
 /* ════════════════════════════════════════════════

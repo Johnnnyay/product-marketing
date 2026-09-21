@@ -27,10 +27,17 @@ SRC = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_SRC
 VIDEO_NOTE = "（此处播放了一段视频，录音无法准确转写。）"
 SERIES = [
     # id, folder, title, kind, English title
-    ("xzc52", "肖子程52健康课", "肖子程52健康课", "plain", "Family Health Management, 52 Lessons"),
+    ("xzc52", "肖子程52健康课", "肖子程52健康课", "plain", "Family Health Management"),
     ("qtby", "清调补养", "清调补养", "speaker", "Clear, Regulate, Replenish, Nourish"),
 ]
 
+# Shown in the reader in place of the usual "transcribed automatically" line.
+NOTES = {
+    ("xzc52", 48): {
+        "en": "This lesson was transcribed by computer from the recording and has more mistakes than the others. Some terms are misheard and the figures in the clinical-trial section are unreliable. Check them against the recording before quoting.",
+        "zh": "本课由电脑根据录音自动转写，错字比其他课更多，临床试验部分的数字不可靠。引用前请对照录音核实。",
+    },
+}
 TS_LINE = re.compile(r"^说话人(\d+)\s+\d{1,2}:\d{2}(?::\d{2})?\s*$")
 TS_LEAD = re.compile(r"^\d{1,2}:\d{2}(?::\d{2})?(?=\D)")
 AUDIO = re.compile(r"\.(mp3|m4a|wav|mp4)\s*$", re.I)
@@ -39,13 +46,16 @@ SENT = re.compile(r"(?<=[。！？])")
 SHORT, LONG, TARGET = 40, 320, 200
 
 
-def parse_title(kind, h1):
+def parse_title(kind, h1, name=""):
     if kind == "speaker":
         m = re.match(r"^清调补养\s*(\d+)\.(.*)-([^-]+)$", h1)
         return int(m.group(1)), m.group(2).strip(), m.group(3).strip()
     m = re.match(r"^_?0*(\d+)\.?\s*(.*)$", h1)
     title = re.sub(r"\s*\d{4}-\d{2}-\d{2}\s+\d{2}_\d{2}_\d{2}\s*$", "", m.group(2))
-    return int(m.group(1)), title.strip().rstrip("-").strip(), None
+    # The number comes from the file name, not the heading inside: the folder was renumbered by
+    # hand (2026-09-21) and the headings still carry the old numbers.
+    fn = re.match(r"^_?0*(\d+)", name)
+    return int(fn.group(1) if fn else m.group(1)), title.strip().rstrip("-").strip(), None
 
 
 def kept_lines(raw):
@@ -116,7 +126,7 @@ def main():
             if not name.endswith(".md"):
                 continue
             raw = open(os.path.join(src, name), encoding="utf-8").read()
-            n, ltitle, speaker = parse_title(kind, raw.replace("﻿", "").split("\n")[0][2:].strip())
+            n, ltitle, speaker = parse_title(kind, raw.replace("﻿", "").split("\n")[0][2:].strip(), name)
             lines = kept_lines(raw)
             paras = paragraphs(lines)
             said = [p for p in paras if p != VIDEO_NOTE]
@@ -130,6 +140,8 @@ def main():
             entry = {"id": lid, "n": n, "title": ltitle, "mins": max(1, round(chars / 450))}
             if speaker:
                 entry["speaker"] = speaker
+            if (sid, n) in NOTES:
+                entry["note"] = NOTES[(sid, n)]
             # English edition, written by hand to TRANSLATION_SPEC.md: first line is '# Title'.
             en_path = os.path.join(out_dir, lid + ".en.txt")
             if os.path.exists(en_path):

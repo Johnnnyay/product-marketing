@@ -3,7 +3,7 @@
   {
    "id": "xzc52",
    "title": "肖子程52健康课",
-   "titleEn": "Family Health Management, 52 Lessons",
+   "titleEn": "Family Health Management",
    "lessons": [
     {
      "id": "01",
@@ -25,25 +25,33 @@
      "id": "03",
      "n": 3,
      "title": "睡眠债务引发的惨案",
-     "mins": 8
+     "mins": 8,
+     "titleEn": "How Sleep Debt Destroys a Body",
+     "minsEn": 11
     },
     {
      "id": "04",
      "n": 4,
      "title": "什么是正确的健康观念",
-     "mins": 7
+     "mins": 7,
+     "titleEn": "What Health Means Now, and Why the Old Thinking Fails",
+     "minsEn": 9
     },
     {
      "id": "05",
      "n": 5,
      "title": "健康-我们不能承受的生命之轻（上）",
-     "mins": 10
+     "mins": 10,
+     "titleEn": "China's Health Data, and the Limits of Medicine",
+     "minsEn": 13
     },
     {
      "id": "06",
      "n": 6,
      "title": "健康-你不能承受的生命之轻（下）",
-     "mins": 12
+     "mins": 12,
+     "titleEn": "Aging, Children, and Taking Back Responsibility",
+     "minsEn": 16
     },
     {
      "id": "07",
@@ -81,13 +89,17 @@
      "id": "11",
      "n": 11,
      "title": "影响你健康的不可控因素",
-     "mins": 10
+     "mins": 10,
+     "titleEn": "The Factors We Cannot Control",
+     "minsEn": 14
     },
     {
      "id": "12",
      "n": 12,
      "title": "健康可控因素之心态",
-     "mins": 7
+     "mins": 7,
+     "titleEn": "The First Controllable Factor: Your State of Mind",
+     "minsEn": 9
     },
     {
      "id": "13",
@@ -101,7 +113,9 @@
      "id": "14",
      "n": 14,
      "title": "为什么运动不意味着健康？",
-     "mins": 5
+     "mins": 5,
+     "titleEn": "Exercise in the Right Amount",
+     "minsEn": 6
     },
     {
      "id": "15",
@@ -219,13 +233,17 @@
      "id": "29",
      "n": 29,
      "title": "VC抗氧化之细胞饥饿",
-     "mins": 8
+     "mins": 8,
+     "titleEn": "Vitamin C: A Nutrient, Not a Medicine",
+     "minsEn": 11
     },
     {
      "id": "30",
      "n": 30,
      "title": "VC抗氧化与提升免疫儿童排铅",
-     "mins": 12
+     "mins": 12,
+     "titleEn": "What Vitamin C Actually Does in the Body",
+     "minsEn": 15
     },
     {
      "id": "31",
@@ -239,13 +257,17 @@
      "id": "32",
      "n": 32,
      "title": "维生素E抗氧化与新生儿黄疸",
-     "mins": 7
+     "mins": 7,
+     "titleEn": "Vitamin E, Aging and the Tissues That Harden",
+     "minsEn": 9
     },
     {
      "id": "33",
      "n": 33,
      "title": "维生素A抗氧化与视力健康",
-     "mins": 7
+     "mins": 7,
+     "titleEn": "Carotenoids and Vitamin A: The Eyes and the Linings",
+     "minsEn": 9
     },
     {
      "id": "34",
@@ -344,8 +366,8 @@
      "minsEn": 7
     },
     {
-     "id": "46",
-     "n": 46,
+     "id": "47",
+     "n": 47,
      "title": "益生菌家族之双歧杆菌的10大作用",
      "mins": 11,
      "titleEn": "Bifidobacterium: The Gut's Essential Resident",
@@ -354,30 +376,44 @@
     {
      "id": "48",
      "n": 48,
+     "title": "益生菌怎么选？怎么吃？",
+     "mins": 12,
+     "note": {
+      "en": "This lesson was transcribed by computer from the recording and has more mistakes than the others. Some terms are misheard and the figures in the clinical-trial section are unreliable. Check them against the recording before quoting.",
+      "zh": "本课由电脑根据录音自动转写，错字比其他课更多，临床试验部分的数字不可靠。引用前请对照录音核实。"
+     }
+    },
+    {
+     "id": "49",
+     "n": 49,
      "title": "卵磷脂-细胞健康的基础",
      "mins": 10,
      "titleEn": "Lecithin: A Foundation Nutrient for Every Cell",
      "minsEn": 12
     },
     {
-     "id": "49",
-     "n": 49,
+     "id": "50",
+     "n": 50,
      "title": "血管的清道夫-卵磷脂",
      "mins": 13,
      "titleEn": "Lecithin and Young Blood Vessels",
      "minsEn": 16
     },
     {
-     "id": "50",
-     "n": 50,
-     "title": "GABA-大脑年轻态",
-     "mins": 10
-    },
-    {
      "id": "51",
      "n": 51,
+     "title": "GABA-大脑年轻态",
+     "mins": 10,
+     "titleEn": "GABA and a Younger Brain",
+     "minsEn": 13
+    },
+    {
+     "id": "52",
+     "n": 52,
      "title": "GABA倍益舒-舒心舒压舒眠",
-     "mins": 7
+     "mins": 7,
+     "titleEn": "Easing Stress: GABA and Sour Jujube Seed",
+     "minsEn": 10
     }
    ]
   },
