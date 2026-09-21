@@ -243,14 +243,6 @@
    "es": "Por qué un chequeo normal no explica cómo te sientes",
    "hi": "सामान्य जाँच के बावजूद ठीक क्यों नहीं लगता"
   },
-  "Partner ✓": {
-   "es": "Socio ✓",
-   "hi": "पार्टनर ✓"
-  },
-  "Enter partner passcode": {
-   "es": "Introduce el código de socio",
-   "hi": "पार्टनर पासकोड डालें"
-  },
   "Incorrect passcode": {
    "es": "Código incorrecto",
    "hi": "गलत पासकोड"
@@ -274,6 +266,30 @@
   "Blood Sugar": {
    "es": "Azúcar en sangre",
    "hi": "रक्त शर्करा"
+  },
+  "Admin ✓": {
+   "es": "Admin ✓",
+   "hi": "एडमिन ✓"
+  },
+  "Admin login": {
+   "es": "Acceso de administrador",
+   "hi": "एडमिन लॉगिन"
+  },
+  "Sign out of admin": {
+   "es": "Salir de administrador",
+   "hi": "एडमिन से साइन आउट"
+  },
+  "All reports": {
+   "es": "Todos los informes",
+   "hi": "सभी रिपोर्ट"
+  },
+  "Admin only": {
+   "es": "Solo administrador",
+   "hi": "केवल एडमिन"
+  },
+  "Assessment": {
+   "es": "Evaluación",
+   "hi": "मूल्यांकन"
   }
  },
  "areas": {

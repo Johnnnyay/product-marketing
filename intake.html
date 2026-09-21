@@ -38,7 +38,10 @@
   .card-title::after{content:'';flex:1;height:1px;background:var(--gray-200)}
 
   /* Form elements */
-  .lang-wrap{position:relative;margin-left:auto}
+  .lang-wrap{position:relative}
+  .hdr-tools{display:flex;align-items:center;gap:8px;margin-left:auto}
+  a.lang-btn{text-decoration:none}
+  @media(max-width:560px){.site-header{flex-wrap:wrap}.hdr-tools{order:3;width:100%;justify-content:flex-end;margin-left:0}.back-link{margin-left:auto !important}}
   .back-link{margin-left:14px !important}
   .lang-btn{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,0.1);
     border:1px solid rgba(255,255,255,0.16);color:rgba(255,255,255,0.85);font-family:inherit;
@@ -167,11 +170,15 @@
 
 <header class="site-header">
   <span class="site-logo">Health Assessment</span>
-  <div class="lang-wrap">
-    <button class="lang-btn" id="lang-toggle-btn" onclick="toggleLangMenu()" aria-haspopup="true" aria-expanded="false">
-      <span id="lang-current">EN</span><span class="lang-caret"></span>
-    </button>
-    <div class="lang-menu" id="lang-menu"></div>
+  <div class="hdr-tools">
+    <a class="lang-btn" id="reports-bubble" href="admin.html" style="display:none">All reports</a>
+    <div class="lang-wrap">
+      <button class="lang-btn" id="lang-toggle-btn" onclick="toggleLangMenu()" aria-haspopup="true" aria-expanded="false">
+        <span id="lang-current">EN</span><span class="lang-caret"></span>
+      </button>
+      <div class="lang-menu" id="lang-menu"></div>
+    </div>
+    <button class="lang-btn" id="admin-dots" onclick="adminDots()" title="Admin login">···</button>
   </div>
   <a href="index.html" class="back-link" data-ui="backLink">← Back to products</a>
 </header>
@@ -409,6 +416,7 @@
   <div class="success-note" data-ui="okNote">You can also share this link with your consultant.</div>
 </div>
 
+<script src="admin-session.js"></script>
 <script>
 // Symptom data moved to intake-content.js so it can carry four languages and
 // per-group help. The renderer for it lives with the rest of the language code below.
@@ -799,7 +807,25 @@ function buildDynamicFields() {
 
 }
 
+/* Admin: the ··· button signs in; once signed in it reads Admin ✓ (tap to sign out) and an
+   All reports bubble appears beside the language bubble. */
+function adminChrome() {
+  const on = AdminSession.has();
+  const rb = document.getElementById('reports-bubble'), dots = document.getElementById('admin-dots');
+  if (!rb || !dots) return;
+  rb.style.display = on ? 'inline-flex' : 'none';
+  rb.textContent = AdminSession.t('all');
+  dots.textContent = on ? AdminSession.t('admin') : '···';
+  dots.title = on ? AdminSession.t('out') : AdminSession.t('title');
+}
+function adminDots() {
+  if (AdminSession.has()) { AdminSession.logout(); adminChrome(); }
+  else AdminSession.login(adminChrome);
+}
+
 function applyLang() {
+  document.documentElement.lang = currentLang;
+  adminChrome();
   document.title = tx(UI.pageTitle);
   document.querySelectorAll('[data-ui]').forEach(el => {
     const k = el.dataset.ui;

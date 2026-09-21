@@ -447,11 +447,8 @@
   <div class="login-card">
     <div class="login-icon">🔒</div>
     <div class="login-title">Admin Access</div>
-    <div class="login-sub">Enter your passcode to view all client reports</div>
-    <input class="login-input" type="password" id="passcode-input" placeholder="••••••••"
-      onkeydown="if(event.key==='Enter') tryLogin()">
-    <button class="login-btn" onclick="tryLogin()">Enter Dashboard</button>
-    <div class="login-error" id="login-error">Incorrect passcode. Try again.</div>
+    <div class="login-sub">Sign in as admin to view all client reports</div>
+    <button class="login-btn" onclick="AdminSession.login(showDashboard)">Admin login</button>
   </div>
 </div>
 
@@ -481,49 +478,26 @@
   <div class="client-list" id="client-list"></div>
 </div>
 
+<script src="admin-session.js"></script>
 <script>
 // ── CONFIG ──
-// The passcode is no longer in this file. It is checked server-side by the API,
-// which is the only thing that can read the private report store.
-const API_BASE = "https://health-intake-api.vercel.app";
-const SESSION_KEY = "hr_admin_key";
+// The passcode is checked by the API (see admin-session.js). This page only holds the session token.
+const API_BASE = AdminSession.API;
 
 let allClients = [];
 
 // ── AUTH ──
-async function tryLogin() {
-  const val = document.getElementById("passcode-input").value;
-  const err = document.getElementById("login-error");
-  err.style.display = "none";
-  try {
-    const r = await fetch(API_BASE + "/api/admin", { headers: { "x-admin-key": val } });
-    if (!r.ok) throw new Error("rejected");
-    localStorage.setItem(SESSION_KEY, val);
-    showDashboard();
-  } catch (e) {
-    err.textContent = "Incorrect passcode. Try again.";
-    err.style.display = "block";
-    document.getElementById("passcode-input").value = "";
-    document.getElementById("passcode-input").focus();
-  }
-}
-
 function logout() {
-  localStorage.removeItem(SESSION_KEY);
+  AdminSession.logout();
   document.getElementById("dashboard").style.display = "none";
   document.getElementById("login-screen").style.display = "flex";
-  document.getElementById("passcode-input").value = "";
-  document.getElementById("login-error").style.display = "none";
 }
 
 // ── INIT ──
 window.addEventListener("DOMContentLoaded", () => {
-  const q = new URLSearchParams(location.search).get("key");
-  if (q) { localStorage.setItem(SESSION_KEY, q);
-           history.replaceState(null, "", location.pathname); }
-  if (localStorage.getItem(SESSION_KEY)) {
-    showDashboard();
-  }
+  // The old design kept the raw admin key in this browser. It is not used any more.
+  try { localStorage.removeItem("hr_admin_key"); } catch (e) {}
+  if (AdminSession.has()) showDashboard(); else AdminSession.login(showDashboard);
 });
 
 function showDashboard() {
@@ -535,10 +509,9 @@ function showDashboard() {
 // ── DATA ──
 async function loadData() {
   try {
-    const r = await fetch(API_BASE + "/api/admin", {
-      headers: { "x-admin-key": localStorage.getItem(SESSION_KEY) || "" }
-    });
-    if (!r.ok) { logout(); return; }
+    const r = await fetch(API_BASE + "/api/admin", { headers: AdminSession.headers() });
+    if (r.status === 401) { logout(); return; }   // no session, or the passcode has changed
+    if (!r.ok) throw new Error((await r.json().catch(() => ({}))).error || ("HTTP " + r.status));
     const data = await r.json();
     allClients = Object.entries(data.clients).map(([key, client]) => ({
       key,
@@ -612,7 +585,7 @@ function renderClients() {
       const isLatest = ri === 0;
 
       return `
-        <a class="report-row" href="${API_BASE}/api/report?r=${r.rid}" target="_blank" rel="noopener">
+        <a class="report-row" href="#" onclick="AdminSession.openReport('${r.rid}'); return false;">
           <div class="report-date-block">
             <div class="report-date-month">${monthStr}</div>
             <div class="report-date-day">${dayStr}</div>
