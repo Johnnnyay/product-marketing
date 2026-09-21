@@ -45,7 +45,9 @@
      "id": "07",
      "n": 7,
      "title": "健康管理重在免疫",
-     "mins": 7
+     "mins": 7,
+     "titleEn": "What Health Management Really Means",
+     "minsEn": 11
     },
     {
      "id": "08",
@@ -81,7 +83,9 @@
      "id": "13",
      "n": 13,
      "title": "你计算过自己的睡眠周期吗？",
-     "mins": 6
+     "mins": 6,
+     "titleEn": "Sleep, Repair, and the Sleep Cycle",
+     "minsEn": 8
     },
     {
      "id": "14",
@@ -117,37 +121,49 @@
      "id": "19",
      "n": 19,
      "title": "纽崔莱为什么是食品",
-     "mins": 12
+     "mins": 12,
+     "titleEn": "Nutrilite and the Three Generations of Functional Food",
+     "minsEn": 15
     },
     {
      "id": "20",
      "n": 20,
      "title": "蛋白质及其生理作用（上）",
-     "mins": 13
+     "mins": 13,
+     "titleEn": "Protein, the Foundation of Life",
+     "minsEn": 15
     },
     {
      "id": "21",
      "n": 21,
      "title": "蛋白质有话说（下）",
-     "mins": 15
+     "mins": 15,
+     "titleEn": "Protein: How Much, When, and What Deficiency Looks Like",
+     "minsEn": 17
     },
     {
      "id": "22",
      "n": 22,
      "title": "不可缺的维生素B族",
-     "mins": 10
+     "mins": 10,
+     "titleEn": "Vitamins: Food for Hungry Cells, and the B Family",
+     "minsEn": 13
     },
     {
      "id": "23",
      "n": 23,
      "title": "代谢通行证-维生素B1",
-     "mins": 7
+     "mins": 7,
+     "titleEn": "The B Vitamins and Vitamin B1",
+     "minsEn": 9
     },
     {
      "id": "24",
      "n": 24,
      "title": "B族中的带头大哥B2",
-     "mins": 8
+     "mins": 8,
+     "titleEn": "Vitamin B2 and the Signs of Deficiency",
+     "minsEn": 10
     },
     {
      "id": "25",
@@ -189,7 +205,9 @@
      "id": "31",
      "n": 31,
      "title": "维生素E抗氧化与细胞健康",
-     "mins": 12
+     "mins": 12,
+     "titleEn": "Vitamin E: Protecting Every Cell Membrane",
+     "minsEn": 15
     },
     {
      "id": "32",
@@ -261,25 +279,33 @@
      "id": "43",
      "n": 43,
      "title": "益生菌与免疫生长发育",
-     "mins": 11
+     "mins": 11,
+     "titleEn": "Probiotics, Immunity, and the Gut-Brain Connection",
+     "minsEn": 14
     },
     {
      "id": "44",
      "n": 44,
      "title": "肠道微生态的建设者-益生菌",
-     "mins": 9
+     "mins": 9,
+     "titleEn": "The Gut Microbiome: Our Bacteria and Us",
+     "minsEn": 10
     },
     {
      "id": "45",
      "n": 45,
      "title": "益生菌家族之嗜酸乳杆菌鼠李糖乳杆菌干酪乳杆菌",
-     "mins": 6
+     "mins": 6,
+     "titleEn": "Three Key Lactobacillus Strains",
+     "minsEn": 7
     },
     {
      "id": "46",
      "n": 46,
      "title": "益生菌家族之双歧杆菌的10大作用",
-     "mins": 11
+     "mins": 11,
+     "titleEn": "Bifidobacterium: The Gut's Essential Resident",
+     "minsEn": 12
     },
     {
      "id": "48",
@@ -371,42 +397,54 @@
      "n": 8,
      "title": "血净百病消",
      "mins": 11,
-     "speaker": "凌敏"
+     "speaker": "凌敏",
+     "titleEn": "When the Blood Is Clean, Disease Recedes",
+     "minsEn": 16
     },
     {
      "id": "09",
      "n": 9,
      "title": "践行健康生活方式 把握健康根基",
      "mins": 11,
-     "speaker": "潘金珍"
+     "speaker": "潘金珍",
+     "titleEn": "Regulating Your Lifestyle, the Source of Health",
+     "minsEn": 15
     },
     {
      "id": "10",
      "n": 10,
      "title": "抗炎语录 植物中的秘密",
      "mins": 12,
-     "speaker": "莫军晔"
+     "speaker": "莫军晔",
+     "titleEn": "Inflammation and the Secrets Hidden in Plants",
+     "minsEn": 16
     },
     {
      "id": "11",
      "n": 11,
      "title": "自然的力量 纽崔莱的健康守护之道",
      "mins": 13,
-     "speaker": "刘建军"
+     "speaker": "刘建军",
+     "titleEn": "Why Nutrilite: The Best of Nature and the Best of Science",
+     "minsEn": 16
     },
     {
      "id": "12",
      "n": 12,
      "title": "揭秘生命之基 蛋白质的奥秘",
      "mins": 12,
-     "speaker": "丁桂珍"
+     "speaker": "丁桂珍",
+     "titleEn": "Protein, the Source of Life",
+     "minsEn": 16
     },
     {
      "id": "13",
      "n": 13,
      "title": "遇见快乐源泉：维生素B族的魅力",
      "mins": 12,
-     "speaker": "丁桂珍"
+     "speaker": "丁桂珍",
+     "titleEn": "The B Vitamins, the Source of Good Spirits",
+     "minsEn": 16
     },
     {
      "id": "14",
