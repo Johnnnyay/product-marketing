@@ -337,9 +337,11 @@
     padding: 12px 20px 12px 72px;
     text-decoration: none;
     color: inherit;
+    cursor: pointer;
     transition: background 0.12s;
     border-bottom: 1px solid var(--gray-100);
   }
+  .report-row:focus-visible { outline: 2px solid var(--green); outline-offset: -2px; }
   .report-row:last-child { border-bottom: none; }
   .report-row:hover { background: var(--off-white); }
 
@@ -406,6 +408,29 @@
     flex-shrink: 0;
   }
   .report-row:hover .open-arrow { color: var(--green); }
+
+  .row-delete {
+    flex-shrink: 0;
+    width: 26px; height: 26px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 7px;
+    color: var(--gray-300);
+    background: none; border: 0; cursor: pointer;
+    font-size: 13px;
+    transition: background 0.12s, color 0.12s;
+  }
+  .row-delete:hover { background: #fdecec; color: #b3261e; }
+  .row-delete:disabled { opacity: 0.4; cursor: default; }
+
+  .client-delete {
+    flex-shrink: 0;
+    background: none; border: 0; cursor: pointer;
+    color: var(--gray-300);
+    font-size: 13px;
+    padding: 4px 6px;
+    border-radius: 7px;
+  }
+  .client-delete:hover { background: #fdecec; color: #b3261e; }
 
   /* ── EMPTY STATE ── */
   .empty-state {
@@ -585,7 +610,7 @@ function renderClients() {
       const isLatest = ri === 0;
 
       return `
-        <a class="report-row" href="#" onclick="AdminSession.openReport('${r.rid}'); return false;">
+        <div class="report-row" id="row-${r.rid}" tabindex="0" role="link" onclick="AdminSession.openReport('${r.rid}')" onkeydown="if(event.key==='Enter')AdminSession.openReport('${r.rid}')">
           <div class="report-date-block">
             <div class="report-date-month">${monthStr}</div>
             <div class="report-date-day">${dayStr}</div>
@@ -598,8 +623,9 @@ function renderClients() {
             <div class="report-products">${r.products.join(" · ")}</div>
           </div>
           ${isLatest ? '<span class="latest-badge">Latest</span>' : ""}
+          <button type="button" class="row-delete" id="del-${r.rid}" title="Delete this report" onclick="event.preventDefault(); event.stopPropagation(); deleteReport('${r.rid}', ${jsAttr(client.name)}, ${jsAttr(r.date)})">🗑</button>
           <span class="open-arrow">↗</span>
-        </a>`;
+        </div>`;
     }).join("");
 
     return `
@@ -612,6 +638,7 @@ function renderClients() {
           </div>
           <div class="client-right">
             <span class="report-count-badge">${reportCount} report${reportCount !== 1 ? "s" : ""}</span>
+            <button type="button" class="client-delete" title="Delete this client and all their reports" onclick="event.stopPropagation(); deleteClient('${client.key}', ${jsAttr(client.name)}, ${reportCount})">🗑</button>
             <span class="chevron">▾</span>
           </div>
         </div>
@@ -623,9 +650,78 @@ function renderClients() {
   }).join("");
 }
 
+// Inline event-handler attributes are double-quoted; a value going through JSON.stringify
+// contains literal double quotes, which close the attribute early and leave the handler
+// invalid JS that silently does nothing (the click then falls through to a parent handler).
+// The attribute value is HTML-unescaped before being parsed as JS, so escape for HTML here.
+function jsAttr(value) {
+  return JSON.stringify(value).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+}
+
 function toggleCard(idx) {
   const card = document.getElementById("card-" + idx);
   card.classList.toggle("open");
+}
+
+// ── DELETE ──
+// Every delete is permanent (the store is git, so it is recoverable from history, but not
+// from this page) and goes through the same admin session as everything else here.
+async function deleteOne(rid) {
+  const r = await fetch(API_BASE + "/api/unlock", {
+    method: "POST",
+    headers: Object.assign({ "Content-Type": "application/json" }, AdminSession.headers()),
+    body: JSON.stringify({ action: "delete", rid })
+  });
+  if (r.status === 401) { logout(); throw new Error("Your admin session expired. Sign in again."); }
+  if (!r.ok) throw new Error((await r.json().catch(() => ({}))).error || ("HTTP " + r.status));
+  return r.json();
+}
+
+function dropReportLocally(rid) {
+  for (const c of allClients) {
+    const before = c.reports.length;
+    c.reports = c.reports.filter(rep => rep.rid !== rid);
+    if (c.reports.length !== before) {
+      c.latestDate = c.reports[0]?.date || "";
+      if (!c.reports.length) allClients = allClients.filter(x => x !== c);
+      break;
+    }
+  }
+}
+
+async function deleteReport(rid, clientName, date) {
+  const when = formatDate(date) || "an undated report";
+  if (!confirm(`Delete ${clientName}'s report from ${when}?\n\nThis cannot be undone.`)) return;
+  const btn = document.getElementById("del-" + rid);
+  const row = document.getElementById("row-" + rid);
+  if (btn) btn.disabled = true;
+  if (row) row.style.opacity = "0.5";
+  try {
+    await deleteOne(rid);
+    dropReportLocally(rid);
+    renderStats();
+    renderClients();
+  } catch (e) {
+    alert("Could not delete that report.\n\n" + e.message);
+    if (btn) btn.disabled = false;
+    if (row) row.style.opacity = "";
+  }
+}
+
+async function deleteClient(key, name, reportCount) {
+  const plural = reportCount === 1 ? "report" : "reports";
+  if (!confirm(`Delete ${name} and all ${reportCount} ${plural}?\n\nThis removes every one of their reports permanently. This cannot be undone.`)) return;
+  const client = allClients.find(c => c.key === key);
+  if (!client) return;
+  const rids = client.reports.map(r => r.rid);
+  const failed = [];
+  for (const rid of rids) {
+    try { await deleteOne(rid); dropReportLocally(rid); }
+    catch (e) { failed.push(rid); }
+  }
+  renderStats();
+  renderClients();
+  if (failed.length) alert(`${failed.length} of ${rids.length} reports for ${name} could not be deleted. Try again, or delete the remaining ones individually.`);
 }
 
 function formatDate(dateStr) {
