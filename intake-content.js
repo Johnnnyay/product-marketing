@@ -1,11 +1,11 @@
 /* GENERATED FILE, DO NOT EDIT.
-   Built from intake/questions.json (v2.0) and intake/chrome.json
-   by intake/build-intake.py on 2026-08-24.
+   Built from intake/questions.json (v2.1) and intake/chrome.json
+   by intake/build-intake.py on 2026-09-21.
 
    Edit the question set in intake/questions.json and run the build again.
    Editing this file directly means the next build silently reverts you. */
 
-const FORM_VERSION = "2.0";
+const FORM_VERSION = "2.1";
 
 const LANGS = [
   { code: 'en', label: 'English' },
@@ -130,22 +130,22 @@ const UI = {
   "अपने स्मार्ट स्केल ऐप के मान भरें (FitIndex, Renpho, Xiaomi Health)। वसा और मांसपेशी प्रतिशत में भरें, दशमलव में नहीं।"
  ],
  "okTitle": [
-  "Your report is ready.",
-  "你的报告已生成。",
-  "Su informe está listo.",
-  "आपकी रिपोर्ट तैयार है।"
+  "Your assessment is complete",
+  "问卷已完成",
+  "Su evaluación está completa",
+  "आपका मूल्यांकन पूरा हो गया है"
  ],
  "okSub": [
-  "A personalized analysis with your health signals, the root causes behind them, and a plan for the first month.",
-  "一份属于你的分析：你的健康信号、背后的成因，以及第一个月的方案。",
-  "Un análisis personalizado con sus señales de salud, las causas que hay detrás y un plan para el primer mes.",
-  "आपके स्वास्थ्य संकेतों, उनके मूल कारणों और पहले महीने की योजना के साथ एक व्यक्तिगत विश्लेषण।"
+  "Your personalized report is ready. Your health assessment consultant will unlock it and take you through it in person.",
+  "你的个人报告已经准备好了。你的健康评估顾问会为你解锁，并当面为你详细解读。",
+  "Su informe personalizado está listo. Su consultor de evaluación de salud lo desbloqueará y lo revisará con usted en persona.",
+  "आपकी व्यक्तिगत रिपोर्ट तैयार है। आपके स्वास्थ्य मूल्यांकन सलाहकार इसे खोलेंगे और आपके साथ बैठकर समझाएँगे।"
  ],
  "okNote": [
-  "You can also share this link with your consultant.",
-  "这个链接也可以发给你的顾问。",
-  "También puede compartir este enlace con su consultor.",
-  "आप यह लिंक अपने सलाहकार के साथ भी साझा कर सकते हैं।"
+  "Keep this link. Your consultant can unlock your report at any time.",
+  "请保留这个链接。顾问可以随时为你解锁报告。",
+  "Guarde este enlace. Su consultor puede desbloquear el informe en cualquier momento.",
+  "इस लिंक को सहेजकर रखें। आपके सलाहकार इसे कभी भी खोल सकते हैं।"
  ],
  "symptomsSub": [
   "Tap how often each one happens. Tap N/A if it does not apply to you, and tap your answer again to clear it.",
@@ -194,6 +194,12 @@ const UI = {
   "便血或柏油样黑便应由医生处理，而不是顾问。请去看医生。",
   "La sangre en las heces o las heces negras y alquitranadas deben ser evaluadas por un médico, no por un consultor.",
   "मल में खून या काला चिपचिपा मल डॉक्टर को दिखाएँ, सलाहकार को नहीं।"
+ ],
+ "okBtn": [
+  "View my report",
+  "查看我的报告",
+  "Ver mi informe",
+  "मेरी रिपोर्ट देखें"
  ]
 };
 
@@ -1179,6 +1185,330 @@ const STAGE_SETTING = {
  ]
 };
 
+const PRIORITIES = {
+ "id": "f-priorities",
+ "max": 3,
+ "page": 1,
+ "title": [
+  "What matters most to you",
+  "你最想改善什么",
+  "Lo que más le importa",
+  "आपके लिए सबसे ज़रूरी क्या है"
+ ],
+ "l": [
+  "Which areas of your health would you most like to improve?",
+  "你最希望改善身体的哪几个方面？",
+  "¿Qué aspectos de su salud le gustaría mejorar más?",
+  "आप अपने स्वास्थ्य के किन पहलुओं में सबसे ज़्यादा सुधार चाहते हैं?"
+ ],
+ "sub": [
+  "Choose up to three, in order of importance. Your first choice is what your report will open on.",
+  "最多选三项，按重要程度依次点选。你的第一项，就是报告首先回应的内容。",
+  "Elija hasta tres, en orden de importancia. Su primera elección es con lo que abrirá su informe.",
+  "अधिकतम तीन चुनें, महत्व के क्रम में। आपकी पहली पसंद से ही आपकी रिपोर्ट शुरू होगी।"
+ ],
+ "h": [
+  "Feeling fine and having nothing to improve are two different things. Most people have a few things that are off, but only one or two they actually want fixed first, and that is often not the loudest symptom. Your order decides what the report opens on and where it goes into the most detail, even if something else looks stronger in your answers, which we will still tell you about.",
+  "觉得自己还好，不等于没有想改善的地方。多数人身上有好几处不对劲，但真正想先解决的往往只有一两样，而且不一定是最明显的那个症状。你选的顺序，决定报告从哪里讲起、哪里讲得最细；即使你的回答里别处的信号更强，我们也会另外告诉你。",
+  "Sentirse bien no es lo mismo que no tener nada que mejorar. La mayoría de las personas tiene varias cosas fuera de lugar, pero solo una o dos que quiere resolver primero, y a menudo no es el síntoma más ruidoso. Su orden decide con qué abre el informe y dónde entra en más detalle, aunque otra cosa parezca más fuerte en sus respuestas; eso también se lo diremos.",
+  "'मैं ठीक हूँ' कहना और सुधार की कोई ज़रूरत न होना दो अलग बातें हैं। ज़्यादातर लोगों में कई चीज़ें ठीक नहीं होतीं, पर वे पहले एक-दो को ही सुधारना चाहते हैं, और वह अक्सर सबसे ज़ोरदार लक्षण नहीं होता। आपका क्रम तय करता है कि रिपोर्ट किससे शुरू होगी और कहाँ सबसे विस्तार से जाएगी, भले ही आपके जवाबों में कुछ और ज़्यादा प्रबल दिखे; उसके बारे में भी हम आपको बताएँगे।"
+ ],
+ "count": [
+  "{n} of 3 chosen",
+  "已选 {n} / 3",
+  "{n} de 3 elegidas",
+  "{n} / 3 चुने गए"
+ ],
+ "words": {
+  "l": [
+   "What would better look like for you?",
+   "改善之后，你希望是什么样？",
+   "¿Cómo sería para usted estar mejor?",
+   "बेहतर होने पर आपके लिए क्या बदलेगा?"
+  ],
+  "ph": [
+   "For example: I fall asleep within 20 minutes and wake up rested.",
+   "比如：躺下二十分钟内睡着，早上醒来不觉得累。",
+   "Por ejemplo: me duermo en veinte minutos y me despierto descansado.",
+   "जैसे: बीस मिनट में नींद आ जाए और सुबह तरोताज़ा उठूँ।"
+  ]
+ },
+ "otherL": [
+  "What is it?",
+  "具体是什么？",
+  "¿De qué se trata?",
+  "यह क्या है?"
+ ],
+ "otherPh": [
+  "In a few words",
+  "简单说几个字",
+  "En pocas palabras",
+  "कुछ शब्दों में"
+ ],
+ "required": [
+  "Choose at least one area you would like to improve.",
+  "请至少选择一个你希望改善的方面。",
+  "Elija al menos un aspecto que le gustaría mejorar.",
+  "कम से कम एक ऐसा पहलू चुनें जिसमें आप सुधार चाहते हैं।"
+ ],
+ "otherRequired": [
+  "Please tell us in a few words what the other area is.",
+  "请简单说明“其他”指的是什么。",
+  "Cuéntenos en pocas palabras de qué se trata la otra área.",
+  "कृपया कुछ शब्दों में बताएँ कि \"कुछ और\" से आपका क्या मतलब है।"
+ ],
+ "groupFirst": [
+  "Your priorities",
+  "你最在意的方面",
+  "Sus prioridades",
+  "आपकी प्राथमिकताएँ"
+ ],
+ "groupRest": [
+  "Everything else",
+  "其他方面",
+  "Todo lo demás",
+  "बाकी सब"
+ ],
+ "o": [
+  [
+   "weight",
+   "Weight and body composition",
+   "体重与体型",
+   "Peso y composición corporal",
+   "वज़न और शरीर की बनावट"
+  ],
+  [
+   "energy",
+   "Energy and fatigue",
+   "精力与疲劳",
+   "Energía y cansancio",
+   "ऊर्जा और थकान"
+  ],
+  [
+   "sleep",
+   "Sleep and stress",
+   "睡眠与压力",
+   "Sueño y estrés",
+   "नींद और तनाव"
+  ],
+  [
+   "focus",
+   "Focus and memory",
+   "专注与记忆",
+   "Concentración y memoria",
+   "एकाग्रता और याददाश्त"
+  ],
+  [
+   "digestion",
+   "Digestion and gut",
+   "肠胃与消化",
+   "Digestión e intestino",
+   "पाचन और आँतों का स्वास्थ्य"
+  ],
+  [
+   "skin",
+   "Skin: acne, eczema, dullness",
+   "皮肤：痘痘、湿疹、暗沉",
+   "Piel: acné, eccema, apagada",
+   "त्वचा: मुंहासे, एक्ज़िमा, बेजान त्वचा"
+  ],
+  [
+   "hair",
+   "Hair and nails",
+   "头发与指甲",
+   "Cabello y uñas",
+   "बाल और नाखून"
+  ],
+  [
+   "immunity",
+   "Immunity and allergies",
+   "免疫与过敏",
+   "Defensas y alergias",
+   "रोग-प्रतिरोधक क्षमता और एलर्जी"
+  ],
+  [
+   "bloodsugar",
+   "Blood sugar and metabolism",
+   "血糖与代谢",
+   "Azúcar en sangre y metabolismo",
+   "ब्लड शुगर और मेटाबॉलिज़्म"
+  ],
+  [
+   "hormones",
+   "Hormones and cycle",
+   "激素与生理周期",
+   "Hormonas y ciclo menstrual",
+   "हार्मोन और मासिक चक्र"
+  ],
+  [
+   "joints",
+   "Joints, bones and muscles",
+   "关节、骨骼与肌肉",
+   "Articulaciones, huesos y músculos",
+   "जोड़, हड्डियाँ और मांसपेशियाँ"
+  ],
+  [
+   "heart",
+   "Heart and circulation",
+   "心血管与血液循环",
+   "Corazón y circulación",
+   "हृदय और रक्त-संचार"
+  ],
+  [
+   "eyes",
+   "Eye health",
+   "眼睛健康",
+   "Salud ocular",
+   "आँखों का स्वास्थ्य"
+  ],
+  [
+   "other",
+   "Something else",
+   "其他",
+   "Otra cosa",
+   "कुछ और"
+  ]
+ ],
+ "groups": {
+  "weight": [
+   "lifestyle",
+   "digest"
+  ],
+  "energy": [
+   "lifestyle",
+   "nerve"
+  ],
+  "sleep": [
+   "sleep",
+   "nerve"
+  ],
+  "focus": [
+   "nerve",
+   "sleep"
+  ],
+  "digestion": [
+   "digest",
+   "mouth"
+  ],
+  "skin": [
+   "skin"
+  ],
+  "hair": [
+   "skin"
+  ],
+  "immunity": [
+   "resp"
+  ],
+  "bloodsugar": [
+   "lifestyle",
+   "circ"
+  ],
+  "hormones": [
+   "repro",
+   "female",
+   "female45",
+   "male45"
+  ],
+  "joints": [
+   "bone",
+   "age55"
+  ],
+  "heart": [
+   "circ"
+  ],
+  "eyes": [
+   "eyes"
+  ],
+  "other": []
+ },
+ "examples": {
+  "weight": [
+   "For example: lose 10 lb and feel lighter, or build lean muscle.",
+   "比如：减掉十斤，身体更轻盈；或者增加肌肉。",
+   "Por ejemplo: bajar cinco kilos y sentirme más ligero, o ganar músculo.",
+   "जैसे: पाँच किलो वज़न घटे और शरीर हल्का लगे, या मांसपेशियाँ बनें।"
+  ],
+  "energy": [
+   "For example: get through the afternoon without a crash.",
+   "比如：一整个下午都不再犯困、没劲。",
+   "Por ejemplo: pasar la tarde sin quedarme sin energía.",
+   "जैसे: दोपहर में थकान और सुस्ती के बिना दिन गुज़रे।"
+  ],
+  "sleep": [
+   "For example: fall asleep within 20 minutes and wake up rested.",
+   "比如：躺下二十分钟内睡着，早上醒来不觉得累。",
+   "Por ejemplo: me duermo en veinte minutos y me despierto descansado.",
+   "जैसे: बीस मिनट में नींद आ जाए और सुबह तरोताज़ा उठूँ।"
+  ],
+  "focus": [
+   "For example: stay focused through a work day without drifting.",
+   "比如：一整天工作都能专注，不容易走神。",
+   "Por ejemplo: mantenerme concentrado toda la jornada sin distraerme.",
+   "जैसे: पूरे कार्यदिवस में बिना भटके ध्यान लगा रहे।"
+  ],
+  "digestion": [
+   "For example: regular, comfortable digestion with no bloating.",
+   "比如：排便规律顺畅，不再胀气不适。",
+   "Por ejemplo: una digestión regular y cómoda, sin hinchazón.",
+   "जैसे: पाचन नियमित और आरामदायक रहे, पेट फूलना न हो।"
+  ],
+  "skin": [
+   "For example: clearer skin with fewer breakouts.",
+   "比如：皮肤更干净，痘痘少起。",
+   "Por ejemplo: una piel más limpia y con menos brotes.",
+   "जैसे: त्वचा साफ़ रहे और मुंहासे कम निकलें।"
+  ],
+  "hair": [
+   "For example: less hair fall and stronger nails.",
+   "比如：掉发少一些，指甲更结实。",
+   "Por ejemplo: perder menos cabello y tener uñas más fuertes.",
+   "जैसे: बाल कम झड़ें और नाखून मज़बूत हों।"
+  ],
+  "immunity": [
+   "For example: fewer colds and less seasonal allergy.",
+   "比如：少感冒，季节性过敏轻一些。",
+   "Por ejemplo: menos resfriados y menos alergia estacional.",
+   "जैसे: सर्दी-ज़ुकाम कम हो और मौसमी एलर्जी हल्की रहे।"
+  ],
+  "bloodsugar": [
+   "For example: steadier energy after meals and fewer cravings.",
+   "比如：饭后精力更平稳，少一些想吃甜食的冲动。",
+   "Por ejemplo: energía más estable después de comer y menos antojos.",
+   "जैसे: खाने के बाद ऊर्जा स्थिर रहे और मीठे की तलब कम हो।"
+  ],
+  "hormones": [
+   "For example: a more regular cycle and steadier mood.",
+   "比如：生理周期更规律，情绪更平稳。",
+   "Por ejemplo: un ciclo más regular y un ánimo más estable.",
+   "जैसे: मासिक चक्र नियमित हो और मन का मिज़ाज स्थिर रहे।"
+  ],
+  "joints": [
+   "For example: less stiffness in the morning and better recovery after training.",
+   "比如：早上关节不那么僵，运动后恢复得更好。",
+   "Por ejemplo: menos rigidez por la mañana y mejor recuperación tras entrenar.",
+   "जैसे: सुबह जकड़न कम हो और कसरत के बाद रिकवरी बेहतर हो।"
+  ],
+  "heart": [
+   "For example: healthy blood pressure and warmer hands and feet.",
+   "比如：血压平稳，手脚不再冰凉。",
+   "Por ejemplo: una tensión arterial saludable y manos y pies menos fríos.",
+   "जैसे: रक्तचाप ठीक रहे और हाथ-पैर ठंडे न रहें।"
+  ],
+  "eyes": [
+   "For example: less eye strain after a day at a screen.",
+   "比如：看完一天屏幕，眼睛不那么酸涩疲劳。",
+   "Por ejemplo: menos fatiga visual después de un día frente a la pantalla.",
+   "जैसे: दिन भर स्क्रीन देखने के बाद आँखों में कम थकान हो।"
+  ],
+  "other": [
+   "Describe what better would look like.",
+   "描述一下你希望改善之后的样子。",
+   "Describa cómo sería para usted estar mejor.",
+   "बताइए कि बेहतर होने पर आपके लिए क्या बदलेगा।"
+  ]
+ }
+};
+
 const MOTIVATION = {
  "id": "f-motivation",
  "type": "multi",
@@ -1186,16 +1516,16 @@ const MOTIVATION = {
  "page": 1,
  "after": "f-gender",
  "l": [
-  "What made you decide to do this?",
-  "是什么让你想做这份评估？",
-  "¿Qué le llevó a hacer esta evaluación?",
-  "आपने यह मूल्यांकन करने का मन क्यों बनाया?"
+  "Anything else that brought you here? (optional)",
+  "还有什么促使你来做这份评估吗？（可选）",
+  "¿Algo más que le haya traído hasta aquí? (opcional)",
+  "क्या कोई और कारण है जिसने आपको यहाँ तक पहुँचाया? (वैकल्पिक)"
  ],
  "h": [
-  "There is no wrong answer and no limit. It decides what the report opens on, because two people with the same symptoms who came for different reasons should not read the same report.",
-  "没有标准答案，选几个都行。这一题决定报告从哪里讲起：症状相同但来意不同的两个人，不该读到同一份报告。",
-  "No hay respuesta incorrecta ni límite. Determina por dónde empieza el informe, porque dos personas con los mismos síntomas y motivos distintos no deberían leer lo mismo.",
-  "कोई गलत उत्तर नहीं है और कोई सीमा नहीं। यह तय करता है कि रिपोर्ट किस बात से शुरू होगी, क्योंकि समान लक्षणों वाले दो लोग जो अलग कारणों से आए हैं, उन्हें एक जैसी रिपोर्ट नहीं पढ़नी चाहिए।"
+  "Optional, and only context. It does not change the order of your report; the areas you chose above do.",
+  "可选，仅作背景参考。它不会改变报告的顺序，决定顺序的是你在上面选的方面。",
+  "Opcional y solo como contexto. No cambia el orden de su informe; eso lo deciden las áreas que eligió arriba.",
+  "वैकल्पिक, और सिर्फ़ पृष्ठभूमि के लिए। यह रिपोर्ट का क्रम नहीं बदलता; क्रम आपके ऊपर चुने पहलुओं से तय होता है।"
  ],
  "o": [
   [
@@ -2645,6 +2975,6 @@ const SYMPTOM_HELP = {
 };
 
 if (typeof module !== 'undefined') module.exports = {
-  FORM_VERSION, LANGS, UI, SECTIONS, FIELDS, SCALES, STAGE_SETTING, MOTIVATION,
+  FORM_VERSION, LANGS, UI, SECTIONS, FIELDS, SCALES, STAGE_SETTING, PRIORITIES, MOTIVATION,
   DIET_FREQ, DIET_SECTION, DIAGNOSES, SYMPTOM_GROUPS, ADDITIVE_GROUPS, SYMPTOM_HELP
 };

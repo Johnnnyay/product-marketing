@@ -116,22 +116,22 @@
    "अपने स्मार्ट स्केल ऐप के मान भरें (FitIndex, Renpho, Xiaomi Health)। वसा और मांसपेशी प्रतिशत में भरें, दशमलव में नहीं।"
   ],
   "okTitle": [
-   "Your report is ready.",
-   "你的报告已生成。",
-   "Su informe está listo.",
-   "आपकी रिपोर्ट तैयार है।"
+   "Your assessment is complete",
+   "问卷已完成",
+   "Su evaluación está completa",
+   "आपका मूल्यांकन पूरा हो गया है"
   ],
   "okSub": [
-   "A personalized analysis with your health signals, the root causes behind them, and a plan for the first month.",
-   "一份属于你的分析：你的健康信号、背后的成因，以及第一个月的方案。",
-   "Un análisis personalizado con sus señales de salud, las causas que hay detrás y un plan para el primer mes.",
-   "आपके स्वास्थ्य संकेतों, उनके मूल कारणों और पहले महीने की योजना के साथ एक व्यक्तिगत विश्लेषण।"
+   "Your personalized report is ready. Your health assessment consultant will unlock it and take you through it in person.",
+   "你的个人报告已经准备好了。你的健康评估顾问会为你解锁，并当面为你详细解读。",
+   "Su informe personalizado está listo. Su consultor de evaluación de salud lo desbloqueará y lo revisará con usted en persona.",
+   "आपकी व्यक्तिगत रिपोर्ट तैयार है। आपके स्वास्थ्य मूल्यांकन सलाहकार इसे खोलेंगे और आपके साथ बैठकर समझाएँगे।"
   ],
   "okNote": [
-   "You can also share this link with your consultant.",
-   "这个链接也可以发给你的顾问。",
-   "También puede compartir este enlace con su consultor.",
-   "आप यह लिंक अपने सलाहकार के साथ भी साझा कर सकते हैं।"
+   "Keep this link. Your consultant can unlock your report at any time.",
+   "请保留这个链接。顾问可以随时为你解锁报告。",
+   "Guarde este enlace. Su consultor puede desbloquear el informe en cualquier momento.",
+   "इस लिंक को सहेजकर रखें। आपके सलाहकार इसे कभी भी खोल सकते हैं।"
   ],
   "symptomsSub": [
    "Tap how often each one happens. Tap N/A if it does not apply to you, and tap your answer again to clear it.",
@@ -180,6 +180,12 @@
    "便血或柏油样黑便应由医生处理，而不是顾问。请去看医生。",
    "La sangre en las heces o las heces negras y alquitranadas deben ser evaluadas por un médico, no por un consultor.",
    "मल में खून या काला चिपचिपा मल डॉक्टर को दिखाएँ, सलाहकार को नहीं।"
+  ],
+  "okBtn": [
+   "View my report",
+   "查看我的报告",
+   "Ver mi informe",
+   "मेरी रिपोर्ट देखें"
   ]
  },
  "SECTIONS": {

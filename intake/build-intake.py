@@ -53,6 +53,26 @@ def main():
     for f in Q['diet']['frequency']:
         if len(f['l']) != 4:
             problems.append('diet question without four languages: %s' % f['id'])
+    P = Q['priorities']
+    group_keys = set(g['key'] for blk in ('groups', 'additive') for g in Q[blk])
+    pids = [o[0] for o in P['o']]
+    if len(pids) != len(set(pids)):
+        problems.append('duplicate priority id')
+    for o in P['o']:
+        if len(o) != 5:
+            problems.append('priority without four languages: %s' % o[0])
+    for k in ('title', 'l', 'sub', 'h', 'count', 'otherL', 'otherPh', 'required', 'otherRequired', 'groupFirst', 'groupRest'):
+        if len(P[k]) != 4:
+            problems.append('priorities.%s without four languages' % k)
+    for pid in pids:
+        if pid not in P['examples'] or len(P['examples'][pid]) != 4:
+            problems.append('priority without an example in four languages: %s' % pid)
+    for pid, gs in P['groups'].items():
+        if pid not in pids:
+            problems.append('priorities.groups names an unknown priority: %s' % pid)
+        for gk in gs:
+            if gk not in group_keys:
+                problems.append('priorities.groups %s names an unknown symptom group: %s' % (pid, gk))
     seen = {}
     for it in items:
         if it[0] in seen:
@@ -120,6 +140,8 @@ def main():
     W('')
     W('const STAGE_SETTING = ' + js(Q['stageSetting']) + ';')
     W('')
+    W('const PRIORITIES = ' + js(Q['priorities']) + ';')
+    W('')
     W('const MOTIVATION = ' + js(Q['motivation']) + ';')
     W('')
     W('/* Frequency questions for the diet section. `computes` records what each one')
@@ -142,7 +164,7 @@ def main():
     W('const SYMPTOM_HELP = ' + js(Q['help']) + ';')
     W('')
     W('if (typeof module !== \'undefined\') module.exports = {')
-    W('  FORM_VERSION, LANGS, UI, SECTIONS, FIELDS, SCALES, STAGE_SETTING, MOTIVATION,')
+    W('  FORM_VERSION, LANGS, UI, SECTIONS, FIELDS, SCALES, STAGE_SETTING, PRIORITIES, MOTIVATION,')
     W('  DIET_FREQ, DIET_SECTION, DIAGNOSES, SYMPTOM_GROUPS, ADDITIVE_GROUPS, SYMPTOM_HELP')
     W('};')
     W('')

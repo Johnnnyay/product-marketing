@@ -71,6 +71,22 @@
   /* Multi-select, used by the motivation question and the diagnosis list. Both
      need "as many as apply" rather than one of N. */
   .chip-grid{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px}
+  .prio-sub{font-size:13px;color:var(--gray-500);margin:2px 0 10px;line-height:1.55}
+  .prio-grid .chip{position:relative}
+  .prio-grid .chip.on{padding-left:36px}
+  .prio-grid .chip.dim{opacity:.4;cursor:default}
+  .prio-rank{position:absolute;left:9px;top:50%;transform:translateY(-50%);width:20px;height:20px;border-radius:50%;
+    background:var(--green);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .prio-count{font-size:12px;color:var(--gray-500);margin:10px 0 2px}
+  .prio-word{margin-top:14px;padding:12px 14px;background:var(--gray-50,#f6f8f6);border-radius:12px}
+  .prio-word-h{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:600;color:var(--gray-800);margin-bottom:8px}
+  .prio-word-h .prio-rank{position:static;transform:none;flex:none}
+  .prio-word label{display:block;font-size:12.5px;color:var(--gray-500);margin:8px 0 5px}
+  .prio-word input,.prio-word textarea{width:100%;box-sizing:border-box;font:inherit;font-size:14px;padding:10px 12px;border:1.5px solid var(--gray-200);border-radius:10px;background:#fff}
+  .prio-word textarea{min-height:64px;resize:vertical}
+  .symptom-divider{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin:22px 0 8px}
+  .symptom-divider::after{content:'';flex:1;height:1px;background:var(--gray-200)}
+  .symptom-divider:first-child{margin-top:4px}
   .chip{padding:7px 12px;border:1.5px solid var(--gray-200);border-radius:999px;background:#fff;
     font-size:12.5px;line-height:1.4;color:var(--gray-600);cursor:pointer;transition:all .15s;
     text-align:left;font-family:inherit}
@@ -140,7 +156,7 @@
 
   /* Success state */
   .success-screen{display:none;text-align:center;padding:48px 24px}
-  .success-icon{font-size:56px;margin-bottom:16px}
+  .success-icon{width:64px;height:64px;margin:0 auto 20px;border-radius:50%;background:var(--green-light);color:var(--green);display:flex;align-items:center;justify-content:center}
   .success-title{font-size:24px;font-weight:700;color:var(--navy);margin-bottom:8px}
   .success-sub{font-size:15px;color:var(--gray-600);margin-bottom:24px;line-height:1.6}
   .success-link{display:inline-block;background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:12px 28px;border-radius:999px;text-decoration:none;margin-bottom:12px}
@@ -232,7 +248,21 @@
         <div class="field"><label>Weight (lb)</label><input type="number" id="f-weight" placeholder="e.g. 160"></div>
       </div>
 
-      <div class="field" id="motivationField">
+    </div>
+
+    <!-- What they most want to improve. Asking "what made you decide" let everyone say they feel
+         fine; choosing and ranking areas makes them think, and separates what they care about
+         from what happens to be wrong. The report opens on this order. -->
+    <div class="card" id="prioCard">
+      <div class="card-title" id="prioTitle"></div>
+      <div class="field" id="prioField">
+        <label id="prioLabel"></label>
+        <p class="prio-sub" id="prioSub"></p>
+        <div class="chip-grid prio-grid" id="prioChips"></div>
+        <div class="prio-count" id="prioCount"></div>
+        <div id="prioWords"></div>
+      </div>
+      <div class="field" id="motivationField" style="margin-top:22px">
         <label id="motivationLabel"></label>
         <div class="chip-grid" id="motivationChips"></div>
       </div>
@@ -408,10 +438,10 @@
 
 <!-- Success screen (replaces form) -->
 <div class="success-screen" id="successScreen">
-  <div class="success-icon">✅</div>
+  <div class="success-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
   <div class="success-title" data-ui="okTitle">Your report is ready.</div>
   <div class="success-sub" data-ui="okSub">A personalized analysis with your health signals, the root causes behind them, and a plan for the first month.</div>
-  <a class="success-link" id="reportLink" href="#" target="_blank">Open My Report →</a>
+  <a class="success-link" id="reportLink" href="#" target="_blank" data-ui="okBtn">View my report</a>
   <br>
   <div class="success-note" data-ui="okNote">You can also share this link with your consultant.</div>
 </div>
@@ -462,6 +492,14 @@ function validateStep(n) {
     if (!email.includes('@')) {
       err.textContent = 'Please enter a valid email address.';
       err.style.display = 'block';
+      return false;
+    }
+    const bad = !prioSel.length ? PRIORITIES.required
+      : (prioSel.includes('other') && !prioOther.trim()) ? PRIORITIES.otherRequired : null;
+    if (bad) {
+      err.textContent = tx(bad);
+      err.style.display = 'block';
+      const c = document.getElementById('prioCard'); if (c) c.scrollIntoView({ behavior: 'smooth', block: 'start' });
       return false;
     }
   }
@@ -632,6 +670,67 @@ function buildStageSetting(){
   f.textContent = tx(STAGE_SETTING.footnote);
 }
 
+/* Priorities: which areas they most want to improve, in the order chosen, and in their own words
+   what better would look like. The order is what the report opens on. */
+const prioSel = [];
+const prioWords = {};
+let prioOther = '';
+
+function buildPriorities(){
+  const host = document.getElementById('prioChips');
+  if (!host) return;
+  document.getElementById('prioTitle').textContent = tx(PRIORITIES.title);
+  document.getElementById('prioLabel').textContent = tx(PRIORITIES.l);
+  document.getElementById('prioSub').textContent = tx(PRIORITIES.sub);
+  ensureHelpFor(document.getElementById('prioField'), PRIORITIES.h);
+  host.innerHTML = '';
+  const full = prioSel.length >= PRIORITIES.max;
+  PRIORITIES.o.forEach(o => {
+    const at = prioSel.indexOf(o[0]), on = at >= 0;
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'chip' + (on ? ' on' : '') + (full && !on ? ' dim' : '');
+    if (on) { const r = document.createElement('span'); r.className = 'prio-rank'; r.textContent = at + 1; b.appendChild(r); }
+    b.appendChild(document.createTextNode(o[1 + LI()] || o[1]));
+    b.onclick = () => {
+      if (on) prioSel.splice(at, 1);
+      else if (!full) prioSel.push(o[0]);
+      else return;
+      buildPriorities();
+    };
+    host.appendChild(b);
+  });
+  document.getElementById('prioCount').textContent = tx(PRIORITIES.count).replace('{n}', prioSel.length);
+  buildPriorityWords();
+}
+
+function buildPriorityWords(){
+  const host = document.getElementById('prioWords');
+  if (!host) return;
+  host.innerHTML = '';
+  prioSel.forEach((id, i) => {
+    const o = PRIORITIES.o.find(x => x[0] === id);
+    const box = document.createElement('div'); box.className = 'prio-word';
+    const h = document.createElement('div'); h.className = 'prio-word-h';
+    const r = document.createElement('span'); r.className = 'prio-rank'; r.textContent = i + 1;
+    h.appendChild(r); h.appendChild(document.createTextNode(o[1 + LI()] || o[1]));
+    box.appendChild(h);
+    if (id === 'other') {
+      const l0 = document.createElement('label'); l0.textContent = tx(PRIORITIES.otherL) + ' *';
+      const inp = document.createElement('input'); inp.type = 'text'; inp.maxLength = 80;
+      inp.placeholder = tx(PRIORITIES.otherPh); inp.value = prioOther;
+      inp.oninput = () => { prioOther = inp.value; };
+      box.appendChild(l0); box.appendChild(inp);
+    }
+    const l = document.createElement('label'); l.textContent = tx(PRIORITIES.words.l);
+    const ta = document.createElement('textarea'); ta.maxLength = 300;
+    ta.placeholder = tx((PRIORITIES.examples || {})[id] || PRIORITIES.words.ph); ta.value = prioWords[id] || '';
+    ta.oninput = () => { prioWords[id] = ta.value; };
+    box.appendChild(l); box.appendChild(ta);
+    host.appendChild(box);
+  });
+}
+
 function buildMotivation(){
   const l = document.getElementById('motivationLabel');
   if (!l) return;
@@ -718,7 +817,17 @@ function buildSymptoms() {
     if (w.minAge !== undefined && (age === null || age < w.minAge)) return false;
     return true;
   });
-  [].concat(SYMPTOM_GROUPS, extra).forEach(group => {
+  /* The sections that match what they chose come first and say so; every section is still asked
+     of everyone, so a strong signal outside their priorities is still found. */
+  const want = new Set();
+  prioSel.forEach(id => ((PRIORITIES.groups || {})[id] || []).forEach(k => want.add(k)));
+  const everyGroup = [].concat(SYMPTOM_GROUPS, extra);
+  const first = everyGroup.filter(g => want.has(g.key));
+  const rest = everyGroup.filter(g => !want.has(g.key));
+  const divider = (text) => { const d = document.createElement('div'); d.className = 'symptom-divider'; d.textContent = text; return d; };
+  first.concat(rest).forEach((group, gi) => {
+    if (first.length && gi === 0) container.appendChild(divider(tx(PRIORITIES.groupFirst)));
+    if (first.length && rest.length && gi === first.length) container.appendChild(divider(tx(PRIORITIES.groupRest)));
     // no group is gender-gated now; individual reproductive items are filtered below
     const div = document.createElement('div');
     div.className = 'symptom-group';
@@ -850,6 +959,7 @@ function applyLang() {
   const ls = document.querySelector('.loading-sub'); if (ls) ls.textContent = tx(UI.loadSub);
   Object.keys(FIELDS).forEach(paintField);
   buildStageSetting();
+  buildPriorities();
   buildMotivation();
   buildDiet();
   buildDiagnoses();
@@ -892,6 +1002,13 @@ async function submitForm() {
     height: document.getElementById('f-height').value.trim() || null,
     weight: document.getElementById('f-weight').value || null,
     symptoms: symptomValues,
+    priorities: prioSel.map((id, i) => {
+      const r = { id: id, rank: i + 1 };
+      const w = (prioWords[id] || '').trim();
+      if (w) r.words = w;
+      if (id === 'other') r.other = prioOther.trim();
+      return r;
+    }),
     motivation: Object.keys(motivationValues),
     diagnosed: Object.keys(diagnosisValues),
     diagnosedNote: val('f-diagnosedNote') || null,
