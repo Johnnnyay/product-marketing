@@ -84,6 +84,21 @@
   .prio-word label{display:block;font-size:12.5px;color:var(--gray-500);margin:8px 0 5px}
   .prio-word input,.prio-word textarea{width:100%;box-sizing:border-box;font:inherit;font-size:14px;padding:10px 12px;border:1.5px solid var(--gray-200);border-radius:10px;background:#fff}
   .prio-word textarea{min-height:64px;resize:vertical}
+  .prio-word-lite{margin-top:8px;padding:0;background:none;display:flex;align-items:center;gap:9px}
+  .prio-word-lite .prio-word-h{margin-bottom:0;flex-shrink:0}
+  .prio-word-lite .prio-word-line{flex:1;min-width:0;border:0;border-bottom:1.5px solid var(--gray-200);
+    border-radius:0;padding:6px 2px;background:none;font-size:13.5px}
+  .prio-word-lite .prio-word-line:focus{border-color:var(--green);outline:none}
+  @media(max-width:520px){.prio-word-lite:not(.prio-word-lite-other){align-items:flex-start;flex-direction:column;gap:4px}}
+  /* "Something else" needs a required name field, so it cannot share one flex row with the
+     header and the optional line the way a plain priority can: stack it as its own small card. */
+  .prio-word-lite-other{display:block;padding:10px 12px;background:var(--gray-50,#f6f8f6);border-radius:10px}
+  .prio-word-lite-other .prio-word-h{margin-bottom:6px}
+  .prio-word-lite-other label{display:block;font-size:12px;color:var(--gray-500);margin:0 0 4px}
+  .prio-word-lite-other input[type="text"]:not(.prio-word-line){width:100%;box-sizing:border-box;font:inherit;
+    font-size:14px;padding:9px 11px;border:1.5px solid var(--gray-200);border-radius:8px}
+  .prio-word-lite-other .prio-word-line{display:block;width:100%;margin-top:8px;border:0;
+    border-bottom:1.5px solid var(--gray-200);border-radius:0;padding:6px 2px;background:none;font-size:13.5px}
   .symptom-divider{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin:22px 0 8px}
   .symptom-divider::after{content:'';flex:1;height:1px;background:var(--gray-200)}
   .symptom-divider:first-child{margin-top:4px}
@@ -148,6 +163,7 @@
 
   /* Toggle for smart scale section */
   .toggle-row{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding:12px 14px;background:var(--gray-100);border-radius:8px;cursor:pointer}
+  .toggle-row-compact{display:inline-flex;margin:6px 0 0;padding:6px 12px;width:auto}
   .toggle-label{font-size:13.5px;font-weight:500;color:var(--gray-700,#374151)}
   .toggle-hint{font-size:12px;color:var(--gray-400);margin-left:auto}
   input[type="checkbox"].toggle{width:20px;height:20px;accent-color:var(--green);cursor:pointer;flex-shrink:0}
@@ -406,7 +422,13 @@
       </div>
       <div class="field">
         <label></label>
-        <textarea id="f-medication" rows="2"></textarea>
+        <div class="toggle-row toggle-row-compact" onclick="document.getElementById('hasMedication').click()">
+          <input type="checkbox" class="toggle" id="hasMedication" onchange="toggleMedField(this.checked)" onclick="event.stopPropagation()">
+          <span class="toggle-label" data-ui="medToggle">Yes</span>
+        </div>
+        <div id="medFieldWrap" style="display:none;margin-top:10px">
+          <textarea id="f-medication" rows="2"></textarea>
+        </div>
       </div>
 
       <div class="field">
@@ -510,6 +532,11 @@ function validateStep(n) {
 
 function toggleScale(on) {
   document.getElementById('scaleFields').classList.toggle('visible', on);
+}
+
+function toggleMedField(on) {
+  document.getElementById('medFieldWrap').style.display = on ? '' : 'none';
+  if (!on) document.getElementById('f-medication').value = '';
 }
 
 // ─── LOADING ANIMATION ───────────────────────────────────────────────────────
@@ -704,29 +731,46 @@ function buildPriorities(){
   buildPriorityWords();
 }
 
+/* Only the #1 priority gets a full essay box: it is what the report opens on, so it earns
+   the investment. #2 and #3 get one compact line each, because asking for three paragraphs
+   right after a long symptom grid reads as homework and risks the form being abandoned right
+   at the point people are closest to done. A person who wants to say more about #2 or #3 still
+   can, the line just does not demand it the way an empty multi-row box does. */
 function buildPriorityWords(){
   const host = document.getElementById('prioWords');
   if (!host) return;
   host.innerHTML = '';
   prioSel.forEach((id, i) => {
     const o = PRIORITIES.o.find(x => x[0] === id);
-    const box = document.createElement('div'); box.className = 'prio-word';
+    const primary = i === 0;
+    const isOther = id === 'other';
+    const box = document.createElement('div');
+    box.className = 'prio-word' + (primary ? '' : (isOther ? ' prio-word-lite prio-word-lite-other' : ' prio-word-lite'));
     const h = document.createElement('div'); h.className = 'prio-word-h';
     const r = document.createElement('span'); r.className = 'prio-rank'; r.textContent = i + 1;
     h.appendChild(r); h.appendChild(document.createTextNode(o[1 + LI()] || o[1]));
     box.appendChild(h);
-    if (id === 'other') {
+    if (isOther) {
       const l0 = document.createElement('label'); l0.textContent = tx(PRIORITIES.otherL) + ' *';
       const inp = document.createElement('input'); inp.type = 'text'; inp.maxLength = 80;
       inp.placeholder = tx(PRIORITIES.otherPh); inp.value = prioOther;
       inp.oninput = () => { prioOther = inp.value; };
       box.appendChild(l0); box.appendChild(inp);
     }
-    const l = document.createElement('label'); l.textContent = tx(PRIORITIES.words.l);
-    const ta = document.createElement('textarea'); ta.maxLength = 300;
-    ta.placeholder = tx((PRIORITIES.examples || {})[id] || PRIORITIES.words.ph); ta.value = prioWords[id] || '';
-    ta.oninput = () => { prioWords[id] = ta.value; };
-    box.appendChild(l); box.appendChild(ta);
+    if (primary) {
+      const l = document.createElement('label'); l.textContent = tx(PRIORITIES.words.l);
+      const ta = document.createElement('textarea'); ta.maxLength = 300;
+      ta.placeholder = tx((PRIORITIES.examples || {})[id] || PRIORITIES.words.ph); ta.value = prioWords[id] || '';
+      ta.oninput = () => { prioWords[id] = ta.value; };
+      box.appendChild(l); box.appendChild(ta);
+    } else {
+      const inp = document.createElement('input'); inp.type = 'text'; inp.maxLength = 140;
+      inp.className = 'prio-word-line';
+      inp.placeholder = tx(PRIORITIES.words.lineLabel);
+      inp.value = prioWords[id] || '';
+      inp.oninput = () => { prioWords[id] = inp.value; };
+      box.appendChild(inp);
+    }
     host.appendChild(box);
   });
 }
@@ -1012,7 +1056,7 @@ async function submitForm() {
     motivation: Object.keys(motivationValues),
     diagnosed: Object.keys(diagnosisValues),
     diagnosedNote: val('f-diagnosedNote') || null,
-    medication: val('f-medication') || null,
+    medication: (document.getElementById('hasMedication').checked ? val('f-medication') : '') || null,
     dietFrequency: dietValues,
     smoking: val('f-smoking') || null,
     water: document.getElementById('f-water').value || null,

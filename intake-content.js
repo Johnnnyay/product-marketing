@@ -1,11 +1,11 @@
 /* GENERATED FILE, DO NOT EDIT.
-   Built from intake/questions.json (v2.1) and intake/chrome.json
-   by intake/build-intake.py on 2026-09-21.
+   Built from intake/questions.json (v2.2) and intake/chrome.json
+   by intake/build-intake.py on 2026-09-22.
 
    Edit the question set in intake/questions.json and run the build again.
    Editing this file directly means the next build silently reverts you. */
 
-const FORM_VERSION = "2.1";
+const FORM_VERSION = "2.2";
 
 const LANGS = [
   { code: 'en', label: 'English' },
@@ -200,6 +200,12 @@ const UI = {
   "查看我的报告",
   "Ver mi informe",
   "मेरी रिपोर्ट देखें"
+ ],
+ "medToggle": [
+  "Yes",
+  "是",
+  "Sí",
+  "हाँ"
  ]
 };
 
@@ -1231,6 +1237,12 @@ const PRIORITIES = {
    "比如：躺下二十分钟内睡着，早上醒来不觉得累。",
    "Por ejemplo: me duermo en veinte minutos y me despierto descansado.",
    "जैसे: बीस मिनट में नींद आ जाए और सुबह तरोताज़ा उठूँ।"
+  ],
+  "lineLabel": [
+   "One line, optional",
+   "一句话，可选",
+   "Una línea, opcional",
+   "एक पंक्ति, वैकल्पिक"
   ]
  },
  "otherL": [

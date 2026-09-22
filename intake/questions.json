@@ -1,6 +1,6 @@
 {
  "_meta": {
-  "version": "2.1",
+  "version": "2.2",
   "released": "2026-09-21",
   "supersedes": "1.x, the 102 item set inherited from the original Google form",
   "languages": [
@@ -13,6 +13,13 @@
   "versioning": "Bump the version whenever a question is added, removed, reworded in a way that changes its meaning, or when a scale band is renamed. Every submission records formVersion, so two assessments taken across a change stay comparable.",
   "translation_rule": "Chinese, Spanish and Hindi are written as native copy making the same point, NOT translated from the English line by line. A literal rendering reads as translation and undercuts the authority of the piece.",
   "changelog": [
+   {
+    "version": "2.2",
+    "date": "2026-09-22",
+    "changes": [
+     "Priority elaboration: only the #1 priority gets the full 'what would better look like' box. #2 and #3 get a single compact optional line each instead of a full textarea, so the page does not read as three essay questions back to back."
+    ]
+   },
    {
     "version": "2.1",
     "date": "2026-09-21",
@@ -1862,6 +1869,12 @@
     "比如：躺下二十分钟内睡着，早上醒来不觉得累。",
     "Por ejemplo: me duermo en veinte minutos y me despierto descansado.",
     "जैसे: बीस मिनट में नींद आ जाए और सुबह तरोताज़ा उठूँ।"
+   ],
+   "lineLabel": [
+    "One line, optional",
+    "一句话，可选",
+    "Una línea, opcional",
+    "एक पंक्ति, वैकल्पिक"
    ]
   },
   "otherL": [
