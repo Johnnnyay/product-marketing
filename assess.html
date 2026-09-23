@@ -10,13 +10,16 @@
   :root{
     --navy:#3D5A4C;--green:#5C8A6E;--green-light:#EDF2EE;--green-mid:#6F9E80;
     --off-white:#F7F9F7;--gray-100:#F0F3F0;--gray-200:#E4E9E5;--gray-400:#9ca3af;
-    --gray-500:#6E7B74;--gray-600:#55605A;--gray-800:#2A332D;--glow:#E9B872;--radius-lg:18px;
+    --gray-500:#6E7B74;--gray-600:#55605A;--gray-800:#2A332D;--radius-lg:18px;
   }
+  /* Each check-in wears its station's color, matching the cards on the event page. */
+  body.t-skin{--navy:#245A73;--green:#2F7391;--green-mid:#4E8FAB;--green-light:#E4F1F7}
+  body.t-hair{--navy:#6E4469;--green:#8B5A86;--green-mid:#A57AA0;--green-light:#F4EAF3}
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--off-white);color:var(--gray-800);-webkit-font-smoothing:antialiased;min-height:100vh}
   .site-header{background:var(--navy);color:#fff;padding:14px 24px;display:flex;align-items:center}
   .site-logo{font-family:'Caveat',cursive;font-size:22px;font-weight:600;color:rgba(255,255,255,.95)}
-  .hero{background:radial-gradient(120% 140% at 85% 0%,rgba(233,184,114,.38) 0%,rgba(233,184,114,0) 55%),linear-gradient(135deg,var(--navy) 0%,var(--green) 100%);color:#fff;padding:34px 20px 30px;text-align:center}
+  .hero{background:radial-gradient(120% 140% at 85% 0%,rgba(255,255,255,.16) 0%,rgba(255,255,255,0) 55%),linear-gradient(135deg,var(--navy) 0%,var(--green) 100%);color:#fff;padding:34px 20px 30px;text-align:center}
   .hero-kicker{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:8px}
   .hero h1{font-size:26px;font-weight:700;margin-bottom:8px}
   .hero p{font-size:14px;line-height:1.6;color:rgba(255,255,255,.78);max-width:460px;margin:0 auto}
@@ -37,7 +40,7 @@
   .chips{display:flex;flex-wrap:wrap;gap:8px}
   .chip{padding:9px 14px;border:1.5px solid var(--gray-200);border-radius:999px;background:#fff;font:inherit;font-size:14px;color:var(--gray-600);cursor:pointer;transition:all .15s;position:relative}
   .chip:hover{border-color:var(--green);color:var(--green)}
-  .chip.on{background:var(--green-light);border-color:var(--green);color:#1f4d36;font-weight:600}
+  .chip.on{background:var(--green-light);border-color:var(--green);color:var(--navy);font-weight:600}
   .chip.dim{opacity:.4;cursor:default}
   .chip.dim:hover{border-color:var(--gray-200);color:var(--gray-600)}
   .chip .rank{display:none;margin-right:7px;width:19px;height:19px;border-radius:50%;background:var(--green);color:#fff;font-size:11px;font-weight:700;align-items:center;justify-content:center;vertical-align:1px}
@@ -49,7 +52,7 @@
   .q.bad .err{display:block}
   .q.bad input,.q.bad textarea{border-color:#e7a29c}
   .btn{display:block;width:100%;padding:14px 24px;border-radius:999px;font:inherit;font-size:15px;font-weight:600;cursor:pointer;border:0;background:var(--navy);color:#fff;text-align:center;text-decoration:none}
-  .btn:hover{background:#47695a}
+  .btn:hover{background:var(--green)}
   .btn:disabled{background:var(--gray-400);cursor:default}
   .btn-ghost{background:none;color:var(--green);font-size:14px;padding:12px}
   .btn-ghost:hover{background:none;text-decoration:underline}
@@ -67,7 +70,7 @@
   .pr-k{color:var(--gray-500);font-size:13px}
   .pr-v{color:var(--gray-800);white-space:pre-wrap;word-break:break-word}
   @media(max-width:420px){.pr{grid-template-columns:1fr;gap:2px}}
-  .tag{display:inline-block;background:var(--green-light);color:#1f4d36;border-radius:999px;padding:3px 10px;font-size:13px;font-weight:600;margin:0 6px 4px 0}
+  .tag{display:inline-block;background:var(--green-light);color:var(--navy);border-radius:999px;padding:3px 10px;font-size:13px;font-weight:600;margin:0 6px 4px 0}
   .ver{font-size:11.5px;color:var(--gray-400);text-align:center;margin-top:26px}
   .ver.old{color:#A81C1C;font-weight:700}
   #upd{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:12px;background:#141A16;color:#fff;border-radius:999px;padding:8px 8px 8px 18px;font-size:14px;font-weight:700;max-width:calc(100vw - 24px)}
@@ -77,6 +80,7 @@
 </style>
 </head>
 <body>
+<script>document.body.className = "t-" + (new URLSearchParams(location.search).get("type") === "hair" ? "hair" : "skin");</script>
 
 <header class="site-header"><span class="site-logo">Glow From Within</span></header>
 
@@ -154,7 +158,7 @@
 <div id="upd" hidden><span id="updt"></span><button type="button" id="updgo">Reload now</button></div>
 
 <script>
-const BUILD = "2026-09-23T01:14:02Z";
+const BUILD = "2026-09-23T02:51:36Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 if(/[?&]v=/.test(location.search)){
   const keep = new URLSearchParams(location.search); keep.delete("v");

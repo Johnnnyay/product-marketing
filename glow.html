@@ -11,7 +11,10 @@
   :root{
     --navy:#3D5A4C;--green:#5C8A6E;--green-light:#EDF2EE;--green-mid:#6F9E80;
     --off-white:#F7F9F7;--gray-100:#F0F3F0;--gray-200:#E4E9E5;--gray-400:#9ca3af;
-    --gray-500:#6E7B74;--gray-600:#55605A;--gray-800:#2A332D;--glow:#E9B872;--glow-soft:#FBF3E6;
+    --gray-500:#6E7B74;--gray-600:#55605A;--gray-800:#2A332D;
+    /* One color per station: health green, skin aqua blue (the event artwork), hair plum. */
+    --skin:#2F7391;--skin-light:#E4F1F7;--skin-dark:#245A73;
+    --hair:#8B5A86;--hair-light:#F4EAF3;--hair-dark:#6E4469;
     --radius-lg:18px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -25,7 +28,7 @@
     color:rgba(255,255,255,.88);font-size:12px;font-weight:600;padding:6px 11px;border-radius:18px;cursor:pointer;white-space:nowrap;text-decoration:none}
   .pill:hover{background:rgba(255,255,255,.2)}
 
-  .hero{background:radial-gradient(110% 150% at 88% -10%,rgba(233,184,114,.45) 0%,rgba(233,184,114,0) 55%),
+  .hero{background:radial-gradient(110% 150% at 88% -10%,rgba(140,200,222,.38) 0%,rgba(140,200,222,0) 55%),
     linear-gradient(135deg,var(--navy) 0%,var(--green) 100%);color:#fff;padding:52px 20px 46px;text-align:center}
   .hero-kicker{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:12px}
   .hero h1{font-size:40px;font-weight:700;letter-spacing:-.01em;line-height:1.1;margin-bottom:10px}
@@ -48,17 +51,20 @@
   .st{background:#fff;border-radius:var(--radius-lg);box-shadow:0 1px 4px rgba(0,0,0,.07);padding:22px;display:flex;flex-direction:column;border:1.5px solid transparent;transition:border-color .2s}
   .st.done{border-color:#cfe0d5}
   .st-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-  .st-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none;background:var(--green-light);color:var(--green)}
-  .st-icon.warm{background:var(--glow-soft);color:#a86b1c}
-  .st-kicker{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
+  .st{--a:var(--green);--al:var(--green-light);--ad:var(--navy)}
+  #st-skin{--a:var(--skin);--al:var(--skin-light);--ad:var(--skin-dark)}
+  #st-hair{--a:var(--hair);--al:var(--hair-light);--ad:var(--hair-dark)}
+  .st-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none;background:var(--al);color:var(--a)}
+  .st-kicker{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--a)}
   .st-name{font-size:17px;font-weight:700;color:var(--gray-800);margin-top:2px}
   .st-desc{font-size:14px;color:var(--gray-600);line-height:1.6;margin-bottom:16px;flex:1}
   .st-foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
   .st-time{font-size:12.5px;color:var(--gray-500);display:inline-flex;align-items:center;gap:5px}
-  .st-btn{display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:#fff;text-decoration:none;font-weight:600;font-size:14px;padding:10px 18px;border-radius:999px;white-space:nowrap}
-  .st-btn:hover{background:#47695a}
-  .st.done .st-btn{background:var(--green-light);color:var(--navy)}
-  .st-check{display:none;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--green)}
+  .st-btn{display:inline-flex;align-items:center;gap:6px;background:var(--ad);color:#fff;text-decoration:none;font-weight:600;font-size:14px;padding:10px 18px;border-radius:999px;white-space:nowrap}
+  .st-btn:hover{background:var(--a)}
+  .st.done{border-color:var(--al)}
+  .st.done .st-btn{background:var(--al);color:var(--ad)}
+  .st-check{display:none;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--a)}
   .st.done .st-check{display:inline-flex}
   .st.done .st-time{display:none}
 
@@ -77,8 +83,8 @@
   .kv dd{color:var(--gray-800)}
   .kv a,.link{color:var(--green);font-weight:600;text-decoration:none}
   .kv a:hover,.link:hover{text-decoration:underline}
-  .book{display:block;text-align:center;background:var(--glow-soft);color:#7a4c12;border:1.5px solid #f0dcbc;border-radius:12px;padding:12px;font-weight:600;font-size:14px;text-decoration:none}
-  .book:hover{background:#f8ead3}
+  .book{display:block;text-align:center;background:var(--green-light);color:var(--navy);border:1.5px solid #cfe0d5;border-radius:12px;padding:12px;font-weight:600;font-size:14px;text-decoration:none}
+  .book:hover{background:#e2ece5}
   .note{font-size:12.5px;color:var(--gray-500);margin-top:10px;line-height:1.55}
 
   .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--gray-400);line-height:1.8}
@@ -117,7 +123,12 @@
   .bar{display:grid;grid-template-columns:minmax(0,1fr) 64px 22px;align-items:center;gap:10px;font-size:13px;line-height:1.35;color:var(--gray-800);padding:4px 0}
   .bar i{display:block;height:7px;border-radius:999px;background:var(--green-light);position:relative;overflow:hidden}
   .bar i::after{content:'';position:absolute;inset:0 auto 0 0;width:var(--w);background:var(--green);border-radius:999px}
-  .ins.warm .bar i::after{background:var(--glow)}
+  .ins.skin h3{color:var(--skin)}
+  .ins.skin .bar i{background:var(--skin-light)}
+  .ins.skin .bar i::after{background:var(--skin)}
+  .ins.hair h3{color:var(--hair)}
+  .ins.hair .bar i{background:var(--hair-light)}
+  .ins.hair .bar i::after{background:var(--hair)}
   .bar em{font-style:normal;font-weight:700;color:var(--gray-600);text-align:right}
   .ins-empty{font-size:13px;color:var(--gray-400)}
   .tbl-wrap{background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(0,0,0,.07);overflow-x:auto}
@@ -136,6 +147,8 @@
   .done3{display:flex;gap:4px}
   .done3 span{width:22px;height:22px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;background:var(--gray-100);color:var(--gray-400)}
   .done3 span.on{background:var(--green);color:#fff}
+  .done3 span.on.skin{background:var(--skin)}
+  .done3 span.on.hair{background:var(--hair)}
   .tbl tr.detail td{background:#f3f7f4;padding:4px 14px 18px}
   .tbl tr.detail td:first-child{position:static;box-shadow:none}
   .dgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:1100px}
@@ -145,7 +158,9 @@
   .dv{font-size:13.5px;color:var(--gray-800);white-space:pre-wrap;word-break:break-word}
   .dact{display:flex;gap:8px;align-items:center;margin-top:12px}
   .tag{display:inline-block;background:var(--green-light);color:#1f4d36;border-radius:999px;padding:2px 9px;font-size:12.5px;font-weight:600;margin:0 5px 4px 0;white-space:normal}
-  .tag.warm{background:var(--glow-soft);color:#7a4c12}
+  .tag.warm{background:#DCEADF;color:#244a36}
+  .tag.skin{background:var(--skin-light);color:var(--skin-dark)}
+  .tag.hair{background:var(--hair-light);color:var(--hair-dark)}
   .tag.alert{background:#fdecea;color:#9b2c21}
   .status{flex:none;font-size:11.5px;font-weight:700;border-radius:999px;padding:3px 9px;background:var(--gray-100);color:var(--gray-600)}
   .status.ready{background:var(--green-light);color:var(--navy)}
@@ -207,7 +222,7 @@
       </div>
       <div class="st" id="st-skin">
         <div class="st-top">
-          <div class="st-icon warm"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
+          <div class="st-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
           <div><div class="st-kicker">Skincare</div><div class="st-name">Skin Assessment</div></div>
         </div>
         <p class="st-desc">What you'd love to change, how your skin feels day to day, and the routine you have now. Pairs with the blue light skin diagnostic.</p>
@@ -267,7 +282,7 @@
 
 <script src="admin-session.js"></script>
 <script>
-const BUILD = "2026-09-23T01:20:30Z";
+const BUILD = "2026-09-23T02:51:36Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 const EVENT = "glow-2026-09-25";
@@ -416,9 +431,9 @@ function tally(list){
   list.forEach((k) => { m[k] = (m[k] || 0) + 1; });
   return Object.entries(m).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
 }
-function bars(title, counts, warm){
+function bars(title, counts, cls){
   const max = counts.length ? counts[0][1] : 1;
-  return '<div class="ins' + (warm ? " warm" : "") + '"><h3>' + esc(title) + "</h3>" +
+  return '<div class="ins' + (cls ? " " + cls : "") + '"><h3>' + esc(title) + "</h3>" +
     (counts.length ? counts.slice(0, 6).map((c) => '<div class="bar"><span title="' + esc(c[0]) + '">' + esc(c[0]) +
       '</span><i style="--w:' + Math.round(c[1] / max * 100) + '%"></i><em>' + c[1] + "</em></div>").join("")
       : '<div class="ins-empty">No answers yet</div>') + "</div>";
@@ -432,15 +447,15 @@ function summaryHtml(gs){
   return '<div class="kpis">' + kpi(gs.length, "Guests") + kpi(all3, "All 3 done") + kpi(n("health"), "Health") +
     kpi(n("skin"), "Skin") + kpi(n("hair"), "Hair") + kpi(allergies, "Allergies flagged", allergies ? "alert" : "") + "</div>" +
     '<div class="insights">' +
-    bars("Health priorities", tally([].concat.apply([], gs.filter((g) => g.health).map((g) => (g.health.h.priorities || []).map((p) => p.id === "other" ? "Something else" : (labels[p.id] || p.id))))), true) +
-    bars("Skin concerns", tally([].concat.apply([], gs.filter((g) => g.skin).map((g) => (g.skin.a.concerns || []).map(concernKey))))) +
-    bars("Hair concerns", tally([].concat.apply([], gs.filter((g) => g.hair).map((g) => (g.hair.a.concerns || []).map(concernKey))))) +
+    bars("Health priorities", tally([].concat.apply([], gs.filter((g) => g.health).map((g) => (g.health.h.priorities || []).map((p) => p.id === "other" ? "Something else" : (labels[p.id] || p.id)))))) +
+    bars("Skin concerns", tally([].concat.apply([], gs.filter((g) => g.skin).map((g) => (g.skin.a.concerns || []).map(concernKey)))), "skin") +
+    bars("Hair concerns", tally([].concat.apply([], gs.filter((g) => g.hair).map((g) => (g.hair.a.concerns || []).map(concernKey)))), "hair") +
     "</div>";
 }
 
 function quickCell(e){
   if (!e) return dash;
-  return tags(e.a.concerns) + '<div class="small">' + esc(e.a.type || "") + "</div>" + allergyOf(e.a);
+  return tags(e.a.concerns, e.type) + '<div class="small">' + esc(e.a.type || "") + "</div>" + allergyOf(e.a);
 }
 function detailBlock(title, e, type){
   if (!e) return '<div class="dcard"><h4>' + title + '</h4><div class="muted">Not done yet</div></div>';
@@ -456,7 +471,7 @@ function detailBlock(title, e, type){
   }
   const a = e.a;
   return '<div class="dcard"><h4>' + title + "</h4>" +
-    kv("Top concerns", tags(a.concerns)) + kv(type === "skin" ? "Skin type" : "Hair type", esc(a.type)) +
+    kv("Top concerns", tags(a.concerns, type)) + kv(type === "skin" ? "Skin type" : "Hair type", esc(a.type)) +
     kv("Allergies", a.hasAllergy === "yes" ? allergyOf(a) : (a.hasAllergy === "no" ? "None" : "")) +
     kv("Routine", esc(a.routine)) + kv("Submitted", esc(when(e.at))) +
     '<div class="dact"><button class="dbtn" data-del="' + esc(e.id) + '" data-type="' + type + '" data-name="' + esc(a.name || "") + '">Delete</button></div></div>';
@@ -466,8 +481,8 @@ function overviewTable(gs){
   const rows = gs.map((g) => {
     const open = openRows.has(g.key);
     const h = g.health ? g.health.h : null;
-    const d3 = '<div class="done3"><span class="' + (g.health ? "on" : "") + '" title="Health">H</span><span class="' + (g.skin ? "on" : "") +
-      '" title="Skin">S</span><span class="' + (g.hair ? "on" : "") + '" title="Hair">H</span></div>';
+    const d3 = '<div class="done3"><span class="' + (g.health ? "on" : "") + '" title="Health">H</span><span class="skin' + (g.skin ? " on" : "") +
+      '" title="Skin">S</span><span class="hair' + (g.hair ? " on" : "") + '" title="Hair">H</span></div>';
     return '<tr class="row' + (open ? " open" : "") + '" data-row="' + esc(g.key) + '">' +
       '<td><div class="gname">' + esc(g.name || "No name") + '</div><div class="gsub">' + esc(g.email || "no email") + "</div></td>" +
       "<td>" + d3 + '<div class="small">' + esc(when(g.last)) + "</div></td>" +
@@ -494,7 +509,7 @@ function typeTable(type, list){
         '<td><button class="abtn" data-open="' + esc(h.rid) + '">Open</button></td></tr>';
     }
     const a = e.a;
-    return "<tr>" + who + "<td>" + (tags(a.concerns) || dash) + "</td><td>" + esc(a.type || "") + "</td>" +
+    return "<tr>" + who + "<td>" + (tags(a.concerns, type) || dash) + "</td><td>" + esc(a.type || "") + "</td>" +
       "<td>" + (a.hasAllergy === "yes" ? allergyOf(a) : '<span class="muted">None</span>') + "</td>" +
       '<td><div class="clamp" title="' + esc(a.routine || "") + '">' + esc(a.routine || "") + '</div></td><td class="small">' + esc(when(e.at)) + "</td>" +
       '<td><button class="dbtn" data-del="' + esc(e.id) + '" data-type="' + type + '" data-name="' + esc(a.name || "") + '">Delete</button></td></tr>';
