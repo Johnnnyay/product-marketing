@@ -1,6 +1,6 @@
 {
  "_meta": {
-  "version": "2.4",
+  "version": "3.0",
   "released": "2026-09-23",
   "supersedes": "1.x, the 102 item set inherited from the original Google form",
   "languages": [
@@ -68,6 +68,18 @@
      "'How often do you wake up during the night?' merged into the symptom row 'Wake up during the night' (was 'Wake up easily at night, especially startled'). Answering Often or Occasionally asks whether it is usually between 1 and 3 AM; `waking13` is derived from the two.",
      "Supplements: common ones are tap chips plus an optional text line. Consistency is only asked once they take something.",
      "Doctor diagnoses sit behind a Yes toggle, like medication."
+    ]
+   },
+   {
+    "version": "3.0",
+    "date": "2026-09-23",
+    "changes": [
+     "New flow in intake.html: page 1 is name, email and a body map of 90 symptoms in 12 systems (tap once = Occasionally, twice = Often); page 2 is birthday, gender, height, weight, then only what applies.",
+     "The symptom map lives in intake.html (MAP), not in `groups`. Its items keep the old symptom keys where they existed, so reports read them the same; new items (Energy and Body, acid reflux, dark spots, joint pain, and others) have new keys.",
+     "Submissions carry `symptomMode: map`; an untapped symptom means absent (report-spec STEP 2). Free text for anything not on the map is `mapOther`.",
+     "Women's health and the 45+ and 55+ items appear on page 2 once gender and birthday are given.",
+     "Supplements: the herbal chip is split into Turmeric and Ashwagandha, and Lion's Mane is added.",
+     "The 'what this is for' reading moved to the thank-you page. 'Edit my answers' there resubmits with `replaces`, and the API replaces the earlier report."
     ]
    }
   ]
@@ -2173,11 +2185,25 @@
     "कोलेजन"
    ],
    [
-    "Herbal (turmeric, ashwagandha...)",
-    "Herbal, e.g. turmeric or ashwagandha",
-    "草本类，如姜黄、南非醉茄",
-    "Hierbas, como cúrcuma o ashwagandha",
-    "हर्बल, जैसे हल्दी या अश्वगंधा"
+    "Turmeric",
+    "Turmeric",
+    "姜黄",
+    "Cúrcuma",
+    "हल्दी"
+   ],
+   [
+    "Ashwagandha",
+    "Ashwagandha",
+    "南非醉茄",
+    "Ashwagandha",
+    "अश्वगंधा"
+   ],
+   [
+    "Lion's Mane",
+    "Lion's Mane",
+    "猴头菇",
+    "Melena de león",
+    "लायन्स मेन"
    ]
   ],
   "none": [

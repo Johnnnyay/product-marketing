@@ -1,11 +1,11 @@
 /* GENERATED FILE, DO NOT EDIT.
-   Built from intake/questions.json (v2.4) and intake/chrome.json
+   Built from intake/questions.json (v3.0) and intake/chrome.json
    by intake/build-intake.py on 2026-09-23.
 
    Edit the question set in intake/questions.json and run the build again.
    Editing this file directly means the next build silently reverts you. */
 
-const FORM_VERSION = "2.4";
+const FORM_VERSION = "3.0";
 
 const LANGS = [
   { code: 'en', label: 'English' },
@@ -1745,11 +1745,25 @@ const SUPPLEMENTS = {
    "कोलेजन"
   ],
   [
-   "Herbal (turmeric, ashwagandha...)",
-   "Herbal, e.g. turmeric or ashwagandha",
-   "草本类，如姜黄、南非醉茄",
-   "Hierbas, como cúrcuma o ashwagandha",
-   "हर्बल, जैसे हल्दी या अश्वगंधा"
+   "Turmeric",
+   "Turmeric",
+   "姜黄",
+   "Cúrcuma",
+   "हल्दी"
+  ],
+  [
+   "Ashwagandha",
+   "Ashwagandha",
+   "南非醉茄",
+   "Ashwagandha",
+   "अश्वगंधा"
+  ],
+  [
+   "Lion's Mane",
+   "Lion's Mane",
+   "猴头菇",
+   "Melena de león",
+   "लायन्स मेन"
   ]
  ],
  "none": [

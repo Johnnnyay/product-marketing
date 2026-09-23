@@ -5,295 +5,230 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Health Assessment</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#3D5A4C;--green:#5C8A6E;--green-light:#EDF2EE;--green-mid:#6F9E80;
+    --navy:#3D5A4C;--green:#5C8A6E;--green-light:#EDF2EE;
     --off-white:#F7F9F7;--gray-100:#F0F3F0;--gray-200:#E4E9E5;--gray-400:#9ca3af;
-    --gray-500:#6E7B74;--gray-600:#55605A;--gray-800:#2A332D;
-    --amber:#b45309;--radius:12px;--radius-lg:18px;
+    --gray-500:#6E7B74;--gray-600:#55605A;--gray-800:#2A332D;--radius-lg:18px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--off-white);color:var(--gray-800);-webkit-font-smoothing:antialiased;min-height:100vh}
+  button{font:inherit}
+  [hidden]{display:none !important}
+
+  /* Header: same tools as the live form (All reports for admins, language, admin login). */
   .site-header{background:var(--navy);color:#fff;padding:14px 24px;display:flex;align-items:center;gap:12px}
-  .site-logo{font-family:'Caveat',cursive;font-size:22px;font-weight:600;color:rgba(255,255,255,.95);text-decoration:none}
-  .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--green) 100%);color:#fff;padding:36px 24px 32px;text-align:center}
-  .hero h1{font-size:26px;font-weight:700;margin-bottom:8px}
-  .hero p{font-size:14px;color:rgba(255,255,255,.7);max-width:480px;margin:0 auto}
-  .wrap{max-width:680px;margin:0 auto;padding:28px 16px 60px}
-
-  /* Progress bar */
-  .progress-bar{display:flex;gap:0;margin-bottom:28px;border-radius:999px;overflow:hidden;background:var(--gray-200)}
-  .progress-step{flex:1;height:4px;background:transparent;transition:background .3s}
-  .progress-step.done{background:var(--green)}
-  .progress-step.active{background:var(--green-mid)}
-
-  .step-label{font-size:12px;color:var(--gray-500);margin-bottom:20px;text-align:center}
-
-  /* Cards */
-  .card{background:#fff;border-radius:var(--radius-lg);box-shadow:0 1px 4px rgba(0,0,0,.07);padding:24px;margin-bottom:16px}
-  .card-title{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--green);margin-bottom:16px;display:flex;align-items:center;gap:6px}
-  .card-title::after{content:'';flex:1;height:1px;background:var(--gray-200)}
-
-  /* Form elements */
-  .lang-wrap{position:relative}
+  .site-logo{font-family:'Caveat',cursive;font-size:22px;font-weight:600}
   .hdr-tools{display:flex;align-items:center;gap:8px;margin-left:auto}
-  a.lang-btn{text-decoration:none}
-  @media(max-width:560px){.site-header{flex-wrap:wrap}.hdr-tools{order:3;width:100%;justify-content:flex-end;margin-left:0}}
-  .lang-btn{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,0.1);
-    border:1px solid rgba(255,255,255,0.16);color:rgba(255,255,255,0.85);font-family:inherit;
-    font-size:12px;font-weight:600;padding:6px 11px;border-radius:18px;cursor:pointer;white-space:nowrap}
-  .lang-btn:hover{background:rgba(255,255,255,0.2)}
-  .lang-caret{width:0;height:0;border-left:3.5px solid transparent;border-right:3.5px solid transparent;
-    border-top:4px solid currentColor;opacity:.65}
-  .lang-menu{display:none;position:absolute;top:calc(100% + 7px);right:0;z-index:300;background:#fff;
-    border:1px solid var(--gray-200);border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.16);padding:5px;min-width:150px}
-  .lang-menu.open{display:block}
-  .lang-opt{display:flex;align-items:center;gap:10px;width:100%;background:none;border:0;border-radius:7px;
-    padding:8px 10px;cursor:pointer;text-align:left;font:inherit;font-size:13.5px;color:var(--gray-800);white-space:nowrap}
-  .lang-opt:hover{background:var(--green-light)}
-  .lang-opt.on{background:var(--green-light);color:var(--navy);font-weight:650}
-  .lang-opt-label{flex:none;width:26px;font-size:10.5px;font-weight:700;letter-spacing:.04em;color:var(--green);text-transform:uppercase}
-  .help-btn{display:inline-flex;align-items:center;gap:4px;background:none;border:0;padding:0;margin-left:6px;
-    font:inherit;font-size:11px;font-weight:600;color:var(--green);cursor:pointer;vertical-align:middle}
-  .help-btn::before{content:"?";display:inline-grid;place-items:center;width:14px;height:14px;border-radius:50%;
-    background:var(--green-light);color:var(--green);font-size:10px;font-weight:800}
-  /* Page one opens on why this exists, not on what it produces. */
-  .stage-card{background:linear-gradient(180deg,#f6faf7 0%,#fff 100%);border-left:3px solid var(--green)}
-  .stage-body{font-size:14px;line-height:1.75;color:var(--gray-600)}
-  .stage-body p{margin:0 0 12px}
-  .stage-body p:last-child{margin-bottom:0}
-  .stage-foot{margin-top:14px;padding-top:12px;border-top:1px solid var(--gray-200);
-    font-size:12px;color:var(--gray-500)}
-  /* Multi-select, used by the motivation question and the diagnosis list. Both
-     need "as many as apply" rather than one of N. */
-  .chip-grid{display:flex;flex-wrap:wrap;gap:7px;margin-top:6px}
-  .prio-sub{font-size:13px;color:var(--gray-500);margin:2px 0 10px;line-height:1.55}
-  .prio-grid .chip{position:relative}
-  .prio-grid .chip.on{padding-left:36px}
-  .prio-grid .chip.dim{opacity:.4;cursor:default}
-  .prio-rank{position:absolute;left:9px;top:50%;transform:translateY(-50%);width:20px;height:20px;border-radius:50%;
-    background:var(--green);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center}
-  .prio-count{font-size:12px;color:var(--gray-500);margin:10px 0 2px}
-  .prio-word{margin-top:14px;padding:12px 14px;background:var(--gray-50,#f6f8f6);border-radius:12px}
-  .prio-word-h{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:600;color:var(--gray-800);margin-bottom:8px}
-  .prio-word-h .prio-rank{position:static;transform:none;flex:none}
-  .prio-word label{display:block;font-size:12.5px;color:var(--gray-500);margin:8px 0 5px}
-  .prio-word input,.prio-word textarea{width:100%;box-sizing:border-box;font:inherit;font-size:14px;padding:10px 12px;border:1.5px solid var(--gray-200);border-radius:10px;background:#fff}
-  .prio-word textarea{min-height:64px;resize:vertical}
-  .prio-word-lite{margin-top:8px;padding:0;background:none;display:flex;align-items:center;gap:9px}
-  .prio-word-lite .prio-word-h{margin-bottom:0;flex-shrink:0}
-  .prio-word-lite .prio-word-line{flex:1;min-width:0;border:0;border-bottom:1.5px solid var(--gray-200);
-    border-radius:0;padding:6px 2px;background:none;font-size:13.5px}
-  .prio-word-lite .prio-word-line:focus{border-color:var(--green);outline:none}
-  @media(max-width:520px){.prio-word-lite:not(.prio-word-lite-other){align-items:flex-start;flex-direction:column;gap:4px}}
-  /* "Something else" needs a required name field, so it cannot share one flex row with the
-     header and the optional line the way a plain priority can: stack it as its own small card. */
-  .prio-word-lite-other{display:block;padding:10px 12px;background:var(--gray-50,#f6f8f6);border-radius:10px}
-  .prio-word-lite-other .prio-word-h{margin-bottom:6px}
-  .prio-word-lite-other label{display:block;font-size:12px;color:var(--gray-500);margin:0 0 4px}
-  .prio-word-lite-other input[type="text"]:not(.prio-word-line){width:100%;box-sizing:border-box;font:inherit;
-    font-size:14px;padding:9px 11px;border:1.5px solid var(--gray-200);border-radius:8px}
-  .prio-word-lite-other .prio-word-line{display:block;width:100%;margin-top:8px;border:0;
-    border-bottom:1.5px solid var(--gray-200);border-radius:0;padding:6px 2px;background:none;font-size:13.5px}
-  .symptom-divider{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin:22px 0 8px}
-  .symptom-divider::after{content:'';flex:1;height:1px;background:var(--gray-200)}
-  .symptom-divider:first-child{margin-top:4px}
-  .chip{padding:7px 12px;border:1.5px solid var(--gray-200);border-radius:999px;background:#fff;
-    font-size:12.5px;line-height:1.4;color:var(--gray-600);cursor:pointer;transition:all .15s;
-    text-align:left;font-family:inherit}
-  .chip:hover{border-color:var(--green);color:var(--green)}
-  .chip.on{background:var(--green-light);border-color:var(--green);color:#065f46;font-weight:600}
-  /* Diet frequency rows reuse the symptom row layout, so the form reads as one
-     instrument while the band labels stay appropriate to food. */
-  .diet-row{display:flex;align-items:center;justify-content:space-between;gap:12px;
-    padding:9px 0;border-bottom:1px solid var(--gray-100)}
-  .diet-row:last-child{border-bottom:0}
-  .diet-name{font-size:13.5px;color:var(--gray-700);line-height:1.45}
-  .freq-btn.selected-mostdays{background:#d1fae5;border-color:#059669;color:#065f46}
-  .freq-btn.selected-fewweekly{background:#ecfdf5;border-color:#34d399;color:#065f46}
-  .freq-btn.selected-rarely{background:#fef9c3;border-color:#ca8a04;color:#713f12}
-  .freq-btn.selected-never{background:#f3f4f6;border-color:#9ca3af;color:#6b7280}
-.freq-btn.selected-na{background:#eef2ff;border-color:#818cf8;color:#3730a3}
+  .pill{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);color:rgba(255,255,255,.88);font-size:12px;font-weight:600;padding:6px 11px;border-radius:18px;cursor:pointer;white-space:nowrap;text-decoration:none}
+  .pill:hover{background:rgba(255,255,255,.2)}
+  .caret{width:0;height:0;border-left:3.5px solid transparent;border-right:3.5px solid transparent;border-top:4px solid currentColor;opacity:.65}
+  .lang-wrap{position:relative}
+  .lang-menu{position:absolute;top:calc(100% + 7px);right:0;z-index:300;background:#fff;border:1px solid var(--gray-200);border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.16);padding:5px;min-width:150px}
+  .lang-opt{display:flex;gap:10px;width:100%;background:none;border:0;border-radius:7px;padding:8px 10px;cursor:pointer;text-align:left;font-size:13.5px;color:var(--gray-800)}
+  .lang-opt:hover,.lang-opt.on{background:var(--green-light)}
+  .lang-opt b{width:24px;font-size:10.5px;color:var(--green)}
 
-  .help-btn-inline::before{margin:0}
-  .help-btn-inline{margin-left:7px}
-  .symptom-name{display:flex;align-items:center}
-  .help-box{display:none;background:var(--green-light);border-radius:9px;padding:9px 11px;margin:0 0 8px;
-    font-size:12.5px;line-height:1.6;color:var(--gray-600)}
-  .help-box.open{display:block}
-  .red-flag{display:none;background:#FEF2F2;border:1px solid #FCA5A5;color:#991B1B;border-radius:9px;
-    padding:10px 12px;margin:8px 0;font-size:12.5px;line-height:1.6}
-  .red-flag.show{display:block}
+  .wrap{max-width:760px;margin:0 auto;padding:22px 16px 110px}
+  .steps{display:flex;gap:6px;margin-bottom:6px}
+  .steps i{flex:1;height:4px;border-radius:999px;background:var(--gray-200)}
+  .steps i.on{background:var(--green)}
+  .step-label{font-size:12px;color:var(--gray-500);text-align:center;margin-bottom:18px}
+  h1{font-size:24px;font-weight:700;color:var(--navy);margin-bottom:6px}
+  .lede{font-size:14.5px;color:var(--gray-600);line-height:1.6;margin-bottom:18px}
+  .card{background:#fff;border-radius:var(--radius-lg);box-shadow:0 1px 4px rgba(0,0,0,.07);padding:22px;margin-bottom:14px}
+  .card-title{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--green);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .card-title::after{content:'';flex:1;height:1px;background:var(--gray-200)}
   .field{margin-bottom:16px}
-  .field label{display:block;font-size:13px;font-weight:600;color:var(--gray-600);margin-bottom:6px}
-  .field input,.field select,.field textarea{width:100%;border:1.5px solid var(--gray-200);border-radius:8px;padding:10px 12px;font-size:14px;font-family:inherit;color:var(--gray-800);background:#fff;transition:border .15s}
-  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--green)}
-  .field textarea{resize:vertical;min-height:80px}
-  .field .hint{font-size:12px;color:var(--gray-400);margin-top:4px}
-  .field select.as-chips{display:none}
-  .select-chips{margin-top:2px}
-  .select-chips .chip,#suppChips .chip,#diagChips .chip{font-size:13px;padding:8px 13px}
-  .field input.supp-other{margin-top:10px}
-  .wake-fu{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 8px;padding:9px 12px;background:var(--green-light);border-radius:9px;font-size:13px;color:var(--gray-600)}
-  .wake-fu[hidden]{display:none}
-  .wake-fu span{margin-right:4px}
-  .wake-fu .chip{padding:5px 13px;font-size:12.5px}
-  .field[hidden]{display:none}
-  #cycleFields{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
-  @media(max-width:600px){#cycleFields{grid-template-columns:1fr}}
+  .field:last-child{margin-bottom:0}
+  .field > label,.q{display:block;font-size:13.5px;font-weight:600;color:var(--gray-600);margin-bottom:7px}
+  .hint{font-weight:400;font-size:12px;color:var(--gray-500);margin-left:4px}
+  .field input,.field textarea{width:100%;border:1.5px solid var(--gray-200);border-radius:10px;padding:10px 12px;font:inherit;font-size:15px;color:var(--gray-800);background:#fff}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--green)}
+  .field textarea{resize:vertical;min-height:70px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:560px){.row2{grid-template-columns:1fr}}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{padding:8px 13px;border:1.5px solid var(--gray-200);border-radius:999px;background:#fff;font-size:13.5px;color:var(--gray-600);cursor:pointer;transition:all .12s}
+  .chip:hover{border-color:var(--green)}
+  .chip.on{background:var(--green-light);border-color:var(--green);color:var(--navy);font-weight:600}
   .unit-pair{display:flex;align-items:center;gap:8px}
   .unit-box{position:relative;flex:1 1 0;min-width:0}
-  .unit-box.wide{flex:1.4 1 0}
-  .field .unit-box input{padding-right:32px}
-  .unit-box span{position:absolute;right:11px;top:50%;transform:translateY(-50%);font-size:12.5px;color:var(--gray-500);pointer-events:none}
-  .unit-eq{flex:none;font-size:13px;color:var(--gray-400)}
-  .unit-box input::-webkit-outer-spin-button,.unit-box input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-  .unit-box input[type=number]{-moz-appearance:textfield}
-  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .field-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-  @media(max-width:520px){.field-row,.field-row-3{grid-template-columns:1fr}}
+  .unit-box input{padding-right:32px !important}
+  .unit-box span{position:absolute;right:11px;top:50%;transform:translateY(-50%);font-size:12.5px;color:var(--gray-500)}
+  .unit-eq{color:var(--gray-400);font-size:13px}
+  /* Name and email: one slim bar above everything. */
+  .id-bar{background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(0,0,0,.07);padding:12px 14px;margin-bottom:22px}
+  .id-row{display:grid;grid-template-columns:1fr 1.3fr;gap:10px}
+  @media(max-width:560px){.id-row{grid-template-columns:1fr}}
+  .id-row input{width:100%;border:1.5px solid var(--gray-200);border-radius:9px;padding:9px 11px;font:inherit;font-size:14.5px;color:var(--gray-800)}
+  .id-row input:focus{outline:none;border-color:var(--green)}
+  .id-hint{font-size:11.5px;color:var(--gray-500);margin-top:7px}
+  /* "Why we ask", on every question, as on the live form. */
+  .help-btn{display:inline-grid;place-items:center;width:17px;height:17px;border-radius:50%;background:var(--green-light);border:0;padding:0;margin-left:7px;color:var(--green);cursor:pointer;vertical-align:middle;font-size:10.5px;font-weight:800;line-height:1}
+  .help-btn::before{content:"?"}
+  .help-btn:hover{background:var(--green);color:#fff}
+  /* The "why lifestyle" reading: one line closed, the full reasoning open. */
+  /* The thank-you reading, set like a short magazine piece: headline, lead, image rows,
+     a pull quote and one number to remember. */
+  .story{background:#fff;border-radius:20px;box-shadow:0 1px 4px rgba(0,0,0,.07);padding:34px 34px 30px;margin-top:6px}
+  .st-eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+  .st-title{font-size:27px;line-height:1.25;font-weight:700;color:var(--navy);letter-spacing:-.01em;margin-bottom:14px}
+  .st-lead{font-size:18px;line-height:1.6;color:var(--gray-800);margin-bottom:26px}
+  .st-row{display:grid;grid-template-columns:42% 1fr;gap:24px;align-items:center;margin-bottom:26px}
+  .st-row.rev{grid-template-columns:1fr 42%}
+  .st-row img{width:100%;aspect-ratio:4/3.3;object-fit:cover;border-radius:14px;display:block}
+  .st-sub{font-size:15.5px;font-weight:700;color:var(--gray-800);line-height:1.4;margin-bottom:12px}
+  .drv{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;padding:8px 0;border-top:1px solid var(--gray-100)}
+  .drv:first-of-type{border-top:0}
+  .drv i{font-style:normal;width:26px;height:26px;border-radius:50%;background:var(--green-light);color:var(--green);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+  .drv b{display:block;font-size:14.5px;color:var(--gray-800)}
+  .drv span{font-size:13.5px;color:var(--gray-600)}
+  .st-p{font-size:14.5px;line-height:1.7;color:var(--gray-600);margin-top:10px}
+  .pull{margin:6px 0 30px;padding:22px 26px;border-radius:16px;background:var(--navy);color:#fff;font-size:21px;line-height:1.45;font-weight:600;position:relative}
+  .pull::before{content:'\201C';position:absolute;top:-8px;left:18px;font-size:64px;line-height:1;color:rgba(255,255,255,.25);font-family:Georgia,serif}
+  .split-t{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-500);margin-bottom:8px}
+  .stat{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+  .stat b{font-size:44px;line-height:1;font-weight:800;color:var(--green);letter-spacing:-.02em}
+  .stat.small b{font-size:30px;color:var(--gray-400)}
+  .stat span{font-size:16px;font-weight:600;color:var(--gray-600)}
+  .bottle{background:var(--green-light);border-radius:14px;padding:18px 20px}
+  .bottle h4{font-size:16px;color:var(--navy);margin-bottom:6px}
+  .bottle p{font-size:14.5px;line-height:1.65;color:var(--gray-600)}
+  @media(max-width:640px){.story{padding:24px 18px}.st-title{font-size:23px}.st-lead{font-size:16.5px}.st-row,.st-row.rev{grid-template-columns:1fr;gap:14px}.st-row.rev img{order:-1}.pull{font-size:18px}}
+  .scale-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0 12px}
+  @media(max-width:560px){.scale-grid{grid-template-columns:1fr 1fr}}
+  .edit-box{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(0,0,0,.07);padding:14px 16px;margin:22px 0 14px;font-size:14px;color:var(--gray-600);line-height:1.5}
+  .edit-box span{flex:1;min-width:220px}
+  .edit-box .btn{padding:9px 18px;font-size:14px}
+  .honest{font-size:13.5px;color:var(--gray-600);margin:-8px 0 16px;padding-left:12px;border-left:3px solid var(--green)}
+  .help-box{display:none;background:var(--green-light);border-radius:9px;padding:9px 11px;margin:0 0 9px;font-size:12.5px;line-height:1.6;color:var(--gray-600);font-weight:400}
+  .help-box.open{display:block}
+  .sys-h .help-btn{margin-left:auto;margin-right:8px;color:var(--c)}
+  .sys-h .help-btn::before{background:#fff;color:var(--c)}
+  .sys-help{display:none;padding:10px 14px 2px;border-bottom:1px solid var(--gray-100);font-size:12.5px;line-height:1.55;color:var(--gray-600)}
+  .sys-help.open{display:block}
+  .sys-help p{margin-bottom:8px}
+  .sys-help b{color:var(--c)}
+  /* A yes-or-no question is a checkbox in front of a statement. */
+  .field > label.check-q{display:flex;align-items:center;flex-wrap:wrap;gap:0 10px;font-size:14px;font-weight:600;color:var(--gray-800);cursor:pointer;margin-bottom:6px}
+  .check-q .help-btn{margin-left:0}
+  .field .check-q input{width:18px;height:18px;padding:0;border:0;margin:1px 0 0;accent-color:var(--green);flex:none;cursor:pointer}
+  .err{display:none;background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:12px 14px;font-size:13.5px;color:#991b1b;margin-bottom:14px}
 
-  /* Frequency grid for symptoms */
-  .symptom-group{margin-bottom:20px}
-  .symptom-group-label{font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--green);margin-bottom:10px;display:flex;align-items:center;gap:6px}
-  .symptom-group-label::after{content:'';flex:1;height:1px;background:var(--gray-200)}
-  .symptom-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--gray-100)}
-  .symptom-row:last-child{border-bottom:none}
-  .symptom-name{font-size:13.5px;color:var(--gray-700,#374151)}
-  .freq-btns{display:flex;gap:4px;flex-shrink:0}
-  .freq-btn{padding:4px 8px;border:1.5px solid var(--gray-200);border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;background:#fff;color:var(--gray-500);transition:all .15s;white-space:nowrap}
-  .freq-btn:hover{border-color:var(--green);color:var(--green)}
-  .freq-btn.selected-often{background:#d1fae5;border-color:#059669;color:#065f46}
-  .freq-btn.selected-occasionally{background:#fef9c3;border-color:#ca8a04;color:#713f12}
-  .freq-btn.selected-barely{background:#f3f4f6;border-color:#9ca3af;color:#6b7280}
+  /* ── The body map. Once = outlined in the system's color, twice = filled. ── */
+  .legend{display:flex;flex-wrap:wrap;gap:14px;align-items:center;font-size:12.5px;color:var(--gray-600);margin:4px 0 14px}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .lg{display:inline-block;width:26px;height:16px;border-radius:999px;border:1.5px solid var(--gray-200);background:#fff}
+  .lg.occ{border:2px solid #5C8A6E}
+  .lg.often{background:#5C8A6E;border-color:#5C8A6E}
+  .map{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:640px){.map{grid-template-columns:1fr}}
+  .sys{background:#fff;border-radius:16px;box-shadow:0 1px 4px rgba(0,0,0,.07);overflow:hidden}
+  .sys-h{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--ct);color:var(--c);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+  .sys-h em{font-style:normal;font-size:11px;font-weight:700;background:#fff;color:var(--c);border-radius:999px;padding:1px 8px;letter-spacing:0}
+  .sys-b{padding:12px;display:flex;flex-wrap:wrap;gap:6px}
+  .m{padding:7px 11px;border:1.5px solid var(--gray-200);border-radius:999px;background:#fff;font-size:13px;color:var(--gray-600);cursor:pointer;line-height:1.25;user-select:none;-webkit-tap-highlight-color:transparent}
+  .m:hover{border-color:var(--c)}
+  .m.s1{border:2px solid var(--c);padding:6.5px 10.5px;color:var(--c);font-weight:600}
+  .m.s2{background:var(--c);border-color:var(--c);color:#fff;font-weight:600}
+  .sub-sys{border-radius:14px;padding:12px;background:var(--ct);margin-bottom:14px}
+  .sub-sys .q{color:var(--c)}
 
-  /* Step nav */
-  .step-nav{display:flex;gap:12px;margin-top:8px}
-  .btn{padding:12px 24px;border-radius:999px;font-size:15px;font-weight:600;cursor:pointer;border:none;transition:all .15s}
-  .btn-primary{background:var(--navy);color:#fff;flex:1}
-  .btn-primary:hover{background:#47695a}
-  .btn-primary:disabled{background:var(--gray-400);cursor:not-allowed}
-  .btn-secondary{background:var(--gray-100);color:var(--gray-600);min-width:100px}
-  .btn-secondary:hover{background:var(--gray-200)}
+  /* ── Details ── */
+  .rank{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;border-radius:50%;background:var(--green);color:#fff;font-size:11px;font-weight:700;margin-right:6px}
+  .grid-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--gray-100)}
+  .grid-row:last-child{border-bottom:0}
+  .grid-name{font-size:13.5px;color:var(--gray-800)}
+  .fb{display:flex;gap:4px;flex-shrink:0}
+  .fb button{padding:5px 8px;border:1.5px solid var(--gray-200);border-radius:7px;background:#fff;font-size:11.5px;font-weight:600;color:var(--gray-500);cursor:pointer;white-space:nowrap}
+  .fb button.on{background:var(--green-light);border-color:var(--green);color:var(--navy)}
+  @media(max-width:600px){.grid-row{flex-direction:column;align-items:stretch;gap:6px}.fb{display:grid;grid-template-columns:repeat(4,1fr)}.fb button{white-space:normal}}
+  .toggle{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;background:var(--gray-100);border-radius:9px;cursor:pointer;font-size:13.5px}
+  .toggle input{width:18px;height:18px;accent-color:var(--green)}
 
-  /* Toggle for smart scale section */
-  .toggle-row{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding:12px 14px;background:var(--gray-100);border-radius:8px;cursor:pointer}
-  .toggle-row-compact{display:inline-flex;margin:6px 0 0;padding:6px 12px;width:auto}
-  .toggle-label{font-size:13.5px;font-weight:500;color:var(--gray-700,#374151)}
-  .toggle-hint{font-size:12px;color:var(--gray-400);margin-left:auto}
-  input[type="checkbox"].toggle{width:20px;height:20px;accent-color:var(--green);cursor:pointer;flex-shrink:0}
-  .body-comp-fields{display:none}
-  .body-comp-fields.visible{display:block}
+  .bottom{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--gray-200);padding:12px 16px;z-index:50}
+  .bottom-in{max-width:760px;margin:0 auto;display:flex;align-items:center;gap:12px}
+  .count{font-size:13px;color:var(--gray-600);flex:1}
+  .btn{padding:12px 22px;border-radius:999px;font-size:15px;font-weight:600;cursor:pointer;border:0;background:var(--navy);color:#fff;text-decoration:none;display:inline-block}
+  .btn.ghost{background:var(--gray-100);color:var(--gray-600)}
 
-  /* Success state */
-  .success-screen{display:none;text-align:center;padding:48px 24px}
-  .success-icon{width:64px;height:64px;margin:0 auto 20px;border-radius:50%;background:var(--green-light);color:var(--green);display:flex;align-items:center;justify-content:center}
-  .success-title{font-size:24px;font-weight:700;color:var(--navy);margin-bottom:8px}
-  .success-sub{font-size:15px;color:var(--gray-600);margin-bottom:24px;line-height:1.6}
-  .success-link{display:inline-block;background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:12px 28px;border-radius:999px;text-decoration:none;margin-bottom:12px}
-  .success-note{font-size:12px;color:var(--gray-400)}
-  .event-back{display:inline-block;margin-top:22px;font-size:14px;font-weight:600;color:var(--green);text-decoration:none}
-  .event-back[hidden]{display:none}
-
-  /* Loading overlay */
-  .loading-overlay{display:none;position:fixed;inset:0;background:rgba(255,255,255,.92);z-index:100;flex-direction:column;align-items:center;justify-content:center;gap:16px}
-  .loading-overlay.visible{display:flex}
-  .spinner{width:44px;height:44px;border:3px solid var(--gray-200);border-top-color:var(--green);border-radius:50%;animation:spin 1s linear infinite}
+  /* Sending, then the thank-you page with the "what this is for" reading. */
+  .loading{position:fixed;inset:0;background:rgba(255,255,255,.94);z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:20px}
+  .spin{width:42px;height:42px;border:3px solid var(--gray-200);border-top-color:var(--green);border-radius:50%;animation:spin 1s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
-  .loading-title{font-size:17px;font-weight:600;color:var(--navy)}
-  .loading-sub{font-size:13px;color:var(--gray-500);text-align:center;max-width:280px}
-  .loading-steps{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:4px}
-  .loading-steps li{font-size:13px;color:var(--gray-400);padding-left:20px;position:relative}
-  .loading-steps li::before{content:'○';position:absolute;left:0;color:var(--gray-300)}
-  .loading-steps li.done::before{content:'✓';color:var(--green)}
-  .loading-steps li.active::before{content:'◉';color:var(--green-mid)}
-
-  .error-box{background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:14px;font-size:13.5px;color:#991b1b;margin-bottom:16px;display:none}
-
-  /* Steps visibility */
-  .step{display:none}.step.active{display:block}
-
-  /* On a phone the four answer buttons do not fit beside the question, so the question takes its
-     own line and the answers share the full width below it. Last in the sheet so it wins. */
-  @media(max-width:600px){
-    .symptom-row,.diet-row{display:flex;flex-direction:column;align-items:stretch;gap:7px}
-    .symptom-row .freq-btns,.diet-row .freq-btns{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
-    .symptom-row .freq-btn,.diet-row .freq-btn{white-space:normal;text-align:center;padding:7px 3px;line-height:1.25}
-  }
+  .done{text-align:center;padding:30px 0 10px}
+  .done-icon{width:62px;height:62px;margin:0 auto 16px;border-radius:50%;background:var(--green-light);color:var(--green);display:flex;align-items:center;justify-content:center}
+  .done h2{font-size:23px;color:var(--navy);margin-bottom:8px}
+  .done p{font-size:15px;color:var(--gray-600);line-height:1.6;max-width:480px;margin:0 auto 20px}
+  .done .small{font-size:12.5px;color:var(--gray-500);margin-top:12px}
+  .back-event{display:inline-block;margin-top:14px;font-size:14px;font-weight:600;color:var(--green);text-decoration:none}
 </style>
-<script src="intake-content.js"></script>
+<script src="intake-content.js?v=3.0"></script>
 </head>
 <body>
 
 <header class="site-header">
   <span class="site-logo">Health Assessment</span>
   <div class="hdr-tools">
-    <a class="lang-btn" id="reports-bubble" href="admin.html" style="display:none">All reports</a>
+    <a class="pill" id="reportsBubble" href="admin.html" hidden>All reports</a>
     <div class="lang-wrap">
-      <button class="lang-btn" id="lang-toggle-btn" onclick="toggleLangMenu()" aria-haspopup="true" aria-expanded="false">
-        <span id="lang-current">EN</span><span class="lang-caret"></span>
-      </button>
-      <div class="lang-menu" id="lang-menu"></div>
+      <button class="pill" id="langBtn" aria-haspopup="true"><span id="langCur">English</span><span class="caret"></span></button>
+      <div class="lang-menu" id="langMenu" hidden></div>
     </div>
-    <button class="lang-btn" id="admin-dots" onclick="adminDots()" title="Admin login">···</button>
+    <button class="pill" id="adminDots" title="Admin login">···</button>
   </div>
 </header>
 
-<div class="hero">
-  <h1 data-ui="heroTitle">Personal Health Assessment</h1>
-  <p data-ui="heroSub">Fill this out once and receive a personalized report with root cause analysis and targeted recommendations.</p>
-</div>
+<div class="wrap" id="form">
+  <div class="steps"><i id="s0" class="on"></i><i id="s1"></i></div>
+  <div class="step-label" id="stepLabel"></div>
+  <div class="err" id="err"></div>
 
-<div class="wrap" id="mainWrap">
-
-  <div class="progress-bar">
-    <div class="progress-step active" id="prog0"></div>
-    <div class="progress-step" id="prog1"></div>
-  </div>
-  <div class="step-label" id="stepLabel" data-ui="stepLabel">Step 1 of 2 — About You</div>
-
-  <div class="error-box" id="errorBox"></div>
-
-  <!-- ═══ STEP 1: Why this exists, then Personal + Body Comp ═══ -->
-  <div class="step active" id="step0">
-
-    <!-- The page used to open on a description of the deliverable, which gives
-         nobody a reason to answer 65 questions carefully. -->
-    <div class="card stage-card">
-      <div class="card-title" id="stageHeadline"></div>
-      <div class="stage-body" id="stageBody"></div>
-      <div class="stage-foot" id="stageFoot"></div>
+  <!-- ═══ 1. Name, email and the body map ═══ -->
+  <section id="p0">
+    <div class="id-bar">
+      <div class="id-row">
+        <input id="f-name" autocomplete="name" data-ph="namePh" aria-label="Name" required>
+        <input id="f-email" type="email" autocomplete="email" data-ph="emailPh" aria-label="Email" required>
+      </div>
+      <div class="id-hint" data-t="emailHint"></div>
     </div>
+    <h1 data-t="p0h"></h1>
+    <p class="lede" data-t="p0sub"></p>
+    <div class="legend">
+      <span><i class="lg"></i><span data-t="lgNone"></span></span>
+      <span><i class="lg occ"></i><span data-t="lgOcc"></span></span>
+      <span><i class="lg often"></i><span data-t="lgOften"></span></span>
+    </div>
+    <div class="map" id="map"></div>
+    <div class="card" style="margin-top:14px">
+      <div class="field"><label data-t="mapOther"></label><input id="f-mapOther" data-ph="mapOtherPh"></div>
+    </div>
+  </section>
+
+  <!-- ═══ 2. About you, then only what applies ═══ -->
+  <section id="p1" hidden>
+    <h1 data-t="p1h"></h1>
+    <p class="lede" id="honest"></p>
 
     <div class="card">
-      <div class="card-title" data-sec="personal">Personal Information</div>
-      <div class="field-row">
-        <div class="field"><label>First and Last Name *</label><input type="text" id="f-name" placeholder="Jane Smith" required></div>
-        <div class="field"><label>Email *</label><input type="email" id="f-email" placeholder="you@example.com" required></div>
+      <div class="card-title" data-t="aboutT"></div>
+      <div class="row2">
+        <div class="field"><label id="dobL"><span data-t="dob"></span></label><input id="f-dob" type="date"></div>
+        <div class="field"><label id="genderL" data-t="gender"></label><div class="chips" id="genderChips"></div></div>
       </div>
-      <div class="field-row">
-        <div class="field"><label>Date of Birth *</label><input type="date" id="f-dob" required></div>
-        <div class="field"><label>Gender *</label>
-          <select id="f-gender" class="as-chips">
-            <option value="">Select...</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Other / Prefer not to say</option>
-          </select>
-        </div>
-      </div>
-      <div class="field-row">
-        <!-- Fill either unit; the other one is calculated (convertUnits below). -->
-        <div class="field"><label>Height</label>
+      <div class="row2">
+        <div class="field"><label id="heightL" data-t="height"></label>
           <div class="unit-pair">
-            <div class="unit-box wide"><input type="number" step="any" inputmode="decimal" id="f-height" placeholder="175"><span>cm</span></div>
+            <div class="unit-box"><input type="number" step="any" inputmode="decimal" id="f-height" placeholder="175"><span>cm</span></div>
             <span class="unit-eq">=</span>
-            <div class="unit-box"><input type="number" step="1" inputmode="numeric" id="f-heightFt" placeholder="5"><span>ft</span></div>
+            <div class="unit-box"><input type="number" inputmode="numeric" id="f-heightFt" placeholder="5"><span>ft</span></div>
             <div class="unit-box"><input type="number" step="any" inputmode="decimal" id="f-heightIn" placeholder="9"><span>in</span></div>
           </div>
         </div>
-        <div class="field"><label>Weight</label>
+        <div class="field"><label id="weightL" data-t="weight"></label>
           <div class="unit-pair">
             <div class="unit-box"><input type="number" step="any" inputmode="decimal" id="f-weight" placeholder="160"><span>lb</span></div>
             <span class="unit-eq">=</span>
@@ -301,1027 +236,768 @@
           </div>
         </div>
       </div>
-
-    </div>
-
-    <!-- What they most want to improve. Asking "what made you decide" let everyone say they feel
-         fine; choosing and ranking areas makes them think, and separates what they care about
-         from what happens to be wrong. The report opens on this order. -->
-    <div class="card" id="prioCard">
-      <div class="card-title" id="prioTitle"></div>
-      <div class="field" id="prioField">
-        <label id="prioLabel"></label>
-        <p class="prio-sub" id="prioSub"></p>
-        <div class="chip-grid prio-grid" id="prioChips"></div>
-        <div class="prio-count" id="prioCount"></div>
-        <div id="prioWords"></div>
+      <!-- Only once gender and birthday say they apply: women's health, and the 45+ and 55+ items. -->
+      <div id="extraSys"></div>
+      <div id="cycleBox" hidden>
+        <div class="row2">
+          <div class="field"><label id="cycRegL"></label><div class="chips" data-single="cycleRegular"></div></div>
+          <div class="field"><label id="cycPainL"></label><div class="chips" data-single="menstrualPain"></div></div>
+          <div class="field"><label id="cycFlowL"></label><div class="chips" data-single="heavyFlow"></div></div>
+          <div class="field"><label id="cycPmsL"></label><div class="chips" data-single="pmsMoodSwings"></div></div>
+        </div>
+      </div>
+      <!-- Optional: smart scale readings. Closed unless they have them. -->
+      <div class="field" id="scaleF" style="margin-top:4px">
+        <label class="check-q"><input type="checkbox" id="hasScale"><span data-t="scaleQ"></span></label>
+        <div id="scaleBox" hidden style="margin-top:10px"><div class="scale-grid" id="scaleGrid"></div></div>
       </div>
     </div>
 
     <div class="card">
-      <div class="card-title" data-sec="bodyComp">Body Composition (Smart Scale)</div>
-      <label class="toggle-row">
-        <input type="checkbox" class="toggle" id="hasScale" onchange="toggleScale(this.checked)">
-        <span class="toggle-label" data-ui="scaleToggle">I have smart scale data to enter</span>
-        <span class="toggle-hint">Optional but improves accuracy</span>
-      </label>
-      <div class="body-comp-fields" id="scaleFields">
-        <div class="field-row-3">
-          <div class="field"><label>BMI</label><input type="number" step="0.1" id="f-bmi" placeholder="24.7"></div>
-          <div class="field"><label>Body Fat %</label><input type="number" step="0.1" id="f-bodyFat" placeholder="18.3"></div>
-          <div class="field"><label>Skeletal Muscle %</label><input type="number" step="0.1" id="f-skeletalMuscle" placeholder="52.7"></div>
-        </div>
-        <div class="field-row-3">
-          <div class="field"><label>Visceral Fat (1–20)</label><input type="number" step="0.1" id="f-visceralFat" placeholder="8"></div>
-          <div class="field"><label>Body Water %</label><input type="number" step="0.1" id="f-bodyWater" placeholder="59"></div>
-          <div class="field"><label>Metabolic Age</label><input type="number" id="f-metabolicAge" placeholder="28"></div>
-        </div>
-        <div class="field-row-3">
-          <div class="field"><label>Protein %</label><input type="number" step="0.1" id="f-protein" placeholder="18.5"></div>
-          <div class="field"><label>Muscle Mass (lb)</label><input type="number" step="0.1" id="f-muscleMass" placeholder="140"></div>
-          <div class="field"><label>Fat-free Mass (lb)</label><input type="number" step="0.1" id="f-fatFreeMass" placeholder="148"></div>
-        </div>
-        <p class="hint" style="margin-top:4px" data-ui="scaleHelp">Enter values from your smart scale app (e.g. FitIndex, Renpho, Xiaomi Health). Body fat and muscle entries should be percentages, not decimals.</p>
-      </div>
+      <div class="card-title" data-t="prioT"></div>
+      <div class="field"><label id="prioL" data-t="prioQ"></label><div class="chips" id="prioChips"></div></div>
+      <div class="field" id="prioOtherF" hidden><label data-t="prioOther"></label><input id="f-prioOther" maxlength="80"></div>
+      <div class="field" id="prioWordsF" hidden><label data-t="prioWords"></label><textarea id="f-prioWords" rows="2" maxlength="300"></textarea></div>
     </div>
 
-    <div class="step-nav">
-      <button class="btn btn-primary" onclick="goStep(1)">Continue →</button>
+    <div class="card">
+      <div class="card-title" id="weekT"></div>
+      <div id="weekRows"></div>
+      <div class="field" style="margin-top:16px"><label id="waterL"></label><div class="chips" data-single="water"></div></div>
+      <div class="field"><label id="bedL"></label><div class="chips" data-single="bedtime"></div></div>
+      <div class="field" id="wakeFollow" hidden><label id="w13L" data-t="w13"></label><div class="chips" data-single="wake13"></div></div>
+      <div class="field"><label id="dietL"></label><textarea id="f-diet" rows="3"></textarea></div>
     </div>
+
+    <div class="card">
+      <div class="card-title" data-t="suppT"></div>
+      <div class="field"><label id="suppL" data-t="suppQ"></label><div class="chips" id="suppChips"></div>
+        <input id="f-suppOther" style="margin-top:10px" data-ph="suppOtherPh"></div>
+      <div class="field" id="suppFreqF" hidden><label id="suppFreqL"></label><div class="chips" data-single="supplementFreq"></div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" data-t="gutT"></div>
+      <div class="field"><label id="bowelL"></label><div class="chips" data-single="bowelFreq"></div></div>
+      <div class="field"><label id="wipeL"></label><div class="chips" data-single="wiping"></div></div>
+    </div>
+
+    <div class="card">
+      <div class="field" id="diagF">
+        <label class="check-q"><input type="checkbox" id="hasDiag"><span data-t="diagQ"></span></label>
+        <div id="diagBox" hidden style="margin-top:10px"><div class="chips" id="diagChips"></div>
+          <input id="f-diagNote" style="margin-top:10px" data-ph="diagNotePh"></div>
+      </div>
+      <div class="field" id="medF">
+        <label class="check-q"><input type="checkbox" id="hasMed"><span data-t="medQ"></span></label>
+        <div id="medBox" hidden style="margin-top:10px"><textarea id="f-medication" rows="2" data-ph="medPh"></textarea></div>
+      </div>
+      <div class="field"><label id="notesLab" data-t="notesL"></label><textarea id="f-notes" rows="2"></textarea></div>
+    </div>
+  </section>
+</div>
+
+<!-- Thank-you page: the report link (locked until an admin opens it) and why this matters. -->
+<div class="wrap" id="doneView" hidden>
+  <div class="done">
+    <div class="done-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h2 id="okTitle"></h2>
+    <p id="okSub"></p>
+    <a class="btn" id="reportLink" href="#" target="_blank" rel="noopener"></a>
+    <div class="small" id="okNote"></div>
+    <a class="back-event" id="eventBack" href="#" hidden></a>
   </div>
-
-  <!-- ═══ STEP 2: Symptoms, then habits, then submit ═══
-       Everything is a tap: dropdowns render as chips (select.as-chips), and the questions only
-       some people need (diagnoses, medication, supplement consistency) open behind a Yes. -->
-  <div class="step" id="step1">
-
-    <div class="card">
-      <div class="card-title" data-sec="symptoms">Symptoms</div>
-      <p style="font-size:13px;color:var(--gray-500);margin-bottom:18px" data-ui="symptomsSub">Tap how often each one happens. Tap N/A if it does not apply to you, and tap your answer again to clear it.</p>
-
-      <div id="symptomContainer"></div>
-    </div>
-
-    <div class="card">
-      <!-- The nutrient estimate is built here. Structured answers do the
-           arithmetic and are comparable at the next assessment; the free text
-           supplies the specifics a scale cannot carry. -->
-      <div class="card-title" id="dietTitle"></div>
-      <p class="card-sub" id="dietSub" style="font-size:12.5px;color:var(--gray-500);line-height:1.6;margin-bottom:12px"></p>
-      <div id="dietRows"></div>
-
-      <div class="field" style="margin-top:18px"><label></label><select id="f-water" class="as-chips"></select></div>
-      <div class="field"><label>Typical bedtime</label>
-        <select id="f-bedtime" class="as-chips">
-          <option value="">Select...</option>
-          <option value="Before 10 PM">Before 10 PM</option>
-          <option value="10–11 PM">10–11 PM</option>
-          <option value="11 PM–midnight">11 PM – midnight</option>
-          <option value="After midnight">After midnight</option>
-        </select>
-      </div>
-      <div class="field">
-        <label></label>
-        <textarea id="f-diet" rows="4"></textarea>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title" data-sec="supplements">Supplements</div>
-      <div class="field">
-        <label>What supplements do you currently take?</label>
-        <div class="chip-grid" id="suppChips"></div>
-        <input type="text" id="f-supplements" class="supp-other" maxlength="300">
-      </div>
-      <div class="field" id="suppFreqField" hidden><label>How consistently do you take them?</label>
-        <select id="f-supplementFreq" class="as-chips" data-skip="Not currently taking any">
-          <option value="">Select...</option>
-          <option value="Daily without fail">Daily without fail</option>
-          <option value="Sometimes (3–4x/week)">Sometimes (3–4 days a week)</option>
-          <option value="Rarely (1–2x/week)">Rarely (1–2 days a week)</option>
-          <option value="Not currently taking any">Not currently taking any</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title" id="stoolTitle" data-sec="bowel">Bowel and Digestion</div>
-      <p class="card-sub" id="stoolSub" data-sec="bowelSub" style="font-size:12.5px;color:var(--gray-500);line-height:1.6;margin-bottom:14px"></p>
-      <div id="stoolFields"></div>
-
-      <div id="cycleSection" style="display:none">
-        <div class="card-title" id="cycleTitle" data-sec="cycle" style="margin-top:26px">Menstrual Cycle</div>
-        <div id="cycleFields"></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="field" id="diagField">
-        <label id="diagLabel"></label>
-        <div class="toggle-row toggle-row-compact" onclick="document.getElementById('hasDiagnosis').click()">
-          <input type="checkbox" class="toggle" id="hasDiagnosis" onchange="toggleDiag(this.checked)" onclick="event.stopPropagation()">
-          <span class="toggle-label" data-ui="medToggle">Yes</span>
-        </div>
-        <div id="diagWrap" style="display:none;margin-top:10px">
-          <div class="chip-grid" id="diagChips"></div>
-        </div>
-      </div>
-      <div class="field" id="diagNoteField" style="display:none">
-        <label></label>
-        <textarea id="f-diagnosedNote" rows="2"></textarea>
-      </div>
-      <div class="field">
-        <label></label>
-        <div class="toggle-row toggle-row-compact" onclick="document.getElementById('hasMedication').click()">
-          <input type="checkbox" class="toggle" id="hasMedication" onchange="toggleMedField(this.checked)" onclick="event.stopPropagation()">
-          <span class="toggle-label" data-ui="medToggle">Yes</span>
-        </div>
-        <div id="medFieldWrap" style="display:none;margin-top:10px">
-          <textarea id="f-medication" rows="2"></textarea>
-        </div>
-      </div>
-
-      <div class="field">
-        <label>Anything else you want the consultant to know?</label>
-        <textarea id="f-notes" rows="3" placeholder="Recent health changes, specific concerns, goals..."></textarea>
-      </div>
-    </div>
-
-    <div class="step-nav">
-      <button class="btn btn-secondary" onclick="goStep(0)" data-ui="back">← Back</button>
-      <button class="btn btn-primary" id="submitBtn" onclick="submitForm()" data-ui="submit">Generate My Report →</button>
-    </div>
+  <!-- Changed your mind or remembered something: back into the form, and the report is rebuilt. -->
+  <div class="edit-box">
+    <span id="editText"></span>
+    <button class="btn ghost" id="editBtn" type="button"></button>
   </div>
-
+  <article class="story">
+    <div class="st-eyebrow" id="stEyebrow"></div>
+    <h3 class="st-title" id="stTitle"></h3>
+    <p class="st-lead" id="stLead"></p>
+    <div class="st-row">
+      <img src="images/tiles/are-sleep.jpg" alt="" loading="lazy">
+      <div><div class="st-sub" id="stDriversT"></div><div id="stDrivers"></div><p class="st-p" id="stEarlier"></p></div>
+    </div>
+    <blockquote class="pull" id="stQuote"></blockquote>
+    <div class="st-row rev">
+      <div>
+        <div class="split-t" id="stSplitT"></div>
+        <div class="stat"><b>70%</b><span id="stDiet"></span></div>
+        <div class="stat small"><b>30%</b><span id="stWorkout"></span></div>
+        <p class="st-p" id="stQuestion"></p>
+      </div>
+      <img src="images/tiles/cat-nutrition.jpg" alt="" loading="lazy">
+    </div>
+    <div class="bottle"><h4 id="stBottleT"></h4><p id="stBottle"></p></div>
+  </article>
 </div>
 
-<!-- Loading overlay -->
-<div class="loading-overlay" id="loadingOverlay">
-  <div class="spinner"></div>
-  <div class="loading-title" data-ui="loadTitle">Generating your report...</div>
-  <div class="loading-sub" data-ui="loadSub">Analyzing your data against your health profile.</div>
-  <ul class="loading-steps" id="loadingSteps">
-    <li class="active" id="ls0">Analyzing symptom patterns</li>
-    <li id="ls1">Identifying root causes</li>
-    <li id="ls2">Building your 30-day plan</li>
-    <li id="ls3">Publishing report</li>
-  </ul>
-</div>
+<div class="bottom" id="bottom"><div class="bottom-in">
+  <button class="btn ghost" id="back" hidden></button>
+  <span class="count" id="count"></span>
+  <button class="btn" id="next"></button>
+</div></div>
 
-<!-- Success screen (replaces form) -->
-<div class="success-screen" id="successScreen">
-  <div class="success-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
-  <div class="success-title" data-ui="okTitle">Your report is ready.</div>
-  <div class="success-sub" data-ui="okSub">A personalized analysis with your health signals, the root causes behind them, and a plan for the first month.</div>
-  <a class="success-link" id="reportLink" href="#" target="_blank" data-ui="okBtn">View my report</a>
-  <br>
-  <div class="success-note" data-ui="okNote">You can also share this link with your consultant.</div>
-  <a class="event-back" id="eventBack" href="#" data-ui="eventBack" hidden>← Back to the event page</a>
-</div>
+<div class="loading" id="loading" hidden><div class="spin"></div><div style="font-weight:600;color:var(--navy)" id="loadT"></div></div>
 
 <script src="admin-session.js"></script>
 <script>
-// Symptom data moved to intake-content.js so it can carry four languages and
-// per-group help. The renderer for it lives with the rest of the language code below.
+/* ── Copy for this page. English and Chinese written; Spanish and Hindi fall back to English
+   until they are written (the language menu already offers all four). Tone: professional,
+   warm, a little casual. ── */
+const T = {
+  steps: [['Your body map','身体地图'], ['About you and your habits','你的基本情况与习惯']],
+  stepFmt: ['Step {n} of 2 · {t}', '第 {n} 步，共 2 步 · {t}'],
+  p0h: ['How does your body feel?', '你的身体最近怎么样？'],
+  p0sub: ['Tap anything that sounds like you, even the small stuff. Once for sometimes, twice for often, again to clear. Skip whatever doesn\'t apply.', '把你身上有的情况点出来，小事也算。偶尔点一下，经常点两下，再点一下取消。和你无关的直接跳过。'],
+  namePh: ['First and last name *', '姓名 *'],
+  emailPh: ['Email *', '邮箱 *'],
+  emailHint: ['* Required. We only use your email so you can pull up your reports later. No ads, no spam, ever.', '* 必填。邮箱只用于以后查看你的报告，不发广告，不发推送。'],
+  lgNone: ['Not me', '没有'], lgOcc: ['Sometimes (tap once)', '偶尔（点一下）'], lgOften: ['Often (tap twice)', '经常（点两下）'],
+  mapOther: ['Anything we missed? (optional)', '还有我们没列到的吗？（可选）'],
+  mapOtherPh: ['e.g. shaky hands, heel pain', '比如：手抖、脚后跟疼'],
+  marked: ['{n} marked', '已标记 {n} 项'],
+  p1h: ['About you and your habits', '你的基本情况与习惯'],
+  aboutT: ['About you', '基本信息'],
+  dob: ['Date of birth', '出生日期'],
+  gender: ['Gender', '性别'], height: ['Height', '身高'], weight: ['Weight', '体重'],
+  scaleQ: ['I have numbers from a smart scale', '我有体脂秤的数据'],
+  prioT: ['What matters most', '你最在意什么'],
+  prioQ: ['What do you most want to work on? Tap in order of importance.', '你最想改善哪些方面？按重要程度依次点。'],
+  prioWords: ['What would "better" look like for you? (optional)', '改善之后，你希望是什么样？（可选）'],
+  prioOther: ['What else is on your mind? (optional)', '还有什么想改善的？（可选）'],
+  suppT: ['Supplements', '补充剂'], suppQ: ['What are you taking right now?', '你现在在吃哪些？'],
+  suppOtherPh: ['Anything else? (optional)', '还有别的？（可选）'],
+  gutT: ['Digestion', '消化'],
+  w13: ['You said you wake up at night. Is it usually between 1 and 3 AM?', '你说夜里容易醒，通常是在凌晨 1 到 3 点吗？'],
+  yes: ['Yes', '是'],
+  diagQ: ['A doctor has diagnosed me with a health condition', '医生曾诊断过我有某种健康问题'],
+  medQ: ['I take prescription medication', '我在服用处方药'],
+  medPh: ['Which ones? (optional)', '哪些药？（可选）'],
+  diagNotePh: ['Anything to add? (optional)', '有什么要补充的？（可选）'],
+  notesL: ['Anything else your consultant should know? (optional)', '还有什么想让顾问知道的？（可选）'],
+  next: ['Continue →', '继续 →'], back: ['← Back', '← 返回'],
+  req0: ['Add your name and email to keep going.', '填上姓名和邮箱就可以继续了。'],
+  req1: ['Almost there. We just need your date of birth and gender.', '快好了，还差出生日期和性别。'],
+  req2: ['Pick at least one thing you want to work on.', '至少选一个你想改善的方面。'],
+  sendFail: ['That didn\'t go through ({e}). Check your connection and try again. Your answers are all still here.', '提交没成功（{e}）。检查一下网络再试一次，你填的内容都还在。'],
+  eventBack: ['← Back to the event page', '← 回到活动页面'],
+  doneTitle: ['You\'re all set, {name}.', '{name}，评估已完成。'],
+  doneSub: ['Every report gets a quality check from one of our specialists before it goes live. Then your consultant will walk you through yours, one on one.', '每一份报告正式开放前，都会由我们的专家做一次质量把关。之后你的顾问会一对一带你解读。'],
+  doneNote: ['Can\'t wait until your appointment? Just ask your consultant to unlock it early.', '等不及见面？直接找你的顾问提前解锁就好。'],
+  editText: ['Thought of something else? Update your answers anytime and we\'ll refresh your report.', '想起了别的？随时可以修改答案，我们会同步更新你的报告。'],
+  editBtn: ['Edit my answers', '修改我的答案'],
+  update: ['Update my report →', '更新我的报告 →'],
+  /* The reading on the thank-you page, laid out like a short editorial rather than a wall of text. */
+  story: {
+    eyebrow: ['While your report is being prepared', '在你的报告生成的同时'],
+    title: ['Why your assessment asks so much about your lifestyle', '为什么这份评估要问这么多生活习惯'],
+    lead: ['Modern medicine is incredibly good at treating disease. But you can\'t medicate your way out of a lifestyle that keeps pushing your health in the wrong direction.', '现代医学治病的能力非常强。但如果生活方式一直把身体往错误的方向推，光靠吃药是追不回来的。'],
+    driversT: ['Most of the health challenges Americans face today are driven by three things', '今天美国人面临的健康问题，大多来自这三件事'],
+    drivers: [
+      [['Sitting too much', '久坐不动'], ['Long days at a desk or on a screen.', '整天坐在桌前、盯着屏幕。']],
+      [['Chronic stress', '长期压力'], ['Running on stress, day after day.', '日复一日地绷着。']],
+      [['Ultra-processed food', '超加工食品'], ['Food that spikes blood sugar and drives inflammation.', '让血糖飙升、引发炎症的食物。']],
+    ],
+    earlier: ['That is why type 2 diabetes, heart disease and cognitive decline are showing up earlier in life.', '所以二型糖尿病、心脏病、认知衰退，都在越来越年轻的人身上出现。'],
+    quote: ['If you don\'t make time for your health today, you will have to make time for illness tomorrow.', '今天不花时间照顾健康，明天就得花时间对付疾病。'],
+    splitT: ['Fitness is', '健身效果'],
+    workout: ['workout', '靠练'], diet: ['diet', '靠吃'],
+    question: ['This assessment answers one question: for your body, your habits and how you feel right now, how much of each nutrient do you need?', '这份评估只回答一个问题：以你的身体、你的习惯和你现在的感受，每种营养素你到底需要多少？'],
+    bottleT: ['Your number is not the one on the bottle', '你的数字，不是瓶子上印的那个'],
+    bottle: ['The bottle is set for the whole population. Yours depends on your weight, your diet and what you feel often, and it changes as your habits do. That is why this is worth redoing, not reading once.', '瓶子上的是给所有人定的统一标准。你的数字取决于你的体重、饮食，以及哪些情况你经常出现，而且会随着习惯改变。所以这份评估值得定期重做，而不是看一次就算了。'],
+  },
+};
 
-// ─── STEP NAVIGATION ────────────────────────────────────────────────────────
+/* ── The map. Items that match the earlier form keep its exact symptom key, so a report reads a
+   tap the way it read the old answer. `p` is the priority area a system suggests. Systems with
+   `later` are shown on page 2, once gender and birthday say they apply.
+   Colors: one lightness and one chroma in OKLCH (L 0.50, C 0.075; tints L 0.955, C 0.022), only
+   the hue moves, stepping from the brand green round to terracotta in page order. That equal
+   weight is what makes twelve colors read as one family. ── */
+const MAP = [
+  { id:'life', c:'#426F4C', ct:'#E6F5E8', t:['Daily life','生活习惯'], p:'energy', items:[
+    ['Under a lot of stress','压力大','Lifestyle Habits__Feel a lot of pressure from work/life'],
+    ['Often stay up late','经常熬夜','Lifestyle Habits__Often stay up late'],
+    ['Long screen time or sitting','久坐、常看屏幕','Lifestyle Habits__Spend excessive time online or prolonged sitting'],
+    ['Hard to get up, never rested','赖床、睡不够','Lifestyle Habits__Hard to get out of bed, sleep-deprived'],
+    ['Crave sweet or salty','爱吃甜食或咸食','Lifestyle Habits__Crave sweets or salty snacks'],
+    ['Love cold food and drinks','爱吃凉的','Lifestyle Habits__Prefer cold food and drinks'],
+    ['Overeat or binge','暴饮暴食','Lifestyle Habits__Engage in binge eating or overeating'],
+    ['Rarely go outside','整天不出门','Lifestyle Habits__Go a whole day without getting outside'],
+  ]},
+  { id:'energy', c:'#2E715E', ct:'#E2F5EE', t:['Energy and body','精力与体质'], p:'energy', items:[
+    ['Tired all the time','总是很累','Energy and Body__Tired all the time'],
+    ['Afternoon energy crash','下午犯困、没精神','Energy and Body__Afternoon energy crash'],
+    ['Sleepy during the day','白天嗜睡','Energy and Body__Sleepy during the day'],
+    ['Always feel cold','怕冷','Energy and Body__Always feel cold'],
+    ['Sweat easily','容易出汗','Energy and Body__Sweat easily'],
+    ['Always thirsty, dry mouth','口干、总想喝水','Energy and Body__Always thirsty or dry mouth'],
+    ['Hard to lose weight','体重难减','Energy and Body__Hard to lose weight'],
+    ['Belly fat','腹部脂肪多','Energy and Body__Belly fat'],
+    ['Weight swings','体重异常变化','Digestion__Unexplained weight change'],
+  ]},
+  { id:'sleep', c:'#207070', ct:'#E0F5F4', t:['Sleep and mood','睡眠与情绪'], p:'sleep', items:[
+    ['Hard to fall asleep','入睡难','Sleep and Mood__Hard to fall asleep'],
+    ['Lots of dreams','多梦','Sleep and Mood__Vivid dreams'],
+    ['Wake at night','夜里易醒','Sleep and Mood__Wake up during the night'],
+    ['Restless sleep','睡不安稳','Sleep and Mood__Restless sleep'],
+    ['Anxious, can\'t relax','紧张、难放松','Sleep and Mood__Feel anxious or nervous'],
+    ['Low mood','心情郁闷','Sleep and Mood__Often feel down or sad'],
+    ['Short temper','易发脾气','Sleep and Mood__Irritable, or emotions feel out of control'],
+  ]},
+  { id:'head', c:'#256E7F', ct:'#E1F4FA', t:['Head and mind','头部与神经'], p:'focus', items:[
+    ['Headaches','头疼','Head and Nerves__Often have headaches'],
+    ['Dizzy','头晕','Head and Nerves__Feel dizzy'],
+    ['Brain fog, forgetful','健忘、头脑不清','Head and Nerves__Hard to focus, forgetful, or foggy'],
+    ['Ringing ears','耳鸣','Head and Nerves__Ears ringing'],
+    ['Hearing worse','听力下降','Head and Nerves__Trouble hearing'],
+    ['Motion sickness','晕车晕船','Head and Nerves__Get car sick or motion sickness easily'],
+    ['Clumsy, bump into things','易磕碰、易受伤','Head and Nerves__Bump into things, drop things, or hurt yourself without meaning to'],
+  ]},
+  { id:'eyes', c:'#376989', ct:'#E3F3FE', t:['Eyes','眼睛'], p:'eyes', items:[
+    ['Dry or sore eyes','眼干涩酸胀','Eyes__Dry, sore, or gritty eyes'],
+    ['Light hurts, watery','怕光、流泪','Eyes__Eyes sensitive to light, tear easily'],
+    ['Poor night vision','夜里看不清','Eyes__Poor night vision'],
+    ['Blurry vision','视物模糊','Eyes__Blurry vision'],
+    ['Dark circles, puffy eyes','黑眼圈、眼肿','Eyes__Dark circles or puffy eyelids'],
+    ['Eye infections','眼睛易感染','Eyes__Eye infections easily'],
+  ]},
+  { id:'resp', c:'#4B638E', ct:'#E8F1FF', t:['Breathing and immunity','呼吸与免疫'], p:'immunity', items:[
+    ['Catch colds often','常感冒','Immunity and Respiratory__Catch colds often'],
+    ['Cough easily','易咳嗽','Immunity and Respiratory__Cough easily'],
+    ['Runny nose, sneezing','流鼻涕、打喷嚏','Immunity and Respiratory__Runny nose, sneezing, or nasal allergies'],
+    ['Sore throat','咽炎','Immunity and Respiratory__Sore throat'],
+    ['Nosebleeds','流鼻血','Immunity and Respiratory__Nosebleeds easily'],
+    ['Wheezing or asthma','气喘、哮喘','Immunity and Respiratory__Wheezing or asthma'],
+    ['Infections linger','容易感染','Immunity and Respiratory__Infections are frequent or slow to clear'],
+  ]},
+  { id:'uro', c:'#5E5D8D', ct:'#EEEFFF', t:['Urinary','泌尿'], p:'hormones', items:[
+    ['Pee often or urgently','尿频、尿急','Reproductive and Urinary__Urinate often or urgently'],
+    ['Dark or cloudy urine','尿色深、浑浊','Reproductive and Urinary__Dark or cloudy urine'],
+    ['Painful urination','小便疼痛','Reproductive and Urinary__Urinary tract infection, painful urination'],
+    ['Low sex drive','性欲低','Reproductive and Urinary__Low sex drive or sexual problems'],
+    ['Kidney or gall stones','结石','Reproductive and Urinary__Kidney, gall or bladder stones'],
+    ['Gout or high uric acid','痛风、尿酸高','Reproductive and Urinary__Gout or high uric acid'],
+  ]},
+  { id:'mouth', c:'#6E5885', ct:'#F4EDFC', t:['Mouth and teeth','口腔与牙齿'], p:'digestion', items:[
+    ['Bad breath','口臭','Mouth and Teeth__Bad breath'],
+    ['Bitter taste','口苦','Mouth and Teeth__Bitter taste'],
+    ['Mouth ulcers','口腔溃疡','Mouth and Teeth__Mouth sores'],
+    ['Bleeding gums','牙龈出血','Mouth and Teeth__Bleed easily when brushing teeth'],
+    ['Loose teeth, cavities','牙松、蛀牙','Mouth and Teeth__Toothache, loose teeth, or frequent cavities'],
+    ['Thick coating on tongue','舌苔厚腻','Mouth and Teeth__Thick coating on the tongue'],
+  ]},
+  { id:'skin', c:'#7B5479', ct:'#F9EBF8', t:['Skin, hair and nails','皮肤、头发与指甲'], p:'skin', items:[
+    ['Hair falling out','掉头发','Skin and Hair__Hair falling out easily'],
+    ['Dry, dull hair','头发干枯','Skin and Hair__Dry, dull, or yellowish hair'],
+    ['Dandruff, itchy scalp','头皮屑多、头皮痒','Skin and Hair__Dandruff or itchy scalp'],
+    ['Grey hair','白发多','Skin and Hair__A lot of grey hair'],
+    ['Acne','长痘','Skin and Hair__Acne on the face'],
+    ['Dark spots','面部色斑','Skin and Hair__Dark spots or pigmentation on the face'],
+    ['Facial redness','面部红血丝','Skin and Hair__Red blood vessels showing on the face'],
+    ['Itchy skin or allergies','皮肤过敏、发痒','Skin and Hair__Skin allergies or itching'],
+    ['Dry skin','皮肤干燥','Skin and Hair__Dry skin'],
+    ['Small skin bumps','皮肤易长小疙瘩','Skin and Hair__Skin grows small lumps easily'],
+    ['Bruise easily','皮肤易淤青','Skin and Hair__Bruise easily'],
+    ['Brittle or ridged nails','指甲易断、有竖纹','Skin and Hair__Brittle or ridged nails'],
+    ['Nail fungus, athlete\'s foot','灰指甲、脚气','Skin and Hair__Nail fungus or athlete\'s foot'],
+  ]},
+  { id:'circ', c:'#845169', ct:'#FDEAF2', t:['Heart and circulation','心血管与循环'], p:'heart', items:[
+    ['Chest tightness','胸闷气短','Circulation__Chest tightness, hard to breathe'],
+    ['Racing or skipping heart','心慌、心律不齐','Circulation__Heart beating fast or irregular'],
+    ['Weak legs','下肢无力','Circulation__Leg weakness'],
+    ['Varicose veins','静脉曲张','Circulation__Varicose veins'],
+    ['Cold hands and feet','手脚冰凉','Bones, Joints and Muscles__Cold or clammy hands and feet'],
+    ['Pale, tire easily (anemia)','面色苍白、易累（贫血）','Circulation__Pale or anemic'],
+  ]},
+  { id:'bone', c:'#885157', ct:'#FFEAEC', t:['Joints and muscles','关节与肌肉'], p:'joints', items:[
+    ['Back pain','腰酸背痛','Bones, Joints and Muscles__Back or spine pain and stiffness'],
+    ['Stiff neck or shoulders','颈肩僵硬','Bones, Joints and Muscles__Neck stiffness or neck pain'],
+    ['Joint pain','关节疼','Bones, Joints and Muscles__Joint pain'],
+    ['Cramps','易抽筋','Bones, Joints and Muscles__Muscle cramps'],
+    ['Numb or tingling limbs','手脚发麻','Bones, Joints and Muscles__Numbness or tingling in limbs'],
+    ['Swollen limbs','四肢肿胀','Bones, Joints and Muscles__Swelling in limbs'],
+    ['Cold lower back','腰部发凉','Bones, Joints and Muscles__Cold feeling in lower back'],
+  ]},
+  { id:'digest', c:'#885346', ct:'#FEEBE6', t:['Digestion','消化'], p:'digestion', items:[
+    ['Bloating, burping','腹胀、打嗝','Digestion__Bloating, burping, or a heavy feeling after eating'],
+    ['Stomach pain after eating','饭后胃疼','Digestion__Stomach pain or discomfort after eating'],
+    ['Acid reflux','反酸、烧心','Digestion__Acid reflux or heartburn'],
+    ['Nausea','恶心想吐','Digestion__Nausea or feel like throwing up'],
+    ['Poor appetite','食欲差','Digestion__Poor appetite'],
+    ['Lots of gas','易放屁','Digestion__Fart a lot'],
+    ['Diarrhea','易腹泻','Digestion__Often have diarrhea'],
+    ['Constipation','便秘','Digestion__Constipation'],
+  ]},
+  { id:'women', later:true, c:'#845169', ct:'#FDEAF2', t:['Women\'s health','女性健康'], p:'hormones', when:{ notGender:'Male' }, items:[
+    ['Period pain','痛经','Menstrual Health__Period pain'],
+    ['Abnormal discharge','分泌物异常','Menstrual Health__Abnormal discharge'],
+    ['Gynecological infections','妇科炎症','Menstrual Health__Gynecological infections'],
+    ['Breast tenderness or lumps','乳房胀痛或结节','Menstrual Health__Breast tenderness or lumps'],
+    ['Hot flushes, night sweats','潮热、盗汗','Around Menopause__Hot flushes or night sweats'],
+    ['Periods irregular or stopped','月经不规律或已停','Around Menopause__Periods have become irregular or stopped', { minAge:45 }],
+    ['Sleep changed in the last 2 years','近两年睡眠明显变了','Around Menopause__Sleep has changed noticeably in the last two years', { minAge:45 }],
+  ]},
+  { id:'men45', later:true, c:'#206F78', ct:'#E0F5F7', t:['Prostate and urinary','前列腺与排尿'], p:'hormones', when:{ gender:'Male', minAge:45 }, items:[
+    ['Up at night to pee','夜里起夜','Prostate and Urinary__Getting up more than once a night to urinate'],
+    ['Weak urine stream','尿流变细','Prostate and Urinary__Weak or interrupted urine stream'],
+  ]},
+  { id:'age55', later:true, c:'#41668D', ct:'#E5F2FF', t:['Strength and balance','力量与平衡'], p:'joints', when:{ minAge:55 }, items:[
+    ['Unsteady, or had a fall','站不稳，或摔过跤','Strength and Balance__Feel unsteady on your feet, or have had a fall'],
+    ['Weaker grip','握力变差','Strength and Balance__Grip has weakened, or lids and jars have got harder'],
+  ]},
+];
 
-let currentStep = 0;
-/* Step names come from the content file so they translate with everything else. */
-function stepLabel(n) {
-  const names = [UI.step1, UI.step2];
-  return tx(UI.stepFmt).replace('{n}', n + 1).replace('{t}', tx(names[n] || names[0]));
-}
+/* Help for the symptoms the earlier form did not have (the rest come from SYMPTOM_HELP).
+   Wording kept modest; to be checked against KB.md. */
+const NEW_HELP = {
+  'Often stay up late': ['Deep, repairing sleep is weighted toward the early part of the night, so going to bed late cuts into it even when total hours look fine.', '深度修复性的睡眠集中在前半夜，所以即使总时长看起来够，睡得晚也会被切掉一部分。'],
+  'Prefer cold food and drinks': ['Cold food and drinks are read as extra work for digestion, and they matter most for anyone who also has gut symptoms.', '冰冷的食物和饮品会加重消化负担，对本来就有肠胃问题的人影响最大。'],
+  'Restless sleep': ['Tossing and turning is different from trouble falling asleep, and points to what keeps the body on alert through the night.', '翻来覆去睡不安稳和入睡困难不同，它指向整夜让身体处于警觉状态的原因。'],
+  'Eye infections easily': ['Frequent eye infections say something about local defences, which depend on vitamin A and overall immunity.', '眼睛反复感染反映局部防御力，这和维生素 A 以及整体免疫力有关。'],
+  'Thick coating on the tongue': ['A thick, greasy coating is commonly read as a sign that digestion is sluggish.', '舌苔厚腻通常被看作消化功能偏慢的信号。'],
+  'Wheezing or asthma': ['Airway sensitivity changes which kind of respiratory and immune support makes sense.', '气道敏感会影响适合你的呼吸与免疫调理方向。'],
+  'Infections are frequent or slow to clear': ['How often you catch things, and how long they hang on, is one of the clearest reads on immune reserve.', '多久生一次病、好得快不快，是判断免疫底子最直接的依据之一。'],
+  'Acid reflux or heartburn': ['Reflux changes the advice on what, when and how late to eat.', '反酸会改变饮食建议：吃什么、什么时候吃、晚上最晚吃到几点。'],
+  'Pale or anemic': ['Paleness and tiring easily often trace back to iron, vitamin B12 or folate, the raw materials of healthy blood.', '面色苍白、容易累，常和铁、维生素 B12 或叶酸不足有关，它们是造血的原料。'],
+  'Joint pain': ['Joint pain shapes the support for cartilage and inflammation in your plan.', '关节疼会影响方案中对软骨和炎症的调理方向。'],
+  'Dark spots or pigmentation on the face': ['Pigmentation is often read alongside antioxidant status and how well the liver is clearing.', '面部色斑通常结合抗氧化状态和肝脏代谢情况一起看。'],
+  'Dry skin': ['Dry skin often reflects water intake, healthy fats and vitamin A.', '皮肤干燥常与喝水量、优质脂肪和维生素 A 有关。'],
+  'Kidney, gall or bladder stones': ['A history of stones changes the advice on water and on some minerals.', '有结石史会影响喝水量和部分矿物质的建议。'],
+  'Gout or high uric acid': ['Uric acid changes the food and water advice, and which supplements are a good fit.', '尿酸问题会影响饮食和喝水建议，以及哪些补充剂适合你。'],
+  'Breast tenderness or lumps': ['Tenderness often moves with hormonal balance. Any new lump should also be checked by a doctor.', '乳房胀痛常随激素水平变化。任何新出现的结节，也请让医生检查。'],
+  'Tired all the time': ['Constant tiredness is one of the most common signs that the body is short on something, often protein, iron or B vitamins, or on sleep that actually restores.', '总是很累，是身体缺东西最常见的信号之一，常见的是蛋白质、铁、B 族维生素，或者真正能修复的睡眠。'],
+  'Afternoon energy crash': ['A slump after lunch often follows a blood sugar spike from the meal, and points to what and how you eat at midday.', '饭后犯困常常是午餐让血糖冲高又回落，和你中午吃什么、怎么吃有关。'],
+  'Sleepy during the day': ['Feeling sleepy in the daytime usually means night-time sleep is not doing its job, even when the hours look long enough.', '白天总犯困，通常说明晚上的睡眠没起到作用，即使睡的时间看起来够长。'],
+  'Always feel cold': ['Feeling cold when others are not is often linked to circulation, iron or thyroid function.', '别人不冷你却怕冷，常与血液循环、铁或甲状腺功能有关。'],
+  'Sweat easily': ['Sweating easily without effort is read as a sign the body is working harder than it should to keep balance.', '不怎么动就出汗，通常被看作身体在超负荷维持平衡的信号。'],
+  'Always thirsty or dry mouth': ['Constant thirst or a dry mouth can reflect how much water you drink, and sometimes blood sugar, so it is worth noting.', '总是口干想喝水，可能和喝水量有关，有时也和血糖有关，值得记下来。'],
+  'Hard to lose weight': ['When weight will not move despite effort, the answer is usually in blood sugar, muscle and sleep, not just calories.', '努力了体重还是不动，答案通常在血糖、肌肉和睡眠，而不只是热量。'],
+  'Belly fat': ['Fat around the middle is the kind most closely tied to blood sugar and metabolic health.', '腰腹部的脂肪，是和血糖、代谢健康关系最密切的一种。'],
+  'Poor appetite': ['A weak appetite often goes with sluggish digestion, and it changes how a plan should be built.', '食欲差常伴随消化功能偏弱，也会影响方案的安排方式。'],
+  'Bruise easily': ['Bruising easily is often linked to vitamin C and the strength of small blood vessels.', '皮肤容易淤青，常和维生素 C 以及微血管的强韧度有关。'],
+  'Brittle or ridged nails': ['Nails grow from the same raw materials as hair and skin, so brittleness or ridges often point to protein, minerals or B vitamins.', '指甲和头发、皮肤用的是同样的原料，易断或有竖纹常指向蛋白质、矿物质或 B 族维生素。'],
+};
 
-function goStep(n) {
-  if (n > currentStep) {
-    if (!validateStep(currentStep)) return;
+/* Supplements come from intake/questions.json. */
+const SUPP = SUPPLEMENTS.o;
+/* Bowel answers, shorter. Same values the report reads; "3 or more a day" is covered by
+   Diarrhea on the map. */
+const BOWEL = [
+  ['1-2 times a day', '1–2 a day', '每天 1–2 次', '1–2 al día', 'दिन में 1–2 बार'],
+  ['Every other day', 'Every other day', '隔天一次', 'Cada dos días', 'हर दूसरे दिन'],
+  ['2-3 times a week', '2–3 a week', '每周 2–3 次', '2–3 por semana', 'सप्ताह में 2–3 बार'],
+  ['Less than twice a week', 'Less often', '更少', 'Menos', 'इससे कम'],
+];
+
+/* A "Why we ask" button after a label, and the text it opens. Safe to call on every render. */
+function why(label, text){
+  if (!label || !text) return;
+  let box = label.nextElementSibling;
+  if (!box || !box.classList.contains('help-box')) { box = document.createElement('div'); box.className = 'help-box'; label.after(box); }
+  let b = label.querySelector(':scope > .help-btn');
+  if (!b) {
+    b = document.createElement('button'); b.type = 'button'; b.className = 'help-btn';
+    b.onclick = (e) => { e.preventDefault(); e.stopPropagation(); box.classList.toggle('open'); };
+    const hint = label.querySelector(':scope > .hint');
+    if (hint) label.insertBefore(b, hint); else label.appendChild(b);
   }
-  document.getElementById(`step${currentStep}`).classList.remove('active');
-  document.getElementById(`prog${currentStep}`).classList.remove('active');
-  document.getElementById(`prog${currentStep}`).classList.add('done');
-  currentStep = n;
-  document.getElementById(`step${currentStep}`).classList.add('active');
-  document.getElementById(`prog${currentStep}`).classList.add('active');
-  document.getElementById('stepLabel').textContent = stepLabel(currentStep);
-  // Build symptoms on step 2
-  if (n === 1) buildSymptoms();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  b.setAttribute('aria-label', tx(UI.why)); b.title = tx(UI.why);
+  box.textContent = tx(text);
 }
+const openSysHelp = new Set();
 
-function validateStep(n) {
-  const err = document.getElementById('errorBox');
-  err.style.display = 'none';
-  if (n === 0) {
-    const name = document.getElementById('f-name').value.trim();
-    const email = document.getElementById('f-email').value.trim();
-    const dob = document.getElementById('f-dob').value;
-    const gender = document.getElementById('f-gender').value;
-    if (!name || !email || !dob || !gender) {
-      err.textContent = tx(UI.required);
-      err.style.display = 'block';
-      return false;
-    }
-    if (!email.includes('@')) {
-      err.textContent = 'Please enter a valid email address.';
-      err.style.display = 'block';
-      return false;
-    }
-    if (!prioSel.length) {
-      err.textContent = tx(PRIORITIES.required);
-      err.style.display = 'block';
-      const c = document.getElementById('prioCard'); if (c) c.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      return false;
-    }
-  }
+const API = 'https://health-intake-api.vercel.app/api/submit';
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+let L = 0, page = 0;
+try { const saved = localStorage.getItem('intakeLang'); const i = LANGS.findIndex((l) => l.code === saved); if (i >= 0) L = i; } catch (e) {}
+/* Our own copy: en and zh written. Shared content (intake-content.js) has all four. */
+const tx = (a) => Array.isArray(a) ? (a[L] || a[0]) : a;
+const lab4 = (o) => o[1 + L] || o[1];
+
+const params = new URLSearchParams(location.search);
+const EVENT = /^[a-z0-9-]{3,40}$/.test(params.get('event') || '') ? params.get('event') : '';
+const BACK = /^[a-z0-9-]+\.html$/.test(params.get('back') || '') ? params.get('back') : '';
+
+const state = { gender:'', map:{}, prio:[], single:{}, week:{}, supp:{}, suppNone:false, diag:{} };
+const SCALE_KEYS = ['f-bmi','f-bodyFat','f-skeletalMuscle','f-visceralFat','f-bodyWater','f-metabolicAge','f-protein','f-muscleMass','f-fatFreeMass'];
+
+function age(){
+  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec($('f-dob').value || '');
+  if (!m) return null;
+  const n = new Date(); let a = n.getFullYear() - +m[1];
+  if (n.getMonth()+1 < +m[2] || (n.getMonth()+1 === +m[2] && n.getDate() < +m[3])) a--;
+  return a >= 0 && a < 130 ? a : null;
+}
+function applies(w){
+  if (!w) return true;
+  if (w.gender && w.gender !== state.gender) return false;
+  if (w.notGender && (!state.gender || state.gender === w.notGender)) return false;
+  if (w.minAge !== undefined && (age() === null || age() < w.minAge)) return false;
   return true;
 }
 
-// ─── SCALE TOGGLE ────────────────────────────────────────────────────────────
-
-function toggleScale(on) {
-  document.getElementById('scaleFields').classList.toggle('visible', on);
-}
-
-function toggleMedField(on) {
-  document.getElementById('medFieldWrap').style.display = on ? '' : 'none';
-  if (!on) document.getElementById('f-medication').value = '';
-}
-
-/* Most people have no diagnosis to report, so the list stays closed until they say Yes.
-   Turning it off again clears what was picked, so a mis-tap leaves nothing behind. */
-function toggleDiag(on) {
-  document.getElementById('diagWrap').style.display = on ? '' : 'none';
-  if (!on) {
-    Object.keys(diagnosisValues).forEach(k => delete diagnosisValues[k]);
-    document.getElementById('f-diagnosedNote').value = '';
-    buildDiagnoses();
-  }
-  document.getElementById('diagNoteField').style.display = on && Object.keys(diagnosisValues).length ? '' : 'none';
-}
-
-/* Every single-answer question is a row of chips. The <select> stays in the page, hidden, as
-   the place the answer lives, so the labels, translations and the submitted value all work as
-   they did when it was a dropdown. Tapping the chosen chip again clears it. */
-function renderSelectChips() {
-  document.querySelectorAll('select.as-chips').forEach(sel => {
-    let host = sel.nextElementSibling;
-    if (!host || !host.classList.contains('select-chips')) {
-      host = document.createElement('div');
-      host.className = 'chip-grid select-chips';
-      sel.after(host);
-    }
-    const skip = sel.dataset.skip || '';
-    host.innerHTML = '';
-    [...sel.options].forEach(o => {
-      if (!o.value || o.value === skip) return;
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'chip' + (sel.value === o.value ? ' on' : '');
-      b.textContent = o.textContent;
-      b.onclick = () => {
-        sel.value = sel.value === o.value ? '' : o.value;
-        sel.dispatchEvent(new Event('change', { bubbles: true }));
-        renderSelectChips();
-      };
-      host.appendChild(b);
-    });
-  });
-}
-
-/* Supplements: tap the common ones, type anything else. "None" clears the rest. The
-   consistency question only matters once they take something, so it waits until then. */
-const suppValues = {};
-let suppNone = false;
-function buildSupplements() {
-  const host = document.getElementById('suppChips');
-  if (!host) return;
-  host.innerHTML = '';
-  const chip = (label, on, click) => {
-    const b = document.createElement('button');
-    b.type = 'button'; b.className = 'chip' + (on ? ' on' : '');
-    b.textContent = label; b.onclick = click;
-    host.appendChild(b);
-  };
-  SUPPLEMENTS.o.forEach(o => chip(o[1 + LI()] || o[1], !!suppValues[o[0]], () => {
-    if (suppValues[o[0]]) delete suppValues[o[0]]; else suppValues[o[0]] = true;
-    suppNone = false; buildSupplements();
-  }));
-  chip(tx(SUPPLEMENTS.none), suppNone, () => {
-    suppNone = !suppNone;
-    if (suppNone) { Object.keys(suppValues).forEach(k => delete suppValues[k]); document.getElementById('f-supplements').value = ''; }
-    buildSupplements();
-  });
-  const other = document.getElementById('f-supplements');
-  other.placeholder = tx(SUPPLEMENTS.otherPh);
-  other.oninput = () => { if (other.value.trim()) suppNone = false; syncSuppFreq(); };
-  syncSuppFreq();
-}
-function syncSuppFreq() {
-  const takes = Object.keys(suppValues).length > 0 || !!document.getElementById('f-supplements').value.trim();
-  const f = document.getElementById('suppFreqField');
-  f.hidden = !takes;
-  if (!takes) { document.getElementById('f-supplementFreq').value = ''; renderSelectChips(); }
-  const noneChip = [...document.querySelectorAll('#suppChips .chip')].pop();
-  if (noneChip) noneChip.classList.toggle('on', suppNone);
-}
-
-// ─── LOADING ANIMATION ───────────────────────────────────────────────────────
-
-let loadStep = 0;
-function advanceLoad() {
-  if (loadStep > 0) {
-    document.getElementById(`ls${loadStep-1}`).className = 'done';
-  }
-  if (loadStep < 4) {
-    if (document.getElementById(`ls${loadStep}`)) {
-      document.getElementById(`ls${loadStep}`).className = 'active';
-    }
-    loadStep++;
-  }
-}
-
-// ─── SUBMIT ──────────────────────────────────────────────────────────────────
-
-
-
-// ─── LANGUAGE + HELP ────────────────────────────────────────────────────────
-// Everything visible comes from intake-content.js. Nothing user-facing is written
-// into the markup, because the previous version translated only the new questions
-// and left every older label in English -- which is what happens whenever strings
-// live in HTML instead of in one content file.
-
-let currentLang = (localStorage.getItem('intakeLang') || (navigator.language || 'en').slice(0,2));
-if (!LANGS.some(l => l.code === currentLang)) currentLang = 'en';
-const LI = () => LANGS.findIndex(l => l.code === currentLang);
-const tx = a => Array.isArray(a) ? (a[LI()] || a[0]) : a;
-
-function renderLangMenu() {
-  document.getElementById('lang-current').textContent =
-    (LANGS.find(l => l.code === currentLang) || LANGS[0]).label;
-  document.getElementById('lang-menu').innerHTML = LANGS.map(l =>
-    `<button type="button" class="lang-opt${l.code === currentLang ? ' on' : ''}" onclick="setLang('${l.code}')">
-       <span class="lang-opt-label">${l.label}</span><span>${l.name}</span></button>`).join('');
-}
-function toggleLangMenu(force) {
-  const m = document.getElementById('lang-menu');
-  const open = force === undefined ? !m.classList.contains('open') : force;
-  m.classList.toggle('open', open);
-  document.getElementById('lang-toggle-btn').setAttribute('aria-expanded', open);
-}
-document.addEventListener('click', e => { if (!e.target.closest('.lang-wrap')) toggleLangMenu(false); });
-
-function setLang(code) {
-  currentLang = code;
-  localStorage.setItem('intakeLang', code);
-  document.documentElement.lang = code;
-  toggleLangMenu(false);
-  renderLangMenu();
-  applyLang();
-}
-
-/* A "why we ask" disclosure under a field's label. Every field that has help gets one. */
-function ensureHelp(fieldEl, key) {
-  const def = FIELDS[key];
-  if (!def || !def.h) return;
-  const label = fieldEl.querySelector('label');
-  if (!label) return;
-  let btn = label.querySelector('.help-btn');
-  let box = fieldEl.querySelector(':scope > .help-box');
-  if (!box) {
-    box = document.createElement('div');
-    box.className = 'help-box';
-    label.after(box);
-  }
-  if (!btn) {
-    btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'help-btn';
-    btn.onclick = () => box.classList.toggle('open');
-    label.appendChild(btn);
-  }
-  btn.textContent = tx(UI.why);
-  box.textContent = tx(def.h);
-}
-
-function paintField(key) {
-  const el = document.getElementById(key);
-  const def = FIELDS[key];
-  if (!el || !def) return;
-  const field = el.closest('.field');
-  if (!field) return;
-  const label = field.querySelector('label');
-  if (label) {
-    // first text node is the label; the help button is appended after it
-    if (label.childNodes.length && label.childNodes[0].nodeType === 3) label.childNodes[0].nodeValue = tx(def.l);
-    else label.insertBefore(document.createTextNode(tx(def.l)), label.firstChild);
-  }
-  if (def.ph && (el.tagName === 'TEXTAREA' || el.tagName === 'INPUT')) el.placeholder = tx(def.ph);
-  if (def.o && el.tagName === 'SELECT') {
-    const keep = el.value;
-    el.innerHTML = '<option value="">' + tx(UI.select) + '</option>' +
-      def.o.map(o => `<option value="${o[0]}">${o[1 + LI()] || o[1]}</option>`).join('');
-    if (keep) el.value = keep;
-  }
-  ensureHelp(field, key);
-}
-
-/* Symptoms are rebuilt rather than patched, because the labels are the button text. */
-const symptomValues = {};
-/* ── the pieces added in form v2.0 ───────────────────────────────────────── */
-
-const diagnosisValues  = {};
-const dietValues       = {};
-
-/* Age at the moment of filling this in, which is what the report needs. Never
-   computed from "today" later, because that answer drifts after the fact. */
-function currentAge(){
-  const v = (document.getElementById('f-dob') || {}).value;
-  const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(v || '');
-  if (!m) return null;
-  const n = new Date();
-  let a = n.getFullYear() - +m[1];
-  if (n.getMonth()+1 < +m[2] || (n.getMonth()+1 === +m[2] && n.getDate() < +m[3])) a--;
-  return (a >= 0 && a < 130) ? a : null;
-}
-
-/* One multi-select used twice. Tapping an on chip turns it off, same as the
-   symptom buttons, so nothing on this form is a one-way door. */
-function renderChips(host, options, store){
-  if (!host) return;
-  host.innerHTML = '';
-  options.forEach(o => {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'chip' + (store[o[0]] ? ' on' : '');
-    b.textContent = o[1 + LI()] || o[1];
-    b.onclick = () => {
-      if (store[o[0]]) { delete store[o[0]]; b.classList.remove('on'); }
-      else { store[o[0]] = true; b.classList.add('on'); }
-      if (host.id === 'diagChips') {
-        const any = Object.keys(diagnosisValues).length > 0;
-        const nf = document.getElementById('diagNoteField');
-        if (nf) nf.style.display = any ? '' : 'none';
-      }
+/* One system's items as tap chips: once = sometimes, twice = often, three times = cleared. */
+function mapChips(host, sys){
+  sys.items.filter((it) => applies(it[3])).forEach((it) => {
+    const v = state.map[it[2]] || 0;
+    const m = document.createElement('button');
+    m.type = 'button'; m.className = 'm' + (v ? ' s' + v : '');
+    m.textContent = L === 1 ? it[1] : it[0];
+    m.onclick = () => {
+      state.map[it[2]] = ((state.map[it[2]] || 0) + 1) % 3;
+      if (!state.map[it[2]]) delete state.map[it[2]];
+      render();
     };
-    host.appendChild(b);
+    host.appendChild(m);
   });
 }
 
-function buildStageSetting(){
-  const h = document.getElementById('stageHeadline');
-  const b = document.getElementById('stageBody');
-  const f = document.getElementById('stageFoot');
-  if (!h) return;
-  h.textContent = tx(STAGE_SETTING.headline);
-  b.innerHTML = '';
-  tx(STAGE_SETTING.body).split('\n\n').forEach(par => {
-    const el = document.createElement('p');
-    el.textContent = par;
-    b.appendChild(el);
-  });
-  f.textContent = tx(STAGE_SETTING.footnote);
-}
-
-/* Priorities: which areas they most want to improve, in the order chosen, and in their own words
-   what better would look like. The order is what the report opens on. */
-const prioSel = [];
-const prioWords = {};
-let prioOther = '';
-
-function buildPriorities(){
-  const host = document.getElementById('prioChips');
-  if (!host) return;
-  document.getElementById('prioTitle').textContent = tx(PRIORITIES.title);
-  document.getElementById('prioLabel').textContent = tx(PRIORITIES.l);
-  document.getElementById('prioSub').textContent = tx(PRIORITIES.sub);
-  ensureHelpFor(document.getElementById('prioField'), PRIORITIES.h);
-  host.innerHTML = '';
-  PRIORITIES.o.forEach(o => {
-    const at = prioSel.indexOf(o[0]), on = at >= 0;
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'chip' + (on ? ' on' : '');
-    if (on) { const r = document.createElement('span'); r.className = 'prio-rank'; r.textContent = at + 1; b.appendChild(r); }
-    b.appendChild(document.createTextNode(o[1 + LI()] || o[1]));
-    b.onclick = () => {
-      if (on) prioSel.splice(at, 1);
-      else prioSel.push(o[0]);
-      buildPriorities();
-    };
-    host.appendChild(b);
-  });
-  document.getElementById('prioCount').textContent = tx(PRIORITIES.count).replace('{n}', prioSel.length);
-  buildPriorityWords();
-}
-
-/* Only the #1 priority gets a full essay box: it is what the report opens on, so it earns
-   the investment. #2 and #3 get one compact line each, because asking for three paragraphs
-   right after a long symptom grid reads as homework and risks the form being abandoned right
-   at the point people are closest to done. A person who wants to say more about #2 or #3 still
-   can, the line just does not demand it the way an empty multi-row box does. */
-function buildPriorityWords(){
-  const host = document.getElementById('prioWords');
-  if (!host) return;
-  host.innerHTML = '';
-  prioSel.forEach((id, i) => {
-    const o = PRIORITIES.o.find(x => x[0] === id);
-    const primary = i === 0;
-    const isOther = id === 'other';
+function renderMap(){
+  const host = $('map'); host.innerHTML = '';
+  MAP.filter((s) => !s.later).forEach((s) => {
+    const n = s.items.filter((it) => state.map[it[2]]).length;
     const box = document.createElement('div');
-    box.className = 'prio-word' + (primary ? '' : (isOther ? ' prio-word-lite prio-word-lite-other' : ' prio-word-lite'));
-    const h = document.createElement('div'); h.className = 'prio-word-h';
-    const r = document.createElement('span'); r.className = 'prio-rank'; r.textContent = i + 1;
-    h.appendChild(r); h.appendChild(document.createTextNode(o[1 + LI()] || o[1]));
-    box.appendChild(h);
-    if (isOther) {
-      const l0 = document.createElement('label'); l0.textContent = tx(PRIORITIES.otherL);
-      const inp = document.createElement('input'); inp.type = 'text'; inp.maxLength = 80;
-      inp.placeholder = tx(PRIORITIES.otherPh); inp.value = prioOther;
-      inp.oninput = () => { prioOther = inp.value; };
-      box.appendChild(l0); box.appendChild(inp);
-    }
-    if (primary) {
-      const l = document.createElement('label'); l.textContent = tx(PRIORITIES.words.l);
-      const ta = document.createElement('textarea'); ta.maxLength = 300;
-      ta.placeholder = tx((PRIORITIES.examples || {})[id] || PRIORITIES.words.ph); ta.value = prioWords[id] || '';
-      ta.oninput = () => { prioWords[id] = ta.value; };
-      box.appendChild(l); box.appendChild(ta);
-    } else {
-      const inp = document.createElement('input'); inp.type = 'text'; inp.maxLength = 140;
-      inp.className = 'prio-word-line';
-      inp.placeholder = tx(PRIORITIES.words.lineLabel);
-      inp.value = prioWords[id] || '';
-      inp.oninput = () => { prioWords[id] = inp.value; };
-      box.appendChild(inp);
-    }
+    box.className = 'sys'; box.style.setProperty('--c', s.c); box.style.setProperty('--ct', s.ct);
+    box.innerHTML = '<div class="sys-h"><span>' + esc(tx(s.t)) + '</span><button type="button" class="help-btn"></button>' + (n ? '<em>' + n + '</em>' : '') + '</div><div class="sys-help"></div><div class="sys-b"></div>';
+    /* One "Why we ask" per body system: it opens what each item in it tells us. */
+    const hb = box.querySelector('.help-btn'), hp = box.querySelector('.sys-help');
+    hb.setAttribute('aria-label', tx(UI.why)); hb.title = tx(UI.why);
+    hp.classList.toggle('open', openSysHelp.has(s.id));
+    hp.innerHTML = s.items.map((it) => {
+      const part = it[2].split('__')[1];
+      const h = SYMPTOM_HELP[part] || NEW_HELP[part];
+      return h ? '<p><b>' + esc(L === 1 ? it[1] : it[0]) + '.</b> ' + esc(tx(h)) + '</p>' : '';
+    }).join('');
+    hb.onclick = () => { if (openSysHelp.has(s.id)) openSysHelp.delete(s.id); else openSysHelp.add(s.id); hp.classList.toggle('open'); };
+    mapChips(box.querySelector('.sys-b'), s);
     host.appendChild(box);
   });
 }
 
-function buildDiagnoses(){
-  const t = document.getElementById('diagTitle');
-  const l = document.getElementById('diagLabel');
-  if (!l) return;
-  if (t) t.textContent = tx(DIAGNOSES.l);
-  l.textContent = tx(DIAGNOSES.l);
-  ensureHelpFor(document.getElementById('diagField'), DIAGNOSES.h);
-  renderChips(document.getElementById('diagChips'), DIAGNOSES.o, diagnosisValues);
+/* Areas ranked by how much was marked (often counts double). They lead the priority list. */
+function suggested(){
+  const score = {};
+  MAP.forEach((s) => s.items.forEach((it) => { const v = state.map[it[2]]; if (v) score[s.p] = (score[s.p] || 0) + v; }));
+  if (state.map['Skin and Hair__Hair falling out easily'] || state.map['Skin and Hair__Dry, dull, or yellowish hair']) score.hair = (score.hair || 0) + 1;
+  ['Digestion__Unexplained weight change', 'Energy and Body__Hard to lose weight', 'Energy and Body__Belly fat'].forEach((k) => {
+    if (state.map[k]) score.weight = (score.weight || 0) + 2;
+  });
+  return Object.keys(score).sort((a, b) => score[b] - score[a]);
 }
 
-/* A help disclosure for a block that is not a plain FIELDS entry. */
-function ensureHelpFor(host, helpArr){
-  if (!host || !helpArr) return;
-  const label = host.querySelector('label');
-  if (!label) return;
-  let btn = label.querySelector('.help-btn');
-  let box = host.querySelector(':scope > .help-box');
-  if (!box) { box = document.createElement('div'); box.className = 'help-box'; label.after(box); }
-  if (!btn) {
-    btn = document.createElement('button');
-    btn.type = 'button'; btn.className = 'help-btn';
-    btn.onclick = () => box.classList.toggle('open');
-    label.appendChild(btn);
-  }
-  btn.textContent = tx(UI.why);
-  box.textContent = tx(helpArr);
-}
-
-function buildDiet(){
-  const host = document.getElementById('dietRows');
-  if (!host) return;
-  const t = document.getElementById('dietTitle'), sub = document.getElementById('dietSub');
-  if (t)   t.textContent   = tx(DIET_SECTION.title);
-  if (sub) sub.textContent = tx(DIET_SECTION.sub);
+function singleChips(host, key, options){
   host.innerHTML = '';
-  DIET_FREQ.forEach(q => {
-    const row = document.createElement('div');
-    row.className = 'diet-row';
-    const name = document.createElement('div');
-    name.className = 'diet-name';
-    name.textContent = q.l[LI()] || q.l[0];
-    const btns = document.createElement('div');
-    btns.className = 'freq-btns';
-    SCALES.diet.bands.forEach(band => {
-      const cls = 'selected-' + band.value.toLowerCase().replace(/[^a-z]/g, '');
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'freq-btn' + (dietValues[q.id] === band.value ? ' ' + cls : '');
-      b.textContent = band.l[LI()] || band.l[0];
-      b.onclick = () => {
-        const already = dietValues[q.id] === band.value;
-        btns.querySelectorAll('.freq-btn').forEach(x => x.className = 'freq-btn');
-        if (already) { delete dietValues[q.id]; return; }
-        b.className = 'freq-btn ' + cls;
-        dietValues[q.id] = band.value;
-      };
-      btns.appendChild(b);
-    });
-    row.appendChild(name); row.appendChild(btns);
-    host.appendChild(row);
-  });
-}
-
-function buildSymptoms() {
-  const container = document.getElementById('symptomContainer');
-  if (!container) return;
-  const gender = (document.getElementById('f-gender') || {}).value;
-  container.innerHTML = '';
-  const FREQ = SCALES.symptom.bands.map(b => [b.value, b.l]);
-  /* Age and sex ADD groups, they never hide one. Hiding by age is what loses the
-     19 year old with a fatty liver, so the core set is the same for everybody. */
-  const age = currentAge();
-  const extra = ADDITIVE_GROUPS.filter(g => {
-    const w = g.when || {};
-    if (w.gender && w.gender !== gender) return false;
-    if (w.minAge !== undefined && (age === null || age < w.minAge)) return false;
-    return true;
-  });
-  /* The sections that match what they chose come first and say so; every section is still asked
-     of everyone, so a strong signal outside their priorities is still found. */
-  const want = new Set();
-  prioSel.forEach(id => ((PRIORITIES.groups || {})[id] || []).forEach(k => want.add(k)));
-  const everyGroup = [].concat(SYMPTOM_GROUPS, extra);
-  const first = everyGroup.filter(g => want.has(g.key));
-  const rest = everyGroup.filter(g => !want.has(g.key));
-  const divider = (text) => { const d = document.createElement('div'); d.className = 'symptom-divider'; d.textContent = text; return d; };
-  first.concat(rest).forEach((group, gi) => {
-    if (first.length && gi === 0) container.appendChild(divider(tx(PRIORITIES.groupFirst)));
-    if (first.length && rest.length && gi === first.length) container.appendChild(divider(tx(PRIORITIES.groupRest)));
-    // no group is gender-gated now; individual reproductive items are filtered below
-    const div = document.createElement('div');
-    div.className = 'symptom-group';
-    const gl = document.createElement('div');
-    gl.className = 'symptom-group-label';
-    gl.textContent = tx(group.g);
-    if (group.h) {
-      const hb = document.createElement('button');
-      hb.type = 'button'; hb.className = 'help-btn'; hb.textContent = tx(UI.why);
-      const box = document.createElement('div');
-      box.className = 'help-box';
-      box.textContent = tx(group.h);
-      hb.onclick = () => box.classList.toggle('open');
-      gl.appendChild(hb);
-      div.appendChild(gl); div.appendChild(box);
-    } else div.appendChild(gl);
-    /* Every item in a group that is shown is visible. Which groups are shown is
-       decided above, by the additive rules, not by filtering items in here. */
-    group.items.forEach(item => {
-      const key = group.g[0] + '__' + item[0];
-      const row = document.createElement('div');
-      row.className = 'symptom-row';
-      const nameDiv = document.createElement('div');
-      nameDiv.className = 'symptom-name';
-      nameDiv.textContent = item[1 + LI()] || item[1];
-      /* Every symptom gets its own disclosure, keyed off the canonical English label
-         so the help survives a language switch. */
-      const ih = SYMPTOM_HELP[item[0]];
-      let ibox = null;
-      if (ih) {
-        const ib = document.createElement('button');
-        ib.type = 'button';
-        ib.className = 'help-btn help-btn-inline';
-        ib.setAttribute('aria-label', tx(UI.why));
-        ibox = document.createElement('div');
-        ibox.className = 'help-box';
-        ibox.textContent = tx(ih);
-        ib.onclick = () => ibox.classList.toggle('open');
-        nameDiv.appendChild(ib);
-      }
-      const btns = document.createElement('div');
-      btns.className = 'freq-btns';
-      /* Night waking asks one more thing, and only of people who wake: whether it is usually
-         1 to 3 AM, which the report reads as the liver's window. */
-      const wakeFu = item[0] === WAKE_KEY ? buildWakeFollowUp() : null;
-      const syncWake = () => { if (wakeFu) wakeFu.hidden = !/^(Often|Occasionally)$/.test(symptomValues[key] || ''); };
-      FREQ.forEach(f => {
-        const b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'freq-btn' + (symptomValues[key] === f[0] ? ' selected-' + f[0].toLowerCase() : '');
-        b.textContent = tx(f[1]);
-        b.onclick = () => {
-          /* Tapping the answer you already gave clears it. Without this a mis-tap was
-             permanent: there was no way back to "unanswered" once anything was chosen. */
-          const already = symptomValues[key] === f[0];
-          btns.querySelectorAll('.freq-btn').forEach(x => x.className = 'freq-btn');
-          if (already) delete symptomValues[key];
-          else { b.className = 'freq-btn selected-' + f[0].toLowerCase(); symptomValues[key] = f[0]; }
-          syncWake();
-        };
-        btns.appendChild(b);
-      });
-      row.appendChild(nameDiv); row.appendChild(btns);
-      div.appendChild(row); if (ibox) div.appendChild(ibox);
-      if (wakeFu) { div.appendChild(wakeFu); syncWake(); }
-    });
-    container.appendChild(div);
-  });
-}
-
-const WAKE_KEY = 'Wake up during the night';
-let wake13 = '';
-function buildWakeFollowUp() {
-  const fu = document.createElement('div');
-  fu.className = 'wake-fu';
-  const q = document.createElement('span');
-  q.textContent = tx(UI.w13);
-  fu.appendChild(q);
-  [['yes', UI.medToggle], ['no', UI.no]].forEach(([v, label]) => {
+  options.forEach((o) => {
     const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'chip' + (wake13 === v ? ' on' : '');
-    b.textContent = tx(label);
-    b.onclick = () => {
-      wake13 = wake13 === v ? '' : v;
-      fu.querySelectorAll('.chip').forEach(x => x.classList.remove('on'));
-      if (wake13) b.classList.add('on');
-    };
-    fu.appendChild(b);
+    b.type = 'button'; b.className = 'chip' + (state.single[key] === o[0] ? ' on' : '');
+    b.textContent = lab4(o);
+    b.onclick = () => { state.single[key] = state.single[key] === o[0] ? '' : o[0]; render(); };
+    host.appendChild(b);
   });
-  return fu;
-}
-/* The 1-3 AM answer the report has always read, now from the symptom row and its follow-up. */
-function waking13Text() {
-  const k = Object.keys(symptomValues).find(x => x.endsWith('__' + WAKE_KEY));
-  const v = k ? symptomValues[k] : '';
-  if (v === 'Barely') return 'Rarely or never';
-  if (v !== 'Often' && v !== 'Occasionally') return null;
-  return v + (wake13 === 'yes' ? ', usually between 1 and 3 AM' : wake13 === 'no' ? ', usually at other times' : '');
 }
 
-function buildDynamicFields() {
-  const mk = (host, keys) => {
-    if (!host || host.children.length) return;
-    keys.forEach(k => {
-      const w = document.createElement('div');
-      w.className = 'field';
-      w.appendChild(document.createElement('label'));
-      const sel = document.createElement('select');
-      sel.id = k;
-      sel.className = 'as-chips';
-      w.appendChild(sel);
-      host.appendChild(w);
-    });
-  };
-  /* Two questions. Wiping count alone separates the people who need fibre from the
-     people who need a probiotic, which is the decision this section exists to inform,
-     and asking what it looks like on top of that bought nothing. */
-  mk(document.getElementById('stoolFields'),
-     ['f-bowelFreq','f-wiping']);
-  mk(document.getElementById('cycleFields'),
-     ['f-cycleRegular','f-menstrualPain','f-heavyFlow','f-pmsMoodSwings']);
-
-}
-
-/* Admin: the ··· button signs in; once signed in it reads Admin ✓ (tap to sign out) and an
-   All reports bubble appears beside the language bubble. */
-function adminChrome() {
-  const on = AdminSession.has();
-  const rb = document.getElementById('reports-bubble'), dots = document.getElementById('admin-dots');
-  if (!rb || !dots) return;
-  rb.style.display = on ? 'inline-flex' : 'none';
-  rb.textContent = AdminSession.t('all');
-  dots.textContent = on ? AdminSession.t('admin') : '···';
-  dots.title = on ? AdminSession.t('out') : AdminSession.t('title');
-}
-function adminDots() {
-  if (AdminSession.has()) { AdminSession.logout(); adminChrome(); }
-  else AdminSession.login(adminChrome);
-}
-
-function applyLang() {
-  document.documentElement.lang = currentLang;
-  adminChrome();
-  document.title = tx(UI.pageTitle);
-  document.querySelectorAll('[data-ui]').forEach(el => {
-    const k = el.dataset.ui;
-    if (k === 'stepLabel') return;
-    if (UI[k]) el.textContent = tx(UI[k]);
+function renderDetails(){
+  const gh = $('genderChips'); gh.innerHTML = '';
+  FIELDS['f-gender'].o.forEach((o) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip' + (state.gender === o[0] ? ' on' : '');
+    b.textContent = lab4(o);
+    b.onclick = () => { state.gender = state.gender === o[0] ? '' : o[0]; render(); };
+    gh.appendChild(b);
   });
-  document.querySelectorAll('[data-sec]').forEach(el => {
-    const k = el.dataset.sec;
-    if (SECTIONS[k]) el.textContent = tx(SECTIONS[k]);
-  });
-  // step label
-  const sl = document.getElementById('stepLabel');
-  if (sl) sl.textContent = stepLabel(currentStep);
-  // nav buttons by role
-  document.querySelectorAll('.step-nav .btn-secondary').forEach(b => b.textContent = tx(UI.back));
-  document.querySelectorAll('.step-nav .btn-primary').forEach(b => {
-    b.textContent = (b.id === 'submitBtn') ? tx(UI.submit) : tx(UI.next);
-  });
-  const sh = document.querySelector('.toggle-hint'); if (sh) sh.textContent = tx(UI.scaleHint);
-  const lt = document.querySelector('.loading-title'); if (lt) lt.textContent = tx(UI.loadTitle);
-  const ls = document.querySelector('.loading-sub'); if (ls) ls.textContent = tx(UI.loadSub);
-  Object.keys(FIELDS).forEach(paintField);
-  buildStageSetting();
-  buildPriorities();
-  buildDiet();
-  buildDiagnoses();
-  buildSupplements();
-  buildSymptoms();
-  renderSelectChips();
-}
 
-function syncCycleVisibility() {
-  const g = (document.getElementById('f-gender') || {}).value;
-  const sec = document.getElementById('cycleSection');
-  if (sec) sec.style.display = (g && g !== 'Male') ? 'block' : 'none';
-  buildSymptoms();
-}
+  const ex = $('extraSys'); ex.innerHTML = '';
+  MAP.filter((s) => s.later && applies(s.when)).forEach((s) => {
+    const box = document.createElement('div');
+    box.className = 'sub-sys'; box.style.setProperty('--c', s.c); box.style.setProperty('--ct', s.ct);
+    box.innerHTML = '<div class="q">' + esc(tx(s.t)) + '</div><div class="chips"></div>';
+    mapChips(box.querySelector('.chips'), s);
+    ex.appendChild(box);
+  });
+  $('cycleBox').hidden = !state.gender || state.gender === 'Male';
 
-document.addEventListener('DOMContentLoaded', () => {
-  buildDynamicFields();
-  renderLangMenu();
-  applyLang();
-  syncCycleVisibility();
-  const g = document.getElementById('f-gender');
-  if (g) g.addEventListener('change', syncCycleVisibility);
-  /* Opened from an event page: fill in the name and email this guest already typed there. */
-  const ev = new URLSearchParams(location.search).get('event') || '';
-  if (/^[a-z0-9-]{3,40}$/.test(ev)) {
-    let guest = {};
-    try { guest = JSON.parse(localStorage.getItem('event-guest:' + ev) || '{}') || {}; } catch (e) {}
-    const n = document.getElementById('f-name'), m = document.getElementById('f-email');
-    if (n && !n.value && guest.name) n.value = guest.name;
-    if (m && !m.value && guest.email) m.value = guest.email;
+  const sug = suggested();
+  const order = sug.concat(PRIORITIES.o.map((o) => o[0]).filter((id) => sug.indexOf(id) < 0));
+  const ph = $('prioChips'); ph.innerHTML = '';
+  order.forEach((id) => {
+    const o = PRIORITIES.o.find((x) => x[0] === id); if (!o) return;
+    const at = state.prio.indexOf(id);
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip' + (at >= 0 ? ' on' : '');
+    b.innerHTML = (at >= 0 ? '<span class="rank">' + (at + 1) + '</span>' : '') + esc(lab4(o));
+    b.onclick = () => { if (at >= 0) state.prio.splice(at, 1); else state.prio.push(id); render(); };
+    ph.appendChild(b);
+  });
+  /* The #1 priority gets its own words (the report echoes them); "Something else" gets a name. */
+  $('prioWordsF').hidden = !state.prio.length;
+  if (state.prio.length) {
+    const ex = (PRIORITIES.examples || {})[state.prio[0]];
+    $('f-prioWords').placeholder = ex ? (ex[L] || ex[0]) : (PRIORITIES.words.ph[L] || PRIORITIES.words.ph[0]);
   }
-});
+  $('prioOtherF').hidden = state.prio.indexOf('other') < 0;
 
-/* Height and weight in either unit: whichever box was typed in fills the other.
-   Exact factors: 1 in = 2.54 cm, 1 lb = 0.45359237 kg. Shown to one decimal, ".0" dropped. */
-const IN_CM = 2.54, LB_KG = 0.45359237;
-const num = (id) => { const v = parseFloat(document.getElementById(id).value); return isFinite(v) && v > 0 ? v : null; };
-const put = (id, v) => { document.getElementById(id).value = v == null ? '' : String(Math.round(v * 10) / 10); };
-function fromCm() {
-  const cm = num('f-height');
-  if (cm == null) { put('f-heightFt', null); put('f-heightIn', null); return; }
-  let ft = Math.floor(cm / IN_CM / 12), inch = Math.round((cm / IN_CM - ft * 12) * 10) / 10;
-  if (inch >= 12) { ft += 1; inch = 0; }
-  put('f-heightFt', ft); document.getElementById('f-heightIn').value = String(inch);
-}
-function fromFtIn() {
-  const ft = num('f-heightFt') || 0, inch = num('f-heightIn') || 0;
-  put('f-height', ft || inch ? (ft * 12 + inch) * IN_CM : null);
-}
-function fromLb() { const lb = num('f-weight'); put('f-weightKg', lb == null ? null : lb * LB_KG); }
-function fromKg() { const kg = num('f-weightKg'); put('f-weight', kg == null ? null : kg / LB_KG); }
-/* One string for the report, both units, so it reads the same whichever one was typed. */
-function heightText() {
-  const cm = num('f-height');
-  if (cm == null) return null;
-  const ft = document.getElementById('f-heightFt').value, inch = document.getElementById('f-heightIn').value;
-  return Math.round(cm * 10) / 10 + ' cm (' + ft + ' ft ' + (inch || 0) + ' in)';
-}
-document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('f-height').addEventListener('input', fromCm);
-  document.getElementById('f-heightFt').addEventListener('input', fromFtIn);
-  document.getElementById('f-heightIn').addEventListener('input', fromFtIn);
-  document.getElementById('f-weight').addEventListener('input', fromLb);
-  document.getElementById('f-weightKg').addEventListener('input', fromKg);
-});
+  const sg = $('scaleGrid');
+  if (!sg.children.length) {
+    SCALE_KEYS.forEach((k) => {
+      const f = document.createElement('div'); f.className = 'field';
+      f.innerHTML = '<label></label><input type="number" step="any" inputmode="decimal" id="' + k + '">';
+      sg.appendChild(f);
+    });
+  }
+  SCALE_KEYS.forEach((k) => { const lb = $(k).previousElementSibling; lb.textContent = FIELDS[k].l[L] || FIELDS[k].l[0]; why(lb, FIELDS[k].h); });
 
-async function submitForm() {
-  if (!validateStep(2)) return;
-
-  const err = document.getElementById('errorBox');
-  err.style.display = 'none';
-
-  // Build payload
-  const val = (id) => { const e = document.getElementById(id); return e ? (e.value || '').trim() : ''; };
-  /* Grid rows that carry a `field` (breakfast, smoking) are sent under their own names, as
-     they were when they were separate questions; the rest are the food frequency. */
-  const gridFood = {}, gridOwn = {};
-  DIET_FREQ.forEach(q => {
-    const v = dietValues[q.id];
-    if (!v) return;
-    if (q.field) gridOwn[q.field] = (q.send && q.send[v]) || v;
-    else gridFood[q.id] = v;
+  $('weekT').textContent = DIET_SECTION.title[L] || DIET_SECTION.title[0];
+  const wr = $('weekRows'); wr.innerHTML = '';
+  DIET_FREQ.forEach((q) => {
+    const row = document.createElement('div'); row.className = 'grid-row';
+    row.innerHTML = '<div class="grid-name">' + esc(q.l[L] || q.l[0]) + '</div><div class="fb"></div>';
+    SCALES.diet.bands.forEach((band) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = state.week[q.id] === band.value ? 'on' : '';
+      b.textContent = band.l[L] || band.l[0];
+      b.onclick = () => { state.week[q.id] = state.week[q.id] === band.value ? '' : band.value; render(); };
+      row.querySelector('.fb').appendChild(b);
+    });
+    wr.appendChild(row);
   });
-  const suppText = () => {
-    if (suppNone) return 'None';
-    const picked = SUPPLEMENTS.o.filter(o => suppValues[o[0]]).map(o => o[0]);
-    const typed = val('f-supplements');
-    return picked.concat(typed ? [typed] : []).join(', ') || null;
-  };
-  const payload = {
-    /* Which question set produced these answers. Without it, comparing an
-       assessment taken before a question changed against one taken after is
-       comparing two different instruments. */
-    formVersion: FORM_VERSION,
-    name: document.getElementById('f-name').value.trim(),
-    email: document.getElementById('f-email').value.trim(),
-    dob: document.getElementById('f-dob').value,
-    gender: document.getElementById('f-gender').value,
-    height: heightText(),
-    weight: document.getElementById('f-weight').value || null,
-    weightKg: document.getElementById('f-weightKg').value || null,
-    symptoms: symptomValues,
-    priorities: prioSel.map((id, i) => {
-      const r = { id: id, rank: i + 1 };
-      const w = (prioWords[id] || '').trim();
-      if (w) r.words = w;
-      if (id === 'other') r.other = prioOther.trim();
+
+  const lab = (id, key) => { $(id).textContent = (FIELDS[key].l[L] || FIELDS[key].l[0]).replace(/\s*\*$/, ''); };
+  lab('waterL', 'f-water'); lab('bedL', 'f-bedtime'); lab('dietL', 'f-diet'); lab('suppFreqL', 'f-supplementFreq');
+  lab('bowelL', 'f-bowelFreq'); lab('wipeL', 'f-wiping'); lab('cycRegL', 'f-cycleRegular'); lab('cycPainL', 'f-menstrualPain');
+  lab('cycFlowL', 'f-heavyFlow'); lab('cycPmsL', 'f-pmsMoodSwings');
+  $('f-diet').placeholder = FIELDS['f-diet'].ph[L] || FIELDS['f-diet'].ph[0];
+  /* "Why we ask" on every question, from the same help text the live form uses. */
+  const F = (k) => FIELDS[k] && FIELDS[k].h;
+  [['dobL', F('f-dob')], ['genderL', F('f-gender')], ['heightL', F('f-height')], ['weightL', F('f-weight')],
+   ['prioL', PRIORITIES.h], ['waterL', F('f-water')], ['bedL', F('f-bedtime')], ['dietL', F('f-diet')],
+   ['w13L', SYMPTOM_HELP['Wake up during the night']], ['suppL', F('f-supplements')], ['suppFreqL', F('f-supplementFreq')],
+   ['bowelL', F('f-bowelFreq')], ['wipeL', F('f-wiping')], ['cycRegL', F('f-cycleRegular')], ['cycPainL', F('f-menstrualPain')],
+   ['cycFlowL', F('f-heavyFlow')], ['cycPmsL', F('f-pmsMoodSwings')], ['notesLab', F('f-notes')]].forEach(([id, h]) => why($(id), h));
+  why(document.querySelector('#diagF .check-q'), DIAGNOSES.h);
+  why(document.querySelector('#medF .check-q'), F('f-medication'));
+
+  const opts = { water:FIELDS['f-water'].o, bedtime:FIELDS['f-bedtime'].o,
+    supplementFreq:FIELDS['f-supplementFreq'].o.filter((o) => o[0] !== 'Not currently taking any'),
+    bowelFreq:BOWEL, wiping:FIELDS['f-wiping'].o, cycleRegular:FIELDS['f-cycleRegular'].o,
+    menstrualPain:FIELDS['f-menstrualPain'].o, heavyFlow:FIELDS['f-heavyFlow'].o, pmsMoodSwings:FIELDS['f-pmsMoodSwings'].o,
+    wake13:[['yes'].concat(UI.medToggle), ['no'].concat(UI.no)] };
+  document.querySelectorAll('[data-single]').forEach((h) => singleChips(h, h.dataset.single, opts[h.dataset.single]));
+  $('wakeFollow').hidden = !state.map['Sleep and Mood__Wake up during the night'];
+
+  const sh = $('suppChips'); sh.innerHTML = '';
+  SUPP.concat([['__none']]).forEach((o) => {
+    const none = o[0] === '__none';
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip' + ((none ? state.suppNone : state.supp[o[0]]) ? ' on' : '');
+    b.textContent = none ? (SUPPLEMENTS.none[L] || SUPPLEMENTS.none[0]) : lab4(o);
+    b.onclick = () => {
+      if (none) { state.suppNone = !state.suppNone; if (state.suppNone) { state.supp = {}; $('f-suppOther').value = ''; } }
+      else { if (state.supp[o[0]]) delete state.supp[o[0]]; else state.supp[o[0]] = true; state.suppNone = false; }
+      render();
+    };
+    sh.appendChild(b);
+  });
+  syncSuppFreq();
+
+  const dh = $('diagChips'); dh.innerHTML = '';
+  DIAGNOSES.o.forEach((o) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip' + (state.diag[o[0]] ? ' on' : '');
+    b.textContent = lab4(o);
+    b.onclick = () => { if (state.diag[o[0]]) delete state.diag[o[0]]; else state.diag[o[0]] = true; render(); };
+    dh.appendChild(b);
+  });
+}
+function syncSuppFreq(){ $('suppFreqF').hidden = !(Object.keys(state.supp).length || $('f-suppOther').value.trim()); }
+
+/* ── Units: type either one, the other is filled in. ── */
+const IN_CM = 2.54, LB_KG = 0.45359237;
+const num = (id) => { const v = parseFloat($(id).value); return isFinite(v) && v > 0 ? v : null; };
+const put = (id, v) => { $(id).value = v == null ? '' : String(Math.round(v * 10) / 10); };
+$('f-height').oninput = () => { const cm = num('f-height'); if (cm == null) { put('f-heightFt'); put('f-heightIn'); return; }
+  let ft = Math.floor(cm / IN_CM / 12), inch = Math.round((cm / IN_CM - ft * 12) * 10) / 10; if (inch >= 12) { ft++; inch = 0; }
+  put('f-heightFt', ft); $('f-heightIn').value = String(inch); };
+const fromFt = () => { const ft = num('f-heightFt') || 0, inch = num('f-heightIn') || 0; put('f-height', ft || inch ? (ft * 12 + inch) * IN_CM : null); };
+$('f-heightFt').oninput = fromFt; $('f-heightIn').oninput = fromFt;
+$('f-weight').oninput = () => { const lb = num('f-weight'); put('f-weightKg', lb == null ? null : lb * LB_KG); };
+$('f-weightKg').oninput = () => { const kg = num('f-weightKg'); put('f-weight', kg == null ? null : kg / LB_KG); };
+$('f-dob').onchange = () => render();
+$('f-suppOther').oninput = () => { if ($('f-suppOther').value.trim()) state.suppNone = false; syncSuppFreq(); };
+$('hasDiag').onchange = () => { $('diagBox').hidden = !$('hasDiag').checked; if (!$('hasDiag').checked) { state.diag = {}; $('f-diagNote').value = ''; render(); } };
+$('hasMed').onchange = () => { $('medBox').hidden = !$('hasMed').checked; if (!$('hasMed').checked) $('f-medication').value = ''; };
+$('hasScale').onchange = () => { $('scaleBox').hidden = !$('hasScale').checked; if (!$('hasScale').checked) SCALE_KEYS.forEach((k) => { $(k).value = ''; }); };
+
+/* ── Paging ── */
+function updateBar(){
+  $('count').textContent = page === 0 ? tx(T.marked).replace('{n}', Object.keys(state.map).length) : '';
+  $('next').textContent = page === 1 ? (lastRid ? tx(T.update) : tx(UI.submit)) : tx(T.next);
+  $('back').textContent = tx(T.back);
+  $('back').hidden = page === 0;
+}
+function show(p){
+  page = p;
+  [0, 1].forEach((i) => { $('p' + i).hidden = i !== p; $('s' + i).classList.toggle('on', i <= p); });
+  $('err').style.display = 'none';
+  render(); window.scrollTo(0, 0);
+}
+function fail(msg){ const e = $('err'); e.textContent = msg; e.style.display = 'block'; window.scrollTo(0, 0); }
+$('back').onclick = () => show(page - 1);
+$('next').onclick = () => {
+  if (page === 0) {
+    if (!$('f-name').value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('f-email').value.trim())) return fail(tx(T.req0));
+    return show(1);
+  }
+  if (!$('f-dob').value || !state.gender) return fail(tx(T.req1));
+  if (!state.prio.length) return fail(tx(T.req2));
+  submit();
+};
+
+function render(){
+  document.querySelectorAll('[data-t]').forEach((el) => { const v = T[el.dataset.t]; if (v) el.textContent = tx(v); });
+  document.querySelectorAll('[data-ph]').forEach((el) => { el.placeholder = tx(T[el.dataset.ph]); });
+  $('stepLabel').textContent = tx(T.stepFmt).replace('{n}', page + 1).replace('{t}', tx(T.steps[page]));
+  if (page === 0) renderMap(); else { renderDetails(); paintWhyLife(); }
+  updateBar();
+}
+
+/* ── Language: one menu, four languages ── */
+function renderLang(){
+  $('langCur').textContent = LANGS[L].label;
+  $('langMenu').innerHTML = LANGS.map((l, i) => '<button class="lang-opt' + (i === L ? ' on' : '') + '" data-i="' + i + '"><b>' + l.code.toUpperCase() + '</b>' + esc(l.label) + '</button>').join('');
+  document.documentElement.lang = LANGS[L].code;
+}
+$('langBtn').onclick = (e) => { e.stopPropagation(); $('langMenu').hidden = !$('langMenu').hidden; };
+$('langMenu').onclick = (e) => {
+  const b = e.target.closest('.lang-opt'); if (!b) return;
+  L = +b.dataset.i; try { localStorage.setItem('intakeLang', LANGS[L].code); } catch (err) {}
+  $('langMenu').hidden = true; renderLang(); render(); if (!$('doneView').hidden) paintDone();
+};
+document.addEventListener('click', (e) => { if (!e.target.closest('.lang-wrap')) $('langMenu').hidden = true; });
+
+/* ── Admin: same login as every other page (passcode checked by the API). ── */
+function adminChrome(){
+  const on = AdminSession.has();
+  $('reportsBubble').hidden = !on;
+  $('reportsBubble').textContent = AdminSession.t('all');
+  $('adminDots').textContent = on ? AdminSession.t('admin') : '···';
+}
+$('adminDots').onclick = () => { if (AdminSession.has()) { AdminSession.logout(); adminChrome(); } else AdminSession.login(adminChrome); };
+
+/* ── Submit: the same payload shape the live form sends, so reports read it unchanged. ── */
+function payload(){
+  const often = { 1:'Occasionally', 2:'Often' };
+  const symptoms = {};
+  Object.keys(state.map).forEach((k) => { symptoms[k] = often[state.map[k]]; });
+  const food = {}, own = {};
+  DIET_FREQ.forEach((q) => { const v = state.week[q.id]; if (!v) return; if (q.field) own[q.field] = (q.send && q.send[v]) || v; else food[q.id] = v; });
+  const wv = symptoms['Sleep and Mood__Wake up during the night'];
+  const w = state.single.wake13;
+  const typed = $('f-suppOther').value.trim();
+  const cm = num('f-height');
+  const p = {
+    formVersion: FORM_VERSION, symptomMode: 'map', formLang: LANGS[L].code,
+    name: $('f-name').value.trim(), email: $('f-email').value.trim(), dob: $('f-dob').value, gender: state.gender,
+    height: cm ? Math.round(cm * 10) / 10 + ' cm (' + $('f-heightFt').value + ' ft ' + ($('f-heightIn').value || 0) + ' in)' : null,
+    weight: $('f-weight').value || null, weightKg: $('f-weightKg').value || null,
+    symptoms, mapOther: $('f-mapOther').value.trim() || null,
+    priorities: state.prio.map((id, i) => {
+      const r = { id, rank: i + 1 };
+      if (i === 0 && $('f-prioWords').value.trim()) r.words = $('f-prioWords').value.trim();
+      if (id === 'other') r.other = $('f-prioOther').value.trim();
       return r;
     }),
-    diagnosed: Object.keys(diagnosisValues),
-    diagnosedNote: val('f-diagnosedNote') || null,
-    medication: (document.getElementById('hasMedication').checked ? val('f-medication') : '') || null,
-    dietFrequency: gridFood,
-    smoking: gridOwn.smoking || null,
-    water: document.getElementById('f-water').value || null,
-    diet: document.getElementById('f-diet').value || null,
-    breakfastFreq: gridOwn.breakfastFreq || null,
-    bedtime: document.getElementById('f-bedtime').value || null,
-    waking13: waking13Text(),
-    supplements: suppText(),
-    supplementFreq: suppNone ? 'Not currently taking any' : (document.getElementById('f-supplementFreq').value || null),
-    notes: document.getElementById('f-notes').value.trim() || null,
+    dietFrequency: food, breakfastFreq: own.breakfastFreq || null, smoking: own.smoking || null,
+    water: state.single.water || null, bedtime: state.single.bedtime || null, diet: $('f-diet').value.trim() || null,
+    waking13: wv ? wv + (w === 'yes' ? ', usually between 1 and 3 AM' : w === 'no' ? ', usually at other times' : '') : null,
+    supplements: state.suppNone ? 'None' : (Object.keys(state.supp).concat(typed ? [typed] : []).join(', ') || null),
+    supplementFreq: state.suppNone ? 'Not currently taking any' : (state.single.supplementFreq || null),
+    bowelFreq: state.single.bowelFreq || null, wiping: state.single.wiping || null,
+    cycleRegular: state.single.cycleRegular || null, menstrualPain: state.single.menstrualPain || null,
+    heavyFlow: state.single.heavyFlow || null, pmsMoodSwings: state.single.pmsMoodSwings || null,
+    diagnosed: Object.keys(state.diag), diagnosedNote: $('f-diagNote').value.trim() || null,
+    medication: ($('hasMed').checked && $('f-medication').value.trim()) || null,
+    notes: $('f-notes').value.trim() || null,
   };
+  if ($('hasScale').checked) SCALE_KEYS.forEach((k) => { if ($(k).value) p[k.slice(2)] = $(k).value; });
+  if (EVENT) p.event = EVENT;
+  if (lastRid) p.replaces = lastRid;
+  return p;
+}
 
-  /* Bowel and cycle answers. These were previously only collected on the old Google
-     form, so reports generated from this page had no stool or cycle data at all. */
-  ['f-bowelFreq','f-wiping','f-cycleRegular','f-menstrualPain',
-   'f-heavyFlow','f-pmsMoodSwings'].forEach(function(id){
-    var el = document.getElementById(id);
-    if (el && el.value) payload[id.replace(/^f-/,'')] = el.value;
-  });
-  payload.formLang = currentLang;
-  /* Opened from an event page (glow.html): tag the report so that page's admin view lists it. */
-  const evParams = new URLSearchParams(location.search);
-  const evTag = evParams.get('event') || '';
-  if (/^[a-z0-9-]{3,40}$/.test(evTag)) payload.event = evTag;
-
-  // Add body comp if filled
-  if (document.getElementById('hasScale').checked) {
-    const get = id => document.getElementById(id).value || null;
-    Object.assign(payload, {
-      bmi: get('f-bmi'),
-      bodyFat: get('f-bodyFat'),
-      skeletalMuscle: get('f-skeletalMuscle'),
-      visceralFat: get('f-visceralFat'),
-      bodyWater: get('f-bodyWater'),
-      metabolicAge: get('f-metabolicAge'),
-      protein: get('f-protein'),
-      muscleMass: get('f-muscleMass'),
-      fatFreeMass: get('f-fatFreeMass'),
-    });
-  }
-
-  // Show loading overlay
-  document.getElementById('loadingOverlay').classList.add('visible');
-  loadStep = 0;
-  advanceLoad();
-  const loadTimer = setInterval(advanceLoad, 5000);
-
+let reportUrl = '', lastRid = '';
+async function submit(){
+  const p = payload();
+  $('loadT').textContent = tx(UI.loadTitle);
+  $('loading').hidden = false; $('next').disabled = true;
   try {
-    // REPLACE THIS URL with your actual Vercel function URL after deployment
-    const API_URL = 'https://health-intake-api.vercel.app/api/submit';
-
-    const res = await fetch(API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-
-    clearInterval(loadTimer);
-    const data = await res.json();
-    document.getElementById('loadingOverlay').classList.remove('visible');
-
-    if (!res.ok || !data.success) {
-      throw new Error(data.error || 'Unknown error');
-    }
-
-    // Show success screen
-    document.getElementById('mainWrap').style.display = 'none';
-    document.getElementById('reportLink').href = data.reportUrl;
-    if (payload.event) {
+    const r = await fetch(API, { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(p) });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || !j.success) throw new Error(j.error || ('the server answered ' + r.status));
+    reportUrl = j.reportUrl;
+    lastRid = j.rid || '';
+    if (EVENT) {
       try {
-        const k = 'event-guest:' + payload.event;
-        const guest = JSON.parse(localStorage.getItem(k) || '{}') || {};
-        if (payload.name) guest.name = payload.name;
-        if (payload.email) guest.email = payload.email;
-        localStorage.setItem(k, JSON.stringify(guest));
-      } catch (e) {}
+        const k = 'event-guest:' + EVENT, g = JSON.parse(localStorage.getItem(k) || '{}') || {};
+        g.name = p.name; g.email = p.email; localStorage.setItem(k, JSON.stringify(g));
+      } catch (err) {}
     }
-    const evBack = evParams.get('back') || '';
-    if (payload.event && /^[a-z0-9-]+\.html$/.test(evBack)) {
-      const b = document.getElementById('eventBack');
-      b.href = evBack + '?done=health';
-      b.hidden = false;
-    }
-    const s = document.getElementById('successScreen');
-    s.style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
-  } catch (e) {
-    clearInterval(loadTimer);
-    document.getElementById('loadingOverlay').classList.remove('visible');
-    err.textContent = 'Something went wrong: ' + e.message + '. Please try again or contact Johnny directly.';
-    err.style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    $('form').hidden = true; $('bottom').hidden = true; $('doneView').hidden = false;
+    paintDone(); window.scrollTo(0, 0);
+  } catch (err) {
+    fail(tx(T.sendFail).replace('{e}', err.message));
+  } finally {
+    $('loading').hidden = true; $('next').disabled = false;
   }
 }
+
+/* The report opens locked for a customer; the consultant unlocks it. The reading below is the
+   "what this assessment is for" text that used to open the form. */
+function paintDone(){
+  const first = ($('f-name').value.trim().split(/\s+/)[0]) || '';
+  $('okTitle').textContent = tx(T.doneTitle).replace('{name}', first);
+  $('okSub').textContent = tx(T.doneSub);
+  $('okNote').textContent = tx(T.doneNote);
+  $('reportLink').textContent = tx(UI.okBtn);
+  $('reportLink').href = reportUrl || '#';
+  if (EVENT && BACK) { $('eventBack').hidden = false; $('eventBack').href = BACK + '?done=health'; $('eventBack').textContent = tx(T.eventBack); }
+  $('editText').textContent = tx(T.editText);
+  $('editBtn').textContent = tx(T.editBtn);
+  /* The reasoning, here rather than mid-form: it sets up what the report is for while they wait. */
+  const st = T.story;
+  [['stEyebrow','eyebrow'],['stTitle','title'],['stLead','lead'],['stDriversT','driversT'],['stEarlier','earlier'],['stQuote','quote'],
+   ['stSplitT','splitT'],['stDiet','diet'],['stWorkout','workout'],['stQuestion','question'],['stBottleT','bottleT'],['stBottle','bottle']]
+    .forEach(([id, k]) => { $(id).textContent = tx(st[k]); });
+  $('stDrivers').innerHTML = st.drivers.map((d, i) => '<div class="drv"><i>' + (i + 1) + '</i><div><b>' + esc(tx(d[0])) + '</b><span>' + esc(tx(d[1])) + '</span></div></div>').join('');
+}
+
+/* Back into the form with every answer still in place. Sending again replaces this report. */
+$('editBtn').onclick = () => {
+  $('doneView').hidden = true; $('form').hidden = false; $('bottom').hidden = false;
+  show(1);
+};
+
+/* The "what this is for" reading, split: the last paragraph (answer honestly) is always shown
+   at the top of page 2; the reasoning sits in a tab whose question makes people want to open it. */
+function paintWhyLife(){
+  const paras = tx(STAGE_SETTING.body).split('\n\n');
+  $('honest').textContent = paras[paras.length - 1];
+}
+
+/* Opened from an event page: the name and email this guest already typed there. */
+if (EVENT) {
+  try {
+    const g = JSON.parse(localStorage.getItem('event-guest:' + EVENT) || '{}') || {};
+    if (g.name) $('f-name').value = g.name;
+    if (g.email) $('f-email').value = g.email;
+  } catch (e) {}
+}
+
+renderLang(); adminChrome(); show(0);
 </script>
 </body>
 </html>
