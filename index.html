@@ -1962,6 +1962,7 @@ function toggleLangMenu(force) {
 
 function setLang(code) {
   currentLang = code;
+  try { localStorage.setItem('pv_lang', code); } catch (e) {}
   toggleLangMenu(false);
   document.documentElement.lang = code;
   document.getElementById('lang-toggle-btn')
@@ -3129,7 +3130,24 @@ document.getElementById('search-input').addEventListener('keydown', e => {
   if (e.key === 'Escape') { toggleSearch(false); toggleLangMenu(false); }
 });
 
+/* Language on arrival, in order: ?lang=zh on the link, then whatever this reader last
+   picked, then English. Johnny sends this link on WeChat, and a Chinese reader landing on an
+   English page and having to find a toggle is a page they close. */
+function initLang() {
+  var want = '';
+  try { want = (new URLSearchParams(location.search).get('lang') || '').toLowerCase(); } catch (e) {}
+  if (!want) { try { want = localStorage.getItem('pv_lang') || ''; } catch (e) {} }
+  if (want === 'cn' || want === 'zh-cn' || want === 'zh_hans') want = 'zh';
+  if (want && LANGS.some(function (l) { return l.code === want; })) {
+    currentLang = want;
+    document.documentElement.lang = want;
+    var b = document.getElementById('lang-toggle-btn');
+    if (b) b.classList.toggle('zh-active', want !== 'en');
+  }
+}
+
 function init() {
+  initLang();
   // Areas follow the 'order' field (pain-point priority); the first one is where the Areas tab opens
   if (AREAS.length && !AREAS.find(a => a.id === currentArea)) currentArea = AREAS[0].id;
   else if (AREAS.length) currentArea = AREAS[0].id;
