@@ -26,10 +26,10 @@
    "← उत्पादों पर लौटें"
   ],
   "stepFmt": [
-   "Step {n} of 3 — {t}",
-   "第 {n} 步，共 3 步 — {t}",
-   "Paso {n} de 3 — {t}",
-   "चरण {n} / 3 — {t}"
+   "Step {n} of 2 — {t}",
+   "第 {n} 步，共 2 步 — {t}",
+   "Paso {n} de 2 — {t}",
+   "चरण {n} / 2 — {t}"
   ],
   "step1": [
    "About You",
@@ -38,16 +38,10 @@
    "आपके बारे में"
   ],
   "step2": [
-   "How I Feel",
-   "身体感受",
-   "Cómo me siento",
-   "मैं कैसा महसूस करता हूँ"
-  ],
-  "step3": [
-   "Daily Habits",
-   "日常习惯",
-   "Hábitos diarios",
-   "दैनिक आदतें"
+   "Your Body and Habits",
+   "身体与习惯",
+   "Su cuerpo y sus hábitos",
+   "आपका शरीर और आदतें"
   ],
   "next": [
    "Continue →",
@@ -198,6 +192,18 @@
    "← 回到活动页面",
    "← Volver a la página del evento",
    "← इवेंट पेज पर वापस जाएँ"
+  ],
+  "w13": [
+   "Usually between 1 and 3 AM?",
+   "通常是在凌晨 1 到 3 点醒吗？",
+   "¿Suele ser entre la 1 y las 3 AM?",
+   "क्या आमतौर पर रात 1 से 3 बजे के बीच?"
+  ],
+  "no": [
+   "No",
+   "否",
+   "No",
+   "नहीं"
   ]
  },
  "SECTIONS": {
@@ -484,43 +490,6 @@
     "वह सब जो वसा नहीं है: मांसपेशी, हड्डी, अंग और पानी।"
    ]
   },
-  "f-breakfastFreq": {
-   "l": [
-    "Do you eat breakfast?",
-    "你吃早餐吗？",
-    "¿Desayuna?",
-    "क्या आप नाश्ता करते हैं?"
-   ],
-   "h": [
-    "The 7 to 9 AM window is when the digestive system is at its strongest, so a skipped breakfast is the meal that would have counted most.",
-    "上午7到9点是消化系统最强的时段（胃经当令），所以跳过的这一餐本来是最有价值的。",
-    "La ventana de 7 a 9 AM es cuando el sistema digestivo está más fuerte.",
-    "सुबह 7 से 9 बजे पाचन तंत्र सबसे मज़बूत होता है।"
-   ],
-   "o": [
-    [
-     "Yes, daily",
-     "Yes, every day",
-     "是，每天",
-     "Sí, todos los días",
-     "हाँ, रोज़"
-    ],
-    [
-     "Sometimes (3–4x/week)",
-     "Sometimes, 3–4 days a week",
-     "有时，每周3-4天",
-     "A veces, 3–4 días por semana",
-     "कभी-कभी, सप्ताह में 3–4 दिन"
-    ],
-    [
-     "Rarely or never",
-     "Rarely or never",
-     "很少或从不",
-     "Rara vez o nunca",
-     "शायद ही या कभी नहीं"
-    ]
-   ]
-  },
   "f-bedtime": {
    "l": [
     "Typical bedtime",
@@ -562,57 +531,6 @@
      "午夜以后",
      "Después de medianoche",
      "आधी रात के बाद"
-    ]
-   ]
-  },
-  "f-waking13": {
-   "l": [
-    "How often do you wake up during the night?",
-    "你夜里醒来的频率是？",
-    "¿Con qué frecuencia se despierta por la noche?",
-    "आप रात में कितनी बार जागते हैं?"
-   ],
-   "h": [
-    "Waking at night is worth separating from trouble falling asleep, because they have different causes. The 1 to 3 AM window matters specifically: it is when the liver does its heaviest processing, so waking in it regularly is read as information rather than as insomnia, and it connects to the eyes, emotional regulation and hormones.",
-    "夜醒和入睡困难要分开看，因为成因不同。凌晨1到3点这个时段尤其有意义：那是肝脏处理负荷最重的时候（肝经当令），持续在这个时段醒来被视为一条信息而不是失眠，它和眼睛、情绪调节、激素都相连。",
-    "Despertarse de noche conviene separarlo de la dificultad para dormirse, porque tienen causas distintas. La ventana de 1 a 3 AM importa en particular: es cuando el hígado hace su procesamiento más pesado.",
-    "रात में जागना और नींद आने में कठिनाई अलग-अलग हैं। 1 से 3 बजे की खिड़की विशेष रूप से मायने रखती है: तब जिगर सबसे भारी कार्य करता है।"
-   ],
-   "o": [
-    [
-     "Most nights, usually 1-3 AM",
-     "Most nights, usually between 1 and 3 AM",
-     "几乎每晚，通常在凌晨1-3点",
-     "Casi todas las noches, entre la 1 y las 3 AM",
-     "ज़्यादातर रातें, आमतौर पर 1-3 बजे"
-    ],
-    [
-     "Most nights, other times",
-     "Most nights, but at other times",
-     "几乎每晚，但不是这个时段",
-     "Casi todas las noches, a otras horas",
-     "ज़्यादातर रातें, अन्य समय"
-    ],
-    [
-     "A few nights a week",
-     "A few nights a week",
-     "每周几晚",
-     "Algunas noches por semana",
-     "सप्ताह में कुछ रातें"
-    ],
-    [
-     "Occasionally",
-     "Occasionally",
-     "偶尔",
-     "De vez en cuando",
-     "कभी-कभार"
-    ],
-    [
-     "Rarely or never",
-     "Rarely or never",
-     "很少或从不",
-     "Rara vez o nunca",
-     "शायद ही या कभी नहीं"
     ]
    ]
   },

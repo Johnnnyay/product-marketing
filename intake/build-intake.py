@@ -119,9 +119,6 @@ def main():
     F['f-water'] = {'l': Q['diet']['water']['l'],
                     'h': Q['diet']['water']['h'],
                     'o': Q['diet']['water']['o']}
-    F['f-smoking'] = {'l': Q['diet']['smoking']['l'],
-                      'h': Q['diet']['smoking']['h'],
-                      'o': Q['diet']['smoking']['o']}
     F['f-medication'] = {'t': 'textarea',
                          'l': Q['medication']['l'],
                          'ph': Q['medication']['ph'],
@@ -152,6 +149,8 @@ def main():
     W('const DIAGNOSES = ' + js({k: v for k, v in Q['diagnoses'].items()
                                  if k != 'followUp'}) + ';')
     W('')
+    W('const SUPPLEMENTS = ' + js(Q['supplements']) + ';')
+    W('')
     W('/* %d core items. Everyone answers all of them: age and sex only ever ADD,' % core)
     W('   never hide, so an early metabolic signal in a young person is still found. */')
     W('const SYMPTOM_GROUPS = ' + js(Q['groups']) + ';')
@@ -162,8 +161,8 @@ def main():
     W('const SYMPTOM_HELP = ' + js(Q['help']) + ';')
     W('')
     W('if (typeof module !== \'undefined\') module.exports = {')
-    W('  FORM_VERSION, LANGS, UI, SECTIONS, FIELDS, SCALES, STAGE_SETTING, PRIORITIES, MOTIVATION,')
-    W('  DIET_FREQ, DIET_SECTION, DIAGNOSES, SYMPTOM_GROUPS, ADDITIVE_GROUPS, SYMPTOM_HELP')
+    W('  FORM_VERSION, LANGS, UI, SECTIONS, FIELDS, SCALES, STAGE_SETTING, PRIORITIES,')
+    W('  DIET_FREQ, DIET_SECTION, DIAGNOSES, SUPPLEMENTS, SYMPTOM_GROUPS, ADDITIVE_GROUPS, SYMPTOM_HELP')
     W('};')
     W('')
 

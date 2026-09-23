@@ -1,11 +1,11 @@
 /* GENERATED FILE, DO NOT EDIT.
-   Built from intake/questions.json (v2.3) and intake/chrome.json
+   Built from intake/questions.json (v2.4) and intake/chrome.json
    by intake/build-intake.py on 2026-09-23.
 
    Edit the question set in intake/questions.json and run the build again.
    Editing this file directly means the next build silently reverts you. */
 
-const FORM_VERSION = "2.3";
+const FORM_VERSION = "2.4";
 
 const LANGS = [
   { code: 'en', label: 'English' },
@@ -40,10 +40,10 @@ const UI = {
   "← उत्पादों पर लौटें"
  ],
  "stepFmt": [
-  "Step {n} of 3 — {t}",
-  "第 {n} 步，共 3 步 — {t}",
-  "Paso {n} de 3 — {t}",
-  "चरण {n} / 3 — {t}"
+  "Step {n} of 2 — {t}",
+  "第 {n} 步，共 2 步 — {t}",
+  "Paso {n} de 2 — {t}",
+  "चरण {n} / 2 — {t}"
  ],
  "step1": [
   "About You",
@@ -52,16 +52,10 @@ const UI = {
   "आपके बारे में"
  ],
  "step2": [
-  "How I Feel",
-  "身体感受",
-  "Cómo me siento",
-  "मैं कैसा महसूस करता हूँ"
- ],
- "step3": [
-  "Daily Habits",
-  "日常习惯",
-  "Hábitos diarios",
-  "दैनिक आदतें"
+  "Your Body and Habits",
+  "身体与习惯",
+  "Su cuerpo y sus hábitos",
+  "आपका शरीर और आदतें"
  ],
  "next": [
   "Continue →",
@@ -212,6 +206,18 @@ const UI = {
   "← 回到活动页面",
   "← Volver a la página del evento",
   "← इवेंट पेज पर वापस जाएँ"
+ ],
+ "w13": [
+  "Usually between 1 and 3 AM?",
+  "通常是在凌晨 1 到 3 点醒吗？",
+  "¿Suele ser entre la 1 y las 3 AM?",
+  "क्या आमतौर पर रात 1 से 3 बजे के बीच?"
+ ],
+ "no": [
+  "No",
+  "否",
+  "No",
+  "नहीं"
  ]
 };
 
@@ -500,43 +506,6 @@ const FIELDS = {
    "वह सब जो वसा नहीं है: मांसपेशी, हड्डी, अंग और पानी।"
   ]
  },
- "f-breakfastFreq": {
-  "l": [
-   "Do you eat breakfast?",
-   "你吃早餐吗？",
-   "¿Desayuna?",
-   "क्या आप नाश्ता करते हैं?"
-  ],
-  "h": [
-   "The 7 to 9 AM window is when the digestive system is at its strongest, so a skipped breakfast is the meal that would have counted most.",
-   "上午7到9点是消化系统最强的时段（胃经当令），所以跳过的这一餐本来是最有价值的。",
-   "La ventana de 7 a 9 AM es cuando el sistema digestivo está más fuerte.",
-   "सुबह 7 से 9 बजे पाचन तंत्र सबसे मज़बूत होता है।"
-  ],
-  "o": [
-   [
-    "Yes, daily",
-    "Yes, every day",
-    "是，每天",
-    "Sí, todos los días",
-    "हाँ, रोज़"
-   ],
-   [
-    "Sometimes (3–4x/week)",
-    "Sometimes, 3–4 days a week",
-    "有时，每周3-4天",
-    "A veces, 3–4 días por semana",
-    "कभी-कभी, सप्ताह में 3–4 दिन"
-   ],
-   [
-    "Rarely or never",
-    "Rarely or never",
-    "很少或从不",
-    "Rara vez o nunca",
-    "शायद ही या कभी नहीं"
-   ]
-  ]
- },
  "f-bedtime": {
   "l": [
    "Typical bedtime",
@@ -578,57 +547,6 @@ const FIELDS = {
     "午夜以后",
     "Después de medianoche",
     "आधी रात के बाद"
-   ]
-  ]
- },
- "f-waking13": {
-  "l": [
-   "How often do you wake up during the night?",
-   "你夜里醒来的频率是？",
-   "¿Con qué frecuencia se despierta por la noche?",
-   "आप रात में कितनी बार जागते हैं?"
-  ],
-  "h": [
-   "Waking at night is worth separating from trouble falling asleep, because they have different causes. The 1 to 3 AM window matters specifically: it is when the liver does its heaviest processing, so waking in it regularly is read as information rather than as insomnia, and it connects to the eyes, emotional regulation and hormones.",
-   "夜醒和入睡困难要分开看，因为成因不同。凌晨1到3点这个时段尤其有意义：那是肝脏处理负荷最重的时候（肝经当令），持续在这个时段醒来被视为一条信息而不是失眠，它和眼睛、情绪调节、激素都相连。",
-   "Despertarse de noche conviene separarlo de la dificultad para dormirse, porque tienen causas distintas. La ventana de 1 a 3 AM importa en particular: es cuando el hígado hace su procesamiento más pesado.",
-   "रात में जागना और नींद आने में कठिनाई अलग-अलग हैं। 1 से 3 बजे की खिड़की विशेष रूप से मायने रखती है: तब जिगर सबसे भारी कार्य करता है।"
-  ],
-  "o": [
-   [
-    "Most nights, usually 1-3 AM",
-    "Most nights, usually between 1 and 3 AM",
-    "几乎每晚，通常在凌晨1-3点",
-    "Casi todas las noches, entre la 1 y las 3 AM",
-    "ज़्यादातर रातें, आमतौर पर 1-3 बजे"
-   ],
-   [
-    "Most nights, other times",
-    "Most nights, but at other times",
-    "几乎每晚，但不是这个时段",
-    "Casi todas las noches, a otras horas",
-    "ज़्यादातर रातें, अन्य समय"
-   ],
-   [
-    "A few nights a week",
-    "A few nights a week",
-    "每周几晚",
-    "Algunas noches por semana",
-    "सप्ताह में कुछ रातें"
-   ],
-   [
-    "Occasionally",
-    "Occasionally",
-    "偶尔",
-    "De vez en cuando",
-    "कभी-कभार"
-   ],
-   [
-    "Rarely or never",
-    "Rarely or never",
-    "很少或从不",
-    "Rara vez o nunca",
-    "शायद ही या कभी नहीं"
    ]
   ]
  },
@@ -1002,50 +920,6 @@ const FIELDS = {
     "2.5 升以上",
     "2,5 L o más",
     "2.5 लीटर या अधिक"
-   ]
-  ]
- },
- "f-smoking": {
-  "l": [
-   "Do you smoke or vape?",
-   "你抽烟或用电子烟吗？",
-   "¿Fuma o vapea?",
-   "क्या आप धूम्रपान या वेप करते हैं?"
-  ],
-  "h": [
-   "Asked on its own rather than bundled with alcohol, because it changes a number rather than adding a note: NIH sets the vitamin C requirement 35 mg a day higher for smokers.",
-   "这一题单独问，没有和喝酒放在一起，因为它改变的是一个数字而不是一句备注：NIH 规定吸烟者的维生素 C 需要量每天要高出 35 毫克。",
-   "Se pregunta aparte y no junto al alcohol porque cambia una cifra, no una observación: el NIH fija el requerimiento de vitamina C 35 mg al día más alto en fumadores.",
-   "यह प्रश्न शराब के साथ नहीं, अलग पूछा जाता है क्योंकि यह एक संख्या बदलता है: NIH धूम्रपान करने वालों के लिए विटामिन C की आवश्यकता प्रतिदिन 35 मिग्रा अधिक तय करता है।"
-  ],
-  "o": [
-   [
-    "Daily",
-    "Daily",
-    "每天",
-    "A diario",
-    "रोज़"
-   ],
-   [
-    "Sometimes",
-    "Sometimes",
-    "有时",
-    "A veces",
-    "कभी-कभी"
-   ],
-   [
-    "No",
-    "No",
-    "不抽",
-    "No",
-    "नहीं"
-   ],
-   [
-    "Quit",
-    "I quit",
-    "已戒",
-    "Lo dejé",
-    "छोड़ दिया"
    ]
   ]
  },
@@ -1524,6 +1398,17 @@ const PRIORITIES = {
    feeds, so a question nobody acts on is visible as such. */
 const DIET_FREQ = [
  {
+  "id": "d-breakfast",
+  "field": "breakfastFreq",
+  "computes": "breakfast pattern: morning protein and the afternoon energy dip",
+  "l": [
+   "Breakfast",
+   "吃早餐",
+   "Desayuno",
+   "नाश्ता"
+  ]
+ },
+ {
   "id": "d-veg",
   "computes": "fibre, folate, magnesium, potassium",
   "l": [
@@ -1612,15 +1497,32 @@ const DIET_FREQ = [
    "Bebidas alcohólicas",
    "मादक पेय"
   ]
+ },
+ {
+  "id": "d-smoking",
+  "field": "smoking",
+  "computes": "vitamin C requirement, NIH sets it 35 mg/day higher for smokers",
+  "send": {
+   "Most days": "Daily",
+   "Few weekly": "Sometimes",
+   "Rarely": "Rarely",
+   "Never": "No"
+  },
+  "l": [
+   "Smoking or vaping",
+   "抽烟或电子烟",
+   "Fumar o vapear",
+   "धूम्रपान या वेपिंग"
+  ]
  }
 ];
 
 const DIET_SECTION = {
  "title": [
-  "What You Eat and Drink",
-  "你平时吃什么、喝什么",
-  "Qué come y qué bebe",
-  "आप क्या खाते और पीते हैं"
+  "Your Usual Week",
+  "你平常的一周",
+  "Su semana habitual",
+  "आपका सामान्य सप्ताह"
  ],
  "sub": [
   "This is where the nutrient numbers come from. Answer for a normal week, not your best one.",
@@ -1752,6 +1654,115 @@ const DIAGNOSES = {
    "Otra cosa",
    "कुछ और"
   ]
+ ]
+};
+
+const SUPPLEMENTS = {
+ "note": "Tapped names are sent in English, joined with anything typed in the text line.",
+ "o": [
+  [
+   "Multivitamin",
+   "Multivitamin",
+   "复合维生素",
+   "Multivitamínico",
+   "मल्टीविटामिन"
+  ],
+  [
+   "Vitamin D",
+   "Vitamin D",
+   "维生素 D",
+   "Vitamina D",
+   "विटामिन D"
+  ],
+  [
+   "Vitamin C",
+   "Vitamin C",
+   "维生素 C",
+   "Vitamina C",
+   "विटामिन C"
+  ],
+  [
+   "B vitamins",
+   "B vitamins",
+   "B 族维生素",
+   "Vitaminas B",
+   "बी विटामिन"
+  ],
+  [
+   "Fish oil / omega 3",
+   "Fish oil / omega 3",
+   "鱼油 / Omega-3",
+   "Aceite de pescado / omega 3",
+   "फ़िश ऑयल / ओमेगा 3"
+  ],
+  [
+   "Magnesium",
+   "Magnesium",
+   "镁",
+   "Magnesio",
+   "मैग्नीशियम"
+  ],
+  [
+   "Calcium",
+   "Calcium",
+   "钙",
+   "Calcio",
+   "कैल्शियम"
+  ],
+  [
+   "Iron",
+   "Iron",
+   "铁",
+   "Hierro",
+   "आयरन"
+  ],
+  [
+   "Zinc",
+   "Zinc",
+   "锌",
+   "Zinc",
+   "ज़िंक"
+  ],
+  [
+   "Probiotic",
+   "Probiotic",
+   "益生菌",
+   "Probiótico",
+   "प्रोबायोटिक"
+  ],
+  [
+   "Protein powder",
+   "Protein powder",
+   "蛋白粉",
+   "Proteína en polvo",
+   "प्रोटीन पाउडर"
+  ],
+  [
+   "Collagen",
+   "Collagen",
+   "胶原蛋白",
+   "Colágeno",
+   "कोलेजन"
+  ],
+  [
+   "Herbal (turmeric, ashwagandha...)",
+   "Herbal, e.g. turmeric or ashwagandha",
+   "草本类，如姜黄、南非醉茄",
+   "Hierbas, como cúrcuma o ashwagandha",
+   "हर्बल, जैसे हल्दी या अश्वगंधा"
+  ]
+ ],
+ "none": [
+  "I don't take any",
+  "目前没有吃",
+  "No tomo ninguno",
+  "मैं कोई नहीं लेता"
+ ],
+ "otherPh": [
+  "Anything else? Type it here (optional)",
+  "还有别的？写在这里（可选）",
+  "¿Algo más? Escríbalo aquí (opcional)",
+  "कुछ और? यहाँ लिखें (वैकल्पिक)"
  ]
 };
 
@@ -1941,11 +1952,11 @@ const SYMPTOM_GROUPS = [
     "ज्वलंत सपने"
    ],
    [
-    "Wake up easily at night, especially startled",
-    "Wake up startled at night",
-    "夜惊易醒",
-    "Despertar sobresaltado",
-    "रात में चौंककर जागना"
+    "Wake up during the night",
+    "Wake up during the night",
+    "夜里容易醒",
+    "Despertarse durante la noche",
+    "रात में नींद खुल जाना"
    ],
    [
     "Feel anxious or nervous",
@@ -2589,7 +2600,7 @@ const SYMPTOM_HELP = {
   "El sueño es el momento dorado de reparación. El insomnio y los sueños vívidos se relacionan con estrés alto y nutrientes insuficientes para sintetizar neurotransmisores.",
   "नींद मरम्मत का स्वर्णिम समय है। अनिद्रा उच्च तनाव और न्यूरोट्रांसमीटर के लिए अपर्याप्त पोषक तत्वों से जुड़ी है।"
  ],
- "Wake up easily at night, especially startled": [
+ "Wake up during the night": [
   "Waking easily at specific times, such as 1 to 3 AM when the liver is most active, signals that the liver is doing intensive detoxification but may be overloaded. If accompanied by palpitations it may also relate to cardiopulmonary function or blood quality.",
   "在特定时间（如凌晨1-3点肝经当令时）易醒，是肝脏正在进行高强度解毒工作但可能负担过重的信号。如果伴有心慌，也可能与心肺功能或血液质量有关。这表明身体需要更有力的排毒支持和更均衡的神经营养。",
   "Despertar a horas concretas, como entre la 1 y las 3 AM cuando el hígado está más activo, señala una desintoxicación intensa pero posiblemente sobrecargada.",
@@ -2922,6 +2933,6 @@ const SYMPTOM_HELP = {
 };
 
 if (typeof module !== 'undefined') module.exports = {
-  FORM_VERSION, LANGS, UI, SECTIONS, FIELDS, SCALES, STAGE_SETTING, PRIORITIES, MOTIVATION,
-  DIET_FREQ, DIET_SECTION, DIAGNOSES, SYMPTOM_GROUPS, ADDITIVE_GROUPS, SYMPTOM_HELP
+  FORM_VERSION, LANGS, UI, SECTIONS, FIELDS, SCALES, STAGE_SETTING, PRIORITIES,
+  DIET_FREQ, DIET_SECTION, DIAGNOSES, SUPPLEMENTS, SYMPTOM_GROUPS, ADDITIVE_GROUPS, SYMPTOM_HELP
 };

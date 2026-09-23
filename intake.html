@@ -131,6 +131,17 @@
   .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--green)}
   .field textarea{resize:vertical;min-height:80px}
   .field .hint{font-size:12px;color:var(--gray-400);margin-top:4px}
+  .field select.as-chips{display:none}
+  .select-chips{margin-top:2px}
+  .select-chips .chip,#suppChips .chip,#diagChips .chip{font-size:13px;padding:8px 13px}
+  .field input.supp-other{margin-top:10px}
+  .wake-fu{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 8px;padding:9px 12px;background:var(--green-light);border-radius:9px;font-size:13px;color:var(--gray-600)}
+  .wake-fu[hidden]{display:none}
+  .wake-fu span{margin-right:4px}
+  .wake-fu .chip{padding:5px 13px;font-size:12.5px}
+  .field[hidden]{display:none}
+  #cycleFields{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+  @media(max-width:600px){#cycleFields{grid-template-columns:1fr}}
   .unit-pair{display:flex;align-items:center;gap:8px}
   .unit-box{position:relative;flex:1 1 0;min-width:0}
   .unit-box.wide{flex:1.4 1 0}
@@ -202,6 +213,14 @@
 
   /* Steps visibility */
   .step{display:none}.step.active{display:block}
+
+  /* On a phone the four answer buttons do not fit beside the question, so the question takes its
+     own line and the answers share the full width below it. Last in the sheet so it wins. */
+  @media(max-width:600px){
+    .symptom-row,.diet-row{display:flex;flex-direction:column;align-items:stretch;gap:7px}
+    .symptom-row .freq-btns,.diet-row .freq-btns{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}
+    .symptom-row .freq-btn,.diet-row .freq-btn{white-space:normal;text-align:center;padding:7px 3px;line-height:1.25}
+  }
 </style>
 <script src="intake-content.js"></script>
 </head>
@@ -231,9 +250,8 @@
   <div class="progress-bar">
     <div class="progress-step active" id="prog0"></div>
     <div class="progress-step" id="prog1"></div>
-    <div class="progress-step" id="prog2"></div>
   </div>
-  <div class="step-label" id="stepLabel" data-ui="stepLabel">Step 1 of 3 — About You</div>
+  <div class="step-label" id="stepLabel" data-ui="stepLabel">Step 1 of 2 — About You</div>
 
   <div class="error-box" id="errorBox"></div>
 
@@ -257,7 +275,7 @@
       <div class="field-row">
         <div class="field"><label>Date of Birth *</label><input type="date" id="f-dob" required></div>
         <div class="field"><label>Gender *</label>
-          <select id="f-gender">
+          <select id="f-gender" class="as-chips">
             <option value="">Select...</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
@@ -328,11 +346,13 @@
     </div>
 
     <div class="step-nav">
-      <button class="btn btn-primary" onclick="goStep(1)">Continue → How I Feel</button>
+      <button class="btn btn-primary" onclick="goStep(1)">Continue →</button>
     </div>
   </div>
 
-  <!-- ═══ STEP 2: Symptoms ═══ -->
+  <!-- ═══ STEP 2: Symptoms, then habits, then submit ═══
+       Everything is a tap: dropdowns render as chips (select.as-chips), and the questions only
+       some people need (diagnoses, medication, supplement consistency) open behind a Yes. -->
   <div class="step" id="step1">
 
     <div class="card">
@@ -342,64 +362,27 @@
       <div id="symptomContainer"></div>
     </div>
 
-    <div class="step-nav">
-      <button class="btn btn-secondary" onclick="goStep(0)" data-ui="back">← Back</button>
-      <button class="btn btn-primary" onclick="goStep(2)">Continue → Lifestyle</button>
-    </div>
-  </div>
-
-  <!-- ═══ STEP 3: Lifestyle + Submit ═══ -->
-  <div class="step" id="step2">
-
     <div class="card">
-      <div class="card-title" data-sec="habits">Daily Habits</div>
-
       <!-- The nutrient estimate is built here. Structured answers do the
            arithmetic and are comparable at the next assessment; the free text
-           supplies the specifics neither a dropdown nor a scale can carry. -->
-      <div class="card-title" id="dietTitle" style="margin-top:4px"></div>
+           supplies the specifics a scale cannot carry. -->
+      <div class="card-title" id="dietTitle"></div>
       <p class="card-sub" id="dietSub" style="font-size:12.5px;color:var(--gray-500);line-height:1.6;margin-bottom:12px"></p>
       <div id="dietRows"></div>
 
-      <div class="field-row" style="margin-top:16px">
-        <div class="field"><label></label><select id="f-water"></select></div>
-        <div class="field"><label></label><select id="f-smoking"></select></div>
+      <div class="field" style="margin-top:18px"><label></label><select id="f-water" class="as-chips"></select></div>
+      <div class="field"><label>Typical bedtime</label>
+        <select id="f-bedtime" class="as-chips">
+          <option value="">Select...</option>
+          <option value="Before 10 PM">Before 10 PM</option>
+          <option value="10–11 PM">10–11 PM</option>
+          <option value="11 PM–midnight">11 PM – midnight</option>
+          <option value="After midnight">After midnight</option>
+        </select>
       </div>
-
       <div class="field">
         <label></label>
-        <textarea id="f-diet" rows="5"></textarea>
-      </div>
-
-      <div class="field-row">
-        <div class="field"><label>Do you eat breakfast?</label>
-          <select id="f-breakfastFreq">
-            <option value="">Select...</option>
-            <option value="Yes, daily">Yes, daily</option>
-            <option value="Sometimes (3–4x/week)">Sometimes (3–4x/week)</option>
-            <option value="Rarely or never">Rarely or never</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="field-row">
-        <div class="field"><label>Typical bedtime</label>
-          <select id="f-bedtime">
-            <option value="">Select...</option>
-            <option value="Before 10 PM">Before 10 PM</option>
-            <option value="10–11 PM">10–11 PM</option>
-            <option value="11 PM–midnight">11 PM – midnight</option>
-            <option value="After midnight">After midnight</option>
-          </select>
-        </div>
-        <div class="field"><label>Do you wake between 1–3 AM?</label>
-          <select id="f-waking13">
-            <option value="">Select...</option>
-            <option value="Yes, regularly">Yes, regularly</option>
-            <option value="Occasionally">Occasionally</option>
-            <option value="No">No</option>
-          </select>
-        </div>
+        <textarea id="f-diet" rows="4"></textarea>
       </div>
     </div>
 
@@ -407,10 +390,11 @@
       <div class="card-title" data-sec="supplements">Supplements</div>
       <div class="field">
         <label>What supplements do you currently take?</label>
-        <textarea id="f-supplements" placeholder="e.g. Vitamin D, fish oil, magnesium, Double X... or 'none'"></textarea>
+        <div class="chip-grid" id="suppChips"></div>
+        <input type="text" id="f-supplements" class="supp-other" maxlength="300">
       </div>
-      <div class="field"><label>How consistently do you take them?</label>
-        <select id="f-supplementFreq">
+      <div class="field" id="suppFreqField" hidden><label>How consistently do you take them?</label>
+        <select id="f-supplementFreq" class="as-chips" data-skip="Not currently taking any">
           <option value="">Select...</option>
           <option value="Daily without fail">Daily without fail</option>
           <option value="Sometimes (3–4x/week)">Sometimes (3–4 days a week)</option>
@@ -418,7 +402,10 @@
           <option value="Not currently taking any">Not currently taking any</option>
         </select>
       </div>
-      <div class="card-title" id="stoolTitle" data-sec="bowel" style="margin-top:26px">Bowel and Digestion</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title" id="stoolTitle" data-sec="bowel">Bowel and Digestion</div>
       <p class="card-sub" id="stoolSub" data-sec="bowelSub" style="font-size:12.5px;color:var(--gray-500);line-height:1.6;margin-bottom:14px"></p>
       <div id="stoolFields"></div>
 
@@ -426,11 +413,18 @@
         <div class="card-title" id="cycleTitle" data-sec="cycle" style="margin-top:26px">Menstrual Cycle</div>
         <div id="cycleFields"></div>
       </div>
+    </div>
 
-      <div class="card-title" id="diagTitle" style="margin-top:26px"></div>
+    <div class="card">
       <div class="field" id="diagField">
         <label id="diagLabel"></label>
-        <div class="chip-grid" id="diagChips"></div>
+        <div class="toggle-row toggle-row-compact" onclick="document.getElementById('hasDiagnosis').click()">
+          <input type="checkbox" class="toggle" id="hasDiagnosis" onchange="toggleDiag(this.checked)" onclick="event.stopPropagation()">
+          <span class="toggle-label" data-ui="medToggle">Yes</span>
+        </div>
+        <div id="diagWrap" style="display:none;margin-top:10px">
+          <div class="chip-grid" id="diagChips"></div>
+        </div>
       </div>
       <div class="field" id="diagNoteField" style="display:none">
         <label></label>
@@ -449,12 +443,12 @@
 
       <div class="field">
         <label>Anything else you want the consultant to know?</label>
-        <textarea id="f-notes" placeholder="Recent health changes, specific concerns, goals..."></textarea>
+        <textarea id="f-notes" rows="3" placeholder="Recent health changes, specific concerns, goals..."></textarea>
       </div>
     </div>
 
     <div class="step-nav">
-      <button class="btn btn-secondary" onclick="goStep(1)" data-ui="back">← Back</button>
+      <button class="btn btn-secondary" onclick="goStep(0)" data-ui="back">← Back</button>
       <button class="btn btn-primary" id="submitBtn" onclick="submitForm()" data-ui="submit">Generate My Report →</button>
     </div>
   </div>
@@ -495,7 +489,7 @@
 let currentStep = 0;
 /* Step names come from the content file so they translate with everything else. */
 function stepLabel(n) {
-  const names = [UI.step1, UI.step2, UI.step3];
+  const names = [UI.step1, UI.step2];
   return tx(UI.stepFmt).replace('{n}', n + 1).replace('{t}', tx(names[n] || names[0]));
 }
 
@@ -552,6 +546,84 @@ function toggleScale(on) {
 function toggleMedField(on) {
   document.getElementById('medFieldWrap').style.display = on ? '' : 'none';
   if (!on) document.getElementById('f-medication').value = '';
+}
+
+/* Most people have no diagnosis to report, so the list stays closed until they say Yes.
+   Turning it off again clears what was picked, so a mis-tap leaves nothing behind. */
+function toggleDiag(on) {
+  document.getElementById('diagWrap').style.display = on ? '' : 'none';
+  if (!on) {
+    Object.keys(diagnosisValues).forEach(k => delete diagnosisValues[k]);
+    document.getElementById('f-diagnosedNote').value = '';
+    buildDiagnoses();
+  }
+  document.getElementById('diagNoteField').style.display = on && Object.keys(diagnosisValues).length ? '' : 'none';
+}
+
+/* Every single-answer question is a row of chips. The <select> stays in the page, hidden, as
+   the place the answer lives, so the labels, translations and the submitted value all work as
+   they did when it was a dropdown. Tapping the chosen chip again clears it. */
+function renderSelectChips() {
+  document.querySelectorAll('select.as-chips').forEach(sel => {
+    let host = sel.nextElementSibling;
+    if (!host || !host.classList.contains('select-chips')) {
+      host = document.createElement('div');
+      host.className = 'chip-grid select-chips';
+      sel.after(host);
+    }
+    const skip = sel.dataset.skip || '';
+    host.innerHTML = '';
+    [...sel.options].forEach(o => {
+      if (!o.value || o.value === skip) return;
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chip' + (sel.value === o.value ? ' on' : '');
+      b.textContent = o.textContent;
+      b.onclick = () => {
+        sel.value = sel.value === o.value ? '' : o.value;
+        sel.dispatchEvent(new Event('change', { bubbles: true }));
+        renderSelectChips();
+      };
+      host.appendChild(b);
+    });
+  });
+}
+
+/* Supplements: tap the common ones, type anything else. "None" clears the rest. The
+   consistency question only matters once they take something, so it waits until then. */
+const suppValues = {};
+let suppNone = false;
+function buildSupplements() {
+  const host = document.getElementById('suppChips');
+  if (!host) return;
+  host.innerHTML = '';
+  const chip = (label, on, click) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip' + (on ? ' on' : '');
+    b.textContent = label; b.onclick = click;
+    host.appendChild(b);
+  };
+  SUPPLEMENTS.o.forEach(o => chip(o[1 + LI()] || o[1], !!suppValues[o[0]], () => {
+    if (suppValues[o[0]]) delete suppValues[o[0]]; else suppValues[o[0]] = true;
+    suppNone = false; buildSupplements();
+  }));
+  chip(tx(SUPPLEMENTS.none), suppNone, () => {
+    suppNone = !suppNone;
+    if (suppNone) { Object.keys(suppValues).forEach(k => delete suppValues[k]); document.getElementById('f-supplements').value = ''; }
+    buildSupplements();
+  });
+  const other = document.getElementById('f-supplements');
+  other.placeholder = tx(SUPPLEMENTS.otherPh);
+  other.oninput = () => { if (other.value.trim()) suppNone = false; syncSuppFreq(); };
+  syncSuppFreq();
+}
+function syncSuppFreq() {
+  const takes = Object.keys(suppValues).length > 0 || !!document.getElementById('f-supplements').value.trim();
+  const f = document.getElementById('suppFreqField');
+  f.hidden = !takes;
+  if (!takes) { document.getElementById('f-supplementFreq').value = ''; renderSelectChips(); }
+  const noneChip = [...document.querySelectorAll('#suppChips .chip')].pop();
+  if (noneChip) noneChip.classList.toggle('on', suppNone);
 }
 
 // ─── LOADING ANIMATION ───────────────────────────────────────────────────────
@@ -792,7 +864,7 @@ function buildDiagnoses(){
   const l = document.getElementById('diagLabel');
   if (!l) return;
   if (t) t.textContent = tx(DIAGNOSES.l);
-  l.textContent = '';
+  l.textContent = tx(DIAGNOSES.l);
   ensureHelpFor(document.getElementById('diagField'), DIAGNOSES.h);
   renderChips(document.getElementById('diagChips'), DIAGNOSES.o, diagnosisValues);
 }
@@ -918,6 +990,10 @@ function buildSymptoms() {
       }
       const btns = document.createElement('div');
       btns.className = 'freq-btns';
+      /* Night waking asks one more thing, and only of people who wake: whether it is usually
+         1 to 3 AM, which the report reads as the liver's window. */
+      const wakeFu = item[0] === WAKE_KEY ? buildWakeFollowUp() : null;
+      const syncWake = () => { if (wakeFu) wakeFu.hidden = !/^(Often|Occasionally)$/.test(symptomValues[key] || ''); };
       FREQ.forEach(f => {
         const b = document.createElement('button');
         b.type = 'button';
@@ -928,17 +1004,49 @@ function buildSymptoms() {
              permanent: there was no way back to "unanswered" once anything was chosen. */
           const already = symptomValues[key] === f[0];
           btns.querySelectorAll('.freq-btn').forEach(x => x.className = 'freq-btn');
-          if (already) { delete symptomValues[key]; return; }
-          b.className = 'freq-btn selected-' + f[0].toLowerCase();
-          symptomValues[key] = f[0];
+          if (already) delete symptomValues[key];
+          else { b.className = 'freq-btn selected-' + f[0].toLowerCase(); symptomValues[key] = f[0]; }
+          syncWake();
         };
         btns.appendChild(b);
       });
       row.appendChild(nameDiv); row.appendChild(btns);
       div.appendChild(row); if (ibox) div.appendChild(ibox);
+      if (wakeFu) { div.appendChild(wakeFu); syncWake(); }
     });
     container.appendChild(div);
   });
+}
+
+const WAKE_KEY = 'Wake up during the night';
+let wake13 = '';
+function buildWakeFollowUp() {
+  const fu = document.createElement('div');
+  fu.className = 'wake-fu';
+  const q = document.createElement('span');
+  q.textContent = tx(UI.w13);
+  fu.appendChild(q);
+  [['yes', UI.medToggle], ['no', UI.no]].forEach(([v, label]) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'chip' + (wake13 === v ? ' on' : '');
+    b.textContent = tx(label);
+    b.onclick = () => {
+      wake13 = wake13 === v ? '' : v;
+      fu.querySelectorAll('.chip').forEach(x => x.classList.remove('on'));
+      if (wake13) b.classList.add('on');
+    };
+    fu.appendChild(b);
+  });
+  return fu;
+}
+/* The 1-3 AM answer the report has always read, now from the symptom row and its follow-up. */
+function waking13Text() {
+  const k = Object.keys(symptomValues).find(x => x.endsWith('__' + WAKE_KEY));
+  const v = k ? symptomValues[k] : '';
+  if (v === 'Barely') return 'Rarely or never';
+  if (v !== 'Often' && v !== 'Occasionally') return null;
+  return v + (wake13 === 'yes' ? ', usually between 1 and 3 AM' : wake13 === 'no' ? ', usually at other times' : '');
 }
 
 function buildDynamicFields() {
@@ -950,6 +1058,7 @@ function buildDynamicFields() {
       w.appendChild(document.createElement('label'));
       const sel = document.createElement('select');
       sel.id = k;
+      sel.className = 'as-chips';
       w.appendChild(sel);
       host.appendChild(w);
     });
@@ -1009,7 +1118,9 @@ function applyLang() {
   buildPriorities();
   buildDiet();
   buildDiagnoses();
+  buildSupplements();
   buildSymptoms();
+  renderSelectChips();
 }
 
 function syncCycleVisibility() {
@@ -1078,6 +1189,21 @@ async function submitForm() {
 
   // Build payload
   const val = (id) => { const e = document.getElementById(id); return e ? (e.value || '').trim() : ''; };
+  /* Grid rows that carry a `field` (breakfast, smoking) are sent under their own names, as
+     they were when they were separate questions; the rest are the food frequency. */
+  const gridFood = {}, gridOwn = {};
+  DIET_FREQ.forEach(q => {
+    const v = dietValues[q.id];
+    if (!v) return;
+    if (q.field) gridOwn[q.field] = (q.send && q.send[v]) || v;
+    else gridFood[q.id] = v;
+  });
+  const suppText = () => {
+    if (suppNone) return 'None';
+    const picked = SUPPLEMENTS.o.filter(o => suppValues[o[0]]).map(o => o[0]);
+    const typed = val('f-supplements');
+    return picked.concat(typed ? [typed] : []).join(', ') || null;
+  };
   const payload = {
     /* Which question set produced these answers. Without it, comparing an
        assessment taken before a question changed against one taken after is
@@ -1101,15 +1227,15 @@ async function submitForm() {
     diagnosed: Object.keys(diagnosisValues),
     diagnosedNote: val('f-diagnosedNote') || null,
     medication: (document.getElementById('hasMedication').checked ? val('f-medication') : '') || null,
-    dietFrequency: dietValues,
-    smoking: val('f-smoking') || null,
+    dietFrequency: gridFood,
+    smoking: gridOwn.smoking || null,
     water: document.getElementById('f-water').value || null,
     diet: document.getElementById('f-diet').value || null,
-    breakfastFreq: document.getElementById('f-breakfastFreq').value || null,
+    breakfastFreq: gridOwn.breakfastFreq || null,
     bedtime: document.getElementById('f-bedtime').value || null,
-    waking13: document.getElementById('f-waking13').value || null,
-    supplements: document.getElementById('f-supplements').value.trim() || null,
-    supplementFreq: document.getElementById('f-supplementFreq').value || null,
+    waking13: waking13Text(),
+    supplements: suppText(),
+    supplementFreq: suppNone ? 'Not currently taking any' : (document.getElementById('f-supplementFreq').value || null),
     notes: document.getElementById('f-notes').value.trim() || null,
   };
 
