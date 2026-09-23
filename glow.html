@@ -282,7 +282,7 @@
 
 <script src="admin-session.js"></script>
 <script>
-const BUILD = "2026-09-23T02:51:36Z";
+const BUILD = "2026-09-23T03:13:08Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 const EVENT = "glow-2026-09-25";
@@ -455,8 +455,10 @@ function summaryHtml(gs){
 
 function quickCell(e){
   if (!e) return dash;
-  return tags(e.a.concerns, e.type) + '<div class="small">' + esc(e.a.type || "") + "</div>" + allergyOf(e.a);
+  return tags(e.a.concerns, e.type) + '<div class="small">' + esc(e.a.type || "") + "</div>" + chemOf(e.a) + allergyOf(e.a);
 }
+/* Hair only: dyed, permed or chemically treated, now or before. */
+function chemOf(a){ return a && a.chemical ? '<div class="small">Treated: ' + esc(a.chemical) + "</div>" : ""; }
 function detailBlock(title, e, type){
   if (!e) return '<div class="dcard"><h4>' + title + '</h4><div class="muted">Not done yet</div></div>';
   const kv = (k, v) => v ? '<div class="dk">' + esc(k) + '</div><div class="dv">' + v + "</div>" : "";
@@ -472,6 +474,7 @@ function detailBlock(title, e, type){
   const a = e.a;
   return '<div class="dcard"><h4>' + title + "</h4>" +
     kv("Top concerns", tags(a.concerns, type)) + kv(type === "skin" ? "Skin type" : "Hair type", esc(a.type)) +
+    kv("Dyed, permed or chemically treated", esc(a.chemical || "")) +
     kv("Allergies", a.hasAllergy === "yes" ? allergyOf(a) : (a.hasAllergy === "no" ? "None" : "")) +
     kv("Routine", esc(a.routine)) + kv("Submitted", esc(when(e.at))) +
     '<div class="dact"><button class="dbtn" data-del="' + esc(e.id) + '" data-type="' + type + '" data-name="' + esc(a.name || "") + '">Delete</button></div></div>';
@@ -509,7 +512,7 @@ function typeTable(type, list){
         '<td><button class="abtn" data-open="' + esc(h.rid) + '">Open</button></td></tr>';
     }
     const a = e.a;
-    return "<tr>" + who + "<td>" + (tags(a.concerns, type) || dash) + "</td><td>" + esc(a.type || "") + "</td>" +
+    return "<tr>" + who + "<td>" + (tags(a.concerns, type) || dash) + "</td><td>" + esc(a.type || "") + chemOf(a) + "</td>" +
       "<td>" + (a.hasAllergy === "yes" ? allergyOf(a) : '<span class="muted">None</span>') + "</td>" +
       '<td><div class="clamp" title="' + esc(a.routine || "") + '">' + esc(a.routine || "") + '</div></td><td class="small">' + esc(when(e.at)) + "</td>" +
       '<td><button class="dbtn" data-del="' + esc(e.id) + '" data-type="' + type + '" data-name="' + esc(a.name || "") + '">Delete</button></td></tr>';
@@ -543,7 +546,7 @@ function csvDownload(){
   if (!data) return;
   const cell = (v) => '"' + String(v == null ? "" : v).replace(/"/g, '""') + '"';
   const head = ["Name", "Email", "Last activity", "Health priorities", "Health signals", "Health products", "Report status",
-    "Skin concerns", "Skin type", "Skin allergies", "Skin routine", "Hair concerns", "Hair type", "Hair allergies", "Hair routine"];
+    "Skin concerns", "Skin type", "Skin allergies", "Skin routine", "Hair concerns", "Hair type", "Hair chemically treated", "Hair allergies", "Hair routine"];
   const q = (e, f) => e ? f(e) : "";
   const lines = guests().map((g) => [
     g.name, g.email, when(g.last),
@@ -553,7 +556,7 @@ function csvDownload(){
     q(g.health, (e) => e.h.pending ? "Being written" : "Ready"),
     q(g.skin, (e) => (e.a.concerns || []).join("; ")), q(g.skin, (e) => e.a.type),
     q(g.skin, (e) => e.a.hasAllergy === "yes" ? (e.a.allergies || "Yes") : "None"), q(g.skin, (e) => e.a.routine),
-    q(g.hair, (e) => (e.a.concerns || []).join("; ")), q(g.hair, (e) => e.a.type),
+    q(g.hair, (e) => (e.a.concerns || []).join("; ")), q(g.hair, (e) => e.a.type), q(g.hair, (e) => e.a.chemical),
     q(g.hair, (e) => e.a.hasAllergy === "yes" ? (e.a.allergies || "Yes") : "None"), q(g.hair, (e) => e.a.routine),
   ].map(cell).join(","));
   const blob = new Blob(["﻿" + [head.map(cell).join(",")].concat(lines).join("\r\n")], { type: "text/csv;charset=utf-8" });

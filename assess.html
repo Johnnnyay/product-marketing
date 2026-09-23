@@ -117,6 +117,15 @@
         <div class="chips" id="typeChips"></div>
         <div class="err">Pick one. "I don't know" is fine.</div>
       </div>
+      <div class="q" id="q-chem" hidden>
+        <span class="q-label">Have you ever dyed, permed or chemically treated your hair?</span>
+        <div class="chips" id="chemChips">
+          <button type="button" class="chip" data-v="Yes, currently">Yes, currently</button>
+          <button type="button" class="chip" data-v="Yes, in the past">Yes, in the past</button>
+          <button type="button" class="chip" data-v="Never">Never</button>
+        </div>
+        <div class="err">Please choose one.</div>
+      </div>
     </div>
 
     <div class="card">
@@ -158,7 +167,7 @@
 <div id="upd" hidden><span id="updt"></span><button type="button" id="updgo">Reload now</button></div>
 
 <script>
-const BUILD = "2026-09-23T02:51:36Z";
+const BUILD = "2026-09-23T03:13:08Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 if(/[?&]v=/.test(location.search)){
   const keep = new URLSearchParams(location.search); keep.delete("v");
@@ -211,7 +220,8 @@ function saveGuest(name, email){
 }
 
 let concerns = [];          /* in the order tapped: first is the most important */
-let skinType = "", allergy = "", sending = false;
+let skinType = "", allergy = "", chem = "", sending = false;
+const CHEM = ["Yes, currently", "Yes, in the past", "Never"];
 
 document.title = COPY.title;
 $("title").textContent = COPY.title;
@@ -261,6 +271,15 @@ $("concernChips").addEventListener("click", (e) => {
   $("q-concerns").classList.remove("bad");
   paintConcerns(); saveDraft();
 });
+if (TYPE === "hair") {
+  $("q-chem").hidden = false;
+  $("chemChips").addEventListener("click", (e) => {
+    const b = e.target.closest(".chip"); if (!b) return;
+    chem = b.dataset.v;
+    $("q-chem").classList.remove("bad");
+    paintSingle("chemChips", chem); saveDraft();
+  });
+} else $("q-chem").remove();
 $("typeChips").addEventListener("click", (e) => {
   const b = e.target.closest(".chip"); if (!b) return;
   skinType = skinType === b.dataset.v ? "" : b.dataset.v;
@@ -280,7 +299,7 @@ $("allergyChips").addEventListener("click", (e) => {
 
 /* A half-filled form survives a reload (the page reloads itself when a newer version is out). */
 function saveDraft(){
-  const d = { concerns, skinType, allergy };
+  const d = { concerns, skinType, allergy, chem };
   ["a-name", "a-email", "a-routine", "a-concernOther", "a-allergies"].forEach((id) => { d[id] = $(id).value; });
   try { sessionStorage.setItem(DRAFT, JSON.stringify(d)); } catch (e) {}
 }
@@ -291,6 +310,7 @@ function loadDraft(){
   concerns = (d.concerns || []).filter((c) => COPY.concerns.concat(OTHER).indexOf(c) >= 0).slice(0, 2);
   skinType = COPY.types.indexOf(d.skinType) >= 0 ? d.skinType : "";
   allergy = d.allergy === "yes" || d.allergy === "no" ? d.allergy : "";
+  chem = CHEM.indexOf(d.chem) >= 0 ? d.chem : "";
   ["a-name", "a-email", "a-routine", "a-concernOther", "a-allergies"].forEach((id) => { if (typeof d[id] === "string") $(id).value = d[id]; });
 }
 
@@ -302,6 +322,7 @@ function collect(){
     concerns: concerns.map((c) => c === OTHER ? (other ? "Other: " + other : "Other") : c),
     concernOther: concerns.indexOf(OTHER) >= 0 ? other : "",
     type: skinType,
+    chemical: TYPE === "hair" ? chem : "",
     routine: $("a-routine").value.trim(),
     hasAllergy: allergy,
     allergies: allergy === "yes" ? $("a-allergies").value.trim() : "",
@@ -317,6 +338,7 @@ function validate(a){
     bad.push("q-concerns");
   }
   if (!a.type) bad.push("q-type");
+  if (TYPE === "hair" && !a.chemical) bad.push("q-chem");
   if (!a.routine) bad.push("q-routine");
   if (!allergy || (allergy === "yes" && !a.allergies)) {
     $("allergyErr").textContent = allergy ? "Tell us what you're allergic or sensitive to." : "Please choose one.";
@@ -365,9 +387,10 @@ function showDone(a){
   const rows = [
     ["Top concerns", a.concerns.map((c) => '<span class="tag">' + esc(c) + "</span>").join("")],
     [COPY.typeKey, esc(a.type)],
+  ].concat(a.chemical ? [["Dyed, permed or chemically treated", esc(a.chemical)]] : []).concat([
     ["Current routine", esc(a.routine)],
     ["Allergies", a.hasAllergy === "yes" ? esc(a.allergies) : "None"],
-  ];
+  ]);
   $("profile").innerHTML = rows.map((r) => '<div class="pr"><div class="pr-k">' + esc(r[0]) + '</div><div class="pr-v">' + r[1] + "</div></div>").join("");
   $("form").hidden = true; $("done").hidden = false;
   window.scrollTo({ top: 0, behavior: "smooth" });
@@ -385,7 +408,7 @@ loadDraft();
   if (!$("a-name").value && g.name) $("a-name").value = g.name;
   if (!$("a-email").value && g.email) $("a-email").value = g.email;
 })();
-paintConcerns(); paintSingle("typeChips", skinType); paintAllergy();
+paintConcerns(); paintSingle("typeChips", skinType); paintSingle("chemChips", chem); paintAllergy();
 
 /* Always the newest version: see DiamondA70/_skills/app-qa/references/self-update.md */
 let stale = false, checkedAt = 0, triedAt = 0, staleKey = "";
