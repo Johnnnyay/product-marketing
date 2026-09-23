@@ -457,6 +457,23 @@
     .edu-pn-btn:hover { background: var(--green-light); border-color: var(--green); }
     .edu-pn-dir { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-400); }
     .edu-pn-title { font-size: 14px; font-weight: 600; line-height: 1.4; color: var(--navy); }
+    .ev-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .ev-card { display: flex; flex-direction: column; background: #fff; border-radius: 18px; padding: 24px 24px 20px; box-shadow: 0 1px 4px rgba(0,0,0,.07); border-top: 4px solid #E9B872; }
+    .ev-card.past { border-top-color: var(--gray-200); }
+    .ev-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+    .ev-date { font-size: 13px; font-weight: 600; color: var(--green); }
+    .ev-status { flex: none; font-size: 11.5px; font-weight: 700; border-radius: 999px; padding: 3px 10px; background: var(--gray-100); color: var(--gray-500); }
+    .ev-status.up { background: #FBF3E6; color: #7a4c12; }
+    .ev-status.today { background: var(--green); color: #fff; }
+    .ev-title { font-size: 24px; font-weight: 700; line-height: 1.25; color: var(--gray-800); }
+    .ev-place { font-size: 13.5px; color: var(--gray-500); margin-top: 4px; }
+    .ev-blurb { font-size: 14.5px; line-height: 1.6; color: var(--gray-600); margin: 12px 0 18px; }
+    .ev-actions { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+    .ev-open { background: var(--navy); color: #fff; text-decoration: none; font-weight: 600; font-size: 14px; padding: 10px 18px; border-radius: 999px; }
+    .ev-open:hover { background: #47695a; }
+    .ev-copy { background: none; border: 1.5px solid var(--gray-200); color: var(--navy); font: inherit; font-weight: 600; font-size: 14px; padding: 9px 16px; border-radius: 999px; cursor: pointer; }
+    .ev-copy:hover { border-color: var(--green); }
+    @media (max-width: 760px) { .ev-cards { grid-template-columns: 1fr; } .ev-card { padding: 20px 18px 18px; } .ev-title { font-size: 21px; } }
     .edu-loading, .edu-error { padding: 64px 0; text-align: center; font-size: 15px; color: var(--gray-500); }
     .edu-error button { margin-top: 14px; padding: 9px 20px; border-radius: 999px; border: 1.5px solid var(--navy); background: none; color: var(--navy); font: inherit; font-weight: 600; cursor: pointer; }
     @media (max-width: 760px) {
@@ -1484,6 +1501,7 @@
       <button class="primary-tab" id="vtab-category" onclick="setViewMode('category')">By Category</button>
       <button class="primary-tab" id="vtab-solution" onclick="setViewMode('solution')">Solutions</button>
       <button class="primary-tab" id="vtab-education" onclick="setViewMode('education')" style="display:none">Education</button>
+      <button class="primary-tab" id="vtab-events" onclick="setViewMode('events')" style="display:none">Events</button>
     </div>
   </nav>
 
@@ -1895,9 +1913,9 @@ function toggleBizMode() {
   }
   AdminSession.logout();
   bizMode = 'customer';
-  // Education is admin-only, so signing out can't leave it selected as the active mode:
-  // that would land a customer on a hidden tab's content.
-  if (viewMode === 'education') {
+  // Education and Events are admin-only, so signing out can't leave one selected as the active
+  // mode: that would land a customer on a hidden tab's content.
+  if (viewMode === 'education' || viewMode === 'events') {
     viewMode = 'home';
     document.querySelectorAll('.primary-tab').forEach(b => b.classList.remove('active'));
     document.getElementById('vtab-home').classList.add('active');
@@ -2026,6 +2044,8 @@ function render() {
     renderHomeView();
   } else if (viewMode === 'education') {
     renderEducationView();
+  } else if (viewMode === 'events') {
+    renderEventsView();
   } else {
     // The product views all share the product-grid chrome, so put it back
     // the way they expect before handing off: Home and Education hide it.
@@ -2102,6 +2122,9 @@ function renderPrimaryTabs() {
   const eduTab = document.getElementById('vtab-education');
   eduTab.textContent = t('Education', '培训');
   eduTab.style.display = bizMode === 'ibo' ? '' : 'none';
+  const evTab = document.getElementById('vtab-events');
+  evTab.textContent = t('Events', '活动');
+  evTab.style.display = bizMode === 'ibo' ? '' : 'none';
 }
 
 function setViewMode(mode) {
@@ -2116,7 +2139,7 @@ function setViewMode(mode) {
 function renderSecondaryNavs() {
   const strip = document.getElementById('tile-scroll');
   const stripBar = document.getElementById('tile-strip');
-  const noStrip = viewMode === 'home' || viewMode === 'education';
+  const noStrip = viewMode === 'home' || viewMode === 'education' || viewMode === 'events';
   if (stripBar) stripBar.style.display = noStrip ? 'none' : '';
   if (noStrip) { if (strip) strip.innerHTML = ''; return; }
   if (strip && !strip.dataset.edgeBound) {
@@ -2609,6 +2632,62 @@ async function renderEducationView() {
   }
   host.innerHTML = eduLessonHtml(series, idx, eduText[key], isEn);
   if (isEn) { eduPlaceBubbles(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(eduPlaceBubbles); }
+}
+
+/* ════════════════════════════════════════════════
+   EVENTS  (admin only: every event landing page, so none gets lost)
+   To add one: build its page, then add a row here. `page` is next to this file.
+   ════════════════════════════════════════════════ */
+const EVENTS = [
+  { title: 'Glow From Within', date: '2026-09-25', time: '6:30 to 8:30 PM', place: '134 W 29th St, New York',
+    page: 'glow.html', blurb: 'Beauty and wellness evening: health, skin and scalp check-ins before three consultation stations.' },
+];
+
+function renderEventsView() {
+  const host = document.getElementById('edu-view');
+  document.querySelector('main .section-header').style.display = 'none';
+  const grid = document.getElementById('product-grid');
+  grid.style.display = 'none'; grid.innerHTML = '';
+  narrative([]); setSensitiveNote(false); renderProtocol(null); heroHide();
+  eduTok++;                                       // an Education fetch still in flight must not draw here
+  const today = new Date().toISOString().slice(0, 10);
+  const esc = (s) => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const when = (d) => new Date(d + 'T12:00:00').toLocaleDateString(currentLang === 'zh' ? 'zh-CN' : 'en-US',
+    { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+  const list = EVENTS.slice().sort((a, b) => {
+    const pa = a.date < today, pb = b.date < today;
+    return pa !== pb ? (pa ? 1 : -1) : (pa ? b.date.localeCompare(a.date) : a.date.localeCompare(b.date));
+  });
+  const card = (e) => {
+    const status = e.date === today ? ['today', t('Today', '今天')] : e.date > today ? ['up', t('Upcoming', '即将举行')] : ['past', t('Past', '已结束')];
+    const url = new URL(e.page, location.href).href;
+    return `
+      <div class="ev-card${status[0] === 'past' ? ' past' : ''}">
+        <div class="ev-top"><span class="ev-date">${esc(when(e.date))} · ${esc(e.time)}</span><span class="ev-status ${status[0]}">${status[1]}</span></div>
+        <div class="ev-title">${esc(e.title)}</div>
+        <div class="ev-place">${esc(e.place)}</div>
+        <p class="ev-blurb">${esc(e.blurb)}</p>
+        <div class="ev-actions">
+          <a class="ev-open" href="${esc(url)}" target="_blank" rel="noopener">${t('Open event page', '打开活动页面')} ›</a>
+          <button class="ev-copy" onclick="copyEventLink(this, '${esc(url)}')">${t('Copy guest link', '复制嘉宾链接')}</button>
+        </div>
+      </div>`;
+  };
+  host.innerHTML = `
+    <div class="edu-wrap">
+      <div class="edu-eyebrow">${t('Admin only', '仅限管理员')}</div>
+      <h1 class="edu-h1">${t('Events', '活动')}</h1>
+      <p class="edu-sub">${t('Send guests the link. Open the page on this device to see every guest\'s answers.', '把链接发给嘉宾。在这台设备上打开页面，就能看到所有嘉宾的回答。')}</p>
+      <div class="ev-cards">${list.map(card).join('')}</div>
+    </div>`;
+  host.style.display = 'block';
+}
+
+function copyEventLink(btn, url) {
+  const old = btn.textContent;
+  const done = () => { btn.textContent = t('✓ Copied', '✓ 已复制'); setTimeout(() => { btn.textContent = old; }, 1600); };
+  if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, () => prompt(t('Copy link:', '复制链接：'), url));
+  else prompt(t('Copy link:', '复制链接：'), url);
 }
 
 /* ════════════════════════════════════════════════

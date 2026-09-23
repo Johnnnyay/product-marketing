@@ -160,7 +160,7 @@
 
   <div class="wrap">
     <h2 class="sec-h">Before you arrive</h2>
-    <p class="sec-sub">There are three stations at the event. Each one has a short check-in. Complete them before Friday, and your specialists will already know your answers when you arrive.</p>
+    <p class="sec-sub">Three short check-ins, one for each part of the evening: nutrition, skin, and scalp. Think of it as a few minutes to check in with yourself before the night. There are no right answers, just an honest starting point for your conversations.</p>
     <div class="progress"><div class="progress-bar"><i id="progFill" style="width:0"></i></div><span id="progText">0 of 3 done</span></div>
 
     <div class="stations">
@@ -169,7 +169,7 @@
           <div class="st-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 16-9 0 12-4 16-9 16z"/><path d="M4 20c3-5 7-8 11-10"/></svg></div>
           <div><div class="st-kicker">Health &amp; Nutrition</div><div class="st-name">Health Assessment</div></div>
         </div>
-        <p class="st-desc">Energy, sleep, digestion and daily habits. It becomes your personal nutrition report, which we go through together at the event.</p>
+        <p class="st-desc">Energy, sleep, digestion, and the everyday habits behind them. Your answers become a personal nutrition report we walk through together at the event.</p>
         <div class="st-foot"><span class="st-time">About 10 minutes</span><span class="st-check">✓ Done</span><a class="st-btn" id="go-health" href="#">Start</a></div>
       </div>
       <div class="st" id="st-skin">
@@ -177,7 +177,7 @@
           <div class="st-icon warm"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
           <div><div class="st-kicker">Skincare</div><div class="st-name">Skin Assessment</div></div>
         </div>
-        <p class="st-desc">Your top concerns, your skin type and your current routine, for the blue light skin diagnostic.</p>
+        <p class="st-desc">What you'd love to change, how your skin feels day to day, and the routine you have now. Pairs with the blue light skin diagnostic.</p>
         <div class="st-foot"><span class="st-time">About 2 minutes</span><span class="st-check">✓ Done</span><a class="st-btn" id="go-skin" href="#">Start</a></div>
       </div>
       <div class="st" id="st-hair">
@@ -185,7 +185,7 @@
           <div class="st-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 21c0-6 1-10 5-13"/><path d="M12 21c0-6 .5-10 3-13"/><path d="M17 21c0-5-.5-9-1-11"/><path d="M5 8c2-3 5-5 9-5 3 0 5 1 5 3"/></svg></div>
           <div><div class="st-kicker">Scalp &amp; Haircare</div><div class="st-name">Hair &amp; Scalp Assessment</div></div>
         </div>
-        <p class="st-desc">Your top concerns, your hair type and the products you use now, for the scalp and hair scan.</p>
+        <p class="st-desc">What you'd love to change, your hair type, and the products you reach for now. Pairs with the scalp and hair scan.</p>
         <div class="st-foot"><span class="st-time">About 2 minutes</span><span class="st-check">✓ Done</span><a class="st-btn" id="go-hair" href="#">Start</a></div>
       </div>
     </div>
@@ -232,7 +232,7 @@
 
 <script src="admin-session.js"></script>
 <script>
-const BUILD = "2026-09-23T01:00:40Z";
+const BUILD = "2026-09-23T01:14:02Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 const EVENT = "glow-2026-09-25";
@@ -272,11 +272,11 @@ function paintDone(){
     $("go-" + t).textContent = on ? "Do it again" : "Start";
   });
   $("progFill").style.width = (n / 3 * 100) + "%";
-  $("progText").textContent = n === 3 ? "All 3 done. See you Friday!" : n + " of 3 done";
+  $("progText").textContent = n === 3 ? "All three done. See you Friday." : n + " of 3 done";
 }
 $("resetBtn").addEventListener("click", () => {
-  if (!confirm("Clear the check marks on this device? Your answers already sent are not affected.")) return;
-  try { localStorage.removeItem(DONE); } catch (e) {}
+  if (!confirm("Clear the check marks and your saved name and email on this device? Answers you already sent are not affected.")) return;
+  try { localStorage.removeItem(DONE); localStorage.removeItem("event-guest:" + EVENT); } catch (e) {}
   paintDone();
 });
 addEventListener("storage", paintDone);

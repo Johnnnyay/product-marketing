@@ -83,7 +83,7 @@
 <div class="hero">
   <div class="hero-kicker" id="kicker">Skincare</div>
   <h1 id="title">Skin Assessment</h1>
-  <p id="lede">Two minutes. Your answers go to the specialist running your skin diagnostic, so the conversation starts with what matters to you.</p>
+  <p id="lede">About two minutes, no wrong answers. It gives your skin diagnostic a starting point that's about you.</p>
 </div>
 
 <div class="wrap">
@@ -154,7 +154,7 @@
 <div id="upd" hidden><span id="updt"></span><button type="button" id="updgo">Reload now</button></div>
 
 <script>
-const BUILD = "2026-09-23T01:00:40Z";
+const BUILD = "2026-09-23T01:14:02Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 if(/[?&]v=/.test(location.search)){
   const keep = new URLSearchParams(location.search); keep.delete("v");
@@ -170,7 +170,7 @@ const BACK = /^[a-z0-9-]+\.html$/.test(params.get("back") || "") ? params.get("b
 const COPY = {
   skin: {
     title: "Skin Assessment", kicker: "Skincare",
-    lede: "Two minutes. Your answers go to the specialist running your skin diagnostic, so the conversation starts with what matters to you.",
+    lede: "About two minutes, no wrong answers. It gives your skin diagnostic a starting point that's about you.",
     concerns: ["Lines and wrinkles", "Pigmentation or dark spots", "Dark under-eye circles", "Uneven texture and visible pores", "Acne or blemishes", "Redness"],
     typeLabel: "What do you think your skin type is?",
     types: ["Dry", "Normal or combination", "Oily", "I don't know"],
@@ -181,7 +181,7 @@ const COPY = {
   },
   hair: {
     title: "Hair & Scalp Assessment", kicker: "Scalp & Haircare",
-    lede: "Two minutes. Your answers go to the specialist running your scalp and hair scan, so the conversation starts with what matters to you.",
+    lede: "About two minutes, no wrong answers. It gives your scalp and hair scan a starting point that's about you.",
     concerns: ["Thinning or shedding", "Dandruff or flaky scalp", "Oily scalp", "Dry or itchy scalp", "Dryness or frizz", "Breakage or damage"],
     typeLabel: "What do you think your hair type is?",
     types: ["Clean or normal", "Oily", "Damaged or sensitive", "I don't know"],
@@ -196,6 +196,15 @@ const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const DRAFT = "assess-draft:" + EVENT + ":" + TYPE;
 const DONE = "event-done:" + EVENT;
+/* Name and email typed once for this event (here or on the health assessment) fill in the next check-in. */
+const GUEST = "event-guest:" + EVENT;
+function readGuest(){ try { return JSON.parse(localStorage.getItem(GUEST) || "{}") || {}; } catch (e) { return {}; } }
+function saveGuest(name, email){
+  const g = readGuest();
+  if (name) g.name = name;
+  if (email) g.email = email;
+  try { localStorage.setItem(GUEST, JSON.stringify(g)); } catch (e) {}
+}
 
 let concerns = [];          /* in the order tapped: first is the most important */
 let skinType = "", allergy = "", sending = false;
@@ -328,6 +337,7 @@ $("form").addEventListener("submit", async (e) => {
     const j = await r.json().catch(() => ({}));
     if (!r.ok || !j.ok) throw new Error(j.error || "The server did not accept the answers");
     try { sessionStorage.removeItem(DRAFT); } catch (err) {}
+    saveGuest(a.name, a.email);
     try {
       const done = JSON.parse(localStorage.getItem(DONE) || "{}");
       done[TYPE] = j.submittedAt || new Date().toISOString();
@@ -347,7 +357,7 @@ $("form").addEventListener("submit", async (e) => {
 function showDone(a){
   const first = a.name.split(/\s+/)[0];
   $("doneTitle").textContent = "Thank you, " + first + ".";
-  $("doneSub").textContent = "Your answers are with the team. Your specialist at the " + COPY.station + " will start from here.";
+  $("doneSub").textContent = "You're all set. Your " + COPY.station + " picks up from these answers at the event.";
   const rows = [
     ["Top concerns", a.concerns.map((c) => '<span class="tag">' + esc(c) + "</span>").join("")],
     [COPY.typeKey, esc(a.type)],
@@ -365,7 +375,13 @@ $("againBtn").addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-loadDraft(); paintConcerns(); paintSingle("typeChips", skinType); paintAllergy();
+loadDraft();
+(function(){
+  const g = readGuest();
+  if (!$("a-name").value && g.name) $("a-name").value = g.name;
+  if (!$("a-email").value && g.email) $("a-email").value = g.email;
+})();
+paintConcerns(); paintSingle("typeChips", skinType); paintAllergy();
 
 /* Always the newest version: see DiamondA70/_skills/app-qa/references/self-update.md */
 let stale = false, checkedAt = 0, triedAt = 0, staleKey = "";

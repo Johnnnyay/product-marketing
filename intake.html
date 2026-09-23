@@ -1022,6 +1022,15 @@ document.addEventListener('DOMContentLoaded', () => {
   syncCycleVisibility();
   const g = document.getElementById('f-gender');
   if (g) g.addEventListener('change', syncCycleVisibility);
+  /* Opened from an event page: fill in the name and email this guest already typed there. */
+  const ev = new URLSearchParams(location.search).get('event') || '';
+  if (/^[a-z0-9-]{3,40}$/.test(ev)) {
+    let guest = {};
+    try { guest = JSON.parse(localStorage.getItem('event-guest:' + ev) || '{}') || {}; } catch (e) {}
+    const n = document.getElementById('f-name'), m = document.getElementById('f-email');
+    if (n && !n.value && guest.name) n.value = guest.name;
+    if (m && !m.value && guest.email) m.value = guest.email;
+  }
 });
 
 async function submitForm() {
@@ -1123,6 +1132,15 @@ async function submitForm() {
     // Show success screen
     document.getElementById('mainWrap').style.display = 'none';
     document.getElementById('reportLink').href = data.reportUrl;
+    if (payload.event) {
+      try {
+        const k = 'event-guest:' + payload.event;
+        const guest = JSON.parse(localStorage.getItem(k) || '{}') || {};
+        if (payload.name) guest.name = payload.name;
+        if (payload.email) guest.email = payload.email;
+        localStorage.setItem(k, JSON.stringify(guest));
+      } catch (e) {}
+    }
     const evBack = evParams.get('back') || '';
     if (payload.event && /^[a-z0-9-]+\.html$/.test(evBack)) {
       const b = document.getElementById('eventBack');
