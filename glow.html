@@ -103,15 +103,47 @@
   .tbtn:hover{border-color:var(--green);color:var(--navy)}
   .stamp{font-size:12px;color:var(--gray-500)}
   .a-err{display:none;background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:12px 14px;font-size:13.5px;color:#991b1b;margin-bottom:14px}
-  .list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-  @media(max-width:760px){.list{grid-template-columns:1fr}}
-  .ent{background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(0,0,0,.07);padding:18px}
-  .ent-h{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
-  .ent-name{font-size:16px;font-weight:700;color:var(--gray-800)}
-  .ent-sub{font-size:12.5px;color:var(--gray-500);margin-top:2px;word-break:break-all}
-  .ent-row{display:grid;grid-template-columns:96px 1fr;gap:8px;padding:6px 0;font-size:13.5px;line-height:1.5;border-top:1px solid var(--gray-100)}
-  .ent-row .k{color:var(--gray-500);font-size:12.5px;padding-top:1px}
-  .ent-row .v{color:var(--gray-800);white-space:pre-wrap;word-break:break-word}
+  /* Reporting: summary numbers, what guests want, then one row per guest. */
+  .kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:14px}
+  @media(max-width:900px){.kpis{grid-template-columns:repeat(3,1fr)}}
+  .kpi{background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(0,0,0,.07);padding:14px 16px}
+  .kpi b{display:block;font-size:26px;font-weight:700;color:var(--navy);line-height:1.1}
+  .kpi span{font-size:12px;color:var(--gray-500)}
+  .kpi.alert b{color:#9b2c21}
+  .insights{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+  @media(max-width:900px){.insights{grid-template-columns:1fr}}
+  .ins{background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(0,0,0,.07);padding:16px 18px}
+  .ins h3{font-size:11px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+  .bar{display:grid;grid-template-columns:minmax(0,1fr) 64px 22px;align-items:center;gap:10px;font-size:13px;line-height:1.35;color:var(--gray-800);padding:4px 0}
+  .bar i{display:block;height:7px;border-radius:999px;background:var(--green-light);position:relative;overflow:hidden}
+  .bar i::after{content:'';position:absolute;inset:0 auto 0 0;width:var(--w);background:var(--green);border-radius:999px}
+  .ins.warm .bar i::after{background:var(--glow)}
+  .bar em{font-style:normal;font-weight:700;color:var(--gray-600);text-align:right}
+  .ins-empty{font-size:13px;color:var(--gray-400)}
+  .tbl-wrap{background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(0,0,0,.07);overflow-x:auto}
+  table.tbl{width:100%;min-width:900px;border-collapse:collapse;font-size:13.5px;line-height:1.45}
+  .tbl th{text-align:left;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-500);padding:12px 14px;border-bottom:1px solid var(--gray-200);white-space:nowrap;background:#fff}
+  .tbl td{padding:12px 14px;border-bottom:1px solid var(--gray-100);vertical-align:top;color:var(--gray-800)}
+  .tbl th:first-child,.tbl td:first-child{position:sticky;left:0;background:#fff;z-index:1;box-shadow:1px 0 0 var(--gray-100)}
+  .tbl tr.row{cursor:pointer}
+  .tbl tr.row:hover td{background:#f8faf8}
+  .tbl tr.row.open td{background:#f3f7f4;border-bottom-color:transparent}
+  .gname{font-weight:700;color:var(--gray-800);white-space:nowrap}
+  .gsub{font-size:12px;color:var(--gray-500);margin-top:2px;overflow-wrap:anywhere}
+  .muted{color:var(--gray-400)}
+  .small{font-size:12.5px;color:var(--gray-600);margin-top:3px}
+  .clamp{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;max-width:300px}
+  .done3{display:flex;gap:4px}
+  .done3 span{width:22px;height:22px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;background:var(--gray-100);color:var(--gray-400)}
+  .done3 span.on{background:var(--green);color:#fff}
+  .tbl tr.detail td{background:#f3f7f4;padding:4px 14px 18px}
+  .tbl tr.detail td:first-child{position:static;box-shadow:none}
+  .dgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:1100px}
+  .dcard{background:#fff;border-radius:12px;padding:14px 16px}
+  .dcard h4{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+  .dk{font-size:11.5px;color:var(--gray-500);margin-top:8px}
+  .dv{font-size:13.5px;color:var(--gray-800);white-space:pre-wrap;word-break:break-word}
+  .dact{display:flex;gap:8px;align-items:center;margin-top:12px}
   .tag{display:inline-block;background:var(--green-light);color:#1f4d36;border-radius:999px;padding:2px 9px;font-size:12.5px;font-weight:600;margin:0 5px 4px 0;white-space:normal}
   .tag.warm{background:var(--glow-soft);color:#7a4c12}
   .tag.alert{background:#fdecea;color:#9b2c21}
@@ -122,7 +154,7 @@
   .abtn:hover{background:#47695a}
   .dbtn{background:none;border:0;color:#b3261e;font-size:12.5px;font-weight:600;cursor:pointer;padding:8px 6px}
   .dbtn:hover{text-decoration:underline}
-  .empty{background:#fff;border-radius:14px;padding:34px 20px;text-align:center;color:var(--gray-500);font-size:14px;line-height:1.6;grid-column:1/-1}
+  .empty{background:#fff;border-radius:14px;padding:34px 20px;text-align:center;color:var(--gray-500);font-size:14px;line-height:1.6}
 
   #upd{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:12px;background:#141A16;color:#fff;border-radius:999px;padding:8px 8px 8px 18px;font-size:14px;font-weight:700;max-width:calc(100vw - 24px)}
   #upd[hidden]{display:none}
@@ -141,6 +173,7 @@
 
 <nav class="tabs" aria-label="Admin views"><div class="tabs-in" id="tabs">
   <button class="tab" data-tab="guest">Guest view</button>
+  <button class="tab" data-tab="overview">All guests<span class="c" id="c-overview">·</span></button>
   <button class="tab" data-tab="health">Health<span class="c" id="c-health">·</span></button>
   <button class="tab" data-tab="skin">Skin<span class="c" id="c-skin">·</span></button>
   <button class="tab" data-tab="hair">Hair<span class="c" id="c-hair">·</span></button>
@@ -221,10 +254,12 @@
   <div class="tools">
     <input class="search" id="search" type="search" placeholder="Search by name or email" autocomplete="off">
     <button class="tbtn" id="refresh">Refresh</button>
+    <button class="tbtn" id="csv">Download CSV</button>
     <span class="stamp" id="stamp"></span>
   </div>
   <div class="a-err" id="aErr" role="alert"></div>
-  <div class="list" id="list"></div>
+  <div id="summary"></div>
+  <div id="list"></div>
   <div class="foot"><div class="ver"></div></div>
 </div>
 
@@ -232,7 +267,7 @@
 
 <script src="admin-session.js"></script>
 <script>
-const BUILD = "2026-09-23T01:14:02Z";
+const BUILD = "2026-09-23T01:20:30Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 const EVENT = "glow-2026-09-25";
@@ -285,7 +320,8 @@ paintDone();
 
 /* ── Admin ───────────────────────────────────────────── */
 let data = null, tab = "guest", loading = false, labels = {};
-try { tab = sessionStorage.getItem("glow-tab") || "health"; } catch (e) { tab = "health"; }
+const openRows = new Set();
+try { tab = sessionStorage.getItem("glow-tab") || "overview"; } catch (e) { tab = "overview"; }
 
 fetch("intake/questions.json").then((r) => r.json()).then((q) => {
   ((q.priorities && q.priorities.o) || []).forEach((o) => { labels[o[0]] = o[1]; });
@@ -297,7 +333,7 @@ function setAdmin(on){
   $("signOut").hidden = !on;
   $("adminDots").hidden = on;
   if (!on) { tab = "guest"; data = null; }
-  showTab(on ? (tab === "guest" ? "health" : tab) : "guest");
+  showTab(on ? (tab === "guest" ? "overview" : tab) : "guest");
   if (on) load();
 }
 function showTab(t){
@@ -338,55 +374,191 @@ function when(iso){
   return d.toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
 }
 function tags(arr, cls){ return (arr || []).map((x) => '<span class="tag' + (cls ? " " + cls : "") + '">' + esc(x) + "</span>").join(""); }
-function row(k, v){ return v ? '<div class="ent-row"><div class="k">' + esc(k) + '</div><div class="v">' + v + "</div></div>" : ""; }
-function head(name, sub, status){
-  return '<div class="ent-h"><div><div class="ent-name">' + esc(name || "No name") + '</div><div class="ent-sub">' + sub + "</div></div>" + (status || "") + "</div>";
+const dash = '<span class="muted">—</span>';
+const priLabel = (p) => p.id === "other" ? (p.other ? "Other: " + p.other : "Other") : (labels[p.id] || p.id);
+const concernKey = (c) => /^Other/.test(c) ? "Something else" : c;
+const norm = (s) => String(s || "").trim().toLowerCase().replace(/\s+/g, " ");
+
+/* Every entry in one shape: who, when, and the answers, whatever check-in it came from. */
+function entries(type){
+  return (data[type] || []).map((d) => type === "health"
+    ? { type, id: d.rid, name: d.name, email: d.email || "", at: d.submittedAt, h: d }
+    : { type, id: d.id, name: (d.answers || {}).name, email: (d.answers || {}).email || "", at: d.submittedAt, a: d.answers || {} });
 }
 
-function healthCard(h){
-  const pri = (h.priorities || []).map((p) => p.id === "other" ? (p.other ? "Other: " + p.other : "Other") : (labels[p.id] || p.id));
-  const status = h.pending ? '<span class="status">Report being written</span>' : '<span class="status ready">Report ready</span>';
-  return '<div class="ent">' + head(h.name, esc(when(h.submittedAt)) + (h.email ? " · " + esc(h.email) : ""), status) +
-    row("Priorities", tags(pri, "warm")) +
-    row("Signals", h.signals && h.signals.length ? tags(h.signals) : (h.pending ? "Ready about two minutes after they submit" : "None found")) +
-    row("Products", h.products && h.products.length ? esc(h.products.join(", ")) : "") +
-    '<div class="ent-actions"><button class="abtn" data-open="' + esc(h.rid) + '">Open report</button></div></div>';
+/* One row per guest. Email is the strongest match (the health check-in requires it), then the
+   name, since the three check-ins share the name a guest typed once on their phone. */
+function guests(){
+  const list = [], byEmail = {}, byName = {};
+  ["health", "skin", "hair"].forEach((type) => {
+    entries(type).slice().sort((x, y) => String(x.at).localeCompare(String(y.at))).forEach((e) => {
+      const em = norm(e.email), nm = norm(e.name);
+      const sameName = nm && byName[nm];
+      let g = (em && byEmail[em]) || (sameName && (!em || !sameName.email || norm(sameName.email) === em) ? sameName : null);
+      if (!g) { g = { key: em || ("name:" + nm), name: e.name, email: e.email, last: e.at, all: { health: [], skin: [], hair: [] } }; list.push(g); }
+      if (em && !byEmail[em]) byEmail[em] = g;
+      if (nm && !byName[nm]) byName[nm] = g;
+      if (!g.email && e.email) g.email = e.email;
+      g.all[type].push(e);
+      g[type] = e;                                    /* latest wins: a corrected resend replaces the first */
+      if (String(e.at) > String(g.last)) g.last = e.at;
+    });
+  });
+  return list.sort((x, y) => String(y.last).localeCompare(String(x.last)));
 }
-function quickCard(type, d){
-  const a = d.answers || {};
-  const allergy = a.hasAllergy === "yes" ? '<span class="tag alert">' + esc(a.allergies || "Yes, not specified") + "</span>" : (a.hasAllergy === "no" ? "None" : "");
-  return '<div class="ent">' + head(a.name, esc(when(d.submittedAt)) + (a.email ? " · " + esc(a.email) : "")) +
-    row("Top concerns", tags(a.concerns)) +
-    row(type === "skin" ? "Skin type" : "Hair type", esc(a.type)) +
-    row("Allergies", allergy) +
-    row("Routine", esc(a.routine)) +
-    '<div class="ent-actions"><button class="dbtn" data-del="' + esc(d.id) + '" data-type="' + type + '" data-name="' + esc(a.name || "") + '">Delete</button></div></div>';
+
+function matches(q, name, email){ return !q || (norm(name) + " " + norm(email)).indexOf(q) >= 0; }
+function allergyOf(a){ return a && a.hasAllergy === "yes" ? '<span class="tag alert">' + esc(a.allergies || "Allergy, not specified") + "</span>" : ""; }
+function statusOf(h){ return h.pending ? '<span class="status">Being written</span>' : '<span class="status ready">Report ready</span>'; }
+
+function tally(list){
+  const m = {};
+  list.forEach((k) => { m[k] = (m[k] || 0) + 1; });
+  return Object.entries(m).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+}
+function bars(title, counts, warm){
+  const max = counts.length ? counts[0][1] : 1;
+  return '<div class="ins' + (warm ? " warm" : "") + '"><h3>' + esc(title) + "</h3>" +
+    (counts.length ? counts.slice(0, 6).map((c) => '<div class="bar"><span title="' + esc(c[0]) + '">' + esc(c[0]) +
+      '</span><i style="--w:' + Math.round(c[1] / max * 100) + '%"></i><em>' + c[1] + "</em></div>").join("")
+      : '<div class="ins-empty">No answers yet</div>') + "</div>";
+}
+
+function summaryHtml(gs){
+  const n = (t) => gs.filter((g) => g[t]).length;
+  const all3 = gs.filter((g) => g.health && g.skin && g.hair).length;
+  const allergies = gs.filter((g) => (g.skin && g.skin.a.hasAllergy === "yes") || (g.hair && g.hair.a.hasAllergy === "yes")).length;
+  const kpi = (v, l, cls) => '<div class="kpi' + (cls ? " " + cls : "") + '"><b>' + v + "</b><span>" + l + "</span></div>";
+  return '<div class="kpis">' + kpi(gs.length, "Guests") + kpi(all3, "All 3 done") + kpi(n("health"), "Health") +
+    kpi(n("skin"), "Skin") + kpi(n("hair"), "Hair") + kpi(allergies, "Allergies flagged", allergies ? "alert" : "") + "</div>" +
+    '<div class="insights">' +
+    bars("Health priorities", tally([].concat.apply([], gs.filter((g) => g.health).map((g) => (g.health.h.priorities || []).map((p) => p.id === "other" ? "Something else" : (labels[p.id] || p.id))))), true) +
+    bars("Skin concerns", tally([].concat.apply([], gs.filter((g) => g.skin).map((g) => (g.skin.a.concerns || []).map(concernKey))))) +
+    bars("Hair concerns", tally([].concat.apply([], gs.filter((g) => g.hair).map((g) => (g.hair.a.concerns || []).map(concernKey))))) +
+    "</div>";
+}
+
+function quickCell(e){
+  if (!e) return dash;
+  return tags(e.a.concerns) + '<div class="small">' + esc(e.a.type || "") + "</div>" + allergyOf(e.a);
+}
+function detailBlock(title, e, type){
+  if (!e) return '<div class="dcard"><h4>' + title + '</h4><div class="muted">Not done yet</div></div>';
+  const kv = (k, v) => v ? '<div class="dk">' + esc(k) + '</div><div class="dv">' + v + "</div>" : "";
+  if (type === "health") {
+    const h = e.h;
+    return '<div class="dcard"><h4>' + title + "</h4>" + statusOf(h) +
+      kv("Priorities", tags((h.priorities || []).map(priLabel), "warm")) +
+      kv("Signals", h.signals && h.signals.length ? tags(h.signals) : (h.pending ? "Ready about two minutes after they submit" : "")) +
+      kv("Products", esc((h.products || []).join(", "))) +
+      kv("Submitted", esc(when(e.at))) +
+      '<div class="dact"><button class="abtn" data-open="' + esc(h.rid) + '">Open report</button></div></div>';
+  }
+  const a = e.a;
+  return '<div class="dcard"><h4>' + title + "</h4>" +
+    kv("Top concerns", tags(a.concerns)) + kv(type === "skin" ? "Skin type" : "Hair type", esc(a.type)) +
+    kv("Allergies", a.hasAllergy === "yes" ? allergyOf(a) : (a.hasAllergy === "no" ? "None" : "")) +
+    kv("Routine", esc(a.routine)) + kv("Submitted", esc(when(e.at))) +
+    '<div class="dact"><button class="dbtn" data-del="' + esc(e.id) + '" data-type="' + type + '" data-name="' + esc(a.name || "") + '">Delete</button></div></div>';
+}
+
+function overviewTable(gs){
+  const rows = gs.map((g) => {
+    const open = openRows.has(g.key);
+    const h = g.health ? g.health.h : null;
+    const d3 = '<div class="done3"><span class="' + (g.health ? "on" : "") + '" title="Health">H</span><span class="' + (g.skin ? "on" : "") +
+      '" title="Skin">S</span><span class="' + (g.hair ? "on" : "") + '" title="Hair">H</span></div>';
+    return '<tr class="row' + (open ? " open" : "") + '" data-row="' + esc(g.key) + '">' +
+      '<td><div class="gname">' + esc(g.name || "No name") + '</div><div class="gsub">' + esc(g.email || "no email") + "</div></td>" +
+      "<td>" + d3 + '<div class="small">' + esc(when(g.last)) + "</div></td>" +
+      "<td>" + (h ? tags((h.priorities || []).map(priLabel), "warm") + '<div class="small">' + statusOf(h) + "</div>" : dash) + "</td>" +
+      "<td>" + quickCell(g.skin) + "</td><td>" + quickCell(g.hair) + "</td></tr>" +
+      (open ? '<tr class="detail"><td colspan="5"><div class="dgrid">' + detailBlock("Health", g.health, "health") +
+        detailBlock("Skin", g.skin, "skin") + detailBlock("Hair & scalp", g.hair, "hair") + "</div></td></tr>" : "");
+  }).join("");
+  return '<div class="tbl-wrap"><table class="tbl"><thead><tr><th style="width:20%">Guest</th><th style="width:13%">Done · last activity</th><th style="width:23%">Health priorities</th><th style="width:22%">Skin</th><th style="width:22%">Hair &amp; scalp</th></tr></thead><tbody>' + rows + "</tbody></table></div>";
+}
+
+function typeTable(type, list){
+  const head = type === "health"
+    ? "<th>Guest</th><th>Priorities</th><th>Signals</th><th>Products</th><th>Report</th><th>Submitted</th><th></th>"
+    : "<th>Guest</th><th>Top concerns</th><th>Type</th><th>Allergies</th><th>Routine</th><th>Submitted</th><th></th>";
+  const rows = list.map((e) => {
+    const who = '<td><div class="gname">' + esc(e.name || "No name") + '</div><div class="gsub">' + esc(e.email || "no email") + "</div></td>";
+    if (type === "health") {
+      const h = e.h;
+      return "<tr>" + who + "<td>" + (tags((h.priorities || []).map(priLabel), "warm") || dash) + "</td>" +
+        "<td>" + (h.signals && h.signals.length ? tags(h.signals) : dash) + "</td>" +
+        '<td><div class="clamp">' + (h.products && h.products.length ? esc(h.products.join(", ")) : dash) + "</div></td>" +
+        "<td>" + statusOf(h) + '</td><td class="small">' + esc(when(e.at)) + "</td>" +
+        '<td><button class="abtn" data-open="' + esc(h.rid) + '">Open</button></td></tr>';
+    }
+    const a = e.a;
+    return "<tr>" + who + "<td>" + (tags(a.concerns) || dash) + "</td><td>" + esc(a.type || "") + "</td>" +
+      "<td>" + (a.hasAllergy === "yes" ? allergyOf(a) : '<span class="muted">None</span>') + "</td>" +
+      '<td><div class="clamp" title="' + esc(a.routine || "") + '">' + esc(a.routine || "") + '</div></td><td class="small">' + esc(when(e.at)) + "</td>" +
+      '<td><button class="dbtn" data-del="' + esc(e.id) + '" data-type="' + type + '" data-name="' + esc(a.name || "") + '">Delete</button></td></tr>';
+  }).join("");
+  return '<div class="tbl-wrap"><table class="tbl"><thead><tr>' + head + "</tr></thead><tbody>" + rows + "</tbody></table></div>";
 }
 
 function render(){
+  const gs = data ? guests() : [];
+  $("c-overview").textContent = data ? gs.length : "·";
   TYPES.forEach((t) => { $("c-" + t).textContent = data ? (data[t] || []).length : "·"; });
   if (tab === "guest") return;
-  const list = $("list");
-  if (!data) { list.innerHTML = loading ? "" : '<div class="empty">Nothing loaded yet. Tap Refresh.</div>'; return; }
-  const q = $("search").value.trim().toLowerCase();
-  const items = (data[tab] || []).filter((d) => {
-    if (!q) return true;
-    const a = tab === "health" ? d : (d.answers || {});
-    return ((a.name || "") + " " + (a.email || "")).toLowerCase().indexOf(q) >= 0;
-  });
-  if (!items.length) {
-    list.innerHTML = '<div class="empty">' + (q ? "No one matches “" + esc(q) + "”." :
-      tab === "health" ? "No health assessments from this event page yet." : "No " + tab + " assessments yet.") + "</div>";
+  const list = $("list"), sum = $("summary");
+  if (!data) { sum.innerHTML = ""; list.innerHTML = loading ? "" : '<div class="empty">Nothing loaded yet. Tap Refresh.</div>'; return; }
+  const q = norm($("search").value);
+  if (tab === "overview") {
+    sum.innerHTML = summaryHtml(gs);
+    const shown = gs.filter((g) => matches(q, g.name, g.email));
+    list.innerHTML = shown.length ? overviewTable(shown)
+      : '<div class="empty">' + (q ? "No one matches “" + esc(q) + "”." : "No check-ins yet. Rows appear here as guests send their answers.") + "</div>";
     return;
   }
-  list.innerHTML = items.map((d) => tab === "health" ? healthCard(d) : quickCard(tab, d)).join("");
+  sum.innerHTML = "";
+  const items = entries(tab).sort((x, y) => String(y.at).localeCompare(String(x.at))).filter((e) => matches(q, e.name, e.email));
+  list.innerHTML = items.length ? typeTable(tab, items)
+    : '<div class="empty">' + (q ? "No one matches “" + esc(q) + "”." :
+      tab === "health" ? "No health assessments from this event page yet." : "No " + tab + " assessments yet.") + "</div>";
 }
+
+function csvDownload(){
+  if (!data) return;
+  const cell = (v) => '"' + String(v == null ? "" : v).replace(/"/g, '""') + '"';
+  const head = ["Name", "Email", "Last activity", "Health priorities", "Health signals", "Health products", "Report status",
+    "Skin concerns", "Skin type", "Skin allergies", "Skin routine", "Hair concerns", "Hair type", "Hair allergies", "Hair routine"];
+  const q = (e, f) => e ? f(e) : "";
+  const lines = guests().map((g) => [
+    g.name, g.email, when(g.last),
+    q(g.health, (e) => (e.h.priorities || []).map(priLabel).join("; ")),
+    q(g.health, (e) => (e.h.signals || []).join("; ")),
+    q(g.health, (e) => (e.h.products || []).join("; ")),
+    q(g.health, (e) => e.h.pending ? "Being written" : "Ready"),
+    q(g.skin, (e) => (e.a.concerns || []).join("; ")), q(g.skin, (e) => e.a.type),
+    q(g.skin, (e) => e.a.hasAllergy === "yes" ? (e.a.allergies || "Yes") : "None"), q(g.skin, (e) => e.a.routine),
+    q(g.hair, (e) => (e.a.concerns || []).join("; ")), q(g.hair, (e) => e.a.type),
+    q(g.hair, (e) => e.a.hasAllergy === "yes" ? (e.a.allergies || "Yes") : "None"), q(g.hair, (e) => e.a.routine),
+  ].map(cell).join(","));
+  const blob = new Blob(["﻿" + [head.map(cell).join(",")].concat(lines).join("\r\n")], { type: "text/csv;charset=utf-8" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = EVENT + "-guests.csv";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+$("csv").addEventListener("click", csvDownload);
 
 $("list").addEventListener("click", async (e) => {
   const open = e.target.closest("[data-open]");
   if (open) { AdminSession.openReport(open.dataset.open); return; }
   const del = e.target.closest("[data-del]");
-  if (!del) return;
+  if (!del) {
+    const r = e.target.closest("tr.row");
+    if (r) { const k = r.dataset.row; if (openRows.has(k)) openRows.delete(k); else openRows.add(k); render(); }
+    return;
+  }
   if (!confirm("Delete " + (del.dataset.name || "this entry") + "'s " + del.dataset.type + " answers? This cannot be undone.")) return;
   del.disabled = true; del.textContent = "Deleting…";
   try {
