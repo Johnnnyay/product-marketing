@@ -346,10 +346,10 @@
   },
   "f-weight": {
    "l": [
-    "Weight (lb)",
-    "体重（磅）",
-    "Peso (lb)",
-    "वज़न (lb)"
+    "Weight",
+    "体重",
+    "Peso",
+    "वज़न"
    ],
    "h": [
     "Protein requirement is calculated per kilogram of body weight, so without this the protein part of the plan is guesswork.",

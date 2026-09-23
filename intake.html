@@ -131,6 +131,14 @@
   .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--green)}
   .field textarea{resize:vertical;min-height:80px}
   .field .hint{font-size:12px;color:var(--gray-400);margin-top:4px}
+  .unit-pair{display:flex;align-items:center;gap:8px}
+  .unit-box{position:relative;flex:1 1 0;min-width:0}
+  .unit-box.wide{flex:1.4 1 0}
+  .field .unit-box input{padding-right:32px}
+  .unit-box span{position:absolute;right:11px;top:50%;transform:translateY(-50%);font-size:12.5px;color:var(--gray-500);pointer-events:none}
+  .unit-eq{flex:none;font-size:13px;color:var(--gray-400)}
+  .unit-box input::-webkit-outer-spin-button,.unit-box input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .unit-box input[type=number]{-moz-appearance:textfield}
   .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .field-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
   @media(max-width:520px){.field-row,.field-row-3{grid-template-columns:1fr}}
@@ -258,8 +266,22 @@
         </div>
       </div>
       <div class="field-row">
-        <div class="field"><label>Height</label><input type="text" id="f-height" placeholder="e.g. 175 cm or 5'9&quot;"></div>
-        <div class="field"><label>Weight (lb)</label><input type="number" id="f-weight" placeholder="e.g. 160"></div>
+        <!-- Fill either unit; the other one is calculated (convertUnits below). -->
+        <div class="field"><label>Height</label>
+          <div class="unit-pair">
+            <div class="unit-box wide"><input type="number" step="any" inputmode="decimal" id="f-height" placeholder="175"><span>cm</span></div>
+            <span class="unit-eq">=</span>
+            <div class="unit-box"><input type="number" step="1" inputmode="numeric" id="f-heightFt" placeholder="5"><span>ft</span></div>
+            <div class="unit-box"><input type="number" step="any" inputmode="decimal" id="f-heightIn" placeholder="9"><span>in</span></div>
+          </div>
+        </div>
+        <div class="field"><label>Weight</label>
+          <div class="unit-pair">
+            <div class="unit-box"><input type="number" step="any" inputmode="decimal" id="f-weight" placeholder="160"><span>lb</span></div>
+            <span class="unit-eq">=</span>
+            <div class="unit-box"><input type="number" step="any" inputmode="decimal" id="f-weightKg" placeholder="72.6"><span>kg</span></div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -1033,6 +1055,39 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+/* Height and weight in either unit: whichever box was typed in fills the other.
+   Exact factors: 1 in = 2.54 cm, 1 lb = 0.45359237 kg. Shown to one decimal, ".0" dropped. */
+const IN_CM = 2.54, LB_KG = 0.45359237;
+const num = (id) => { const v = parseFloat(document.getElementById(id).value); return isFinite(v) && v > 0 ? v : null; };
+const put = (id, v) => { document.getElementById(id).value = v == null ? '' : String(Math.round(v * 10) / 10); };
+function fromCm() {
+  const cm = num('f-height');
+  if (cm == null) { put('f-heightFt', null); put('f-heightIn', null); return; }
+  let ft = Math.floor(cm / IN_CM / 12), inch = Math.round((cm / IN_CM - ft * 12) * 10) / 10;
+  if (inch >= 12) { ft += 1; inch = 0; }
+  put('f-heightFt', ft); document.getElementById('f-heightIn').value = String(inch);
+}
+function fromFtIn() {
+  const ft = num('f-heightFt') || 0, inch = num('f-heightIn') || 0;
+  put('f-height', ft || inch ? (ft * 12 + inch) * IN_CM : null);
+}
+function fromLb() { const lb = num('f-weight'); put('f-weightKg', lb == null ? null : lb * LB_KG); }
+function fromKg() { const kg = num('f-weightKg'); put('f-weight', kg == null ? null : kg / LB_KG); }
+/* One string for the report, both units, so it reads the same whichever one was typed. */
+function heightText() {
+  const cm = num('f-height');
+  if (cm == null) return null;
+  const ft = document.getElementById('f-heightFt').value, inch = document.getElementById('f-heightIn').value;
+  return Math.round(cm * 10) / 10 + ' cm (' + ft + ' ft ' + (inch || 0) + ' in)';
+}
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('f-height').addEventListener('input', fromCm);
+  document.getElementById('f-heightFt').addEventListener('input', fromFtIn);
+  document.getElementById('f-heightIn').addEventListener('input', fromFtIn);
+  document.getElementById('f-weight').addEventListener('input', fromLb);
+  document.getElementById('f-weightKg').addEventListener('input', fromKg);
+});
+
 async function submitForm() {
   if (!validateStep(2)) return;
 
@@ -1050,8 +1105,9 @@ async function submitForm() {
     email: document.getElementById('f-email').value.trim(),
     dob: document.getElementById('f-dob').value,
     gender: document.getElementById('f-gender').value,
-    height: document.getElementById('f-height').value.trim() || null,
+    height: heightText(),
     weight: document.getElementById('f-weight').value || null,
+    weightKg: document.getElementById('f-weightKg').value || null,
     symptoms: symptomValues,
     priorities: prioSel.map((id, i) => {
       const r = { id: id, rank: i + 1 };

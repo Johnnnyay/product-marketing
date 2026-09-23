@@ -1,6 +1,6 @@
 /* GENERATED FILE, DO NOT EDIT.
    Built from intake/questions.json (v2.2) and intake/chrome.json
-   by intake/build-intake.py on 2026-09-22.
+   by intake/build-intake.py on 2026-09-23.
 
    Edit the question set in intake/questions.json and run the build again.
    Editing this file directly means the next build silently reverts you. */
@@ -362,10 +362,10 @@ const FIELDS = {
  },
  "f-weight": {
   "l": [
-   "Weight (lb)",
-   "体重（磅）",
-   "Peso (lb)",
-   "वज़न (lb)"
+   "Weight",
+   "体重",
+   "Peso",
+   "वज़न"
   ],
   "h": [
    "Protein requirement is calculated per kilogram of body weight, so without this the protein part of the plan is guesswork.",
