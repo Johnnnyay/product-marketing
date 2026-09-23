@@ -206,6 +206,12 @@ const UI = {
   "是",
   "Sí",
   "हाँ"
+ ],
+ "eventBack": [
+  "← Back to the event page",
+  "← 回到活动页面",
+  "← Volver a la página del evento",
+  "← इवेंट पेज पर वापस जाएँ"
  ]
 };
 

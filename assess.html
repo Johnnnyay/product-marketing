@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skin Assessment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#3D5A4C;--green:#5C8A6E;--green-light:#EDF2EE;--green-mid:#6F9E80;
+    --off-white:#F7F9F7;--gray-100:#F0F3F0;--gray-200:#E4E9E5;--gray-400:#9ca3af;
+    --gray-500:#6E7B74;--gray-600:#55605A;--gray-800:#2A332D;--glow:#E9B872;--radius-lg:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--off-white);color:var(--gray-800);-webkit-font-smoothing:antialiased;min-height:100vh}
+  .site-header{background:var(--navy);color:#fff;padding:14px 24px;display:flex;align-items:center}
+  .site-logo{font-family:'Caveat',cursive;font-size:22px;font-weight:600;color:rgba(255,255,255,.95)}
+  .hero{background:radial-gradient(120% 140% at 85% 0%,rgba(233,184,114,.38) 0%,rgba(233,184,114,0) 55%),linear-gradient(135deg,var(--navy) 0%,var(--green) 100%);color:#fff;padding:34px 20px 30px;text-align:center}
+  .hero-kicker{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:8px}
+  .hero h1{font-size:26px;font-weight:700;margin-bottom:8px}
+  .hero p{font-size:14px;line-height:1.6;color:rgba(255,255,255,.78);max-width:460px;margin:0 auto}
+  .wrap{max-width:620px;margin:0 auto;padding:24px 16px 56px}
+  .card{background:#fff;border-radius:var(--radius-lg);box-shadow:0 1px 4px rgba(0,0,0,.07);padding:22px;margin-bottom:14px}
+  .q{margin-bottom:22px}
+  .q:last-child{margin-bottom:0}
+  .q-label{display:block;font-size:15px;font-weight:600;color:var(--gray-800);margin-bottom:4px;line-height:1.45}
+  .q-sub{font-size:12.5px;color:var(--gray-500);margin-bottom:10px;line-height:1.5}
+  .req{color:var(--green)}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .row2 .q{margin-bottom:0}
+  @media(max-width:520px){.row2{grid-template-columns:1fr;gap:16px}}
+  .f label{display:block;font-size:13px;font-weight:600;color:var(--gray-600);margin-bottom:6px}
+  input[type=text],input[type=email],textarea{width:100%;border:1.5px solid var(--gray-200);border-radius:10px;padding:11px 12px;font:inherit;font-size:15px;color:var(--gray-800);background:#fff}
+  input:focus,textarea:focus{outline:none;border-color:var(--green)}
+  textarea{resize:vertical;min-height:84px;line-height:1.5}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{padding:9px 14px;border:1.5px solid var(--gray-200);border-radius:999px;background:#fff;font:inherit;font-size:14px;color:var(--gray-600);cursor:pointer;transition:all .15s;position:relative}
+  .chip:hover{border-color:var(--green);color:var(--green)}
+  .chip.on{background:var(--green-light);border-color:var(--green);color:#1f4d36;font-weight:600}
+  .chip.dim{opacity:.4;cursor:default}
+  .chip.dim:hover{border-color:var(--gray-200);color:var(--gray-600)}
+  .chip .rank{display:none;margin-right:7px;width:19px;height:19px;border-radius:50%;background:var(--green);color:#fff;font-size:11px;font-weight:700;align-items:center;justify-content:center;vertical-align:1px}
+  .chip.on .rank{display:inline-flex}
+  .count{font-size:12px;color:var(--gray-500);margin-top:8px}
+  .reveal{margin-top:10px}
+  .reveal[hidden]{display:none}
+  .err{display:none;margin-top:8px;font-size:12.5px;color:#b3261e}
+  .q.bad .err{display:block}
+  .q.bad input,.q.bad textarea{border-color:#e7a29c}
+  .btn{display:block;width:100%;padding:14px 24px;border-radius:999px;font:inherit;font-size:15px;font-weight:600;cursor:pointer;border:0;background:var(--navy);color:#fff;text-align:center;text-decoration:none}
+  .btn:hover{background:#47695a}
+  .btn:disabled{background:var(--gray-400);cursor:default}
+  .btn-ghost{background:none;color:var(--green);font-size:14px;padding:12px}
+  .btn-ghost:hover{background:none;text-decoration:underline}
+  .form-err{display:none;background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:12px 14px;font-size:13.5px;color:#991b1b;margin-bottom:14px;line-height:1.5}
+  .privacy{font-size:12px;color:var(--gray-500);text-align:center;margin-top:12px;line-height:1.5}
+  /* Done: the guest's own answers, to show at the station. */
+  .done-head{text-align:center;padding:10px 0 18px}
+  .done-icon{width:58px;height:58px;margin:0 auto 14px;border-radius:50%;background:var(--green-light);color:var(--green);display:flex;align-items:center;justify-content:center}
+  .done-title{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:6px}
+  .done-sub{font-size:14px;color:var(--gray-600);line-height:1.6;max-width:420px;margin:0 auto}
+  .profile-h{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--green);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .profile-h::after{content:'';flex:1;height:1px;background:var(--gray-200)}
+  .pr{display:grid;grid-template-columns:118px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--gray-100);font-size:14px;line-height:1.5}
+  .pr:last-child{border-bottom:0}
+  .pr-k{color:var(--gray-500);font-size:13px}
+  .pr-v{color:var(--gray-800);white-space:pre-wrap;word-break:break-word}
+  @media(max-width:420px){.pr{grid-template-columns:1fr;gap:2px}}
+  .tag{display:inline-block;background:var(--green-light);color:#1f4d36;border-radius:999px;padding:3px 10px;font-size:13px;font-weight:600;margin:0 6px 4px 0}
+  .ver{font-size:11.5px;color:var(--gray-400);text-align:center;margin-top:26px}
+  .ver.old{color:#A81C1C;font-weight:700}
+  #upd{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:12px;background:#141A16;color:#fff;border-radius:999px;padding:8px 8px 8px 18px;font-size:14px;font-weight:700;max-width:calc(100vw - 24px)}
+  #upd[hidden]{display:none}
+  #upd button{font:inherit;font-size:13px;font-weight:800;background:#FFD166;color:#141A16;border:0;border-radius:999px;padding:7px 14px;cursor:pointer}
+  [hidden]{display:none !important}
+</style>
+</head>
+<body>
+
+<header class="site-header"><span class="site-logo">Glow From Within</span></header>
+
+<div class="hero">
+  <div class="hero-kicker" id="kicker">Skincare</div>
+  <h1 id="title">Skin Assessment</h1>
+  <p id="lede">Two minutes. Your answers go to the specialist running your skin diagnostic, so the conversation starts with what matters to you.</p>
+</div>
+
+<div class="wrap">
+  <form id="form" novalidate>
+    <div class="form-err" id="formErr" role="alert"></div>
+
+    <div class="card">
+      <div class="row2">
+        <div class="q f" id="q-name"><label for="a-name">First and last name <span class="req">*</span></label>
+          <input type="text" id="a-name" autocomplete="name" placeholder="Jane Smith"><div class="err">Please add your name.</div></div>
+        <div class="q f" id="q-email"><label for="a-email">Email <span style="font-weight:400;color:var(--gray-400)">(optional)</span></label>
+          <input type="email" id="a-email" autocomplete="email" placeholder="you@example.com"><div class="err">That email doesn't look complete.</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="q" id="q-concerns">
+        <span class="q-label" id="concernsLabel">What are your top 2 concerns?</span>
+        <div class="q-sub">Tap up to two, most important first.</div>
+        <div class="chips" id="concernChips"></div>
+        <div class="count" id="concernCount">0 of 2 chosen</div>
+        <div class="reveal" id="otherWrap" hidden><input type="text" id="a-concernOther" maxlength="200" placeholder="Tell us in a few words"></div>
+        <div class="err" id="concernErr">Pick at least one.</div>
+      </div>
+      <div class="q" id="q-type">
+        <span class="q-label" id="typeLabel">What do you think your skin type is?</span>
+        <div class="chips" id="typeChips"></div>
+        <div class="err">Pick one. "I don't know" is fine.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="q" id="q-routine">
+        <label class="q-label" for="a-routine" id="routineLabel">What's your current routine?</label>
+        <div class="q-sub" id="routineSub">The products you use and their brands. "Nothing much" is a perfectly good answer.</div>
+        <textarea id="a-routine" maxlength="1500"></textarea>
+        <div class="err">A few words is enough.</div>
+      </div>
+      <div class="q" id="q-allergy">
+        <span class="q-label">Any allergies or sensitivities?</span>
+        <div class="chips" id="allergyChips">
+          <button type="button" class="chip" data-v="no">No</button>
+          <button type="button" class="chip" data-v="yes">Yes</button>
+        </div>
+        <div class="reveal" id="allergyWrap" hidden><input type="text" id="a-allergies" maxlength="500" placeholder="What are you allergic or sensitive to?"></div>
+        <div class="err" id="allergyErr">Please choose one.</div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn" id="sendBtn">Send my answers</button>
+    <p class="privacy">Only the event team sees your answers. They are not published anywhere.</p>
+  </form>
+
+  <div id="done" hidden>
+    <div class="done-head">
+      <div class="done-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+      <div class="done-title" id="doneTitle">Thank you.</div>
+      <div class="done-sub" id="doneSub">Your answers are with the team.</div>
+    </div>
+    <div class="card"><div class="profile-h" id="profileH">Your skin profile</div><div id="profile"></div></div>
+    <a class="btn" id="backBtn" href="glow.html">Back to the event page</a>
+    <button type="button" class="btn btn-ghost" id="againBtn">Made a mistake? Send a corrected version</button>
+  </div>
+
+  <p class="ver"></p>
+</div>
+
+<div id="upd" hidden><span id="updt"></span><button type="button" id="updgo">Reload now</button></div>
+
+<script>
+const BUILD = "2026-09-23T01:00:40Z";
+const SELF = document.currentScript ? document.currentScript.textContent : "";
+if(/[?&]v=/.test(location.search)){
+  const keep = new URLSearchParams(location.search); keep.delete("v");
+  history.replaceState(null, "", location.pathname + (keep.toString() ? "?" + keep : "") + location.hash);
+}
+
+const API = "https://health-intake-api.vercel.app/api/event";
+const params = new URLSearchParams(location.search);
+const TYPE = params.get("type") === "hair" ? "hair" : "skin";
+const EVENT = /^[a-z0-9-]{3,40}$/.test(params.get("event") || "") ? params.get("event") : "general";
+const BACK = /^[a-z0-9-]+\.html$/.test(params.get("back") || "") ? params.get("back") : "glow.html";
+
+const COPY = {
+  skin: {
+    title: "Skin Assessment", kicker: "Skincare",
+    lede: "Two minutes. Your answers go to the specialist running your skin diagnostic, so the conversation starts with what matters to you.",
+    concerns: ["Lines and wrinkles", "Pigmentation or dark spots", "Dark under-eye circles", "Uneven texture and visible pores", "Acne or blemishes", "Redness"],
+    typeLabel: "What do you think your skin type is?",
+    types: ["Dry", "Normal or combination", "Oily", "I don't know"],
+    routineLabel: "What's your current routine?",
+    routineSub: "The products you use and their brands. \"Nothing much\" is a perfectly good answer.",
+    routinePh: "e.g. gel cleanser from CeraVe, a vitamin C serum, moisturizer, sunscreen most days",
+    profile: "Your skin profile", station: "skin diagnostic", typeKey: "Skin type",
+  },
+  hair: {
+    title: "Hair & Scalp Assessment", kicker: "Scalp & Haircare",
+    lede: "Two minutes. Your answers go to the specialist running your scalp and hair scan, so the conversation starts with what matters to you.",
+    concerns: ["Thinning or shedding", "Dandruff or flaky scalp", "Oily scalp", "Dry or itchy scalp", "Dryness or frizz", "Breakage or damage"],
+    typeLabel: "What do you think your hair type is?",
+    types: ["Clean or normal", "Oily", "Damaged or sensitive", "I don't know"],
+    routineLabel: "What hair products do you use now?",
+    routineSub: "Shampoo, conditioner, styling, treatments, and their brands. \"Nothing much\" is a perfectly good answer.",
+    routinePh: "e.g. a drugstore shampoo and conditioner, heat protectant, color every 2 months",
+    profile: "Your hair & scalp profile", station: "scalp and hair scan", typeKey: "Hair type",
+  },
+}[TYPE];
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const DRAFT = "assess-draft:" + EVENT + ":" + TYPE;
+const DONE = "event-done:" + EVENT;
+
+let concerns = [];          /* in the order tapped: first is the most important */
+let skinType = "", allergy = "", sending = false;
+
+document.title = COPY.title;
+$("title").textContent = COPY.title;
+$("kicker").textContent = COPY.kicker;
+$("lede").textContent = COPY.lede;
+$("typeLabel").textContent = COPY.typeLabel;
+$("routineLabel").textContent = COPY.routineLabel;
+$("routineSub").textContent = COPY.routineSub;
+$("a-routine").placeholder = COPY.routinePh;
+$("profileH").textContent = COPY.profile;
+$("backBtn").href = BACK + "?done=" + TYPE;
+
+const OTHER = "Something else";
+$("concernChips").innerHTML = COPY.concerns.concat(OTHER).map((c) =>
+  '<button type="button" class="chip" data-v="' + esc(c) + '"><span class="rank"></span>' + esc(c) + "</button>").join("");
+$("typeChips").innerHTML = COPY.types.map((t) => '<button type="button" class="chip" data-v="' + esc(t) + '">' + esc(t) + "</button>").join("");
+
+function paintConcerns(){
+  document.querySelectorAll("#concernChips .chip").forEach((b) => {
+    const i = concerns.indexOf(b.dataset.v);
+    b.classList.toggle("on", i >= 0);
+    b.classList.toggle("dim", i < 0 && concerns.length >= 2);
+    b.setAttribute("aria-pressed", i >= 0);
+    b.querySelector(".rank").textContent = i >= 0 ? i + 1 : "";
+  });
+  $("concernCount").textContent = concerns.length + " of 2 chosen" + (concerns.length >= 2 ? ". Tap a chosen one to change it." : "");
+  $("otherWrap").hidden = concerns.indexOf(OTHER) < 0;
+}
+function paintSingle(boxId, value){
+  document.querySelectorAll("#" + boxId + " .chip").forEach((b) => {
+    b.classList.toggle("on", b.dataset.v === value);
+    b.setAttribute("aria-pressed", b.dataset.v === value);
+  });
+}
+function paintAllergy(){
+  paintSingle("allergyChips", allergy);
+  $("allergyWrap").hidden = allergy !== "yes";
+}
+
+$("concernChips").addEventListener("click", (e) => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  const v = b.dataset.v, i = concerns.indexOf(v);
+  if (i >= 0) concerns.splice(i, 1);
+  else if (concerns.length < 2) concerns.push(v);
+  else return;
+  if (v === OTHER && i < 0) setTimeout(() => $("a-concernOther").focus(), 30);
+  $("q-concerns").classList.remove("bad");
+  paintConcerns(); saveDraft();
+});
+$("typeChips").addEventListener("click", (e) => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  skinType = skinType === b.dataset.v ? "" : b.dataset.v;
+  $("q-type").classList.remove("bad");
+  paintSingle("typeChips", skinType); saveDraft();
+});
+$("allergyChips").addEventListener("click", (e) => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  allergy = b.dataset.v;
+  if (allergy === "yes") setTimeout(() => $("a-allergies").focus(), 30);
+  $("q-allergy").classList.remove("bad");
+  paintAllergy(); saveDraft();
+});
+["a-name", "a-email", "a-routine", "a-concernOther", "a-allergies"].forEach((id) => {
+  $(id).addEventListener("input", () => { $(id).closest(".q").classList.remove("bad"); saveDraft(); });
+});
+
+/* A half-filled form survives a reload (the page reloads itself when a newer version is out). */
+function saveDraft(){
+  const d = { concerns, skinType, allergy };
+  ["a-name", "a-email", "a-routine", "a-concernOther", "a-allergies"].forEach((id) => { d[id] = $(id).value; });
+  try { sessionStorage.setItem(DRAFT, JSON.stringify(d)); } catch (e) {}
+}
+function loadDraft(){
+  let d = null;
+  try { d = JSON.parse(sessionStorage.getItem(DRAFT) || "null"); } catch (e) {}
+  if (!d) return;
+  concerns = (d.concerns || []).filter((c) => COPY.concerns.concat(OTHER).indexOf(c) >= 0).slice(0, 2);
+  skinType = COPY.types.indexOf(d.skinType) >= 0 ? d.skinType : "";
+  allergy = d.allergy === "yes" || d.allergy === "no" ? d.allergy : "";
+  ["a-name", "a-email", "a-routine", "a-concernOther", "a-allergies"].forEach((id) => { if (typeof d[id] === "string") $(id).value = d[id]; });
+}
+
+function collect(){
+  const other = $("a-concernOther").value.trim();
+  return {
+    name: $("a-name").value.trim(),
+    email: $("a-email").value.trim(),
+    concerns: concerns.map((c) => c === OTHER ? (other ? "Other: " + other : "Other") : c),
+    concernOther: concerns.indexOf(OTHER) >= 0 ? other : "",
+    type: skinType,
+    routine: $("a-routine").value.trim(),
+    hasAllergy: allergy,
+    allergies: allergy === "yes" ? $("a-allergies").value.trim() : "",
+  };
+}
+
+function validate(a){
+  const bad = [];
+  if (!a.name) bad.push("q-name");
+  if (a.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(a.email)) bad.push("q-email");
+  if (!concerns.length || (concerns.indexOf(OTHER) >= 0 && !a.concernOther)) {
+    $("concernErr").textContent = concerns.length ? "Tell us what the other concern is." : "Pick at least one.";
+    bad.push("q-concerns");
+  }
+  if (!a.type) bad.push("q-type");
+  if (!a.routine) bad.push("q-routine");
+  if (!allergy || (allergy === "yes" && !a.allergies)) {
+    $("allergyErr").textContent = allergy ? "Tell us what you're allergic or sensitive to." : "Please choose one.";
+    bad.push("q-allergy");
+  }
+  document.querySelectorAll(".q").forEach((q) => q.classList.toggle("bad", bad.indexOf(q.id) >= 0));
+  if (bad.length) $(bad[0]).scrollIntoView({ behavior: "smooth", block: "center" });
+  return !bad.length;
+}
+
+$("form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  if (sending) return;
+  const a = collect();
+  $("formErr").style.display = "none";
+  if (!validate(a)) return;
+  sending = true;
+  $("sendBtn").disabled = true; $("sendBtn").textContent = "Sending…";
+  try {
+    const r = await fetch(API, { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "submit", event: EVENT, type: TYPE, answers: a }) });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok || !j.ok) throw new Error(j.error || "The server did not accept the answers");
+    try { sessionStorage.removeItem(DRAFT); } catch (err) {}
+    try {
+      const done = JSON.parse(localStorage.getItem(DONE) || "{}");
+      done[TYPE] = j.submittedAt || new Date().toISOString();
+      localStorage.setItem(DONE, JSON.stringify(done));
+    } catch (err) {}
+    showDone(a);
+  } catch (err) {
+    $("formErr").textContent = "Your answers were not sent (" + err.message + "). Check your connection and tap Send again. Nothing you typed has been lost.";
+    $("formErr").style.display = "block";
+    $("formErr").scrollIntoView({ behavior: "smooth", block: "center" });
+  } finally {
+    sending = false;
+    $("sendBtn").disabled = false; $("sendBtn").textContent = "Send my answers";
+  }
+});
+
+function showDone(a){
+  const first = a.name.split(/\s+/)[0];
+  $("doneTitle").textContent = "Thank you, " + first + ".";
+  $("doneSub").textContent = "Your answers are with the team. Your specialist at the " + COPY.station + " will start from here.";
+  const rows = [
+    ["Top concerns", a.concerns.map((c) => '<span class="tag">' + esc(c) + "</span>").join("")],
+    [COPY.typeKey, esc(a.type)],
+    ["Current routine", esc(a.routine)],
+    ["Allergies", a.hasAllergy === "yes" ? esc(a.allergies) : "None"],
+  ];
+  $("profile").innerHTML = rows.map((r) => '<div class="pr"><div class="pr-k">' + esc(r[0]) + '</div><div class="pr-v">' + r[1] + "</div></div>").join("");
+  $("form").hidden = true; $("done").hidden = false;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+$("againBtn").addEventListener("click", () => {
+  $("done").hidden = true; $("form").hidden = false;
+  $("sendBtn").textContent = "Send corrected answers";
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+loadDraft(); paintConcerns(); paintSingle("typeChips", skinType); paintAllergy();
+
+/* Always the newest version: see DiamondA70/_skills/app-qa/references/self-update.md */
+let stale = false, checkedAt = 0, triedAt = 0, staleKey = "";
+function busy(){
+  const a = document.activeElement;
+  return sending || !!(a && /^(INPUT|TEXTAREA)$/.test(a.tagName) && a.value);
+}
+function paintVer(){
+  const when = (t) => new Date(t).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  const txt = "Version " + when(BUILD) + (stale ? " · a newer version is out, reloading"
+    : checkedAt ? " · the newest (checked " + new Date(checkedAt).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }) + ")" : "");
+  document.querySelectorAll(".ver").forEach((el) => { el.textContent = txt; el.classList.toggle("old", stale); });
+}
+function freshen(){
+  if (!/^https?:$/.test(location.protocol) || document.hidden || Date.now() - triedAt < 8000) return;
+  triedAt = Date.now();
+  fetch(location.pathname + "?latest=" + Date.now(), { cache: "no-store" })
+    .then((r) => r.ok ? r.text() : "")
+    .then((html) => {
+      const m = /const BUILD = "([^"]+)";/.exec(html);
+      if (!m || !SELF) return;
+      checkedAt = Date.now();
+      stale = m[1] >= BUILD && html.indexOf(SELF) < 0;
+      staleKey = m[1] + ":" + html.length;
+      paintVer(); reloadWhenSafe();
+    }).catch(() => {});
+}
+function reloadWhenSafe(){
+  const bar = $("upd");
+  if (!stale) { bar.hidden = true; return; }
+  let tried = ""; try { tried = sessionStorage.getItem("assess-tried") || ""; } catch (e) {}
+  if (tried !== staleKey && !busy() && $("done").hidden) { reloadNow(); return; }
+  $("updt").textContent = tried === staleKey ? "A newer version of this page is out." : "A newer version is out.";
+  bar.hidden = false;
+}
+function reloadNow(){
+  saveDraft();
+  try { sessionStorage.setItem("assess-tried", staleKey); } catch (e) {}
+  const q = new URLSearchParams(location.search); q.set("v", Date.now());
+  location.replace(location.pathname + "?" + q + location.hash);
+}
+$("updgo").onclick = reloadNow;
+paintVer(); freshen();
+setInterval(freshen, 60000);
+setInterval(() => { if (stale) reloadWhenSafe(); }, 3000);
+document.addEventListener("visibilitychange", () => { if (!document.hidden) freshen(); });
+addEventListener("focus", freshen);
+addEventListener("pageshow", (e) => { if (e.persisted) { triedAt = 0; freshen(); } });
+</script>
+</body>
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glow From Within</title>
+<meta name="description" content="Friday, September 25, 6:30 to 8:30 PM, New York. Three short check-ins before your consultations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#3D5A4C;--green:#5C8A6E;--green-light:#EDF2EE;--green-mid:#6F9E80;
+    --off-white:#F7F9F7;--gray-100:#F0F3F0;--gray-200:#E4E9E5;--gray-400:#9ca3af;
+    --gray-500:#6E7B74;--gray-600:#55605A;--gray-800:#2A332D;--glow:#E9B872;--glow-soft:#FBF3E6;
+    --radius-lg:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--off-white);color:var(--gray-800);-webkit-font-smoothing:antialiased;min-height:100vh}
+  button{font:inherit}
+  [hidden]{display:none !important}
+  .site-header{background:var(--navy);color:#fff;padding:14px 24px;display:flex;align-items:center;gap:12px}
+  .site-logo{font-family:'Caveat',cursive;font-size:22px;font-weight:600;color:rgba(255,255,255,.95)}
+  .hdr-tools{display:flex;align-items:center;gap:8px;margin-left:auto}
+  .pill{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);
+    color:rgba(255,255,255,.88);font-size:12px;font-weight:600;padding:6px 11px;border-radius:18px;cursor:pointer;white-space:nowrap;text-decoration:none}
+  .pill:hover{background:rgba(255,255,255,.2)}
+
+  .hero{background:radial-gradient(110% 150% at 88% -10%,rgba(233,184,114,.45) 0%,rgba(233,184,114,0) 55%),
+    linear-gradient(135deg,var(--navy) 0%,var(--green) 100%);color:#fff;padding:52px 20px 46px;text-align:center}
+  .hero-kicker{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:12px}
+  .hero h1{font-size:40px;font-weight:700;letter-spacing:-.01em;line-height:1.1;margin-bottom:10px}
+  .hero-tag{font-size:16px;color:rgba(255,255,255,.85);margin-bottom:22px}
+  .meta{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+  .meta span{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);
+    border-radius:999px;padding:7px 13px;font-size:13px;color:rgba(255,255,255,.92)}
+  .meta svg{flex:none;opacity:.8}
+  @media(max-width:520px){.hero{padding:40px 16px 36px}.hero h1{font-size:32px}.hero-tag{font-size:15px}}
+
+  .wrap{max-width:960px;margin:0 auto;padding:30px 16px 56px}
+  .sec-h{font-size:21px;font-weight:700;color:var(--navy);margin-bottom:6px}
+  .sec-sub{font-size:14.5px;color:var(--gray-600);line-height:1.6;max-width:620px;margin-bottom:18px}
+  .progress{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray-500);margin-bottom:16px}
+  .progress-bar{flex:0 0 120px;height:6px;border-radius:999px;background:var(--gray-200);overflow:hidden}
+  .progress-bar i{display:block;height:100%;background:var(--green);border-radius:999px;transition:width .3s}
+
+  .stations{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px}
+  @media(max-width:820px){.stations{grid-template-columns:1fr}}
+  .st{background:#fff;border-radius:var(--radius-lg);box-shadow:0 1px 4px rgba(0,0,0,.07);padding:22px;display:flex;flex-direction:column;border:1.5px solid transparent;transition:border-color .2s}
+  .st.done{border-color:#cfe0d5}
+  .st-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .st-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none;background:var(--green-light);color:var(--green)}
+  .st-icon.warm{background:var(--glow-soft);color:#a86b1c}
+  .st-kicker{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
+  .st-name{font-size:17px;font-weight:700;color:var(--gray-800);margin-top:2px}
+  .st-desc{font-size:14px;color:var(--gray-600);line-height:1.6;margin-bottom:16px;flex:1}
+  .st-foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .st-time{font-size:12.5px;color:var(--gray-500);display:inline-flex;align-items:center;gap:5px}
+  .st-btn{display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:#fff;text-decoration:none;font-weight:600;font-size:14px;padding:10px 18px;border-radius:999px;white-space:nowrap}
+  .st-btn:hover{background:#47695a}
+  .st.done .st-btn{background:var(--green-light);color:var(--navy)}
+  .st-check{display:none;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--green)}
+  .st.done .st-check{display:inline-flex}
+  .st.done .st-time{display:none}
+
+  .info{display:grid;grid-template-columns:1.2fr 1fr;gap:14px}
+  @media(max-width:820px){.info{grid-template-columns:1fr}}
+  .card{background:#fff;border-radius:var(--radius-lg);box-shadow:0 1px 4px rgba(0,0,0,.07);padding:22px}
+  .card-title{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--green);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .card-title::after{content:'';flex:1;height:1px;background:var(--gray-200)}
+  .agenda li{list-style:none;display:grid;grid-template-columns:28px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--gray-100)}
+  .agenda li:last-child{border-bottom:0}
+  .agenda b{display:block;font-size:14.5px;color:var(--gray-800);margin-bottom:2px}
+  .agenda span{font-size:13.5px;color:var(--gray-600);line-height:1.55}
+  .agenda .n{width:24px;height:24px;border-radius:50%;background:var(--green-light);color:var(--green);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .kv{display:grid;grid-template-columns:84px 1fr;gap:6px 12px;font-size:14px;line-height:1.55;margin-bottom:16px}
+  .kv dt{color:var(--gray-500);font-size:13px}
+  .kv dd{color:var(--gray-800)}
+  .kv a,.link{color:var(--green);font-weight:600;text-decoration:none}
+  .kv a:hover,.link:hover{text-decoration:underline}
+  .book{display:block;text-align:center;background:var(--glow-soft);color:#7a4c12;border:1.5px solid #f0dcbc;border-radius:12px;padding:12px;font-weight:600;font-size:14px;text-decoration:none}
+  .book:hover{background:#f8ead3}
+  .note{font-size:12.5px;color:var(--gray-500);margin-top:10px;line-height:1.55}
+
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--gray-400);line-height:1.8}
+  .foot button{background:none;border:0;color:var(--gray-500);text-decoration:underline;cursor:pointer;font-size:12px}
+  .ver.old{color:#A81C1C;font-weight:700}
+
+  /* Admin */
+  .tabs{display:none;background:#fff;border-bottom:1px solid var(--gray-200);position:sticky;top:0;z-index:20}
+  body.admin .tabs{display:block}
+  .tabs-in{max-width:960px;margin:0 auto;padding:0 12px;display:flex;gap:2px;overflow-x:auto}
+  .tab{background:none;border:0;border-bottom:2.5px solid transparent;padding:14px 14px 12px;font-size:14px;font-weight:600;color:var(--gray-500);cursor:pointer;white-space:nowrap}
+  .tab:hover{color:var(--navy)}
+  @media(max-width:420px){.tab{padding:14px 9px 12px;font-size:13.5px}.tab .c{margin-left:4px}}
+  .tab.on{color:var(--navy);border-bottom-color:var(--green)}
+  .tab .c{display:inline-block;min-width:20px;margin-left:6px;padding:1px 7px;border-radius:999px;background:var(--gray-100);font-size:11.5px;color:var(--gray-600)}
+  .tab.on .c{background:var(--green-light);color:var(--navy)}
+  #adminView[hidden],#guestView[hidden]{display:none}
+  .tools{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:16px}
+  .search{flex:1;min-width:200px;border:1.5px solid var(--gray-200);border-radius:999px;padding:10px 16px;font:inherit;font-size:14px;background:#fff}
+  .search:focus{outline:none;border-color:var(--green)}
+  .tbtn{background:#fff;border:1.5px solid var(--gray-200);border-radius:999px;padding:9px 15px;font-size:13px;font-weight:600;color:var(--gray-600);cursor:pointer}
+  .tbtn:hover{border-color:var(--green);color:var(--navy)}
+  .stamp{font-size:12px;color:var(--gray-500)}
+  .a-err{display:none;background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:12px 14px;font-size:13.5px;color:#991b1b;margin-bottom:14px}
+  .list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  @media(max-width:760px){.list{grid-template-columns:1fr}}
+  .ent{background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(0,0,0,.07);padding:18px}
+  .ent-h{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
+  .ent-name{font-size:16px;font-weight:700;color:var(--gray-800)}
+  .ent-sub{font-size:12.5px;color:var(--gray-500);margin-top:2px;word-break:break-all}
+  .ent-row{display:grid;grid-template-columns:96px 1fr;gap:8px;padding:6px 0;font-size:13.5px;line-height:1.5;border-top:1px solid var(--gray-100)}
+  .ent-row .k{color:var(--gray-500);font-size:12.5px;padding-top:1px}
+  .ent-row .v{color:var(--gray-800);white-space:pre-wrap;word-break:break-word}
+  .tag{display:inline-block;background:var(--green-light);color:#1f4d36;border-radius:999px;padding:2px 9px;font-size:12.5px;font-weight:600;margin:0 5px 4px 0;white-space:normal}
+  .tag.warm{background:var(--glow-soft);color:#7a4c12}
+  .tag.alert{background:#fdecea;color:#9b2c21}
+  .status{flex:none;font-size:11.5px;font-weight:700;border-radius:999px;padding:3px 9px;background:var(--gray-100);color:var(--gray-600)}
+  .status.ready{background:var(--green-light);color:var(--navy)}
+  .ent-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:10px}
+  .abtn{background:var(--navy);color:#fff;border:0;border-radius:999px;padding:8px 15px;font-size:13px;font-weight:600;cursor:pointer}
+  .abtn:hover{background:#47695a}
+  .dbtn{background:none;border:0;color:#b3261e;font-size:12.5px;font-weight:600;cursor:pointer;padding:8px 6px}
+  .dbtn:hover{text-decoration:underline}
+  .empty{background:#fff;border-radius:14px;padding:34px 20px;text-align:center;color:var(--gray-500);font-size:14px;line-height:1.6;grid-column:1/-1}
+
+  #upd{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:12px;background:#141A16;color:#fff;border-radius:999px;padding:8px 8px 8px 18px;font-size:14px;font-weight:700;max-width:calc(100vw - 24px)}
+  #upd[hidden]{display:none}
+  #upd button{font-size:13px;font-weight:800;background:#FFD166;color:#141A16;border:0;border-radius:999px;padding:7px 14px;cursor:pointer}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <span class="site-logo">Glow From Within</span>
+  <div class="hdr-tools">
+    <button class="pill" id="signOut" hidden>Sign out of admin</button>
+    <button class="pill" id="adminDots" title="Admin login">···</button>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Admin views"><div class="tabs-in" id="tabs">
+  <button class="tab" data-tab="guest">Guest view</button>
+  <button class="tab" data-tab="health">Health<span class="c" id="c-health">·</span></button>
+  <button class="tab" data-tab="skin">Skin<span class="c" id="c-skin">·</span></button>
+  <button class="tab" data-tab="hair">Hair<span class="c" id="c-hair">·</span></button>
+</div></nav>
+
+<div id="guestView">
+  <section class="hero">
+    <div class="hero-kicker">You're on the list</div>
+    <h1>Glow From Within</h1>
+    <div class="hero-tag">Feel good. Look good. Live well.</div>
+    <div class="meta">
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>Friday, September 25</span>
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>6:30 to 8:30 PM</span>
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>134 W 29th St, New York</span>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <h2 class="sec-h">Before you arrive</h2>
+    <p class="sec-sub">There are three stations at the event. Each one has a short check-in. Complete them before Friday, and your specialists will already know your answers when you arrive.</p>
+    <div class="progress"><div class="progress-bar"><i id="progFill" style="width:0"></i></div><span id="progText">0 of 3 done</span></div>
+
+    <div class="stations">
+      <div class="st" id="st-health">
+        <div class="st-top">
+          <div class="st-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 16-9 0 12-4 16-9 16z"/><path d="M4 20c3-5 7-8 11-10"/></svg></div>
+          <div><div class="st-kicker">Health &amp; Nutrition</div><div class="st-name">Health Assessment</div></div>
+        </div>
+        <p class="st-desc">Energy, sleep, digestion and daily habits. It becomes your personal nutrition report, which we go through together at the event.</p>
+        <div class="st-foot"><span class="st-time">About 10 minutes</span><span class="st-check">✓ Done</span><a class="st-btn" id="go-health" href="#">Start</a></div>
+      </div>
+      <div class="st" id="st-skin">
+        <div class="st-top">
+          <div class="st-icon warm"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
+          <div><div class="st-kicker">Skincare</div><div class="st-name">Skin Assessment</div></div>
+        </div>
+        <p class="st-desc">Your top concerns, your skin type and your current routine, for the blue light skin diagnostic.</p>
+        <div class="st-foot"><span class="st-time">About 2 minutes</span><span class="st-check">✓ Done</span><a class="st-btn" id="go-skin" href="#">Start</a></div>
+      </div>
+      <div class="st" id="st-hair">
+        <div class="st-top">
+          <div class="st-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 21c0-6 1-10 5-13"/><path d="M12 21c0-6 .5-10 3-13"/><path d="M17 21c0-5-.5-9-1-11"/><path d="M5 8c2-3 5-5 9-5 3 0 5 1 5 3"/></svg></div>
+          <div><div class="st-kicker">Scalp &amp; Haircare</div><div class="st-name">Hair &amp; Scalp Assessment</div></div>
+        </div>
+        <p class="st-desc">Your top concerns, your hair type and the products you use now, for the scalp and hair scan.</p>
+        <div class="st-foot"><span class="st-time">About 2 minutes</span><span class="st-check">✓ Done</span><a class="st-btn" id="go-hair" href="#">Start</a></div>
+      </div>
+    </div>
+
+    <div class="info">
+      <div class="card">
+        <div class="card-title">What's happening</div>
+        <ul class="agenda">
+          <li><div class="n">1</div><div><b>Health &amp; nutrition consultation</b><span>How nutrition affects your energy and overall health, and practical ways to fuel your body from the inside out.</span></div></li>
+          <li><div class="n">2</div><div><b>Blue light skin diagnostic</b><span>A closer look at what's going on with your skin, from dryness and oiliness to breakouts and signs of aging.</span></div></li>
+          <li><div class="n">3</div><div><b>Scalp &amp; hair scan</b><span>A closer look at your scalp and hair, and how your routine plays a part in how your hair looks and feels.</span></div></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title">Details</div>
+        <dl class="kv">
+          <dt>When</dt><dd>Friday, September 25<br>6:30 to 8:30 PM</dd>
+          <dt>Where</dt><dd>134 W 29th St, Floor 2, Space 3-1<br>New York, NY 10001<br><a href="https://maps.google.com/?q=134+W+29th+St,+New+York,+NY+10001" target="_blank" rel="noopener">Open in Maps</a></dd>
+        </dl>
+        <a class="book" href="https://unityhy.setmore.com/" target="_blank" rel="noopener">Book a free consultation time</a>
+        <p class="note">Consultations are free with a booking. If the times are full, there is a waitlist at the event.</p>
+      </div>
+    </div>
+
+    <div class="foot">
+      <div class="ver"></div>
+      <button type="button" id="resetBtn">Clear my check-ins on this device</button>
+    </div>
+  </div>
+</div>
+
+<div id="adminView" class="wrap" hidden>
+  <div class="tools">
+    <input class="search" id="search" type="search" placeholder="Search by name or email" autocomplete="off">
+    <button class="tbtn" id="refresh">Refresh</button>
+    <span class="stamp" id="stamp"></span>
+  </div>
+  <div class="a-err" id="aErr" role="alert"></div>
+  <div class="list" id="list"></div>
+  <div class="foot"><div class="ver"></div></div>
+</div>
+
+<div id="upd" hidden><span id="updt"></span><button type="button" id="updgo">Reload now</button></div>
+
+<script src="admin-session.js"></script>
+<script>
+const BUILD = "2026-09-23T01:00:40Z";
+const SELF = document.currentScript ? document.currentScript.textContent : "";
+
+const EVENT = "glow-2026-09-25";
+const PAGE = "glow.html";
+const API = AdminSession.API + "/api/event";
+const DONE = "event-done:" + EVENT;
+const TYPES = ["health", "skin", "hair"];
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+/* Coming back from a check-in (?done=skin) marks it, then the URL is cleaned. */
+(function(){
+  const q = new URLSearchParams(location.search);
+  const d = q.get("done");
+  if (TYPES.indexOf(d) >= 0) {
+    try {
+      const done = JSON.parse(localStorage.getItem(DONE) || "{}");
+      if (!done[d]) done[d] = new Date().toISOString();
+      localStorage.setItem(DONE, JSON.stringify(done));
+    } catch (e) {}
+  }
+  if (location.search) history.replaceState(null, "", location.pathname + location.hash);
+})();
+
+$("go-health").href = "intake.html?event=" + EVENT + "&back=" + PAGE;
+$("go-skin").href = "assess.html?type=skin&event=" + EVENT + "&back=" + PAGE;
+$("go-hair").href = "assess.html?type=hair&event=" + EVENT + "&back=" + PAGE;
+
+function readDone(){ try { return JSON.parse(localStorage.getItem(DONE) || "{}") || {}; } catch (e) { return {}; } }
+function paintDone(){
+  const done = readDone();
+  let n = 0;
+  TYPES.forEach((t) => {
+    const on = !!done[t]; if (on) n++;
+    $("st-" + t).classList.toggle("done", on);
+    $("go-" + t).textContent = on ? "Do it again" : "Start";
+  });
+  $("progFill").style.width = (n / 3 * 100) + "%";
+  $("progText").textContent = n === 3 ? "All 3 done. See you Friday!" : n + " of 3 done";
+}
+$("resetBtn").addEventListener("click", () => {
+  if (!confirm("Clear the check marks on this device? Your answers already sent are not affected.")) return;
+  try { localStorage.removeItem(DONE); } catch (e) {}
+  paintDone();
+});
+addEventListener("storage", paintDone);
+addEventListener("pageshow", paintDone);
+paintDone();
+
+/* ── Admin ───────────────────────────────────────────── */
+let data = null, tab = "guest", loading = false, labels = {};
+try { tab = sessionStorage.getItem("glow-tab") || "health"; } catch (e) { tab = "health"; }
+
+fetch("intake/questions.json").then((r) => r.json()).then((q) => {
+  ((q.priorities && q.priorities.o) || []).forEach((o) => { labels[o[0]] = o[1]; });
+  if (data) render();
+}).catch(() => {});
+
+function setAdmin(on){
+  document.body.classList.toggle("admin", on);
+  $("signOut").hidden = !on;
+  $("adminDots").hidden = on;
+  if (!on) { tab = "guest"; data = null; }
+  showTab(on ? (tab === "guest" ? "health" : tab) : "guest");
+  if (on) load();
+}
+function showTab(t){
+  tab = t;
+  try { sessionStorage.setItem("glow-tab", t); } catch (e) {}
+  document.querySelectorAll(".tab").forEach((b) => b.classList.toggle("on", b.dataset.tab === t));
+  $("guestView").hidden = t !== "guest";
+  $("adminView").hidden = t === "guest";
+  if (t !== "guest") render();
+  window.scrollTo(0, 0);
+}
+$("tabs").addEventListener("click", (e) => { const b = e.target.closest(".tab"); if (b) showTab(b.dataset.tab); });
+$("adminDots").addEventListener("click", () => AdminSession.login(() => setAdmin(true)));
+$("signOut").addEventListener("click", () => { AdminSession.logout(); setAdmin(false); });
+$("refresh").addEventListener("click", () => load());
+$("search").addEventListener("input", () => render());
+
+function fail(msg){ $("aErr").textContent = msg; $("aErr").style.display = "block"; }
+
+async function load(){
+  if (loading) return;
+  loading = true; $("stamp").textContent = "Loading…"; $("aErr").style.display = "none";
+  try {
+    const r = await fetch(API + "?event=" + EVENT, { headers: AdminSession.headers(), cache: "no-store" });
+    if (r.status === 401) { AdminSession.logout(); setAdmin(false); alert("Your admin sign-in has expired. Tap ··· to sign in again."); return; }
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(j.error || ("the server answered " + r.status));
+    data = j;
+    $("stamp").textContent = "Updated " + new Date().toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
+  } catch (e) {
+    fail("Could not load the answers: " + e.message + ". Tap Refresh to try again.");
+    $("stamp").textContent = "";
+  } finally { loading = false; render(); }
+}
+
+function when(iso){
+  const d = new Date(iso); if (isNaN(d)) return iso || "";
+  return d.toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+}
+function tags(arr, cls){ return (arr || []).map((x) => '<span class="tag' + (cls ? " " + cls : "") + '">' + esc(x) + "</span>").join(""); }
+function row(k, v){ return v ? '<div class="ent-row"><div class="k">' + esc(k) + '</div><div class="v">' + v + "</div></div>" : ""; }
+function head(name, sub, status){
+  return '<div class="ent-h"><div><div class="ent-name">' + esc(name || "No name") + '</div><div class="ent-sub">' + sub + "</div></div>" + (status || "") + "</div>";
+}
+
+function healthCard(h){
+  const pri = (h.priorities || []).map((p) => p.id === "other" ? (p.other ? "Other: " + p.other : "Other") : (labels[p.id] || p.id));
+  const status = h.pending ? '<span class="status">Report being written</span>' : '<span class="status ready">Report ready</span>';
+  return '<div class="ent">' + head(h.name, esc(when(h.submittedAt)) + (h.email ? " · " + esc(h.email) : ""), status) +
+    row("Priorities", tags(pri, "warm")) +
+    row("Signals", h.signals && h.signals.length ? tags(h.signals) : (h.pending ? "Ready about two minutes after they submit" : "None found")) +
+    row("Products", h.products && h.products.length ? esc(h.products.join(", ")) : "") +
+    '<div class="ent-actions"><button class="abtn" data-open="' + esc(h.rid) + '">Open report</button></div></div>';
+}
+function quickCard(type, d){
+  const a = d.answers || {};
+  const allergy = a.hasAllergy === "yes" ? '<span class="tag alert">' + esc(a.allergies || "Yes, not specified") + "</span>" : (a.hasAllergy === "no" ? "None" : "");
+  return '<div class="ent">' + head(a.name, esc(when(d.submittedAt)) + (a.email ? " · " + esc(a.email) : "")) +
+    row("Top concerns", tags(a.concerns)) +
+    row(type === "skin" ? "Skin type" : "Hair type", esc(a.type)) +
+    row("Allergies", allergy) +
+    row("Routine", esc(a.routine)) +
+    '<div class="ent-actions"><button class="dbtn" data-del="' + esc(d.id) + '" data-type="' + type + '" data-name="' + esc(a.name || "") + '">Delete</button></div></div>';
+}
+
+function render(){
+  TYPES.forEach((t) => { $("c-" + t).textContent = data ? (data[t] || []).length : "·"; });
+  if (tab === "guest") return;
+  const list = $("list");
+  if (!data) { list.innerHTML = loading ? "" : '<div class="empty">Nothing loaded yet. Tap Refresh.</div>'; return; }
+  const q = $("search").value.trim().toLowerCase();
+  const items = (data[tab] || []).filter((d) => {
+    if (!q) return true;
+    const a = tab === "health" ? d : (d.answers || {});
+    return ((a.name || "") + " " + (a.email || "")).toLowerCase().indexOf(q) >= 0;
+  });
+  if (!items.length) {
+    list.innerHTML = '<div class="empty">' + (q ? "No one matches “" + esc(q) + "”." :
+      tab === "health" ? "No health assessments from this event page yet." : "No " + tab + " assessments yet.") + "</div>";
+    return;
+  }
+  list.innerHTML = items.map((d) => tab === "health" ? healthCard(d) : quickCard(tab, d)).join("");
+}
+
+$("list").addEventListener("click", async (e) => {
+  const open = e.target.closest("[data-open]");
+  if (open) { AdminSession.openReport(open.dataset.open); return; }
+  const del = e.target.closest("[data-del]");
+  if (!del) return;
+  if (!confirm("Delete " + (del.dataset.name || "this entry") + "'s " + del.dataset.type + " answers? This cannot be undone.")) return;
+  del.disabled = true; del.textContent = "Deleting…";
+  try {
+    const r = await fetch(API, { method: "POST", headers: Object.assign({ "Content-Type": "application/json" }, AdminSession.headers()),
+      body: JSON.stringify({ action: "delete", event: EVENT, type: del.dataset.type, id: del.dataset.del }) });
+    if (r.status === 401) { AdminSession.logout(); setAdmin(false); alert("Your admin sign-in has expired. Tap ··· to sign in again."); return; }
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok && r.status !== 404) throw new Error(j.error || ("the server answered " + r.status));
+    data[del.dataset.type] = (data[del.dataset.type] || []).filter((d) => d.id !== del.dataset.del);
+    render();
+  } catch (err) {
+    del.disabled = false; del.textContent = "Delete";
+    fail("Could not delete: " + err.message);
+  }
+});
+
+/* New answers arrive during the event without anyone tapping Refresh. */
+setInterval(() => { if (document.body.classList.contains("admin") && tab !== "guest" && !document.hidden) load(); }, 45000);
+
+setAdmin(AdminSession.has());
+
+/* Always the newest version: see DiamondA70/_skills/app-qa/references/self-update.md */
+let stale = false, checkedAt = 0, triedAt = 0, staleKey = "";
+function busy(){
+  const a = document.activeElement;
+  return !!(a && /^(INPUT|TEXTAREA)$/.test(a.tagName) && a.value) || !!document.querySelector(".as-modal.open");
+}
+function paintVer(){
+  const w = (t) => new Date(t).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  const txt = "Version " + w(BUILD) + (stale ? " · a newer version is out, reloading"
+    : checkedAt ? " · the newest (checked " + new Date(checkedAt).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }) + ")" : "");
+  document.querySelectorAll(".ver").forEach((el) => { el.textContent = txt; el.classList.toggle("old", stale); });
+}
+function freshen(){
+  if (!/^https?:$/.test(location.protocol) || document.hidden || Date.now() - triedAt < 8000) return;
+  triedAt = Date.now();
+  fetch(location.pathname + "?latest=" + Date.now(), { cache: "no-store" })
+    .then((r) => r.ok ? r.text() : "")
+    .then((html) => {
+      const m = /const BUILD = "([^"]+)";/.exec(html);
+      if (!m || !SELF) return;
+      checkedAt = Date.now();
+      stale = m[1] >= BUILD && html.indexOf(SELF) < 0;
+      staleKey = m[1] + ":" + html.length;
+      paintVer(); reloadWhenSafe();
+    }).catch(() => {});
+}
+function reloadWhenSafe(){
+  const bar = $("upd");
+  if (!stale) { bar.hidden = true; return; }
+  let tried = ""; try { tried = sessionStorage.getItem("glow-tried") || ""; } catch (e) {}
+  if (tried !== staleKey && !busy()) { reloadNow(); return; }
+  $("updt").textContent = tried === staleKey ? "A newer version of this page is out." : "A newer version is out.";
+  bar.hidden = false;
+}
+function reloadNow(){
+  try { sessionStorage.setItem("glow-tried", staleKey); } catch (e) {}
+  location.replace(location.pathname + "?v=" + Date.now() + location.hash);
+}
+$("updgo").onclick = reloadNow;
+paintVer(); freshen();
+setInterval(freshen, 60000);
+setInterval(() => { if (stale) reloadWhenSafe(); }, 3000);
+document.addEventListener("visibilitychange", () => { if (!document.hidden) freshen(); });
+addEventListener("focus", freshen);
+addEventListener("pageshow", (e) => { if (e.persisted) { triedAt = 0; freshen(); } });
+</script>
+</body>
+</html>
