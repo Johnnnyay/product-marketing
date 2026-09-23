@@ -1,11 +1,11 @@
 /* GENERATED FILE, DO NOT EDIT.
-   Built from intake/questions.json (v2.2) and intake/chrome.json
+   Built from intake/questions.json (v2.3) and intake/chrome.json
    by intake/build-intake.py on 2026-09-23.
 
    Edit the question set in intake/questions.json and run the build again.
    Editing this file directly means the next build silently reverts you. */
 
-const FORM_VERSION = "2.2";
+const FORM_VERSION = "2.3";
 
 const LANGS = [
   { code: 'en', label: 'English' },
@@ -1199,7 +1199,6 @@ const STAGE_SETTING = {
 
 const PRIORITIES = {
  "id": "f-priorities",
- "max": 3,
  "page": 1,
  "title": [
   "What matters most to you",
@@ -1214,10 +1213,10 @@ const PRIORITIES = {
   "आप अपने स्वास्थ्य के किन पहलुओं में सबसे ज़्यादा सुधार चाहते हैं?"
  ],
  "sub": [
-  "Choose up to three, in order of importance. Your first choice is what your report will open on.",
-  "最多选三项，按重要程度依次点选。你的第一项，就是报告首先回应的内容。",
-  "Elija hasta tres, en orden de importancia. Su primera elección es con lo que abrirá su informe.",
-  "अधिकतम तीन चुनें, महत्व के क्रम में। आपकी पहली पसंद से ही आपकी रिपोर्ट शुरू होगी।"
+  "Tap as many as apply, most important first. Your first choice is what your report opens on.",
+  "可以多选，按重要程度依次点。你点的第一项，就是报告最先回应的内容。",
+  "Elija todas las que correspondan, empezando por la más importante. Su primera elección es con lo que abre su informe.",
+  "जितने लागू हों उतने चुनें, सबसे ज़रूरी पहले। आपकी पहली पसंद से ही आपकी रिपोर्ट शुरू होगी।"
  ],
  "h": [
   "Feeling fine and having nothing to improve are two different things. Most people have a few things that are off, but only one or two they actually want fixed first, and that is often not the loudest symptom. Your order decides what the report opens on and where it goes into the most detail, even if something else looks stronger in your answers, which we will still tell you about.",
@@ -1226,17 +1225,17 @@ const PRIORITIES = {
   "'मैं ठीक हूँ' कहना और सुधार की कोई ज़रूरत न होना दो अलग बातें हैं। ज़्यादातर लोगों में कई चीज़ें ठीक नहीं होतीं, पर वे पहले एक-दो को ही सुधारना चाहते हैं, और वह अक्सर सबसे ज़ोरदार लक्षण नहीं होता। आपका क्रम तय करता है कि रिपोर्ट किससे शुरू होगी और कहाँ सबसे विस्तार से जाएगी, भले ही आपके जवाबों में कुछ और ज़्यादा प्रबल दिखे; उसके बारे में भी हम आपको बताएँगे।"
  ],
  "count": [
-  "{n} of 3 chosen",
-  "已选 {n} / 3",
-  "{n} de 3 elegidas",
-  "{n} / 3 चुने गए"
+  "{n} chosen",
+  "已选 {n} 项",
+  "{n} elegidas",
+  "{n} चुने गए"
  ],
  "words": {
   "l": [
-   "What would better look like for you?",
-   "改善之后，你希望是什么样？",
-   "¿Cómo sería para usted estar mejor?",
-   "बेहतर होने पर आपके लिए क्या बदलेगा?"
+   "What would better look like for you? (optional)",
+   "改善之后，你希望是什么样？（可选）",
+   "¿Cómo sería para usted estar mejor? (opcional)",
+   "बेहतर होने पर आपके लिए क्या बदलेगा? (वैकल्पिक)"
   ],
   "ph": [
    "For example: I fall asleep within 20 minutes and wake up rested.",
@@ -1252,10 +1251,10 @@ const PRIORITIES = {
   ]
  },
  "otherL": [
-  "What is it?",
-  "具体是什么？",
-  "¿De qué se trata?",
-  "यह क्या है?"
+  "What is it? (optional)",
+  "具体是什么？（可选）",
+  "¿De qué se trata? (opcional)",
+  "यह क्या है? (वैकल्पिक)"
  ],
  "otherPh": [
   "In a few words",
@@ -1268,12 +1267,6 @@ const PRIORITIES = {
   "请至少选择一个你希望改善的方面。",
   "Elija al menos un aspecto que le gustaría mejorar.",
   "कम से कम एक ऐसा पहलू चुनें जिसमें आप सुधार चाहते हैं।"
- ],
- "otherRequired": [
-  "Please tell us in a few words what the other area is.",
-  "请简单说明“其他”指的是什么。",
-  "Cuéntenos en pocas palabras de qué se trata la otra área.",
-  "कृपया कुछ शब्दों में बताएँ कि \"कुछ और\" से आपका क्या मतलब है।"
  ],
  "groupFirst": [
   "Your priorities",
@@ -1525,70 +1518,6 @@ const PRIORITIES = {
    "बताइए कि बेहतर होने पर आपके लिए क्या बदलेगा।"
   ]
  }
-};
-
-const MOTIVATION = {
- "id": "f-motivation",
- "type": "multi",
- "limit": 0,
- "page": 1,
- "after": "f-gender",
- "l": [
-  "Anything else that brought you here? (optional)",
-  "还有什么促使你来做这份评估吗？（可选）",
-  "¿Algo más que le haya traído hasta aquí? (opcional)",
-  "क्या कोई और कारण है जिसने आपको यहाँ तक पहुँचाया? (वैकल्पिक)"
- ],
- "h": [
-  "Optional, and only context. It does not change the order of your report; the areas you chose above do.",
-  "可选，仅作背景参考。它不会改变报告的顺序，决定顺序的是你在上面选的方面。",
-  "Opcional y solo como contexto. No cambia el orden de su informe; eso lo deciden las áreas que eligió arriba.",
-  "वैकल्पिक, और सिर्फ़ पृष्ठभूमि के लिए। यह रिपोर्ट का क्रम नहीं बदलता; क्रम आपके ऊपर चुने पहलुओं से तय होता है।"
- ],
- "o": [
-  [
-   "Specific problem",
-   "Something specific is bothering me and I want to know why",
-   "有个具体的问题一直困扰我，我想弄清楚原因",
-   "Algo concreto me molesta y quiero saber por qué",
-   "कोई विशेष समस्या परेशान कर रही है और मैं कारण जानना चाहता हूँ"
-  ],
-  [
-   "Flat and tired",
-   "I feel flat, tired, or older than I should",
-   "整体状态提不起来，容易累，感觉比实际年龄老",
-   "Me siento apagado, cansado o mayor de lo que soy",
-   "थकान, सुस्ती, या उम्र से ज़्यादा बूढ़ा महसूस करना"
-  ],
-  [
-   "Prevention",
-   "Nothing is wrong yet and I want to keep it that way",
-   "目前没什么毛病，想把这个状态保持住",
-   "Todavía no me pasa nada y quiero que siga así",
-   "अभी कुछ गड़बड़ नहीं है और मैं इसे बनाए रखना चाहता हूँ"
-  ],
-  [
-   "Family history",
-   "Something runs in my family and I want to get ahead of it",
-   "家里有遗传倾向，想早做准备",
-   "Hay antecedentes en mi familia y quiero adelantarme",
-   "परिवार में कोई बीमारी चलती है और मैं पहले से सतर्क रहना चाहता हूँ"
-  ],
-  [
-   "Already supplementing",
-   "I already take supplements and want to know if they are the right ones, in the right amounts",
-   "已经在吃补充剂，想知道吃得对不对、量够不够",
-   "Ya tomo suplementos y quiero saber si son los adecuados y en la cantidad correcta",
-   "मैं पहले से अनुपूरक लेता हूँ और जानना चाहता हूँ कि सही हैं या नहीं, और मात्रा ठीक है या नहीं"
-  ],
-  [
-   "Body composition",
-   "I want to lose fat or build muscle and get the nutrition side right",
-   "想减脂或增肌，把营养这块弄明白",
-   "Quiero perder grasa o ganar músculo y acertar con la nutrición",
-   "मैं वसा घटाना या मांसपेशी बढ़ाना चाहता हूँ और पोषण सही रखना चाहता हूँ"
-  ]
- ]
 };
 
 /* Frequency questions for the diet section. `computes` records what each one

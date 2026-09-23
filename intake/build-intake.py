@@ -61,7 +61,7 @@ def main():
     for o in P['o']:
         if len(o) != 5:
             problems.append('priority without four languages: %s' % o[0])
-    for k in ('title', 'l', 'sub', 'h', 'count', 'otherL', 'otherPh', 'required', 'otherRequired', 'groupFirst', 'groupRest'):
+    for k in ('title', 'l', 'sub', 'h', 'count', 'otherL', 'otherPh', 'required', 'groupFirst', 'groupRest'):
         if len(P[k]) != 4:
             problems.append('priorities.%s without four languages' % k)
     for pid in pids:
@@ -141,8 +141,6 @@ def main():
     W('const STAGE_SETTING = ' + js(Q['stageSetting']) + ';')
     W('')
     W('const PRIORITIES = ' + js(Q['priorities']) + ';')
-    W('')
-    W('const MOTIVATION = ' + js(Q['motivation']) + ';')
     W('')
     W('/* Frequency questions for the diet section. `computes` records what each one')
     W('   feeds, so a question nobody acts on is visible as such. */')
