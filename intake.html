@@ -870,6 +870,7 @@ function renderLang(){
   $('langCur').textContent = LANGS[L].label;
   $('langMenu').innerHTML = LANGS.map((l, i) => '<button class="lang-opt' + (i === L ? ' on' : '') + '" data-i="' + i + '"><b>' + l.code.toUpperCase() + '</b>' + esc(l.label) + '</button>').join('');
   document.documentElement.lang = LANGS[L].code;
+  document.title = UI.pageTitle[L] || UI.pageTitle[0];
 }
 $('langBtn').onclick = (e) => { e.stopPropagation(); $('langMenu').hidden = !$('langMenu').hidden; };
 $('langMenu').onclick = (e) => {
