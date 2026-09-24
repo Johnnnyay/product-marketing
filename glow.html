@@ -34,7 +34,7 @@
   .hero h1{font-size:40px;font-weight:700;letter-spacing:-.01em;line-height:1.1;margin-bottom:10px}
   .hero-tag{font-size:16px;color:rgba(255,255,255,.85);margin-bottom:22px}
   .meta{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
-  .meta span{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);
+  .meta > span{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);
     border-radius:999px;padding:7px 13px;font-size:13px;color:rgba(255,255,255,.92)}
   .meta svg{flex:none;opacity:.8}
   @media(max-width:520px){.hero{padding:40px 16px 36px}.hero h1{font-size:32px}.hero-tag{font-size:15px}}
@@ -175,92 +175,94 @@
   #upd[hidden]{display:none}
   #upd button{font-size:13px;font-weight:800;background:#FFD166;color:#141A16;border:0;border-radius:999px;padding:7px 14px;cursor:pointer}
 </style>
+<script src="event-options.js?v=1"></script>
 </head>
 <body>
 
 <header class="site-header">
   <span class="site-logo">Glow From Within</span>
   <div class="hdr-tools">
-    <button class="pill" id="signOut" hidden>Sign out of admin</button>
+    <div class="lang-wrap" id="langMenu"></div>
+    <button class="pill" id="signOut" hidden data-t="signOut"></button>
     <button class="pill" id="adminDots" title="Admin login">···</button>
   </div>
 </header>
 
 <nav class="tabs" aria-label="Admin views"><div class="tabs-in" id="tabs">
-  <button class="tab" data-tab="guest">Guest view</button>
-  <button class="tab" data-tab="overview">All guests<span class="c" id="c-overview">·</span></button>
-  <button class="tab" data-tab="health">Health<span class="c" id="c-health">·</span></button>
-  <button class="tab" data-tab="skin">Skin<span class="c" id="c-skin">·</span></button>
-  <button class="tab" data-tab="hair">Hair<span class="c" id="c-hair">·</span></button>
+  <button class="tab" data-tab="guest"><span data-t="tGuest"></span></button>
+  <button class="tab" data-tab="overview"><span data-t="tAll"></span><span class="c" id="c-overview">·</span></button>
+  <button class="tab" data-tab="health"><span data-t="tHealth"></span><span class="c" id="c-health">·</span></button>
+  <button class="tab" data-tab="skin"><span data-t="tSkin"></span><span class="c" id="c-skin">·</span></button>
+  <button class="tab" data-tab="hair"><span data-t="tHair"></span><span class="c" id="c-hair">·</span></button>
 </div></nav>
 
 <div id="guestView">
   <section class="hero">
-    <div class="hero-kicker">You're on the list</div>
+    <div class="hero-kicker" data-t="kicker"></div>
     <h1>Glow From Within</h1>
-    <div class="hero-tag">Feel good. Look good. Live well.</div>
+    <div class="hero-tag" data-t="tagline"></div>
     <div class="meta">
-      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>Friday, September 25</span>
-      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>6:30 to 8:30 PM</span>
-      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>134 W 29th St, New York</span>
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg><span data-t="date"></span></span>
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-t="time"></span></span>
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-t="place"></span></span>
     </div>
   </section>
 
   <div class="wrap">
-    <h2 class="sec-h">Before you arrive</h2>
-    <p class="sec-sub">Three short check-ins, one for each part of the evening: nutrition, skin, and scalp. Think of it as a few minutes to check in with yourself before the night. There are no right answers, just an honest starting point for your conversations.</p>
-    <div class="progress"><div class="progress-bar"><i id="progFill" style="width:0"></i></div><span id="progText">0 of 3 done</span></div>
+    <h2 class="sec-h" data-t="beforeH"></h2>
+    <p class="sec-sub" data-t="beforeSub"></p>
+    <div class="progress"><div class="progress-bar"><i id="progFill" style="width:0"></i></div><span id="progText"></span></div>
 
     <div class="stations">
       <div class="st" id="st-health">
         <div class="st-top">
           <div class="st-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 16-9 0 12-4 16-9 16z"/><path d="M4 20c3-5 7-8 11-10"/></svg></div>
-          <div><div class="st-kicker">Health &amp; Nutrition</div><div class="st-name">Health Assessment</div></div>
+          <div><div class="st-kicker" data-t="hKicker"></div><div class="st-name" data-t="hName"></div></div>
         </div>
-        <p class="st-desc">Energy, sleep, digestion, and the everyday habits behind them. Your answers become a personal nutrition report we walk through together at the event.</p>
-        <div class="st-foot"><span class="st-time">About 10 minutes</span><span class="st-check">✓ Done</span><a class="st-btn" id="go-health" href="#">Start</a></div>
+        <p class="st-desc" data-t="hDesc"></p>
+        <div class="st-foot"><span class="st-time" data-t="min10"></span><span class="st-check" data-t="doneMark"></span><a class="st-btn" id="go-health" href="#"></a></div>
       </div>
       <div class="st" id="st-skin">
         <div class="st-top">
           <div class="st-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
-          <div><div class="st-kicker">Skincare</div><div class="st-name">Skin Assessment</div></div>
+          <div><div class="st-kicker" data-t="sKicker"></div><div class="st-name" data-t="sName"></div></div>
         </div>
-        <p class="st-desc">What you'd love to change, how your skin feels day to day, and the routine you have now. Pairs with the blue light skin diagnostic.</p>
-        <div class="st-foot"><span class="st-time">About 2 minutes</span><span class="st-check">✓ Done</span><a class="st-btn" id="go-skin" href="#">Start</a></div>
+        <p class="st-desc" data-t="sDesc"></p>
+        <div class="st-foot"><span class="st-time" data-t="min2"></span><span class="st-check" data-t="doneMark"></span><a class="st-btn" id="go-skin" href="#"></a></div>
       </div>
       <div class="st" id="st-hair">
         <div class="st-top">
           <div class="st-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 21c0-6 1-10 5-13"/><path d="M12 21c0-6 .5-10 3-13"/><path d="M17 21c0-5-.5-9-1-11"/><path d="M5 8c2-3 5-5 9-5 3 0 5 1 5 3"/></svg></div>
-          <div><div class="st-kicker">Scalp &amp; Haircare</div><div class="st-name">Hair &amp; Scalp Assessment</div></div>
+          <div><div class="st-kicker" data-t="rKicker"></div><div class="st-name" data-t="rName"></div></div>
         </div>
-        <p class="st-desc">What you'd love to change, your hair type, and the products you reach for now. Pairs with the scalp and hair scan.</p>
-        <div class="st-foot"><span class="st-time">About 2 minutes</span><span class="st-check">✓ Done</span><a class="st-btn" id="go-hair" href="#">Start</a></div>
+        <p class="st-desc" data-t="rDesc"></p>
+        <div class="st-foot"><span class="st-time" data-t="min2"></span><span class="st-check" data-t="doneMark"></span><a class="st-btn" id="go-hair" href="#"></a></div>
       </div>
     </div>
 
     <div class="info">
       <div class="card">
-        <div class="card-title">What's happening</div>
+        <div class="card-title" data-t="happeningT"></div>
         <ul class="agenda">
-          <li><div class="n">1</div><div><b>Health &amp; nutrition consultation</b><span>How nutrition affects your energy and overall health, and practical ways to fuel your body from the inside out.</span></div></li>
-          <li><div class="n">2</div><div><b>Blue light skin diagnostic</b><span>A closer look at what's going on with your skin, from dryness and oiliness to breakouts and signs of aging.</span></div></li>
-          <li><div class="n">3</div><div><b>Scalp &amp; hair scan</b><span>A closer look at your scalp and hair, and how your routine plays a part in how your hair looks and feels.</span></div></li>
+          <li><div class="n">1</div><div><b data-t="a1"></b><span data-t="a1d"></span></div></li>
+          <li><div class="n">2</div><div><b data-t="a2"></b><span data-t="a2d"></span></div></li>
+          <li><div class="n">3</div><div><b data-t="a3"></b><span data-t="a3d"></span></div></li>
         </ul>
       </div>
       <div class="card">
-        <div class="card-title">Details</div>
+        <div class="card-title" data-t="detailsT"></div>
         <dl class="kv">
-          <dt>When</dt><dd>Friday, September 25<br>6:30 to 8:30 PM</dd>
-          <dt>Where</dt><dd>134 W 29th St, Floor 2, Space 3-1<br>New York, NY 10001<br><a href="https://maps.google.com/?q=134+W+29th+St,+New+York,+NY+10001" target="_blank" rel="noopener">Open in Maps</a></dd>
+          <dt data-t="whenK"></dt><dd><span data-t="date"></span><br><span data-t="time"></span></dd>
+          <dt data-t="whereK"></dt><dd>134 W 29th St, Floor 2, Space 3-1<br>New York, NY 10001<br><a href="https://maps.google.com/?q=134+W+29th+St,+New+York,+NY+10001" target="_blank" rel="noopener" data-t="maps"></a></dd>
         </dl>
-        <a class="book" href="https://unityhy.setmore.com/" target="_blank" rel="noopener">Book a free consultation time</a>
-        <p class="note">Consultations are free with a booking. If the times are full, there is a waitlist at the event.</p>
+        <a class="book" href="https://unityhy.setmore.com/" target="_blank" rel="noopener" data-t="book"></a>
+        <p class="note" data-t="bookNote"></p>
       </div>
     </div>
 
     <div class="foot">
       <div class="ver"></div>
-      <button type="button" id="resetBtn">Clear my check-ins on this device</button>
+      <button type="button" id="resetBtn" data-t="reset"></button>
     </div>
   </div>
 </div>
@@ -268,8 +270,8 @@
 <div id="adminView" class="wrap" hidden>
   <div class="tools">
     <input class="search" id="search" type="search" placeholder="Search by name or email" autocomplete="off">
-    <button class="tbtn" id="refresh">Refresh</button>
-    <button class="tbtn" id="csv">Download CSV</button>
+    <button class="tbtn" id="refresh" data-t="refresh"></button>
+    <button class="tbtn" id="csv" data-t="csv"></button>
     <span class="stamp" id="stamp"></span>
   </div>
   <div class="a-err" id="aErr" role="alert"></div>
@@ -278,11 +280,11 @@
   <div class="foot"><div class="ver"></div></div>
 </div>
 
-<div id="upd" hidden><span id="updt"></span><button type="button" id="updgo">Reload now</button></div>
+<div id="upd" hidden><span id="updt"></span><button type="button" id="updgo" data-t="reload"></button></div>
 
 <script src="admin-session.js"></script>
 <script>
-const BUILD = "2026-09-23T03:13:08Z";
+const BUILD = "2026-09-24T21:45:39Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 const EVENT = "glow-2026-09-25";
@@ -293,6 +295,79 @@ const TYPES = ["health", "skin", "hair"];
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+/* ── Words on this page, English and Chinese. The guest view is written for guests; the admin
+   view for the team. Saved answers stay in English and are labelled here per language. ── */
+let L = EventI18n.current();
+const tx = (a) => Array.isArray(a) ? (a[L] || a[0]) : a;
+const T = {
+  kicker: ["You're on the list", '你已报名成功'],
+  tagline: ['Feel good. Look good. Live well.', '身心舒展，容光焕发，好好生活。'],
+  date: ['Friday, September 25', '9月25日 周五'],
+  time: ['6:30 to 8:30 PM', '晚上 6:30–8:30'],
+  place: ['134 W 29th St, New York', '纽约 134 W 29th St'],
+  beforeH: ['Before you arrive', '到场之前'],
+  beforeSub: ['Three short check-ins, one for each part of the evening: nutrition, skin, and scalp. Think of it as a few minutes to check in with yourself before the night. There are no right answers, just an honest starting point for your conversations.', '三个简短的小问卷，分别对应当晚的三个环节：营养、皮肤和头皮。花几分钟和自己的身体聊聊，没有标准答案，只是给当晚的交流开个好头。'],
+  hKicker: ['Health & Nutrition', '健康与营养'], hName: ['Health Assessment', '健康评估'],
+  hDesc: ['Energy, sleep, digestion, and the everyday habits behind them. Your answers become a personal nutrition report we walk through together at the event.', '精力、睡眠、消化，以及背后的日常习惯。你的回答会生成一份专属营养报告，活动当天我们一起解读。'],
+  sKicker: ['Skincare', '护肤'], sName: ['Skin Assessment', '皮肤评估'],
+  sDesc: ["What you'd love to change, how your skin feels day to day, and the routine you have now. Pairs with the blue light skin diagnostic.", '你最想改善的地方、平时的肤感，以及现在的护肤步骤。对应当晚的蓝光皮肤检测。'],
+  rKicker: ['Scalp & Haircare', '头皮与头发护理'], rName: ['Hair & Scalp Assessment', '头发与头皮评估'],
+  rDesc: ["What you'd love to change, your hair type, and the products you reach for now. Pairs with the scalp and hair scan.", '你最想改善的地方、你的发质，以及现在常用的产品。对应当晚的头皮与头发检测。'],
+  min10: ['About 10 minutes', '约 10 分钟'], min2: ['About 2 minutes', '约 2 分钟'],
+  doneMark: ['✓ Done', '✓ 已完成'], start: ['Start', '开始'], again: ['Do it again', '再做一次'],
+  progress: ['{n} of 3 done', '已完成 {n}/3'], allDone: ['All three done. See you Friday.', '三项都完成了，周五见！'],
+  happeningT: ["What's happening", '活动内容'],
+  a1: ['Health & nutrition consultation', '健康与营养咨询'],
+  a1d: ['How nutrition affects your energy and overall health, and practical ways to fuel your body from the inside out.', '了解营养如何影响你的精力和整体健康，找到由内而外滋养身体的实用方法。'],
+  a2: ['Blue light skin diagnostic', '蓝光皮肤检测'],
+  a2d: ["A closer look at what's going on with your skin, from dryness and oiliness to breakouts and signs of aging.", '近距离看看你的皮肤状况，从干燥、出油到痘痘和衰老迹象。'],
+  a3: ['Scalp & hair scan', '头皮与头发检测'],
+  a3d: ['A closer look at your scalp and hair, and how your routine plays a part in how your hair looks and feels.', '近距离看看你的头皮和头发，以及日常护理如何影响头发的状态。'],
+  detailsT: ['Details', '活动信息'], whenK: ['When', '时间'], whereK: ['Where', '地点'], maps: ['Open in Maps', '在地图中打开'],
+  book: ['Book a free consultation time', '预约免费咨询时间'],
+  bookNote: ['Consultations are free with a booking. If the times are full, there is a waitlist at the event.', '预约即可免费咨询。如果时段已满，活动现场可以排队候补。'],
+  reset: ['Clear my check-ins on this device', '清除这台设备上的记录'],
+  reload: ['Reload now', '立即刷新'], newer: ['A newer version is out.', '页面有新版本。'], newerTried: ['A newer version of this page is out.', '这个页面有新版本。'],
+  resetQ: ['Clear the check marks and your saved name and email on this device? Answers you already sent are not affected.', '要清除这台设备上的完成标记和保存的姓名邮箱吗？已经提交的答案不受影响。'],
+  /* admin */
+  signOut: ['Sign out of admin', '退出管理员'], tGuest: ['Guest view', '访客视图'], tAll: ['All guests', '全部嘉宾'],
+  tHealth: ['Health', '健康'], tSkin: ['Skin', '皮肤'], tHair: ['Hair', '头发'],
+  search: ['Search by name or email', '按姓名或邮箱搜索'], refresh: ['Refresh', '刷新'], csv: ['Download CSV', '下载 CSV'],
+  loading: ['Loading…', '加载中…'], updated: ['Updated {t}', '更新于 {t}'],
+  loadFail: ['Could not load the answers: {e}. Tap Refresh to try again.', '答案加载失败：{e}。点刷新再试一次。'],
+  expired: ['Your admin sign-in has expired. Tap ··· to sign in again.', '管理员登录已过期，请点 ··· 重新登录。'],
+  kGuests: ['Guests', '嘉宾'], kAll3: ['All 3 done', '三项全做完'], kAllergy: ['Allergies flagged', '有过敏'],
+  iPrio: ['Health priorities', '健康方面最在意'], iSkin: ['Skin concerns', '皮肤问题'], iHair: ['Hair concerns', '头发问题'],
+  noAnswers: ['No answers yet', '还没有答案'],
+  writing: ['Being written', '生成中'], ready: ['Report ready', '报告已生成'],
+  allergyUnspecified: ['Allergy, not specified', '有过敏，未说明'], treated: ['Treated: ', '染烫：'],
+  notDone: ['Not done yet', '还没做'], hairScalp: ['Hair & scalp', '头发与头皮'],
+  kPrio: ['Priorities', '最在意'], kSignals: ['Signals', '信号'], kProducts: ['Products', '产品'], kSubmitted: ['Submitted', '提交时间'],
+  signalsSoon: ['Ready about two minutes after they submit', '提交后约两分钟生成'],
+  kConcerns: ['Top concerns', '最在意的问题'], kSkinType: ['Skin type', '肤质'], kHairType: ['Hair type', '发质'],
+  kChem: ['Dyed, permed or chemically treated', '染烫或化学处理'], kAllergies: ['Allergies', '过敏'], none: ['None', '没有'], kRoutine: ['Routine', '日常护理'],
+  openReport: ['Open report', '打开报告'], open: ['Open', '打开'], del: ['Delete', '删除'], deleting: ['Deleting…', '删除中…'],
+  hGuest: ['Guest', '嘉宾'], hDone: ['Done · last activity', '完成情况 · 最近'], hPrio: ['Health priorities', '健康方面最在意'],
+  hSkin: ['Skin', '皮肤'], hHair: ['Hair & scalp', '头发与头皮'], hSignals: ['Signals', '信号'], hProducts: ['Products', '产品'],
+  hReport: ['Report', '报告'], hSubmitted: ['Submitted', '提交时间'], hConcerns: ['Top concerns', '最在意的问题'], hType: ['Type', '类型'],
+  hAllergies: ['Allergies', '过敏'], hRoutine: ['Routine', '日常护理'],
+  noName: ['No name', '未填姓名'], noEmail: ['no email', '未填邮箱'],
+  nothing: ['Nothing loaded yet. Tap Refresh.', '还没有加载，点刷新。'],
+  noMatch: ['No one matches “{q}”.', '没有人符合“{q}”。'],
+  noCheckins: ['No check-ins yet. Rows appear here as guests send their answers.', '还没有人提交。嘉宾提交后会出现在这里。'],
+  noHealth: ['No health assessments from this event page yet.', '还没有从活动页提交的健康评估。'],
+  noSkin: ['No skin assessments yet.', '还没有皮肤评估。'], noHair: ['No hair assessments yet.', '还没有头发评估。'],
+  delQ: ["Delete {name}'s {type} answers? This cannot be undone.", '确定删除 {name} 的{type}答案吗？删除后无法恢复。'],
+  delFail: ['Could not delete: {e}', '删除失败：{e}'],
+  typeSkin: ['skin', '皮肤'], typeHair: ['hair', '头发'], thisEntry: ['this entry', '这条记录'],
+};
+const f = (k, vars) => { let s = tx(T[k]); Object.keys(vars || {}).forEach((v) => { s = s.replace('{' + v + '}', vars[v]); }); return s; };
+function paintStatic(){
+  document.documentElement.lang = L ? 'zh' : 'en';
+  document.querySelectorAll('[data-t]').forEach((el) => { el.textContent = tx(T[el.dataset.t]); });
+  $('search').placeholder = tx(T.search);
+}
 
 /* Coming back from a check-in (?done=skin) marks it, then the URL is cleaned. */
 (function(){
@@ -319,13 +394,13 @@ function paintDone(){
   TYPES.forEach((t) => {
     const on = !!done[t]; if (on) n++;
     $("st-" + t).classList.toggle("done", on);
-    $("go-" + t).textContent = on ? "Do it again" : "Start";
+    $("go-" + t).textContent = tx(on ? T.again : T.start);
   });
   $("progFill").style.width = (n / 3 * 100) + "%";
-  $("progText").textContent = n === 3 ? "All three done. See you Friday." : n + " of 3 done";
+  $("progText").textContent = n === 3 ? tx(T.allDone) : f("progress", { n: n });
 }
 $("resetBtn").addEventListener("click", () => {
-  if (!confirm("Clear the check marks and your saved name and email on this device? Answers you already sent are not affected.")) return;
+  if (!confirm(tx(T.resetQ))) return;
   try { localStorage.removeItem(DONE); localStorage.removeItem("event-guest:" + EVENT); } catch (e) {}
   paintDone();
 });
@@ -339,7 +414,7 @@ const openRows = new Set();
 try { tab = sessionStorage.getItem("glow-tab") || "overview"; } catch (e) { tab = "overview"; }
 
 fetch("intake/questions.json").then((r) => r.json()).then((q) => {
-  ((q.priorities && q.priorities.o) || []).forEach((o) => { labels[o[0]] = o[1]; });
+  ((q.priorities && q.priorities.o) || []).forEach((o) => { labels[o[0]] = o; });
   if (data) render();
 }).catch(() => {});
 
@@ -370,28 +445,30 @@ function fail(msg){ $("aErr").textContent = msg; $("aErr").style.display = "bloc
 
 async function load(){
   if (loading) return;
-  loading = true; $("stamp").textContent = "Loading…"; $("aErr").style.display = "none";
+  loading = true; $("stamp").textContent = tx(T.loading); $("aErr").style.display = "none";
   try {
     const r = await fetch(API + "?event=" + EVENT, { headers: AdminSession.headers(), cache: "no-store" });
-    if (r.status === 401) { AdminSession.logout(); setAdmin(false); alert("Your admin sign-in has expired. Tap ··· to sign in again."); return; }
+    if (r.status === 401) { AdminSession.logout(); setAdmin(false); alert(tx(T.expired)); return; }
     const j = await r.json().catch(() => ({}));
     if (!r.ok) throw new Error(j.error || ("the server answered " + r.status));
     data = j;
-    $("stamp").textContent = "Updated " + new Date().toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
+    $("stamp").textContent = f("updated", { t: new Date().toLocaleTimeString(L ? "zh-CN" : "en-US", { hour: "numeric", minute: "2-digit" }) });
   } catch (e) {
-    fail("Could not load the answers: " + e.message + ". Tap Refresh to try again.");
+    fail(f("loadFail", { e: e.message }));
     $("stamp").textContent = "";
   } finally { loading = false; render(); }
 }
 
 function when(iso){
   const d = new Date(iso); if (isNaN(d)) return iso || "";
-  return d.toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  return d.toLocaleString(L ? "zh-CN" : "en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
 }
 function tags(arr, cls){ return (arr || []).map((x) => '<span class="tag' + (cls ? " " + cls : "") + '">' + esc(x) + "</span>").join(""); }
 const dash = '<span class="muted">—</span>';
-const priLabel = (p) => p.id === "other" ? (p.other ? "Other: " + p.other : "Other") : (labels[p.id] || p.id);
-const concernKey = (c) => /^Other/.test(c) ? "Something else" : c;
+/* A priority in language `lang` (the CSV always uses English, lang 0). */
+const priLabelIn = (p, lang) => p.id === "other" ? (p.other ? EventI18n.OPTS.otherPrefix[lang] + p.other : EventI18n.OPTS.other[lang]) : (labels[p.id] ? (labels[p.id][1 + lang] || labels[p.id][1]) : p.id);
+const priLabel = (p) => priLabelIn(p, L);
+const concernKey = (c) => /^Other/.test(c) ? "Other" : c;
 const norm = (s) => String(s || "").trim().toLowerCase().replace(/\s+/g, " ");
 
 /* Every entry in one shape: who, when, and the answers, whatever check-in it came from. */
@@ -423,8 +500,12 @@ function guests(){
 }
 
 function matches(q, name, email){ return !q || (norm(name) + " " + norm(email)).indexOf(q) >= 0; }
-function allergyOf(a){ return a && a.hasAllergy === "yes" ? '<span class="tag alert">' + esc(a.allergies || "Allergy, not specified") + "</span>" : ""; }
-function statusOf(h){ return h.pending ? '<span class="status">Being written</span>' : '<span class="status ready">Report ready</span>'; }
+function allergyOf(a){ return a && a.hasAllergy === "yes" ? '<span class="tag alert">' + esc(a.allergies || tx(T.allergyUnspecified)) + "</span>" : ""; }
+function statusOf(h){ return h.pending ? '<span class="status">' + tx(T.writing) + '</span>' : '<span class="status ready">' + tx(T.ready) + '</span>'; }
+/* Saved answers are English values; these give their label in the page's language. */
+const cLab = (type, c) => EventI18n.label(EventI18n.OPTS[type].concerns, c, L);
+const tLab = (type, v) => EventI18n.label(EventI18n.OPTS[type].types, v, L);
+const chemLab = (v) => EventI18n.label(EventI18n.OPTS.chemical, v, L);
 
 function tally(list){
   const m = {};
@@ -436,86 +517,89 @@ function bars(title, counts, cls){
   return '<div class="ins' + (cls ? " " + cls : "") + '"><h3>' + esc(title) + "</h3>" +
     (counts.length ? counts.slice(0, 6).map((c) => '<div class="bar"><span title="' + esc(c[0]) + '">' + esc(c[0]) +
       '</span><i style="--w:' + Math.round(c[1] / max * 100) + '%"></i><em>' + c[1] + "</em></div>").join("")
-      : '<div class="ins-empty">No answers yet</div>') + "</div>";
+      : '<div class="ins-empty">' + tx(T.noAnswers) + '</div>') + "</div>";
 }
 
 function summaryHtml(gs){
   const n = (t) => gs.filter((g) => g[t]).length;
   const all3 = gs.filter((g) => g.health && g.skin && g.hair).length;
   const allergies = gs.filter((g) => (g.skin && g.skin.a.hasAllergy === "yes") || (g.hair && g.hair.a.hasAllergy === "yes")).length;
-  const kpi = (v, l, cls) => '<div class="kpi' + (cls ? " " + cls : "") + '"><b>' + v + "</b><span>" + l + "</span></div>";
-  return '<div class="kpis">' + kpi(gs.length, "Guests") + kpi(all3, "All 3 done") + kpi(n("health"), "Health") +
-    kpi(n("skin"), "Skin") + kpi(n("hair"), "Hair") + kpi(allergies, "Allergies flagged", allergies ? "alert" : "") + "</div>" +
+  const kpi = (v, l, cls) => '<div class="kpi' + (cls ? " " + cls : "") + '"><b>' + v + "</b><span>" + esc(l) + "</span></div>";
+  const flat = (a) => [].concat.apply([], a);
+  return '<div class="kpis">' + kpi(gs.length, tx(T.kGuests)) + kpi(all3, tx(T.kAll3)) + kpi(n("health"), tx(T.tHealth)) +
+    kpi(n("skin"), tx(T.tSkin)) + kpi(n("hair"), tx(T.tHair)) + kpi(allergies, tx(T.kAllergy), allergies ? "alert" : "") + "</div>" +
     '<div class="insights">' +
-    bars("Health priorities", tally([].concat.apply([], gs.filter((g) => g.health).map((g) => (g.health.h.priorities || []).map((p) => p.id === "other" ? "Something else" : (labels[p.id] || p.id)))))) +
-    bars("Skin concerns", tally([].concat.apply([], gs.filter((g) => g.skin).map((g) => (g.skin.a.concerns || []).map(concernKey)))), "skin") +
-    bars("Hair concerns", tally([].concat.apply([], gs.filter((g) => g.hair).map((g) => (g.hair.a.concerns || []).map(concernKey)))), "hair") +
+    bars(tx(T.iPrio), tally(flat(gs.filter((g) => g.health).map((g) => (g.health.h.priorities || []).map((p) => p.id === "other" ? tx(EventI18n.OPTS.other) : priLabel(p)))))) +
+    bars(tx(T.iSkin), tally(flat(gs.filter((g) => g.skin).map((g) => (g.skin.a.concerns || []).map((c) => cLab("skin", concernKey(c)))))), "skin") +
+    bars(tx(T.iHair), tally(flat(gs.filter((g) => g.hair).map((g) => (g.hair.a.concerns || []).map((c) => cLab("hair", concernKey(c)))))), "hair") +
     "</div>";
 }
 
 function quickCell(e){
   if (!e) return dash;
-  return tags(e.a.concerns, e.type) + '<div class="small">' + esc(e.a.type || "") + "</div>" + chemOf(e.a) + allergyOf(e.a);
+  return tags((e.a.concerns || []).map((c) => cLab(e.type, c)), e.type) + '<div class="small">' + esc(tLab(e.type, e.a.type || "")) + "</div>" + chemOf(e.a) + allergyOf(e.a);
 }
 /* Hair only: dyed, permed or chemically treated, now or before. */
-function chemOf(a){ return a && a.chemical ? '<div class="small">Treated: ' + esc(a.chemical) + "</div>" : ""; }
+function chemOf(a){ return a && a.chemical ? '<div class="small">' + esc(tx(T.treated)) + esc(chemLab(a.chemical)) + "</div>" : ""; }
 function detailBlock(title, e, type){
-  if (!e) return '<div class="dcard"><h4>' + title + '</h4><div class="muted">Not done yet</div></div>';
-  const kv = (k, v) => v ? '<div class="dk">' + esc(k) + '</div><div class="dv">' + v + "</div>" : "";
+  if (!e) return '<div class="dcard"><h4>' + esc(title) + '</h4><div class="muted">' + tx(T.notDone) + '</div></div>';
+  const kv = (k, v) => v ? '<div class="dk">' + esc(tx(T[k])) + '</div><div class="dv">' + v + "</div>" : "";
   if (type === "health") {
     const h = e.h;
-    return '<div class="dcard"><h4>' + title + "</h4>" + statusOf(h) +
-      kv("Priorities", tags((h.priorities || []).map(priLabel), "warm")) +
-      kv("Signals", h.signals && h.signals.length ? tags(h.signals) : (h.pending ? "Ready about two minutes after they submit" : "")) +
-      kv("Products", esc((h.products || []).join(", "))) +
-      kv("Submitted", esc(when(e.at))) +
-      '<div class="dact"><button class="abtn" data-open="' + esc(h.rid) + '">Open report</button></div></div>';
+    return '<div class="dcard"><h4>' + esc(title) + "</h4>" + statusOf(h) +
+      kv("kPrio", tags((h.priorities || []).map(priLabel), "warm")) +
+      kv("kSignals", h.signals && h.signals.length ? tags(h.signals) : (h.pending ? tx(T.signalsSoon) : "")) +
+      kv("kProducts", esc((h.products || []).join(", "))) +
+      kv("kSubmitted", esc(when(e.at))) +
+      '<div class="dact"><button class="abtn" data-open="' + esc(h.rid) + '">' + tx(T.openReport) + '</button></div></div>';
   }
   const a = e.a;
-  return '<div class="dcard"><h4>' + title + "</h4>" +
-    kv("Top concerns", tags(a.concerns, type)) + kv(type === "skin" ? "Skin type" : "Hair type", esc(a.type)) +
-    kv("Dyed, permed or chemically treated", esc(a.chemical || "")) +
-    kv("Allergies", a.hasAllergy === "yes" ? allergyOf(a) : (a.hasAllergy === "no" ? "None" : "")) +
-    kv("Routine", esc(a.routine)) + kv("Submitted", esc(when(e.at))) +
-    '<div class="dact"><button class="dbtn" data-del="' + esc(e.id) + '" data-type="' + type + '" data-name="' + esc(a.name || "") + '">Delete</button></div></div>';
+  return '<div class="dcard"><h4>' + esc(title) + "</h4>" +
+    kv("kConcerns", tags((a.concerns || []).map((c) => cLab(type, c)), type)) + kv(type === "skin" ? "kSkinType" : "kHairType", esc(tLab(type, a.type))) +
+    kv("kChem", a.chemical ? esc(chemLab(a.chemical)) : "") +
+    kv("kAllergies", a.hasAllergy === "yes" ? allergyOf(a) : (a.hasAllergy === "no" ? tx(T.none) : "")) +
+    kv("kRoutine", esc(a.routine)) + kv("kSubmitted", esc(when(e.at))) +
+    '<div class="dact"><button class="dbtn" data-del="' + esc(e.id) + '" data-type="' + type + '" data-name="' + esc(a.name || "") + '">' + tx(T.del) + '</button></div></div>';
 }
 
 function overviewTable(gs){
   const rows = gs.map((g) => {
     const open = openRows.has(g.key);
     const h = g.health ? g.health.h : null;
-    const d3 = '<div class="done3"><span class="' + (g.health ? "on" : "") + '" title="Health">H</span><span class="skin' + (g.skin ? " on" : "") +
-      '" title="Skin">S</span><span class="hair' + (g.hair ? " on" : "") + '" title="Hair">H</span></div>';
+    const d3 = '<div class="done3"><span class="' + (g.health ? "on" : "") + '" title="' + esc(tx(T.tHealth)) + '">H</span><span class="skin' + (g.skin ? " on" : "") +
+      '" title="' + esc(tx(T.tSkin)) + '">S</span><span class="hair' + (g.hair ? " on" : "") + '" title="' + esc(tx(T.tHair)) + '">H</span></div>';
     return '<tr class="row' + (open ? " open" : "") + '" data-row="' + esc(g.key) + '">' +
-      '<td><div class="gname">' + esc(g.name || "No name") + '</div><div class="gsub">' + esc(g.email || "no email") + "</div></td>" +
+      '<td><div class="gname">' + esc(g.name || tx(T.noName)) + '</div><div class="gsub">' + esc(g.email || tx(T.noEmail)) + "</div></td>" +
       "<td>" + d3 + '<div class="small">' + esc(when(g.last)) + "</div></td>" +
       "<td>" + (h ? tags((h.priorities || []).map(priLabel), "warm") + '<div class="small">' + statusOf(h) + "</div>" : dash) + "</td>" +
       "<td>" + quickCell(g.skin) + "</td><td>" + quickCell(g.hair) + "</td></tr>" +
-      (open ? '<tr class="detail"><td colspan="5"><div class="dgrid">' + detailBlock("Health", g.health, "health") +
-        detailBlock("Skin", g.skin, "skin") + detailBlock("Hair & scalp", g.hair, "hair") + "</div></td></tr>" : "");
+      (open ? '<tr class="detail"><td colspan="5"><div class="dgrid">' + detailBlock(tx(T.tHealth), g.health, "health") +
+        detailBlock(tx(T.tSkin), g.skin, "skin") + detailBlock(tx(T.hairScalp), g.hair, "hair") + "</div></td></tr>" : "");
   }).join("");
-  return '<div class="tbl-wrap"><table class="tbl"><thead><tr><th style="width:20%">Guest</th><th style="width:13%">Done · last activity</th><th style="width:23%">Health priorities</th><th style="width:22%">Skin</th><th style="width:22%">Hair &amp; scalp</th></tr></thead><tbody>' + rows + "</tbody></table></div>";
+  const th = (k, w) => '<th style="width:' + w + '%">' + esc(tx(T[k])) + "</th>";
+  return '<div class="tbl-wrap"><table class="tbl"><thead><tr>' + th("hGuest", 20) + th("hDone", 13) + th("hPrio", 23) + th("hSkin", 22) + th("hHair", 22) + '</tr></thead><tbody>' + rows + "</tbody></table></div>";
 }
 
 function typeTable(type, list){
+  const th = (k) => "<th>" + (k ? esc(tx(T[k])) : "") + "</th>";
   const head = type === "health"
-    ? "<th>Guest</th><th>Priorities</th><th>Signals</th><th>Products</th><th>Report</th><th>Submitted</th><th></th>"
-    : "<th>Guest</th><th>Top concerns</th><th>Type</th><th>Allergies</th><th>Routine</th><th>Submitted</th><th></th>";
+    ? th("hGuest") + th("hPrio") + th("hSignals") + th("hProducts") + th("hReport") + th("hSubmitted") + th("")
+    : th("hGuest") + th("hConcerns") + th("hType") + th("hAllergies") + th("hRoutine") + th("hSubmitted") + th("");
   const rows = list.map((e) => {
-    const who = '<td><div class="gname">' + esc(e.name || "No name") + '</div><div class="gsub">' + esc(e.email || "no email") + "</div></td>";
+    const who = '<td><div class="gname">' + esc(e.name || tx(T.noName)) + '</div><div class="gsub">' + esc(e.email || tx(T.noEmail)) + "</div></td>";
     if (type === "health") {
       const h = e.h;
       return "<tr>" + who + "<td>" + (tags((h.priorities || []).map(priLabel), "warm") || dash) + "</td>" +
         "<td>" + (h.signals && h.signals.length ? tags(h.signals) : dash) + "</td>" +
         '<td><div class="clamp">' + (h.products && h.products.length ? esc(h.products.join(", ")) : dash) + "</div></td>" +
         "<td>" + statusOf(h) + '</td><td class="small">' + esc(when(e.at)) + "</td>" +
-        '<td><button class="abtn" data-open="' + esc(h.rid) + '">Open</button></td></tr>';
+        '<td><button class="abtn" data-open="' + esc(h.rid) + '">' + tx(T.open) + '</button></td></tr>';
     }
     const a = e.a;
-    return "<tr>" + who + "<td>" + (tags(a.concerns, type) || dash) + "</td><td>" + esc(a.type || "") + chemOf(a) + "</td>" +
-      "<td>" + (a.hasAllergy === "yes" ? allergyOf(a) : '<span class="muted">None</span>') + "</td>" +
+    return "<tr>" + who + "<td>" + (tags((a.concerns || []).map((c) => cLab(type, c)), type) || dash) + "</td><td>" + esc(tLab(type, a.type || "")) + chemOf(a) + "</td>" +
+      "<td>" + (a.hasAllergy === "yes" ? allergyOf(a) : '<span class="muted">' + tx(T.none) + '</span>') + "</td>" +
       '<td><div class="clamp" title="' + esc(a.routine || "") + '">' + esc(a.routine || "") + '</div></td><td class="small">' + esc(when(e.at)) + "</td>" +
-      '<td><button class="dbtn" data-del="' + esc(e.id) + '" data-type="' + type + '" data-name="' + esc(a.name || "") + '">Delete</button></td></tr>';
+      '<td><button class="dbtn" data-del="' + esc(e.id) + '" data-type="' + type + '" data-name="' + esc(a.name || "") + '">' + tx(T.del) + '</button></td></tr>';
   }).join("");
   return '<div class="tbl-wrap"><table class="tbl"><thead><tr>' + head + "</tr></thead><tbody>" + rows + "</tbody></table></div>";
 }
@@ -526,20 +610,19 @@ function render(){
   TYPES.forEach((t) => { $("c-" + t).textContent = data ? (data[t] || []).length : "·"; });
   if (tab === "guest") return;
   const list = $("list"), sum = $("summary");
-  if (!data) { sum.innerHTML = ""; list.innerHTML = loading ? "" : '<div class="empty">Nothing loaded yet. Tap Refresh.</div>'; return; }
+  if (!data) { sum.innerHTML = ""; list.innerHTML = loading ? "" : '<div class="empty">' + tx(T.nothing) + '</div>'; return; }
   const q = norm($("search").value);
+  const noMatch = '<div class="empty">' + esc(f("noMatch", { q: $("search").value.trim() })) + "</div>";
   if (tab === "overview") {
     sum.innerHTML = summaryHtml(gs);
     const shown = gs.filter((g) => matches(q, g.name, g.email));
-    list.innerHTML = shown.length ? overviewTable(shown)
-      : '<div class="empty">' + (q ? "No one matches “" + esc(q) + "”." : "No check-ins yet. Rows appear here as guests send their answers.") + "</div>";
+    list.innerHTML = shown.length ? overviewTable(shown) : (q ? noMatch : '<div class="empty">' + tx(T.noCheckins) + "</div>");
     return;
   }
   sum.innerHTML = "";
   const items = entries(tab).sort((x, y) => String(y.at).localeCompare(String(x.at))).filter((e) => matches(q, e.name, e.email));
   list.innerHTML = items.length ? typeTable(tab, items)
-    : '<div class="empty">' + (q ? "No one matches “" + esc(q) + "”." :
-      tab === "health" ? "No health assessments from this event page yet." : "No " + tab + " assessments yet.") + "</div>";
+    : (q ? noMatch : '<div class="empty">' + tx(tab === "health" ? T.noHealth : tab === "skin" ? T.noSkin : T.noHair) + "</div>");
 }
 
 function csvDownload(){
@@ -550,7 +633,7 @@ function csvDownload(){
   const q = (e, f) => e ? f(e) : "";
   const lines = guests().map((g) => [
     g.name, g.email, when(g.last),
-    q(g.health, (e) => (e.h.priorities || []).map(priLabel).join("; ")),
+    q(g.health, (e) => (e.h.priorities || []).map((p) => priLabelIn(p, 0)).join("; ")),
     q(g.health, (e) => (e.h.signals || []).join("; ")),
     q(g.health, (e) => (e.h.products || []).join("; ")),
     q(g.health, (e) => e.h.pending ? "Being written" : "Ready"),
@@ -577,25 +660,27 @@ $("list").addEventListener("click", async (e) => {
     if (r) { const k = r.dataset.row; if (openRows.has(k)) openRows.delete(k); else openRows.add(k); render(); }
     return;
   }
-  if (!confirm("Delete " + (del.dataset.name || "this entry") + "'s " + del.dataset.type + " answers? This cannot be undone.")) return;
-  del.disabled = true; del.textContent = "Deleting…";
+  if (!confirm(f("delQ", { name: del.dataset.name || tx(T.thisEntry), type: tx(del.dataset.type === "skin" ? T.typeSkin : T.typeHair) }))) return;
+  del.disabled = true; del.textContent = tx(T.deleting);
   try {
     const r = await fetch(API, { method: "POST", headers: Object.assign({ "Content-Type": "application/json" }, AdminSession.headers()),
       body: JSON.stringify({ action: "delete", event: EVENT, type: del.dataset.type, id: del.dataset.del }) });
-    if (r.status === 401) { AdminSession.logout(); setAdmin(false); alert("Your admin sign-in has expired. Tap ··· to sign in again."); return; }
+    if (r.status === 401) { AdminSession.logout(); setAdmin(false); alert(tx(T.expired)); return; }
     const j = await r.json().catch(() => ({}));
     if (!r.ok && r.status !== 404) throw new Error(j.error || ("the server answered " + r.status));
     data[del.dataset.type] = (data[del.dataset.type] || []).filter((d) => d.id !== del.dataset.del);
     render();
   } catch (err) {
-    del.disabled = false; del.textContent = "Delete";
-    fail("Could not delete: " + err.message);
+    del.disabled = false; del.textContent = tx(T.del);
+    fail(f("delFail", { e: err.message }));
   }
 });
 
 /* New answers arrive during the event without anyone tapping Refresh. */
 setInterval(() => { if (document.body.classList.contains("admin") && tab !== "guest" && !document.hidden) load(); }, 45000);
 
+EventI18n.menu($("langMenu"), (lang) => { L = lang; paintStatic(); paintDone(); render(); });
+paintStatic(); paintDone();
 setAdmin(AdminSession.has());
 
 /* Always the newest version: see DiamondA70/_skills/app-qa/references/self-update.md */
@@ -629,7 +714,7 @@ function reloadWhenSafe(){
   if (!stale) { bar.hidden = true; return; }
   let tried = ""; try { tried = sessionStorage.getItem("glow-tried") || ""; } catch (e) {}
   if (tried !== staleKey && !busy()) { reloadNow(); return; }
-  $("updt").textContent = tried === staleKey ? "A newer version of this page is out." : "A newer version is out.";
+  $("updt").textContent = tx(tried === staleKey ? T.newerTried : T.newer);
   bar.hidden = false;
 }
 function reloadNow(){

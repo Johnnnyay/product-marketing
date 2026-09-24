@@ -78,16 +78,17 @@
   #upd button{font:inherit;font-size:13px;font-weight:800;background:#FFD166;color:#141A16;border:0;border-radius:999px;padding:7px 14px;cursor:pointer}
   [hidden]{display:none !important}
 </style>
+<script src="event-options.js?v=1"></script>
 </head>
 <body>
 <script>document.body.className = "t-" + (new URLSearchParams(location.search).get("type") === "hair" ? "hair" : "skin");</script>
 
-<header class="site-header"><span class="site-logo">Glow From Within</span></header>
+<header class="site-header"><span class="site-logo">Glow From Within</span><div class="lang-wrap" id="langMenu" style="margin-left:auto"></div></header>
 
 <div class="hero">
-  <div class="hero-kicker" id="kicker">Skincare</div>
-  <h1 id="title">Skin Assessment</h1>
-  <p id="lede">About two minutes, no wrong answers. It gives your skin diagnostic a starting point that's about you.</p>
+  <div class="hero-kicker" id="kicker"></div>
+  <h1 id="title"></h1>
+  <p id="lede"></p>
 </div>
 
 <div class="wrap">
@@ -96,78 +97,71 @@
 
     <div class="card">
       <div class="row2">
-        <div class="q f" id="q-name"><label for="a-name">First and last name <span class="req">*</span></label>
-          <input type="text" id="a-name" autocomplete="name" placeholder="Jane Smith"><div class="err">Please add your name.</div></div>
-        <div class="q f" id="q-email"><label for="a-email">Email <span style="font-weight:400;color:var(--gray-400)">(optional)</span></label>
-          <input type="email" id="a-email" autocomplete="email" placeholder="you@example.com"><div class="err">That email doesn't look complete.</div></div>
+        <div class="q f" id="q-name"><label for="a-name"><span data-t="name"></span> <span class="req">*</span></label>
+          <input type="text" id="a-name" autocomplete="name" placeholder="Jane Smith"><div class="err" data-t="errName"></div></div>
+        <div class="q f" id="q-email"><label for="a-email"><span data-t="email"></span> <span style="font-weight:400;color:var(--gray-400)" data-t="optional"></span></label>
+          <input type="email" id="a-email" autocomplete="email" placeholder="you@example.com"><div class="err" data-t="errEmail"></div></div>
       </div>
     </div>
 
     <div class="card">
       <div class="q" id="q-concerns">
-        <span class="q-label" id="concernsLabel">What are your top 2 concerns?</span>
-        <div class="q-sub">Tap up to two, most important first.</div>
+        <span class="q-label" data-t="concernsQ"></span>
+        <div class="q-sub" data-t="concernsSub"></div>
         <div class="chips" id="concernChips"></div>
-        <div class="count" id="concernCount">0 of 2 chosen</div>
-        <div class="reveal" id="otherWrap" hidden><input type="text" id="a-concernOther" maxlength="200" placeholder="Tell us in a few words"></div>
-        <div class="err" id="concernErr">Pick at least one.</div>
+        <div class="count" id="concernCount"></div>
+        <div class="reveal" id="otherWrap" hidden><input type="text" id="a-concernOther" maxlength="200" data-ph="otherPh"></div>
+        <div class="err" id="concernErr"></div>
       </div>
       <div class="q" id="q-type">
-        <span class="q-label" id="typeLabel">What do you think your skin type is?</span>
+        <span class="q-label" id="typeLabel"></span>
         <div class="chips" id="typeChips"></div>
-        <div class="err">Pick one. "I don't know" is fine.</div>
+        <div class="err" data-t="errType"></div>
       </div>
       <div class="q" id="q-chem" hidden>
-        <span class="q-label">Have you ever dyed, permed or chemically treated your hair?</span>
-        <div class="chips" id="chemChips">
-          <button type="button" class="chip" data-v="Yes, currently">Yes, currently</button>
-          <button type="button" class="chip" data-v="Yes, in the past">Yes, in the past</button>
-          <button type="button" class="chip" data-v="Never">Never</button>
-        </div>
-        <div class="err">Please choose one.</div>
+        <span class="q-label" data-t="chemQ"></span>
+        <div class="chips" id="chemChips"></div>
+        <div class="err" data-t="errChoose"></div>
       </div>
     </div>
 
     <div class="card">
       <div class="q" id="q-routine">
-        <label class="q-label" for="a-routine" id="routineLabel">What's your current routine?</label>
-        <div class="q-sub" id="routineSub">The products you use and their brands. "Nothing much" is a perfectly good answer.</div>
+        <label class="q-label" for="a-routine" id="routineLabel"></label>
+        <div class="q-sub" id="routineSub"></div>
         <textarea id="a-routine" maxlength="1500"></textarea>
-        <div class="err">A few words is enough.</div>
+        <div class="err" data-t="errRoutine"></div>
       </div>
       <div class="q" id="q-allergy">
-        <span class="q-label">Any allergies or sensitivities?</span>
-        <div class="chips" id="allergyChips">
-          <button type="button" class="chip" data-v="no">No</button>
-          <button type="button" class="chip" data-v="yes">Yes</button>
-        </div>
-        <div class="reveal" id="allergyWrap" hidden><input type="text" id="a-allergies" maxlength="500" placeholder="What are you allergic or sensitive to?"></div>
-        <div class="err" id="allergyErr">Please choose one.</div>
+        <span class="q-label" data-t="allergyQ"></span>
+        <div class="chips" id="allergyChips"></div>
+        <div class="reveal" id="allergyWrap" hidden><input type="text" id="a-allergies" maxlength="500" data-ph="allergyPh"></div>
+        <div class="err" id="allergyErr"></div>
       </div>
     </div>
 
-    <button type="submit" class="btn" id="sendBtn">Send my answers</button>
-    <p class="privacy">Only the event team sees your answers. They are not published anywhere.</p>
+    <button type="submit" class="btn" id="sendBtn"></button>
+    <p class="privacy" data-t="privacy"></p>
   </form>
 
   <div id="done" hidden>
     <div class="done-head">
       <div class="done-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
-      <div class="done-title" id="doneTitle">Thank you.</div>
-      <div class="done-sub" id="doneSub">Your answers are with the team.</div>
+      <div class="done-title" id="doneTitle"></div>
+      <div class="done-sub" id="doneSub"></div>
     </div>
-    <div class="card"><div class="profile-h" id="profileH">Your skin profile</div><div id="profile"></div></div>
-    <a class="btn" id="backBtn" href="glow.html">Back to the event page</a>
-    <button type="button" class="btn btn-ghost" id="againBtn">Made a mistake? Send a corrected version</button>
+    <div class="card"><div class="profile-h" id="profileH"></div><div id="profile"></div></div>
+    <a class="btn" id="backBtn" href="glow.html" data-t="backBtn"></a>
+    <button type="button" class="btn btn-ghost" id="againBtn" data-t="againBtn"></button>
   </div>
 
   <p class="ver"></p>
 </div>
 
-<div id="upd" hidden><span id="updt"></span><button type="button" id="updgo">Reload now</button></div>
+<div id="upd" hidden><span id="updt"></span><button type="button" id="updgo"></button></div>
 
 <script>
-const BUILD = "2026-09-23T03:13:08Z";
+const BUILD = "2026-09-24T21:45:39Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 if(/[?&]v=/.test(location.search)){
   const keep = new URLSearchParams(location.search); keep.delete("v");
@@ -179,29 +173,59 @@ const params = new URLSearchParams(location.search);
 const TYPE = params.get("type") === "hair" ? "hair" : "skin";
 const EVENT = /^[a-z0-9-]{3,40}$/.test(params.get("event") || "") ? params.get("event") : "general";
 const BACK = /^[a-z0-9-]+\.html$/.test(params.get("back") || "") ? params.get("back") : "glow.html";
+const OPT = EventI18n.OPTS;
+let L = EventI18n.current();
+const tx = (a) => Array.isArray(a) ? (a[L] || a[0]) : a;
 
+/* Everything the guest reads, in English and Chinese. Answers are saved in English (OPT values). */
+const T = {
+  name: ['First and last name', '姓名'], email: ['Email', '邮箱'], optional: ['(optional)', '（可选）'],
+  errName: ['Please add your name.', '请填写姓名。'],
+  errEmail: ['That email doesn\'t look complete.', '邮箱好像不完整。'],
+  concernsQ: ['What are your top 2 concerns?', '你最在意的两个问题是什么？'],
+  concernsSub: ['Tap up to two, most important first.', '最多选两个，最在意的先点。'],
+  count: ['{n} of 2 chosen', '已选 {n}/2'],
+  countFull: ['. Tap a chosen one to change it.', '，点已选的可以换。'],
+  otherPh: ['Tell us in a few words', '简单写几个字'],
+  errPick: ['Pick at least one.', '至少选一个。'],
+  errOther: ['Tell us what the other concern is.', '写一下"其他"具体是什么。'],
+  errType: ['Pick one. "I don\'t know" is fine.', '选一个就好，"不确定"也可以。'],
+  chemQ: ['Have you ever dyed, permed or chemically treated your hair?', '你染过、烫过或做过其他化学处理吗？'],
+  errChoose: ['Please choose one.', '请选一个。'],
+  errRoutine: ['A few words is enough.', '写几个字就够了。'],
+  allergyQ: ['Any allergies or sensitivities?', '有过敏或敏感的情况吗？'],
+  yes: ['Yes', '有'], no: ['No', '没有'],
+  allergyPh: ['What are you allergic or sensitive to?', '对什么过敏或敏感？'],
+  errAllergy: ['Tell us what you\'re allergic or sensitive to.', '写一下对什么过敏或敏感。'],
+  send: ['Send my answers', '提交我的答案'], sendAgain: ['Send corrected answers', '提交修改后的答案'], sending: ['Sending…', '提交中…'],
+  privacy: ['Only the event team sees your answers. They are not published anywhere.', '你的答案只有活动团队能看到，不会公开。'],
+  sendFail: ['That didn\'t go through ({e}). Check your connection and tap Send again. Your answers are all still here.', '提交没成功（{e}）。检查一下网络再点提交，你填的内容都还在。'],
+  doneTitle: ['Thank you, {name}.', '谢谢你，{name}。'],
+  doneSub: ['You\'re all set. Your {station} picks up from these answers at the event.', '都好了。活动当天的{station}会从这些答案开始。'],
+  topConcerns: ['Top concerns', '最在意的问题'], chemK: ['Dyed, permed or chemically treated', '染烫或化学处理'],
+  routineK: ['Current routine', '现在的护理'], allergiesK: ['Allergies', '过敏'], none: ['None', '没有'],
+  backBtn: ['Back to the event page', '回到活动页面'],
+  againBtn: ['Made a mistake? Send a corrected version', '填错了？提交一份修改后的版本'],
+  reload: ['Reload now', '立即刷新'], newer: ['A newer version is out.', '页面有新版本。'], newerTried: ['A newer version of this page is out.', '这个页面有新版本。'],
+};
 const COPY = {
   skin: {
-    title: "Skin Assessment", kicker: "Skincare",
-    lede: "About two minutes, no wrong answers. It gives your skin diagnostic a starting point that's about you.",
-    concerns: ["Lines and wrinkles", "Pigmentation or dark spots", "Dark under-eye circles", "Uneven texture and visible pores", "Acne or blemishes", "Redness"],
-    typeLabel: "What do you think your skin type is?",
-    types: ["Dry", "Normal or combination", "Oily", "I don't know"],
-    routineLabel: "What's your current routine?",
-    routineSub: "The products you use and their brands. \"Nothing much\" is a perfectly good answer.",
-    routinePh: "e.g. gel cleanser from CeraVe, a vitamin C serum, moisturizer, sunscreen most days",
-    profile: "Your skin profile", station: "skin diagnostic", typeKey: "Skin type",
+    title: ['Skin Assessment', '皮肤评估'], kicker: ['Skincare', '护肤'],
+    lede: ['About two minutes, no wrong answers. It gives your skin diagnostic a starting point that\'s about you.', '大约两分钟，没有标准答案。让你的皮肤检测从你自己的情况开始。'],
+    typeLabel: ['What do you think your skin type is?', '你觉得自己是什么肤质？'],
+    routineLabel: ['What\'s your current routine?', '你现在的护肤步骤是怎样的？'],
+    routineSub: ['The products you use and their brands. "Nothing much" is a perfectly good answer.', '用了哪些产品、什么牌子。"没怎么护肤"也完全可以。'],
+    routinePh: ['e.g. gel cleanser from CeraVe, a vitamin C serum, moisturizer, sunscreen most days', '比如：CeraVe 洁面啫喱、维 C 精华、面霜，大部分时候涂防晒'],
+    profile: ['Your skin profile', '你的皮肤档案'], station: ['skin diagnostic', '皮肤检测'], typeKey: ['Skin type', '肤质'],
   },
   hair: {
-    title: "Hair & Scalp Assessment", kicker: "Scalp & Haircare",
-    lede: "About two minutes, no wrong answers. It gives your scalp and hair scan a starting point that's about you.",
-    concerns: ["Thinning or shedding", "Dandruff or flaky scalp", "Oily scalp", "Dry or itchy scalp", "Dryness or frizz", "Breakage or damage"],
-    typeLabel: "What do you think your hair type is?",
-    types: ["Clean or normal", "Oily", "Damaged or sensitive", "I don't know"],
-    routineLabel: "What hair products do you use now?",
-    routineSub: "Shampoo, conditioner, styling, treatments, and their brands. \"Nothing much\" is a perfectly good answer.",
-    routinePh: "e.g. a drugstore shampoo and conditioner, heat protectant, color every 2 months",
-    profile: "Your hair & scalp profile", station: "scalp and hair scan", typeKey: "Hair type",
+    title: ['Hair & Scalp Assessment', '头发与头皮评估'], kicker: ['Scalp & Haircare', '头皮与头发护理'],
+    lede: ['About two minutes, no wrong answers. It gives your scalp and hair scan a starting point that\'s about you.', '大约两分钟，没有标准答案。让你的头皮和头发检测从你自己的情况开始。'],
+    typeLabel: ['What do you think your hair type is?', '你觉得自己是什么发质？'],
+    routineLabel: ['What hair products do you use now?', '你现在用哪些护发产品？'],
+    routineSub: ['Shampoo, conditioner, styling, treatments, and their brands. "Nothing much" is a perfectly good answer.', '洗发水、护发素、造型、护理，以及牌子。"没怎么用"也完全可以。'],
+    routinePh: ['e.g. a drugstore shampoo and conditioner, heat protectant, color every 2 months', '比如：超市买的洗发水和护发素、吹头发前用隔热喷雾、两个月染一次'],
+    profile: ['Your hair & scalp profile', '你的头发与头皮档案'], station: ['scalp and hair scan', '头皮与头发检测'], typeKey: ['Hair type', '发质'],
   },
 }[TYPE];
 
@@ -219,26 +243,20 @@ function saveGuest(name, email){
   try { localStorage.setItem(GUEST, JSON.stringify(g)); } catch (e) {}
 }
 
-let concerns = [];          /* in the order tapped: first is the most important */
-let skinType = "", allergy = "", chem = "", sending = false;
-const CHEM = ["Yes, currently", "Yes, in the past", "Never"];
-
-document.title = COPY.title;
-$("title").textContent = COPY.title;
-$("kicker").textContent = COPY.kicker;
-$("lede").textContent = COPY.lede;
-$("typeLabel").textContent = COPY.typeLabel;
-$("routineLabel").textContent = COPY.routineLabel;
-$("routineSub").textContent = COPY.routineSub;
-$("a-routine").placeholder = COPY.routinePh;
-$("profileH").textContent = COPY.profile;
-$("backBtn").href = BACK + "?done=" + TYPE;
-
 const OTHER = "Something else";
-$("concernChips").innerHTML = COPY.concerns.concat(OTHER).map((c) =>
-  '<button type="button" class="chip" data-v="' + esc(c) + '"><span class="rank"></span>' + esc(c) + "</button>").join("");
-$("typeChips").innerHTML = COPY.types.map((t) => '<button type="button" class="chip" data-v="' + esc(t) + '">' + esc(t) + "</button>").join("");
+const CONCERNS = OPT[TYPE].concerns.concat([[OTHER, OPT.other[0], OPT.other[1]]]);
+const TYPES = OPT[TYPE].types;
+const ALLERGY = [["no", T.no[0], T.no[1]], ["yes", T.yes[0], T.yes[1]]];
 
+let concerns = [];          /* values, in the order tapped: first is the most important */
+let skinType = "", allergy = "", chem = "", sending = false, lastAnswers = null, resent = false;
+
+$("backBtn").href = BACK + "?done=" + TYPE;
+if (TYPE === "hair") $("q-chem").hidden = false; else $("q-chem").remove();
+
+function chipsHtml(list, ranked){
+  return list.map((o) => '<button type="button" class="chip" data-v="' + esc(o[0]) + '">' + (ranked ? '<span class="rank"></span>' : '') + esc(o[1 + L] || o[1]) + "</button>").join("");
+}
 function paintConcerns(){
   document.querySelectorAll("#concernChips .chip").forEach((b) => {
     const i = concerns.indexOf(b.dataset.v);
@@ -247,7 +265,7 @@ function paintConcerns(){
     b.setAttribute("aria-pressed", i >= 0);
     b.querySelector(".rank").textContent = i >= 0 ? i + 1 : "";
   });
-  $("concernCount").textContent = concerns.length + " of 2 chosen" + (concerns.length >= 2 ? ". Tap a chosen one to change it." : "");
+  $("concernCount").textContent = tx(T.count).replace("{n}", concerns.length) + (concerns.length >= 2 ? tx(T.countFull) : "");
   $("otherWrap").hidden = concerns.indexOf(OTHER) < 0;
 }
 function paintSingle(boxId, value){
@@ -261,6 +279,31 @@ function paintAllergy(){
   $("allergyWrap").hidden = allergy !== "yes";
 }
 
+/* Every word on the page, in the current language. Chips are rebuilt; the answers are values, so
+   switching language never loses a choice. */
+function paintText(){
+  document.documentElement.lang = L ? "zh" : "en";
+  document.title = tx(COPY.title);
+  $("title").textContent = tx(COPY.title);
+  $("kicker").textContent = tx(COPY.kicker);
+  $("lede").textContent = tx(COPY.lede);
+  $("typeLabel").textContent = tx(COPY.typeLabel);
+  $("routineLabel").textContent = tx(COPY.routineLabel);
+  $("routineSub").textContent = tx(COPY.routineSub);
+  $("a-routine").placeholder = tx(COPY.routinePh);
+  $("profileH").textContent = tx(COPY.profile);
+  document.querySelectorAll("[data-t]").forEach((el) => { el.textContent = tx(T[el.dataset.t]); });
+  document.querySelectorAll("[data-ph]").forEach((el) => { el.placeholder = tx(T[el.dataset.ph]); });
+  $("sendBtn").textContent = tx(resent ? T.sendAgain : T.send);
+  $("updgo").textContent = tx(T.reload);
+  $("concernChips").innerHTML = chipsHtml(CONCERNS, true);
+  $("typeChips").innerHTML = chipsHtml(TYPES);
+  $("allergyChips").innerHTML = chipsHtml(ALLERGY);
+  if ($("chemChips")) $("chemChips").innerHTML = chipsHtml(OPT.chemical);
+  paintConcerns(); paintSingle("typeChips", skinType); if ($("chemChips")) paintSingle("chemChips", chem); paintAllergy();
+  if (lastAnswers && !$("done").hidden) showDone(lastAnswers);
+}
+
 $("concernChips").addEventListener("click", (e) => {
   const b = e.target.closest(".chip"); if (!b) return;
   const v = b.dataset.v, i = concerns.indexOf(v);
@@ -271,15 +314,12 @@ $("concernChips").addEventListener("click", (e) => {
   $("q-concerns").classList.remove("bad");
   paintConcerns(); saveDraft();
 });
-if (TYPE === "hair") {
-  $("q-chem").hidden = false;
-  $("chemChips").addEventListener("click", (e) => {
-    const b = e.target.closest(".chip"); if (!b) return;
-    chem = b.dataset.v;
-    $("q-chem").classList.remove("bad");
-    paintSingle("chemChips", chem); saveDraft();
-  });
-} else $("q-chem").remove();
+if ($("chemChips")) $("chemChips").addEventListener("click", (e) => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  chem = b.dataset.v;
+  $("q-chem").classList.remove("bad");
+  paintSingle("chemChips", chem); saveDraft();
+});
 $("typeChips").addEventListener("click", (e) => {
   const b = e.target.closest(".chip"); if (!b) return;
   skinType = skinType === b.dataset.v ? "" : b.dataset.v;
@@ -307,10 +347,11 @@ function loadDraft(){
   let d = null;
   try { d = JSON.parse(sessionStorage.getItem(DRAFT) || "null"); } catch (e) {}
   if (!d) return;
-  concerns = (d.concerns || []).filter((c) => COPY.concerns.concat(OTHER).indexOf(c) >= 0).slice(0, 2);
-  skinType = COPY.types.indexOf(d.skinType) >= 0 ? d.skinType : "";
+  const ok = (list, v) => list.some((o) => o[0] === v);
+  concerns = (d.concerns || []).filter((c) => ok(CONCERNS, c)).slice(0, 2);
+  skinType = ok(TYPES, d.skinType) ? d.skinType : "";
   allergy = d.allergy === "yes" || d.allergy === "no" ? d.allergy : "";
-  chem = CHEM.indexOf(d.chem) >= 0 ? d.chem : "";
+  chem = ok(OPT.chemical, d.chem) ? d.chem : "";
   ["a-name", "a-email", "a-routine", "a-concernOther", "a-allergies"].forEach((id) => { if (typeof d[id] === "string") $(id).value = d[id]; });
 }
 
@@ -326,6 +367,7 @@ function collect(){
     routine: $("a-routine").value.trim(),
     hasAllergy: allergy,
     allergies: allergy === "yes" ? $("a-allergies").value.trim() : "",
+    lang: L ? "zh" : "en",
   };
 }
 
@@ -334,14 +376,14 @@ function validate(a){
   if (!a.name) bad.push("q-name");
   if (a.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(a.email)) bad.push("q-email");
   if (!concerns.length || (concerns.indexOf(OTHER) >= 0 && !a.concernOther)) {
-    $("concernErr").textContent = concerns.length ? "Tell us what the other concern is." : "Pick at least one.";
+    $("concernErr").textContent = tx(concerns.length ? T.errOther : T.errPick);
     bad.push("q-concerns");
   }
   if (!a.type) bad.push("q-type");
   if (TYPE === "hair" && !a.chemical) bad.push("q-chem");
   if (!a.routine) bad.push("q-routine");
   if (!allergy || (allergy === "yes" && !a.allergies)) {
-    $("allergyErr").textContent = allergy ? "Tell us what you're allergic or sensitive to." : "Please choose one.";
+    $("allergyErr").textContent = tx(allergy ? T.errAllergy : T.errChoose);
     bad.push("q-allergy");
   }
   document.querySelectorAll(".q").forEach((q) => q.classList.toggle("bad", bad.indexOf(q.id) >= 0));
@@ -356,7 +398,7 @@ $("form").addEventListener("submit", async (e) => {
   $("formErr").style.display = "none";
   if (!validate(a)) return;
   sending = true;
-  $("sendBtn").disabled = true; $("sendBtn").textContent = "Sending…";
+  $("sendBtn").disabled = true; $("sendBtn").textContent = tx(T.sending);
   try {
     const r = await fetch(API, { method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ action: "submit", event: EVENT, type: TYPE, answers: a }) });
@@ -369,38 +411,41 @@ $("form").addEventListener("submit", async (e) => {
       done[TYPE] = j.submittedAt || new Date().toISOString();
       localStorage.setItem(DONE, JSON.stringify(done));
     } catch (err) {}
+    lastAnswers = a;
+    $("form").hidden = true; $("done").hidden = false;
     showDone(a);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   } catch (err) {
-    $("formErr").textContent = "Your answers were not sent (" + err.message + "). Check your connection and tap Send again. Nothing you typed has been lost.";
+    $("formErr").textContent = tx(T.sendFail).replace("{e}", err.message);
     $("formErr").style.display = "block";
     $("formErr").scrollIntoView({ behavior: "smooth", block: "center" });
   } finally {
     sending = false;
-    $("sendBtn").disabled = false; $("sendBtn").textContent = "Send my answers";
+    $("sendBtn").disabled = false; $("sendBtn").textContent = tx(resent ? T.sendAgain : T.send);
   }
 });
 
 function showDone(a){
   const first = a.name.split(/\s+/)[0];
-  $("doneTitle").textContent = "Thank you, " + first + ".";
-  $("doneSub").textContent = "You're all set. Your " + COPY.station + " picks up from these answers at the event.";
+  $("doneTitle").textContent = tx(T.doneTitle).replace("{name}", first);
+  $("doneSub").textContent = tx(T.doneSub).replace("{station}", tx(COPY.station));
   const rows = [
-    ["Top concerns", a.concerns.map((c) => '<span class="tag">' + esc(c) + "</span>").join("")],
-    [COPY.typeKey, esc(a.type)],
-  ].concat(a.chemical ? [["Dyed, permed or chemically treated", esc(a.chemical)]] : []).concat([
-    ["Current routine", esc(a.routine)],
-    ["Allergies", a.hasAllergy === "yes" ? esc(a.allergies) : "None"],
+    [tx(T.topConcerns), a.concerns.map((c) => '<span class="tag">' + esc(EventI18n.label(CONCERNS, c, L)) + "</span>").join("")],
+    [tx(COPY.typeKey), esc(EventI18n.label(TYPES, a.type, L))],
+  ].concat(a.chemical ? [[tx(T.chemK), esc(EventI18n.label(OPT.chemical, a.chemical, L))]] : []).concat([
+    [tx(T.routineK), esc(a.routine)],
+    [tx(T.allergiesK), a.hasAllergy === "yes" ? esc(a.allergies) : tx(T.none)],
   ]);
   $("profile").innerHTML = rows.map((r) => '<div class="pr"><div class="pr-k">' + esc(r[0]) + '</div><div class="pr-v">' + r[1] + "</div></div>").join("");
-  $("form").hidden = true; $("done").hidden = false;
-  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 $("againBtn").addEventListener("click", () => {
   $("done").hidden = true; $("form").hidden = false;
-  $("sendBtn").textContent = "Send corrected answers";
+  resent = true; $("sendBtn").textContent = tx(T.sendAgain);
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
+EventI18n.menu($("langMenu"), (lang) => { L = lang; paintText(); paintVer(); });
 
 loadDraft();
 (function(){
@@ -408,7 +453,7 @@ loadDraft();
   if (!$("a-name").value && g.name) $("a-name").value = g.name;
   if (!$("a-email").value && g.email) $("a-email").value = g.email;
 })();
-paintConcerns(); paintSingle("typeChips", skinType); paintSingle("chemChips", chem); paintAllergy();
+paintText();
 
 /* Always the newest version: see DiamondA70/_skills/app-qa/references/self-update.md */
 let stale = false, checkedAt = 0, triedAt = 0, staleKey = "";
@@ -417,9 +462,10 @@ function busy(){
   return sending || !!(a && /^(INPUT|TEXTAREA)$/.test(a.tagName) && a.value);
 }
 function paintVer(){
-  const when = (t) => new Date(t).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  const loc = L ? "zh-CN" : "en-US";
+  const when = (t) => new Date(t).toLocaleString(loc, { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
   const txt = "Version " + when(BUILD) + (stale ? " · a newer version is out, reloading"
-    : checkedAt ? " · the newest (checked " + new Date(checkedAt).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }) + ")" : "");
+    : checkedAt ? " · the newest (checked " + new Date(checkedAt).toLocaleTimeString(loc, { hour: "numeric", minute: "2-digit" }) + ")" : "");
   document.querySelectorAll(".ver").forEach((el) => { el.textContent = txt; el.classList.toggle("old", stale); });
 }
 function freshen(){
@@ -441,7 +487,7 @@ function reloadWhenSafe(){
   if (!stale) { bar.hidden = true; return; }
   let tried = ""; try { tried = sessionStorage.getItem("assess-tried") || ""; } catch (e) {}
   if (tried !== staleKey && !busy() && $("done").hidden) { reloadNow(); return; }
-  $("updt").textContent = tried === staleKey ? "A newer version of this page is out." : "A newer version is out.";
+  $("updt").textContent = tx(tried === staleKey ? T.newerTried : T.newer);
   bar.hidden = false;
 }
 function reloadNow(){
