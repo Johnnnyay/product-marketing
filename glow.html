@@ -162,12 +162,13 @@
   .tag.skin{background:var(--skin-light);color:var(--skin-dark)}
   .tag.hair{background:var(--hair-light);color:var(--hair-dark)}
   .tag.alert{background:#fdecea;color:#9b2c21}
-  .status{flex:none;font-size:11.5px;font-weight:700;border-radius:999px;padding:3px 9px;background:var(--gray-100);color:var(--gray-600)}
+  .status{flex:none;display:inline-block;white-space:nowrap;font-size:11.5px;font-weight:700;border-radius:999px;padding:3px 9px;background:var(--gray-100);color:var(--gray-600)}
   .status.ready{background:var(--green-light);color:var(--navy)}
   .ent-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:10px}
-  .abtn{background:var(--navy);color:#fff;border:0;border-radius:999px;padding:8px 15px;font-size:13px;font-weight:600;cursor:pointer}
+  .abtn{background:var(--navy);color:#fff;border:0;border-radius:999px;padding:8px 15px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap}
+  .acts{display:flex;align-items:center;gap:4px;white-space:nowrap}
   .abtn:hover{background:#47695a}
-  .dbtn{background:none;border:0;color:#b3261e;font-size:12.5px;font-weight:600;cursor:pointer;padding:8px 6px}
+  .dbtn{background:none;border:0;color:#b3261e;font-size:12.5px;font-weight:600;cursor:pointer;padding:8px 6px;white-space:nowrap}
   .dbtn:hover{text-decoration:underline}
   .empty{background:#fff;border-radius:14px;padding:34px 20px;text-align:center;color:var(--gray-500);font-size:14px;line-height:1.6}
 
@@ -284,7 +285,7 @@
 
 <script src="admin-session.js"></script>
 <script>
-const BUILD = "2026-09-24T21:45:39Z";
+const BUILD = "2026-09-25T01:17:12Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 const EVENT = "glow-2026-09-25";
@@ -361,6 +362,7 @@ const T = {
   delQ: ["Delete {name}'s {type} answers? This cannot be undone.", '确定删除 {name} 的{type}答案吗？删除后无法恢复。'],
   delFail: ['Could not delete: {e}', '删除失败：{e}'],
   typeSkin: ['skin', '皮肤'], typeHair: ['hair', '头发'], thisEntry: ['this entry', '这条记录'],
+  delHealthQ: ["Delete {name}'s health assessment and report? The answers and the report are removed for good.", '确定删除 {name} 的健康评估和报告吗？答案和报告都会永久删除。'],
 };
 const f = (k, vars) => { let s = tx(T[k]); Object.keys(vars || {}).forEach((v) => { s = s.replace('{' + v + '}', vars[v]); }); return s; };
 function paintStatic(){
@@ -551,7 +553,7 @@ function detailBlock(title, e, type){
       kv("kSignals", h.signals && h.signals.length ? tags(h.signals) : (h.pending ? tx(T.signalsSoon) : "")) +
       kv("kProducts", esc((h.products || []).join(", "))) +
       kv("kSubmitted", esc(when(e.at))) +
-      '<div class="dact"><button class="abtn" data-open="' + esc(h.rid) + '">' + tx(T.openReport) + '</button></div></div>';
+      '<div class="dact acts"><button class="abtn" data-open="' + esc(h.rid) + '">' + tx(T.openReport) + '</button>' + healthDel(e) + '</div></div>';
   }
   const a = e.a;
   return '<div class="dcard"><h4>' + esc(title) + "</h4>" +
@@ -560,6 +562,11 @@ function detailBlock(title, e, type){
     kv("kAllergies", a.hasAllergy === "yes" ? allergyOf(a) : (a.hasAllergy === "no" ? tx(T.none) : "")) +
     kv("kRoutine", esc(a.routine)) + kv("kSubmitted", esc(when(e.at))) +
     '<div class="dact"><button class="dbtn" data-del="' + esc(e.id) + '" data-type="' + type + '" data-name="' + esc(a.name || "") + '">' + tx(T.del) + '</button></div></div>';
+}
+
+/* Health rows delete the whole report through the same admin endpoint the All Reports list uses. */
+function healthDel(e){
+  return '<button class="dbtn" data-del="' + esc(e.h.rid) + '" data-type="health" data-name="' + esc(e.name || "") + '">' + tx(T.del) + "</button>";
 }
 
 function overviewTable(gs){
@@ -593,7 +600,7 @@ function typeTable(type, list){
         "<td>" + (h.signals && h.signals.length ? tags(h.signals) : dash) + "</td>" +
         '<td><div class="clamp">' + (h.products && h.products.length ? esc(h.products.join(", ")) : dash) + "</div></td>" +
         "<td>" + statusOf(h) + '</td><td class="small">' + esc(when(e.at)) + "</td>" +
-        '<td><button class="abtn" data-open="' + esc(h.rid) + '">' + tx(T.open) + '</button></td></tr>';
+        '<td><div class="acts"><button class="abtn" data-open="' + esc(h.rid) + '">' + tx(T.open) + '</button>' + healthDel(e) + '</div></td></tr>';
     }
     const a = e.a;
     return "<tr>" + who + "<td>" + (tags((a.concerns || []).map((c) => cLab(type, c)), type) || dash) + "</td><td>" + esc(tLab(type, a.type || "")) + chemOf(a) + "</td>" +
@@ -660,15 +667,20 @@ $("list").addEventListener("click", async (e) => {
     if (r) { const k = r.dataset.row; if (openRows.has(k)) openRows.delete(k); else openRows.add(k); render(); }
     return;
   }
-  if (!confirm(f("delQ", { name: del.dataset.name || tx(T.thisEntry), type: tx(del.dataset.type === "skin" ? T.typeSkin : T.typeHair) }))) return;
+  const isHealth = del.dataset.type === "health";
+  const who = del.dataset.name || tx(T.thisEntry);
+  if (!confirm(isHealth ? f("delHealthQ", { name: who })
+    : f("delQ", { name: who, type: tx(del.dataset.type === "skin" ? T.typeSkin : T.typeHair) }))) return;
   del.disabled = true; del.textContent = tx(T.deleting);
   try {
-    const r = await fetch(API, { method: "POST", headers: Object.assign({ "Content-Type": "application/json" }, AdminSession.headers()),
-      body: JSON.stringify({ action: "delete", event: EVENT, type: del.dataset.type, id: del.dataset.del }) });
+    const r = await fetch(isHealth ? AdminSession.API + "/api/unlock" : API, {
+      method: "POST", headers: Object.assign({ "Content-Type": "application/json" }, AdminSession.headers()),
+      body: JSON.stringify(isHealth ? { action: "delete", rid: del.dataset.del }
+        : { action: "delete", event: EVENT, type: del.dataset.type, id: del.dataset.del }) });
     if (r.status === 401) { AdminSession.logout(); setAdmin(false); alert(tx(T.expired)); return; }
     const j = await r.json().catch(() => ({}));
     if (!r.ok && r.status !== 404) throw new Error(j.error || ("the server answered " + r.status));
-    data[del.dataset.type] = (data[del.dataset.type] || []).filter((d) => d.id !== del.dataset.del);
+    data[del.dataset.type] = (data[del.dataset.type] || []).filter((d) => (isHealth ? d.rid : d.id) !== del.dataset.del);
     render();
   } catch (err) {
     del.disabled = false; del.textContent = tx(T.del);
