@@ -630,6 +630,598 @@
      "key": "weight.sustain.wellness-bars"
     }
    ]
+  },
+  "sleep": {
+   "overview": "The stress system is meant to stand down at night. When cortisol stays high into the evening, the brain stays on watch, and you get the tired-but-wired pattern: flat all afternoon, alert at midnight. Lost sleep then feeds the loop; in one study, six short nights raised evening cortisol in healthy young men. The calming signals are built from nutrients, magnesium and the B vitamins among them, and stress uses those up faster. So the steps run in order: remove what keeps the alarm on, calm the stress system and reset the clock, refill the raw materials, then hold a rhythm long enough to stick. Loud snoring, pauses in breathing, or trouble sleeping most nights for three months need a doctor, not a supplement.",
+   "overviewZh": "压力系统本来应该在夜里下班。如果皮质醇到晚上还降不下来，大脑就一直处在值班状态，于是出现那种又累又亢奋的样子：下午整个人没电，半夜却精神十足。睡不够又反过来加重这个循环；一项研究里，健康的年轻男性连续六晚睡眠不足后，晚间皮质醇明显升高。让人平静下来的信号，是用营养素造出来的，镁和B族都在其中，而压力会加快它们的消耗。所以四步的顺序是：先拿掉让警报一直响的东西，再让压力系统平静、把生物钟调回来，然后补上原料，最后把节奏坚持到它稳住。如果打鼾很响、睡眠中有呼吸暂停，或者连续三个月大多数晚上都睡不好，需要的是医生，不是补充剂。",
+   "rows": [
+    {
+     "stage": "clear",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "Liver Support"
+     ],
+     "why": "Start by removing what keeps the alarm on. Caffeine lingers for hours: in one study, a dose taken six hours before bed cut measured sleep by more than an hour, and people did not notice. Screen light in bed delays the night signal, and a heavy late dinner or evening drinks leave the liver working when the body should be winding down. The teaching behind this plan routes trouble falling asleep through the liver first. Last coffee before 2 pm, a lighter dinner three hours before bed, and the phone out of the bedroom.",
+     "key": "sleep.clear.liver-support",
+     "whyZh": "先拿掉让警报一直响的东西。咖啡因会在体内停留好几个小时：一项研究里，睡前六小时摄入的咖啡因，让实测睡眠少了一个多小时，而当事人自己毫无察觉。躺在床上看屏幕，光线会推迟身体的「天黑了」信号；晚饭吃得太晚太重，或者晚上喝酒，肝脏在该休息的时候还在加班。这套方案的思路是，入睡困难先从肝入手。咖啡最晚下午两点前，晚饭清淡些、离睡觉三小时，手机不进卧室。",
+     "productIds": [
+      "liver-support"
+     ]
+    },
+    {
+     "stage": "regulate",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "Organics Ashwagandha Capsules"
+     ],
+     "why": "Ashwagandha works on the stress system itself rather than knocking you out. Across five trials it gave a small but real improvement in sleep, larger at 600 mg a day or more, over eight weeks or longer, and in people with insomnia. It works over weeks, not tonight. Take it with the evening meal and judge it at eight weeks. Skip it if you are pregnant or breastfeeding or have thyroid, autoimmune or liver disease, and stop and see a doctor if you notice dark urine or yellowing skin.",
+     "key": "sleep.regulate.organics-ashwagandha-capsules",
+     "whyZh": "南非醉茄作用在压力系统本身，而不是把你「放倒」。汇总五个试验来看，它对睡眠有小而确实的改善，每天600毫克以上、持续八周以上、以及本身有失眠的人，效果更明显。它是按周起效的，不是今晚吃了今晚就好。跟晚饭一起吃，八周后再判断。怀孕、哺乳，或者有甲状腺、自身免疫、肝脏方面的问题，不要吃；如果出现尿色变深或皮肤发黄，立刻停用并去看医生。",
+     "productIds": [
+      "organics-ashwagandha-capsules"
+     ]
+    },
+    {
+     "stage": "regulate",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Stress Relief Probiotic"
+     ],
+     "why": "The gut and the brain signal each other in both directions, and stress rarely leaves digestion alone. One strain in this probiotic lowered perceived stress over five weeks and improved sleep recovery in highly stressed adults. A larger trial in students missed its main anxiety goal, though sleep disturbance was lower. So the evidence is mixed and the effect modest: worth trying if stress shows up in your stomach as well as your sleep. One capsule with food at the same time each day, judged after five to eight weeks.",
+     "key": "sleep.regulate.stress-relief-probiotic",
+     "whyZh": "肠道和大脑之间是双向传递信号的，压力很少会放过消化。这款益生菌里的一株菌，在五周内降低了受试者自评的压力，并改善了高压人群的睡眠恢复。但另一项规模更大的学生试验，没有达到主要的焦虑指标，只是睡眠干扰有所减少。所以证据有好有坏，效果也不大：如果你的压力同时体现在胃和睡眠上，值得一试。每天同一时间随餐一粒，五到八周后再判断。",
+     "productIds": [
+      "stress-relief-probiotic"
+     ]
+    },
+    {
+     "stage": "regulate",
+     "rank": 3,
+     "route": "internal",
+     "products": [
+      "Sleep Gummies",
+      "Sleep Health"
+     ],
+     "why": "Both of these contain 3 mg of melatonin, and melatonin is a clock signal, not a sleeping pill: it tells the body that night has started. On average it helps people fall asleep about seven minutes faster, which is why it suits a shifted clock, jet lag or getting back to a fixed wake time better than long-term insomnia. Use it for occasional nights, 30 to 60 minutes before bed, and do not drive or drink afterwards. Keep it away from children, and ask a doctor first if you are pregnant, breastfeeding or on blood thinners.",
+     "key": "sleep.regulate.sleep-gummies",
+     "whyZh": "这两款都含3毫克褪黑素，而褪黑素是一个时钟信号，不是安眠药：它告诉身体「天黑了」。平均来看，它能让人入睡快大约七分钟，所以它更适合生物钟被打乱的情况，比如倒时差、或者要把起床时间调回来，而不是长期失眠。只在偶尔需要的晚上用，睡前30到60分钟，吃完不要开车、不要喝酒。放在孩子拿不到的地方；怀孕、哺乳或在服用抗凝药的人，先问医生。",
+     "productIds": [
+      "sleep-gummies",
+      "sleep-health"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "Magnesium",
+      "Calcium Magnesium D"
+     ],
+     "why": "Stress raises how much magnesium the body loses, and low magnesium makes the stress response more reactive, so the two feed each other. About half of US adults get less than they need from food. In small trials, older adults with insomnia fell asleep about 17 minutes faster on magnesium, though the evidence is low quality. Take it with dinner, food first where you can, and keep supplemental magnesium within 350 mg a day; loose stools are the first sign of too much. Choose calcium magnesium D if you eat little dairy.",
+     "key": "sleep.supplement.magnesium",
+     "whyZh": "压力会增加镁的流失，而缺镁又让压力反应更敏感，两者互相加重。大约一半的美国成年人从食物里吃不够镁。小型试验里，有失眠的老年人补镁后入睡快了大约17分钟，不过证据质量不高。跟晚饭一起吃，能从食物里补的先从食物补，补充剂来源的镁每天不超过350毫克；大便变稀是过量的第一个信号。如果平时很少吃奶制品，选钙镁D片。",
+     "productIds": [
+      "magnesium",
+      "calcium-magnesium-d"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Vitamin B Complex 120ct"
+     ],
+     "why": "The brain builds its calming signals, GABA and serotonin, with enzymes that depend on vitamin B6, and the B vitamins as a group keep nerves supplied. They are water-soluble, the body stores them for hours rather than days, and stress, heavy drinking and refined-carb eating use them faster. Take them daily with food. If they feel energising, move them to dinner rather than skipping them, and avoid stacking several products that each contain B6, because B6 has a daily upper limit of 100 mg.",
+     "key": "sleep.supplement.vitamin-b-complex-120ct",
+     "whyZh": "大脑用来让自己平静下来的信号，GABA和血清素，要靠依赖维生素B6的酶来合成，而整个B族一起负责给神经供给原料。B族是水溶性的，身体只能存几个小时，而压力、经常喝酒和精致碳水饮食，都会加快它的消耗。每天随餐吃。如果吃了觉得太提神，就改到晚饭吃，而不是不吃；另外别同时吃好几种都含B6的产品，因为B6每天有100毫克的上限。",
+     "productIds": [
+      "vitamin-b-complex-120ct"
+     ]
+    },
+    {
+     "stage": "sustain",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "Vitamin B Complex 120ct",
+      "Liver Support"
+     ],
+     "why": "The rhythm this plan follows anchors the evening between about 7:30 and 8:40 pm: B vitamins and liver support at the same time every night, for six months, because liver cells take roughly 180 days to renew. There is no mainstream research on the timing itself, so its value is as a cue. The same act at the same hour starts the wind-down two hours before bed, and after it the lights go down. Judge it at six months, not after a week.",
+     "key": "sleep.sustain.vitamin-b-complex-120ct",
+     "whyZh": "这套方案的节律，把晚上锚定在大约7点半到8点40之间：每晚同一时间吃B族和护肝，坚持六个月，因为肝细胞大约180天更新一轮。主流研究并没有专门验证这个时间点，所以它的价值在于当一个信号：每天同一时间做同一件事，提前两小时开启放松，做完之后把灯调暗。按六个月来判断，而不是一周。",
+     "productIds": [
+      "vitamin-b-complex-120ct",
+      "liver-support"
+     ]
+    },
+    {
+     "stage": "sustain",
+     "rank": 2,
+     "route": "habit",
+     "products": [
+      "Sleep + Stress Solution"
+     ],
+     "why": "Keep the same wake time seven days a week; a fixed schedule is part of the approach doctors use first for chronic insomnia. Sleep runs in cycles of about 90 minutes, and waking in the middle of deep sleep is what makes a morning feel awful, so count back from your alarm in 90-minute steps: a 7 am alarm means aiming to be asleep around 11:30 pm. If you miss it, wait for the next cycle rather than lying awake. The sleep and stress bundle puts the evening routine in one box.",
+     "key": "sleep.sustain.sleep-stress-solution",
+     "whyZh": "一周七天保持同一个起床时间；固定作息是医生治疗慢性失眠时首选方法的一部分。睡眠以大约90分钟为一个周期，在深睡中途被叫醒，就是早上特别难受的原因，所以从闹钟往回按90分钟倒推：早上7点起床，就争取11点半左右睡着。错过了，就等下一个周期，而不是躺着硬熬。睡眠减压方案把晚间的这一套放在了一个盒子里。",
+     "productIds": [
+      "sleep-stress-solution"
+     ]
+    }
+   ]
+  },
+  "energy": {
+   "overview": "Energy is something your cells make all day, out of food, and three things usually get in the way. The day runs on refined carbs and sugar, which lift you for an hour and then drop you. Sleep runs short, and the debt adds up quietly while caffeine hides it. And the raw materials that turn food into energy, protein, the B vitamins and iron, run low without any hunger signal to warn you. The four steps take them in that order: stop the swings, stop the leaks, supply the materials, then keep the daily rhythm that holds it. If the tiredness has lasted more than a few weeks, or comes with weight loss, breathlessness, very heavy periods or low mood, see a doctor first.",
+   "overviewZh": "精力是细胞每天用食物一点点造出来的，通常有三件事在拖后腿。一天靠精致碳水和糖撑着，提神一小时，然后掉下来。睡眠不够，睡眠债悄悄累积，咖啡把它盖住了。把食物变成能量的原料，蛋白质、B族和铁，缺了也不会有饥饿感提醒你。下面四步就按这个顺序来：先止住起伏，再堵住漏洞，然后把原料补上，最后用每天固定的节奏把成果守住。如果累了已经好几周，或者同时有体重下降、气短、经量很多、情绪低落，请先去看医生。",
+   "rows": [
+    {
+     "stage": "clear",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "Organics All-in-One Bars",
+      "Wellness Bars"
+     ],
+     "why": "The first thing to take off is the swing. A meal or snack that is mostly refined carbs lifts you briefly, and a pooled analysis of 31 studies found carbohydrates actually raise fatigue within 30 minutes and lower alertness within the hour. The early-afternoon dip is partly your body clock, but a carb-heavy lunch deepens it. You do not have to give up carbs, you have to stop eating them alone. Swap the 3 pm pastry or sweet drink for something with protein and fibre, and a glass of water.",
+     "key": "energy.clear.organics-all-in-one-bars",
+     "whyZh": "第一步先卸掉的是那个起伏。一顿以精致碳水为主的饭或零食，只能让你精神一小会儿；一项汇总了31个研究的分析发现，碳水吃下去30分钟内疲劳感反而上升，一小时内警觉度下降。午后那一阵犯困，一部分是生物钟本身，但一顿高碳水的午饭会让它更深。你不需要戒掉碳水，要做的是别让碳水单独出现。把下午三点的点心或甜饮料，换成有蛋白质和纤维的东西，再配一杯水。",
+     "productIds": [
+      "organics-all-in-one-bars",
+      "wellness-bars"
+     ]
+    },
+    {
+     "stage": "clear",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Begin Daily GI Primer",
+      "Prebiotic Fiber",
+      "Probiotic"
+     ],
+     "why": "The second load sits in the gut, and it matters most when the tiredness comes with bloating, irregular stools or a mostly takeout diet. The teaching behind this plan puts clearing before replenishing: poorly digested food and a gut out of balance keep using up the very nutrients step three will supply, and chronic fatigue sits on the same checklist as bloating and constipation. Direct evidence for gut products treating fatigue is thin, so treat this as getting the order right, not as an energy supplement.",
+     "key": "energy.clear.begin-daily-gi-primer",
+     "whyZh": "第二个负担在肠道。如果疲劳同时伴随腹胀、排便不规律，或者三餐大多靠外卖，这一步最要紧。这套方案的逻辑是先清后补：消化不完全、菌群失衡，会不断消耗第三步要补进去的营养素，而慢性疲劳和腹胀、便秘本来就在同一张肠道信号清单上。直接用肠道产品来治疲劳，主流研究的证据并不多，所以把它当作把顺序做对，而不是提神产品。",
+     "productIds": [
+      "begin-daily-gi-primer",
+      "prebiotic-fiber",
+      "probiotic"
+     ]
+    },
+    {
+     "stage": "regulate",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "Magnesium"
+     ],
+     "why": "Sleep debt is the leak most people underestimate. In a controlled study, two weeks of six hours a night left people as impaired as two nights with no sleep at all, while they reported feeling only slightly sleepy. Caffeine does not repay that debt, it hides it, and about a third of US adults sleep under seven hours. Fix the wake time first, the same seven days a week, then aim for seven hours or more. Magnesium in the evening supports the wind-down; low magnesium intake is common, and tiredness is one of its early signs.",
+     "key": "energy.regulate.magnesium",
+     "whyZh": "睡眠债是最多人低估的漏洞。一项对照研究里，连续两周每晚只睡六小时的人，表现跌到相当于整整两晚没睡，而他们自己只觉得有点困。咖啡还不了这笔债，只是把它盖住；大约三分之一的美国成年人每晚睡不到七小时。先把起床时间固定下来，一周七天一样，再争取睡够七小时以上。晚上补镁可以帮身体放松下来；镁摄入不足很常见，而疲劳正是它最早的信号之一。",
+     "productIds": [
+      "magnesium"
+     ]
+    },
+    {
+     "stage": "regulate",
+     "rank": 2,
+     "route": "habit",
+     "products": [
+      "Vitamin C Extended Release 180ct"
+     ],
+     "why": "What you eat only counts once it is absorbed, and iron is where that quietly fails. Black tea drunk with a meal cut absorption of plant iron by 79 to 94 percent in one study, and coffee has a smaller but real effect. Vitamin C does the opposite: it turns iron into the form the gut takes up most easily. So keep coffee and tea at least an hour away from meals, and take vitamin C alongside iron-rich food or an iron tablet. It costs nothing, and for anyone who relies on plant iron it is a big fix.",
+     "key": "energy.regulate.vitamin-c-extended-release-180ct",
+     "whyZh": "吃进去的东西要吸收了才算数，而铁恰恰是悄悄出问题的地方。一项研究里，吃饭时喝红茶，让植物来源的铁吸收下降了79%到94%，咖啡也有影响，只是小一些。维生素C的作用正好相反，它把铁转成肠道最容易吸收的形式。所以咖啡和茶至少离开饭点一小时，吃富含铁的食物或铁片时，配上维生素C。这个修正不花钱，对主要靠植物获取铁的人来说，效果不小。",
+     "productIds": [
+      "vitamin-c-extended-release-180ct"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "Plant Protein Powder",
+      "Organics All-in-One Shakes"
+     ],
+     "why": "Energy is made by enzymes, and enzymes are made of protein. A practical target is about 1.2 g of protein per kilogram of body weight a day, so 72 g for someone who weighs 60 kg, with roughly a third of it at breakfast, because breakfast sets the energy for the day and dinner goes to repair. A breakfast of toast, cereal or congee supplies a fraction of that. If yours looks like that, one shake closes most of the gap. Work out your own number, then look at what your first meal actually contains.",
+     "key": "energy.supplement.plant-protein-powder",
+     "whyZh": "能量是酶造出来的，而酶是蛋白质做的。一个实用的目标是每天每公斤体重约1.2克蛋白质，体重60公斤就是72克，其中大约三分之一放在早餐，因为早餐供应一整天的精力，晚餐负责修复。一顿吐司、麦片或白粥的早餐，只能提供其中一小部分。如果你的早餐是这样，一杯蛋白奶昔就能补上大部分缺口。先算出你自己的数字，再看看你的第一餐到底吃进了多少。",
+     "productIds": [
+      "plant-protein-powder",
+      "organics-all-in-one-shakes"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "Vitamin B Complex 120ct"
+     ],
+     "why": "The B vitamins are the coenzymes that turn carbohydrate, fat and protein into usable energy. B1 is needed to burn carbohydrate, the brain's main fuel. B2, B3 and B5 work inside the energy cycle itself, and B12 and folate build the red cells that carry oxygen. They are water-soluble, the body keeps little in reserve, and refined grains lose most of theirs in milling. The benefit is clearest where intake has been short: irregular meals, regular drinking, or years on metformin or acid reducers, which lower B12 absorption. Take them with food.",
+     "key": "energy.supplement.vitamin-b-complex-120ct",
+     "whyZh": "B族维生素是把碳水、脂肪、蛋白质转化成可用能量的辅酶。B1负责燃烧碳水，而碳水是大脑的主要燃料；B2、B3、B5就在能量循环内部工作；B12和叶酸负责制造运送氧气的红细胞。它们是水溶性的，身体几乎存不住，而精米白面在加工中丢掉了大部分。最能看出效果的，是本来就摄入不足的人：三餐不规律、经常喝酒，或者长期服用二甲双胍、抑酸药的人，这些药会降低B12的吸收。随餐吃。",
+     "productIds": [
+      "vitamin-b-complex-120ct"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Iron & Folic Acid",
+      "Women's Pack"
+     ],
+     "why": "Iron is the best-evidenced lever in this area, and the reason many people are told their labs look normal. A standard blood count can be fine while iron stores are low. In a trial of 198 menstruating women with low ferritin but no anaemia, twelve weeks of iron cut fatigue by 48 percent, against 29 percent on placebo. That is a specific group: women with heavy periods, vegetarians and frequent blood donors. Ask for a ferritin test before taking iron long term, because iron can build up, and recheck after about three months.",
+     "key": "energy.supplement.iron-folic-acid",
+     "whyZh": "铁是这个领域证据最扎实的一个杠杆，也是很多人被告知「化验单正常」却依然很累的原因。血常规可能完全正常，而体内的铁储备已经偏低。一项试验里，198位有月经、铁蛋白偏低但没有贫血的女性，补铁十二周后疲劳下降了48%，安慰剂组是29%。这是特定的人群：经量偏多的女性、素食者、经常献血的人。长期补铁之前先查铁蛋白，因为铁会在体内累积，大约三个月后再复查。",
+     "productIds": [
+      "iron-folic-acid",
+      "women-s-pack"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Double X Multivitamin 31-day Refill",
+      "Women's Daily Multivitamin",
+      "Men's Daily Multivitamin"
+     ],
+     "why": "Energy metabolism uses more than B vitamins and iron: magnesium, zinc and vitamin C all take part, and a shortfall in any one of them slows the whole line. A multivitamin is the base that covers several at once, which is why it sits under the targeted products rather than replacing them. Regular exercise raises the demand rather than lowering it, so people who train hard and eat irregularly are the most likely to run short. One base taken every day does more than five bottles taken now and then.",
+     "key": "energy.supplement.double-x-multivitamin-31-day-refill",
+     "whyZh": "能量代谢用到的不只是B族和铁，镁、锌、维生素C都参与其中，任何一样不足，整条流水线都会变慢。综合营养素是一次覆盖好几样的底座，所以它放在针对性产品的下面，而不是取代它们。规律运动不会减少需求，反而会增加，所以训练多、吃饭又不规律的人，最容易缺。一个底座每天吃，比五个瓶子有一顿没一顿地吃更有用。",
+     "productIds": [
+      "double-x-multivitamin-31-day-refill",
+      "women-s-daily-multivitamin",
+      "men-s-daily-multivitamin"
+     ]
+    },
+    {
+     "stage": "sustain",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "Everyday Nutrition Solution"
+     ],
+     "why": "The morning is where energy is won or lost for the day. The breakfast this plan is built around covers seven things in one meal: protein, fibre, probiotics, good fats, plant foods, vitamins and minerals, eaten between 7 and 9 am. It does the first three steps at once, which is why keeping it is the fourth. The foundation bundle puts the multivitamin, protein and omega-3 in a single order. Treat it like brushing your teeth: the same breakfast every weekday, not a new plan every Monday.",
+     "key": "energy.sustain.everyday-nutrition-solution",
+     "whyZh": "一天的精力，早上就决定了一大半。这套方案围绕的营养早餐，一餐覆盖七类：优质蛋白、膳食纤维、益生菌、优质脂肪、蔬果植物营养、维生素和矿物质，在早上7到9点吃。它一餐就完成了前三步，所以守住它就是第四步。基础营养方案把综合营养素、蛋白粉和深海鱼油放在一单里。把它当成刷牙一样：每个工作日同一份早餐，而不是每周一换一个新计划。",
+     "productIds": [
+      "everyday-nutrition-solution"
+     ]
+    },
+    {
+     "stage": "sustain",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Vitamin B Complex 120ct",
+      "Liver Support"
+     ],
+     "why": "The evening half of the rhythm comes from the tradition this plan follows: B vitamins and liver support taken together between about 7:30 and 8:40 pm, every evening, for six months. The reasoning is that the liver processes everything the day brought in, and its cells take roughly 180 days to renew, so it is judged over months, not days. There is no mainstream research on the timing itself, so hold it as a routine that anchors the evening rather than as a claim. If falling asleep is part of the problem, start here too.",
+     "key": "energy.sustain.vitamin-b-complex-120ct",
+     "whyZh": "节奏的另一半在晚上，来自这套方案所依据的调理传统：每天晚上大约7点半到8点40之间，B族和护肝一起吃，坚持六个月。道理是肝脏要处理一整天带进来的所有东西，而肝细胞大约180天更新一轮，所以要按月看效果，而不是按天。主流研究并没有专门验证这个时间点，所以把它当作固定晚间节奏的习惯，而不是一项功效声明。如果入睡困难也是问题之一，同样从这里开始。",
+     "productIds": [
+      "vitamin-b-complex-120ct",
+      "liver-support"
+     ]
+    },
+    {
+     "stage": "sustain",
+     "rank": 3,
+     "route": "internal",
+     "products": [
+      "Heart Health CoQ10"
+     ],
+     "why": "CoQ10 sits inside the energy machinery of every cell, and the body makes less of it with age. A pooled analysis of 13 trials found it reduced fatigue compared with placebo, with most of the effect in people who were already unwell, so its place is narrow: people past their mid-forties, or anyone whose tiredness comes with a long-term condition. Talk to your doctor first if you take a statin or a blood thinner. It is an add-on for the right person, not a first step for everyone.",
+     "key": "energy.sustain.heart-health-coq10",
+     "whyZh": "辅酶Q10位于每个细胞的能量机器内部，身体自己合成的量会随年龄下降。一项汇总了13个试验的分析发现，它比安慰剂更能减轻疲劳，但效果大多出现在本身已有健康问题的人身上，所以它的位置很窄：四十五岁以上，或者疲劳伴随长期慢性问题的人。如果你在吃他汀类或抗凝药，先问医生。它是给合适的人的补充，不是每个人的第一步。",
+     "productIds": [
+      "heart-health-coq10"
+     ]
+    }
+   ]
+  },
+  "digestion": {
+   "overview": "Constipation and loose stools look like opposite problems, but most of the time they are the same one: stool with the wrong amount of water in it. Fibre is what holds that water, and most adults eat about 16 g a day against the 25 to 38 g they need. Water helps once the fibre is there. The bacteria then ferment that fibre into acids that keep the bowel moving, and the whole system runs on a daily rhythm that is strongest in the morning. The steps follow that order: bulk and water, then the bacteria, then the raw materials, then the rhythm. Blood in the stool, black stool, weight loss you cannot explain, or a new change in habit that lasts, especially after 50, need a doctor first.",
+   "overviewZh": "便秘和稀便看起来是相反的两个问题，其实大多数时候是同一件事：大便里的水分不对。能把水分留住的是膳食纤维，而大多数成年人每天只吃到16克左右，需要的是25到38克。有了纤维，喝水才真正有用。接着，肠道细菌把纤维发酵成酸性物质，推动肠道蠕动；整个系统跟着一天的节律走，早上最活跃。下面四步就按这个顺序：先有体积和水分，再是菌群，然后是原料，最后是节律。如果大便带血或发黑、体重不明原因下降，或者排便习惯出现新的、持续的变化，尤其是50岁以后，请先去看医生。",
+   "rows": [
+    {
+     "stage": "clear",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "Prebiotic Fiber",
+      "Green Superfood"
+     ],
+     "why": "Start with fibre, because it decides how much water the stool can hold, and that is what makes it too hard or too loose. US adults average about 16 g a day against 25 g for women and 38 g for men. In trials, adding more than 10 g a day for at least four weeks is what changed frequency. Food carries most of the bulk: vegetables first at each meal, then beans, oats and whole grains. The powder tops up the gap. Raise fibre by about 5 g a week, and drink a full glass of water with each serving.",
+     "key": "digestion.clear.prebiotic-fiber",
+     "whyZh": "从纤维开始，因为它决定大便能留住多少水分，而太干或太稀，说到底就是水分的问题。美国成年人平均每天只吃到约16克纤维，女性需要25克，男性38克。临床试验里，真正改变排便频率的，是每天额外增加10克以上、持续至少四周。大部分的量应该来自食物：每餐先吃蔬菜，再加豆类、燕麦和全谷物，纤维粉用来补上差的那一截。每周增加大约5克，别一下加太多，每一份都配一整杯水。",
+     "productIds": [
+      "prebiotic-fiber",
+      "green-superfood"
+     ]
+    },
+    {
+     "stage": "regulate",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "Probiotic"
+     ],
+     "why": "Fibre is also food, and the bacteria that eat it turn it into acids that keep the bowel moving. That makes probiotics the second lever, not the first. The strain matters more than the count: one strain in this product, B. lactis HN019, cut whole-gut transit time from 49 hours to 21 in a two-week trial, while other strains in other studies did nothing. Across trials the average gain is modest, about one extra bowel movement a week. Take it daily with food, alongside the fibre it lives on, and judge it after four weeks.",
+     "key": "digestion.regulate.probiotic",
+     "whyZh": "纤维同时也是食物，吃它的细菌会把它发酵成酸性物质，推动肠道蠕动。所以益生菌是第二个杠杆，而不是第一个。菌株比菌数更重要：这款产品里的一株乳双歧杆菌HN019，在一项两周的试验里，把食物通过整个肠道的时间从49小时缩短到21小时；而其他研究里的另一些菌株，完全没有效果。综合所有试验，平均改善并不夸张，大约每周多一次排便。每天随餐吃，和它赖以生存的纤维一起，四周后再判断效果。",
+     "productIds": [
+      "probiotic"
+     ]
+    },
+    {
+     "stage": "regulate",
+     "rank": 3,
+     "route": "internal",
+     "products": [
+      "Begin Daily GI Primer",
+      "Digestive Enzyme"
+     ],
+     "why": "Enzymes answer a different problem: the heavy, bloated feeling after a big meal, not how often you go. The stomach's protein-digesting enzymes decline with age, and food that sits undigested is uncomfortable. The evidence for enzyme supplements is honestly thin, with small trials showing less bloating after single meals, so use them where that symptom is clear rather than every day by default. The 6-in-1 drink combines fibre, enzymes and fermented greens if you would rather take one thing than three.",
+     "key": "digestion.regulate.begin-daily-gi-primer",
+     "whyZh": "消化酶解决的是另一个问题：大餐之后那种胀、那种沉，而不是排便次数。胃里分解蛋白质的酶会随年龄减少，没消化完的食物停在那里，人就不舒服。老实说，消化酶补充剂的证据并不多，小型试验显示单顿饭后的腹胀有所减轻，所以只在这个症状明确的时候用，而不是默认每天吃。如果不想同时吃三样，六合一饮品把纤维、酶和发酵蔬菜放进了一杯。",
+     "productIds": [
+      "begin-daily-gi-primer",
+      "digestive-enzyme"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Magnesium",
+      "Calcium Magnesium D"
+     ],
+     "why": "Magnesium draws water into the bowel and relaxes smooth muscle, and about half of US adults get less than they need from food. The form here is gentle and well absorbed, so it covers that gap rather than acting as a laxative; laxative magnesium is a different product, used at doses above the safe daily limit for supplements. Take it in the evening with water and keep supplemental magnesium within 350 mg a day. With kidney disease, or if you already use a magnesium laxative, ask your doctor first.",
+     "key": "digestion.supplement.magnesium",
+     "whyZh": "镁会把水分带进肠道，同时放松肠道的平滑肌，而大约一半的美国成年人从食物里吃不够镁。这里用的是温和、好吸收的形式，作用是补上这个缺口，而不是当泻药用；泻药级别的镁是另一类产品，剂量超过了补充剂的每日安全上限。晚上随水服用，补充剂来源的镁每天不超过350毫克。如果有肾脏问题，或者已经在用含镁的通便药，先问医生。",
+     "productIds": [
+      "magnesium",
+      "calcium-magnesium-d"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 3,
+     "route": "internal",
+     "products": [
+      "Plant Protein Powder",
+      "Organics All-in-One Shakes"
+     ],
+     "why": "The gut lining renews itself every few days, and it is built from protein, as are the digestive enzymes that break food down. A breakfast of white bread or congee brings little of either, and heavy, low-fibre meat meals work against step one. A plant protein shake at breakfast replaces the refined carbs without adding to the load. Keep fibre on the plate alongside it, because protein does not do fibre's job.",
+     "key": "digestion.supplement.plant-protein-powder",
+     "whyZh": "肠道内壁每隔几天就更新一次，它的原料是蛋白质，负责分解食物的消化酶也一样。白面包或白粥的早餐，两样都给不了多少；而油腻、少纤维的大鱼大肉，又在拖第一步的后腿。早餐一杯植物蛋白奶昔，替掉精致碳水，又不增加负担。同时盘子里的纤维不能少，因为蛋白质替代不了纤维的作用。",
+     "productIds": [
+      "plant-protein-powder",
+      "organics-all-in-one-shakes"
+     ]
+    },
+    {
+     "stage": "sustain",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "Begin 30 Holistic Wellness Solution"
+     ],
+     "why": "The bowel runs on a clock. Its strongest contractions come in bursts on waking and after meals, and the reflex that triggers them is strongest after breakfast. The rhythm this plan follows puts warm water first thing, then breakfast between 7 and 9 am, which lands on exactly that window. Give yourself ten unhurried minutes after breakfast, do not ignore the urge, and keep the same time on weekends. The 30-day program adds structure for the first month, roughly how long fibre and probiotics take to show.",
+     "key": "digestion.sustain.begin-30-holistic-wellness-solution",
+     "whyZh": "肠道是有时钟的。它最强的推进性收缩，集中出现在刚醒来和饭后，而触发它的那个反射，早餐后最强。这套方案的节律是：起床先喝温水，然后在早上7到9点吃早餐，正好落在这个窗口上。早餐后给自己留十分钟，不慌不忙，有便意别忍，周末也保持同一个时间。30天计划在第一个月帮你把结构搭起来，而这差不多正是纤维和益生菌开始见效所需的时间。",
+     "productIds": [
+      "begin-30-holistic-wellness-solution"
+     ]
+    },
+    {
+     "stage": "sustain",
+     "rank": 3,
+     "route": "internal",
+     "products": [
+      "Stress Relief Probiotic"
+     ],
+     "why": "For some people the pattern is clear: loose stools arrive with deadlines, travel or conflict, because the gut and the brain signal each other in both directions. This probiotic uses strains chosen for that gut-brain link. There is no bowel-habit trial for this exact product, so it is an option for that specific pattern rather than a default. Use it in place of the standard probiotic, not on top of it. Loose stools that last more than a few days, or come with fever, are a question for a doctor.",
+     "key": "digestion.sustain.stress-relief-probiotic",
+     "whyZh": "有些人的规律很明显：一到截止日期、出差或者吵架，就开始拉肚子，因为肠道和大脑是双向传递信号的。这款益生菌选的是针对这条肠脑通路的菌株。这个具体产品目前没有针对排便习惯的试验，所以它是给这种特定情况的选项，而不是默认配置。用它替换普通益生菌，而不是叠加着吃。如果稀便持续好几天，或者伴随发烧，那是该问医生的问题。",
+     "productIds": [
+      "stress-relief-probiotic"
+     ]
+    }
+   ]
+  },
+  "immunity": {
+   "overview": "Your immune system is not a muscle you can boost. It is a tissue that rebuilds itself constantly, and it struggles when it runs short or gets overloaded. Much of it lines the gut, so that is where the load comes off first. Sleep is the lifestyle lever with the hardest numbers behind it. Then comes steady supply: protein, vitamin C and vitamin D every day, because the benefit in trials came from regular intake, not from reacting once a cold starts. Nothing here prevents infection. A fever lasting more than three days, trouble breathing, or infections that keep coming back need a doctor.",
+   "overviewZh": "免疫系统不是一块可以「练大」的肌肉。它是一个时刻都在自我更新的组织，一旦原料短缺或者负担过重，就会力不从心。免疫系统有很大一部分分布在肠道，所以负担要先从这里卸下来。在所有生活习惯里，睡眠背后的数据最硬。接下来是稳定供应：每天的蛋白质、维生素C和维生素D，因为试验里的好处来自规律摄入，而不是感冒开始了才临时补。这里的任何内容都不能预防感染。发烧超过三天、呼吸困难，或者感染反反复复，请去看医生。",
+   "rows": [
+    {
+     "stage": "clear",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "Probiotic",
+      "Prebiotic Fiber"
+     ],
+     "why": "Much of the immune system lines the gut, and a gut out of balance keeps it busy with trouble at home. That is why the load comes off here first. In a Cochrane review of 24 trials, people taking probiotics were about a quarter less likely to get an upper respiratory infection (low certainty) and about 40 percent less likely to get three or more. Probiotics add bacteria and fibre feeds them, and most adults eat about half the fibre they need. Take one daily with cool water, not hot, and judge it after four weeks.",
+     "key": "immunity.clear.probiotic",
+     "whyZh": "免疫系统有很大一部分分布在肠道，肠道一旦失衡，免疫系统就忙着处理「家里」的麻烦。所以负担先从这里卸。一篇汇总了24个试验的Cochrane综述发现，吃益生菌的人发生上呼吸道感染的比例低了大约四分之一（证据确定性较低），一年感染三次以上的比例低了约40%。益生菌负责把好菌补进去，纤维负责喂养它们，而大多数成年人只吃到所需纤维的一半左右。每天一次，用温凉水送服，别用热水，四周后再判断。",
+     "productIds": [
+      "probiotic",
+      "prebiotic-fiber"
+     ]
+    },
+    {
+     "stage": "clear",
+     "rank": 2,
+     "route": "habit",
+     "products": [
+      "g&h Protect Hand Soap"
+     ],
+     "why": "The simplest way to lower what the immune system has to deal with is to let less in. Community handwashing programs cut respiratory illnesses such as colds by 16 to 21 percent. The catch is that people cut washing short once their hands crack, and cracked skin is a broken barrier of its own, so a soap that does not strip matters more than it sounds. Twenty seconds on getting home, before eating, and after the school run.",
+     "key": "immunity.clear.g-h-protect-hand-soap",
+     "whyZh": "减轻免疫系统负担最简单的办法，是少放点东西进来。社区洗手推广能让感冒这类呼吸道疾病减少16%到21%。问题在于，手一干裂，人就会洗得马马虎虎，而干裂的皮肤本身就是一道破了的屏障，所以一块不伤手的洗手液，比听起来更重要。到家、吃饭前、接完孩子，各洗二十秒。",
+     "productIds": [
+      "g-h-protect-hand-soap"
+     ]
+    },
+    {
+     "stage": "clear",
+     "rank": 3,
+     "route": "environment",
+     "products": [
+      "Atmosphere Mini Air Purifier",
+      "Atmosphere Sky Air Purifier"
+     ],
+     "why": "Air is an optional step, and an expensive one. Fine particles irritate the lining of the nose and airways, a HEPA filter traps 99.97 percent of particles at the size hardest to catch, and portable units cut indoor fine particles by roughly half to four fifths. That matters in homes with allergies, wildfire smoke, a busy road outside or pets. There is no evidence that a purifier prevents colds, so buy one for the air, not for the virus. If you do, start with the bedroom, door closed, running all night.",
+     "key": "immunity.clear.atmosphere-mini-air-purifier",
+     "whyZh": "空气是可选的一步，也是昂贵的一步。细颗粒物会刺激鼻腔和呼吸道黏膜，HEPA滤网对最难拦截的那个粒径能拦住99.97%，便携式净化器能让室内细颗粒物下降大约一半到八成。这对家里有人过敏、遇上山火烟雾、住在大马路边或者养宠物的家庭有意义。没有证据表明净化器能预防感冒，所以买它是为了空气，不是为了病毒。如果要买，先放卧室，关上门，整夜开着。",
+     "productIds": [
+      "atmosphere-mini-air-purifier",
+      "atmosphere-sky-air-purifier"
+     ]
+    },
+    {
+     "stage": "regulate",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "Magnesium",
+      "Sleep Health"
+     ],
+     "why": "Sleep is the lever with the hardest numbers. In a study that measured people's sleep and then exposed them to a cold virus, those sleeping under six hours were about four times more likely to catch the cold than those sleeping over seven. In another, short sleepers were far more likely to be left unprotected after a hepatitis B vaccine. The products here only help the wind-down; the habit does the work. Protect seven hours and a steady bedtime, most of all in the week before travel or a vaccine.",
+     "key": "immunity.regulate.magnesium",
+     "whyZh": "睡眠是数据最硬的那个杠杆。一项研究先测量受试者的真实睡眠，再让他们接触感冒病毒，结果每晚睡不到六小时的人，感冒的几率大约是睡七小时以上的人的四倍。另一项研究里，睡得少的人打完乙肝疫苗后，没能产生保护的比例高得多。这里的产品只是帮身体放松下来，真正起作用的是习惯。守住七小时和固定的上床时间，出差或打疫苗前的那一周尤其要守住。",
+     "productIds": [
+      "magnesium",
+      "sleep-health"
+     ]
+    },
+    {
+     "stage": "regulate",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Concentrated Fruits & Vegetables",
+      "Green Superfood"
+     ],
+     "why": "Inflammation is how the immune system protects you, but fried food, smoke, alcohol and heavily processed meals keep a low level of it running all day, and that background noise competes with the real job. Plant compounds from colourful fruit and vegetables help keep that background down. There is no strong evidence that capsules change how often you get sick, so treat these as a floor under your diet on busy weeks, not a replacement for eating five colours. Take them with a meal.",
+     "key": "immunity.regulate.concentrated-fruits-vegetables",
+     "whyZh": "炎症本来是免疫系统保护你的方式，但油炸食品、烟、酒和深度加工的饭菜，会让低度的炎症整天开着，这种背景噪音会跟真正的任务抢资源。五颜六色的蔬果里的植物营养素，有助于把这层背景压下来。没有强有力的证据表明胶囊能改变你生病的频率，所以把它们当作忙碌那几周饮食的保底，而不是用来代替每天吃够五种颜色。随餐吃。",
+     "productIds": [
+      "concentrated-fruits-vegetables",
+      "green-superfood"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "Vitamin C Extended Release 180ct",
+      "Vitamin D"
+     ],
+     "why": "Vitamin C and D have the clearest evidence here, and both work only when taken daily. In a Cochrane review of 29 trials, regular vitamin C did not prevent colds in most people, but it shortened them by about 8 percent in adults and 14 percent in children; starting it after a cold began showed no consistent benefit. Vitamin D reduced respiratory infections most in people who were low, and with daily or weekly doses, not large occasional ones. Ask your doctor for a vitamin D test if you spend most of the year indoors.",
+     "key": "immunity.supplement.vitamin-c-extended-release-180ct",
+     "whyZh": "维生素C和D是这里证据最清楚的两样，而且都只有每天吃才有用。一篇汇总了29个试验的Cochrane综述发现，规律补充维生素C并不能让大多数人不感冒，但能让成人的感冒缩短约8%，儿童缩短约14%；等感冒开始了才吃，没有一致的效果。维生素D对本来就缺乏的人减少呼吸道感染最明显，而且要每天或每周补，偶尔来一次大剂量没用。如果你一年大部分时间待在室内，请医生帮你查一下维生素D水平。",
+     "productIds": [
+      "vitamin-c-extended-release-180ct",
+      "vitamin-d"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "Plant Protein Powder"
+     ],
+     "why": "Antibodies, white blood cells and the signals they send are all made of protein, and the front-line cells are replaced within days, so the supply has to arrive every day. Running short on protein is well known to weaken immune responses. A practical target is about 1.2 g per kilogram of body weight a day, and the meal that most often has almost none is breakfast. If yours is toast or congee, one scoop, 21 g, closes a large part of the gap.",
+     "key": "immunity.supplement.plant-protein-powder",
+     "whyZh": "抗体、白细胞，以及它们之间传递的信号，全都是蛋白质做的，而冲在一线的免疫细胞几天就换一批，所以原料必须每天送到。蛋白质不足会削弱免疫反应，这一点早有定论。一个实用的目标是每天每公斤体重约1.2克蛋白质，而最常几乎没有蛋白质的那一餐，就是早餐。如果你的早餐是吐司或白粥，一勺21克的蛋白粉，就能补上很大一块缺口。",
+     "productIds": [
+      "plant-protein-powder"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Double X Multivitamin 31-day Refill",
+      "Immunity Defense Zinc + Holy Basil"
+     ],
+     "why": "Zinc, selenium and iron all take part in immune cells doing their job, and the margins are narrow in both directions: too little slows them, and too much zinc over months causes a copper shortfall. A multivitamin is the base that covers the everyday amounts. The zinc tablet is for short, high-stress stretches, not all year, and the review evidence for zinc preventing colds is weak. Check the labels so that zinc from all sources stays under 40 mg a day.",
+     "key": "immunity.supplement.double-x-multivitamin-31-day-refill",
+     "whyZh": "锌、硒、铁都参与免疫细胞的工作，而且两头的余地都很窄：太少，细胞干活慢；锌吃太多、吃太久，又会导致铜不足。综合营养素是覆盖日常用量的底座。锌片只用在压力特别大的短期阶段，不是全年吃，而且综述里锌预防感冒的证据很弱。看一下标签，确保所有来源加起来，锌每天不超过40毫克。",
+     "productIds": [
+      "double-x-multivitamin-31-day-refill",
+      "immunity-defense-zinc-holy-basil"
+     ]
+    },
+    {
+     "stage": "sustain",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "Everyday Nutrition Solution"
+     ],
+     "why": "The benefit in the vitamin C and D trials came from steady daily intake, not from reacting when a cold starts, so the real task is not letting the routine lapse, above all in the week you are run down. The foundation bundle puts the multivitamin, protein and omega-3 in a single order. Put it on a monthly auto-order, take it with the same meal every day, and judge it over a season, not a week.",
+     "key": "immunity.sustain.everyday-nutrition-solution",
+     "whyZh": "维生素C和D试验里的好处，来自每天稳定地吃，而不是感冒来了才反应，所以真正的任务是别让这个习惯断掉，尤其是在你最累的那一周。基础营养方案把综合营养素、蛋白粉和深海鱼油放在一单里。设成每月自动下单，每天跟同一顿饭一起吃，按一个季节来看效果，而不是一周。",
+     "productIds": [
+      "everyday-nutrition-solution"
+     ]
+    },
+    {
+     "stage": "sustain",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Immunity Echinacea",
+      "Twist Tubes",
+      "g&h Protect Hand Sanitizer"
+     ],
+     "why": "Some weeks carry more exposure: travel, the peak of flu season, or the fortnight after a child brings something home. Echinacea is meant for short runs like these, not for all year, and the honest evidence is modest: pooled trials suggest a 10 to 20 percent lower risk, with no clear result in any single trial. Sanitiser is for when there is no soap, not instead of it. Use these for the stretch, then stop.",
+     "key": "immunity.sustain.immunity-echinacea",
+     "whyZh": "有些时候接触的病菌就是更多：出差、流感高峰，或者孩子从学校带了东西回家之后的那两周。紫锥菊就是为这种短期阶段设计的，不是全年吃，而且老实说证据有限：合并分析显示风险可能降低10%到20%，但没有任何一个单独的试验得出明确结果。免洗洗手液是在没有肥皂的时候用的，不是代替洗手。这段时间用，过了就停。",
+     "productIds": [
+      "immunity-echinacea",
+      "twist-tubes",
+      "g-h-protect-hand-sanitizer"
+     ]
+    },
+    {
+     "stage": "sustain",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Kids Daily Chewable Multivitamin",
+      "Kids Toddler Immunity Drops",
+      "Go Shield"
+     ],
+     "why": "For children, the format is the strategy: drops for toddlers who cannot chew, a chewable after that, and a gummy for the ones who refuse both. In the Cochrane review, regular vitamin C shortened children's colds by about 14 percent. Give it at the same time every morning, and store gummies where a child cannot help themselves, because they look like sweets. Any fever in a baby under three months, or a fever that lasts more than three days, needs a doctor.",
+     "key": "immunity.sustain.kids-daily-chewable-multivitamin",
+     "whyZh": "给孩子吃，形式就是策略：还不会嚼的幼儿用滴剂，会嚼了用咀嚼片，两样都不肯吃的就用软糖。Cochrane综述里，规律补充维生素C让儿童感冒缩短了约14%。每天早上固定时间吃，软糖放在孩子自己拿不到的地方，因为它们看起来就像糖果。三个月以下的婴儿只要发烧，或者任何孩子发烧超过三天，都要去看医生。",
+     "productIds": [
+      "kids-daily-chewable-multivitamin",
+      "kids-toddler-immunity-drops",
+      "go-shield"
+     ]
+    }
+   ]
   }
  }
 }
