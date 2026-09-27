@@ -1411,14 +1411,73 @@
   .home-tile-title { font-size: 19px; font-weight: 700; color: var(--gray-800); margin-top: 6px; }
   .home-tile-sub { font-size: 13.5px; line-height: 1.55; color: var(--gray-500); }
   .home-tile-go { font-size: 13px; font-weight: 600; color: var(--green); margin-top: 2px; }
-  .home-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--gray-200); }
-  .home-step { display: flex; gap: 14px; align-items: flex-start; }
-  .home-step-n { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: var(--green-light); color: var(--navy); font-weight: 700; display: flex; align-items: center; justify-content: center; }
-  .home-step strong { display: block; font-size: 15px; color: var(--gray-800); }
-  .home-step span span, .home-step div span { font-size: 13px; line-height: 1.5; color: var(--gray-500); }
-  .home-why { max-width: 680px; margin: 44px auto 0; }
-  .home-why h2 { font-size: 22px; font-weight: 700; line-height: 1.3; color: var(--gray-800); margin-bottom: 16px; }
-  .home-why p { font-size: 14.5px; line-height: 1.8; color: var(--gray-600); margin-bottom: 14px; }
+  /* The "why" story under the tiles, set like a magazine spread: a dark opening band with the
+     three causes, one quote, one number (70/30), one comparison (the label vs your number),
+     and the three steps ending on the button. Replaces three paragraphs nobody read. */
+  .hs { margin-top: 56px; display: flex; flex-direction: column; gap: 56px; }
+  .hs-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--green); margin-bottom: 12px; }
+  .hs-h2 { font-size: 34px; line-height: 1.18; font-weight: 800; letter-spacing: -.02em; color: var(--gray-800); }
+  .hs-band { background: var(--navy); color: #fff; border-radius: 24px; padding: 48px; overflow: hidden; }
+  .hs-band-top { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+  .hs-band .hs-eyebrow { color: #A9D5B5; }
+  .hs-band .hs-h2 { color: #fff; font-size: 38px; }
+  .hs-lead { font-size: 17px; line-height: 1.65; color: rgba(255,255,255,.82); margin-top: 16px; }
+  .hs-band-img { border-radius: 18px; overflow: hidden; aspect-ratio: 4 / 3; }
+  .hs-band-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hs-causes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 36px; }
+  .hs-cause { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 18px; padding: 22px 22px 24px; }
+  .hs-cause-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+  .hs-cause-n { font-size: 13px; font-weight: 700; color: rgba(255,255,255,.45); letter-spacing: .08em; }
+  .hs-cause svg { width: 34px; height: 34px; stroke: #A9D5B5; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .hs-cause b { display: block; font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+  .hs-cause span { font-size: 14.5px; line-height: 1.55; color: rgba(255,255,255,.72); }
+  .hs-earlier { margin-top: 26px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.14); font-size: 16px; line-height: 1.6; color: #fff; font-weight: 600; }
+  .hs-quote { max-width: 860px; margin: 0 auto; text-align: center; font-size: 32px; line-height: 1.35; font-weight: 700; letter-spacing: -.01em; color: var(--gray-800); position: relative; padding-top: 34px; }
+  .hs-quote::before { content: '\201C'; position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-family: Georgia, serif; font-size: 96px; line-height: 1; color: var(--green); opacity: .35; }
+  .hs-quote em { font-style: normal; color: var(--green); }
+  .hs-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 44px; align-items: center; }
+  .hs-split-img { position: relative; border-radius: 22px; overflow: hidden; aspect-ratio: 5 / 4; }
+  .hs-split-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hs-split-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(200deg, rgba(0,0,0,0) 40%, rgba(20,40,30,.55)); }
+  .hs-big { position: absolute; left: 28px; bottom: 18px; z-index: 1; color: #fff; font-size: 120px; line-height: 1; font-weight: 800; letter-spacing: -.04em; }
+  .hs-big small { font-size: 22px; font-weight: 700; letter-spacing: 0; margin-left: 8px; }
+  .hs-bars { margin: 24px 0 20px; display: flex; flex-direction: column; gap: 12px; }
+  .hs-bar { display: grid; grid-template-columns: 120px 1fr; gap: 14px; align-items: center; font-size: 14px; font-weight: 600; color: var(--gray-600); }
+  .hs-bar-track { height: 14px; border-radius: 999px; background: var(--gray-100); overflow: hidden; }
+  .hs-bar-fill { height: 100%; border-radius: 999px; background: var(--green); width: var(--w); transition: width 1.1s cubic-bezier(.2,.7,.2,1); }
+  .hs-bar.dim .hs-bar-fill { background: var(--gray-300, #C9CFCC); }
+  .hs-p { font-size: 16px; line-height: 1.7; color: var(--gray-600); }
+  .hs-p strong { color: var(--gray-800); }
+  .hs-vs-head { text-align: center; max-width: 720px; margin: 0 auto 28px; }
+  .hs-vs { display: grid; grid-template-columns: minmax(0, 1fr) 56px minmax(0, 1fr); align-items: stretch; }
+  .hs-card { border-radius: 22px; padding: 30px 30px 28px; display: flex; flex-direction: column; gap: 10px; }
+  .hs-card.label { background: #fff; border: 1.5px dashed var(--gray-300, #C9CFCC); }
+  .hs-card.you { background: linear-gradient(145deg, var(--navy), #2E715E); color: #fff; }
+  .hs-card-k { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gray-500); }
+  .hs-card.you .hs-card-k { color: #A9D5B5; }
+  .hs-card-num { font-size: 64px; line-height: 1; font-weight: 800; letter-spacing: -.03em; color: var(--gray-400, #9AA39E); }
+  .hs-card.you .hs-card-num { color: #fff; font-size: 48px; }
+  .hs-card-t { font-size: 15px; line-height: 1.6; color: var(--gray-600); }
+  .hs-card.you .hs-card-t { color: rgba(255,255,255,.85); }
+  .hs-chips { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 4px 0; }
+  .hs-chip { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: 6px 13px; font-size: 14px; font-weight: 600; }
+  .hs-plus { color: #A9D5B5; font-weight: 700; }
+  .hs-arrow { display: flex; align-items: center; justify-content: center; color: var(--green); font-size: 28px; font-weight: 700; }
+  .hs-steps { background: var(--green-light); border-radius: 24px; padding: 40px 44px; }
+  .hs-steps-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 26px 0 30px; position: relative; }
+  .hs-steps-row::before { content: ''; position: absolute; top: 21px; left: 22px; right: calc(33.333% - 38px); height: 2px; background: repeating-linear-gradient(90deg, var(--green) 0 8px, transparent 8px 16px); opacity: .35; }
+  .hs-step { position: relative; }
+  .hs-step-n { width: 44px; height: 44px; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 800; font-size: 17px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; box-shadow: 0 0 0 6px var(--green-light); }
+  .hs-step b { display: block; font-size: 19px; color: var(--gray-800); margin-bottom: 4px; }
+  .hs-step div span { font-size: 14.5px; line-height: 1.55; color: var(--gray-600); }
+  .hs-cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .hs-cta small { font-size: 13px; color: var(--gray-500); }
+  /* Rise into view once. Only when JS confirmed IntersectionObserver, so nothing stays hidden without it. */
+  .hs-anim .hs-rise { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+  .hs-anim .hs-rise.in { opacity: 1; transform: none; }
+  .hs-anim .hs-bar-fill { width: 0; }
+  .hs-anim .hs-rise.in .hs-bar-fill { width: var(--w); }
+  @media (prefers-reduced-motion: reduce) { .hs-anim .hs-rise { opacity: 1; transform: none; transition: none; } .hs-anim .hs-bar-fill { width: var(--w); transition: none; } }
   .assess-link { display: inline-flex; align-items: center; height: 30px; padding: 0 13px; border-radius: 18px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.22); color: #fff; font-size: 12.5px; font-weight: 600; text-decoration: none; white-space: nowrap; }
   .assess-link:hover { background: rgba(255,255,255,0.24); }
   .reports-link { display: none; }
@@ -1436,8 +1495,28 @@
     .home-hero-copy { padding: 24px 22px 28px; }
     .home-hero-copy h1 { font-size: 26px; }
     .home-tiles { grid-template-columns: 1fr; gap: 22px; margin-top: 22px; }
-    .home-steps { grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
-    .home-why { margin-top: 32px; }
+    .hs { margin-top: 40px; gap: 40px; }
+    .hs-h2, .hs-band .hs-h2 { font-size: 27px; }
+    .hs-band { padding: 28px 20px; border-radius: 20px; }
+    .hs-band-top { grid-template-columns: 1fr; gap: 22px; }
+    .hs-lead { font-size: 16px; }
+    .hs-causes { grid-template-columns: 1fr; gap: 12px; margin-top: 24px; }
+    .hs-cause { padding: 18px; }
+    .hs-cause-top { margin-bottom: 10px; }
+    .hs-quote { font-size: 23px; }
+    .hs-split { grid-template-columns: 1fr; gap: 22px; }
+    .hs-big { font-size: 88px; left: 20px; }
+    .hs-bar { grid-template-columns: 96px 1fr; }
+    .hs-vs { grid-template-columns: 1fr; }
+    .hs-arrow { transform: rotate(90deg); height: 44px; }
+    .hs-card { padding: 24px 22px; }
+    .hs-card-num { font-size: 52px; }
+    .hs-card.you .hs-card-num { font-size: 38px; }
+    .hs-steps { padding: 28px 20px; border-radius: 20px; }
+    .hs-steps-row { grid-template-columns: 1fr; gap: 18px; margin: 20px 0 24px; }
+    .hs-steps-row::before { top: 22px; bottom: 22px; left: 21px; right: auto; width: 2px; height: auto; background: repeating-linear-gradient(180deg, var(--green) 0 8px, transparent 8px 16px); }
+    .hs-step { display: grid; grid-template-columns: 44px 1fr; gap: 14px; }
+    .hs-step-n { margin-bottom: 0; }
     }
   </style>
 </head>
@@ -2078,7 +2157,13 @@ function renderHomeView() {
       <span class="home-tile-sub">${sub}</span>
       <span class="home-tile-go">${t('Explore', '查看')} <span aria-hidden="true">›</span></span>
     </button>`;
-  const step = (n, title, sub) => `<div class="home-step"><span class="home-step-n">${n}</span><div><strong>${title}</strong><span>${sub}</span></div></div>`;
+  const step = (n, title, sub) => `<div class="hs-step"><span class="hs-step-n">${n}</span><div><b>${title}</b><span>${sub}</span></div></div>`;
+  const cause = (n, icon, title, sub) => `<div class="hs-cause"><div class="hs-cause-top"><span class="hs-cause-n">0${n}</span>${icon}</div><b>${title}</b><span>${sub}</span></div>`;
+  const ICON = {
+    sit: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>',
+    stress: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h4l2-6 4 12 3-9 2 3h5"/></svg>',
+    food: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19h18"/><path d="M4 16l4-3 3 2 5-9 4 3"/><path d="M16 6h3v3"/></svg>',
+  };
 
   host.innerHTML = `
     <section class="home-hero">
@@ -2099,18 +2184,88 @@ function renderHomeView() {
       ${tile('category', 'images/tiles/cat-nutrition.jpg', t('By Category', '按品类'), t('Browse the full range: nutrition, sports, beauty, personal care and home.', '浏览全部产品：营养、运动、美容、个人护理和家居。'))}
       ${tile('solution', 'images/tiles/sol-family.jpg', t('Solutions', '人群方案'), t('Built around your life: students, professionals, families and more.', '按你的生活方式搭配：学生、职场人、家庭等。'))}
     </div>
-    <section class="home-steps">
-      ${step(1, t('Answer', '回答'), t('Questions about your symptoms, habits and diet.', '关于你的症状、习惯和饮食的问题。'))}
-      ${step(2, t('Read', '阅读'), t('A private report, in a link only you have.', '一份私人报告，链接只有你自己有。'))}
-      ${step(3, t('Act', '行动'), t('A plan first, then the products that fit it.', '先有方案，再选适合你的产品。'))}
-    </section>
-    <section class="home-why">
-      <h2>${t('What your body actually needs, and why the bottle can\'t tell you', '你的身体真正需要什么，瓶子上的数字告诉不了你')}</h2>
-      <p>${t('Modern medicine is extremely good at treating disease. What it cannot do is out-treat a lifestyle that keeps pushing you in the wrong direction. Sitting all day, running on stress, eating food engineered to spike your blood sugar: none of that shows up as a diagnosis for years, and then it shows up all at once.', '现代医学非常擅长治疗疾病。但它无法抵消一种让你持续走向错误方向的生活方式。整天久坐、长期压力、吃那些专门设计来刺激血糖的食物——这些都不会立刻出现在诊断中，但最终会集中爆发。')}</p>
-      <p>${t('Fitness is 30% workout and 70% diet. This site is not a symptom checker and it is not a shopping list. The areas of support exist to answer one question: for your body, your habits, and what you are actually feeling right now: how much of each nutrient do you need?', '健身效果30%来自运动，70%来自饮食。这个平台不是症状检查工具，也不是购物清单。「健康支持」里的各个方向只为了回答一个问题：以你的身体状况、生活习惯和现在的感受——你需要多少营养素？')}</p>
-      <p>${t('That number is not the one printed on the bottle. The bottle carries a single figure set for the entire population. Yours depends on your weight, your diet, and which things you feel often rather than rarely. It is also not fixed. As your habits change and symptoms settle, the number moves.', '这个数字不是瓶子上印的那个。瓶子上只有一个适用于所有人的数字。而你的数字取决于你的体重、饮食，以及你经常感受到而非偶尔感受到的症状。它也不是固定的——随着你的习惯改变、症状改善，这个数字也会变化。')}</p>
-    </section>`;
+    <div class="hs">
+      <section class="hs-band hs-rise">
+        <div class="hs-band-top">
+          <div>
+            <div class="hs-eyebrow">${t('Why start with an assessment', '为什么先做评估')}</div>
+            <h2 class="hs-h2">${t('Medicine is great at treating disease. It can\'t out-treat your lifestyle.', '现代医学很会治病，却追不上一直走偏的生活方式。')}</h2>
+            <p class="hs-lead">${t('Most of the health challenges Americans face today come from three everyday habits. They stay off your test results for years, then show up all at once.', '今天美国人的大多数健康问题，都来自三件日常小事。它们多年不会出现在体检报告上，然后一下子全冒出来。')}</p>
+          </div>
+          <div class="hs-band-img"><img src="images/tiles/sol-professionals.jpg" alt="" loading="lazy"></div>
+        </div>
+        <div class="hs-causes">
+          ${cause(1, ICON.sit, t('Sitting too much', '久坐不动'), t('Long days at a desk or on a screen.', '整天坐在桌前、盯着屏幕。'))}
+          ${cause(2, ICON.stress, t('Chronic stress', '长期压力'), t('Running on stress, day after day.', '日复一日地绷着。'))}
+          ${cause(3, ICON.food, t('Ultra-processed food', '超加工食品'), t('Food that spikes blood sugar and drives inflammation.', '让血糖飙升、引发炎症的食物。'))}
+        </div>
+        <p class="hs-earlier">${t('That is why type 2 diabetes, heart disease and cognitive decline are showing up earlier in life.', '所以二型糖尿病、心脏病、认知衰退，都在越来越年轻的人身上出现。')}</p>
+      </section>
+
+      <blockquote class="hs-quote hs-rise">${t('If you don\'t make time for your health today, you will have to <em>make time for illness</em> tomorrow.', '今天不花时间照顾健康，明天就得<em>花时间对付疾病</em>。')}</blockquote>
+
+      <section class="hs-split hs-rise">
+        <div class="hs-split-img"><img src="images/tiles/are-weight.jpg" alt="" loading="lazy"><div class="hs-big">70%<small>${t('diet', '靠吃')}</small></div></div>
+        <div>
+          <div class="hs-eyebrow">${t('The part most plans skip', '大多数计划忽略的那一半')}</div>
+          <h2 class="hs-h2">${t('Fitness is mostly what you eat.', '健身效果，七成靠吃。')}</h2>
+          <div class="hs-bars">
+            <div class="hs-bar"><span>${t('Diet', '靠吃')} 70%</span><div class="hs-bar-track"><div class="hs-bar-fill" style="--w:70%"></div></div></div>
+            <div class="hs-bar dim"><span>${t('Workout', '靠练')} 30%</span><div class="hs-bar-track"><div class="hs-bar-fill" style="--w:30%"></div></div></div>
+          </div>
+          <p class="hs-p">${t('This site is not a symptom checker and not a shopping list. It answers one question: <strong>for your body, your habits and how you feel right now, how much of each nutrient do you need?</strong>', '这里不是症状自查工具，也不是购物清单。它只回答一个问题：<strong>以你的身体、你的习惯和你现在的感受，每种营养素你到底需要多少？</strong>')}</p>
+        </div>
+      </section>
+
+      <section class="hs-rise">
+        <div class="hs-vs-head">
+          <div class="hs-eyebrow">${t('The number that matters', '真正该看的数字')}</div>
+          <h2 class="hs-h2">${t('Your number is not the one on the bottle.', '你的数字，不是瓶子上印的那个。')}</h2>
+        </div>
+        <div class="hs-vs">
+          <div class="hs-card label">
+            <div class="hs-card-k">${t('On the label', '瓶子上')}</div>
+            <div class="hs-card-num">90 mg</div>
+            <div class="hs-card-t">${t('Vitamin C, Daily Value. One number, set for every adult.', '维生素C每日参考值。一个数字，所有成年人都一样。')}</div>
+          </div>
+          <div class="hs-arrow" aria-hidden="true">→</div>
+          <div class="hs-card you">
+            <div class="hs-card-k">${t('Yours', '属于你的')}</div>
+            <div class="hs-card-num">${t('Just yours', '只属于你')}</div>
+            <div class="hs-chips"><span class="hs-chip">${t('Your weight', '你的体重')}</span><span class="hs-plus">+</span><span class="hs-chip">${t('What you eat', '你吃什么')}</span><span class="hs-plus">+</span><span class="hs-chip">${t('What you feel often', '你经常出现的状况')}</span></div>
+            <div class="hs-card-t">${t('And it moves as your habits change. That is why the assessment is worth redoing, not reading once.', '习惯变了，这个数字也会跟着变。所以评估值得定期重做，而不是看一次就算了。')}</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="hs-steps hs-rise">
+        <div class="hs-eyebrow">${t('How it works', '怎么开始')}</div>
+        <h2 class="hs-h2">${t('A plan first. Products second.', '先有方案，再谈产品。')}</h2>
+        <div class="hs-steps-row">
+          ${step(1, t('Answer', '回答'), t('Tap what you feel, then a few questions on your habits and diet.', '点选你的身体感受，再回答几个关于习惯和饮食的问题。'))}
+          ${step(2, t('Read', '阅读'), t('A private report built on your answers, in a link only you have.', '一份根据你的答案写成的私人报告，链接只有你自己有。'))}
+          ${step(3, t('Act', '行动'), t('A plan first, then the products that fit it.', '先有方案，再选适合你的产品。'))}
+        </div>
+        <div class="hs-cta">
+          <a class="home-cta-primary" href="intake.html">${t('Take the assessment', '填写健康问卷')} →</a>
+          <small>${t('About 9 minutes. Private link, not a public page.', '大约9分钟。私人链接，不是公开页面。')}</small>
+        </div>
+      </section>
+    </div>`;
   host.style.display = 'block';
+  revealHomeStory(host);
+}
+
+/* Sections rise in as they scroll into view, once. Without IntersectionObserver the class that
+   hides them is never added, so the page reads the same, just without the motion. */
+function revealHomeStory(host) {
+  if (!('IntersectionObserver' in window)) return;
+  const items = host.querySelectorAll('.hs-rise');
+  host.classList.add('hs-anim');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { threshold: 0.15 });
+  items.forEach(el => io.observe(el));
 }
 
 function renderPrimaryTabs() {
