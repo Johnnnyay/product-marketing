@@ -1392,30 +1392,26 @@
   /* One screen, four jobs: start the assessment, open my report, learn from what you feel, see the
      next community event. Then three knowledge cards that read in seconds. */
   .home-view { max-width: 1200px; margin: 0 auto; padding: 22px 24px 40px; }
-  .hm-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 16px; }
-  .hm-card { border-radius: 20px; text-decoration: none; color: inherit; display: flex; flex-direction: column; position: relative; overflow: hidden; transition: transform .2s ease, box-shadow .2s ease; }
-  a.hm-card:hover { transform: translateY(-2px); box-shadow: 0 12px 28px -14px rgba(20,40,30,.35); }
-  .hm-start { grid-row: span 2; min-height: 380px; color: #fff; justify-content: flex-end; padding: 34px; background: #2f4a3d; }
+  .hm-card { border-radius: 20px; text-decoration: none; color: inherit; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+  .hm-start { min-height: 400px; color: #fff; justify-content: space-between; gap: 24px; padding: 30px 36px 34px; background: #2f4a3d; }
   .hm-start img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .hm-start::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,38,30,.55), rgba(20,38,30,0) 75%), linear-gradient(180deg, rgba(20,38,30,0) 15%, rgba(20,38,30,.85) 82%); }
+  .hm-start::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,38,30,.62), rgba(20,38,30,.08) 70%), linear-gradient(180deg, rgba(20,38,30,.35) 0%, rgba(20,38,30,0) 30%, rgba(20,38,30,.82) 85%); }
   .hm-start > *:not(img) { position: relative; z-index: 1; }
+  .hm-facts { display: flex; flex-wrap: wrap; gap: 8px; }
+  .hm-facts span { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.26); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 999px; padding: 6px 13px; font-size: 13px; font-weight: 600; color: #fff; }
+  .hm-start-body { display: flex; flex-direction: column; }
   .hm-kicker { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 8px; }
   .hm-start .hm-kicker { color: #CDEBD5; }
-  .hm-start h1 { font-size: 36px; line-height: 1.14; font-weight: 800; letter-spacing: -.02em; max-width: 540px; }
-  .hm-start p { font-size: 15.5px; line-height: 1.55; color: rgba(255,255,255,.88); margin: 10px 0 20px; max-width: 480px; }
-  .hm-btn { align-self: flex-start; background: #fff; color: var(--navy); font-weight: 700; font-size: 15px; padding: 13px 24px; border-radius: 999px; }
-  .hm-meta { font-size: 12.5px; color: rgba(255,255,255,.75); margin-top: 12px; }
-  .hm-side { padding: 22px 24px 20px; gap: 4px; }
-  .hm-report { background: var(--green-light); }
-  .hm-event { background: #fff; border: 1px solid var(--gray-200); }
-  .hm-side .hm-kicker { color: var(--green); }
-  .hm-ico { width: 40px; height: 40px; border-radius: 12px; background: #fff; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
-  .hm-event .hm-ico { background: var(--green-light); }
-  .hm-ico svg { width: 20px; height: 20px; stroke: var(--navy); fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
-  .hm-side-t { font-size: 21px; font-weight: 800; color: var(--gray-800); line-height: 1.25; letter-spacing: -.01em; }
-  .hm-side-s { font-size: 14px; line-height: 1.5; color: var(--gray-600); }
+  .hm-start h1 { font-size: 40px; line-height: 1.12; font-weight: 800; letter-spacing: -.02em; max-width: 620px; }
+  .hm-start p { font-size: 16px; line-height: 1.55; color: rgba(255,255,255,.9); margin: 12px 0 22px; max-width: 520px; }
+  .hm-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+  .hm-btn { background: #fff; color: var(--navy); font-weight: 700; font-size: 15px; padding: 13px 24px; border-radius: 999px; text-decoration: none; transition: transform .15s ease; }
+  .hm-btn:hover { transform: translateY(-1px); }
+  .hm-btn.ghost { background: rgba(255,255,255,.12); color: #fff; border: 1.5px solid rgba(255,255,255,.7); }
+  .hm-btn.ghost:hover { background: rgba(255,255,255,.22); }
   .hm-go { margin-top: auto; padding-top: 10px; font-size: 14px; font-weight: 700; color: var(--navy); }
-  .hm-sec { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 30px 0 12px; }
+  .hm-sec-sub { font-size: 13.5px; color: var(--gray-500); margin-top: 3px; }
+  .hm-sec { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin: 30px 0 12px; }
   .hm-sec h2 { font-size: 20px; font-weight: 800; color: var(--gray-800); letter-spacing: -.01em; }
   .hm-sec button { background: none; border: 0; font: inherit; font-size: 13.5px; font-weight: 700; color: var(--green); cursor: pointer; white-space: nowrap; }
   .hm-areas { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
@@ -1450,19 +1446,18 @@
   body.ibo .reports-link { display: inline-flex; }
   @media (max-width: 430px) { body.ibo #assess-link { display: none; } }
   @media (max-width: 860px) {
-    .hm-grid { grid-template-columns: 1fr 1fr; }
-    .hm-start { grid-column: 1 / -1; grid-row: auto; min-height: 330px; }
+    .hm-start { min-height: 380px; }
     .hm-areas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   }
   @media (max-width: 760px) {
     .home-view { padding: 12px 14px 32px; }
-    .hm-grid { gap: 10px; }
-    .hm-start { padding: 24px 22px; min-height: 340px; }
-    .hm-start h1 { font-size: 28px; }
-    .hm-side { padding: 16px 15px; }
-    .hm-ico { width: 34px; height: 34px; margin-bottom: 8px; }
-    .hm-side-t { font-size: 17px; }
-    .hm-side-s { font-size: 13px; }
+    .hm-start { padding: 16px 16px 20px; min-height: 0; gap: 34px; }
+    .hm-facts { gap: 6px; }
+    .hm-facts span { font-size: 12px; padding: 4px 10px; }
+    .hm-start h1 { font-size: 27px; }
+    .hm-start p { font-size: 14.5px; margin: 8px 0 16px; }
+    .hm-btns { gap: 8px; }
+    .hm-btn { font-size: 14px; padding: 11px 16px; }
     .hm-sec { margin: 24px 0 10px; }
     .hm-sec h2 { font-size: 18px; }
     .hm-areas { gap: 8px; }
@@ -2107,33 +2102,10 @@ function renderHomeView() {
   const esc = (s) => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const svg = (d) => `<svg viewBox="0 0 24 24" aria-hidden="true">${d}</svg>`;
   const ICON = {
-    report: svg('<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/>'),
-    event: svg('<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>'),
     sit: svg('<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/>'),
     stress: svg('<path d="M2 12h4l2-6 4 12 3-9 2 3h5"/>'),
     food: svg('<path d="M3 19h18"/><path d="M4 16l4-3 3 2 5-9 4 3"/><path d="M16 6h3v3"/>'),
   };
-
-  /* The next community event, from the same EVENTS list the admin tab reads. With none coming up,
-     the card says so and names the last one, so the page never links to a finished event. */
-  const today = new Date().toISOString().slice(0, 10);
-  const when = (d) => new Date(d + 'T12:00:00').toLocaleDateString(currentLang === 'zh' ? 'zh-CN' : 'en-US', { weekday: 'short', month: 'short', day: 'numeric' });
-  const next = EVENTS.filter(e => e.date >= today).sort((a, b) => a.date.localeCompare(b.date))[0];
-  const last = EVENTS.filter(e => e.date < today).sort((a, b) => b.date.localeCompare(a.date))[0];
-  const eventCard = next
-    ? `<a class="hm-card hm-side hm-event" href="${esc(next.page)}">
-        <span class="hm-ico">${ICON.event}</span>
-        <span class="hm-kicker">${t('Next community event', '下一场社群活动')}</span>
-        <span class="hm-side-t">${esc(next.title)}</span>
-        <span class="hm-side-s">${esc(when(next.date))} · ${esc(next.time)}</span>
-        <span class="hm-go">${t('See the event', '查看活动')} ›</span>
-      </a>`
-    : `<div class="hm-card hm-side hm-event">
-        <span class="hm-ico">${ICON.event}</span>
-        <span class="hm-kicker">${t('Community events', '社群活动')}</span>
-        <span class="hm-side-t">${t('Next event coming soon', '下一场活动即将公布')}</span>
-        <span class="hm-side-s">${last ? t(`Last one: ${esc(last.title)}, ${esc(when(last.date))}`, `上一场：${esc(last.title)}，${esc(when(last.date))}`) : ''}</span>
-      </div>`;
 
   // Six of the most asked-about areas; the rest are one tap away in Areas of Support.
   const PICK = ['sleep', 'energy', 'skin', 'weight', 'digestion', 'immunity'];
@@ -2145,27 +2117,29 @@ function renderHomeView() {
   };
 
   host.innerHTML = `
-    <div class="hm-grid">
-      <a class="hm-card hm-start" href="intake.html">
-        <img src="images/home/hero.jpg" alt="">
+    <section class="hm-card hm-start">
+      <img src="images/home/hero.jpg" alt="">
+      <div class="hm-facts">
+        <span>${t('About 9 minutes', '大约9分钟')}</span>
+        <span>${t('Private report', '私人报告')}</span>
+        <span>${t('English · 中文', '中文 · English')}</span>
+      </div>
+      <div class="hm-start-body">
         <span class="hm-kicker">${t('Your health assessment', '你的健康评估')}</span>
         <h1>${t('Your body is not average. Find out what it needs.', '每个人的身体都不一样，先弄清你真正需要什么')}</h1>
         <p>${t('Tap what you feel, answer a few questions on your habits, and get a report built on your answers.', '点选你的身体感受，回答几个生活习惯的问题，得到一份根据你的答案写成的报告。')}</p>
-        <span class="hm-btn">${t('Start the assessment', '开始健康问卷')} →</span>
-        <span class="hm-meta">${t('About 9 minutes · Private link, only you have it', '大约9分钟 · 私人链接，只有你自己有')}</span>
-      </a>
-      <a class="hm-card hm-side hm-report" href="my-report.html">
-        <span class="hm-ico">${ICON.report}</span>
-        <span class="hm-kicker">${t('Already done it?', '已经做过了？')}</span>
-        <span class="hm-side-t">${t('View my report', '查看我的报告')}</span>
-        <span class="hm-side-s">${t('Enter your email and birthday to open it.', '输入邮箱和生日就能打开。')}</span>
-        <span class="hm-go">${t('Open', '打开')} ›</span>
-      </a>
-      ${eventCard}
-    </div>
+        <div class="hm-btns">
+          <a class="hm-btn" href="intake.html">${t('Start the assessment', '开始健康问卷')} →</a>
+          <a class="hm-btn ghost" href="my-report.html">${t('View my report', '查看我的报告')}</a>
+        </div>
+      </div>
+    </section>
 
     <div class="hm-sec">
-      <h2>${t('Start from what you feel', '从你的感受出发')}</h2>
+      <div>
+        <h2>${t('What would you like to work on?', '你最想调理哪一块？')}</h2>
+        <p class="hm-sec-sub">${t('Each one opens a four-step plan.', '每一项都是一套四步调理方案。')}</p>
+      </div>
       <button onclick="setViewMode('area')">${t('All areas', '全部方向')} ›</button>
     </div>
     <div class="hm-areas">${areas.map(areaBtn).join('')}</div>
