@@ -2126,8 +2126,8 @@ function renderHomeView() {
       </div>
       <div class="hm-start-body">
         <span class="hm-kicker">${t('Your health assessment', '你的健康评估')}</span>
-        <h1>${t('Your body is not average. Find out what it needs.', '每个人的身体都不一样，先弄清你真正需要什么')}</h1>
-        <p>${t('Tap what you feel, answer a few questions on your habits, and get a report built on your answers.', '点选你的身体感受，回答几个生活习惯的问题，得到一份根据你的答案写成的报告。')}</p>
+        <h1>${t('Stop guessing what your body needs.', '别再猜身体缺什么了。')}</h1>
+        <p>${t('Tap what you feel, answer a few questions on your habits, and get a plan built on your answers, not on the label.', '点一点你的身体感受，回答几个生活习惯的问题，拿到一份按你的答案写的方案，而不是瓶子上的通用数字。')}</p>
         <div class="hm-btns">
           <a class="hm-btn" href="intake.html">${t('Start the assessment', '开始健康问卷')} →</a>
           <a class="hm-btn ghost" href="my-report.html">${t('View my report', '查看我的报告')}</a>
@@ -2287,10 +2287,10 @@ function renderAreaView() {
   const proto = (PROTOCOL.areas || {})[a.id];
   renderProtocol(proto, a);
 
-  // Products already named in the protocol are shown there; the grid holds the rest.
-  const used = new Set();
-  if (proto) (proto.rows || []).forEach(r => (r.productIds || []).forEach(id => used.add(id)));
-  const rest = proto ? products.filter(p => !used.has(p.id)) : products;
+  /* An area with a plan shows only the plan: the grid of everything else tagged to it was a wall
+     of cards nobody scrolled to (Johnny, 2026-09-27). Those products stay in By Category. Areas
+     without a plan yet still show their grid, or the page would be empty. */
+  const rest = proto ? [] : products;
 
   document.getElementById('grid-label').textContent = proto
     ? t('Everything else in this area', '这个领域的其他产品')
