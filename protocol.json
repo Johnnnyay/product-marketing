@@ -1222,6 +1222,848 @@
      ]
     }
    ]
+  },
+  "hair": {
+   "overview": "Hair grows in cycles, and most of the shedding people notice is a delayed reaction: a shock such as stress, a fever, surgery, childbirth or a crash diet pushes many hairs into their resting phase at once, and they fall out two to three months later. That shedding is usually temporary, because the roots are unharmed. The plan works in order. First take the load off the scalp and the strand: an oily, flaky scalp, harsh styling and heat. Then fix what quietly blocks supply: iron that is eaten but not absorbed, and stress that keeps the cycle disturbed. Then supply what hair is built from, protein first, iron where stores are low, and a broad base of vitamins and minerals without megadoses, because too much vitamin A or selenium can itself cause hair loss. Finally keep a daily care and breakfast routine long enough to judge it, which for hair means months. If hair comes out in patches or clumps, the scalp is sore, red or scarred, the part is widening, or the shedding comes with tiredness, weight change, feeling cold or heavy periods, see a doctor first.",
+   "overviewZh": "头发是按周期生长的，大部分人注意到的掉发，其实是延迟反应：一段压力、一次发烧、手术、生孩子或者节食，会让很多头发同时进入休止期，两三个月后才一起掉下来。毛根本身没有受损，所以这种掉发通常是暂时的。下面四步按顺序来。先卸掉头皮和发丝的负担：油腻起屑的头皮、伤发的造型和高温。再处理悄悄卡住供应的地方：吃进去却没吸收的铁，还有让生长周期一直乱着的压力。然后把头发的原料补上，蛋白质第一，铁储备低的补铁，再加一个维生素矿物质的底座，但不要大剂量，因为维生素A或硒过量本身就会掉发。最后把每天的护理和早餐坚持下去，坚持到足够判断效果的时间，对头发来说，是按月算的。如果头发成片或一把一把地掉，头皮疼、发红或留疤，发缝越来越宽，或者掉发同时伴随乏力、体重变化、怕冷、经量很多，请先去看医生。",
+   "rows": [
+    {
+     "stage": "clear",
+     "rank": 1,
+     "route": "external",
+     "products": [
+      "Satinique Anti-Dandruff Shampoo",
+      "Satinique Purifying Shampoo 280ml",
+      "Satinique Purifying Conditioner"
+     ],
+     "why": "Hair grows out of the scalp, so the scalp comes first. Flakes and itch on an oily scalp usually come from a yeast that lives on everyone's skin and feeds on oil; the mild form is dandruff, the stronger one seborrhoeic dermatitis. The American Academy of Dermatology's advice runs against instinct: an oily, flaky scalp needs washing more often, not less. Lather the dandruff shampoo into the scalp and leave it on for about five minutes, two or three times a week during a flare. Fine white flakes with a tight, dry scalp are a different problem and need gentler washing.",
+     "key": "hair.clear.satinique-anti-dandruff-shampoo",
+     "whyZh": "头发长在头皮上，所以先顾头皮。油性头皮上的头皮屑和痒，多半来自一种人人皮肤上都有、靠油脂生存的酵母菌，轻的是头皮屑，重一点就是脂溢性皮炎。美国皮肤科学会的建议和很多人的直觉相反：头皮越油越起屑，越要勤洗，而不是少洗。去屑洗发水要揉在头皮上，停留五分钟左右再冲，发作期每周两到三次。如果是细小发白的屑、头皮又干又紧，那是另一种问题，反而要洗得温和一些。",
+     "productIds": [
+      "satinique-anti-dandruff-shampoo",
+      "satinique-purifying-shampoo-280ml",
+      "satinique-purifying-conditioner"
+     ]
+    },
+    {
+     "stage": "clear",
+     "rank": 2,
+     "route": "habit",
+     "products": [
+      "Satinique Anti-Hair Fall Shampoo",
+      "Satinique Anti-Hair Fall Conditioner",
+      "Satinique Anti-Hair Fall Scalp Tonic"
+     ],
+     "why": "Not every hair in the drain came out at the root. Losing 50 to 100 hairs a day is normal, and much of the rest is breakage from bleach, colour, relaxers, daily heat and tight ponytails. A shed hair has a small white bulb at one end; a broken one does not. Tight styles worn for years can cause permanent loss at the hairline, so loosen them first. Anti-hair-fall care works on strand strength, and the tonic keeps care on the scalp itself. A widening part or thinning temples is usually inherited pattern loss, which no shampoo reverses; a dermatologist has proven treatments, best started early.",
+     "key": "hair.clear.satinique-anti-hair-fall-shampoo",
+     "whyZh": "下水口里的头发，不一定都是从根部掉的。每天掉50到100根是正常的，多出来的很多其实是断发：漂、染、拉直、天天用高温、马尾扎得太紧。一看就能分：掉下来的头发一头有个白色小球，断的没有。长年扎得太紧，发际线可能出现永久性脱发，所以先松一松。防脱系列针对的是发丝的强韧度，头皮精华让护理留在头皮上。如果是发缝越来越宽、两鬓变稀，多半是遗传性脱发，洗发水逆转不了，皮肤科有经过验证的治疗，越早开始越好。",
+     "productIds": [
+      "satinique-anti-hair-fall-shampoo",
+      "satinique-anti-hair-fall-conditioner",
+      "satinique-anti-hair-fall-scalp-tonic"
+     ]
+    },
+    {
+     "stage": "clear",
+     "rank": 3,
+     "route": "internal",
+     "products": [
+      "Probiotic",
+      "Prebiotic Fiber"
+     ],
+     "why": "The teaching behind this plan puts clearing before replenishing, and it lists dull hair and brittle nails on the same checklist as bloating, constipation and irregular stools: signs, in its view, that a gut out of balance is using up or failing to absorb what the body is given. No mainstream trial shows gut products improve hair, so treat this step as getting the order right for people whose hair problems come with digestive ones, not as a hair treatment. The simple version is fibre stirred into water or coffee, plus a daily probiotic.",
+     "key": "hair.clear.probiotic",
+     "whyZh": "这套方案的逻辑是先清后补。它把头发没光泽、指甲变脆，和腹胀、便秘、排便不规律放在同一张肠道信号清单上：在它看来，肠道失衡的时候，吃进去的营养要么被消耗掉，要么吸收不进去。主流研究里还没有试验证明肠道产品能改善头发，所以这一步适合头发问题同时伴随肠胃问题的人，是把顺序做对，不是治头发的产品。最简单的做法：纤维粉加进水或咖啡里，再加每天一份益生菌。",
+     "productIds": [
+      "probiotic",
+      "prebiotic-fiber"
+     ]
+    },
+    {
+     "stage": "regulate",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "Vitamin C Extended Release 180ct"
+     ],
+     "why": "Iron is where absorption quietly fails, and iron matters for hair. Black tea drunk with a meal cut absorption of plant iron by 79 to 94 percent in one study, and coffee has a smaller but real effect. Vitamin C does the opposite, turning iron into the form the gut takes up most easily, and a major review of vitamins in hair loss calls vitamin C intake crucial where hair loss comes with low iron. So keep tea and coffee at least an hour away from meals, and take vitamin C with iron-rich food or an iron tablet. It costs nothing and matters most for people who eat little red meat.",
+     "key": "hair.regulate.vitamin-c-extended-release-180ct",
+     "whyZh": "铁最容易在吸收这一关悄悄出问题，而铁对头发很关键。一项研究里，吃饭时喝红茶，让植物来源的铁吸收下降了79%到94%，咖啡也有影响，只是小一些。维生素C正好相反，它把铁变成肠道最容易吸收的形式；一篇关于维生素矿物质与脱发的重要综述明确说，缺铁相关的脱发，维生素C的摄入非常关键。所以茶和咖啡离开饭点至少一小时，吃富含铁的食物或铁片时配上维生素C。这个做法不花钱，对很少吃红肉的人最有用。",
+     "productIds": [
+      "vitamin-c-extended-release-180ct"
+     ]
+    },
+    {
+     "stage": "regulate",
+     "rank": 2,
+     "route": "habit",
+     "products": [
+      "Organics Ashwagandha Capsules",
+      "Magnesium"
+     ],
+     "why": "Stress is one of the most common triggers of the shedding people notice, and the timing hides it. A hard stretch, a fever or an operation pushes many hairs into their resting phase at once, and they fall out two to three months later, when the event already feels over. Once the trigger passes, the American Academy of Dermatology says, shedding stops and most people regain normal fullness within six to nine months. What helps is working on the stress: sleep, a wind-down routine, and ashwagandha, which lowered stress scores in trials of stressed adults. No trial has measured its effect on hair.",
+     "key": "hair.regulate.organics-ashwagandha-capsules",
+     "whyZh": "压力是最常见的掉发诱因之一，而时间差让人很难联想到。一段高压期、一次发烧或手术，会让很多头发同时进入休止期，两三个月后才一起掉，那时你早觉得事情已经过去了。美国皮肤科学会指出，诱因过去以后，掉发会停下来，多数人在六到九个月内恢复原来的发量。要处理的是压力本身：睡眠、睡前放松的习惯，还有南非醉茄，在压力大的成年人中做过的试验里，它降低了压力评分。不过还没有试验直接测过它对头发的作用。",
+     "productIds": [
+      "organics-ashwagandha-capsules",
+      "magnesium"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "Plant Protein Powder",
+      "Organics All-in-One Shakes"
+     ],
+     "why": "Hair is keratin, a protein, made by some of the fastest-dividing cells in the body. When protein runs short, the body keeps it for organs and muscle and lets hair go, which is why crash and low-protein diets are a classic trigger for shedding a few months later, and why shedding is one of the most common complaints after weight-loss surgery. The teaching behind this plan uses 1.2 g of protein per kilogram of body weight a day, above the 0.8 g official minimum: 72 g for someone of 60 kg. One shake adds 21 g. If you are cutting calories, cut them slowly and keep the protein.",
+     "key": "hair.supplement.plant-protein-powder",
+     "whyZh": "头发是角蛋白，由全身分裂最快的一批细胞制造。蛋白质一不够，身体会先保器官和肌肉，头发排在最后，所以节食、低蛋白饮食几个月后开始掉发，是很典型的情况，减重手术后掉发也是最常见的困扰之一。这套方案用的标准是每天每公斤体重1.2克蛋白质，高于官方0.8克的最低量：60公斤就是72克。一杯蛋白粉能补21克。如果在控制热量，就慢慢减，蛋白质别减。",
+     "productIds": [
+      "plant-protein-powder",
+      "organics-all-in-one-shakes"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "Iron & Folic Acid"
+     ],
+     "why": "Iron is the best-studied nutrient in shedding, and low stores can hide behind a normal blood count. Hair-loss studies define low iron with ferritin cut-offs anywhere from 15 to 70 micrograms per litre, some dermatologists aim above 40 when shedding persists, and most authors agree that iron deficiency with hair loss should be corrected. The people most likely to be short are women with heavy periods, new mothers, vegetarians and frequent blood donors. Ask for a ferritin test before taking iron long term, because iron builds up and too much is harmful, then recheck after about three months.",
+     "key": "hair.supplement.iron-folic-acid",
+     "whyZh": "铁是脱发研究里证据最多的营养素，而铁储备偏低，常常藏在正常的血常规后面。关于脱发的研究，判断缺铁用的铁蛋白标准从每升15到70微克不等，持续掉发时，有些皮肤科医生希望铁蛋白在40以上；多数学者都同意，缺铁又掉发，就应该把铁补上来。最容易缺的是经量多的女性、刚生完孩子的妈妈、素食者和常献血的人。长期补铁之前先查铁蛋白，因为铁会在体内累积，过量有害，大约三个月后再复查。",
+     "productIds": [
+      "iron-folic-acid"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Double X Multivitamin 31-day Refill",
+      "Vitamin B Complex 120ct"
+     ],
+     "why": "The follicle also runs on zinc, the B vitamins and other micronutrients, and one study found zinc deficiency in about one in ten people with shedding. A multivitamin covers them at sensible doses. More is not better: vitamin A above 3,000 micrograms a day and selenium above 400 micrograms are known to cause hair loss themselves, and zinc above 40 mg drains copper. The teaching behind this plan prefers beta-carotene, which the body turns into vitamin A only as needed. It also links a greasy, flaky face and scalp to low B2 and B6, whose classic deficiency looks like that; the B complex covers both.",
+     "key": "hair.supplement.double-x-multivitamin-31-day-refill",
+     "whyZh": "毛囊干活还离不开锌、B族和其他微量营养素，一项研究发现，大约十分之一的掉发者缺锌。每天一份综合营养素，就能按合理的量把这些都覆盖到。这里不是越多越好：维生素A每天超过3000微克、硒超过400微克，本身就会导致掉发；锌超过40毫克还会消耗铜。这套方案偏好β-胡萝卜素，身体缺多少才转化多少维生素A。它还把脸上、头皮出油起屑和B2、B6不足联系在一起，这两种维生素缺乏的典型表现正是如此，B族正好把它们补上。",
+     "productIds": [
+      "double-x-multivitamin-31-day-refill",
+      "vitamin-b-complex-120ct"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 3,
+     "route": "internal",
+     "products": [
+      "Hair Skin Nail",
+      "Collagen Peptides",
+      "Collagen Gummies"
+     ],
+     "why": "Biotin is what most people buy for hair, and the honest picture is narrow. Real deficiency is uncommon, though one study found low levels in 38 percent of 541 women with shedding. A 2024 review found only three studies of biotin alone and called its marketing for hair loss in healthy people unsubstantiated. It also interferes with lab tests: the FDA has warned it can make a heart-attack test read falsely low, so tell your doctor and the lab you take it. Collagen has one small placebo-controlled trial: 44 women on 2.5 g of specific peptides a day for 16 weeks grew thicker strands.",
+     "key": "hair.supplement.hair-skin-nail",
+     "whyZh": "生物素是大家买来护发最多的成分，但实话说，它适用的范围很窄。真正缺乏的人不多，不过有一项研究在541位掉发女性里，发现38%生物素偏低。2024年的一篇综述只找到三项单用生物素的研究，结论是：向健康人宣传生物素防脱，缺乏依据。它还会干扰化验：美国FDA警告过，它可能让心梗检测的结果假性偏低，所以要告诉医生和化验室你在吃。胶原蛋白有一项小型安慰剂对照试验：44位女性每天2.5克特定胶原肽，16周后发丝变粗。",
+     "productIds": [
+      "hair-skin-nail",
+      "collagen-peptides",
+      "collagen-gummies"
+     ]
+    },
+    {
+     "stage": "sustain",
+     "rank": 1,
+     "route": "external",
+     "products": [
+      "Satinique Intensive Repair Shampoo",
+      "Satinique Intensive Repair Conditioner",
+      "Satinique Smooth Shampoo 280ml",
+      "Satinique Smooth Conditioner"
+     ],
+     "why": "Once hair leaves the scalp it is dead fibre. Nothing you eat repairs the length you already have; care protects it until new, better-fed hair grows through. The American Academy of Dermatology's routine is simple: shampoo the scalp rather than the lengths, and use conditioner after every shampoo, on the ends, where it adds shine and strength and cuts breakage. Pick the line by the problem: Intensive Repair for colour-treated, bleached or heat-styled hair, Smooth for dry or frizzy hair. Pat dry rather than rubbing, and turn the heat down.",
+     "key": "hair.sustain.satinique-intensive-repair-shampoo",
+     "whyZh": "头发一离开头皮，就是没有生命的纤维。吃什么都修不回已经长出来的那一段，护理的作用是把它护住，等新长出来、营养更好的头发慢慢接上。美国皮肤科学会的做法很简单：洗发水洗头皮，不是洗发梢；每次洗完都用护发素，抹在发尾，能增加光泽和强韧度，减少断发。按问题选系列：染过、漂过、常用高温的选密集修护，干、毛躁的选柔润。用毛巾按干，不要来回搓，吹风机温度调低。",
+     "productIds": [
+      "satinique-intensive-repair-shampoo",
+      "satinique-intensive-repair-conditioner",
+      "satinique-smooth-shampoo-280ml",
+      "satinique-smooth-conditioner"
+     ]
+    },
+    {
+     "stage": "sustain",
+     "rank": 2,
+     "route": "habit",
+     "products": [
+      "Everyday Nutrition Solution",
+      "Advanced Omega"
+     ],
+     "why": "Hair grows about a centimetre a month, and a follicle pushed into rest takes months to cycle back, so hair is judged in months, not weeks. The breakfast this plan is built around puts protein, good fats, vitamins and minerals into the first meal every day, eaten between 7 and 9 am, and the foundation bundle covers the multivitamin, protein and omega-3 in one order. On omega-3, one randomised six-month study of 120 women taking an omega-3, omega-6 and antioxidant blend found better hair density on photographs than in the comparison group. It was one study of a different formula, so hold it lightly.",
+     "key": "hair.sustain.everyday-nutrition-solution",
+     "whyZh": "头发一个月大约长一厘米，被推进休止期的毛囊，要好几个月才能重新回到生长期，所以看头发要按月，不能按周。这套方案围绕的营养早餐，每天第一餐就把蛋白质、优质脂肪、维生素和矿物质吃进去，时间在早上7到9点；基础营养方案把综合营养素、蛋白粉和深海鱼油放在一单里。关于鱼油，一项为期六个月、120位女性参加的随机研究，服用含Omega-3、Omega-6和抗氧化剂的配方后，照片评估的发量比对照组好。但这只是一项研究，配方也不同，参考即可。",
+     "productIds": [
+      "everyday-nutrition-solution",
+      "advanced-omega"
+     ]
+    }
+   ]
+  },
+  "rhinitis": {
+   "overview": "Allergic rhinitis is the immune system treating harmless things, pollen, dust mites, pet dander, as threats and releasing histamine, which brings the sneezing, the runny or blocked nose and the itchy eyes. The biggest lever is exposure, so the plan clears first: the bedroom, the air, the pollen carried in on hair and clothes, and a salt-water nose rinse. Next it works on balance through the gut, where much of the immune system is trained, and through plant compounds. Then it replenishes vitamin D and the nutrients the lining of the nose uses to renew itself. The last step is timing and routine: start seasonal support about two weeks before your season and keep the bedroom habits going. None of this replaces the antihistamines or steroid nasal sprays a doctor recommends; guidelines rank steroid sprays as the most effective single treatment, and these steps sit alongside them. See a doctor first for wheezing, chest tightness or a night cough, facial pain or fever, or symptoms that do not respond to what you already use.",
+   "overviewZh": "过敏性鼻炎，是免疫系统把花粉、尘螨、宠物皮屑这些无害的东西当成威胁，释放出组胺，于是打喷嚏、流鼻涕或鼻塞、眼睛痒。最大的杠杆是接触量，所以方案先「清」：卧室、空气、跟着头发衣服带进门的花粉，再加上盐水洗鼻。接着通过肠道来「调」平衡，免疫系统很大一部分是在肠道里被训练的，再加上植物化合物。然后「补」上维生素D和鼻腔黏膜更新要用的营养素。最后一步是时机和习惯：在你的过敏季开始前两周左右启动，卧室的习惯一直保持。这些都不能替代医生建议的抗组胺药或激素喷鼻剂；指南把激素喷鼻剂列为单用效果最好的治疗，这里的步骤是配合它们一起用的。如果有喘鸣、胸闷或夜里咳嗽，脸颊疼或发烧，或者现在用的药不管用，请先去看医生。",
+   "rows": [
+    {
+     "stage": "clear",
+     "rank": 1,
+     "route": "environment",
+     "products": [
+      "Atmosphere Mini Air Purifier"
+     ],
+     "why": "Start with the room you spend a third of your life in. Dust mites live in pillows, mattresses and bedding, and pet dander clings to everything, so the bedroom is where exposure piles up overnight. In a multicentre placebo-controlled trial in dust-mite-allergic adults, six weeks of HEPA purifiers cut bedroom fine particles by up to half and reduced the medication people needed, though symptom scores did not differ. Mite allergen is heavy and settles fast, so pair the purifier with a hot wash of the bedding every week. Keep the door shut and pets out.",
+     "key": "rhinitis.clear.atmosphere-mini-air-purifier",
+     "whyZh": "先从你一生三分之一时间待的地方开始。尘螨住在枕头、床垫和被褥里，宠物皮屑又什么都能粘上，所以卧室是一整晚过敏原越积越多的地方。一项多中心、有安慰剂对照的试验里，对尘螨过敏的成年人在家用了六周HEPA净化器，卧室细颗粒物最多降了一半，需要用的药也变少了，不过症状评分和对照组没有明显差别。尘螨过敏原比较重，落得快，所以净化器要配合每周高温洗床品。卧室门关上，宠物别进卧室。",
+     "productIds": [
+      "atmosphere-mini-air-purifier"
+     ]
+    },
+    {
+     "stage": "clear",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "Atmosphere Sky Air Purifier"
+     ],
+     "why": "In pollen season the load comes in on the air, your hair and your clothes. Allergy groups advise keeping windows shut on high-pollen days, showering and changing when you get home, and washing out the nose. That last one has real support: a Cochrane review of 14 trials found saline rinses may ease symptoms in adults and children over up to three months, with rare, mild side effects. A pooled analysis of eight air-filter trials found a small drop in day and night symptoms. So close up, rinse off, and let a purifier sized for the living space handle the air.",
+     "key": "rhinitis.clear.atmosphere-sky-air-purifier",
+     "whyZh": "花粉季，过敏原是跟着空气、头发、衣服一起进门的。过敏专科的建议是：花粉浓度高的日子关好窗，回家先洗澡换衣服，再洗洗鼻子。洗鼻子这一条是有证据的：Cochrane汇总14项试验发现，生理盐水洗鼻在三个月内可能减轻成人和儿童的症状，副作用少而且轻。一项汇总八个空气过滤试验的分析也看到，白天和夜里的症状都有小幅下降。所以关窗、冲洗，再让一台适合客厅大小的净化器负责屋里的空气。",
+     "productIds": [
+      "atmosphere-sky-air-purifier"
+     ]
+    },
+    {
+     "stage": "clear",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Liver Support",
+      "Prebiotic Fiber"
+     ],
+     "why": "The teaching behind this plan reads allergy as a clearing problem: when the liver's clearing capacity falls behind and the gut carries a heavy load, the body overreacts. Mainstream medicine does not explain allergy this way, so hold it as the tradition's lens. One small data point: in a trial of 94 people with allergic rhinitis, a month of milk thistle extract added to their usual antihistamine eased symptoms more than placebo, though only 60 finished. Fibre is the gut half, feeding the bacteria step two relies on. Take Liver Support in the evening.",
+     "key": "rhinitis.clear.liver-support",
+     "whyZh": "这套方案背后的调理体系，把过敏看成「清」的问题：肝的解毒能力跟不上、肠道负担又重，身体就容易反应过度。主流医学并不这样解释过敏，所以把它当作这套传统的视角，而不是定论。有一个小小的数据：一项纳入94位过敏性鼻炎患者的试验里，在常规抗组胺药之外加一个月的奶蓟草提取物，症状比安慰剂组减轻得更多，最后有60人完成试验。纤维是肠道那一半，喂养第二步要依靠的好菌。护肝片放在晚上吃。",
+     "productIds": [
+      "liver-support",
+      "prebiotic-fiber"
+     ]
+    },
+    {
+     "stage": "regulate",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "Probiotic",
+      "Prebiotic Fiber"
+     ],
+     "why": "Much of the body's immune tissue lines the gut, and that is where it learns what to ignore, which is why probiotics are the most studied supplement here. A review of 23 trials with 1,919 people found better allergy quality of life than placebo, though nasal symptom scores did not change significantly, and a review of 28 trials in children found fewer nose and eye symptoms but no effect on who develops allergy. Effects are modest and strain-specific. Take it daily with fibre, ideally from before your season, and judge it over two to three months.",
+     "key": "rhinitis.regulate.probiotic",
+     "whyZh": "身体很大一部分免疫组织分布在肠道，免疫系统在这里学会什么该放过、什么该反应，所以在过敏这一块，研究最多的补充品是益生菌。一项汇总23项试验、1919人的分析发现，吃益生菌的人过敏相关的生活质量比安慰剂组好，但鼻部症状评分的差别没有达到显著；另一项汇总28项儿童试验的分析看到鼻子和眼睛的症状减轻，但不能减少过敏的发生。效果和菌株有关，幅度也不大。每天吃，配上纤维让好菌有东西吃，最好在换季前开始，按两三个月来判断。",
+     "productIds": [
+      "probiotic",
+      "prebiotic-fiber"
+     ]
+    },
+    {
+     "stage": "regulate",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Concentrated Fruits & Vegetables"
+     ],
+     "why": "Plant compounds are the other half of calming the reaction. Flavonoids such as quercetin, found in onions, apples and berries, steady the mast cells that release histamine in lab and animal studies, and the tradition this plan follows uses plant nutrients to cool inflammation. Human evidence is thin: a recent systematic review found only four small clinical trials, and quercetin itself is poorly absorbed. So think of it as a floor under a diet short on colour, not as an antihistamine. Eat across the colours first, and let the capsules cover the weeks you do not.",
+     "key": "rhinitis.regulate.concentrated-fruits-vegetables",
+     "whyZh": "植物化合物是让反应平稳下来的另一半。洋葱、苹果、莓果里的槲皮素这类黄酮，在实验室和动物研究里能稳住释放组胺的肥大细胞；这套方案所依据的传统，也是用植物营养素来给炎症降温。但人体证据很薄：最近一篇系统综述只找到四项小型临床试验，而且槲皮素本身吸收差。所以把它当作饮食颜色不够时的托底，而不是抗组胺药。先把五颜六色吃起来，吃不到的那几周再用胶囊补上。",
+     "productIds": [
+      "concentrated-fruits-vegetables"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "Vitamin D"
+     ],
+     "why": "Vitamin D helps regulate immune responses, and people with allergic rhinitis tend to have lower levels. Trials are mixed: a 2025 review of five randomised trials found symptoms eased but not significantly overall, while a wider analysis of 11 trials reported lower nasal symptom scores. Separately, a pooled analysis of 43 trials linked daily vitamin D with slightly fewer respiratory infections, mostly in people who were low. Test your 25-hydroxy vitamin D first, take it with a meal that has some fat, and stay under 4,000 IU a day unless your doctor says otherwise.",
+     "key": "rhinitis.supplement.vitamin-d",
+     "whyZh": "维生素D参与调节免疫反应，观察性研究发现，过敏性鼻炎的人血液里的维生素D往往偏低。补充试验的结果不一：2025年一篇汇总5项随机试验的综述发现症状有所减轻，但整体没有达到显著；另一项纳入11项试验的分析则报告鼻部症状评分下降。另外，一项汇总43项试验的分析发现，每天补维生素D和呼吸道感染略少有关，主要是在本来缺乏的人身上。先请医生查一下25-羟基维生素D，随带点油脂的一餐吃，除非医生另有建议，每天不超过4000国际单位。",
+     "productIds": [
+      "vitamin-d"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Vitamin C Extended Release 180ct"
+     ],
+     "why": "Vitamin C is concentrated in the fluid lining the airways, where it neutralises the oxidants that pollution and inflammation produce, and the course behind this plan teaches it as the white cells' supply line. For allergy itself the evidence is weak: a 2025 review called the rhinitis findings inconsistent. For colds it is clearer: in the Cochrane review, taking it every day did not stop colds in most people but shortened them by about 8 percent in adults. Take it with meals, split through the day or as extended release, and stay well under 2,000 mg a day, the upper limit.",
+     "key": "rhinitis.supplement.vitamin-c-extended-release-180ct",
+     "whyZh": "维生素C在呼吸道内壁的液体里浓度很高，负责中和空气污染和炎症产生的氧化物；这套课程把它比作给白细胞送弹药的后勤队。就过敏本身来说，证据很弱：2025年的一篇综述认为鼻炎方面的结果并不一致。对感冒的证据清楚一些：Cochrane综述发现，每天规律补充并不能让多数人少感冒，但能让成年人感冒的时间缩短约8%。随餐吃，分几次或用缓释型，每天远低于2000毫克的上限。",
+     "productIds": [
+      "vitamin-c-extended-release-180ct"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Double X Multivitamin 31-day Refill"
+     ],
+     "why": "The nose and eyes are lined with mucous membranes, and vitamin A, zinc and the B vitamins all take part in keeping that lining renewed. The course behind this plan links allergy to low vitamin B2 and pantothenic acid, which mainstream research has not tested, so read that as its view rather than a finding. What holds either way is that one missing nutrient slows repair, and a multivitamin covers several gaps at once. It is the base under the targeted steps, taken every day with food, not a remedy for sneezing.",
+     "key": "rhinitis.supplement.double-x-multivitamin-31-day-refill",
+     "whyZh": "鼻腔和眼睛表面都是黏膜，维生素A、锌和B族都参与这层黏膜的更新。这套课程把过敏和缺维生素B2、泛酸联系在一起，主流研究没有验证过，所以把它当作课程的观点，而不是结论。不管哪种说法，有一点都成立：缺任何一样营养素，修复都会变慢，而综合营养素一次补上好几个缺口。它是针对性步骤下面的底座，每天随餐吃，不是用来止喷嚏的。",
+     "productIds": [
+      "double-x-multivitamin-31-day-refill"
+     ]
+    },
+    {
+     "stage": "sustain",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "ClearGuard Allergy"
+     ],
+     "why": "Timing is the part people get wrong. Allergists advise starting seasonal treatment about two weeks before your pollen season, not in the worst week. ClearGuard is a blend of cinnamon bark, acerola cherry and Spanish needles. Its one published trial, 20 adults in a crossover study partly run by the maker, found no effect during a nasal allergen challenge but fewer symptoms in the eight hours after, similar to loratadine in that window. Label use: two tablets three times a day with meals, up to 12 weeks at a time; not in pregnancy, fever, ulcers or cinnamon allergy.",
+     "key": "rhinitis.sustain.clearguard-allergy",
+     "whyZh": "最多人做错的是时机。过敏专科建议，季节性的方案在花粉季开始前大约两周就启动，而不是等最难受那周。畅爽呼吸片是肉桂皮、针叶樱桃和鬼针草的组合。它唯一发表的试验，是一项有厂商研究人员参与、20位成人的小型交叉试验：在鼻腔过敏原激发的当下没有效果，但之后8小时内症状减轻，在这个时段和氯雷他定差不多。标签用法：每次两片，一天三次，随餐，一次最多连续12周。孕期、发烧、胃溃疡或对肉桂过敏的人不要用。",
+     "productIds": [
+      "clearguard-allergy"
+     ]
+    },
+    {
+     "stage": "sustain",
+     "rank": 2,
+     "route": "environment",
+     "products": [
+      "Atmosphere Carbon Filter Replacement",
+      "Atmosphere Mini Air Purifier"
+     ],
+     "why": "The bedroom work only holds if it is kept up. An unchanged filter is just a fan, so replace it on the schedule the unit shows. Dust mites need humidity, and US allergy groups advise keeping indoor humidity below about 50 percent, washing bedding weekly in hot water and vacuuming with a HEPA vacuum. The Cochrane review of mite avoidance found mattress covers alone unlikely to help, while fuller bedroom programmes might, so the routine counts more than any one purchase. Pick one day a week for bedding and filters, and keep it.",
+     "key": "rhinitis.sustain.atmosphere-carbon-filter-replacement",
+     "whyZh": "卧室这一步，要坚持才守得住。滤网不换，净化器就只是一台风扇，按机器提示的时间更换。尘螨靠湿气活着，美国过敏学会的建议是：室内湿度保持在50%左右以下，床品每周用热水洗，用带HEPA的吸尘器。Cochrane关于防尘螨的综述发现，只换防螨床罩大概没什么用，而整套卧室措施可能有帮助，所以关键在日常习惯，不在买哪一样东西。每周固定一天洗床品、看滤网，坚持下去。",
+     "productIds": [
+      "atmosphere-carbon-filter-replacement",
+      "atmosphere-mini-air-purifier"
+     ]
+    }
+   ]
+  },
+  "eye": {
+   "overview": "Most everyday eye trouble is not damage, it is use. Screens hold the focusing muscle tight for hours and cut blinking by up to two thirds, which leaves eyes tired, dry and blurry by evening. Behind that sit two slower stories: UV and smoke add oxidative load year after year, and the macula relies on lutein and zeaxanthin, pigments the body cannot make and many diets supply poorly. The four steps take them in order: change how the eyes are used and shielded, make sure the fat-soluble nutrients are actually absorbed, supply the pigments and vitamin A, then keep the sleep, daylight and checkups that hold it. Evidence is strongest for breaks, UV protection, outdoor time for children and, in people who already have intermediate macular degeneration, the NIH AREDS2 formula; it is weak for blue-light glasses and for fish oil in dry eye. Sudden changes in vision, eye pain, a painful red eye, or new flashes and floaters need an eye doctor the same day.",
+   "overviewZh": "日常大多数的眼睛不适，不是损伤，而是用得太多。看屏幕时，对焦的肌肉几个小时一直绷着，眨眼次数最多能少三分之二，所以到了晚上眼睛又累、又干、又模糊。背后还有两条更慢的线：紫外线和烟雾年复一年地增加氧化负担；黄斑要靠叶黄素和玉米黄质保护，而这两种色素身体造不出来，很多人的饮食又给得太少。下面四步按这个顺序来：先改用眼和防护的方式，再确保这些脂溶性营养真正被吸收，然后补上色素和维生素A，最后用睡眠、户外光照和定期检查把成果守住。证据最扎实的是用眼休息、防紫外线、孩子多到户外，以及已经有中期黄斑变性的人使用美国国立卫生研究院的AREDS2配方；防蓝光眼镜、用鱼油改善干眼，证据都很弱。如果视力突然变化、眼睛疼痛、眼红伴疼，或者突然出现闪光和大量飞蚊，请当天就去看眼科。",
+   "rows": [
+    {
+     "stage": "clear",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "Eye Mojo Blue Light Gummies",
+      "Vision Health"
+     ],
+     "why": "The first load to take off is the way the eyes are used, not a missing nutrient. At a screen the focusing muscle holds a close-up position for hours, and blinking drops from about 15 times a minute to as few as 5, so the tear film dries between blinks. That is most of what people call eye strain, and it is not damage. The AAO backs the 20-20-20 rule: every 20 minutes, look 20 feet away for 20 seconds. Keep the screen an arm's length away, slightly below eye level, as bright as the room. A gummy on the desk makes a handy cue for the break.",
+     "key": "eye.clear.eye-mojo-blue-light-gummies",
+     "whyZh": "第一件要卸掉的，是用眼的方式，而不是缺了什么营养。盯着屏幕时，负责对焦的肌肉几个小时都绷在看近处的位置，眨眼从每分钟大约15次掉到最少5次，泪膜在两次眨眼之间就干了。大多数人说的眼疲劳就是这个，并不是眼睛受了损伤。美国眼科学会推荐20-20-20法则：每20分钟，看6米外的地方20秒。屏幕离眼睛一臂远，略低于视线，亮度和房间差不多。护眼软糖放在桌上，正好当作休息的提醒。",
+     "productIds": [
+      "eye-mojo-blue-light-gummies",
+      "vision-health"
+     ]
+    },
+    {
+     "stage": "clear",
+     "rank": 2,
+     "route": "environment",
+     "products": [
+      "Vitamin C Extended Release 180ct",
+      "Concentrated Fruits & Vegetables"
+     ],
+     "why": "The second load comes from outside: sunlight and smoke. Years of UV exposure are linked to cataract and to growths on the eye surface, so wear sunglasses labelled 99 to 100 percent UVA and UVB (UV400) and a brimmed hat outdoors, children included. Smoking is the biggest changeable risk factor for macular degeneration, raising the risk two- to fourfold in population studies, and it burns through antioxidants: NIH advises smokers to get 35 mg more vitamin C a day. Vitamin C and a wider range of coloured plants cover part of that load, but quitting is the step that counts.",
+     "key": "eye.clear.vitamin-c-extended-release-180ct",
+     "whyZh": "第二个负担来自外面：阳光和烟。长年的紫外线照射，和白内障、眼表的增生都有关系，所以出门戴标明能阻挡99%到100% UVA和UVB（UV400）的太阳镜，再加一顶有帽檐的帽子，孩子也一样。抽烟是黄斑变性最大的可改变风险，人群研究里风险高出两到四倍，而且特别耗抗氧化剂：美国国立卫生研究院建议吸烟者每天多摄入35毫克维生素C。维生素C和更多颜色的蔬果能分担一部分，但真正算数的一步是戒烟。",
+     "productIds": [
+      "vitamin-c-extended-release-180ct",
+      "concentrated-fruits-vegetables"
+     ]
+    },
+    {
+     "stage": "regulate",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "Vision Health",
+      "Advanced Omega"
+     ],
+     "why": "Lutein, zeaxanthin and beta-carotene are fat-soluble, so a capsule swallowed with black coffee on an empty stomach is largely wasted. In a feeding study, adding avocado to a salad raised lutein absorption 5.1-fold and beta-carotene absorption 15-fold, purely because of the fat. Egg yolk is a well-absorbed food source for the same reason: it brings its own fat. So the rule is simple. Take the eye supplement with your biggest meal that contains some fat, and if you take fish oil, take the two together. Absorption depends on the meal, not on the time of day.",
+     "key": "eye.regulate.vision-health",
+     "whyZh": "叶黄素、玉米黄质和β-胡萝卜素都是脂溶性的，空腹配一杯黑咖啡吞下去，大部分都浪费了。一项研究里，沙拉加上牛油果，叶黄素的吸收提高到5.1倍，β-胡萝卜素提高到15倍，原因就是多了油脂。蛋黄是吸收很好的食物来源，道理一样，它自带油脂。所以规则很简单：护眼营养跟一天里最丰盛、带点油脂的那一顿一起吃；如果你也吃鱼油，两个一起吃。吸收看的是那一餐，不是几点钟。",
+     "productIds": [
+      "vision-health",
+      "advanced-omega"
+     ]
+    },
+    {
+     "stage": "regulate",
+     "rank": 2,
+     "route": "habit",
+     "products": [
+      "Advanced Omega"
+     ],
+     "why": "Dry, gritty or burning eyes are a tear-film problem, and the tear film is shaped by habits first: full blinks, air that is not too dry, and no fan or vent blowing at the face. Here the honest finding matters. In the NIH-funded DREAM trial, 535 people with moderate to severe dry eye took 3,000 mg of fish-oil omega-3 or an olive-oil placebo for a year, and both groups improved by the same amount. So fish oil keeps its place in the daily base for heart and brain, not as a dry-eye fix. Use a humidifier in heated or air-conditioned rooms, blink on purpose, and use lubricating drops.",
+     "key": "eye.regulate.advanced-omega",
+     "whyZh": "眼睛干、涩、发烫，是泪膜的问题，而泪膜首先受习惯影响：眨眼要眨完整，空气别太干，风扇和出风口别对着脸吹。这里要说一个诚实的结果。美国国立卫生研究院资助的DREAM研究里，535位中重度干眼的人，每天吃3000毫克鱼油Omega-3或者橄榄油安慰剂，吃了一年，两组改善的程度一样。所以鱼油留在每天的基础营养里，是为了心脏和大脑，不是用来解决干眼。开暖气或空调的房间放加湿器，刻意眨眼，再配合人工泪液。",
+     "productIds": [
+      "advanced-omega"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "Vision Health",
+      "Eye Mojo Blue Light Gummies"
+     ],
+     "why": "Lutein and zeaxanthin are the yellow pigments of the macula, the centre of the retina you read and recognise faces with. They filter blue light and act as antioxidants, and the body cannot make them, so levels follow diet: dark greens, corn, egg yolk. In 115 healthy young adults, a year of 10 mg lutein and 2 mg zeaxanthin improved glare tolerance and recovery from bright light. The NIH AREDS2 formula uses those doses for people who already have intermediate macular degeneration; Cochrane finds no proof supplements prevent it in healthy eyes. Pick one product, not both.",
+     "key": "eye.supplement.vision-health",
+     "whyZh": "叶黄素和玉米黄质是黄斑里的黄色色素，黄斑就是视网膜的中心，看字、认人脸都靠它。它们过滤蓝光、抗氧化，身体自己造不出来，所以含量取决于饮食：深绿色蔬菜、玉米、蛋黄。一项研究里，115位健康年轻人每天吃10毫克叶黄素加2毫克玉米黄质，一年后更不怕眩光，被强光晃过恢复更快。AREDS2配方用的就是这个剂量，但对象是已有中期黄斑变性的人；Cochrane综述没有找到补充剂能让健康眼睛预防它的证据。两款选一款就够。",
+     "productIds": [
+      "vision-health",
+      "eye-mojo-blue-light-gummies"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Double X Multivitamin 31-day Refill",
+      "Concentrated Fruits & Vegetables"
+     ],
+     "why": "The retina builds its light-sensing pigment from vitamin A and rebuilds it constantly, so a shortfall shows first as poor vision in dim light, then as a drying eye surface. True deficiency is rare where diets are varied. The teaching behind this plan says heavy screen use raises the need; mainstream research has not measured that. The safest source is beta-carotene, which the body converts only as needed. Preformed vitamin A has an adult upper limit of 3,000 mcg a day, and high-dose beta-carotene raised lung cancer risk in smokers, so smokers should ask a doctor first.",
+     "key": "eye.supplement.double-x-multivitamin-31-day-refill",
+     "whyZh": "维生素A是视网膜制造感光物质的原料，这种感光物质不停地被用掉、再重新合成，所以缺乏最早的信号是暗处看不清，接下来是眼睛表面变干。饮食多样的人，真正缺乏的很少。这套方案所依据的课程认为，大量看屏幕会增加需求，但主流研究还没有测量过这一点。最安全的来源是β-胡萝卜素，身体需要多少才转化多少。直接形式的维生素A，成人每日上限是3000微克；而高剂量β-胡萝卜素在吸烟者身上增加了肺癌风险，所以抽烟的人先问医生。",
+     "productIds": [
+      "double-x-multivitamin-31-day-refill",
+      "concentrated-fruits-vegetables"
+     ]
+    },
+    {
+     "stage": "sustain",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "Everyday Nutrition Solution",
+      "Vision Health"
+     ],
+     "why": "Macular pigment builds slowly: trials measure it over six to twelve months, so judge an eye routine in months, and keep the daily base steady rather than switching products every season. The rest of the rhythm is sleep and checkups. Short sleep is linked with dry-eye symptoms, and screens late at night affect the body clock rather than damaging the eye, which is why the AAO suggests night mode and less screen time in the hour or two before bed. The AAO also recommends a baseline eye exam at 40, earlier with diabetes, high blood pressure or a family history of eye disease.",
+     "key": "eye.sustain.everyday-nutrition-solution",
+     "whyZh": "黄斑色素是慢慢累积的，研究都是以六到十二个月来测量，所以护眼要按月来看效果，每天的基础营养稳稳吃，而不是每季换一个产品。节奏的另一部分是睡眠和检查。睡眠不足和干眼症状有关联；深夜看屏幕影响的是生物钟，而不是伤眼睛，所以美国眼科学会建议睡前一两个小时少看屏幕、打开夜间模式。学会也建议40岁做一次基础眼科检查；有糖尿病、高血压或家族眼病史的人，要更早。",
+     "productIds": [
+      "everyday-nutrition-solution",
+      "vision-health"
+     ]
+    },
+    {
+     "stage": "sustain",
+     "rank": 2,
+     "route": "habit",
+     "products": [
+      "Concentrated Fruits & Vegetables",
+      "Eye Mojo Blue Light Gummies"
+     ],
+     "why": "For children the best-evidenced habit is daylight. In a trial across 12 primary schools in Guangzhou, one extra 40-minute outdoor class a day lowered new short-sightedness over three years from 39.5 to 30.4 percent. Many eye doctors now suggest about two hours outside a day, plus the 20-20-20 break and books held a forearm's length away. At this age food matters more than pills: children who eat few coloured vegetables get little lutein. Check the age on any supplement label before giving it to a child, and keep up regular eye tests through the school years.",
+     "key": "eye.sustain.concentrated-fruits-vegetables",
+     "whyZh": "对孩子来说，证据最扎实的习惯就是晒太阳。广州一项覆盖12所小学的研究里，每天多上一节40分钟的户外课，三年下来新发近视的比例从39.5%降到30.4%。现在很多眼科医生建议每天户外活动两小时左右，再加上20-20-20的休息，看书保持一小臂的距离。这个年纪，吃比补更重要：彩色蔬菜吃得少的孩子，叶黄素也吃得少。给孩子任何补充剂之前，先看清标签上的适用年龄；整个上学阶段都要定期查视力。",
+     "productIds": [
+      "concentrated-fruits-vegetables",
+      "eye-mojo-blue-light-gummies"
+     ]
+    },
+    {
+     "stage": "sustain",
+     "rank": 3,
+     "route": "internal",
+     "products": [
+      "Liver Support",
+      "Vitamin B Complex 120ct"
+     ],
+     "why": "The liver holds most of the body's vitamin A store, and Chinese medicine says the liver opens into the eyes. The tradition this plan follows adds an evening routine: B vitamins and liver support taken together between about 7:30 and 8:40 pm, judged over six months because liver cells take roughly 180 days to renew. There is no mainstream research on this routine for eyesight, so hold it as the tradition's framing and an anchor for the evening, not as an eye claim. It suits people whose tired eyes come with late nights, regular drinking or a takeout diet.",
+     "key": "eye.sustain.liver-support",
+     "whyZh": "身体里大部分的维生素A储存在肝脏，中医也讲「肝开窍于目」。这套方案所依据的调理传统，在晚上加了一个节奏：每晚大约7点半到8点40之间，B族和护肝片一起吃，按六个月来看，因为肝细胞大约180天更新一轮。主流研究没有验证过这个方法对视力的作用，所以把它当作传统的理解和固定晚间节奏的习惯，而不是护眼功效。适合眼睛累、同时常熬夜、常喝酒或三餐靠外卖的人。",
+     "productIds": [
+      "liver-support",
+      "vitamin-b-complex-120ct"
+     ]
+    }
+   ]
+  },
+  "brain": {
+   "overview": "Focus and memory depend less on brain supplements than on three everyday conditions: blood sugar that stays steady, enough sleep to clear the day's load and file what you learned, and stress that does not block recall. The plan takes the load off first, the sugar swings and the short nights. It then regulates what goes in: caffeine at the right hour, water through the day, and a lid on stress. Next it supplies the raw materials the brain is built and run from, omega-3 DHA, B vitamins and protein, which matter most for people who were running short, and it is honest about the herbal options, where the evidence is early. Last, it keeps a morning and evening rhythm with movement in it. None of this treats a memory disorder. If memory loss gets in the way of daily life, confusion comes on suddenly, or low mood will not lift, see a doctor first.",
+   "overviewZh": "专注力和记忆力，靠的不是什么补脑神药，而是三个日常条件：血糖平稳；睡眠够，让大脑清掉一天的负担、把学到的东西存好；压力不至于把记忆的门堵住。所以第一步先卸负担，也就是血糖起伏和睡眠不足。第二步调整进来的东西：咖啡因在对的时间喝，白天水喝够，把压力压下来。第三步补上大脑的原料：Omega-3 DHA、B族和蛋白质，原本就缺的人最能感受到差别；草本类的选择证据还在早期，我们照实说。第四步用早晚固定的节奏加上运动，把成果守住。这些都不是在治疗记忆方面的疾病。如果健忘已经影响日常生活、突然出现糊涂混乱，或者情绪低落一直缓不过来，请先去看医生。",
+   "rows": [
+    {
+     "stage": "clear",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "Carb Blocker",
+      "Prebiotic Fiber"
+     ],
+     "why": "The first load on focus is the blood-sugar swing. A meal that is mostly refined carbs lifts you and then drops you, and the drop feels like fog. In a review of 15 trials in adults, memory two hours after a low-glycaemic breakfast was better than after a high-glycaemic one, with the clearest effect in people under 35 and those with good glucose control. You do not have to give up rice or bread, you have to stop eating them alone. Add protein and fibre to the meal, and before the carb-heavy ones, take Carb Blocker.",
+     "key": "brain.clear.carb-blocker",
+     "whyZh": "影响专注力的第一个负担，是血糖的起伏。一顿以精致碳水为主的饭，先把你抬上去，再让你掉下来，掉下来的那种感觉就是脑雾。一项汇总了15个成人试验的分析发现，吃低升糖早餐两小时后，记忆力测试比吃高升糖早餐更好，35岁以下、血糖调节好的人差别最明显。你不需要戒米饭面包，只是别让碳水单独出现。每餐加上蛋白质和纤维，碳水特别多的那一顿，饭前吃阻碳片。",
+     "productIds": [
+      "carb-blocker",
+      "prebiotic-fiber"
+     ]
+    },
+    {
+     "stage": "clear",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "Magnesium"
+     ],
+     "why": "The brain clears its own load at night. In mice, the space between brain cells widens by about 60 percent during sleep and waste washes out much faster, and in people, sleep is when new memories are filed. Pooled studies show sleep loss before learning cuts how much you take in, and after learning, how much you keep. So the first fix for fog is protected sleep: the same wake time every day, screens down half an hour before bed, no all-nighters before an exam. Evening magnesium supports the wind-down, though its sleep trials are small.",
+     "key": "brain.clear.magnesium",
+     "whyZh": "大脑自己的负担，是在夜里清掉的。动物研究发现，睡眠时脑细胞之间的空隙会扩大约六成，废物被冲走的速度快很多；在人身上，学完之后的那一觉，正是新记忆被归档的时候。汇总研究显示，学习前没睡够，学进去的就少；学完后没睡够，留得住的就少。所以脑袋发沉，第一件事是把睡眠护住：每天同一时间起床，睡前半小时放下手机，考试前不熬通宵。晚上补镁可以帮身体放松，不过镁和睡眠的试验规模都不大。",
+     "productIds": [
+      "magnesium"
+     ]
+    },
+    {
+     "stage": "regulate",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "XS Energy + Focus 30ct",
+      "XS Energy + Focus 60ct"
+     ],
+     "why": "What you drink sets your focus more than most people think. Caffeine works: about 75 mg, one XS Energy + Focus tablet or a small coffee, reliably sharpens alertness and attention for a few hours. The cost comes at night. In a controlled study, 400 mg taken six hours before bed still cut sleep by more than an hour, and lost sleep is lost memory. Keep caffeine to the morning and early afternoon, start with the 30-count to test your tolerance, and drink water through the day: across 33 studies, losing more than 2 percent of body water measurably hurt attention.",
+     "key": "brain.regulate.xs-energy-focus-30ct",
+     "whyZh": "喝什么、什么时候喝，对专注力的影响比多数人想的大。咖啡因确实有效：大约75毫克，也就是一片XS能量专注片或一小杯咖啡，能稳定地提升几个小时的警觉和注意力。代价在晚上。一项对照研究里，睡前六小时摄入400毫克咖啡因，睡眠依然少了一个多小时，而少睡就是少记。咖啡因放在上午和午后早些时候，先用30粒装试试自己的耐受度，白天持续喝水：33项研究显示，身体缺水超过2%，注意力就会明显下降。",
+     "productIds": [
+      "xs-energy-focus-30ct",
+      "xs-energy-focus-60ct"
+     ]
+    },
+    {
+     "stage": "regulate",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Organics Ashwagandha Capsules",
+      "Stress Relief Probiotic"
+     ],
+     "why": "Stress hormones sharpen you for a fight but get in the way of pulling up what you already know, which is why a name vanishes in an interview and comes back in the car. That is retrieval, not lost memory. Regulate the stress first: slow breathing, a walk, enough sleep. Ashwagandha has the most human data: in small one-to-two-month trials, adults on about 600 mg a day beat placebo on memory and attention tests, but the trials are few and short. Avoid it in pregnancy. The Stress Relief Probiotic works on the gut-brain link: a sound idea, thin direct evidence for memory.",
+     "key": "brain.regulate.organics-ashwagandha-capsules",
+     "whyZh": "压力激素让你准备好战斗，却会挡住你调取已经记住的东西，所以面试时名字死活想不起来，一上车就想起来了。这是取不出来，不是记忆丢了。先把压力本身调下来：放慢呼吸、出去走走、睡够。南非醉茄在这方面的人体数据最多：一到两个月的小型试验里，每天约600毫克的成年人，记忆和注意力测试比安慰剂组好，但试验不多、时间也短。孕期不要用。舒压益生菌走的是肠脑轴，思路成立，直接针对记忆的证据还很少。",
+     "productIds": [
+      "organics-ashwagandha-capsules",
+      "stress-relief-probiotic"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "Advanced Omega",
+      "Kids Brainiums DHA Jelly"
+     ],
+     "why": "DHA is the brain's main structural fat, and it comes almost only from food, mostly fatty fish. The honest picture: a Cochrane review found no case for routine omega-3 to protect memory in healthy older people. The benefit shows where intake is low. In 176 young adults who rarely ate fish, 1.16 g of DHA a day for six months improved memory and reaction time, and in 485 over-55s with mild memory complaints, 900 mg a day for 24 weeks meant fewer learning errors. Eat salmon or sardines twice a week and you may not need it. Children who skip fish: the DHA jelly.",
+     "key": "brain.supplement.advanced-omega",
+     "whyZh": "DHA是大脑最主要的结构脂肪，几乎只能从食物里来，主要是深海鱼。实话实说：Cochrane综述认为，健康的老年人没有必要常规补Omega-3来保护记忆。效果体现在本来就吃得少的人身上。176位很少吃鱼的年轻人，每天1.16克DHA，六个月后记忆和反应速度都有改善；485位55岁以上、自觉记性变差的人，每天900毫克，24周后学习测试的错误更少。如果你每周吃两次三文鱼或沙丁鱼，可能不需要补。孩子不吃鱼，就用DHA果冻。",
+     "productIds": [
+      "advanced-omega",
+      "kids-brainiums-dha-jelly"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "Vitamin B Complex 120ct",
+      "Vitamin B Complex 30ct"
+     ],
+     "why": "B1 is needed to burn glucose, the brain's main fuel, and B6, B12 and folate help make its chemical messengers. The key word is deficiency. Low B12 can show up as memory problems, confusion or low mood, and absorption falls with age: 10 to 30 percent of older adults have the stomach change that blocks it, and metformin, acid reducers and a vegan diet add risk. A Cochrane review of 14 trials and nearly 28,000 people found B supplements do little for memory in people who were not short. So ask for a B12 test if you are in one of those groups, and take B complex with food.",
+     "key": "brain.supplement.vitamin-b-complex-120ct",
+     "whyZh": "B族是大脑运转的零件。B1负责燃烧葡萄糖，而葡萄糖是大脑的主要燃料；B6、B12和叶酸参与制造大脑的化学信使。关键在「缺不缺」。B12不足，可能表现为记性变差、糊涂或情绪低落，而且年纪越大越难吸收：10%到30%的老年人有影响B12吸收的胃部变化，长期吃二甲双胍、抑酸药或全素饮食，风险更高。Cochrane汇总了14个试验、近2.8万人，发现本来不缺的人，补B族对记忆帮助不大。属于上面这些人群的，先请医生查B12，B族随餐吃。",
+     "productIds": [
+      "vitamin-b-complex-120ct",
+      "vitamin-b-complex-30ct"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Plant Protein Powder",
+      "Organics All-in-One Shakes"
+     ],
+     "why": "The brain's messengers are built from food. Serotonin and dopamine are made from amino acids, and acetylcholine, the messenger most tied to memory, from choline in eggs and soy lecithin. The teaching behind this plan puts protein first for memory, with a target of about 1.2 g per kilogram of body weight a day and a real share at breakfast, and it holds that a student who starts the day on congee or cereal fades by the third class. Direct trials of protein breakfasts on memory are few, so the firmer reason is step one: protein slows the sugar curve. One shake closes most of a breakfast gap.",
+     "key": "brain.supplement.plant-protein-powder",
+     "whyZh": "大脑的信使是用食物造出来的。血清素和多巴胺由氨基酸合成，和记忆关系最密切的乙酰胆碱，则来自鸡蛋和大豆卵磷脂里的胆碱。这套方案的老师把蛋白质放在记忆的第一位，目标是每天每公斤体重约1.2克，早餐要占一大块；他讲，一个孩子早上只喝白粥或吃麦片，到第三节课精力就掉下来了。直接研究蛋白质早餐和记忆的试验不多，所以更扎实的理由在第一步：蛋白质能让血糖曲线变平。一杯奶昔就能补上早餐的大部分缺口。",
+     "productIds": [
+      "plant-protein-powder",
+      "organics-all-in-one-shakes"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 3,
+     "route": "internal",
+     "products": [
+      "Memory Builder"
+     ],
+     "why": "Memory Builder pairs ginkgo leaf with cistanche, a root long used in Chinese tradition. Two trials in China by researchers linked to the maker found better memory scores than placebo: 117 healthy adults after 30 days, and 100 adults aged 40 to 75 after 90 days. Independent ginkgo research is less encouraging: a review found no convincing effect in healthy people under 60, and the six-year GEM trial of 3,069 people over 75 found ginkgo did not prevent dementia. Ginkgo can add to bleeding risk with blood thinners, aspirin or surgery, so ask your doctor first.",
+     "key": "brain.supplement.memory-builder",
+     "whyZh": "记忆力支持片是银杏叶加肉苁蓉，肉苁蓉是中国传统里用了很久的一味根茎。两项在中国做的试验，研究者与生产企业有关联，结果记忆分数比安慰剂组好：117位健康成年人吃了30天，100位40到75岁的人吃了90天。单看银杏的独立研究就没那么乐观：综述认为60岁以下健康人看不到可靠效果；追踪六年、3069位75岁以上老人的GEM试验发现，银杏不能预防失智。银杏和抗凝药、阿司匹林同用或手术前服用，会增加出血风险，请先问医生。",
+     "productIds": [
+      "memory-builder"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 3,
+     "route": "internal",
+     "products": [
+      "Organics Lion's Mane Capsules"
+     ],
+     "why": "Lion's Mane is the least tested option here. In the lab it is studied for nerve growth factor, not as a stimulant, so it will not feel like coffee. In the best human trial so far, 41 healthy young adults, one dose made them faster on one attention test and stress trended lower after four weeks, while delayed word recall did not improve. A small Japanese trial in 30 older adults with mild memory complaints reported better scores over 16 weeks that faded once they stopped. Treat it as an experiment: give it a month, and keep it only if you notice a difference.",
+     "key": "brain.supplement.organics-lion-s-mane-capsules",
+     "whyZh": "猴头菇是这里证据最少的一个。实验室里研究的是它和神经生长因子的关系，不是提神，所以吃了不会有喝咖啡的感觉。目前最好的人体试验只有41位健康年轻人：吃一次后，某项注意力测试反应更快，四周后压力感有下降趋势，但延迟回忆单词并没有改善。日本一项30位自觉记性变差的老年人的小试验，16周内分数提高，停用后又回落。把它当成一次尝试：吃一个月，自己感觉到差别再继续。",
+     "productIds": [
+      "organics-lion-s-mane-capsules"
+     ]
+    },
+    {
+     "stage": "sustain",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "Everyday Nutrition Solution",
+      "Double X Multivitamin 31-day Refill"
+     ],
+     "why": "The day's focus is set in the morning. The breakfast this plan is built around covers protein, fibre, good fats, plant foods, vitamins and minerals, eaten between 7 and 9 am, so steps one and three happen in one meal; the foundation bundle puts multivitamin, protein and omega-3 in one order. Then move. A meta-analysis found attention improves after light to moderate exercise, and in a year-long trial of 120 older adults, walking three days a week enlarged the hippocampus, the memory centre, by about 2 percent. Walk ten minutes before hard thinking.",
+     "key": "brain.sustain.everyday-nutrition-solution",
+     "whyZh": "一天的专注力，早上就定下来了。这套方案围绕的营养早餐，一餐包含优质蛋白、纤维、好的脂肪、蔬果植物营养、维生素和矿物质，在早上7到9点吃，一顿饭就把第一步和第三步做了。基础营养方案把综合营养素、蛋白粉和鱼油放在一单里。然后动起来：一项汇总分析发现，轻到中等强度运动之后，注意力和执行功能会变好；另一项为期一年、120位老年人的试验里，每周快走三天，大脑的记忆中枢海马体增大了约2%。动脑之前先走十分钟，是最便宜的专注工具。",
+     "productIds": [
+      "everyday-nutrition-solution",
+      "double-x-multivitamin-31-day-refill"
+     ]
+    },
+    {
+     "stage": "sustain",
+     "rank": 3,
+     "route": "internal",
+     "products": [
+      "Vitamin B Complex 120ct",
+      "Liver Support"
+     ],
+     "why": "The evening half of the rhythm comes from the tradition this plan follows. It routes trouble falling asleep to the liver first, with B vitamins and Liver Support taken together between about 7:30 and 8:40 pm, every evening, judged over six months because liver cells take roughly 180 days to renew. There is no mainstream research on this timing or on liver support for sleep, so hold it as an evening anchor rather than a claim. What is well supported is the sleep itself, and a fixed evening routine is what gets you to bed at the same time, which protects step one.",
+     "key": "brain.sustain.vitamin-b-complex-120ct",
+     "whyZh": "节奏的另一半在晚上，来自这套方案所依据的调理传统。它把入睡困难先归到肝：每天晚上大约7点半到8点40之间，B族和护肝片一起吃，按六个月来看效果，因为肝细胞大约180天更新一轮。主流研究没有验证过这个时间点，也没有验证护肝和睡眠的关系，所以把它当作固定晚间节奏的一个锚点，而不是功效声明。有扎实证据的是睡眠本身，而固定的晚间习惯，能让你每天同一时间上床，这就守住了第一步。",
+     "productIds": [
+      "vitamin-b-complex-120ct",
+      "liver-support"
+     ]
+    }
+   ]
+  },
+  "muscle": {
+   "overview": "Training is the signal and recovery is where muscle actually grows, so results come down to what happens in the hours and days after a session. The four steps follow that order. First take off what slows repair: piling on load faster than the body adapts, alcohol after training, and lingering inflammation. Then make sure what you eat is used, by spreading protein across the day, sleeping enough and staying hydrated. Then supply the raw material: enough protein for someone who trains, plus the minerals and vitamin D that muscle and bone rely on. Finally keep training two to three times a week for years, because muscle you stop using is lost again. If you have kidney or liver disease, a heart condition or pain in a joint that does not settle, see a doctor before raising protein or training intensity.",
+   "overviewZh": "训练只是发出信号，肌肉真正长出来是在恢复的时候，所以效果取决于练完之后的几个小时、几天里发生了什么。下面四步就按这个顺序来。先卸掉拖慢修复的东西：加量加得比身体适应得快、练完喝酒、身体里一直没退的炎症。再让吃进去的真正用上：蛋白质分散到一天几餐、睡够、喝够水。然后把原料补足：练的人需要的蛋白质，加上肌肉和骨骼离不开的矿物质和维生素D。最后是每周练两到三次，坚持几年，因为不用的肌肉会再掉回去。如果有肾病、肝病、心脏问题，或者关节疼痛一直不好，加蛋白质或加大训练强度之前，请先去看医生。",
+   "rows": [
+    {
+     "stage": "clear",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "XS CBD Cream"
+     ],
+     "why": "The first load to take off is the damage you add faster than you repair. Soreness peaks one to three days after an unfamiliar session and fades quickly as the body adapts, so it is a sign of something new, not a measure of a good workout. Jumping weight or volume too fast is the common way to stall or get hurt. Alcohol is the other: in a small study, drinking after hard training cut muscle protein synthesis by about a quarter even when protein was taken with it. A topical cream is for comfort on the sore spot, not repair.",
+     "key": "muscle.clear.xs-cbd-cream",
+     "whyZh": "第一个要卸掉的负担，是你制造损伤的速度比修复还快。一次不熟悉的训练之后，酸痛在一到三天达到高峰，身体适应了就会很快减轻，所以酸痛说明动作是新的，并不代表练得好。重量或训练量加得太猛，是停滞和受伤最常见的原因。另一个是酒精：一项小型研究里，高强度训练后喝酒，就算同时补了蛋白质，肌肉蛋白合成也下降了大约四分之一。外用舒缓膏是让酸痛的部位舒服一些，不是帮它修复。",
+     "productIds": [
+      "xs-cbd-cream"
+     ]
+    },
+    {
+     "stage": "clear",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Advanced Omega",
+      "Organics Turmeric Capsules"
+     ],
+     "why": "The second load is inflammation that does not settle between sessions. The teaching behind this plan clears the blood with good fats and plant compounds before adding raw material, and here mainstream evidence is reasonably kind: a pooled analysis of 12 trials found omega-3 lowered soreness after hard eccentric exercise, though the effect was modest and strength did not recover faster. Curcumin from turmeric has smaller and less consistent trials. Treat both as background support taken daily, not a pill before a hard day.",
+     "key": "muscle.clear.advanced-omega",
+     "whyZh": "第二个负担，是两次训练之间一直没退下去的炎症。这套方案的逻辑是先用优质脂肪和植物营养素清血液，再补原料；在这一点上主流研究也算支持：一项汇总12个试验的分析发现，高强度离心训练后，补充Omega-3的人酸痛更轻，不过效果不大，力量恢复的速度没有明显差别。姜黄素的试验规模更小、结果也不太一致。两样都当成每天的底层支持，而不是练狠了之前临时吃一颗。",
+     "productIds": [
+      "advanced-omega",
+      "organics-turmeric-capsules"
+     ]
+    },
+    {
+     "stage": "regulate",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "XS RTD Protein Shakes 12-pack",
+      "XS Protein Bars 12-pack",
+      "Organics All-in-One Bars"
+     ],
+     "why": "Muscle cannot bank protein, so how you spread it matters almost as much as how much you eat. In a controlled study after training, 20 g of protein every three hours raised muscle protein synthesis 31 to 48 percent more than the same total as two large or eight small doses. The ISSN advises 20 to 40 g per meal, about 0.25 g per kilogram, every three to four hours. Most people eat a light breakfast, a modest lunch and a large dinner. A ready shake or bar in the morning or mid-afternoon evens that out without cooking.",
+     "key": "muscle.regulate.xs-rtd-protein-shakes-12-pack",
+     "whyZh": "肌肉没办法把蛋白质存起来，所以怎么分配，几乎和吃多少一样重要。一项训练后的对照研究里，每三小时吃20克蛋白质，比同样总量分成两大次或八小次吃，肌肉蛋白合成高出31%到48%。国际运动营养学会建议每餐20到40克，大约每公斤体重0.25克，每三到四小时一次。大多数人早餐很少、午餐一般、晚餐一大顿。早上或下午来一瓶即饮奶昔或一根蛋白棒，不用做饭就把这个分配拉平了。",
+     "productIds": [
+      "xs-rtd-protein-shakes-12-pack",
+      "xs-protein-bars-12-pack",
+      "organics-all-in-one-bars"
+     ]
+    },
+    {
+     "stage": "regulate",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "Magnesium"
+     ],
+     "why": "Sleep is when most repair happens, and cutting it shows up in the muscle itself. In a crossover study, one night without sleep lowered muscle protein synthesis by 18 percent, raised cortisol by 21 percent and lowered testosterone by 24 percent the next day. Aim for seven hours or more at a fixed wake time. Keep caffeine at least six hours before bed: 400 mg taken six hours before bedtime cut sleep by over an hour in one trial. Magnesium in the evening supports the wind-down, though a Cochrane review found it does not prevent cramps.",
+     "key": "muscle.regulate.magnesium",
+     "whyZh": "修复主要发生在睡觉的时候，睡少了，肌肉本身就会反映出来。一项交叉研究里，一晚不睡，第二天肌肉蛋白合成下降18%，皮质醇升高21%，睾酮下降24%。每天固定时间起床，争取睡够七小时以上。咖啡因至少在睡前六小时停掉：一项试验里，睡前六小时摄入400毫克咖啡因，睡眠少了一个多小时。晚上补镁可以帮身体放松下来；不过考科蓝的综述发现，镁并不能预防抽筋。",
+     "productIds": [
+      "magnesium"
+     ]
+    },
+    {
+     "stage": "regulate",
+     "rank": 2,
+     "route": "habit",
+     "products": [
+      "XS CocoWater 12-pack"
+     ],
+     "why": "Muscle is about three quarters water, and nutrients reach it through the blood. Losing more than about 2 percent of body weight in sweat measurably lowers endurance and makes a session feel harder, according to the American College of Sports Medicine. Weigh yourself before and after a long or hot session: each kilogram lost is roughly a litre to replace. Coconut water rehydrated about as well as a sports drink or water in a trial of trained men, with less sugar, but it is lower in sodium, so heavy sweaters also need salt from food.",
+     "key": "muscle.regulate.xs-cocowater-12-pack",
+     "whyZh": "肌肉大约四分之三是水，营养也要靠血液才能送到肌肉。美国运动医学会指出，出汗让体重掉超过2%左右，耐力就会明显下降，训练也会感觉更吃力。长时间或高温训练前后称一下体重，每掉一公斤，大约要补回一升水。一项针对有训练基础男性的试验里，椰子水补水的效果和运动饮料、白水差不多，糖更少；但它的钠偏低，出汗特别多的人还要从食物里补一点盐。",
+     "productIds": [
+      "xs-cocowater-12-pack"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 1,
+     "route": "internal",
+     "products": [
+      "XS Grass-Fed Whey Protein",
+      "Plant Protein Powder"
+     ],
+     "why": "Muscle is built from protein, and training raises the need. The teaching behind this plan sets 1.2 g per kilogram a day as the base and says heavy physical work needs more. A review of 49 trials with 1,863 people found protein added to strength training raised gains in muscle and strength, with no further benefit above about 1.6 g per kilogram a day. For a 70 kg person that is about 112 g. Whey is rich in leucine, the amino acid that switches on repair, yet soy and whey gave equal gains in a review of 9 trials. Kidney disease needs a doctor first.",
+     "key": "muscle.supplement.xs-grass-fed-whey-protein",
+     "whyZh": "肌肉是蛋白质做的，训练会让需求升高。这套方案所依据的课程以每公斤体重1.2克作为基础量，并说重体力活动的人要更多。一项汇总49个试验、1863人的分析发现，力量训练配合补蛋白，肌肉和力量的增长更明显，但每天超过每公斤约1.6克就不再有额外好处。体重70公斤，就是大约112克。乳清富含亮氨酸，就是启动修复的那个氨基酸；不过一项汇总9个试验的分析里，大豆蛋白和乳清的增肌效果一样。有肾病的人先问医生。",
+     "productIds": [
+      "xs-grass-fed-whey-protein",
+      "plant-protein-powder"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "XS Muscle Multiplier (EAAs)",
+      "XS Post-Workout Recovery"
+     ],
+     "why": "Of the amino acids protein breaks into, nine are essential, meaning the body cannot make them and must get them from food. Taken on their own they are light, which is useful when you train fasted or a full shake feels too heavy. They are not better than whole protein, and branched-chain amino acids alone are not enough to build muscle. The post-workout window is also looser than marketing suggests: in a meta-analysis, the benefit of timing disappeared once total daily protein was matched. Use these to fill gaps, not replace meals.",
+     "key": "muscle.supplement.xs-muscle-multiplier-eaas",
+     "whyZh": "蛋白质分解成的氨基酸里，有九种是必需氨基酸，身体自己造不出来，只能从食物里来。单独吃的话很轻，空腹训练、或者一整杯奶昔喝不下的时候很好用。但它并不比完整的蛋白质更好，只补支链氨基酸也不足以长肌肉。练完的黄金窗口也没有广告说的那么窄：一项汇总分析发现，只要一天的蛋白质总量相同，时间点的优势就消失了。用它们补缺口，不要拿来代替正餐。",
+     "productIds": [
+      "xs-muscle-multiplier-eaas",
+      "xs-post-workout-recovery"
+     ]
+    },
+    {
+     "stage": "supplement",
+     "rank": 2,
+     "route": "internal",
+     "products": [
+      "Calcium Magnesium D",
+      "Vitamin D",
+      "Double X Multivitamin 31-day Refill"
+     ],
+     "why": "Muscle contracts on calcium and relaxes with magnesium, and bone takes the load. The teaching this plan follows notes that exercise raises nutrient use and that a typical diet in China supplies about 389 mg of calcium a day against a need of 800 mg or more. Vitamin D matters most for strength when it is low: a review of 30 trials found a small gain in strength, larger in people over 65 and in those deficient at the start, and none in muscle size. Ask for a vitamin D test, and treat a multivitamin as the base underneath.",
+     "key": "muscle.supplement.calcium-magnesium-d",
+     "whyZh": "肌肉收缩靠钙，放松靠镁，骨骼要承受训练的负荷。这套方案所依据的课程指出，运动会增加营养素的消耗，而中国人日常饮食平均每天只有约389毫克钙，需要量却是800毫克以上。维生素D在本来偏低的时候对力量最有帮助：一项汇总30个试验的分析发现，力量有小幅提升，65岁以上和一开始就缺乏的人更明显，但肌肉量没有变化。可以请医生查一下维生素D，再用综合营养素打底。",
+     "productIds": [
+      "calcium-magnesium-d",
+      "vitamin-d",
+      "double-x-multivitamin-31-day-refill"
+     ]
+    },
+    {
+     "stage": "sustain",
+     "rank": 1,
+     "route": "habit",
+     "products": [
+      "Everyday Nutrition Solution",
+      "XS Fitness Jump Start Solution"
+     ],
+     "why": "Muscle kept is muscle used. From around 30, muscle mass drifts down by an estimated 3 to 8 percent a decade without training, faster after 60. In a one-year Danish trial of 208 healthy adults over 65, protein alone did not change muscle size, while heavy strength training did. Protein supports training, it does not replace it. Aim for strength work two to three times a week and, past 65, at least 1.0 to 1.2 g of protein per kilogram a day. The teaching adds: match the training to your age and joints, with slower, controlled work later in life.",
+     "key": "muscle.sustain.everyday-nutrition-solution",
+     "whyZh": "肌肉是用出来、也是用才留得住的。大约30岁以后，如果不训练，肌肉量每十年估计会流失3%到8%，60岁以后更快。一项为期一年、208位65岁以上健康成年人参加的丹麦试验里，只补蛋白质，肌肉量没有变化；做大重量力量训练的才有变化。蛋白质是支持训练，不是替代训练。每周做两到三次力量训练，65岁以上每天每公斤至少1.0到1.2克蛋白质。课程也提醒，运动要跟年龄和关节状况匹配，年纪越大，动作越要慢、越要可控。",
+     "productIds": [
+      "everyday-nutrition-solution",
+      "xs-fitness-jump-start-solution"
+     ]
+    },
+    {
+     "stage": "sustain",
+     "rank": 3,
+     "route": "internal",
+     "products": [
+      "XS Pre-Workout Boost"
+     ],
+     "why": "Caffeine is one of the best-supported aids for training: the ISSN position stand finds 3 to 6 mg per kilogram, taken about an hour before, improves strength, endurance and sprint performance, with benefits seen from about 2 mg. A serving of this pre-workout carries about 115 mg per its current label, roughly a cup of coffee, so its lift is modest. Its beta-alanine can cause a harmless tingling. Its real use is getting you to the session on a tired evening. Skip it within six hours of bed, because sleep does more for recovery than the boost does.",
+     "key": "muscle.sustain.xs-pre-workout-boost",
+     "whyZh": "咖啡因是证据最充分的运动辅助之一：国际运动营养学会的立场声明指出，训练前约一小时摄入每公斤3到6毫克，能提升力量、耐力和冲刺表现，从大约2毫克起就能看到效果。按目前的标签，这款训练前激活粉一份约含115毫克咖啡因，差不多一杯咖啡，所以提升是温和的。里面的β-丙氨酸可能让皮肤有点刺刺麻麻，无害。它真正的用处，是在累了的晚上让你还愿意去练。睡前六小时内就别喝了，因为对恢复来说，睡好觉比这点提神重要得多。",
+     "productIds": [
+      "xs-pre-workout-boost"
+     ]
+    },
+    {
+     "stage": "sustain",
+     "rank": 3,
+     "route": "internal",
+     "products": [
+      "Joint Health",
+      "Lean Muscle"
+     ],
+     "why": "Two add-ons for people already training consistently, both with modest evidence. Joint Health supplies glucosamine and collagen as raw material for cartilage and connective tissue; trials of glucosamine for joint comfort are mixed, so judge it over months and stop if nothing changes. Lean Muscle is CLA, which in a review of long-term trials produced a small loss of body fat whose practical value the authors called uncertain. Neither builds muscle on its own. Both only make sense on top of the training, protein and sleep above.",
+     "key": "muscle.sustain.joint-health",
+     "whyZh": "两个给已经规律训练的人的附加选择，证据都不算强。关节灵提供氨基葡萄糖和胶原蛋白，作为软骨和结缔组织的原料；氨基葡萄糖对关节舒适度的试验结果不一致，所以要按月观察，没有变化就停。瘦肌肉支持片的成分是CLA，一项长期试验的汇总分析发现它能让体脂小幅下降，但作者也说实际意义不确定。两者都不会自己长出肌肉，只有在前面的训练、蛋白质和睡眠都做到之后才有意义。",
+     "productIds": [
+      "joint-health",
+      "lean-muscle"
+     ]
+    }
+   ]
   }
  }
 }
