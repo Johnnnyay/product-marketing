@@ -3349,6 +3349,9 @@ function init() {
   updateChrome();
   render();
   updateCalcWidget();
+  // ?area=<id> opens that area directly, so a shared link lands on the page it is about.
+  const qArea = new URLSearchParams(location.search).get('area');
+  if (qArea && AREAS.some(a => a.id === qArea)) homeOpenArea(qArea);
 }
 
 // Try live data first (GitHub Pages); fall back to inline snapshot (file://)
