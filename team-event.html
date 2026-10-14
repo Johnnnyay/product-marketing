@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>HY Team Event</title>
+<meta property="og:title" content="HY Team Event">
+<meta property="og:description" content="Agenda, roles and details for our Friday Night Hangouts and team nights.">
+<meta name="theme-color" content="#345043">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+/* The agenda for every HY team night, the newest first. Same look as the FNH Jeopardy page
+   (fnh.html): light ground, near-black text, deep sage, because it gets screen-shared on Zoom
+   and read on phones in a bright room as often as it is read at a desk. Agendas come from
+   Johnny's Notion page "Team Event Agenda 2026"; each one is an entry in EVENTS below. */
+:root{
+  --ground:#F2F5F1; --panel:#FFFFFF; --panel-2:#E8EEE8; --line:#C8D2C9; --line-2:#A8B6AA;
+  --ink:#141A16; --ink-2:#3A453C; --muted:#5F6C62;
+  --sage:#345043; --sage-2:#4A7060; --sage-light:#E4EDE6;
+  --amber:#96420A; --amber-light:#FBEEE2; --blue:#1546B0;
+  --shadow:0 10px 34px rgba(20,26,22,.12);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:26px 18px 60px}
+h1,h2,h3{font-weight:800;letter-spacing:-.02em;text-wrap:balance;margin:0}
+a{color:var(--sage);font-weight:600}
+button{font-family:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.eyebrow{font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+.top{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.top h1{font-size:30px;line-height:1.05;margin-top:2px}
+.top h1 span{color:var(--sage)}
+.jump{background:var(--panel);border:2px solid var(--line);border-radius:10px;color:var(--ink-2);
+  font:inherit;font-size:14px;font-weight:700;padding:8px 13px;cursor:pointer;text-decoration:none}
+.jump:hover{border-color:var(--line-2);color:var(--ink)}
+
+/* The event itself */
+.hero{background:var(--sage);color:#fff;border-radius:16px;padding:22px 22px 20px;box-shadow:var(--shadow)}
+.pill{display:inline-block;font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  border-radius:999px;padding:5px 12px;background:#FFD166;color:#2A2008}
+.pill.past{background:rgba(255,255,255,.18);color:#fff}
+.hero h2{font-size:34px;line-height:1.06;margin:12px 0 4px}
+.hero .subt{font-size:19px;font-weight:600;opacity:.92;margin:0}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.fact{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:11px;padding:10px 13px;min-width:0}
+.fact .k{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.8}
+.fact .v{font-size:16.5px;font-weight:700;line-height:1.35;overflow-wrap:anywhere}
+.fact .v small{display:block;font-size:14px;font-weight:500;opacity:.88}
+.zoomrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.zbtn{display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--sage);border:0;border-radius:9px;
+  font:inherit;font-size:14px;font-weight:800;padding:7px 12px;cursor:pointer;text-decoration:none}
+.zbtn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}
+.zbtn:hover{filter:brightness(.96)}
+
+.card{background:var(--panel);border:2px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:16px}
+.card h3{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.two .card{margin-top:16px}
+.flow{list-style:none;margin:0;padding:0}
+.flow li{display:flex;gap:12px;padding:7px 0;border-top:1px solid var(--panel-2)}
+.flow li:first-child{border-top:0;padding-top:0}
+.flow .t{font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;min-width:122px;color:var(--sage)}
+.roles{list-style:none;margin:0;padding:0}
+.roles li{padding:7px 0;border-top:1px solid var(--panel-2)}
+.roles li:first-child{border-top:0;padding-top:0}
+.roles .r{font-size:13.5px;font-weight:700;color:var(--muted)}
+.roles .p{font-weight:800;font-size:17px}
+.roles .n{font-size:14px;color:var(--ink-2);margin-top:1px}
+
+/* The run of show */
+.agenda-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:30px 0 10px;flex-wrap:wrap}
+.agenda-h h3{font-size:22px}
+.agenda-h .tot{font-size:14px;font-weight:700;color:var(--muted)}
+.seg{display:grid;grid-template-columns:44px 1fr;gap:4px 14px;background:var(--panel);border:2px solid var(--line);
+  border-radius:14px;padding:16px 18px;margin-top:10px}
+.seg .no{width:36px;height:36px;border-radius:10px;background:var(--sage-light);color:var(--sage);font-weight:800;
+  display:flex;align-items:center;justify-content:center;font-size:17px}
+.seg h4{margin:0;font-size:19.5px;line-height:1.25;font-weight:800;letter-spacing:-.01em}
+.seg .meta{display:flex;flex-wrap:wrap;gap:6px 10px;margin-top:5px;align-items:center}
+.seg .min{font-size:13px;font-weight:800;background:var(--amber-light);color:var(--amber);border-radius:999px;padding:2px 10px}
+.seg .who{font-size:15px;font-weight:700;color:var(--sage)}
+.seg .lead{margin:8px 0 0;color:var(--ink-2);font-style:italic}
+.seg ul{margin:8px 0 0;padding-left:20px}
+.seg li{margin:3px 0}
+.seg li ul{margin-top:3px}
+.seg li::marker{color:var(--sage-2)}
+.seg .body{grid-column:2;min-width:0}
+.seg .cal{list-style:none;padding:0}
+.seg .cal li{display:flex;gap:10px}
+.seg .cal .d{font-weight:800;color:var(--sage);min-width:92px;font-variant-numeric:tabular-nums}
+
+/* Every event */
+.past{margin-top:34px}
+.past h3{font-size:22px;margin-bottom:10px}
+.plist{list-style:none;margin:0;padding:0;background:var(--panel);border:2px solid var(--line);border-radius:14px;overflow:hidden}
+.plist a{display:flex;gap:14px;align-items:baseline;padding:13px 18px;border-top:1px solid var(--panel-2);
+  color:var(--ink);text-decoration:none;font-weight:600}
+.plist li:first-child a{border-top:0}
+.plist a:hover{background:var(--ground)}
+.plist a[aria-current="true"]{background:var(--sage-light)}
+.plist .d{font-weight:800;color:var(--sage);min-width:104px;font-variant-numeric:tabular-nums}
+.plist .k{margin-left:auto;font-size:12.5px;font-weight:700;color:var(--muted);white-space:nowrap}
+.foot{margin-top:28px;font-size:13px;color:var(--muted)}
+.ver{font-size:12px;color:var(--muted);margin:6px 0 0}
+.ver.old{color:var(--amber);font-weight:700}
+#upd{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:12px;
+  background:var(--ink);color:#fff;border-radius:999px;padding:8px 10px 8px 18px;font-size:14px;font-weight:600;
+  box-shadow:var(--shadow);max-width:calc(100% - 24px)}
+#upd[hidden]{display:none}
+#upd button{font:inherit;font-size:13px;font-weight:800;background:#FFD166;color:var(--ink);border:0;border-radius:999px;padding:7px 14px;cursor:pointer;white-space:nowrap}
+.toast{position:fixed;left:50%;bottom:70px;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:10px;
+  padding:9px 16px;font-size:14px;font-weight:600;z-index:95}
+.toast[hidden]{display:none}
+
+@media (max-width:640px){
+  .wrap{padding:18px 16px 50px}
+  .hero{padding:18px 16px}
+  .hero h2{font-size:28px}
+  .facts,.two{grid-template-columns:1fr}
+  .two{gap:0}
+  .seg{grid-template-columns:1fr;padding:14px 15px}
+  .seg .no{width:30px;height:30px;font-size:15px;border-radius:8px}
+  .seg .body{grid-column:1}
+  .flow .t{min-width:104px}
+  .plist .d{min-width:84px}
+  .plist .k{display:none}
+}
+@media print{ .jump,.zoomrow,#upd,.past{display:none} body{background:#fff} .hero{color:var(--ink);background:#fff;border:2px solid var(--line);box-shadow:none} .fact{border-color:var(--line)} .pill{border:1px solid var(--line)} }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="eyebrow">HY Team</div>
+      <h1>Team <span>Event</span></h1>
+    </div>
+    <a class="jump" href="#all" id="toAll">All events</a>
+  </header>
+  <main id="ev" aria-live="polite"></main>
+  <section class="past" id="all" aria-labelledby="allh">
+    <h3 id="allh">All events</h3>
+    <ul class="plist" id="plist"></ul>
+  </section>
+  <p class="foot">Questions about an event? Ask your upline in the group.</p>
+  <p class="ver"></p>
+</div>
+<div id="upd" hidden><span id="updt"></span><button type="button" id="updgo">Reload now</button></div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+/* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this
+   file. The version check at the bottom reads it, and the script text, to tell an old copy of
+   this page from the newest one (DiamondA70/_skills/app-qa/references/self-update.md). */
+const BUILD = "2026-10-14T22:23:01Z";
+const SELF = document.currentScript ? document.currentScript.textContent : "";
+
+/* One entry per event, newest first. Source: Notion › Team Event Agenda 2026.
+   date is the ET calendar day. A point is a string, or [string, [sub-points]].
+   Johnny & Irene's street address stays off this page (it is public); it goes in the group. */
+const HOME = "Johnny & Irene's place, Flushing";
+const HOME_NOTE = "Address in the group chat";
+const ZOOM = "515-333-3193";
+const FNH_FLOW = [["7:20 to 7:30 PM", "Networking"], ["7:30 to 9:00 PM", "All partners"], ["9:00 to 9:30 PM", "Hangout"]];
+const INTROS = { t: "Introductions & Recognition", pts: [
+  ["Candidates & new IBOs", ["Name · City · Background · What excites you about the opportunity"]],
+  ["Existing partners", ["Name · City · Background · What you did this week (2 MG1 / 20+ PV retail) · Goal"]]
+]};
+const HOST_NOTE = "Keep energy high and the event on time; have music ready before the event starts.";
+
+const EVENTS = [
+  {
+    id: "2026-09-26", date: "2026-09-26", kind: "Orientation",
+    title: "HY Saturday Night Hangout", sub: "September New Apprentice Orientation",
+    time: "8:00 to 9:00 PM ET", where: "Zoom only", dress: "Business casual, camera on",
+    flow: [["7:55 to 8:00 PM", "Check in"], ["8:00 to 9:00 PM", "All partners"]],
+    roles: [["Host / Timer", "Annie", "Keep energy high and the event on time. Remind everyone to turn their camera on, and give speakers a 30-second countdown."]],
+    agendaTitle: "New IBO Orientation",
+    agenda: [
+      { t: "Welcome & Introductions", min: 3, who: "Annie", pts: [
+        ["New apprentices since the last orientation", ["Name · City · Who you are building with · What you are excited about · One fun fact about yourself"]]
+      ]},
+      { t: "Personal Growth: Book", min: 2, who: "Shirley", pts: ["What you read, 1 or 2 major takeaways, 1 or 2 things you are implementing"] },
+      { t: "Personal Growth: Audio", min: 2, who: "Yoyo", pts: ["What you listened to, 1 or 2 major takeaways, 1 or 2 things you are implementing"] },
+      { t: "Product & Volume", lead: "First circle: personal use and retail", min: 10, who: "Irene", pts: [
+        "What we ran at the product party, and what people responded to",
+        "Where the first customers came from, and what the volume looked like after",
+        "“People don't get started with a company, they get started with you.”",
+        "What we would do differently next time"
+      ]},
+      { t: "Mentorship", lead: "Turning outwardly to the right people", min: 5, who: "Lister", pts: [
+        "How to get the most out of mentorship",
+        "The wins outside the business: finance and career"
+      ]},
+      { t: "Networking", lead: "Networking in your first 90 days", min: 10, who: "Johnny", pts: [
+        "How you approach someone who already knows you",
+        "How to lead people, not convince people",
+        "How to create steady results"
+      ]},
+      { t: "Leadership Training: First 90 Days", lead: "Doubt is normal, acting on doubt is not", min: 15, who: "Jerry & Leann", pts: [
+        "How to get good at riding the entrepreneurship roller coaster",
+        "How to build and protect your self-image",
+        "Can I do it? What if I fall off the track? Is my goal too far away?",
+        "How to develop a vision, and the confidence in it"
+      ]},
+      { t: "Open Q&A with Jerry", min: 8, who: "Jerry" }
+    ]
+  },
+  {
+    id: "2026-07-31", date: "2026-07-31", kind: "FNH",
+    title: "HY Team Friday Night Hangout", sub: "July",
+    time: "7:30 to 9:00 PM ET", where: HOME, whereNote: HOME_NOTE + " · also on Zoom", dress: "Sharp business casual",
+    flow: FNH_FLOW,
+    roles: [["Host / Co-host", "Annie, Wendy", HOST_NOTE], ["Online CEO (Chief Energy Officer) & DJ", "Vemon"], ["Technology", "Johnny"]],
+    agenda: [
+      INTROS,
+      { t: "Calendar", min: 5, cal: [
+        ["Aug 5 (Wed)", "JYT Team Evaluation ft. Johnny Huang"],
+        ["Aug 7 & 8", "Online function"],
+        ["Aug 16 (Sun)", "JYT Estate Promotion (qualification extended to the 15th)"],
+        ["End of Aug", "4th Week Leadership, Phase B + 6 MGs"],
+        ["End of Aug", "LLC Mastermind Elite"],
+        ["Oct 2 to 4", "Orlando Spartan Breakthrough Conference"]
+      ]},
+      { t: "Product Demo & Education", min: 15, who: "Johnny", pts: [
+        "Acne & skin: what separates a result that holds from one that comes back next month",
+        "The product and volume knowledge hub: johnnnyay.github.io/product-marketing"
+      ]},
+      { t: "Personal Growth: Book", min: 2, who: "Yoyo", pts: ["What you read, 1 or 2 major takeaways, 1 or 2 things you are implementing"] },
+      { t: "Leadership Training", lead: "Creating results in volume", min: 10, who: "Johnny interviews Tenzin & Raymond", pts: [
+        "What was it like when you first started the business?",
+        "What was your mindset, attitude and approach toward personal use?",
+        "How did you create your first few retail successes?"
+      ]},
+      { t: "Leadership Training", lead: "First 90 days to a steady, growing Phase B and beyond", min: 20, who: "Annie, Wendy", pts: [
+        "How did you get started as sisters?",
+        "Dos and don'ts for close friends and family",
+        "The right mindset and expectations in the first 60 DCR",
+        "How did the education habits, the association and the system make a difference in your life?"
+      ]},
+      { t: "Leadership Training", min: 25, who: "Johnny & Irene", pts: [
+        "What surprised you stepping into business ownership for the first time?",
+        "How do you grow your adversity quotient, your ability to handle stress and things not going the way you want?",
+        "How do you deal with differences between people?",
+        "How do you overcome personal shortcomings that hinder growth?"
+      ]}
+    ]
+  },
+  {
+    id: "2026-05-15", date: "2026-05-15", kind: "FNH",
+    title: "HY Friday Night Hangout", sub: "May",
+    time: "7:30 to 9:00 PM ET", where: HOME, whereNote: HOME_NOTE + " · also on Zoom", dress: "Sharp business casual",
+    flow: FNH_FLOW,
+    roles: [["Host / Co-host", "Vemon & Luke", HOST_NOTE], ["Online CEO (Chief Energy Officer)", "Ding"], ["DJ & Technology", "Johnny"]],
+    agenda: [
+      INTROS,
+      { t: "Calendar", min: 5, cal: [
+        ["May 19 (Tue)", "Clickner Combined Team Meeting"],
+        ["May 20 (Wed)", "JL Team Evaluation ft. Craig Clickner"],
+        ["May 23 & 24", "HY trip to Seattle"],
+        ["May 26 (Tue)", "4th Week Leadership, Phase B + 6 MGs"],
+        ["May 30 (Sat)", "BAM sessions: Bay Area, Chicago, New Jersey, Orlando, Phoenix"],
+        ["May 31 (Sun)", "BAM sessions: Detroit, Los Angeles, Seattle"],
+        ["June 4", "JL Launch 2 Promotion"],
+        ["June 5 to 7", "Level Up in Milwaukee, WI"],
+        ["June 20 to 22", "Go Diamond in Breckenridge, CO"]
+      ]},
+      { t: "Product Demo & Education", lead: "g&h™ and Artistry™ SPF products", min: 15, who: "Irene", pts: [
+        "Why prevention matters long term",
+        "Understanding SPF, and why daily protection matters",
+        "Chemical vs mineral protection",
+        "The g&h, Artistry skincare and SPF lineup",
+        "Simple daily skincare systems",
+        "Retail tips: positioning products through lifestyle conversations",
+        "Demo with the SAM machine"
+      ]},
+      { t: "Personal Growth: Book", min: 2, who: "Ting", pts: ["What you read, 1 or 2 major takeaways, 1 or 2 things you are implementing"] },
+      { t: "Personal Growth: Podcast", min: 2, who: "Lister", pts: ["What you listened to, 1 or 2 major takeaways, 1 or 2 things you are implementing"] },
+      { t: "Leadership Training: Networking Panel", lead: "Reflection, PHP & consistency", min: 10, who: "Raymond, William, led by Johnny", pts: [
+        "What you learn from booking MGs with your AB list (Raymond)",
+        "Why PHP matters (Raymond)",
+        "How reflection speeds up your growth (William)",
+        "Patience and consistency, if you want results (William)"
+      ]},
+      { t: "Leadership Training", lead: "Self-image, attitude & prioritization toward 4th Week Leadership", min: 15, who: "Annie, Amy", pts: [
+        "Why and how attitude and belief matter in a good work ethic",
+        "How to handle emotional inconsistency",
+        "What self-image is, and how to work on it",
+        "Time management and life prioritization",
+        "How to stay grateful and joyful in pressure seasons"
+      ]},
+      { t: "Leadership Training", lead: "Clarity in your journey, long-term vision, and minimizing the noise", min: 15, who: "Johnny & Irene", pts: [
+        "Long-term vision, and digging the well before you're thirsty",
+        "Controlling the narrative (and the noise)",
+        "Why clarity creates consistency",
+        "How to stay anchored to your WHY",
+        "Why you can't judge your future by temporary emotions",
+        "The power of the spoken word"
+      ]}
+    ]
+  },
+  {
+    id: "2026-04-10", date: "2026-04-10", kind: "FNH",
+    title: "HY Friday Night Hangout", sub: "April",
+    time: "7:30 to 9:00 PM ET", where: HOME, whereNote: HOME_NOTE + " · also on Zoom", dress: "Sharp business casual",
+    flow: FNH_FLOW,
+    roles: [["Host / Co-host", "Martin & Luke", HOST_NOTE], ["Online CEO (Chief Energy Officer)", "Luke"], ["DJ & Technology", "Johnny"]],
+    agenda: [
+      INTROS,
+      { t: "Calendar", min: 5, cal: [
+        ["Apr 14 to 16", "Amway 20% full PV promotion"],
+        ["Apr 15", "NYC in-person Team Evaluation ft. Johnny Huang (host: Vemon Cheng)"],
+        ["May 30 & 31", "BAM sessions"],
+        ["June 4", "JL Launch 2 Promotion"],
+        ["June 5 to 7", "Level Up in Milwaukee, WI"],
+        ["June 20 to 22", "Go Diamond in Breckenridge, CO"]
+      ]},
+      { t: "Personal Breakthroughs & Learnings", min: 4, who: "Tricia, Raymond", pts: [
+        "Tricia (2 min): my favorite podcast on the Leadership1 app this week, and 1 or 2 points I learned from it",
+        "Raymond (2 min): 1 or 2 points from my reading this week (and the book), and what I'm working on implementing"
+      ]},
+      { t: "Sales & Retail Training", min: 10, who: "Irene", pts: [
+        "Normalize the skill of sales, and why it matters",
+        ["A crash course on approach, flow and mindset in different contexts", ["C2C product sharing", "C2C invitations to health and skin analysis sessions"]]
+      ]},
+      { t: "Product Education & Demo", min: 20, who: "Amy, Wendy, Eunice", pts: [
+        "Across the product line: Nutrilite, Artistry, XS, LOC",
+        "Brand history, competitive advantage and credentials",
+        "One simple, duplicatable product demo"
+      ]},
+      { t: "Networking & Leadership Training", min: 20, who: "Vemon, Annie, Johnny", pts: [
+        "How to perform well in your career: promotion, time and energy management",
+        ["How to manage your AB list", ["Highlight: Raymond and what he did"]],
+        ["Face-to-face networking skills", ["Why mastering MG booking matters", "How to share your story", "How to handle common scenarios and steer the conversation to what you need to check"]],
+        "When and why you want to learn to run the first MG"
+      ]},
+      { t: "Wrap-Up: Handling Doubt & Belief", min: 15, who: "Johnny & Irene", pts: [
+        "A crash course on temperament: don't box yourself in",
+        ["Handling the dip in", ["Life and career", "Business", "Self-belief"]]
+      ]}
+    ]
+  },
+  {
+    id: "2026-03-13", date: "2026-03-13", kind: "FNH",
+    title: "HY + JL Platinum-Going Team Friday Night Hangout", sub: "March",
+    time: "7:30 to 9:00 PM ET", where: HOME, whereNote: HOME_NOTE + " · also on Zoom", dress: "Sharp business casual",
+    flow: [["7:20 to 7:30 PM", "Networking"], ["7:30 to 9:00 PM", "All partners"], ["9:00 to 9:30 PM", "Wrap-up & hangouts"]],
+    roles: [["Host / Timer", "Johnny Huang & Eden", "Keep energy high and the event on time."], ["Online Team CEO", "Luke"], ["DJ & Technology", "Johnny", "Music before the event and during transitions to keep the room lively."]],
+    agenda: [
+      { t: "Introductions & Recognition", pts: [
+        ["Candidates / new IBOs", ["Name · City · Background · What excites you about the opportunity"]],
+        ["Existing partners", ["Name · City · Background", "Achievements from the past week", "Next week's goal"]],
+        ["Special highlights", ["2 MG conversations booked", "Retail success / product results"]]
+      ]},
+      { t: "Product & Volume Generation", min: 12, who: "Martin, Vemon, Tenzin", pts: [
+        "Daily product use, and why it builds belief",
+        "How to reach 150 PV consistently",
+        "A simple strategy to help new IBOs find their first customers",
+        "Quick tips on double core and beyond"
+      ]},
+      { t: "Upcoming Events", min: 5, who: "Host", cal: [
+        ["Mar 18", "Team Evaluation Workshop, Sean Chen"],
+        ["Mar 19", "JL Launch 2 Promotion celebration (Orlando, FL)"],
+        ["Mar 20 to 22", "In-person #ELEVATE function (Orlando, FL)"],
+        ["Coming up", "Go Diamond Weekend"]
+      ]},
+      { t: "Personal Growth", min: 4, who: "Lister, Ding", pts: [
+        "Lister (2 min): my favorite podcast on the Leadership1 app this week, and 1 or 2 points I learned from it",
+        "Ding (2 min): 1 or 2 points from my reading this week (and the book), and what I'm working on implementing"
+      ]},
+      { t: "Leadership Training: Consistency in Networking", min: 5, who: "Derek", pts: [
+        "Why developing a work habit matters",
+        "How to create personal momentum",
+        "How to stay focused when results haven't shown up yet"
+      ]},
+      { t: "Leadership Training: Ultimate Function Preparation", min: 15, who: "Johnny & Irene", pts: [
+        "Why big functions are essential for short-term and long-term success",
+        "How to prepare apprentices before major events",
+        "Using events to speed up belief and duplication"
+      ]},
+      { t: "Wrap-Up Training: How to Win in the Next 90 Days", min: 20, who: "Jerry Tan", pts: [
+        ["The first 90 days for a new apprentice", ["Initial excitement, the emotional roller coaster, then long-term commitment", "Getting through doubt, wrong expectations and a lack of activity momentum"]],
+        "Why the first 90 days are the most important stage for every new apprentice",
+        "How to build self-confidence",
+        "What it's like to grow from 0 to 3/6"
+      ]}
+    ]
+  },
+  {
+    id: "2026-02-27", date: "2026-02-27", kind: "FNH",
+    title: "HY Friday Night Hangout", sub: "Virtual + in person",
+    time: "7:30 to 9:00 PM ET", where: "In person and on Zoom", dress: "Sharp business casual",
+    roles: [["Host / Timer", "Vemon & William", HOST_NOTE], ["Online CEO (Chief Energy Officer)", "Ding"], ["DJ & Technology", "Johnny"]],
+    agenda: [
+      { t: "Introductions & Recognition", pts: [
+        ["Candidates & new IBOs", ["Name · City · Background · What excites you about the opportunity"]],
+        ["Existing partners (2 MGs or any retail success)", ["Name · City · Background · What you did this week · Goal"]]
+      ]},
+      { t: "Product & Volume Generation", min: 12, who: "Annice & Wendy", pts: [
+        "From invite to follow-up, how did you use the health and SAM sessions? How easy was it really? Share your results."
+      ]},
+      { t: "Upcoming Events", cal: [
+        ["Feb 28", "JL Clinic for the Launch 2 Promotion (qualification: 6+ MGs by 10 PM EST)"],
+        ["Mar 4", "JYT Team Evaluation Workshop"],
+        ["Mar 19", "JL Launch 2 Promotion festivities (Orlando, FL)"],
+        ["Mar 20 to 22", "In-person #ELEVATE function (Orlando, FL)"],
+        ["Coming up", "Go Diamond Weekend"]
+      ]},
+      { t: "Personal Growth", min: 4, who: "Ting", pts: [
+        "How you sustained a 160+ day Phase B Core Run while balancing extracurriculars, exams and a part-time job, and still had fun"
+      ]},
+      { t: "Personal Growth", min: 4, who: "Martin", pts: [
+        "What it was like being the #3 top user in the whole LLC, and how consistently taking in content in the environment, paired with in-person networking, sped up your work ethic and your confidence"
+      ]},
+      { t: "Leadership Training", min: 5, who: "Luke", pts: [
+        "The right mindset when a mentor or coach comes to town, and how you fully booked their calendar",
+        "How anchoring yourself in mentorship and this environment carried you through life's ups and downs"
+      ]},
+      { t: "Leadership Training", min: 5, who: "Lister, interviewed by Irene", pts: [
+        "How did you book 10+ MG1s from January to February?",
+        "What does mentorship truly look like for you?",
+        "What does doing PHP the right way mean, and why is consistency in it so important?"
+      ]},
+      { t: "Wrap-Up Training: Networking Skills + Boundaries", min: 20, who: "Johnny & Irene", pts: [
+        "Level up how you handle common scenarios in networking and process meetings",
+        "How to set boundaries in life to prioritize what matters to you"
+      ]}
+    ]
+  }
+];
+
+const $ = function(id){ return document.getElementById(id); };
+function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+function todayET(){ return new Date().toLocaleDateString("en-CA", { timeZone: "America/New_York" }); }
+function longDate(d){ return new Date(d + "T12:00:00").toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" }); }
+function shortDate(d){ return new Date(d + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }); }
+/* The event to open with: the next one coming (today counts), else the most recent. */
+function defaultEvent(){
+  const t = todayET();
+  const ahead = EVENTS.filter(function(e){ return e.date >= t; }).sort(function(a, b){ return a.date < b.date ? -1 : 1; });
+  return ahead[0] || EVENTS.slice().sort(function(a, b){ return a.date < b.date ? 1 : -1; })[0];
+}
+function status(e){
+  const t = todayET(), d = defaultEvent();
+  if(e.date === t) return ["Tonight", ""];
+  if(e.date > t) return [e === d ? "Next up" : "Coming up", ""];
+  return [e === d ? "Most recent" : "Past event", "past"];
+}
+function pointsHTML(pts){
+  return '<ul>' + pts.map(function(p){
+    return Array.isArray(p) ? '<li>' + esc(p[0]) + pointsHTML(p[1]) + '</li>' : '<li>' + esc(p) + '</li>';
+  }).join("") + '</ul>';
+}
+function segHTML(s, i){
+  return '<article class="seg"><div class="no" aria-hidden="true">' + (i + 1) + '</div><div class="body">'
+    + '<h4>' + esc(s.t) + '</h4>'
+    + ((s.min || s.who) ? '<div class="meta">' + (s.min ? '<span class="min">' + s.min + ' min</span>' : '') + (s.who ? '<span class="who">' + esc(s.who) + '</span>' : '') + '</div>' : '')
+    + (s.lead ? '<p class="lead">' + esc(s.lead) + '</p>' : '')
+    + (s.cal ? '<ul class="cal">' + s.cal.map(function(c){ return '<li><span class="d">' + esc(c[0]) + '</span><span>' + esc(c[1]) + '</span></li>'; }).join("") + '</ul>' : '')
+    + (s.pts ? pointsHTML(s.pts) : '')
+    + '</div></article>';
+}
+function render(){
+  const want = decodeURIComponent(location.hash.slice(1));
+  const e = EVENTS.filter(function(x){ return x.id === want; })[0] || defaultEvent();
+  const st = status(e);
+  const zid = (e.zoom || ZOOM).replace(/\D/g, "");
+  const total = e.agenda.reduce(function(n, s){ return n + (s.min || 0); }, 0);
+  $("ev").innerHTML =
+    '<section class="hero" aria-labelledby="evt">'
+    + '<span class="pill ' + st[1] + '">' + esc(st[0]) + '</span>'
+    + '<h2 id="evt">' + esc(e.title) + '</h2>'
+    + (e.sub ? '<p class="subt">' + esc(e.sub) + '</p>' : '')
+    + '<div class="facts">'
+    +   '<div class="fact"><div class="k">When</div><div class="v">' + esc(longDate(e.date)) + '<small>' + esc(e.time) + '</small></div></div>'
+    +   '<div class="fact"><div class="k">Where</div><div class="v">' + esc(e.where) + (e.whereNote ? '<small>' + esc(e.whereNote) + '</small>' : '') + '</div></div>'
+    +   '<div class="fact"><div class="k">Zoom</div><div class="v">' + esc(e.zoom || ZOOM)
+    +     (e.pass ? '<small>Passcode ' + esc(e.pass) + '</small>' : '')
+    +     '<div class="zoomrow"><a class="zbtn" href="https://zoom.us/j/' + zid + '" target="_blank" rel="noopener">Join Zoom</a>'
+    +     '<button type="button" class="zbtn ghost" data-copy="' + esc(e.zoom || ZOOM) + '">Copy ID</button></div></div></div>'
+    +   '<div class="fact"><div class="k">Dress code</div><div class="v">' + esc(e.dress) + '</div></div>'
+    + '</div></section>'
+    + '<div class="two">'
+    +   (e.flow ? '<section class="card"><h3>Overview</h3><ul class="flow">' + e.flow.map(function(f){ return '<li><span class="t">' + esc(f[0]) + '</span><span>' + esc(f[1]) + '</span></li>'; }).join("") + '</ul></section>' : '')
+    +   '<section class="card"' + (e.flow ? '' : ' style="grid-column:1/-1"') + '><h3>Roles</h3><ul class="roles">' + e.roles.map(function(r){
+          return '<li><div class="r">' + esc(r[0]) + '</div><div class="p">' + esc(r[1]) + '</div>' + (r[2] ? '<div class="n">' + esc(r[2]) + '</div>' : '') + '</li>';
+        }).join("") + '</ul></section>'
+    + '</div>'
+    + '<div class="agenda-h"><h3>' + esc(e.agendaTitle || "Agenda") + '</h3>' + (total ? '<span class="tot">' + total + ' min planned</span>' : '') + '</div>'
+    + e.agenda.map(segHTML).join("");
+  document.title = e.title + " · " + shortDate(e.date);
+  $("plist").innerHTML = EVENTS.slice().sort(function(a, b){ return a.date < b.date ? 1 : -1; }).map(function(x){
+    return '<li><a href="#' + x.id + '"' + (x === e ? ' aria-current="true"' : '') + '><span class="d">' + esc(shortDate(x.date)) + '</span>'
+      + '<span>' + esc(x.title) + (x.sub ? ' · ' + esc(x.sub) : '') + '</span><span class="k">' + esc(x.kind) + '</span></a></li>';
+  }).join("");
+}
+addEventListener("hashchange", function(){
+  if(location.hash === "#all") return;
+  render(); scrollTo({ top: 0, behavior: "smooth" });
+});
+document.addEventListener("click", function(ev){
+  const b = ev.target.closest("[data-copy]"); if(!b) return;
+  const v = b.dataset.copy.replace(/\D/g, "");
+  const done = function(ok){ const t = $("toast"); t.textContent = ok ? "Zoom ID copied" : "Zoom ID: " + b.dataset.copy; t.hidden = false; clearTimeout(t._h); t._h = setTimeout(function(){ t.hidden = true; }, 2200); };
+  if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(v).then(function(){ done(true); }, function(){ done(false); });
+  else done(false);
+});
+render();
+
+/* ---------- always the newest version ----------
+   GitHub Pages lets a browser reuse its saved copy for ten minutes, and a tab that stays open
+   never asks again, so a phone opened before the last change would keep the old agenda. The page
+   asks the server for its own newest copy, past every cache: on load, when the tab comes back
+   into view, and once a minute. If the script there differs from the one running, it reloads
+   onto it, keeping the event you were on. Nothing here is typed, so nothing to protect. */
+let stale = false, checkedAt = 0, triedAt = 0, staleKey = "";
+function paintVer(){
+  const when = function(t){ return new Date(t).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }); };
+  const txt = "Version " + when(BUILD) + (stale ? " · a newer version is out, reloading"
+    : checkedAt ? " · the newest (checked " + new Date(checkedAt).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }) + ")" : "");
+  document.querySelectorAll(".ver").forEach(function(el){ el.textContent = txt; el.classList.toggle("old", stale); });
+}
+function freshen(){
+  if(!/^https?:$/.test(location.protocol) || document.hidden || Date.now() - triedAt < 8000) return;
+  triedAt = Date.now();
+  fetch(location.pathname + "?latest=" + Date.now(), { cache: "no-store" })
+    .then(function(r){ return r.ok ? r.text() : ""; })
+    .then(function(html){
+      const m = /const BUILD = "([^"]+)";/.exec(html);
+      if(!m || !SELF) return;                  /* not this page: a wifi sign-in screen, an error */
+      checkedAt = Date.now();
+      /* Behind only when the server's copy is not older and its script differs. Right after a
+         push one edge server can lag, and that must not pull anyone back. */
+      stale = m[1] >= BUILD && html.indexOf(SELF) < 0;
+      staleKey = m[1] + ":" + html.length;
+      paintVer(); reloadWhenSafe();
+    }).catch(function(){});
+}
+function reloadWhenSafe(){
+  if(!stale){ $("upd").hidden = true; return; }
+  let tried = ""; try{ tried = sessionStorage.getItem("team-event-tried") || ""; }catch(e){}
+  /* One automatic reload per new version, so a bad edge server can never cause a loop. */
+  if(tried !== staleKey){ reloadNow(); return; }
+  $("updt").textContent = "A newer version of this page is out.";
+  $("upd").hidden = false;
+}
+function reloadNow(){
+  try{ sessionStorage.setItem("team-event-tried", staleKey); }catch(e){}
+  location.replace(location.pathname + "?v=" + Date.now() + location.hash);
+}
+$("updgo").onclick = reloadNow;
+paintVer(); freshen();
+setInterval(freshen, 60000);
+document.addEventListener("visibilitychange", function(){ if(!document.hidden) freshen(); });
+addEventListener("focus", freshen);
+addEventListener("pageshow", function(e){ if(e.persisted){ triedAt = 0; freshen(); } });
+</script>
+</html>
