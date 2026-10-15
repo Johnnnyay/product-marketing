@@ -1,6 +1,6 @@
 {
  "about": "HY team night agendas for team-event.html, newest first. Edited on the page after the admin login (··· → /api/save-functions?doc=team-events) or by Claude. Each agenda is a list of sections (intro, calendar, volume, growth, leadership); each item has a topic (t), speakers (who), a panel lead (by), minutes (min), bullets (pts) and, in the calendar, events (cal).",
- "savedAt": "2026-10-15T14:54:15.000Z",
+ "savedAt": "2026-10-15T15:17:22.000Z",
  "events": [
   {
    "id": "2026-10-16",
@@ -75,11 +75,13 @@
        "cal": [
         [
          "Oct 20 (Tue)",
-         "Clickner combined virtual team meeting, 9 PM ET"
+         "Clickner combined virtual team meeting",
+         "9 PM ET"
         ],
         [
          "Oct 21 (Wed)",
-         "NY/NJ in-person JL Team Evaluation ft. Leann Ren (host: Yufan He), Cre8ive Studio NYC, also on Zoom"
+         "NY/NJ in-person JL Team Evaluation ft. Leann Ren",
+         "8 to 9 PM ET · Host: Yufan He · Cre8ive Studio NYC, also on Zoom"
         ],
         [
          "Oct 23 (Fri)",
@@ -87,19 +89,23 @@
         ],
         [
          "Oct 24 (Sat)",
-         "Leadership 1 “Go 6x15, Bigger Vision Higher Impact” workshop, 2 to 6 PM ET (Phase B IBOs with 600 PV GPV in Sept or Oct, or 300 PV GPV in their first October)"
+         "Leadership 1 “Go 6x15, Bigger Vision Higher Impact” workshop",
+         "2 to 6 PM ET · For Phase B IBOs with 600 PV GPV in Sept or Oct, or 300 PV GPV in their first October"
         ],
         [
          "Oct 28 (Wed)",
-         "JL Team Evaluation ft. Josh Hanamann (host: Wyatt Huang), Zoom"
+         "JL Team Evaluation ft. Josh Hanamann",
+         "8 to 9 PM ET · Host: Wyatt Huang · Zoom"
         ],
         [
          "Oct 30 (Fri)",
-         "HY Product Expo, 5 to 7 PM ET, Cre8ive Studio NYC"
+         "HY Product Expo",
+         "5 to 7 PM ET · Cre8ive Studio NYC"
         ],
         [
          "Oct 30 (Fri)",
-         "FNH, Halloween theme, Cre8ive Studio NYC"
+         "FNH, Halloween theme",
+         "7:30 PM ET · Cre8ive Studio NYC"
         ]
        ]
       }
@@ -179,7 +185,7 @@
      ]
     }
    ],
-   "at": "2026-10-15T14:54:15.000Z"
+   "at": "2026-10-15T15:17:22.000Z"
   },
   {
    "id": "2026-09-26",

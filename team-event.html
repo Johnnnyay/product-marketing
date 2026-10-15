@@ -127,8 +127,10 @@ body.navopen .scrim{display:block;position:fixed;inset:0;background:rgba(20,26,2
 .ag li li{margin:2px 0}
 .ag ul ul{margin-top:2px}
 .cal{list-style:none;padding-left:0 !important}
-.cal li{display:grid;grid-template-columns:118px 1fr;gap:12px}
+.cal li{display:grid;grid-template-columns:118px 1fr;gap:12px;padding:5px 0}
 .cal .k{font-weight:600;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.cal .cw{display:block}
+.cal .cd{display:block;font-size:13.5px;color:var(--muted);margin-top:1px}
 .foot{margin-top:46px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
 .ver{font-size:12px;color:var(--muted);margin:4px 0 0}
 .ver.old{color:var(--amber);font-weight:700}
@@ -148,7 +150,7 @@ body.navopen .scrim{display:block;position:fixed;inset:0;background:rgba(20,26,2
   .meta div{grid-template-columns:92px 1fr;gap:10px}
   .rows li{grid-template-columns:1fr;gap:0;padding:7px 0}
   .rows.rl li{grid-template-columns:1fr 1fr;gap:10px;padding:5px 0}
-  .cal li{grid-template-columns:1fr;gap:0;padding:3px 0}
+  .cal li{grid-template-columns:94px 1fr;gap:8px;padding:5px 0}
   .crew{grid-template-columns:1fr 1fr}
   .ovt{font-size:12.5px}
   .ovt td,.ovt th{padding-right:6px}
@@ -244,7 +246,7 @@ body.navopen .scrim{display:block;position:fixed;inset:0;background:rgba(20,26,2
 /* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this
    file. The version check at the bottom reads it, and the script text, to tell an old copy of
    this page from the newest one (DiamondA70/_skills/app-qa/references/self-update.md). */
-const BUILD = "2026-10-15T15:02:45Z";
+const BUILD = "2026-10-15T15:17:38Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 /* The agendas: data/team-events.json next to this page, read fresh through the API (GitHub Pages
@@ -484,6 +486,23 @@ function overviewHTML(flow){
           : '<td colspan="3">' + esc(f[0]) + '</td>') + '</tr>';
       }).join("") + '</tbody></table>';
 }
+/* A calendar entry's details line: every "… ET" time is followed by its CT and PT, all · separated. */
+function detailsText(d){
+  return String(d || "").replace(/(\d{1,2}(?::\d{2})?\s*(?:AM|PM)?\s*(?:to|–|-)\s*)?\d{1,2}(?::\d{2})?\s*(?:AM|PM)\s*ET\b/gi, function(t){
+    return t + " · " + otherZones(t.replace(/\s*ET$/i, ""));
+  });
+}
+/* Calendar entries (Johnny, 2026-10-15: the run-on lines felt messy): the date once, the name of the
+   event, and a lighter line under it for time, host and place. Rows are [date, what, details];
+   older two-part rows show as they were. */
+function calHTML(cal){
+  let last = "";
+  return '<ul class="cal">' + cal.map(function(c){
+    const same = c[0] === last; last = c[0];
+    return '<li><span class="k">' + (same ? '' : esc(c[0])) + '</span><span><span class="cw">' + (c[2] !== undefined ? esc(c[1]) : withZones(c[1])) + '</span>'
+      + (c[2] ? '<span class="cd">' + esc(detailsText(c[2])) + '</span>' : '') + '</span></li>';
+  }).join("") + '</ul>';
+}
 /* In free text (calendar rows), every "… ET" time gets its CT and PT after it. */
 function withZones(text){
   return esc(text).replace(/(\d{1,2}(?::\d{2})?\s*(?:AM|PM)?\s*(?:to|–|-)\s*)?\d{1,2}(?::\d{2})?\s*(?:AM|PM)\s*ET\b/gi, function(t){
@@ -527,7 +546,10 @@ function agendaText(e){
       x.items.forEach(function(it){
         const sp = speakerText(it), head = [it.t, sp, it.min && (it.t || sp) ? it.min + " min" : ""].filter(Boolean).join(" – ");
         if(head) L.push("• " + head);
-        (it.cal || []).forEach(function(c){ L.push("• " + c[0] + ": " + zonesPlain(c[1])); });
+        (it.cal || []).forEach(function(c){
+          L.push("• " + c[0] + ": " + (c[2] !== undefined ? c[1] : zonesPlain(c[1])));
+          if(c[2]) L.push("   " + detailsText(c[2]));
+        });
         (it.pts || []).forEach(function(p){
           const top = head ? "   - " : "• ", sub = head ? "      ◦ " : "   - ";
           if(Array.isArray(p)){ L.push(top + p[0]); (p[1] || []).forEach(function(q){ L.push(sub + q); }); }
@@ -604,7 +626,7 @@ function itemHTML(it){
   if(it.min && parts.length) parts.push('<span class="im">' + it.min + '\u00a0min</span>');
   return '<div class="it">'
     + (parts.length ? '<p class="ih">' + parts.join('\u00a0<span class="sep">–</span> ') + '</p>' : '')
-    + (it.cal && it.cal.length ? '<ul class="cal">' + it.cal.map(function(c){ return '<li><span class="k">' + esc(c[0]) + '</span><span>' + withZones(c[1]) + '</span></li>'; }).join("") + '</ul>' : '')
+    + (it.cal && it.cal.length ? calHTML(it.cal) : '')
     + (it.pts && it.pts.length ? pointsHTML(it.pts) : '')
     + '</div>';
 }
@@ -706,7 +728,7 @@ function itemEditHTML(k, it, ii, n){
     + '<div class="grid2">'
     +   field("t", "Topic", it.t, { ph: ph.t }) + field("min", "Minutes", it.min || "", { type: "number", attr: ' min="0" max="240" inputmode="numeric"' })
     +   field("who", "Speaker(s)", it.who, { ph: ph.who }) + field("by", "Panel led by <i>(blank for one speaker)</i>", it.by, { ph: ph.by || "" })
-    +   (k === "calendar" ? field("cal", "Events <i>(one per line: date | what)</i>", fmtRows(it.cal), { area: true, full: true, rows: Math.max(3, (it.cal || []).length + 1), ph: "Oct 21 (Wed) | JL Team Evaluation" }) : '')
+    +   (k === "calendar" ? field("cal", "Events <i>(one per line: date | what | details: time in ET, host, place)</i>", fmtRows(it.cal), { area: true, full: true, rows: Math.max(3, (it.cal || []).length + 1), ph: "Oct 21 (Wed) | JL Team Evaluation | 8 PM ET · Zoom" }) : '')
     +   field("pts", "Bullet points <i>(one per line; start a line with - for a sub-point)</i>", fmtPts(it.pts), { area: true, full: true, rows: Math.max(k === "calendar" ? 2 : 3, (it.pts || []).length + 1), ph: ph.pts })
     + '</div></div>';
 }
@@ -770,7 +792,7 @@ function collect(){
       if(by) it.by = by;
       if(min > 0) it.min = min;
       const pts = parsePts(v("pts", ie)); if(pts.length) it.pts = pts;
-      const cal = parseRows(v("cal", ie), 2); if(cal.length) it.cal = cal;
+      const cal = parseRows(v("cal", ie), 3).map(function(r){ return r[2] ? r : r.slice(0, 2); }); if(cal.length) it.cal = cal;
       return it;
     }) };
   });
