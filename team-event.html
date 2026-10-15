@@ -253,7 +253,7 @@ button.ni{width:100%;text-align:left;background:none;border:0;border-left:3px so
 /* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this
    file. The version check at the bottom reads it, and the script text, to tell an old copy of
    this page from the newest one (DiamondA70/_skills/app-qa/references/self-update.md). */
-const BUILD = "2026-10-15T15:48:58Z";
+const BUILD = "2026-10-15T19:01:20Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 /* The agendas: data/team-events.json next to this page, read fresh through the API (GitHub Pages
@@ -367,7 +367,7 @@ function sectionsOf(e){
 
 let EVENTS = [], SAVED_AT = null, LOADED = false, LOAD_FAILED = false, KEPT_AT = 0, CHOOSING = false;
 let EDIT = null, DIRTY = false, SAVING = false, CONFLICT = null;
-let FLYERS = [];
+let FLYERS = [], CALS = [];
 let stale = false, checkedAt = 0, triedAt = 0, staleKey = "";   /* the version check, at the bottom */
 
 const $ = function(id){ return document.getElementById(id); };
@@ -572,6 +572,7 @@ function agendaText(e){
           else L.push(top + p);
         });
       });
+      if(x.k === "calendar") calsFor(e).forEach(function(c){ L.push("📅 " + c.label.replace(" (PDF)", "") + ": " + siteURL(c.file)); });
     });
   }
   L.push("", "Full agenda: " + location.origin + location.pathname + "#" + e.id);
@@ -617,10 +618,21 @@ function loadFlyers(){
       if(!d || !Array.isArray(d.flyers)) return;
       FLYERS = d.flyers.filter(function(f){ return f && f.id && f.img && f.title; })
         .sort(function(a, b){ return (a.date || "9") < (b.date || "9") ? -1 : (a.date || "9") > (b.date || "9") ? 1 : 0; });
+      CALS = (d.calendars || []).filter(function(c){ return c && /^\d{4}-\d{2}$/.test(c.month) && c.file; });
       if(EDIT) renderNav(); else if(LOADED || LOAD_FAILED) render();
     })
     .catch(function(){});
 }
+/* The JL monthly team calendar (Johnny, 2026-10-15: a link at the bottom of the calendar to the PDF
+   shared in the Phase B group). An event shows its own month's, and next month's once it is out. */
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+function calsFor(e){
+  const m = (e.date || "").slice(0, 7); if(!m) return [];
+  const y = +m.slice(0, 4), n = +m.slice(5, 7), next = (n === 12 ? (y + 1) + "-01" : y + "-" + String(n + 1).padStart(2, "0"));
+  return [m, next].map(function(k){ return CALS.find(function(c){ return c.month === k; }); }).filter(Boolean)
+    .map(function(c){ return { label: "Full " + MONTHS[+c.month.slice(5, 7) - 1] + " calendar (PDF)", file: c.file }; });
+}
+function siteURL(path){ return location.origin + location.pathname.replace(/[^/]*$/, "") + path; }
 function flyerFor(text){
   const s = String(text || "").toLowerCase();
   return FLYERS.find(function(f){ return (f.match || []).some(function(w){ return w && s.indexOf(String(w).toLowerCase()) > -1; }); }) || null;
@@ -708,7 +720,9 @@ function viewHTML(e){
     + (secs.length ? '<ol class="ag">' + secs.map(function(x){
         const m = minsOf(x.items);
         /* The intro's format lives in the guide (linked under Roles), not on the agenda. */
-        return '<li><h3>' + esc(SEC[x.k].name) + (m ? '<span>' + fmtMin(m) + ' min</span>' : '') + '</h3>' + x.items.map(itemHTML).join("") + '</li>';
+        const pdf = x.k === "calendar" ? calsFor(e).map(function(c){
+          return '<p class="glink"><a href="' + esc(c.file) + '" target="_blank" rel="noopener">' + esc(c.label) + '</a></p>'; }).join("") : '';
+        return '<li><h3>' + esc(SEC[x.k].name) + (m ? '<span>' + fmtMin(m) + ' min</span>' : '') + '</h3>' + x.items.map(itemHTML).join("") + pdf + '</li>';
       }).join("") + '</ol>' : '<p class="empty">The agenda is coming.</p>');
 }
 function footHTML(){ return '<div class="foot">Questions about an event? Ask your coach and mentor.<p class="ver"></p></div>'; }

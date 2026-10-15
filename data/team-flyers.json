@@ -1,5 +1,5 @@
 {
- "about": "Flyers for team dates, archived from the JL 3/6 and JL Phase B+ WhatsApp groups. team-event.html lists them under Flyers in the event list, and a calendar row whose text contains one of a flyer's match words links to that flyer. date sorts the list (blank = no fixed date, listed last).",
+ "about": "Flyers for team dates, archived from the JL 3/6, JL Phase B+ and NYC Elite WhatsApp groups, and the JL monthly team calendars (PDF). team-event.html lists the flyers under Flyers in the event list, and a calendar row whose text contains one of a flyer's match words links to that flyer. date sorts the list (blank = no fixed date, listed last). A calendar shows as a link under the Calendar section of every event in its month (and of the month before).",
  "flyers": [
   {
    "id": "go-6x15",
@@ -50,6 +50,14 @@
     "puerto rico"
    ],
    "from": "JL Phase B+ Info Group, Jerry, 2026-08-31"
+  }
+ ],
+ "calendars": [
+  {
+   "month": "2026-10",
+   "title": "JL Team Calendar, October 2026",
+   "file": "files/team/jl-team-calendar-2026-10.pdf",
+   "from": "JL Phase B+ Info Group, Eunice, 2026-10-08"
   }
  ]
 }
