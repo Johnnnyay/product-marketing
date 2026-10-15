@@ -85,6 +85,20 @@ body.navopen .scrim{display:block;position:fixed;inset:0;background:rgba(20,26,2
 .rows .k{color:var(--muted);font-variant-numeric:tabular-nums}
 .rows.ov li{grid-template-columns:200px 1fr}
 .tz{display:block;font-size:12.5px;color:var(--muted);font-weight:400}
+/* Overview table and role tiles (Johnny, 2026-10-15: cleaner, lined up). */
+.ovt{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.ovt th{font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--muted);text-align:left;padding:0 10px 6px 0}
+.ovt td{padding:9px 10px 9px 0;border-top:1px solid var(--line);vertical-align:top}
+.ovt td:first-child{font-weight:600;width:34%}
+.ovt td:nth-child(2){color:var(--ink);white-space:nowrap}
+.ovt td:nth-child(n+3){color:var(--muted);white-space:nowrap}
+.ovt td:last-child,.ovt th:last-child{padding-right:0}
+.crew{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.crew div{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--ground)}
+.crew span{display:block;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.crew b{display:block;font-size:16px;font-weight:700;margin-top:3px}
+.crew b.tbc{font-size:14px;font-weight:400}
+.crew i{display:block;font-style:normal;font-size:12px;color:var(--muted);margin-top:1px}
 .meta dd small.tz{font-size:13px;color:var(--muted)}
 .tzi{color:var(--muted);font-size:.92em;white-space:nowrap}
 .rows .n{display:block;color:var(--muted);font-size:14px}
@@ -135,6 +149,10 @@ body.navopen .scrim{display:block;position:fixed;inset:0;background:rgba(20,26,2
   .rows li{grid-template-columns:1fr;gap:0;padding:7px 0}
   .rows.rl li{grid-template-columns:1fr 1fr;gap:10px;padding:5px 0}
   .cal li{grid-template-columns:1fr;gap:0;padding:3px 0}
+  .crew{grid-template-columns:1fr 1fr}
+  .ovt{font-size:12.5px}
+  .ovt td,.ovt th{padding-right:6px}
+  .ovt td:first-child{width:auto}
 }
 
 /* ---- admin ---- */
@@ -189,8 +207,7 @@ body.navopen .scrim{display:block;position:fixed;inset:0;background:rgba(20,26,2
 .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:10px;
   padding:9px 16px;font-size:14px;font-weight:600;z-index:95;max-width:calc(100% - 32px)}
 .toast[hidden]{display:none}
-.dress{font-weight:600;color:var(--ink);text-decoration:underline;text-decoration-color:var(--sage);text-underline-offset:3px}
-.dress + .zl .linkbtn{font-size:13.5px;font-weight:500}
+
 .lb{position:fixed;inset:0;z-index:97;background:rgba(14,18,15,.86);overflow:auto;padding:52px 12px 24px;text-align:center}
 .lb[hidden]{display:none}
 .lb img{width:100%;max-width:820px;height:auto;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
@@ -227,7 +244,7 @@ body.navopen .scrim{display:block;position:fixed;inset:0;background:rgba(20,26,2
 /* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this
    file. The version check at the bottom reads it, and the script text, to tell an old copy of
    this page from the newest one (DiamondA70/_skills/app-qa/references/self-update.md). */
-const BUILD = "2026-10-15T15:00:24Z";
+const BUILD = "2026-10-15T15:02:45Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 /* The agendas: data/team-events.json next to this page, read fresh through the API (GitHub Pages
@@ -447,6 +464,26 @@ function otherZones(s, startOnly){
   if(!s || !etOnly(s) || !TIME_RE.test(s)) return "";
   return ZONES.map(function(z){ return shiftTime(s, z[1], startOnly) + " " + z[0]; }).join(" · ");
 }
+/* "7:10 to 7:30 PM" moved by `hours`, written short: "6:10–6:30 PM". */
+function shortRange(s, hours){
+  const m = TIME_RE.exec(s); if(!m) return "";
+  const ap2 = m[6], ap1 = m[3] || ap2;
+  const a = tfmt(tmin(m[1], m[2], m[4] != null ? ap1 : ap2) + hours * 60, m[2] != null);
+  if(m[4] == null) return a.t + " " + a.ap;
+  const b = tfmt(tmin(m[4], m[5], ap2) + hours * 60, m[5] != null);
+  return a.t + (a.ap === b.ap ? "" : " " + a.ap) + "–" + b.t + " " + b.ap;
+}
+/* The night's run of show as a table: what, then the time in ET, CT and PT. A row whose time isn't
+   an Eastern clock time is shown as typed, across the three columns. */
+function overviewHTML(flow){
+  return '<table class="ovt"><thead><tr><th></th><th>ET</th><th>CT</th><th>PT</th></tr></thead><tbody>'
+    + flow.map(function(f){
+        const ok = TIME_RE.test(f[0]) && etOnly(f[0]);
+        return '<tr><td>' + esc(f[1]) + '</td>' + (ok
+          ? '<td>' + esc(shortRange(f[0], 0)) + '</td>' + ZONES.map(function(z){ return '<td>' + esc(shortRange(f[0], z[1])) + '</td>'; }).join("")
+          : '<td colspan="3">' + esc(f[0]) + '</td>') + '</tr>';
+      }).join("") + '</tbody></table>';
+}
 /* In free text (calendar rows), every "… ET" time gets its CT and PT after it. */
 function withZones(text){
   return esc(text).replace(/(\d{1,2}(?::\d{2})?\s*(?:AM|PM)?\s*(?:to|–|-)\s*)?\d{1,2}(?::\d{2})?\s*(?:AM|PM)\s*ET\b/gi, function(t){
@@ -593,17 +630,15 @@ function viewHTML(e){
     +   (zoom ? '<div><dt>Zoom</dt><dd>' + esc(zoom)
           + '<span class="zl"><a href="https://zoom.us/j/' + zid + '" target="_blank" rel="noopener">Join</a> · <button type="button" class="linkbtn" data-copy="' + esc(zoom) + '">Copy ID</button></span>'
           + (e.pass ? '<small>Passcode ' + esc(e.pass) + '</small>' : '') + '</dd></div>' : '')
-    +   (e.dress ? '<div><dt>Dress code</dt><dd><button type="button" class="linkbtn dress" data-act="dress" title="See the dress code guide">' + esc(e.dress) + '</button>'
+    +   (e.dress ? '<div><dt>Dress code</dt><dd>' + esc(e.dress)
           + '<span class="zl"><button type="button" class="linkbtn" data-act="dress">See the guide</button></span></dd></div>' : '')
     + '</dl>'
-    + (e.flow && e.flow.length ? '<h2>Overview</h2><ul class="rows ov">' + e.flow.map(function(f){
-        /* Overview times are Eastern without saying so: say it, and give the start in CT and PT. */
-        const z = otherZones(f[0], true), et = z && !/\bET\b/.test(f[0]) ? f[0] + " ET" : f[0];
-        return '<li><span class="k">' + esc(et) + (z ? '<span class="tz">' + esc(z) + '</span>' : '') + '</span><span>' + esc(f[1]) + '</span></li>';
-      }).join("") + '</ul>' : '')
-    + (roles.length ? '<h2>Roles</h2><ul class="rows rl">' + roles.map(function(r){
-        return '<li><span class="k">' + esc(r[0]) + '</span><span>' + (r[1] ? esc(r[1]) : '<span class="tbc">To be confirmed</span>') + '</span></li>';
-      }).join("") + '</ul>' : '')
+    + (e.flow && e.flow.length ? '<h2>Overview</h2>' + overviewHTML(e.flow) : '')
+    + (roles.length ? '<h2>Roles</h2><div class="crew">' + roles.map(function(r){
+        const m = /^(.*?)\s*\((.+)\)\s*$/.exec(r[0]);          /* "Online CEO (Chief Energy Officer)" */
+        return '<div><span>' + esc(m ? m[1] : r[0]) + '</span>' + (r[1] ? '<b>' + esc(r[1]) + '</b>' : '<b class="tbc">To be confirmed</b>')
+          + (m ? '<i>' + esc(m[2]) + '</i>' : '') + '</div>';
+      }).join("") + '</div>' : '')
     + '<h2>' + esc(e.agendaTitle || "Agenda") + (total ? '<span>' + total + ' min planned</span>' : '') + '</h2>'
     + (secs.length ? '<ol class="ag">' + secs.map(function(x){
         const m = minsOf(x.items);
