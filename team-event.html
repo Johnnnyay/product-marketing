@@ -77,6 +77,8 @@ button{font-family:inherit}
 .rows li{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:6px 0}
 .rows .k{color:var(--muted);font-variant-numeric:tabular-nums}
 .rows .n{display:block;color:var(--muted);font-size:14px}
+.rows.rl li{grid-template-columns:270px 1fr;padding:4px 0}
+.rows.rl li > span:last-child{font-weight:600}
 .tbc{color:var(--muted);font-style:italic;font-weight:400}
 /* No numbers on the sections (Johnny, 2026-10-14). */
 .ag{list-style:none;margin:0;padding:0}
@@ -124,6 +126,7 @@ button{font-family:inherit}
   .doc h1{font-size:26px}
   .meta div{grid-template-columns:92px 1fr;gap:10px}
   .rows li{grid-template-columns:1fr;gap:0;padding:7px 0}
+  .rows.rl li{grid-template-columns:1fr 1fr;gap:10px;padding:5px 0}
   .cal li{grid-template-columns:1fr;gap:0;padding:3px 0}
 }
 
@@ -205,7 +208,7 @@ button{font-family:inherit}
 /* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this
    file. The version check at the bottom reads it, and the script text, to tell an old copy of
    this page from the newest one (DiamondA70/_skills/app-qa/references/self-update.md). */
-const BUILD = "2026-10-15T03:53:37Z";
+const BUILD = "2026-10-15T14:29:30Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 /* The agendas: data/team-events.json next to this page, read fresh through the API (GitHub Pages
@@ -228,7 +231,29 @@ const INTROS = { t: "Introductions & Recognition", pts: [
    person, or a panel and the person who leads it), the minutes, and bullet points. The calendar's
    item lists events instead. All 54 items of the eight agendas from Feb 27 to Oct 16 fit this.
    Data: agenda = [{ k, items: [{ t, who, by, min, pts, cal }] }], sections in the event's order. */
-const HOST_NOTE = "Keep energy high and the event on time; have music ready before the event starts.";
+/* Roles: who hosts (two slots), who is the online CEO (Chief Energy Officer) and who runs tech.
+   Johnny, 2026-10-15: people need to know who is doing what, so on an FNH all four always show,
+   "To be confirmed" until someone is named. Anything else (a DJ, a timer) goes under other roles.
+   Stored as rows [role, person]; older labels ("Host / Co-host", "DJ & Technology") still map. */
+const STD_ROLES = [["host", "Host"], ["cohost", "Co-host"], ["ceo", "Online CEO (Chief Energy Officer)"], ["tech", "Tech"]];
+function roleKey(label){
+  const l = String(label || "").toLowerCase();
+  if(/^co-?host/.test(l)) return "cohost";
+  if(/^host/.test(l)) return "host";
+  if(/ceo|energy officer/.test(l)) return "ceo";
+  if(/^tech|technology/.test(l)) return "tech";
+  return "";
+}
+function roleSlots(e){
+  const std = {}, extra = [];
+  (e.roles || []).forEach(function(r){
+    if(!r || !(r[0] || r[1])) return;
+    const k = roleKey(r[0]);
+    if(k && !std[k]) std[k] = r[1] || ""; else if(r[1] || r[0]) extra.push([r[0] || "", r[1] || ""]);
+  });
+  return { std: std, extra: extra };
+}
+function isFNH(e){ return !e.kind || /fnh|friday/i.test(e.kind); }
 const READ = "What you read, 1 or 2 major takeaways, 1 or 2 things you are implementing";
 const LISTEN = "What you listened to, 1 or 2 major takeaways, 1 or 2 things you are implementing";
 const ORIENT_INTRO = [["New apprentices since the last orientation", ["Name · City · Who you are building with · What you are excited about · One fun fact about yourself"]]];
@@ -253,7 +278,7 @@ const NIGHTS = {
       date: date, kind: "FNH", title: "HY Friday Night Hangout", sub: monthName(date),
       time: "7:30 to 9:00 PM ET", where: "13102B 40th Rd Apartment", whereNote: "HY Condo · also on Zoom",
       zoom: ZOOM_DEFAULT, pass: "", dress: "Sharp business casual", agendaTitle: "", flow: clone(FNH_FLOW),
-      roles: [["Host / Co-host", "", HOST_NOTE], ["Online CEO (Chief Energy Officer)", "", ""], ["DJ & Technology", "", ""]],
+      roles: [],
       agenda: [
         { k: "intro", items: [{ pts: clone(INTROS.pts) }] },
         { k: "calendar", items: [{ min: 5 }] },
@@ -267,7 +292,7 @@ const NIGHTS = {
       date: date, kind: "Orientation", title: "HY Saturday Night Hangout", sub: monthName(date) + " New Apprentice Orientation",
       time: "8:00 to 9:00 PM ET", where: "Zoom only", whereNote: "", zoom: ZOOM_DEFAULT, pass: "", dress: "Business casual, camera on",
       agendaTitle: "New IBO Orientation", flow: [["7:55 to 8:00 PM", "Check in"], ["8:00 to 9:00 PM", "All partners"]],
-      roles: [["Host / Timer", "", "Keep energy high and the event on time. Remind everyone to turn their camera on, and give speakers a 30-second countdown."]],
+      roles: [],
       agenda: [
         { k: "intro", items: [{ min: 3, pts: clone(ORIENT_INTRO) }] },
         { k: "growth", items: [{ t: "Book", min: 2, pts: [READ] }, { t: "Audio", min: 2, pts: [LISTEN] }] },
@@ -409,7 +434,8 @@ function viewHTML(e){
   const zid = zoom.replace(/\D/g, "");
   const secs = sectionsOf(e);
   const total = secs.reduce(function(n, x){ return n + minsOf(x.items); }, 0);
-  const roles = (e.roles || []).filter(function(r){ return r[0] || r[1]; });
+  const rs = roleSlots(e);
+  const roles = STD_ROLES.filter(function(r){ return isFNH(e) || rs.std[r[0]]; }).map(function(r){ return [r[1], rs.std[r[0]] || ""]; }).concat(rs.extra);
   return (KEPT_AT ? '<p class="note">Offline: showing the copy saved on this phone. It updates when you are back online.</p>' : '')
     + '<div class="dtop"><span class="stat ' + st[1] + '">' + esc(st[0]) + '</span><span class="sp"></span>'
     + (admin() ? '<button type="button" class="btn" data-act="edit">Edit</button>' : '') + '</div>'
@@ -424,8 +450,8 @@ function viewHTML(e){
     +   (e.dress ? '<div><dt>Dress code</dt><dd>' + esc(e.dress) + '</dd></div>' : '')
     + '</dl>'
     + (e.flow && e.flow.length ? '<h2>Overview</h2><ul class="rows">' + e.flow.map(function(f){ return '<li><span class="k">' + esc(f[0]) + '</span><span>' + esc(f[1]) + '</span></li>'; }).join("") + '</ul>' : '')
-    + (roles.length ? '<h2>Roles</h2><ul class="rows">' + roles.map(function(r){
-        return '<li><span class="k">' + esc(r[0]) + '</span><span>' + (r[1] ? esc(r[1]) : '<span class="tbc">To be confirmed</span>') + (r[2] ? '<span class="n">' + esc(r[2]) + '</span>' : '') + '</span></li>';
+    + (roles.length ? '<h2>Roles</h2><ul class="rows rl">' + roles.map(function(r){
+        return '<li><span class="k">' + esc(r[0]) + '</span><span>' + (r[1] ? esc(r[1]) : '<span class="tbc">To be confirmed</span>') + '</span></li>';
       }).join("") + '</ul>' : '')
     + '<h2>' + esc(e.agendaTitle || "Agenda") + (total ? '<span>' + total + ' min planned</span>' : '') + '</h2>'
     + (secs.length ? '<ol class="ag">' + secs.map(function(x){
@@ -522,7 +548,11 @@ function renderEditor(){
     +   field("agendaTitle", "Agenda heading <i>(blank = Agenda)</i>", d.agendaTitle)
     + '</div>'
     + '<h2>Overview</h2>' + field("flow", "One per line: time | what", fmtRows(d.flow), { area: true, full: true, rows: (d.flow || []).length + 1, ph: "7:30 to 9:00 PM | All partners" })
-    + '<h2>Roles</h2>' + field("roles", "One per line: role | person | note", fmtRows(d.roles), { area: true, full: true, rows: (d.roles || []).length + 1, ph: "Host / Co-host | Annie, Wendy | Keep energy high" })
+    + '<h2>Roles</h2><div class="grid2">' + (function(){
+        const rs = roleSlots(d);
+        return STD_ROLES.map(function(r){ return field("role_" + r[0], esc(r[1]), rs.std[r[0]] || "", { ph: "To be confirmed" }); }).join("")
+          + field("rolesx", "Other roles <i>(optional, one per line: role | person)</i>", fmtRows(rs.extra), { area: true, full: true, rows: Math.max(2, rs.extra.length + 1), ph: "DJ | Vemon" });
+      })() + '</div>'
     + '<h2>Agenda</h2>' + d.agenda.map(function(x, si){ return secEditHTML(x, si, d.agenda.length); }).join("")
     + (function(){
         const missing = SECTIONS.filter(function(S){ return !d.agenda.some(function(x){ return x.k === S.k; }); });
@@ -543,7 +573,8 @@ function collect(){
   const d = EDIT.draft;
   ["title", "sub", "kind", "date", "time", "where", "whereNote", "zoom", "pass", "dress", "agendaTitle"].forEach(function(k){ d[k] = v(k).trim(); });
   d.flow = parseRows(v("flow"), 2);
-  d.roles = parseRows(v("roles"), 3);
+  d.roles = STD_ROLES.map(function(r){ return [r[1], v("role_" + r[0]).trim()]; }).filter(function(r){ return r[1]; })
+    .concat(parseRows(v("rolesx"), 2));
   d.agenda = Array.prototype.map.call(f.querySelectorAll(".sece"), function(se){
     return { k: se.dataset.k, items: Array.prototype.map.call(se.querySelectorAll(".iteme"), function(ie){
       const it = {};

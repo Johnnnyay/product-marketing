@@ -1,6 +1,6 @@
 {
  "about": "HY team night agendas for team-event.html, newest first. Edited on the page after the admin login (··· → /api/save-functions?doc=team-events) or by Claude. Each agenda is a list of sections (intro, calendar, volume, growth, leadership); each item has a topic (t), speakers (who), a panel lead (by), minutes (min), bullets (pts) and, in the calendar, events (cal).",
- "savedAt": "2026-10-15T14:29:16.947Z",
+ "savedAt": "2026-10-15T14:29:30.000Z",
  "events": [
   {
    "id": "2026-10-16",
@@ -174,9 +174,8 @@
    ],
    "roles": [
     [
-     "Host / Timer",
-     "Annie",
-     "Keep energy high and the event on time. Remind everyone to turn their camera on, and give speakers a 30-second countdown."
+     "Host",
+     "Annie"
     ]
    ],
    "agendaTitle": "New IBO Orientation",
@@ -277,7 +276,7 @@
     }
    ],
    "zoom": "515-333-3193",
-   "at": "2026-10-15T03:17:13.000Z"
+   "at": "2026-10-15T14:29:30.000Z"
   },
   {
    "id": "2026-07-31",
@@ -305,17 +304,24 @@
    ],
    "roles": [
     [
-     "Host / Co-host",
-     "Annie, Wendy",
-     "Keep energy high and the event on time; have music ready before the event starts."
+     "Host",
+     "Annie"
     ],
     [
-     "Online CEO (Chief Energy Officer) & DJ",
+     "Co-host",
+     "Wendy"
+    ],
+    [
+     "Online CEO (Chief Energy Officer)",
      "Vemon"
     ],
     [
-     "Technology",
+     "Tech",
      "Johnny"
+    ],
+    [
+     "DJ",
+     "Vemon"
     ]
    ],
    "agenda": [
@@ -440,7 +446,7 @@
     }
    ],
    "zoom": "515-333-3193",
-   "at": "2026-10-15T03:17:13.000Z"
+   "at": "2026-10-15T14:29:30.000Z"
   },
   {
    "id": "2026-05-15",
@@ -468,16 +474,19 @@
    ],
    "roles": [
     [
-     "Host / Co-host",
-     "Vemon & Luke",
-     "Keep energy high and the event on time; have music ready before the event starts."
+     "Host",
+     "Vemon"
+    ],
+    [
+     "Co-host",
+     "Luke"
     ],
     [
      "Online CEO (Chief Energy Officer)",
      "Ding"
     ],
     [
-     "DJ & Technology",
+     "Tech",
      "Johnny"
     ]
    ],
@@ -633,7 +642,7 @@
     }
    ],
    "zoom": "515-333-3193",
-   "at": "2026-10-15T03:17:13.000Z"
+   "at": "2026-10-15T14:29:30.000Z"
   },
   {
    "id": "2026-04-10",
@@ -661,16 +670,19 @@
    ],
    "roles": [
     [
-     "Host / Co-host",
-     "Martin & Luke",
-     "Keep energy high and the event on time; have music ready before the event starts."
+     "Host",
+     "Martin"
+    ],
+    [
+     "Co-host",
+     "Luke"
     ],
     [
      "Online CEO (Chief Energy Officer)",
      "Luke"
     ],
     [
-     "DJ & Technology",
+     "Tech",
      "Johnny"
     ]
    ],
@@ -827,7 +839,7 @@
     }
    ],
    "zoom": "515-333-3193",
-   "at": "2026-10-15T03:17:13.000Z"
+   "at": "2026-10-15T14:29:30.000Z"
   },
   {
    "id": "2026-03-13",
@@ -855,18 +867,20 @@
    ],
    "roles": [
     [
-     "Host / Timer",
-     "Johnny Huang & Eden",
-     "Keep energy high and the event on time."
+     "Host",
+     "Johnny"
     ],
     [
-     "Online Team CEO",
+     "Co-host",
+     "Eden"
+    ],
+    [
+     "Online CEO (Chief Energy Officer)",
      "Luke"
     ],
     [
-     "DJ & Technology",
-     "Johnny",
-     "Music before the event and during transitions to keep the room lively."
+     "Tech",
+     "Johnny"
     ]
    ],
    "agenda": [
@@ -1008,7 +1022,7 @@
     }
    ],
    "zoom": "515-333-3193",
-   "at": "2026-10-15T03:17:13.000Z"
+   "at": "2026-10-15T14:29:30.000Z"
   },
   {
    "id": "2026-02-27",
@@ -1021,16 +1035,19 @@
    "dress": "Sharp business casual",
    "roles": [
     [
-     "Host / Timer",
-     "Vemon & William",
-     "Keep energy high and the event on time; have music ready before the event starts."
+     "Host",
+     "Vemon"
+    ],
+    [
+     "Co-host",
+     "William"
     ],
     [
      "Online CEO (Chief Energy Officer)",
      "Ding"
     ],
     [
-     "DJ & Technology",
+     "Tech",
      "Johnny"
     ]
    ],
@@ -1155,7 +1172,7 @@
     }
    ],
    "zoom": "515-333-3193",
-   "at": "2026-10-15T03:17:13.000Z"
+   "at": "2026-10-15T14:29:30.000Z"
   }
  ]
 }
