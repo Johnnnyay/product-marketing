@@ -86,11 +86,11 @@ button{font-family:inherit}
 .ag h3 span{font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap}
 .it{margin-top:12px}
 .it:first-of-type{margin-top:8px}
-.ih{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
-.ih h4{font-size:16px;font-weight:700;line-height:1.35;margin:0}
-.im{font-size:13.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
-.iw{font-size:14.5px;color:var(--ink-2);margin-top:1px}
-.iw b{font-weight:600;color:var(--ink)}
+.ih{font-size:16px;line-height:1.45;margin:0}
+.ih b{font-weight:700}
+.ih .sep,.ih .im{color:var(--muted)}
+.ih .iw{color:var(--ink-2)}
+.ih .im{white-space:nowrap;font-variant-numeric:tabular-nums}
 .it ul{list-style:disc}
 .it ul ul{list-style:circle}
 .am{font-size:14px;color:var(--muted);margin-top:1px}
@@ -205,7 +205,7 @@ button{font-family:inherit}
 /* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this
    file. The version check at the bottom reads it, and the script text, to tell an old copy of
    this page from the newest one (DiamondA70/_skills/app-qa/references/self-update.md). */
-const BUILD = "2026-10-15T03:49:45Z";
+const BUILD = "2026-10-15T03:53:37Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 /* The agendas: data/team-events.json next to this page, read fresh through the API (GitHub Pages
@@ -383,16 +383,21 @@ function pointsHTML(pts){
     return Array.isArray(p) ? '<li>' + esc(p[0]) + (p[1] && p[1].length ? pointsHTML(p[1]) : '') + '</li>' : '<li>' + esc(p) + '</li>';
   }).join("") + '</ul>';
 }
-function speakerHTML(it){
-  if(it.by) return 'Panel: <b>' + esc(it.who || "") + '</b> · led by <b>' + esc(it.by) + '</b>';
-  return it.who ? '<b>' + esc(it.who) + '</b>' : '';
+function speakerText(it){
+  if(it.by) return (it.who ? it.who + " " : "") + "(led by " + it.by + ")";
+  return it.who || "";
 }
+/* One line per item, "Topic – Name(s) – 5 min" (Johnny, 2026-10-14: concise, no wasted space).
+   An untitled item with no speaker (the intros, the calendar) has its minutes on the section heading. */
 function itemHTML(it){
-  const sp = speakerHTML(it);
+  /* Each dash is glued to the word before it, so a wrapped line ends with the dash and never
+     starts with one. */
+  const sp = speakerText(it), parts = [];
+  if(it.t) parts.push('<b>' + esc(it.t) + '</b>');
+  if(sp) parts.push('<span class="iw">' + esc(sp) + '</span>');
+  if(it.min && parts.length) parts.push('<span class="im">' + it.min + '\u00a0min</span>');
   return '<div class="it">'
-    /* An untitled item (the intros, the calendar) has its minutes on the section heading already. */
-    + (it.t ? '<div class="ih"><h4>' + esc(it.t) + '</h4>' + (it.min ? '<span class="im">' + it.min + ' min</span>' : '') + '</div>' : '')
-    + (sp ? '<div class="iw">' + sp + '</div>' : '')
+    + (parts.length ? '<p class="ih">' + parts.join('\u00a0<span class="sep">–</span> ') + '</p>' : '')
     + (it.cal && it.cal.length ? '<ul class="cal">' + it.cal.map(function(c){ return '<li><span class="k">' + esc(c[0]) + '</span><span>' + esc(c[1]) + '</span></li>'; }).join("") + '</ul>' : '')
     + (it.pts && it.pts.length ? pointsHTML(it.pts) : '')
     + '</div>';
