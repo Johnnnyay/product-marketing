@@ -189,6 +189,13 @@ body.navopen .scrim{display:block;position:fixed;inset:0;background:rgba(20,26,2
 .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:10px;
   padding:9px 16px;font-size:14px;font-weight:600;z-index:95;max-width:calc(100% - 32px)}
 .toast[hidden]{display:none}
+.dress{font-weight:600;color:var(--ink);text-decoration:underline;text-decoration-color:var(--sage);text-underline-offset:3px}
+.dress + .zl .linkbtn{font-size:13.5px;font-weight:500}
+.lb{position:fixed;inset:0;z-index:97;background:rgba(14,18,15,.86);overflow:auto;padding:52px 12px 24px;text-align:center}
+.lb[hidden]{display:none}
+.lb img{width:100%;max-width:820px;height:auto;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.lbx{position:fixed;top:10px;right:12px;width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:var(--ink);
+  font-size:24px;line-height:1;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.3)}
 .cbox{position:fixed;inset:0;z-index:96;background:rgba(20,26,22,.4);display:flex;align-items:center;justify-content:center;padding:16px}
 .cbox[hidden]{display:none}
 .cdlg{background:var(--page);border-radius:14px;padding:16px;width:min(560px,100%);box-shadow:0 20px 60px rgba(20,26,22,.3)}
@@ -220,7 +227,7 @@ body.navopen .scrim{display:block;position:fixed;inset:0;background:rgba(20,26,2
 /* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this
    file. The version check at the bottom reads it, and the script text, to tell an old copy of
    this page from the newest one (DiamondA70/_skills/app-qa/references/self-update.md). */
-const BUILD = "2026-10-15T14:53:39Z";
+const BUILD = "2026-10-15T15:00:24Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 /* The agendas: data/team-events.json next to this page, read fresh through the API (GitHub Pages
@@ -464,7 +471,7 @@ function agendaText(e){
   if(e.time){ L.push("⏰ " + e.time); const z = otherZones(e.time); if(z) L.push("      " + z); }
   if(e.where) L.push("📍 " + e.where + (e.whereNote ? " (" + e.whereNote + ")" : ""));
   if(e.zoom) L.push("💻 Zoom " + e.zoom + (e.pass ? ", passcode " + e.pass : "") + ": https://zoom.us/j/" + e.zoom.replace(/\D/g, ""));
-  if(e.dress) L.push("👔 " + e.dress);
+  if(e.dress) L.push("👔 " + e.dress + " (guide: " + DRESS_URL() + ")");
   if(e.flow && e.flow.length){
     L.push("", "*Overview*");
     e.flow.forEach(function(f){ L.push(f[0] + (otherZones(f[0]) && !/\bET\b/.test(f[0]) ? " ET" : "") + " · " + f[1]); });
@@ -507,6 +514,22 @@ function showCopyBox(t){
   const ta = box.querySelector("textarea"); ta.value = t; box.hidden = false;
   setTimeout(function(){ ta.focus(); ta.select(); ta.setSelectionRange(0, t.length); }, 30);
 }
+/* Dress code guide (Johnny, 2026-10-15): business casual vs business formal, what works and what
+   doesn't. Tapping the dress code opens it. */
+const DRESS_IMG = "images/team/dress-code.jpg";
+function DRESS_URL(){ return location.origin + location.pathname.replace(/[^/]*$/, "") + DRESS_IMG; }
+function showDress(){
+  let lb = $("dresslb");
+  if(!lb){
+    lb = document.createElement("div"); lb.id = "dresslb"; lb.className = "lb";
+    lb.innerHTML = '<button type="button" class="lbx" aria-label="Close">×</button>'
+      + '<img src="' + DRESS_IMG + '" alt="Dress for success: business casual vs business formal, what to wear and what to avoid">';
+    document.body.appendChild(lb);
+    lb.addEventListener("click", function(ev){ if(ev.target === lb || ev.target.classList.contains("lbx")) lb.hidden = true; });
+  }
+  lb.hidden = false; lb.scrollTop = 0;
+}
+addEventListener("keydown", function(ev){ if(ev.key === "Escape"){ const lb = $("dresslb"); if(lb) lb.hidden = true; } });
 function copyAgenda(){
   const e = current(); if(!e) return;
   const t = agendaText(e);
@@ -570,7 +593,8 @@ function viewHTML(e){
     +   (zoom ? '<div><dt>Zoom</dt><dd>' + esc(zoom)
           + '<span class="zl"><a href="https://zoom.us/j/' + zid + '" target="_blank" rel="noopener">Join</a> · <button type="button" class="linkbtn" data-copy="' + esc(zoom) + '">Copy ID</button></span>'
           + (e.pass ? '<small>Passcode ' + esc(e.pass) + '</small>' : '') + '</dd></div>' : '')
-    +   (e.dress ? '<div><dt>Dress code</dt><dd>' + esc(e.dress) + '</dd></div>' : '')
+    +   (e.dress ? '<div><dt>Dress code</dt><dd><button type="button" class="linkbtn dress" data-act="dress" title="See the dress code guide">' + esc(e.dress) + '</button>'
+          + '<span class="zl"><button type="button" class="linkbtn" data-act="dress">See the guide</button></span></dd></div>' : '')
     + '</dl>'
     + (e.flow && e.flow.length ? '<h2>Overview</h2><ul class="rows ov">' + e.flow.map(function(f){
         /* Overview times are Eastern without saying so: say it, and give the start in CT and PT. */
@@ -856,6 +880,7 @@ document.addEventListener("click", function(ev){
   const act = b.dataset.act;
   if(act === "retry"){ LOAD_FAILED = false; render(); loadData(); return; }
   if(act === "copy"){ copyAgenda(); return; }
+  if(act === "dress"){ showDress(); return; }
   if(act === "new"){ startNew(); return; }
   if(act === "night"){ startFrom(b.dataset.night); return; }
   if(act === "unchoose"){ CHOOSING = false; render(); return; }
