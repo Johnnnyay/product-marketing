@@ -1,6 +1,6 @@
 {
  "about": "HY team night agendas for team-event.html, newest first. Edited on the page after the admin login (··· → /api/save-functions?doc=team-events) or by Claude. Johnny & Irene's street address never goes here: the page and this file are public.",
- "savedAt": "2026-10-15T03:02:00.000Z",
+ "savedAt": "2026-10-15T03:13:25.755Z",
  "events": [
   {
    "id": "2026-10-16",
@@ -9,8 +9,9 @@
    "title": "HY Friday Night Hangout",
    "sub": "October",
    "time": "7:30 to 9:00 PM ET",
-   "where": "Johnny & Irene's place, Flushing",
-   "whereNote": "Address in the group chat · also on Zoom",
+   "where": "13102B 40th Rd Apartment",
+   "whereNote": "HY Condo · also on Zoom",
+   "zoom": "515-333-3193",
    "dress": "Sharp business casual",
    "flow": [
     [
@@ -30,6 +31,7 @@
    "agenda": [
     {
      "t": "Introductions & Recognition",
+     "k": "intro",
      "pts": [
       [
        "Candidates & new IBOs",
@@ -43,11 +45,11 @@
         "Name · City · Background · What you did this week (2 MG1 / 20+ PV retail) · Goal"
        ]
       ]
-     ],
-     "k": "intro"
+     ]
     },
     {
      "t": "Calendar",
+     "k": "calendar",
      "min": 5,
      "cal": [
       [
@@ -74,11 +76,11 @@
        "Oct 30 (Fri)",
        "FNH, Halloween theme, Cre8ive Studio NYC"
       ]
-     ],
-     "k": "calendar"
+     ]
     },
     {
      "t": "Retail Training",
+     "k": "retail",
      "lead": "Getting ready for the holidays",
      "min": 10,
      "who": "Annice",
@@ -86,62 +88,60 @@
       "Retail ideas",
       "How to leverage a product party",
       "Holiday bundles and discounts"
-     ],
-     "k": "retail"
+     ]
     },
     {
      "t": "Personal Growth: Audio",
+     "k": "growth",
      "min": 2,
      "who": "Raymond",
      "pts": [
       "What you listened to, 1 or 2 major takeaways, 1 or 2 things you are implementing"
-     ],
-     "k": "growth"
+     ]
     },
     {
      "t": "Personal Growth: Book",
+     "k": "growth",
      "min": 2,
      "who": "Laura",
      "pts": [
       "What you read, 1 or 2 major takeaways, 1 or 2 things you are implementing"
-     ],
-     "k": "growth"
+     ]
     },
     {
      "t": "Product Education",
+     "k": "product",
      "lead": "Our new cellular aging product",
      "min": 5,
-     "who": "Wendy",
-     "k": "product"
+     "who": "Wendy"
     },
     {
      "t": "Product Education",
+     "k": "product",
      "lead": "Sleep and energy products",
      "min": 5,
-     "who": "Yoyo",
-     "k": "product"
+     "who": "Yoyo"
     },
     {
      "t": "Leadership Panel",
+     "k": "panel",
      "lead": "Building a work habit and leveraging mentorship",
      "min": 15,
-     "who": "Johnson, Shirley, Lister, led by Johnny",
-     "k": "panel"
+     "who": "Johnson, Shirley, Lister, led by Johnny"
     },
     {
      "t": "Wrap-Up Training",
+     "k": "wrapup",
      "min": 25,
      "who": "Jerry & Leann",
      "pts": [
       "Why this business",
       "What to expect in your first year",
       "Building your first team of 10"
-     ],
-     "k": "wrapup"
+     ]
     }
    ],
-   "zoom": "515-333-3193",
-   "at": "2026-10-15T03:02:00.000Z"
+   "at": "2026-10-15T03:13:25.755Z"
   },
   {
    "id": "2026-09-26",
