@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glow From Within</title>
+<meta name="description" content="Friday, September 25, 6:30 to 8:30 PM, New York. Three short check-ins before your consultations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#3D5A4C;--green:#5C8A6E;--green-light:#EDF2EE;--green-mid:#6F9E80;
+    --off-white:#F7F9F7;--gray-100:#F0F3F0;--gray-200:#E4E9E5;--gray-400:#9ca3af;
+    --gray-500:#6E7B74;--gray-600:#55605A;--gray-800:#2A332D;
+    /* One color per station: health green, skin aqua blue (the event artwork), hair plum. */
+    --skin:#2F7391;--skin-light:#E4F1F7;--skin-dark:#245A73;
+    --hair:#8B5A86;--hair-light:#F4EAF3;--hair-dark:#6E4469;
+    --radius-lg:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--off-white);color:var(--gray-800);-webkit-font-smoothing:antialiased;min-height:100vh}
+  button{font:inherit}
+  [hidden]{display:none !important}
+  .site-header{background:var(--navy);color:#fff;padding:14px 24px;display:flex;align-items:center;gap:12px}
+  .site-logo{font-family:'Caveat',cursive;font-size:22px;font-weight:600;color:rgba(255,255,255,.95)}
+  .hdr-tools{display:flex;align-items:center;gap:8px;margin-left:auto}
+  .pill{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);
+    color:rgba(255,255,255,.88);font-size:12px;font-weight:600;padding:6px 11px;border-radius:18px;cursor:pointer;white-space:nowrap;text-decoration:none}
+  .pill:hover{background:rgba(255,255,255,.2)}
+
+  .hero{background:radial-gradient(110% 150% at 88% -10%,rgba(140,200,222,.38) 0%,rgba(140,200,222,0) 55%),
+    linear-gradient(135deg,var(--navy) 0%,var(--green) 100%);color:#fff;padding:52px 20px 46px;text-align:center}
+  .hero-kicker{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:12px}
+  .hero h1{font-size:40px;font-weight:700;letter-spacing:-.01em;line-height:1.1;margin-bottom:10px}
+  .hero-tag{font-size:16px;color:rgba(255,255,255,.85);margin-bottom:22px}
+  .meta{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+  .meta > span{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);
+    border-radius:999px;padding:7px 13px;font-size:13px;color:rgba(255,255,255,.92)}
+  .meta svg{flex:none;opacity:.8}
+  @media(max-width:520px){.hero{padding:40px 16px 36px}.hero h1{font-size:32px}.hero-tag{font-size:15px}}
+
+  .wrap{max-width:960px;margin:0 auto;padding:30px 16px 56px}
+  .sec-h{font-size:21px;font-weight:700;color:var(--navy);margin-bottom:6px}
+  .sec-sub{font-size:14.5px;color:var(--gray-600);line-height:1.6;max-width:620px;margin-bottom:18px}
+  .progress{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--gray-500);margin-bottom:16px}
+  .progress-bar{flex:0 0 120px;height:6px;border-radius:999px;background:var(--gray-200);overflow:hidden}
+  .progress-bar i{display:block;height:100%;background:var(--green);border-radius:999px;transition:width .3s}
+
+  .stations{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px}
+  @media(max-width:820px){.stations{grid-template-columns:1fr}}
+  .st{background:#fff;border-radius:var(--radius-lg);box-shadow:0 1px 4px rgba(0,0,0,.07);padding:22px;display:flex;flex-direction:column;border:1.5px solid transparent;transition:border-color .2s}
+  .st.done{border-color:#cfe0d5}
+  .st-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .st{--a:var(--green);--al:var(--green-light);--ad:var(--navy)}
+  #st-skin{--a:var(--skin);--al:var(--skin-light);--ad:var(--skin-dark)}
+  #st-hair{--a:var(--hair);--al:var(--hair-light);--ad:var(--hair-dark)}
+  .st-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none;background:var(--al);color:var(--a)}
+  .st-kicker{font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--a)}
+  .st-name{font-size:17px;font-weight:700;color:var(--gray-800);margin-top:2px}
+  .st-desc{font-size:14px;color:var(--gray-600);line-height:1.6;margin-bottom:16px;flex:1}
+  .st-foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .st-time{font-size:12.5px;color:var(--gray-500);display:inline-flex;align-items:center;gap:5px}
+  .st-btn{display:inline-flex;align-items:center;gap:6px;background:var(--ad);color:#fff;text-decoration:none;font-weight:600;font-size:14px;padding:10px 18px;border-radius:999px;white-space:nowrap}
+  .st-btn:hover{background:var(--a)}
+  .st.done{border-color:var(--al)}
+  .st.done .st-btn{background:var(--al);color:var(--ad)}
+  .st-check{display:none;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--a)}
+  .st.done .st-check{display:inline-flex}
+  .st.done .st-time{display:none}
+
+  .info{display:grid;grid-template-columns:1.2fr 1fr;gap:14px}
+  @media(max-width:820px){.info{grid-template-columns:1fr}}
+  .card{background:#fff;border-radius:var(--radius-lg);box-shadow:0 1px 4px rgba(0,0,0,.07);padding:22px}
+  .card-title{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--green);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .card-title::after{content:'';flex:1;height:1px;background:var(--gray-200)}
+  .agenda li{list-style:none;display:grid;grid-template-columns:28px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--gray-100)}
+  .agenda li:last-child{border-bottom:0}
+  .agenda b{display:block;font-size:14.5px;color:var(--gray-800);margin-bottom:2px}
+  .agenda span{font-size:13.5px;color:var(--gray-600);line-height:1.55}
+  .agenda .n{width:24px;height:24px;border-radius:50%;background:var(--green-light);color:var(--green);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .kv{display:grid;grid-template-columns:84px 1fr;gap:6px 12px;font-size:14px;line-height:1.55;margin-bottom:16px}
+  .kv dt{color:var(--gray-500);font-size:13px}
+  .kv dd{color:var(--gray-800)}
+  .kv a,.link{color:var(--green);font-weight:600;text-decoration:none}
+  .kv a:hover,.link:hover{text-decoration:underline}
+  .book{display:block;text-align:center;background:var(--green-light);color:var(--navy);border:1.5px solid #cfe0d5;border-radius:12px;padding:12px;font-weight:600;font-size:14px;text-decoration:none}
+  .book:hover{background:#e2ece5}
+  .note{font-size:12.5px;color:var(--gray-500);margin-top:10px;line-height:1.55}
+
+  .foot{text-align:center;margin-top:34px;font-size:12px;color:var(--gray-400);line-height:1.8}
+  .foot button{background:none;border:0;color:var(--gray-500);text-decoration:underline;cursor:pointer;font-size:12px}
+  .ver.old{color:#A81C1C;font-weight:700}
+
+  /* Admin */
+  .tabs{display:none;background:#fff;border-bottom:1px solid var(--gray-200);position:sticky;top:0;z-index:20}
+  body.admin .tabs{display:block}
+  .tabs-in{max-width:960px;margin:0 auto;padding:0 12px;display:flex;gap:2px;overflow-x:auto}
+  .tab{background:none;border:0;border-bottom:2.5px solid transparent;padding:14px 14px 12px;font-size:14px;font-weight:600;color:var(--gray-500);cursor:pointer;white-space:nowrap}
+  .tab:hover{color:var(--navy)}
+  @media(max-width:420px){.tab{padding:14px 9px 12px;font-size:13.5px}.tab .c{margin-left:4px}}
+  .tab.on{color:var(--navy);border-bottom-color:var(--green)}
+  .tab .c{display:inline-block;min-width:20px;margin-left:6px;padding:1px 7px;border-radius:999px;background:var(--gray-100);font-size:11.5px;color:var(--gray-600)}
+  .tab.on .c{background:var(--green-light);color:var(--navy)}
+  #adminView[hidden],#guestView[hidden]{display:none}
+  .tools{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:16px}
+  .search{flex:1;min-width:200px;border:1.5px solid var(--gray-200);border-radius:999px;padding:10px 16px;font:inherit;font-size:14px;background:#fff}
+  .search:focus{outline:none;border-color:var(--green)}
+  .tbtn{background:#fff;border:1.5px solid var(--gray-200);border-radius:999px;padding:9px 15px;font-size:13px;font-weight:600;color:var(--gray-600);cursor:pointer}
+  .tbtn:hover{border-color:var(--green);color:var(--navy)}
+  .stamp{font-size:12px;color:var(--gray-500)}
+  .a-err{display:none;background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:12px 14px;font-size:13.5px;color:#991b1b;margin-bottom:14px}
+  /* Reporting: summary numbers, what guests want, then one row per guest. */
+  .kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:14px}
+  @media(max-width:900px){.kpis{grid-template-columns:repeat(3,1fr)}}
+  .kpi{background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(0,0,0,.07);padding:14px 16px}
+  .kpi b{display:block;font-size:26px;font-weight:700;color:var(--navy);line-height:1.1}
+  .kpi span{font-size:12px;color:var(--gray-500)}
+  .kpi.alert b{color:#9b2c21}
+  .insights{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}
+  @media(max-width:900px){.insights{grid-template-columns:1fr}}
+  .ins{background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(0,0,0,.07);padding:16px 18px}
+  .ins h3{font-size:11px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+  .bar{display:grid;grid-template-columns:minmax(0,1fr) 64px 22px;align-items:center;gap:10px;font-size:13px;line-height:1.35;color:var(--gray-800);padding:4px 0}
+  .bar i{display:block;height:7px;border-radius:999px;background:var(--green-light);position:relative;overflow:hidden}
+  .bar i::after{content:'';position:absolute;inset:0 auto 0 0;width:var(--w);background:var(--green);border-radius:999px}
+  .ins.skin h3{color:var(--skin)}
+  .ins.skin .bar i{background:var(--skin-light)}
+  .ins.skin .bar i::after{background:var(--skin)}
+  .ins.hair h3{color:var(--hair)}
+  .ins.hair .bar i{background:var(--hair-light)}
+  .ins.hair .bar i::after{background:var(--hair)}
+  .bar em{font-style:normal;font-weight:700;color:var(--gray-600);text-align:right}
+  .ins-empty{font-size:13px;color:var(--gray-400)}
+  .tbl-wrap{background:#fff;border-radius:14px;box-shadow:0 1px 4px rgba(0,0,0,.07);overflow-x:auto}
+  table.tbl{width:100%;min-width:900px;border-collapse:collapse;font-size:13.5px;line-height:1.45}
+  .tbl th{text-align:left;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-500);padding:12px 14px;border-bottom:1px solid var(--gray-200);white-space:nowrap;background:#fff}
+  .tbl td{padding:12px 14px;border-bottom:1px solid var(--gray-100);vertical-align:top;color:var(--gray-800)}
+  .tbl th:first-child,.tbl td:first-child{position:sticky;left:0;background:#fff;z-index:1;box-shadow:1px 0 0 var(--gray-100)}
+  .tbl tr.row{cursor:pointer}
+  .tbl tr.row:hover td{background:#f8faf8}
+  .tbl tr.row.open td{background:#f3f7f4;border-bottom-color:transparent}
+  .gname{font-weight:700;color:var(--gray-800);white-space:nowrap}
+  .gsub{font-size:12px;color:var(--gray-500);margin-top:2px;overflow-wrap:anywhere}
+  .muted{color:var(--gray-400)}
+  .small{font-size:12.5px;color:var(--gray-600);margin-top:3px}
+  .clamp{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;max-width:300px}
+  .done3{display:flex;gap:4px}
+  .done3 span{width:22px;height:22px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:700;background:var(--gray-100);color:var(--gray-400)}
+  .done3 span.on{background:var(--green);color:#fff}
+  .done3 span.on.skin{background:var(--skin)}
+  .done3 span.on.hair{background:var(--hair)}
+  .tbl tr.detail td{background:#f3f7f4;padding:4px 14px 18px}
+  .tbl tr.detail td:first-child{position:static;box-shadow:none}
+  .dgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:1100px}
+  .dcard{background:#fff;border-radius:12px;padding:14px 16px}
+  .dcard h4{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--green);margin-bottom:8px}
+  .dk{font-size:11.5px;color:var(--gray-500);margin-top:8px}
+  .dv{font-size:13.5px;color:var(--gray-800);white-space:pre-wrap;word-break:break-word}
+  .dact{display:flex;gap:8px;align-items:center;margin-top:12px}
+  .tag{display:inline-block;background:var(--green-light);color:#1f4d36;border-radius:999px;padding:2px 9px;font-size:12.5px;font-weight:600;margin:0 5px 4px 0;white-space:normal}
+  .tag.warm{background:#DCEADF;color:#244a36}
+  .tag.skin{background:var(--skin-light);color:var(--skin-dark)}
+  .tag.hair{background:var(--hair-light);color:var(--hair-dark)}
+  .tag.alert{background:#fdecea;color:#9b2c21}
+  .status{flex:none;display:inline-block;white-space:nowrap;font-size:11.5px;font-weight:700;border-radius:999px;padding:3px 9px;background:var(--gray-100);color:var(--gray-600)}
+  .status.ready{background:var(--green-light);color:var(--navy)}
+  .ent-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:10px}
+  .abtn{background:var(--navy);color:#fff;border:0;border-radius:999px;padding:8px 15px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap}
+  .acts{display:flex;align-items:center;gap:4px;white-space:nowrap}
+  .abtn:hover{background:#47695a}
+  .dbtn{background:none;border:0;color:#b3261e;font-size:12.5px;font-weight:600;cursor:pointer;padding:8px 6px;white-space:nowrap}
+  .dbtn:hover{text-decoration:underline}
+  .empty{background:#fff;border-radius:14px;padding:34px 20px;text-align:center;color:var(--gray-500);font-size:14px;line-height:1.6}
+
+  #upd{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:12px;background:#141A16;color:#fff;border-radius:999px;padding:8px 8px 8px 18px;font-size:14px;font-weight:700;max-width:calc(100vw - 24px)}
+  #upd[hidden]{display:none}
+  #upd button{font-size:13px;font-weight:800;background:#FFD166;color:#141A16;border:0;border-radius:999px;padding:7px 14px;cursor:pointer}
+</style>
+<script src="event-options.js?v=1"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <span class="site-logo">Glow From Within</span>
+  <div class="hdr-tools">
+    <div class="lang-wrap" id="langMenu"></div>
+    <button class="pill" id="signOut" hidden data-t="signOut"></button>
+    <button class="pill" id="adminDots" title="Admin login">···</button>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Admin views"><div class="tabs-in" id="tabs">
+  <button class="tab" data-tab="guest"><span data-t="tGuest"></span></button>
+  <button class="tab" data-tab="overview"><span data-t="tAll"></span><span class="c" id="c-overview">·</span></button>
+  <button class="tab" data-tab="health"><span data-t="tHealth"></span><span class="c" id="c-health">·</span></button>
+  <button class="tab" data-tab="skin"><span data-t="tSkin"></span><span class="c" id="c-skin">·</span></button>
+  <button class="tab" data-tab="hair"><span data-t="tHair"></span><span class="c" id="c-hair">·</span></button>
+</div></nav>
+
+<div id="guestView">
+  <section class="hero">
+    <div class="hero-kicker" data-t="kicker"></div>
+    <h1>Glow From Within</h1>
+    <div class="hero-tag" data-t="tagline"></div>
+    <div class="meta">
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg><span data-t="date"></span></span>
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-t="time"></span></span>
+      <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-t="place"></span></span>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <h2 class="sec-h" data-t="beforeH"></h2>
+    <p class="sec-sub" data-t="beforeSub"></p>
+    <div class="progress"><div class="progress-bar"><i id="progFill" style="width:0"></i></div><span id="progText"></span></div>
+
+    <div class="stations">
+      <div class="st" id="st-health">
+        <div class="st-top">
+          <div class="st-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 16-9 0 12-4 16-9 16z"/><path d="M4 20c3-5 7-8 11-10"/></svg></div>
+          <div><div class="st-kicker" data-t="hKicker"></div><div class="st-name" data-t="hName"></div></div>
+        </div>
+        <p class="st-desc" data-t="hDesc"></p>
+        <div class="st-foot"><span class="st-time" data-t="min10"></span><span class="st-check" data-t="doneMark"></span><a class="st-btn" id="go-health" href="#"></a></div>
+      </div>
+      <div class="st" id="st-skin">
+        <div class="st-top">
+          <div class="st-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
+          <div><div class="st-kicker" data-t="sKicker"></div><div class="st-name" data-t="sName"></div></div>
+        </div>
+        <p class="st-desc" data-t="sDesc"></p>
+        <div class="st-foot"><span class="st-time" data-t="min2"></span><span class="st-check" data-t="doneMark"></span><a class="st-btn" id="go-skin" href="#"></a></div>
+      </div>
+      <div class="st" id="st-hair">
+        <div class="st-top">
+          <div class="st-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 21c0-6 1-10 5-13"/><path d="M12 21c0-6 .5-10 3-13"/><path d="M17 21c0-5-.5-9-1-11"/><path d="M5 8c2-3 5-5 9-5 3 0 5 1 5 3"/></svg></div>
+          <div><div class="st-kicker" data-t="rKicker"></div><div class="st-name" data-t="rName"></div></div>
+        </div>
+        <p class="st-desc" data-t="rDesc"></p>
+        <div class="st-foot"><span class="st-time" data-t="min2"></span><span class="st-check" data-t="doneMark"></span><a class="st-btn" id="go-hair" href="#"></a></div>
+      </div>
+    </div>
+
+    <div class="info">
+      <div class="card">
+        <div class="card-title" data-t="happeningT"></div>
+        <ul class="agenda">
+          <li><div class="n">1</div><div><b data-t="a1"></b><span data-t="a1d"></span></div></li>
+          <li><div class="n">2</div><div><b data-t="a2"></b><span data-t="a2d"></span></div></li>
+          <li><div class="n">3</div><div><b data-t="a3"></b><span data-t="a3d"></span></div></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title" data-t="detailsT"></div>
+        <dl class="kv">
+          <dt data-t="whenK"></dt><dd><span data-t="date"></span><br><span data-t="time"></span></dd>
+          <dt data-t="whereK"></dt><dd>134 W 29th St, Floor 2, Space 3-1<br>New York, NY 10001<br><a href="https://maps.google.com/?q=134+W+29th+St,+New+York,+NY+10001" target="_blank" rel="noopener" data-t="maps"></a></dd>
+        </dl>
+        <a class="book" href="https://unityhy.setmore.com/" target="_blank" rel="noopener" data-t="book"></a>
+        <p class="note" data-t="bookNote"></p>
+      </div>
+    </div>
+
+    <div class="foot">
+      <div class="ver"></div>
+      <button type="button" id="resetBtn" data-t="reset"></button>
+    </div>
+  </div>
+</div>
+
+<div id="adminView" class="wrap" hidden>
+  <div class="tools">
+    <input class="search" id="search" type="search" placeholder="Search by name or email" autocomplete="off">
+    <button class="tbtn" id="refresh" data-t="refresh"></button>
+    <button class="tbtn" id="csv" data-t="csv"></button>
+    <span class="stamp" id="stamp"></span>
+  </div>
+  <div class="a-err" id="aErr" role="alert"></div>
+  <div id="summary"></div>
+  <div id="list"></div>
+  <div class="foot"><div class="ver"></div></div>
+</div>
+
+<div id="upd" hidden><span id="updt"></span><button type="button" id="updgo" data-t="reload"></button></div>
+
+<script src="admin-session.js"></script>
+<script>
+const BUILD = "2026-10-15T16:20:52Z";
+const SELF = document.currentScript ? document.currentScript.textContent : "";
+
+const EVENT = "glow-2026-09-25";
+const PAGE = "glow-2026-09-25.html";   /* the Sept 25 page, kept for its guest answers; glow.html is the next event */
+const API = AdminSession.API + "/api/event";
+const DONE = "event-done:" + EVENT;
+const TYPES = ["health", "skin", "hair"];
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+/* ── Words on this page, English and Chinese. The guest view is written for guests; the admin
+   view for the team. Saved answers stay in English and are labelled here per language. ── */
+let L = EventI18n.current();
+const tx = (a) => Array.isArray(a) ? (a[L] || a[0]) : a;
+const T = {
+  kicker: ["You're on the list", '你已报名成功'],
+  tagline: ['Feel good. Look good. Live well.', '身心舒展，容光焕发，好好生活。'],
+  date: ['Friday, September 25', '9月25日 周五'],
+  time: ['6:30 to 8:30 PM', '晚上 6:30–8:30'],
+  place: ['134 W 29th St, New York', '纽约 134 W 29th St'],
+  beforeH: ['Before you arrive', '到场之前'],
+  beforeSub: ['Three short check-ins, one for each part of the evening: nutrition, skin, and scalp. Think of it as a few minutes to check in with yourself before the night. There are no right answers, just an honest starting point for your conversations.', '三个简短的小问卷，分别对应当晚的三个环节：营养、皮肤和头皮。花几分钟和自己的身体聊聊，没有标准答案，只是给当晚的交流开个好头。'],
+  hKicker: ['Health & Nutrition', '健康与营养'], hName: ['Health Assessment', '健康评估'],
+  hDesc: ['Energy, sleep, digestion, and the everyday habits behind them. Your answers become a personal nutrition report we walk through together at the event.', '精力、睡眠、消化，以及背后的日常习惯。你的回答会生成一份专属营养报告，活动当天我们一起解读。'],
+  sKicker: ['Skincare', '护肤'], sName: ['Skin Assessment', '皮肤评估'],
+  sDesc: ["What you'd love to change, how your skin feels day to day, and the routine you have now. Pairs with the blue light skin diagnostic.", '你最想改善的地方、平时的肤感，以及现在的护肤步骤。对应当晚的蓝光皮肤检测。'],
+  rKicker: ['Scalp & Haircare', '头皮与头发护理'], rName: ['Hair & Scalp Assessment', '头发与头皮评估'],
+  rDesc: ["What you'd love to change, your hair type, and the products you reach for now. Pairs with the scalp and hair scan.", '你最想改善的地方、你的发质，以及现在常用的产品。对应当晚的头皮与头发检测。'],
+  min10: ['About 10 minutes', '约 10 分钟'], min2: ['About 2 minutes', '约 2 分钟'],
+  doneMark: ['✓ Done', '✓ 已完成'], start: ['Start', '开始'], again: ['Do it again', '再做一次'],
+  progress: ['{n} of 3 done', '已完成 {n}/3'], allDone: ['All three done. See you Friday.', '三项都完成了，周五见！'],
+  happeningT: ["What's happening", '活动内容'],
+  a1: ['Health & nutrition consultation', '健康与营养咨询'],
+  a1d: ['How nutrition affects your energy and overall health, and practical ways to fuel your body from the inside out.', '了解营养如何影响你的精力和整体健康，找到由内而外滋养身体的实用方法。'],
+  a2: ['Blue light skin diagnostic', '蓝光皮肤检测'],
+  a2d: ["A closer look at what's going on with your skin, from dryness and oiliness to breakouts and signs of aging.", '近距离看看你的皮肤状况，从干燥、出油到痘痘和衰老迹象。'],
+  a3: ['Scalp & hair scan', '头皮与头发检测'],
+  a3d: ['A closer look at your scalp and hair, and how your routine plays a part in how your hair looks and feels.', '近距离看看你的头皮和头发，以及日常护理如何影响头发的状态。'],
+  detailsT: ['Details', '活动信息'], whenK: ['When', '时间'], whereK: ['Where', '地点'], maps: ['Open in Maps', '在地图中打开'],
+  book: ['Book a free consultation time', '预约免费咨询时间'],
+  bookNote: ['Consultations are free with a booking. If the times are full, there is a waitlist at the event.', '预约即可免费咨询。如果时段已满，活动现场可以排队候补。'],
+  reset: ['Clear my check-ins on this device', '清除这台设备上的记录'],
+  reload: ['Reload now', '立即刷新'], newer: ['A newer version is out.', '页面有新版本。'], newerTried: ['A newer version of this page is out.', '这个页面有新版本。'],
+  resetQ: ['Clear the check marks and your saved name and email on this device? Answers you already sent are not affected.', '要清除这台设备上的完成标记和保存的姓名邮箱吗？已经提交的答案不受影响。'],
+  /* admin */
+  signOut: ['Sign out of admin', '退出管理员'], tGuest: ['Guest view', '访客视图'], tAll: ['All guests', '全部嘉宾'],
+  tHealth: ['Health', '健康'], tSkin: ['Skin', '皮肤'], tHair: ['Hair', '头发'],
+  search: ['Search by name or email', '按姓名或邮箱搜索'], refresh: ['Refresh', '刷新'], csv: ['Download CSV', '下载 CSV'],
+  loading: ['Loading…', '加载中…'], updated: ['Updated {t}', '更新于 {t}'],
+  loadFail: ['Could not load the answers: {e}. Tap Refresh to try again.', '答案加载失败：{e}。点刷新再试一次。'],
+  expired: ['Your admin sign-in has expired. Tap ··· to sign in again.', '管理员登录已过期，请点 ··· 重新登录。'],
+  kGuests: ['Guests', '嘉宾'], kAll3: ['All 3 done', '三项全做完'], kAllergy: ['Allergies flagged', '有过敏'],
+  iPrio: ['Health priorities', '健康方面最在意'], iSkin: ['Skin concerns', '皮肤问题'], iHair: ['Hair concerns', '头发问题'],
+  noAnswers: ['No answers yet', '还没有答案'],
+  writing: ['Being written', '生成中'], ready: ['Report ready', '报告已生成'],
+  allergyUnspecified: ['Allergy, not specified', '有过敏，未说明'], treated: ['Treated: ', '染烫：'],
+  notDone: ['Not done yet', '还没做'], hairScalp: ['Hair & scalp', '头发与头皮'],
+  kPrio: ['Priorities', '最在意'], kSignals: ['Signals', '信号'], kProducts: ['Products', '产品'], kSubmitted: ['Submitted', '提交时间'],
+  signalsSoon: ['Ready about two minutes after they submit', '提交后约两分钟生成'],
+  kConcerns: ['Top concerns', '最在意的问题'], kSkinType: ['Skin type', '肤质'], kHairType: ['Hair type', '发质'],
+  kChem: ['Dyed, permed or chemically treated', '染烫或化学处理'], kAllergies: ['Allergies', '过敏'], none: ['None', '没有'], kRoutine: ['Routine', '日常护理'],
+  openReport: ['Open report', '打开报告'], open: ['Open', '打开'], del: ['Delete', '删除'], deleting: ['Deleting…', '删除中…'],
+  hGuest: ['Guest', '嘉宾'], hDone: ['Done · last activity', '完成情况 · 最近'], hPrio: ['Health priorities', '健康方面最在意'],
+  hSkin: ['Skin', '皮肤'], hHair: ['Hair & scalp', '头发与头皮'], hSignals: ['Signals', '信号'], hProducts: ['Products', '产品'],
+  hReport: ['Report', '报告'], hSubmitted: ['Submitted', '提交时间'], hConcerns: ['Top concerns', '最在意的问题'], hType: ['Type', '类型'],
+  hAllergies: ['Allergies', '过敏'], hRoutine: ['Routine', '日常护理'],
+  noName: ['No name', '未填姓名'], noEmail: ['no email', '未填邮箱'],
+  nothing: ['Nothing loaded yet. Tap Refresh.', '还没有加载，点刷新。'],
+  noMatch: ['No one matches “{q}”.', '没有人符合“{q}”。'],
+  noCheckins: ['No check-ins yet. Rows appear here as guests send their answers.', '还没有人提交。嘉宾提交后会出现在这里。'],
+  noHealth: ['No health assessments from this event page yet.', '还没有从活动页提交的健康评估。'],
+  noSkin: ['No skin assessments yet.', '还没有皮肤评估。'], noHair: ['No hair assessments yet.', '还没有头发评估。'],
+  delQ: ["Delete {name}'s {type} answers? This cannot be undone.", '确定删除 {name} 的{type}答案吗？删除后无法恢复。'],
+  delFail: ['Could not delete: {e}', '删除失败：{e}'],
+  typeSkin: ['skin', '皮肤'], typeHair: ['hair', '头发'], thisEntry: ['this entry', '这条记录'],
+  delHealthQ: ["Delete {name}'s health assessment and report? The answers and the report are removed for good.", '确定删除 {name} 的健康评估和报告吗？答案和报告都会永久删除。'],
+};
+const f = (k, vars) => { let s = tx(T[k]); Object.keys(vars || {}).forEach((v) => { s = s.replace('{' + v + '}', vars[v]); }); return s; };
+function paintStatic(){
+  document.documentElement.lang = L ? 'zh' : 'en';
+  document.querySelectorAll('[data-t]').forEach((el) => { el.textContent = tx(T[el.dataset.t]); });
+  $('search').placeholder = tx(T.search);
+}
+
+/* Coming back from a check-in (?done=skin) marks it, then the URL is cleaned. */
+(function(){
+  const q = new URLSearchParams(location.search);
+  const d = q.get("done");
+  if (TYPES.indexOf(d) >= 0) {
+    try {
+      const done = JSON.parse(localStorage.getItem(DONE) || "{}");
+      if (!done[d]) done[d] = new Date().toISOString();
+      localStorage.setItem(DONE, JSON.stringify(done));
+    } catch (e) {}
+  }
+  if (location.search) history.replaceState(null, "", location.pathname + location.hash);
+})();
+
+$("go-health").href = "intake.html?event=" + EVENT + "&back=" + PAGE;
+$("go-skin").href = "assess.html?type=skin&event=" + EVENT + "&back=" + PAGE;
+$("go-hair").href = "assess.html?type=hair&event=" + EVENT + "&back=" + PAGE;
+
+function readDone(){ try { return JSON.parse(localStorage.getItem(DONE) || "{}") || {}; } catch (e) { return {}; } }
+function paintDone(){
+  const done = readDone();
+  let n = 0;
+  TYPES.forEach((t) => {
+    const on = !!done[t]; if (on) n++;
+    $("st-" + t).classList.toggle("done", on);
+    $("go-" + t).textContent = tx(on ? T.again : T.start);
+  });
+  $("progFill").style.width = (n / 3 * 100) + "%";
+  $("progText").textContent = n === 3 ? tx(T.allDone) : f("progress", { n: n });
+}
+$("resetBtn").addEventListener("click", () => {
+  if (!confirm(tx(T.resetQ))) return;
+  try { localStorage.removeItem(DONE); localStorage.removeItem("event-guest:" + EVENT); } catch (e) {}
+  paintDone();
+});
+addEventListener("storage", paintDone);
+addEventListener("pageshow", paintDone);
+paintDone();
+
+/* ── Admin ───────────────────────────────────────────── */
+let data = null, tab = "guest", loading = false, labels = {};
+const openRows = new Set();
+try { tab = sessionStorage.getItem("glow0925-tab") || "overview"; } catch (e) { tab = "overview"; }
+
+fetch("intake/questions.json").then((r) => r.json()).then((q) => {
+  ((q.priorities && q.priorities.o) || []).forEach((o) => { labels[o[0]] = o; });
+  if (data) render();
+}).catch(() => {});
+
+function setAdmin(on){
+  document.body.classList.toggle("admin", on);
+  $("signOut").hidden = !on;
+  $("adminDots").hidden = on;
+  if (!on) { tab = "guest"; data = null; }
+  showTab(on ? (tab === "guest" ? "overview" : tab) : "guest");
+  if (on) load();
+}
+function showTab(t){
+  tab = t;
+  try { sessionStorage.setItem("glow0925-tab", t); } catch (e) {}
+  document.querySelectorAll(".tab").forEach((b) => b.classList.toggle("on", b.dataset.tab === t));
+  $("guestView").hidden = t !== "guest";
+  $("adminView").hidden = t === "guest";
+  if (t !== "guest") render();
+  window.scrollTo(0, 0);
+}
+$("tabs").addEventListener("click", (e) => { const b = e.target.closest(".tab"); if (b) showTab(b.dataset.tab); });
+$("adminDots").addEventListener("click", () => AdminSession.login(() => setAdmin(true)));
+$("signOut").addEventListener("click", () => { AdminSession.logout(); setAdmin(false); });
+$("refresh").addEventListener("click", () => load());
+$("search").addEventListener("input", () => render());
+
+function fail(msg){ $("aErr").textContent = msg; $("aErr").style.display = "block"; }
+
+async function load(){
+  if (loading) return;
+  loading = true; $("stamp").textContent = tx(T.loading); $("aErr").style.display = "none";
+  try {
+    const r = await fetch(API + "?event=" + EVENT, { headers: AdminSession.headers(), cache: "no-store" });
+    if (r.status === 401) { AdminSession.logout(); setAdmin(false); alert(tx(T.expired)); return; }
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(j.error || ("the server answered " + r.status));
+    data = j;
+    $("stamp").textContent = f("updated", { t: new Date().toLocaleTimeString(L ? "zh-CN" : "en-US", { hour: "numeric", minute: "2-digit" }) });
+  } catch (e) {
+    fail(f("loadFail", { e: e.message }));
+    $("stamp").textContent = "";
+  } finally { loading = false; render(); }
+}
+
+function when(iso){
+  const d = new Date(iso); if (isNaN(d)) return iso || "";
+  return d.toLocaleString(L ? "zh-CN" : "en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+}
+function tags(arr, cls){ return (arr || []).map((x) => '<span class="tag' + (cls ? " " + cls : "") + '">' + esc(x) + "</span>").join(""); }
+const dash = '<span class="muted">—</span>';
+/* A priority in language `lang` (the CSV always uses English, lang 0). */
+const priLabelIn = (p, lang) => p.id === "other" ? (p.other ? EventI18n.OPTS.otherPrefix[lang] + p.other : EventI18n.OPTS.other[lang]) : (labels[p.id] ? (labels[p.id][1 + lang] || labels[p.id][1]) : p.id);
+const priLabel = (p) => priLabelIn(p, L);
+const concernKey = (c) => /^Other/.test(c) ? "Other" : c;
+const norm = (s) => String(s || "").trim().toLowerCase().replace(/\s+/g, " ");
+
+/* Every entry in one shape: who, when, and the answers, whatever check-in it came from. */
+function entries(type){
+  return (data[type] || []).map((d) => type === "health"
+    ? { type, id: d.rid, name: d.name, email: d.email || "", at: d.submittedAt, h: d }
+    : { type, id: d.id, name: (d.answers || {}).name, email: (d.answers || {}).email || "", at: d.submittedAt, a: d.answers || {} });
+}
+
+/* One row per guest. Email is the strongest match (the health check-in requires it), then the
+   name, since the three check-ins share the name a guest typed once on their phone. */
+function guests(){
+  const list = [], byEmail = {}, byName = {};
+  ["health", "skin", "hair"].forEach((type) => {
+    entries(type).slice().sort((x, y) => String(x.at).localeCompare(String(y.at))).forEach((e) => {
+      const em = norm(e.email), nm = norm(e.name);
+      const sameName = nm && byName[nm];
+      let g = (em && byEmail[em]) || (sameName && (!em || !sameName.email || norm(sameName.email) === em) ? sameName : null);
+      if (!g) { g = { key: em || ("name:" + nm), name: e.name, email: e.email, last: e.at, all: { health: [], skin: [], hair: [] } }; list.push(g); }
+      if (em && !byEmail[em]) byEmail[em] = g;
+      if (nm && !byName[nm]) byName[nm] = g;
+      if (!g.email && e.email) g.email = e.email;
+      g.all[type].push(e);
+      g[type] = e;                                    /* latest wins: a corrected resend replaces the first */
+      if (String(e.at) > String(g.last)) g.last = e.at;
+    });
+  });
+  return list.sort((x, y) => String(y.last).localeCompare(String(x.last)));
+}
+
+function matches(q, name, email){ return !q || (norm(name) + " " + norm(email)).indexOf(q) >= 0; }
+function allergyOf(a){ return a && a.hasAllergy === "yes" ? '<span class="tag alert">' + esc(a.allergies || tx(T.allergyUnspecified)) + "</span>" : ""; }
+function statusOf(h){ return h.pending ? '<span class="status">' + tx(T.writing) + '</span>' : '<span class="status ready">' + tx(T.ready) + '</span>'; }
+/* Saved answers are English values; these give their label in the page's language. */
+const cLab = (type, c) => EventI18n.label(EventI18n.OPTS[type].concerns, c, L);
+const tLab = (type, v) => EventI18n.label(EventI18n.OPTS[type].types, v, L);
+const chemLab = (v) => EventI18n.label(EventI18n.OPTS.chemical, v, L);
+
+function tally(list){
+  const m = {};
+  list.forEach((k) => { m[k] = (m[k] || 0) + 1; });
+  return Object.entries(m).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+}
+function bars(title, counts, cls){
+  const max = counts.length ? counts[0][1] : 1;
+  return '<div class="ins' + (cls ? " " + cls : "") + '"><h3>' + esc(title) + "</h3>" +
+    (counts.length ? counts.slice(0, 6).map((c) => '<div class="bar"><span title="' + esc(c[0]) + '">' + esc(c[0]) +
+      '</span><i style="--w:' + Math.round(c[1] / max * 100) + '%"></i><em>' + c[1] + "</em></div>").join("")
+      : '<div class="ins-empty">' + tx(T.noAnswers) + '</div>') + "</div>";
+}
+
+function summaryHtml(gs){
+  const n = (t) => gs.filter((g) => g[t]).length;
+  const all3 = gs.filter((g) => g.health && g.skin && g.hair).length;
+  const allergies = gs.filter((g) => (g.skin && g.skin.a.hasAllergy === "yes") || (g.hair && g.hair.a.hasAllergy === "yes")).length;
+  const kpi = (v, l, cls) => '<div class="kpi' + (cls ? " " + cls : "") + '"><b>' + v + "</b><span>" + esc(l) + "</span></div>";
+  const flat = (a) => [].concat.apply([], a);
+  return '<div class="kpis">' + kpi(gs.length, tx(T.kGuests)) + kpi(all3, tx(T.kAll3)) + kpi(n("health"), tx(T.tHealth)) +
+    kpi(n("skin"), tx(T.tSkin)) + kpi(n("hair"), tx(T.tHair)) + kpi(allergies, tx(T.kAllergy), allergies ? "alert" : "") + "</div>" +
+    '<div class="insights">' +
+    bars(tx(T.iPrio), tally(flat(gs.filter((g) => g.health).map((g) => (g.health.h.priorities || []).map((p) => p.id === "other" ? tx(EventI18n.OPTS.other) : priLabel(p)))))) +
+    bars(tx(T.iSkin), tally(flat(gs.filter((g) => g.skin).map((g) => (g.skin.a.concerns || []).map((c) => cLab("skin", concernKey(c)))))), "skin") +
+    bars(tx(T.iHair), tally(flat(gs.filter((g) => g.hair).map((g) => (g.hair.a.concerns || []).map((c) => cLab("hair", concernKey(c)))))), "hair") +
+    "</div>";
+}
+
+function quickCell(e){
+  if (!e) return dash;
+  return tags((e.a.concerns || []).map((c) => cLab(e.type, c)), e.type) + '<div class="small">' + esc(tLab(e.type, e.a.type || "")) + "</div>" + chemOf(e.a) + allergyOf(e.a);
+}
+/* Hair only: dyed, permed or chemically treated, now or before. */
+function chemOf(a){ return a && a.chemical ? '<div class="small">' + esc(tx(T.treated)) + esc(chemLab(a.chemical)) + "</div>" : ""; }
+function detailBlock(title, e, type){
+  if (!e) return '<div class="dcard"><h4>' + esc(title) + '</h4><div class="muted">' + tx(T.notDone) + '</div></div>';
+  const kv = (k, v) => v ? '<div class="dk">' + esc(tx(T[k])) + '</div><div class="dv">' + v + "</div>" : "";
+  if (type === "health") {
+    const h = e.h;
+    return '<div class="dcard"><h4>' + esc(title) + "</h4>" + statusOf(h) +
+      kv("kPrio", tags((h.priorities || []).map(priLabel), "warm")) +
+      kv("kSignals", h.signals && h.signals.length ? tags(h.signals) : (h.pending ? tx(T.signalsSoon) : "")) +
+      kv("kProducts", esc((h.products || []).join(", "))) +
+      kv("kSubmitted", esc(when(e.at))) +
+      '<div class="dact acts"><button class="abtn" data-open="' + esc(h.rid) + '">' + tx(T.openReport) + '</button>' + healthDel(e) + '</div></div>';
+  }
+  const a = e.a;
+  return '<div class="dcard"><h4>' + esc(title) + "</h4>" +
+    kv("kConcerns", tags((a.concerns || []).map((c) => cLab(type, c)), type)) + kv(type === "skin" ? "kSkinType" : "kHairType", esc(tLab(type, a.type))) +
+    kv("kChem", a.chemical ? esc(chemLab(a.chemical)) : "") +
+    kv("kAllergies", a.hasAllergy === "yes" ? allergyOf(a) : (a.hasAllergy === "no" ? tx(T.none) : "")) +
+    kv("kRoutine", esc(a.routine)) + kv("kSubmitted", esc(when(e.at))) +
+    '<div class="dact"><button class="dbtn" data-del="' + esc(e.id) + '" data-type="' + type + '" data-name="' + esc(a.name || "") + '">' + tx(T.del) + '</button></div></div>';
+}
+
+/* Health rows delete the whole report through the same admin endpoint the All Reports list uses. */
+function healthDel(e){
+  return '<button class="dbtn" data-del="' + esc(e.h.rid) + '" data-type="health" data-name="' + esc(e.name || "") + '">' + tx(T.del) + "</button>";
+}
+
+function overviewTable(gs){
+  const rows = gs.map((g) => {
+    const open = openRows.has(g.key);
+    const h = g.health ? g.health.h : null;
+    const d3 = '<div class="done3"><span class="' + (g.health ? "on" : "") + '" title="' + esc(tx(T.tHealth)) + '">H</span><span class="skin' + (g.skin ? " on" : "") +
+      '" title="' + esc(tx(T.tSkin)) + '">S</span><span class="hair' + (g.hair ? " on" : "") + '" title="' + esc(tx(T.tHair)) + '">H</span></div>';
+    return '<tr class="row' + (open ? " open" : "") + '" data-row="' + esc(g.key) + '">' +
+      '<td><div class="gname">' + esc(g.name || tx(T.noName)) + '</div><div class="gsub">' + esc(g.email || tx(T.noEmail)) + "</div></td>" +
+      "<td>" + d3 + '<div class="small">' + esc(when(g.last)) + "</div></td>" +
+      "<td>" + (h ? tags((h.priorities || []).map(priLabel), "warm") + '<div class="small">' + statusOf(h) + "</div>" : dash) + "</td>" +
+      "<td>" + quickCell(g.skin) + "</td><td>" + quickCell(g.hair) + "</td></tr>" +
+      (open ? '<tr class="detail"><td colspan="5"><div class="dgrid">' + detailBlock(tx(T.tHealth), g.health, "health") +
+        detailBlock(tx(T.tSkin), g.skin, "skin") + detailBlock(tx(T.hairScalp), g.hair, "hair") + "</div></td></tr>" : "");
+  }).join("");
+  const th = (k, w) => '<th style="width:' + w + '%">' + esc(tx(T[k])) + "</th>";
+  return '<div class="tbl-wrap"><table class="tbl"><thead><tr>' + th("hGuest", 20) + th("hDone", 13) + th("hPrio", 23) + th("hSkin", 22) + th("hHair", 22) + '</tr></thead><tbody>' + rows + "</tbody></table></div>";
+}
+
+function typeTable(type, list){
+  const th = (k) => "<th>" + (k ? esc(tx(T[k])) : "") + "</th>";
+  const head = type === "health"
+    ? th("hGuest") + th("hPrio") + th("hSignals") + th("hProducts") + th("hReport") + th("hSubmitted") + th("")
+    : th("hGuest") + th("hConcerns") + th("hType") + th("hAllergies") + th("hRoutine") + th("hSubmitted") + th("");
+  const rows = list.map((e) => {
+    const who = '<td><div class="gname">' + esc(e.name || tx(T.noName)) + '</div><div class="gsub">' + esc(e.email || tx(T.noEmail)) + "</div></td>";
+    if (type === "health") {
+      const h = e.h;
+      return "<tr>" + who + "<td>" + (tags((h.priorities || []).map(priLabel), "warm") || dash) + "</td>" +
+        "<td>" + (h.signals && h.signals.length ? tags(h.signals) : dash) + "</td>" +
+        '<td><div class="clamp">' + (h.products && h.products.length ? esc(h.products.join(", ")) : dash) + "</div></td>" +
+        "<td>" + statusOf(h) + '</td><td class="small">' + esc(when(e.at)) + "</td>" +
+        '<td><div class="acts"><button class="abtn" data-open="' + esc(h.rid) + '">' + tx(T.open) + '</button>' + healthDel(e) + '</div></td></tr>';
+    }
+    const a = e.a;
+    return "<tr>" + who + "<td>" + (tags((a.concerns || []).map((c) => cLab(type, c)), type) || dash) + "</td><td>" + esc(tLab(type, a.type || "")) + chemOf(a) + "</td>" +
+      "<td>" + (a.hasAllergy === "yes" ? allergyOf(a) : '<span class="muted">' + tx(T.none) + '</span>') + "</td>" +
+      '<td><div class="clamp" title="' + esc(a.routine || "") + '">' + esc(a.routine || "") + '</div></td><td class="small">' + esc(when(e.at)) + "</td>" +
+      '<td><button class="dbtn" data-del="' + esc(e.id) + '" data-type="' + type + '" data-name="' + esc(a.name || "") + '">' + tx(T.del) + '</button></td></tr>';
+  }).join("");
+  return '<div class="tbl-wrap"><table class="tbl"><thead><tr>' + head + "</tr></thead><tbody>" + rows + "</tbody></table></div>";
+}
+
+function render(){
+  const gs = data ? guests() : [];
+  $("c-overview").textContent = data ? gs.length : "·";
+  TYPES.forEach((t) => { $("c-" + t).textContent = data ? (data[t] || []).length : "·"; });
+  if (tab === "guest") return;
+  const list = $("list"), sum = $("summary");
+  if (!data) { sum.innerHTML = ""; list.innerHTML = loading ? "" : '<div class="empty">' + tx(T.nothing) + '</div>'; return; }
+  const q = norm($("search").value);
+  const noMatch = '<div class="empty">' + esc(f("noMatch", { q: $("search").value.trim() })) + "</div>";
+  if (tab === "overview") {
+    sum.innerHTML = summaryHtml(gs);
+    const shown = gs.filter((g) => matches(q, g.name, g.email));
+    list.innerHTML = shown.length ? overviewTable(shown) : (q ? noMatch : '<div class="empty">' + tx(T.noCheckins) + "</div>");
+    return;
+  }
+  sum.innerHTML = "";
+  const items = entries(tab).sort((x, y) => String(y.at).localeCompare(String(x.at))).filter((e) => matches(q, e.name, e.email));
+  list.innerHTML = items.length ? typeTable(tab, items)
+    : (q ? noMatch : '<div class="empty">' + tx(tab === "health" ? T.noHealth : tab === "skin" ? T.noSkin : T.noHair) + "</div>");
+}
+
+function csvDownload(){
+  if (!data) return;
+  const cell = (v) => '"' + String(v == null ? "" : v).replace(/"/g, '""') + '"';
+  const head = ["Name", "Email", "Last activity", "Health priorities", "Health signals", "Health products", "Report status",
+    "Skin concerns", "Skin type", "Skin allergies", "Skin routine", "Hair concerns", "Hair type", "Hair chemically treated", "Hair allergies", "Hair routine"];
+  const q = (e, f) => e ? f(e) : "";
+  const lines = guests().map((g) => [
+    g.name, g.email, when(g.last),
+    q(g.health, (e) => (e.h.priorities || []).map((p) => priLabelIn(p, 0)).join("; ")),
+    q(g.health, (e) => (e.h.signals || []).join("; ")),
+    q(g.health, (e) => (e.h.products || []).join("; ")),
+    q(g.health, (e) => e.h.pending ? "Being written" : "Ready"),
+    q(g.skin, (e) => (e.a.concerns || []).join("; ")), q(g.skin, (e) => e.a.type),
+    q(g.skin, (e) => e.a.hasAllergy === "yes" ? (e.a.allergies || "Yes") : "None"), q(g.skin, (e) => e.a.routine),
+    q(g.hair, (e) => (e.a.concerns || []).join("; ")), q(g.hair, (e) => e.a.type), q(g.hair, (e) => e.a.chemical),
+    q(g.hair, (e) => e.a.hasAllergy === "yes" ? (e.a.allergies || "Yes") : "None"), q(g.hair, (e) => e.a.routine),
+  ].map(cell).join(","));
+  const blob = new Blob(["﻿" + [head.map(cell).join(",")].concat(lines).join("\r\n")], { type: "text/csv;charset=utf-8" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = EVENT + "-guests.csv";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+$("csv").addEventListener("click", csvDownload);
+
+$("list").addEventListener("click", async (e) => {
+  const open = e.target.closest("[data-open]");
+  if (open) { AdminSession.openReport(open.dataset.open); return; }
+  const del = e.target.closest("[data-del]");
+  if (!del) {
+    const r = e.target.closest("tr.row");
+    if (r) { const k = r.dataset.row; if (openRows.has(k)) openRows.delete(k); else openRows.add(k); render(); }
+    return;
+  }
+  const isHealth = del.dataset.type === "health";
+  const who = del.dataset.name || tx(T.thisEntry);
+  if (!confirm(isHealth ? f("delHealthQ", { name: who })
+    : f("delQ", { name: who, type: tx(del.dataset.type === "skin" ? T.typeSkin : T.typeHair) }))) return;
+  del.disabled = true; del.textContent = tx(T.deleting);
+  try {
+    const r = await fetch(isHealth ? AdminSession.API + "/api/unlock" : API, {
+      method: "POST", headers: Object.assign({ "Content-Type": "application/json" }, AdminSession.headers()),
+      body: JSON.stringify(isHealth ? { action: "delete", rid: del.dataset.del }
+        : { action: "delete", event: EVENT, type: del.dataset.type, id: del.dataset.del }) });
+    if (r.status === 401) { AdminSession.logout(); setAdmin(false); alert(tx(T.expired)); return; }
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok && r.status !== 404) throw new Error(j.error || ("the server answered " + r.status));
+    data[del.dataset.type] = (data[del.dataset.type] || []).filter((d) => (isHealth ? d.rid : d.id) !== del.dataset.del);
+    render();
+  } catch (err) {
+    del.disabled = false; del.textContent = tx(T.del);
+    fail(f("delFail", { e: err.message }));
+  }
+});
+
+/* New answers arrive during the event without anyone tapping Refresh. */
+setInterval(() => { if (document.body.classList.contains("admin") && tab !== "guest" && !document.hidden) load(); }, 45000);
+
+EventI18n.menu($("langMenu"), (lang) => { L = lang; paintStatic(); paintDone(); render(); });
+paintStatic(); paintDone();
+setAdmin(AdminSession.has());
+
+/* Always the newest version: see DiamondA70/_skills/app-qa/references/self-update.md */
+let stale = false, checkedAt = 0, triedAt = 0, staleKey = "";
+function busy(){
+  const a = document.activeElement;
+  return !!(a && /^(INPUT|TEXTAREA)$/.test(a.tagName) && a.value) || !!document.querySelector(".as-modal.open");
+}
+function paintVer(){
+  const w = (t) => new Date(t).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  const txt = "Version " + w(BUILD) + (stale ? " · a newer version is out, reloading"
+    : checkedAt ? " · the newest (checked " + new Date(checkedAt).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }) + ")" : "");
+  document.querySelectorAll(".ver").forEach((el) => { el.textContent = txt; el.classList.toggle("old", stale); });
+}
+function freshen(){
+  if (!/^https?:$/.test(location.protocol) || document.hidden || Date.now() - triedAt < 8000) return;
+  triedAt = Date.now();
+  fetch(location.pathname + "?latest=" + Date.now(), { cache: "no-store" })
+    .then((r) => r.ok ? r.text() : "")
+    .then((html) => {
+      const m = /const BUILD = "([^"]+)";/.exec(html);
+      if (!m || !SELF) return;
+      checkedAt = Date.now();
+      stale = m[1] >= BUILD && html.indexOf(SELF) < 0;
+      staleKey = m[1] + ":" + html.length;
+      paintVer(); reloadWhenSafe();
+    }).catch(() => {});
+}
+function reloadWhenSafe(){
+  const bar = $("upd");
+  if (!stale) { bar.hidden = true; return; }
+  let tried = ""; try { tried = sessionStorage.getItem("glow0925-tried") || ""; } catch (e) {}
+  if (tried !== staleKey && !busy()) { reloadNow(); return; }
+  $("updt").textContent = tx(tried === staleKey ? T.newerTried : T.newer);
+  bar.hidden = false;
+}
+function reloadNow(){
+  try { sessionStorage.setItem("glow0925-tried", staleKey); } catch (e) {}
+  location.replace(location.pathname + "?v=" + Date.now() + location.hash);
+}
+$("updgo").onclick = reloadNow;
+paintVer(); freshen();
+setInterval(freshen, 60000);
+setInterval(() => { if (stale) reloadWhenSafe(); }, 3000);
+document.addEventListener("visibilitychange", () => { if (!document.hidden) freshen(); });
+addEventListener("focus", freshen);
+addEventListener("pageshow", (e) => { if (e.persisted) { triedAt = 0; freshen(); } });
+</script>
+</body>
+</html>
