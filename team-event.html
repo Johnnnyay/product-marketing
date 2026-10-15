@@ -67,7 +67,7 @@ body.navopen .scrim{display:block;position:fixed;inset:0;background:rgba(20,26,2
 .dtop .sp{flex:1}
 .dtop .btn{font-size:13px;padding:5px 11px}
 .glink{text-align:right;margin:8px 0 0;font-size:13.5px}
-.ghow{margin:2px 0 0;font-size:14px}
+
 .doc h1{font-size:32px;line-height:1.12;font-weight:800;letter-spacing:-.025em;margin:6px 0 4px;text-wrap:balance}
 .dsub{font-size:18px;color:var(--ink-2);margin:0}
 .meta{margin:24px 0 0;border-top:1px solid var(--line)}
@@ -248,7 +248,7 @@ body.navopen .scrim{display:block;position:fixed;inset:0;background:rgba(20,26,2
 /* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this
    file. The version check at the bottom reads it, and the script text, to tell an old copy of
    this page from the newest one (DiamondA70/_skills/app-qa/references/self-update.md). */
-const BUILD = "2026-10-15T15:25:00Z";
+const BUILD = "2026-10-15T15:28:32Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 /* The agendas: data/team-events.json next to this page, read fresh through the API (GitHub Pages
@@ -670,10 +670,8 @@ function viewHTML(e){
     + '<h2>' + esc(e.agendaTitle || "Agenda") + (total ? '<span>' + fmtMin(total) + ' min planned</span>' : '') + '</h2>'
     + (secs.length ? '<ol class="ag">' + secs.map(function(x){
         const m = minsOf(x.items);
-        /* The intro's format lives in the guide, not on the agenda. */
-        const how = x.k === "intro" && !x.items.some(function(it){ return it.pts && it.pts.length; })
-          ? '<p class="ghow"><a href="team-guide.html#everyone">How to introduce yourself</a></p>' : '';
-        return '<li><h3>' + esc(SEC[x.k].name) + (m ? '<span>' + fmtMin(m) + ' min</span>' : '') + '</h3>' + how + x.items.map(itemHTML).join("") + '</li>';
+        /* The intro's format lives in the guide (linked under Roles), not on the agenda. */
+        return '<li><h3>' + esc(SEC[x.k].name) + (m ? '<span>' + fmtMin(m) + ' min</span>' : '') + '</h3>' + x.items.map(itemHTML).join("") + '</li>';
       }).join("") + '</ol>' : '<p class="empty">The agenda is coming.</p>');
 }
 function footHTML(){ return '<div class="foot">Questions about an event? Ask your coach and mentor.<p class="ver"></p></div>'; }
