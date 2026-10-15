@@ -1,6 +1,6 @@
 {
  "about": "HY team night agendas for team-event.html, newest first. Edited on the page after the admin login (··· → /api/save-functions?doc=team-events) or by Claude. Each agenda is a list of sections (intro, calendar, volume, growth, leadership); each item has a topic (t), speakers (who), a panel lead (by), minutes (min), bullets (pts) and, in the calendar, events (cal).",
- "savedAt": "2026-10-15T14:31:37.532Z",
+ "savedAt": "2026-10-15T14:43:29.000Z",
  "events": [
   {
    "id": "2026-10-16",
@@ -149,14 +149,16 @@
        "who": "Jerry & Leann",
        "min": 25,
        "pts": [
-        "What to expect in your first year",
-        "Building your first team of 10"
+        "Why work hard, and how do you balance career, life and business in your early or mid 20s?",
+        "What should you expect in your first year?",
+        "How do you get your first IBO, and what do you do once you have one?",
+        "Why does qualifying for 4th Week Leadership matter?"
        ]
       }
      ]
     }
    ],
-   "at": "2026-10-15T14:31:37.532Z"
+   "at": "2026-10-15T14:43:29.000Z"
   },
   {
    "id": "2026-09-26",
