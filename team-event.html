@@ -70,12 +70,18 @@ button{font-family:inherit}
 .meta dd small{display:block;font-weight:400;color:var(--ink-2);font-size:14.5px}
 .linkbtn{background:none;border:0;padding:0;font:inherit;font-weight:600;color:var(--sage);text-decoration:underline;cursor:pointer}
 .zl{font-weight:500;font-size:14.5px;margin-left:8px}
+/* Section titles (Overview, Roles, Agenda) centered (Johnny, 2026-10-15); a total sits beside it. */
 .doc h2{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:38px 0 10px;
-  display:flex;justify-content:space-between;gap:10px}
+  text-align:center}
 .doc h2 span{letter-spacing:0;text-transform:none;font-weight:600}
+.doc h2 span::before{content:" · "}
 .rows{list-style:none;margin:0;padding:0}
 .rows li{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:6px 0}
 .rows .k{color:var(--muted);font-variant-numeric:tabular-nums}
+.rows.ov li{grid-template-columns:200px 1fr}
+.tz{display:block;font-size:12.5px;color:var(--muted);font-weight:400}
+.meta dd small.tz{font-size:13px;color:var(--muted)}
+.tzi{color:var(--muted);font-size:.92em;white-space:nowrap}
 .rows .n{display:block;color:var(--muted);font-size:14px}
 .rows.rl li{grid-template-columns:270px 1fr;padding:4px 0}
 .rows.rl li > span:last-child{font-weight:600}
@@ -208,7 +214,7 @@ button{font-family:inherit}
 /* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this
    file. The version check at the bottom reads it, and the script text, to tell an old copy of
    this page from the newest one (DiamondA70/_skills/app-qa/references/self-update.md). */
-const BUILD = "2026-10-15T14:29:30Z";
+const BUILD = "2026-10-15T14:47:40Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 /* The agendas: data/team-events.json next to this page, read fresh through the API (GitHub Pages
@@ -402,6 +408,39 @@ function renderNav(){
   $("who").innerHTML = admin() ? 'Admin ✓ · <button type="button" class="linkbtn" data-act="signout">Sign out</button>' : "";
 }
 
+/* ---------------- time zones ----------------
+   Times are typed in Eastern. Johnny, 2026-10-15: show Central and Pacific next to every time.
+   US Eastern, Central and Pacific change clocks on the same days, so CT is always ET minus one
+   hour and PT minus three. A time already marked with another zone (Beijing, PT…) is left alone. */
+const ZONES = [["CT", -1], ["PT", -3]];
+const TIME_RE = /(\d{1,2})(?::(\d{2}))?\s*(AM|PM)?(?:\s*(?:to|–|-)\s*(\d{1,2})(?::(\d{2}))?)?\s*(AM|PM)/i;
+function tmin(h, m, ap){ return (+h % 12 + (/pm/i.test(ap) ? 12 : 0)) * 60 + (+m || 0); }
+function tfmt(min, withMin){
+  min = ((min % 1440) + 1440) % 1440;
+  const h = Math.floor(min / 60), m = min % 60;
+  return { t: (h % 12 || 12) + (withMin || m ? ":" + String(m).padStart(2, "0") : ""), ap: h < 12 ? "AM" : "PM" };
+}
+function etOnly(s){ return !/\b(CT|PT|MT|CST|PST|CDT|PDT|BJT|GMT|UTC)\b|beijing|北京/i.test(s); }
+/* "7:30 to 9:00 PM" or "9 PM", moved by `hours`, in the same style; "" if there is no time. */
+function shiftTime(s, hours, startOnly){
+  const m = TIME_RE.exec(s); if(!m) return "";
+  const ap2 = m[6], ap1 = m[3] || ap2;
+  const a = tfmt(tmin(m[1], m[2], m[4] != null ? ap1 : ap2) + hours * 60, m[2] != null);
+  if(m[4] == null || startOnly) return a.t + " " + a.ap;
+  const b = tfmt(tmin(m[4], m[5], ap2) + hours * 60, m[5] != null);
+  return a.ap === b.ap ? a.t + " to " + b.t + " " + b.ap : a.t + " " + a.ap + " to " + b.t + " " + b.ap;
+}
+function otherZones(s, startOnly){
+  if(!s || !etOnly(s) || !TIME_RE.test(s)) return "";
+  return ZONES.map(function(z){ return shiftTime(s, z[1], startOnly) + " " + z[0]; }).join(" · ");
+}
+/* In free text (calendar rows), every "… ET" time gets its CT and PT after it. */
+function withZones(text){
+  return esc(text).replace(/(\d{1,2}(?::\d{2})?\s*(?:AM|PM)?\s*(?:to|–|-)\s*)?\d{1,2}(?::\d{2})?\s*(?:AM|PM)\s*ET\b/gi, function(t){
+    return t + ' <span class="tzi">(' + otherZones(t.replace(/\s*ET$/i, "")) + ')</span>';
+  });
+}
+
 /* ---------------- the agenda page ---------------- */
 function pointsHTML(pts){
   return '<ul>' + pts.map(function(p){
@@ -423,7 +462,7 @@ function itemHTML(it){
   if(it.min && parts.length) parts.push('<span class="im">' + it.min + '\u00a0min</span>');
   return '<div class="it">'
     + (parts.length ? '<p class="ih">' + parts.join('\u00a0<span class="sep">–</span> ') + '</p>' : '')
-    + (it.cal && it.cal.length ? '<ul class="cal">' + it.cal.map(function(c){ return '<li><span class="k">' + esc(c[0]) + '</span><span>' + esc(c[1]) + '</span></li>'; }).join("") + '</ul>' : '')
+    + (it.cal && it.cal.length ? '<ul class="cal">' + it.cal.map(function(c){ return '<li><span class="k">' + esc(c[0]) + '</span><span>' + withZones(c[1]) + '</span></li>'; }).join("") + '</ul>' : '')
     + (it.pts && it.pts.length ? pointsHTML(it.pts) : '')
     + '</div>';
 }
@@ -442,14 +481,19 @@ function viewHTML(e){
     + '<h1>' + esc(e.title) + '</h1>'
     + (e.sub ? '<p class="dsub">' + esc(e.sub) + '</p>' : '')
     + '<dl class="meta">'
-    +   '<div><dt>When</dt><dd>' + esc(longDate(e.date)) + (e.time ? '<small>' + esc(e.time) + '</small>' : '') + '</dd></div>'
+    +   '<div><dt>When</dt><dd>' + esc(longDate(e.date)) + (e.time ? '<small>' + esc(e.time) + '</small>'
+          + (otherZones(e.time) ? '<small class="tz">' + esc(otherZones(e.time)) + '</small>' : '') : '') + '</dd></div>'
     +   (e.where ? '<div><dt>Where</dt><dd>' + esc(e.where) + (e.whereNote ? '<small>' + esc(e.whereNote) + '</small>' : '') + '</dd></div>' : '')
     +   (zoom ? '<div><dt>Zoom</dt><dd>' + esc(zoom)
           + '<span class="zl"><a href="https://zoom.us/j/' + zid + '" target="_blank" rel="noopener">Join</a> · <button type="button" class="linkbtn" data-copy="' + esc(zoom) + '">Copy ID</button></span>'
           + (e.pass ? '<small>Passcode ' + esc(e.pass) + '</small>' : '') + '</dd></div>' : '')
     +   (e.dress ? '<div><dt>Dress code</dt><dd>' + esc(e.dress) + '</dd></div>' : '')
     + '</dl>'
-    + (e.flow && e.flow.length ? '<h2>Overview</h2><ul class="rows">' + e.flow.map(function(f){ return '<li><span class="k">' + esc(f[0]) + '</span><span>' + esc(f[1]) + '</span></li>'; }).join("") + '</ul>' : '')
+    + (e.flow && e.flow.length ? '<h2>Overview</h2><ul class="rows ov">' + e.flow.map(function(f){
+        /* Overview times are Eastern without saying so: say it, and give the start in CT and PT. */
+        const z = otherZones(f[0], true), et = z && !/\bET\b/.test(f[0]) ? f[0] + " ET" : f[0];
+        return '<li><span class="k">' + esc(et) + (z ? '<span class="tz">' + esc(z) + '</span>' : '') + '</span><span>' + esc(f[1]) + '</span></li>';
+      }).join("") + '</ul>' : '')
     + (roles.length ? '<h2>Roles</h2><ul class="rows rl">' + roles.map(function(r){
         return '<li><span class="k">' + esc(r[0]) + '</span><span>' + (r[1] ? esc(r[1]) : '<span class="tbc">To be confirmed</span>') + '</span></li>';
       }).join("") + '</ul>' : '')
