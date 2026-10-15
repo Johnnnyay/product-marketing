@@ -6,520 +6,595 @@
 <title>HY Team Event</title>
 <meta property="og:title" content="HY Team Event">
 <meta property="og:description" content="Agenda, roles and details for our Friday Night Hangouts and team nights.">
-<meta name="theme-color" content="#345043">
+<meta name="theme-color" content="#F2F5F1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <style>
-/* The agenda for every HY team night, the newest first. Same look as the FNH Jeopardy page
-   (fnh.html): light ground, near-black text, deep sage, because it gets screen-shared on Zoom
-   and read on phones in a bright room as often as it is read at a desk. Agendas come from
-   Johnny's Notion page "Team Event Agenda 2026"; each one is an entry in EVENTS below. */
+/* HY team night agendas. Johnny, 2026-10-14: every event in a navigation bar on the left, and on
+   the right just a clean page of the agenda with minimal formatting. The FNH palette (deep sage
+   on near-white) is kept, but used only for the few things that need pointing at.
+   The agendas live in data/team-events.json; the ··· signs in with the health site's admin login
+   and makes every part of an event editable. */
 :root{
-  --ground:#F2F5F1; --panel:#FFFFFF; --panel-2:#E8EEE8; --line:#C8D2C9; --line-2:#A8B6AA;
-  --ink:#141A16; --ink-2:#3A453C; --muted:#5F6C62;
+  --ground:#F2F5F1; --page:#FFFFFF; --line:#DDE4DE; --line-2:#C2CCC4;
+  --ink:#141A16; --ink-2:#3A453C; --muted:#68756B;
   --sage:#345043; --sage-2:#4A7060; --sage-light:#E4EDE6;
-  --amber:#96420A; --amber-light:#FBEEE2; --blue:#1546B0;
-  --shadow:0 10px 34px rgba(20,26,22,.12);
+  --amber:#96420A; --amber-light:#FBEEE2; --red:#A81C1C; --blue:#1546B0;
+  --nav:286px;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--ground);color:var(--ink);
+body{margin:0;background:var(--page);color:var(--ink);
   font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
-.wrap{max-width:780px;margin:0 auto;padding:26px 18px 60px}
-h1,h2,h3{font-weight:800;letter-spacing:-.02em;text-wrap:balance;margin:0}
-a{color:var(--sage);font-weight:600}
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--sage)}
 button{font-family:inherit}
 :focus-visible{outline:3px solid var(--blue);outline-offset:2px}
-.eyebrow{font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 
-.top{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
-.top h1{font-size:30px;line-height:1.05;margin-top:2px}
-.top h1 span{color:var(--sage)}
-.jump{background:var(--panel);border:2px solid var(--line);border-radius:10px;color:var(--ink-2);
-  font:inherit;font-size:14px;font-weight:700;padding:8px 13px;cursor:pointer;text-decoration:none}
-.jump:hover{border-color:var(--line-2);color:var(--ink)}
+/* ---- left: every event ---- */
+.side{position:fixed;inset:0 auto 0 0;width:var(--nav);background:var(--ground);border-right:1px solid var(--line);
+  display:flex;flex-direction:column;z-index:30}
+.brand{padding:22px 20px 14px}
+.brand .e{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.brand .n{font-size:21px;font-weight:800;letter-spacing:-.02em;margin-top:1px}
+.brand .n span{color:var(--sage)}
+.navlist{flex:1;overflow-y:auto;padding:0 10px 14px}
+.ng{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:16px 10px 6px}
+.ni{display:block;text-decoration:none;color:var(--ink);border-radius:9px;padding:8px 10px;border-left:3px solid transparent}
+.ni:hover{background:rgba(52,80,67,.07)}
+.ni[aria-current="true"]{background:var(--page);border-left-color:var(--sage);box-shadow:0 1px 3px rgba(20,26,22,.08)}
+.ni .d{display:block;font-size:12.5px;font-weight:700;color:var(--sage);font-variant-numeric:tabular-nums}
+.ni .t{display:block;font-size:14.5px;font-weight:600;line-height:1.3}
+.ni .s{display:block;font-size:12.5px;color:var(--muted);line-height:1.3;margin-top:1px}
+.sidefoot{border-top:1px solid var(--line);padding:10px 14px;display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted)}
+.sidefoot .sp{flex:1}
+.dots{background:none;border:0;color:var(--muted);font:inherit;font-size:20px;font-weight:800;letter-spacing:.06em;line-height:1;
+  padding:4px 8px;border-radius:8px;cursor:pointer}
+.dots:hover{background:rgba(52,80,67,.08);color:var(--ink)}
+.newbtn{display:block;width:calc(100% - 20px);margin:0 10px 4px;text-align:left}
 
-/* The event itself */
-.hero{background:var(--sage);color:#fff;border-radius:16px;padding:22px 22px 20px;box-shadow:var(--shadow)}
-.pill{display:inline-block;font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
-  border-radius:999px;padding:5px 12px;background:#FFD166;color:#2A2008}
-.pill.past{background:rgba(255,255,255,.18);color:#fff}
-.hero h2{font-size:34px;line-height:1.06;margin:12px 0 4px}
-.hero .subt{font-size:19px;font-weight:600;opacity:.92;margin:0}
-.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
-.fact{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:11px;padding:10px 13px;min-width:0}
-.fact .k{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.8}
-.fact .v{font-size:16.5px;font-weight:700;line-height:1.35;overflow-wrap:anywhere}
-.fact .v small{display:block;font-size:14px;font-weight:500;opacity:.88}
-.zoomrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-.zbtn{display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--sage);border:0;border-radius:9px;
-  font:inherit;font-size:14px;font-weight:800;padding:7px 12px;cursor:pointer;text-decoration:none}
-.zbtn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.55)}
-.zbtn:hover{filter:brightness(.96)}
-
-.card{background:var(--panel);border:2px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:16px}
-.card h3{font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.two .card{margin-top:16px}
-.flow{list-style:none;margin:0;padding:0}
-.flow li{display:flex;gap:12px;padding:7px 0;border-top:1px solid var(--panel-2)}
-.flow li:first-child{border-top:0;padding-top:0}
-.flow .t{font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;min-width:122px;color:var(--sage)}
-.roles{list-style:none;margin:0;padding:0}
-.roles li{padding:7px 0;border-top:1px solid var(--panel-2)}
-.roles li:first-child{border-top:0;padding-top:0}
-.roles .r{font-size:13.5px;font-weight:700;color:var(--muted)}
-.roles .p{font-weight:800;font-size:17px}
-.roles .n{font-size:14px;color:var(--ink-2);margin-top:1px}
-
-/* The run of show */
-.agenda-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:30px 0 10px;flex-wrap:wrap}
-.agenda-h h3{font-size:22px}
-.agenda-h .tot{font-size:14px;font-weight:700;color:var(--muted)}
-.seg{display:grid;grid-template-columns:44px 1fr;gap:4px 14px;background:var(--panel);border:2px solid var(--line);
-  border-radius:14px;padding:16px 18px;margin-top:10px}
-.seg .no{width:36px;height:36px;border-radius:10px;background:var(--sage-light);color:var(--sage);font-weight:800;
-  display:flex;align-items:center;justify-content:center;font-size:17px}
-.seg h4{margin:0;font-size:19.5px;line-height:1.25;font-weight:800;letter-spacing:-.01em}
-.seg .meta{display:flex;flex-wrap:wrap;gap:6px 10px;margin-top:5px;align-items:center}
-.seg .min{font-size:13px;font-weight:800;background:var(--amber-light);color:var(--amber);border-radius:999px;padding:2px 10px}
-.seg .who{font-size:15px;font-weight:700;color:var(--sage)}
-.seg .lead{margin:8px 0 0;color:var(--ink-2);font-style:italic}
-.seg ul{margin:8px 0 0;padding-left:20px}
-.seg li{margin:3px 0}
-.seg li ul{margin-top:3px}
-.seg li::marker{color:var(--sage-2)}
-.seg .body{grid-column:2;min-width:0}
-.seg .cal{list-style:none;padding:0}
-.seg .cal li{display:flex;gap:10px}
-.seg .cal .d{font-weight:800;color:var(--sage);min-width:92px;font-variant-numeric:tabular-nums}
-
-/* Every event */
-.past{margin-top:34px}
-.past h3{font-size:22px;margin-bottom:10px}
-.plist{list-style:none;margin:0;padding:0;background:var(--panel);border:2px solid var(--line);border-radius:14px;overflow:hidden}
-.plist a{display:flex;gap:14px;align-items:baseline;padding:13px 18px;border-top:1px solid var(--panel-2);
-  color:var(--ink);text-decoration:none;font-weight:600}
-.plist li:first-child a{border-top:0}
-.plist a:hover{background:var(--ground)}
-.plist a[aria-current="true"]{background:var(--sage-light)}
-.plist .d{font-weight:800;color:var(--sage);min-width:104px;font-variant-numeric:tabular-nums}
-.plist .k{margin-left:auto;font-size:12.5px;font-weight:700;color:var(--muted);white-space:nowrap}
-.foot{margin-top:28px;font-size:13px;color:var(--muted)}
-.ver{font-size:12px;color:var(--muted);margin:6px 0 0}
+/* ---- right: the agenda as a page ---- */
+.main{margin-left:var(--nav);min-height:100vh}
+.doc{max-width:720px;margin:0 auto;padding:44px 40px 70px}
+.dtop{display:flex;align-items:center;gap:10px;min-height:32px}
+.stat{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--sage)}
+.stat.past{color:var(--muted)}
+.dtop .sp{flex:1}
+.doc h1{font-size:32px;line-height:1.12;font-weight:800;letter-spacing:-.025em;margin:6px 0 4px;text-wrap:balance}
+.dsub{font-size:18px;color:var(--ink-2);margin:0}
+.meta{margin:24px 0 0;border-top:1px solid var(--line)}
+.meta div{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:10px 0;border-bottom:1px solid var(--line)}
+.meta dt{font-size:13px;font-weight:600;color:var(--muted);padding-top:1px}
+.meta dd{margin:0;font-weight:600}
+.meta dd small{display:block;font-weight:400;color:var(--ink-2);font-size:14.5px}
+.linkbtn{background:none;border:0;padding:0;font:inherit;font-weight:600;color:var(--sage);text-decoration:underline;cursor:pointer}
+.zl{font-weight:500;font-size:14.5px;margin-left:8px}
+.doc h2{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:38px 0 10px;
+  display:flex;justify-content:space-between;gap:10px}
+.doc h2 span{letter-spacing:0;text-transform:none;font-weight:600}
+.rows{list-style:none;margin:0;padding:0}
+.rows li{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:6px 0}
+.rows .k{color:var(--muted);font-variant-numeric:tabular-nums}
+.rows .n{display:block;color:var(--muted);font-size:14px}
+.tbc{color:var(--muted);font-style:italic;font-weight:400}
+.ag{list-style:none;margin:0;padding:0;counter-reset:seg}
+.ag > li{counter-increment:seg;padding:16px 0 16px 38px;border-top:1px solid var(--line);position:relative}
+.ag > li:first-child{border-top:0;padding-top:4px}
+.ag > li::before{content:counter(seg);position:absolute;left:0;top:16px;font-weight:800;color:var(--sage);font-variant-numeric:tabular-nums}
+.ag > li:first-child::before{top:4px}
+.ag h3{font-size:18px;line-height:1.3;font-weight:700;margin:0}
+.am{font-size:14px;color:var(--muted);margin-top:1px}
+.am b{color:var(--ink-2);font-weight:600}
+.al{margin:6px 0 0;color:var(--ink-2);font-style:italic}
+.ag ul{margin:6px 0 0;padding-left:19px}
+.ag li li{margin:2px 0}
+.ag ul ul{margin-top:2px}
+.cal{list-style:none;padding-left:0 !important}
+.cal li{display:grid;grid-template-columns:118px 1fr;gap:12px}
+.cal .k{font-weight:600;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.foot{margin-top:46px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.ver{font-size:12px;color:var(--muted);margin:4px 0 0}
 .ver.old{color:var(--amber);font-weight:700}
+.note{background:var(--amber-light);color:var(--amber);border-radius:9px;padding:9px 12px;font-size:14px;font-weight:600;margin:0 0 16px}
+.empty{color:var(--muted);padding:40px 0}
+
+/* ---- phone: the list becomes a drawer ---- */
+.mbar{display:none}
+.scrim{display:none}
+@media (max-width:820px){
+  .side{transform:translateX(-102%);transition:transform .22s ease,visibility .22s;width:min(86vw,320px);visibility:hidden}
+  body.navopen .side{transform:none;visibility:visible;box-shadow:0 0 40px rgba(20,26,22,.25)}
+  body.navopen .scrim{display:block;position:fixed;inset:0;background:rgba(20,26,22,.35);z-index:25}
+  .main{margin-left:0}
+  .mbar{display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);
+    border-bottom:1px solid var(--line);padding:10px 16px}
+  .mbar .n{font-weight:800;font-size:16px;flex:1}
+  .mbar .n span{color:var(--sage)}
+  .doc{padding:22px 16px 56px}
+  .doc h1{font-size:26px}
+  .meta div{grid-template-columns:92px 1fr;gap:10px}
+  .rows li{grid-template-columns:1fr;gap:0;padding:7px 0}
+  .ag > li{padding-left:28px}
+  .cal li{grid-template-columns:1fr;gap:0;padding:3px 0}
+}
+
+/* ---- admin ---- */
+.btn{background:var(--page);border:1.5px solid var(--line-2);color:var(--ink);border-radius:8px;font:inherit;font-size:14px;
+  font-weight:700;padding:6px 12px;cursor:pointer;white-space:nowrap}
+.btn:hover{border-color:var(--ink-2)}
+.btn.pri{background:var(--sage);border-color:var(--sage);color:#fff}
+.btn.pri:hover{background:var(--sage-2);border-color:var(--sage-2)}
+.btn.warn{color:var(--red);border-color:#E3B4B4}
+.btn.warn.armed{background:var(--red);border-color:var(--red);color:#fff}
+.btn.sm{font-size:12.5px;padding:4px 9px}
+.btn:disabled{opacity:.55;cursor:default}
+.ed h2:first-of-type{margin-top:22px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px}
+.fl{display:block;min-width:0}
+.fl.full{grid-column:1/-1}
+.fl > span{display:block;font-size:12.5px;font-weight:600;color:var(--ink-2);margin:0 0 3px}
+.fl > span i{font-style:normal;font-weight:400;color:var(--muted)}
+.ed input,.ed textarea{width:100%;background:#fff;border:1.5px solid var(--line-2);border-radius:8px;color:var(--ink);
+  font:inherit;font-size:15px;padding:7px 10px;line-height:1.45}
+.ed textarea{resize:vertical;min-height:62px}
+.ed input:focus,.ed textarea:focus{outline:none;border-color:var(--sage)}
+.ed input.bad{border-color:var(--red)}
+.hint{font-size:12.5px;color:var(--muted);margin:4px 0 0}
+.sege{border:1.5px solid var(--line);border-radius:10px;padding:12px;margin:0 0 10px;background:var(--ground)}
+.sege .sh{display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.sege .sh b{font-size:14px;color:var(--sage);margin-right:auto}
+.sege .grid2{grid-template-columns:2fr 1fr}
+.edbar{position:sticky;bottom:0;z-index:15;display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:var(--page);
+  border-top:1px solid var(--line);margin:22px 0 0;padding:12px 0}
+.edbar .st{flex:1 1 220px;font-size:14px;font-weight:600;color:var(--ink-2);min-width:0}
+.edbar .st.err{color:var(--red)}
+.edbar .st .btn{margin:6px 6px 0 0}
+@media (max-width:640px){ .grid2,.sege .grid2{grid-template-columns:1fr} }
+
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:10px;
+  padding:9px 16px;font-size:14px;font-weight:600;z-index:95;max-width:calc(100% - 32px)}
+.toast[hidden]{display:none}
 #upd{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:12px;
-  background:var(--ink);color:#fff;border-radius:999px;padding:8px 10px 8px 18px;font-size:14px;font-weight:600;
-  box-shadow:var(--shadow);max-width:calc(100% - 24px)}
+  background:var(--ink);color:#fff;border-radius:999px;padding:8px 10px 8px 18px;font-size:14px;font-weight:600;max-width:calc(100% - 24px)}
 #upd[hidden]{display:none}
 #upd button{font:inherit;font-size:13px;font-weight:800;background:#FFD166;color:var(--ink);border:0;border-radius:999px;padding:7px 14px;cursor:pointer;white-space:nowrap}
-.toast{position:fixed;left:50%;bottom:70px;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:10px;
-  padding:9px 16px;font-size:14px;font-weight:600;z-index:95}
-.toast[hidden]{display:none}
-
-@media (max-width:640px){
-  .wrap{padding:18px 16px 50px}
-  .hero{padding:18px 16px}
-  .hero h2{font-size:28px}
-  .facts,.two{grid-template-columns:1fr}
-  .two{gap:0}
-  .seg{grid-template-columns:1fr;padding:14px 15px}
-  .seg .no{width:30px;height:30px;font-size:15px;border-radius:8px}
-  .seg .body{grid-column:1}
-  .flow .t{min-width:104px}
-  .plist .d{min-width:84px}
-  .plist .k{display:none}
-}
-@media print{ .jump,.zoomrow,#upd,.past{display:none} body{background:#fff} .hero{color:var(--ink);background:#fff;border:2px solid var(--line);box-shadow:none} .fact{border-color:var(--line)} .pill{border:1px solid var(--line)} }
+@media print{ .side,.mbar,#upd,.toast,.dtop .btn,.zl{display:none !important} .main{margin:0} .doc{padding:0} }
 </style>
 
-<div class="wrap">
-  <header class="top">
-    <div>
-      <div class="eyebrow">HY Team</div>
-      <h1>Team <span>Event</span></h1>
-    </div>
-    <a class="jump" href="#all" id="toAll">All events</a>
-  </header>
-  <main id="ev" aria-live="polite"></main>
-  <section class="past" id="all" aria-labelledby="allh">
-    <h3 id="allh">All events</h3>
-    <ul class="plist" id="plist"></ul>
-  </section>
-  <p class="foot">Questions about an event? Ask your upline in the group.</p>
-  <p class="ver"></p>
+<aside class="side" id="side" aria-label="All events">
+  <div class="brand"><div class="e">HY Team</div><div class="n">Team <span>Event</span></div></div>
+  <div id="adminTop"></div>
+  <nav class="navlist" id="nav"></nav>
+  <div class="sidefoot"><span class="sp" id="who"></span><button type="button" class="dots" id="dots" title="Admin" aria-label="Admin login">···</button></div>
+</aside>
+<div class="scrim" id="scrim"></div>
+<div class="main">
+  <div class="mbar"><div class="n">Team <span>Event</span></div><button type="button" class="btn" id="navbtn" aria-controls="side" aria-expanded="false">All events</button></div>
+  <main class="doc" id="doc" aria-live="polite"></main>
 </div>
 <div id="upd" hidden><span id="updt"></span><button type="button" id="updgo">Reload now</button></div>
 <div class="toast" id="toast" role="status" hidden></div>
 
+<script src="admin-session.js"></script>
 <script>
 /* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this
    file. The version check at the bottom reads it, and the script text, to tell an old copy of
    this page from the newest one (DiamondA70/_skills/app-qa/references/self-update.md). */
-const BUILD = "2026-10-14T22:23:01Z";
+const BUILD = "2026-10-15T02:39:57Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
-/* One entry per event, newest first. Source: Notion › Team Event Agenda 2026.
-   date is the ET calendar day. A point is a string, or [string, [sub-points]].
-   Johnny & Irene's street address stays off this page (it is public); it goes in the group. */
-const HOME = "Johnny & Irene's place, Flushing";
-const HOME_NOTE = "Address in the group chat";
-const ZOOM = "515-333-3193";
+/* The agendas: data/team-events.json next to this page, read fresh through the API (GitHub Pages
+   can lag a minute after a save), the file itself if the API is out of reach, and the last good
+   copy kept on this phone if neither answers. Saving goes through the same API and needs the
+   admin login; the API refuses an edit to an event someone changed after this page loaded it. */
+const API = "https://health-intake-api.vercel.app/api/save-functions?doc=team-events";
+const KEEP = "team-events-copy";
+const ZOOM_DEFAULT = "515-333-3193";
 const FNH_FLOW = [["7:20 to 7:30 PM", "Networking"], ["7:30 to 9:00 PM", "All partners"], ["9:00 to 9:30 PM", "Hangout"]];
 const INTROS = { t: "Introductions & Recognition", pts: [
   ["Candidates & new IBOs", ["Name · City · Background · What excites you about the opportunity"]],
   ["Existing partners", ["Name · City · Background · What you did this week (2 MG1 / 20+ PV retail) · Goal"]]
 ]};
-const HOST_NOTE = "Keep energy high and the event on time; have music ready before the event starts.";
 
-const EVENTS = [
-  {
-    id: "2026-09-26", date: "2026-09-26", kind: "Orientation",
-    title: "HY Saturday Night Hangout", sub: "September New Apprentice Orientation",
-    time: "8:00 to 9:00 PM ET", where: "Zoom only", dress: "Business casual, camera on",
-    flow: [["7:55 to 8:00 PM", "Check in"], ["8:00 to 9:00 PM", "All partners"]],
-    roles: [["Host / Timer", "Annie", "Keep energy high and the event on time. Remind everyone to turn their camera on, and give speakers a 30-second countdown."]],
-    agendaTitle: "New IBO Orientation",
-    agenda: [
-      { t: "Welcome & Introductions", min: 3, who: "Annie", pts: [
-        ["New apprentices since the last orientation", ["Name · City · Who you are building with · What you are excited about · One fun fact about yourself"]]
-      ]},
-      { t: "Personal Growth: Book", min: 2, who: "Shirley", pts: ["What you read, 1 or 2 major takeaways, 1 or 2 things you are implementing"] },
-      { t: "Personal Growth: Audio", min: 2, who: "Yoyo", pts: ["What you listened to, 1 or 2 major takeaways, 1 or 2 things you are implementing"] },
-      { t: "Product & Volume", lead: "First circle: personal use and retail", min: 10, who: "Irene", pts: [
-        "What we ran at the product party, and what people responded to",
-        "Where the first customers came from, and what the volume looked like after",
-        "“People don't get started with a company, they get started with you.”",
-        "What we would do differently next time"
-      ]},
-      { t: "Mentorship", lead: "Turning outwardly to the right people", min: 5, who: "Lister", pts: [
-        "How to get the most out of mentorship",
-        "The wins outside the business: finance and career"
-      ]},
-      { t: "Networking", lead: "Networking in your first 90 days", min: 10, who: "Johnny", pts: [
-        "How you approach someone who already knows you",
-        "How to lead people, not convince people",
-        "How to create steady results"
-      ]},
-      { t: "Leadership Training: First 90 Days", lead: "Doubt is normal, acting on doubt is not", min: 15, who: "Jerry & Leann", pts: [
-        "How to get good at riding the entrepreneurship roller coaster",
-        "How to build and protect your self-image",
-        "Can I do it? What if I fall off the track? Is my goal too far away?",
-        "How to develop a vision, and the confidence in it"
-      ]},
-      { t: "Open Q&A with Jerry", min: 8, who: "Jerry" }
-    ]
-  },
-  {
-    id: "2026-07-31", date: "2026-07-31", kind: "FNH",
-    title: "HY Team Friday Night Hangout", sub: "July",
-    time: "7:30 to 9:00 PM ET", where: HOME, whereNote: HOME_NOTE + " · also on Zoom", dress: "Sharp business casual",
-    flow: FNH_FLOW,
-    roles: [["Host / Co-host", "Annie, Wendy", HOST_NOTE], ["Online CEO (Chief Energy Officer) & DJ", "Vemon"], ["Technology", "Johnny"]],
-    agenda: [
-      INTROS,
-      { t: "Calendar", min: 5, cal: [
-        ["Aug 5 (Wed)", "JYT Team Evaluation ft. Johnny Huang"],
-        ["Aug 7 & 8", "Online function"],
-        ["Aug 16 (Sun)", "JYT Estate Promotion (qualification extended to the 15th)"],
-        ["End of Aug", "4th Week Leadership, Phase B + 6 MGs"],
-        ["End of Aug", "LLC Mastermind Elite"],
-        ["Oct 2 to 4", "Orlando Spartan Breakthrough Conference"]
-      ]},
-      { t: "Product Demo & Education", min: 15, who: "Johnny", pts: [
-        "Acne & skin: what separates a result that holds from one that comes back next month",
-        "The product and volume knowledge hub: johnnnyay.github.io/product-marketing"
-      ]},
-      { t: "Personal Growth: Book", min: 2, who: "Yoyo", pts: ["What you read, 1 or 2 major takeaways, 1 or 2 things you are implementing"] },
-      { t: "Leadership Training", lead: "Creating results in volume", min: 10, who: "Johnny interviews Tenzin & Raymond", pts: [
-        "What was it like when you first started the business?",
-        "What was your mindset, attitude and approach toward personal use?",
-        "How did you create your first few retail successes?"
-      ]},
-      { t: "Leadership Training", lead: "First 90 days to a steady, growing Phase B and beyond", min: 20, who: "Annie, Wendy", pts: [
-        "How did you get started as sisters?",
-        "Dos and don'ts for close friends and family",
-        "The right mindset and expectations in the first 60 DCR",
-        "How did the education habits, the association and the system make a difference in your life?"
-      ]},
-      { t: "Leadership Training", min: 25, who: "Johnny & Irene", pts: [
-        "What surprised you stepping into business ownership for the first time?",
-        "How do you grow your adversity quotient, your ability to handle stress and things not going the way you want?",
-        "How do you deal with differences between people?",
-        "How do you overcome personal shortcomings that hinder growth?"
-      ]}
-    ]
-  },
-  {
-    id: "2026-05-15", date: "2026-05-15", kind: "FNH",
-    title: "HY Friday Night Hangout", sub: "May",
-    time: "7:30 to 9:00 PM ET", where: HOME, whereNote: HOME_NOTE + " · also on Zoom", dress: "Sharp business casual",
-    flow: FNH_FLOW,
-    roles: [["Host / Co-host", "Vemon & Luke", HOST_NOTE], ["Online CEO (Chief Energy Officer)", "Ding"], ["DJ & Technology", "Johnny"]],
-    agenda: [
-      INTROS,
-      { t: "Calendar", min: 5, cal: [
-        ["May 19 (Tue)", "Clickner Combined Team Meeting"],
-        ["May 20 (Wed)", "JL Team Evaluation ft. Craig Clickner"],
-        ["May 23 & 24", "HY trip to Seattle"],
-        ["May 26 (Tue)", "4th Week Leadership, Phase B + 6 MGs"],
-        ["May 30 (Sat)", "BAM sessions: Bay Area, Chicago, New Jersey, Orlando, Phoenix"],
-        ["May 31 (Sun)", "BAM sessions: Detroit, Los Angeles, Seattle"],
-        ["June 4", "JL Launch 2 Promotion"],
-        ["June 5 to 7", "Level Up in Milwaukee, WI"],
-        ["June 20 to 22", "Go Diamond in Breckenridge, CO"]
-      ]},
-      { t: "Product Demo & Education", lead: "g&h™ and Artistry™ SPF products", min: 15, who: "Irene", pts: [
-        "Why prevention matters long term",
-        "Understanding SPF, and why daily protection matters",
-        "Chemical vs mineral protection",
-        "The g&h, Artistry skincare and SPF lineup",
-        "Simple daily skincare systems",
-        "Retail tips: positioning products through lifestyle conversations",
-        "Demo with the SAM machine"
-      ]},
-      { t: "Personal Growth: Book", min: 2, who: "Ting", pts: ["What you read, 1 or 2 major takeaways, 1 or 2 things you are implementing"] },
-      { t: "Personal Growth: Podcast", min: 2, who: "Lister", pts: ["What you listened to, 1 or 2 major takeaways, 1 or 2 things you are implementing"] },
-      { t: "Leadership Training: Networking Panel", lead: "Reflection, PHP & consistency", min: 10, who: "Raymond, William, led by Johnny", pts: [
-        "What you learn from booking MGs with your AB list (Raymond)",
-        "Why PHP matters (Raymond)",
-        "How reflection speeds up your growth (William)",
-        "Patience and consistency, if you want results (William)"
-      ]},
-      { t: "Leadership Training", lead: "Self-image, attitude & prioritization toward 4th Week Leadership", min: 15, who: "Annie, Amy", pts: [
-        "Why and how attitude and belief matter in a good work ethic",
-        "How to handle emotional inconsistency",
-        "What self-image is, and how to work on it",
-        "Time management and life prioritization",
-        "How to stay grateful and joyful in pressure seasons"
-      ]},
-      { t: "Leadership Training", lead: "Clarity in your journey, long-term vision, and minimizing the noise", min: 15, who: "Johnny & Irene", pts: [
-        "Long-term vision, and digging the well before you're thirsty",
-        "Controlling the narrative (and the noise)",
-        "Why clarity creates consistency",
-        "How to stay anchored to your WHY",
-        "Why you can't judge your future by temporary emotions",
-        "The power of the spoken word"
-      ]}
-    ]
-  },
-  {
-    id: "2026-04-10", date: "2026-04-10", kind: "FNH",
-    title: "HY Friday Night Hangout", sub: "April",
-    time: "7:30 to 9:00 PM ET", where: HOME, whereNote: HOME_NOTE + " · also on Zoom", dress: "Sharp business casual",
-    flow: FNH_FLOW,
-    roles: [["Host / Co-host", "Martin & Luke", HOST_NOTE], ["Online CEO (Chief Energy Officer)", "Luke"], ["DJ & Technology", "Johnny"]],
-    agenda: [
-      INTROS,
-      { t: "Calendar", min: 5, cal: [
-        ["Apr 14 to 16", "Amway 20% full PV promotion"],
-        ["Apr 15", "NYC in-person Team Evaluation ft. Johnny Huang (host: Vemon Cheng)"],
-        ["May 30 & 31", "BAM sessions"],
-        ["June 4", "JL Launch 2 Promotion"],
-        ["June 5 to 7", "Level Up in Milwaukee, WI"],
-        ["June 20 to 22", "Go Diamond in Breckenridge, CO"]
-      ]},
-      { t: "Personal Breakthroughs & Learnings", min: 4, who: "Tricia, Raymond", pts: [
-        "Tricia (2 min): my favorite podcast on the Leadership1 app this week, and 1 or 2 points I learned from it",
-        "Raymond (2 min): 1 or 2 points from my reading this week (and the book), and what I'm working on implementing"
-      ]},
-      { t: "Sales & Retail Training", min: 10, who: "Irene", pts: [
-        "Normalize the skill of sales, and why it matters",
-        ["A crash course on approach, flow and mindset in different contexts", ["C2C product sharing", "C2C invitations to health and skin analysis sessions"]]
-      ]},
-      { t: "Product Education & Demo", min: 20, who: "Amy, Wendy, Eunice", pts: [
-        "Across the product line: Nutrilite, Artistry, XS, LOC",
-        "Brand history, competitive advantage and credentials",
-        "One simple, duplicatable product demo"
-      ]},
-      { t: "Networking & Leadership Training", min: 20, who: "Vemon, Annie, Johnny", pts: [
-        "How to perform well in your career: promotion, time and energy management",
-        ["How to manage your AB list", ["Highlight: Raymond and what he did"]],
-        ["Face-to-face networking skills", ["Why mastering MG booking matters", "How to share your story", "How to handle common scenarios and steer the conversation to what you need to check"]],
-        "When and why you want to learn to run the first MG"
-      ]},
-      { t: "Wrap-Up: Handling Doubt & Belief", min: 15, who: "Johnny & Irene", pts: [
-        "A crash course on temperament: don't box yourself in",
-        ["Handling the dip in", ["Life and career", "Business", "Self-belief"]]
-      ]}
-    ]
-  },
-  {
-    id: "2026-03-13", date: "2026-03-13", kind: "FNH",
-    title: "HY + JL Platinum-Going Team Friday Night Hangout", sub: "March",
-    time: "7:30 to 9:00 PM ET", where: HOME, whereNote: HOME_NOTE + " · also on Zoom", dress: "Sharp business casual",
-    flow: [["7:20 to 7:30 PM", "Networking"], ["7:30 to 9:00 PM", "All partners"], ["9:00 to 9:30 PM", "Wrap-up & hangouts"]],
-    roles: [["Host / Timer", "Johnny Huang & Eden", "Keep energy high and the event on time."], ["Online Team CEO", "Luke"], ["DJ & Technology", "Johnny", "Music before the event and during transitions to keep the room lively."]],
-    agenda: [
-      { t: "Introductions & Recognition", pts: [
-        ["Candidates / new IBOs", ["Name · City · Background · What excites you about the opportunity"]],
-        ["Existing partners", ["Name · City · Background", "Achievements from the past week", "Next week's goal"]],
-        ["Special highlights", ["2 MG conversations booked", "Retail success / product results"]]
-      ]},
-      { t: "Product & Volume Generation", min: 12, who: "Martin, Vemon, Tenzin", pts: [
-        "Daily product use, and why it builds belief",
-        "How to reach 150 PV consistently",
-        "A simple strategy to help new IBOs find their first customers",
-        "Quick tips on double core and beyond"
-      ]},
-      { t: "Upcoming Events", min: 5, who: "Host", cal: [
-        ["Mar 18", "Team Evaluation Workshop, Sean Chen"],
-        ["Mar 19", "JL Launch 2 Promotion celebration (Orlando, FL)"],
-        ["Mar 20 to 22", "In-person #ELEVATE function (Orlando, FL)"],
-        ["Coming up", "Go Diamond Weekend"]
-      ]},
-      { t: "Personal Growth", min: 4, who: "Lister, Ding", pts: [
-        "Lister (2 min): my favorite podcast on the Leadership1 app this week, and 1 or 2 points I learned from it",
-        "Ding (2 min): 1 or 2 points from my reading this week (and the book), and what I'm working on implementing"
-      ]},
-      { t: "Leadership Training: Consistency in Networking", min: 5, who: "Derek", pts: [
-        "Why developing a work habit matters",
-        "How to create personal momentum",
-        "How to stay focused when results haven't shown up yet"
-      ]},
-      { t: "Leadership Training: Ultimate Function Preparation", min: 15, who: "Johnny & Irene", pts: [
-        "Why big functions are essential for short-term and long-term success",
-        "How to prepare apprentices before major events",
-        "Using events to speed up belief and duplication"
-      ]},
-      { t: "Wrap-Up Training: How to Win in the Next 90 Days", min: 20, who: "Jerry Tan", pts: [
-        ["The first 90 days for a new apprentice", ["Initial excitement, the emotional roller coaster, then long-term commitment", "Getting through doubt, wrong expectations and a lack of activity momentum"]],
-        "Why the first 90 days are the most important stage for every new apprentice",
-        "How to build self-confidence",
-        "What it's like to grow from 0 to 3/6"
-      ]}
-    ]
-  },
-  {
-    id: "2026-02-27", date: "2026-02-27", kind: "FNH",
-    title: "HY Friday Night Hangout", sub: "Virtual + in person",
-    time: "7:30 to 9:00 PM ET", where: "In person and on Zoom", dress: "Sharp business casual",
-    roles: [["Host / Timer", "Vemon & William", HOST_NOTE], ["Online CEO (Chief Energy Officer)", "Ding"], ["DJ & Technology", "Johnny"]],
-    agenda: [
-      { t: "Introductions & Recognition", pts: [
-        ["Candidates & new IBOs", ["Name · City · Background · What excites you about the opportunity"]],
-        ["Existing partners (2 MGs or any retail success)", ["Name · City · Background · What you did this week · Goal"]]
-      ]},
-      { t: "Product & Volume Generation", min: 12, who: "Annice & Wendy", pts: [
-        "From invite to follow-up, how did you use the health and SAM sessions? How easy was it really? Share your results."
-      ]},
-      { t: "Upcoming Events", cal: [
-        ["Feb 28", "JL Clinic for the Launch 2 Promotion (qualification: 6+ MGs by 10 PM EST)"],
-        ["Mar 4", "JYT Team Evaluation Workshop"],
-        ["Mar 19", "JL Launch 2 Promotion festivities (Orlando, FL)"],
-        ["Mar 20 to 22", "In-person #ELEVATE function (Orlando, FL)"],
-        ["Coming up", "Go Diamond Weekend"]
-      ]},
-      { t: "Personal Growth", min: 4, who: "Ting", pts: [
-        "How you sustained a 160+ day Phase B Core Run while balancing extracurriculars, exams and a part-time job, and still had fun"
-      ]},
-      { t: "Personal Growth", min: 4, who: "Martin", pts: [
-        "What it was like being the #3 top user in the whole LLC, and how consistently taking in content in the environment, paired with in-person networking, sped up your work ethic and your confidence"
-      ]},
-      { t: "Leadership Training", min: 5, who: "Luke", pts: [
-        "The right mindset when a mentor or coach comes to town, and how you fully booked their calendar",
-        "How anchoring yourself in mentorship and this environment carried you through life's ups and downs"
-      ]},
-      { t: "Leadership Training", min: 5, who: "Lister, interviewed by Irene", pts: [
-        "How did you book 10+ MG1s from January to February?",
-        "What does mentorship truly look like for you?",
-        "What does doing PHP the right way mean, and why is consistency in it so important?"
-      ]},
-      { t: "Wrap-Up Training: Networking Skills + Boundaries", min: 20, who: "Johnny & Irene", pts: [
-        "Level up how you handle common scenarios in networking and process meetings",
-        "How to set boundaries in life to prioritize what matters to you"
-      ]}
-    ]
-  }
-];
+let EVENTS = [], SAVED_AT = null, LOADED = false, LOAD_FAILED = false, KEPT_AT = 0;
+let EDIT = null, DIRTY = false, SAVING = false, CONFLICT = null;
+let stale = false, checkedAt = 0, triedAt = 0, staleKey = "";   /* the version check, at the bottom */
 
 const $ = function(id){ return document.getElementById(id); };
 function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+function clone(o){ return JSON.parse(JSON.stringify(o)); }
+function admin(){ return !!(window.AdminSession && AdminSession.has()); }
 function todayET(){ return new Date().toLocaleDateString("en-CA", { timeZone: "America/New_York" }); }
-function longDate(d){ return new Date(d + "T12:00:00").toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" }); }
-function shortDate(d){ return new Date(d + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }); }
+function asDate(d){ return new Date(d + "T12:00:00"); }
+function longDate(d){ return asDate(d).toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" }); }
+function navDate(d){ return asDate(d).toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" }); }
+function ymd(t){ return t.getFullYear() + "-" + String(t.getMonth() + 1).padStart(2, "0") + "-" + String(t.getDate()).padStart(2, "0"); }
+function byDateDesc(a, b){ return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; }
+function toast(t){ const el = $("toast"); el.textContent = t; el.hidden = false; clearTimeout(el._h); el._h = setTimeout(function(){ el.hidden = true; }, 3200); }
+
 /* The event to open with: the next one coming (today counts), else the most recent. */
 function defaultEvent(){
   const t = todayET();
-  const ahead = EVENTS.filter(function(e){ return e.date >= t; }).sort(function(a, b){ return a.date < b.date ? -1 : 1; });
-  return ahead[0] || EVENTS.slice().sort(function(a, b){ return a.date < b.date ? 1 : -1; })[0];
+  const ahead = EVENTS.filter(function(e){ return e.date >= t; }).sort(function(a, b){ return -byDateDesc(a, b); });
+  return ahead[0] || EVENTS.slice().sort(byDateDesc)[0] || null;
 }
-function status(e){
+function current(){
+  const want = decodeURIComponent(location.hash.slice(1));
+  return EVENTS.filter(function(x){ return x.id === want; })[0] || defaultEvent();
+}
+function statusOf(e){
   const t = todayET(), d = defaultEvent();
   if(e.date === t) return ["Tonight", ""];
   if(e.date > t) return [e === d ? "Next up" : "Coming up", ""];
   return [e === d ? "Most recent" : "Past event", "past"];
 }
+
+/* ---------------- loading ---------------- */
+function setData(d){
+  EVENTS = (d.events || []).slice().sort(byDateDesc); SAVED_AT = d.savedAt || null; LOADED = true; LOAD_FAILED = false; KEPT_AT = 0;
+  try { localStorage.setItem(KEEP, JSON.stringify({ savedAt: SAVED_AT, events: EVENTS, keptAt: Date.now() })); } catch(e){}
+}
+function getJSON(u){
+  return fetch(u + (u.indexOf("?") > -1 ? "&" : "?") + "t=" + Date.now(), { cache: "no-store" })
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(d){ return d && Array.isArray(d.events) ? d : null; })
+    .catch(function(){ return null; });
+}
+function loadData(){
+  return getJSON(API).then(function(d){ return d || getJSON("data/team-events.json"); }).then(function(d){
+    if(d){
+      const changed = !LOADED || KEPT_AT || d.savedAt !== SAVED_AT;
+      setData(d);
+      if(changed){ if(EDIT) renderNav(); else render(); }
+      return;
+    }
+    if(LOADED) return;
+    let kept = null; try { kept = JSON.parse(localStorage.getItem(KEEP) || "null"); } catch(e){}
+    if(kept && Array.isArray(kept.events)){ EVENTS = kept.events; SAVED_AT = kept.savedAt; LOADED = true; KEPT_AT = kept.keptAt || 1; }
+    else LOAD_FAILED = true;
+    render();
+  });
+}
+
+/* ---------------- the left bar ---------------- */
+function renderNav(){
+  const t = todayET(), cur = EDIT ? null : current();
+  const up = EVENTS.filter(function(e){ return e.date >= t; }).sort(function(a, b){ return -byDateDesc(a, b); });
+  const past = EVENTS.filter(function(e){ return e.date < t; }).sort(byDateDesc);
+  const item = function(e){
+    return '<a class="ni" href="#' + esc(e.id) + '"' + (cur && e.id === cur.id ? ' aria-current="true"' : '') + '>'
+      + '<span class="d">' + esc(navDate(e.date)) + '</span><span class="t">' + esc(e.title) + '</span>'
+      + (e.sub || e.kind ? '<span class="s">' + esc([e.sub, e.kind].filter(Boolean).join(" · ")) + '</span>' : '') + '</a>';
+  };
+  let html = "";
+  if(up.length) html += '<div class="ng">Upcoming</div>' + up.map(item).join("");
+  let year = "";
+  past.forEach(function(e){
+    const y = e.date.slice(0, 4);
+    if(y !== year){ year = y; html += '<div class="ng">Past · ' + y + '</div>'; }
+    html += item(e);
+  });
+  if(!EVENTS.length && LOADED) html = '<div class="ng">No events yet</div>';
+  $("nav").innerHTML = html;
+  $("adminTop").innerHTML = admin() ? '<button type="button" class="btn newbtn" data-act="new">+ New event</button>' : "";
+  $("who").innerHTML = admin() ? 'Admin ✓ · <button type="button" class="linkbtn" data-act="signout">Sign out</button>' : "";
+}
+
+/* ---------------- the agenda page ---------------- */
 function pointsHTML(pts){
   return '<ul>' + pts.map(function(p){
-    return Array.isArray(p) ? '<li>' + esc(p[0]) + pointsHTML(p[1]) + '</li>' : '<li>' + esc(p) + '</li>';
+    return Array.isArray(p) ? '<li>' + esc(p[0]) + (p[1] && p[1].length ? pointsHTML(p[1]) : '') + '</li>' : '<li>' + esc(p) + '</li>';
   }).join("") + '</ul>';
 }
-function segHTML(s, i){
-  return '<article class="seg"><div class="no" aria-hidden="true">' + (i + 1) + '</div><div class="body">'
-    + '<h4>' + esc(s.t) + '</h4>'
-    + ((s.min || s.who) ? '<div class="meta">' + (s.min ? '<span class="min">' + s.min + ' min</span>' : '') + (s.who ? '<span class="who">' + esc(s.who) + '</span>' : '') + '</div>' : '')
-    + (s.lead ? '<p class="lead">' + esc(s.lead) + '</p>' : '')
-    + (s.cal ? '<ul class="cal">' + s.cal.map(function(c){ return '<li><span class="d">' + esc(c[0]) + '</span><span>' + esc(c[1]) + '</span></li>'; }).join("") + '</ul>' : '')
-    + (s.pts ? pointsHTML(s.pts) : '')
-    + '</div></article>';
+function segHTML(s){
+  const meta = [s.min ? s.min + " min" : "", s.who ? "<b>" + esc(s.who) + "</b>" : ""].filter(Boolean).join(" · ");
+  return '<li><h3>' + esc(s.t || "") + '</h3>'
+    + (meta ? '<div class="am">' + meta + '</div>' : '')
+    + (s.lead ? '<p class="al">' + esc(s.lead) + '</p>' : '')
+    + (s.cal && s.cal.length ? '<ul class="cal">' + s.cal.map(function(c){ return '<li><span class="k">' + esc(c[0]) + '</span><span>' + esc(c[1]) + '</span></li>'; }).join("") + '</ul>' : '')
+    + (s.pts && s.pts.length ? pointsHTML(s.pts) : '')
+    + '</li>';
 }
+function viewHTML(e){
+  const st = statusOf(e);
+  const zoom = e.zoom || "";
+  const zid = zoom.replace(/\D/g, "");
+  const agenda = e.agenda || [];
+  const total = agenda.reduce(function(n, s){ return n + (s.min || 0); }, 0);
+  const roles = (e.roles || []).filter(function(r){ return r[0] || r[1]; });
+  return (KEPT_AT ? '<p class="note">Offline: showing the copy saved on this phone. It updates when you are back online.</p>' : '')
+    + '<div class="dtop"><span class="stat ' + st[1] + '">' + esc(st[0]) + '</span><span class="sp"></span>'
+    + (admin() ? '<button type="button" class="btn" data-act="edit">Edit</button>' : '') + '</div>'
+    + '<h1>' + esc(e.title) + '</h1>'
+    + (e.sub ? '<p class="dsub">' + esc(e.sub) + '</p>' : '')
+    + '<dl class="meta">'
+    +   '<div><dt>When</dt><dd>' + esc(longDate(e.date)) + (e.time ? '<small>' + esc(e.time) + '</small>' : '') + '</dd></div>'
+    +   (e.where ? '<div><dt>Where</dt><dd>' + esc(e.where) + (e.whereNote ? '<small>' + esc(e.whereNote) + '</small>' : '') + '</dd></div>' : '')
+    +   (zoom ? '<div><dt>Zoom</dt><dd>' + esc(zoom)
+          + '<span class="zl"><a href="https://zoom.us/j/' + zid + '" target="_blank" rel="noopener">Join</a> · <button type="button" class="linkbtn" data-copy="' + esc(zoom) + '">Copy ID</button></span>'
+          + (e.pass ? '<small>Passcode ' + esc(e.pass) + '</small>' : '') + '</dd></div>' : '')
+    +   (e.dress ? '<div><dt>Dress code</dt><dd>' + esc(e.dress) + '</dd></div>' : '')
+    + '</dl>'
+    + (e.flow && e.flow.length ? '<h2>Overview</h2><ul class="rows">' + e.flow.map(function(f){ return '<li><span class="k">' + esc(f[0]) + '</span><span>' + esc(f[1]) + '</span></li>'; }).join("") + '</ul>' : '')
+    + (roles.length ? '<h2>Roles</h2><ul class="rows">' + roles.map(function(r){
+        return '<li><span class="k">' + esc(r[0]) + '</span><span>' + (r[1] ? esc(r[1]) : '<span class="tbc">To be confirmed</span>') + (r[2] ? '<span class="n">' + esc(r[2]) + '</span>' : '') + '</span></li>';
+      }).join("") + '</ul>' : '')
+    + '<h2>' + esc(e.agendaTitle || "Agenda") + (total ? '<span>' + total + ' min planned</span>' : '') + '</h2>'
+    + (agenda.length ? '<ol class="ag">' + agenda.map(segHTML).join("") + '</ol>' : '<p class="empty">The agenda is coming.</p>');
+}
+function footHTML(){ return '<div class="foot">Questions about an event? Ask your upline in the group.<p class="ver"></p></div>'; }
+
 function render(){
-  const want = decodeURIComponent(location.hash.slice(1));
-  const e = EVENTS.filter(function(x){ return x.id === want; })[0] || defaultEvent();
-  const st = status(e);
-  const zid = (e.zoom || ZOOM).replace(/\D/g, "");
-  const total = e.agenda.reduce(function(n, s){ return n + (s.min || 0); }, 0);
-  $("ev").innerHTML =
-    '<section class="hero" aria-labelledby="evt">'
-    + '<span class="pill ' + st[1] + '">' + esc(st[0]) + '</span>'
-    + '<h2 id="evt">' + esc(e.title) + '</h2>'
-    + (e.sub ? '<p class="subt">' + esc(e.sub) + '</p>' : '')
-    + '<div class="facts">'
-    +   '<div class="fact"><div class="k">When</div><div class="v">' + esc(longDate(e.date)) + '<small>' + esc(e.time) + '</small></div></div>'
-    +   '<div class="fact"><div class="k">Where</div><div class="v">' + esc(e.where) + (e.whereNote ? '<small>' + esc(e.whereNote) + '</small>' : '') + '</div></div>'
-    +   '<div class="fact"><div class="k">Zoom</div><div class="v">' + esc(e.zoom || ZOOM)
-    +     (e.pass ? '<small>Passcode ' + esc(e.pass) + '</small>' : '')
-    +     '<div class="zoomrow"><a class="zbtn" href="https://zoom.us/j/' + zid + '" target="_blank" rel="noopener">Join Zoom</a>'
-    +     '<button type="button" class="zbtn ghost" data-copy="' + esc(e.zoom || ZOOM) + '">Copy ID</button></div></div></div>'
-    +   '<div class="fact"><div class="k">Dress code</div><div class="v">' + esc(e.dress) + '</div></div>'
-    + '</div></section>'
-    + '<div class="two">'
-    +   (e.flow ? '<section class="card"><h3>Overview</h3><ul class="flow">' + e.flow.map(function(f){ return '<li><span class="t">' + esc(f[0]) + '</span><span>' + esc(f[1]) + '</span></li>'; }).join("") + '</ul></section>' : '')
-    +   '<section class="card"' + (e.flow ? '' : ' style="grid-column:1/-1"') + '><h3>Roles</h3><ul class="roles">' + e.roles.map(function(r){
-          return '<li><div class="r">' + esc(r[0]) + '</div><div class="p">' + esc(r[1]) + '</div>' + (r[2] ? '<div class="n">' + esc(r[2]) + '</div>' : '') + '</li>';
-        }).join("") + '</ul></section>'
-    + '</div>'
-    + '<div class="agenda-h"><h3>' + esc(e.agendaTitle || "Agenda") + '</h3>' + (total ? '<span class="tot">' + total + ' min planned</span>' : '') + '</div>'
-    + e.agenda.map(segHTML).join("");
-  document.title = e.title + " · " + shortDate(e.date);
-  $("plist").innerHTML = EVENTS.slice().sort(function(a, b){ return a.date < b.date ? 1 : -1; }).map(function(x){
-    return '<li><a href="#' + x.id + '"' + (x === e ? ' aria-current="true"' : '') + '><span class="d">' + esc(shortDate(x.date)) + '</span>'
-      + '<span>' + esc(x.title) + (x.sub ? ' · ' + esc(x.sub) : '') + '</span><span class="k">' + esc(x.kind) + '</span></a></li>';
-  }).join("");
+  renderNav();
+  if(EDIT){ renderEditor(); return; }
+  let html;
+  if(!LOADED) html = LOAD_FAILED
+    ? '<p class="empty">Couldn\'t load the agenda. Check your connection, then <button type="button" class="linkbtn" data-act="retry">try again</button>.</p>'
+    : '<p class="empty">Loading the agenda…</p>';
+  else {
+    const e = current();
+    html = e ? viewHTML(e) : '<p class="empty">No events yet.' + (admin() ? ' Tap <b>+ New event</b> on the left.' : '') + '</p>';
+    document.title = e ? e.title + " · " + navDate(e.date) : "HY Team Event";
+  }
+  $("doc").innerHTML = html + footHTML();
+  paintVer();
 }
-addEventListener("hashchange", function(){
-  if(location.hash === "#all") return;
-  render(); scrollTo({ top: 0, behavior: "smooth" });
+
+/* ---------------- editing ----------------
+   Lists are typed as lines. Overview: "time | what". Roles: "role | person | note". Calendar:
+   "date | what". Points: one per line; a line starting with "- " is a sub-point of the one above. */
+function fmtRows(rows){ return (rows || []).map(function(r){ const a = r.slice(); while(a.length && !a[a.length - 1]) a.pop(); return a.join(" | "); }).join("\n"); }
+function parseRows(text, n){
+  return String(text || "").split("\n").map(function(l){ return l.trim(); }).filter(Boolean).map(function(l){
+    const p = l.split("|").map(function(x){ return x.trim(); });
+    const out = p.slice(0, n - 1); out.push(p.slice(n - 1).join(" | "));
+    while(out.length < n) out.push("");
+    return out;
+  });
+}
+function fmtPts(pts){ return (pts || []).map(function(p){ return Array.isArray(p) ? [p[0]].concat((p[1] || []).map(function(q){ return "- " + q; })).join("\n") : p; }).join("\n"); }
+function parsePts(text){
+  const out = [];
+  String(text || "").split("\n").forEach(function(l){
+    if(!l.trim()) return;
+    const m = /^\s*[-–•]\s+(.*)$/.exec(l);
+    if(m && out.length){
+      let last = out[out.length - 1];
+      if(!Array.isArray(last)){ last = [last, []]; out[out.length - 1] = last; }
+      last[1].push(m[1].trim());
+    } else out.push(l.replace(/^\s*[-–•]\s+/, "").trim());
+  });
+  return out;
+}
+function field(name, label, value, opts){
+  opts = opts || {};
+  const tag = opts.area ? '<textarea name="' + name + '" rows="' + (opts.rows || 3) + '"' + (opts.ph ? ' placeholder="' + esc(opts.ph) + '"' : '') + '>' + esc(value || "") + '</textarea>'
+    : '<input name="' + name + '" type="' + (opts.type || "text") + '" value="' + esc(value == null ? "" : value) + '"' + (opts.ph ? ' placeholder="' + esc(opts.ph) + '"' : '') + (opts.attr || "") + '>';
+  return '<label class="fl' + (opts.full ? ' full' : '') + '"><span>' + label + '</span>' + tag + (opts.hint ? '<p class="hint">' + opts.hint + '</p>' : '') + '</label>';
+}
+function segEditHTML(s, i, n){
+  return '<div class="sege" data-i="' + i + '"><div class="sh"><b>Segment ' + (i + 1) + '</b>'
+    + '<button type="button" class="btn sm" data-act="up" ' + (i === 0 ? 'disabled' : '') + ' aria-label="Move up">↑</button>'
+    + '<button type="button" class="btn sm" data-act="down" ' + (i === n - 1 ? 'disabled' : '') + ' aria-label="Move down">↓</button>'
+    + '<button type="button" class="btn sm warn" data-act="delseg">Remove</button></div>'
+    + '<div class="grid2">'
+    +   field("t", "Title", s.t) + field("min", "Minutes", s.min || "", { type: "number", attr: ' min="0" max="240" inputmode="numeric"' })
+    +   field("lead", "Subtitle <i>(optional)</i>", s.lead) + field("who", "Who", s.who)
+    +   field("pts", "Points <i>(one per line; start a line with - for a sub-point)</i>", fmtPts(s.pts), { area: true, full: true, rows: Math.max(3, (s.pts || []).length + 1) })
+    +   field("cal", "Calendar rows <i>(optional: date | what)</i>", fmtRows(s.cal), { area: true, full: true, rows: s.cal && s.cal.length ? s.cal.length + 1 : 2, ph: "Oct 21 (Wed) | JL Team Evaluation" })
+    + '</div></div>';
+}
+function renderEditor(){
+  const d = EDIT.draft, y = scrollY;
+  $("doc").innerHTML =
+    '<div class="dtop"><span class="stat">' + (EDIT.isNew ? "New event" : "Editing") + '</span></div>'
+    + '<h1>' + esc(d.title || "Untitled event") + '</h1>'
+    + '<form class="ed" id="edf" autocomplete="off" onsubmit="return false">'
+    + '<h2>Event</h2><div class="grid2">'
+    +   field("title", "Title", d.title, { full: true }) + field("sub", "Subtitle", d.sub)
+    +   field("kind", "Kind <i>(FNH, Orientation…)</i>", d.kind) + field("date", "Date", d.date, { type: "date" })
+    +   field("time", "Time", d.time, { ph: "7:30 to 9:00 PM ET" }) + field("where", "Where", d.where)
+    +   field("whereNote", "Where, second line", d.whereNote) + field("zoom", "Zoom ID", d.zoom, { attr: ' inputmode="numeric"' })
+    +   field("pass", "Zoom passcode <i>(shown on the page)</i>", d.pass) + field("dress", "Dress code", d.dress)
+    +   field("agendaTitle", "Agenda heading <i>(blank = Agenda)</i>", d.agendaTitle)
+    + '</div>'
+    + '<h2>Overview</h2>' + field("flow", "One per line: time | what", fmtRows(d.flow), { area: true, full: true, rows: (d.flow || []).length + 1, ph: "7:30 to 9:00 PM | All partners" })
+    + '<h2>Roles</h2>' + field("roles", "One per line: role | person | note", fmtRows(d.roles), { area: true, full: true, rows: (d.roles || []).length + 1, ph: "Host / Co-host | Annie, Wendy | Keep energy high" })
+    + '<h2>Agenda</h2>' + (d.agenda || []).map(function(s, i){ return segEditHTML(s, i, d.agenda.length); }).join("")
+    + '<button type="button" class="btn" data-act="addseg">+ Add segment</button>'
+    + '<div class="edbar"><span class="st" id="edst" role="status"></span>'
+    +   '<button type="button" class="btn" data-act="cancel">Cancel</button>'
+    +   (EDIT.isNew ? '' : '<button type="button" class="btn warn" data-act="delevent">Delete event</button>')
+    +   '<button type="button" class="btn pri" data-act="save">Save</button></div>'
+    + '</form>' + footHTML();
+  paintVer(); scrollTo(0, y);
+  if(CONFLICT) showConflict();
+}
+function collect(){
+  const f = $("edf"); if(!f || !EDIT) return;
+  const v = function(n, root){ const el = (root || f).querySelector('[name="' + n + '"]'); return el ? el.value : ""; };
+  const d = EDIT.draft;
+  ["title", "sub", "kind", "date", "time", "where", "whereNote", "zoom", "pass", "dress", "agendaTitle"].forEach(function(k){ d[k] = v(k).trim(); });
+  d.flow = parseRows(v("flow"), 2);
+  d.roles = parseRows(v("roles"), 3);
+  d.agenda = Array.prototype.map.call(f.querySelectorAll(".sege"), function(s){
+    const seg = { t: v("t", s).trim() };
+    const lead = v("lead", s).trim(), who = v("who", s).trim(), min = parseInt(v("min", s), 10);
+    if(lead) seg.lead = lead;
+    if(min > 0) seg.min = min;
+    if(who) seg.who = who;
+    const cal = parseRows(v("cal", s), 2); if(cal.length) seg.cal = cal;
+    const pts = parsePts(v("pts", s)); if(pts.length) seg.pts = pts;
+    return seg;
+  });
+}
+function edStatus(t, err){ const el = $("edst"); if(el){ el.textContent = t; el.classList.toggle("err", !!err); } }
+function nextFriday(){
+  const t = asDate(todayET());
+  t.setDate(t.getDate() + (5 - t.getDay() + 7) % 7);
+  while(EVENTS.some(function(e){ return e.date === ymd(t); })) t.setDate(t.getDate() + 7);
+  return ymd(t);
+}
+function startNew(){
+  if(EDIT && DIRTY){ toast("Save or cancel the event you are editing first."); return; }
+  const date = nextFriday();
+  EDIT = { id: null, isNew: true, base: null, draft: {
+    date: date, kind: "FNH", title: "HY Friday Night Hangout", sub: asDate(date).toLocaleDateString("en-US", { month: "long" }),
+    time: "7:30 to 9:00 PM ET", where: "To be confirmed", whereNote: "Details in the group chat · also on Zoom",
+    zoom: ZOOM_DEFAULT, pass: "", dress: "Sharp business casual", agendaTitle: "",
+    flow: clone(FNH_FLOW), roles: [["Host / Co-host", "", ""], ["Online CEO (Chief Energy Officer)", "", ""], ["DJ & Technology", "", ""]],
+    agenda: [clone(INTROS), { t: "Calendar", min: 5 }]
+  }};
+  DIRTY = true; CONFLICT = null; closeNav(); render(); scrollTo(0, 0);
+}
+function startEdit(){
+  const e = current(); if(!e) return;
+  EDIT = { id: e.id, isNew: false, base: e.at || null, draft: clone(e) };
+  DIRTY = false; CONFLICT = null; render(); scrollTo(0, 0);
+}
+function stopEdit(){ EDIT = null; DIRTY = false; CONFLICT = null; render(); scrollTo(0, 0); }
+function save(){
+  collect();
+  const d = EDIT.draft;
+  if(!d.title){ edStatus("Give the event a title.", true); markBad("title"); return; }
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(d.date)){ edStatus("Pick the date.", true); markBad("date"); return; }
+  let id = EDIT.id;
+  if(EDIT.isNew){ id = d.date; let n = 2; while(EVENTS.some(function(e){ return e.id === id; })) id = d.date + "-" + n++; }
+  const ev = clone(d); ev.id = id; delete ev.at;
+  const body = { events: {}, base: {} }; body.events[id] = ev; body.base[id] = EDIT.isNew ? null : EDIT.base;
+  send(body, function(){
+    EDIT = null; DIRTY = false; CONFLICT = null;
+    history.replaceState(null, "", "#" + id); render(); scrollTo(0, 0);
+    toast("Saved. Everyone sees it on their next refresh, within a minute.");
+  });
+}
+function markBad(n){ const el = document.querySelector('#edf [name="' + n + '"]'); if(el){ el.classList.add("bad"); el.focus(); } }
+function deleteEvent(){
+  const body = { events: {}, base: {} }; body.events[EDIT.id] = { deleted: true }; body.base[EDIT.id] = EDIT.base;
+  send(body, function(){
+    EDIT = null; DIRTY = false; CONFLICT = null;
+    history.replaceState(null, "", location.pathname); render(); scrollTo(0, 0);
+    toast("Event deleted.");
+  });
+}
+function send(body, onOk){
+  if(SAVING) return;
+  if(!admin()){ AdminSession.login(function(){ renderNav(); send(body, onOk); }); return; }
+  SAVING = true; CONFLICT = null; edStatus("Saving…");
+  document.querySelectorAll('.edbar .btn').forEach(function(b){ b.disabled = true; });
+  const done = function(){ SAVING = false; document.querySelectorAll('.edbar .btn').forEach(function(b){ b.disabled = false; }); };
+  fetch(API, { method: "POST", headers: Object.assign({ "Content-Type": "application/json" }, AdminSession.headers()), body: JSON.stringify(body) })
+    .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return { ok: r.ok, status: r.status, j: j }; }); })
+    .then(function(x){
+      done();
+      if(x.ok && Array.isArray(x.j.events)){ setData(x.j); onOk(); return; }
+      if(x.status === 401){
+        AdminSession.logout(); renderNav();
+        edStatus("Your admin login has expired. Sign in again and it saves.", true);
+        AdminSession.login(function(){ renderNav(); send(body, onOk); });
+        return;
+      }
+      if(x.status === 409 && Array.isArray(x.j.events)){
+        setData({ savedAt: x.j.savedAt, events: x.j.events }); renderNav();
+        CONFLICT = { msg: x.j.error || "This event changed on another device." }; showConflict(); return;
+      }
+      edStatus("Not saved: " + (x.j.error || "error " + x.status) + ". Your changes are still here.", true);
+    })
+    .catch(function(){ done(); edStatus("Not saved. Check the connection and tap Save again. Your changes are still here.", true); });
+}
+function showConflict(){
+  const el = $("edst"); if(!el) return;
+  el.classList.add("err");
+  el.innerHTML = esc(CONFLICT.msg) + ' Not saved. Your version is still here.<br>'
+    + '<button type="button" class="btn sm pri" data-act="mine">Save mine over it</button>'
+    + (EDIT.isNew ? '' : '<button type="button" class="btn sm" data-act="theirs">Load the newer one</button>');
+}
+function keepMine(){
+  collect();
+  const id = EDIT.id, cur = EVENTS.filter(function(e){ return e.id === id; })[0];
+  if(EDIT.isNew){ /* the date is taken: save() picks the next free id */ }
+  else if(cur) EDIT.base = cur.at || null;
+  else { EDIT.isNew = true; EDIT.base = null; }       /* deleted elsewhere: save it back as new */
+  CONFLICT = null; save();
+}
+function loadTheirs(){
+  const cur = EVENTS.filter(function(e){ return e.id === EDIT.id; })[0];
+  if(!cur){ stopEdit(); toast("That event was deleted on another device."); return; }
+  EDIT = { id: cur.id, isNew: false, base: cur.at || null, draft: clone(cur) }; DIRTY = false; CONFLICT = null; render();
+}
+function arm(btn, label, fn){
+  if(btn.dataset.armed){ fn(); return; }
+  const was = btn.textContent; btn.dataset.armed = "1"; btn.classList.add("armed"); btn.textContent = label;
+  setTimeout(function(){ if(btn.isConnected){ delete btn.dataset.armed; btn.classList.remove("armed"); btn.textContent = was; } }, 3500);
+}
+
+/* ---------------- clicks ---------------- */
+function closeNav(){ document.body.classList.remove("navopen"); $("navbtn").setAttribute("aria-expanded", "false"); }
+$("navbtn").addEventListener("click", function(){ const o = document.body.classList.toggle("navopen"); this.setAttribute("aria-expanded", String(o)); });
+$("scrim").addEventListener("click", closeNav);
+$("nav").addEventListener("click", function(ev){
+  const a = ev.target.closest("a.ni"); if(!a) return;
+  if(EDIT){ ev.preventDefault(); toast("Save or cancel your edit first."); return; }
+  closeNav();
+});
+$("dots").addEventListener("click", function(){
+  if(admin()){ toast("Signed in as admin. Use Edit on an event, or + New event."); return; }
+  AdminSession.login(function(){ render(); toast("Signed in. Tap Edit on any event, or + New event."); });
 });
 document.addEventListener("click", function(ev){
-  const b = ev.target.closest("[data-copy]"); if(!b) return;
-  const v = b.dataset.copy.replace(/\D/g, "");
-  const done = function(ok){ const t = $("toast"); t.textContent = ok ? "Zoom ID copied" : "Zoom ID: " + b.dataset.copy; t.hidden = false; clearTimeout(t._h); t._h = setTimeout(function(){ t.hidden = true; }, 2200); };
-  if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(v).then(function(){ done(true); }, function(){ done(false); });
-  else done(false);
+  const c = ev.target.closest("[data-copy]");
+  if(c){
+    const v = c.dataset.copy.replace(/\D/g, "");
+    const ok = function(){ toast("Zoom ID copied"); }, no = function(){ toast("Zoom ID: " + c.dataset.copy); };
+    if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(v).then(ok, no); else no();
+    return;
+  }
+  const b = ev.target.closest("[data-act]"); if(!b || b.disabled) return;
+  const act = b.dataset.act;
+  if(act === "retry"){ LOAD_FAILED = false; render(); loadData(); return; }
+  if(act === "new"){ startNew(); return; }
+  if(act === "edit"){ startEdit(); return; }
+  if(act === "signout"){
+    if(EDIT && DIRTY){ toast("Save or cancel your edit first."); return; }
+    AdminSession.logout(); EDIT = null; render(); toast("Signed out of admin."); return;
+  }
+  if(!EDIT) return;
+  if(act === "save"){ save(); return; }
+  if(act === "cancel"){ if(DIRTY) arm(b, "Discard changes?", stopEdit); else stopEdit(); return; }
+  if(act === "delevent"){ arm(b, "Tap again to delete", deleteEvent); return; }
+  if(act === "mine"){ keepMine(); return; }
+  if(act === "theirs"){ loadTheirs(); return; }
+  if(act === "addseg"){ collect(); EDIT.draft.agenda = EDIT.draft.agenda || []; EDIT.draft.agenda.push({ t: "" }); DIRTY = true; renderEditor();
+    const all = document.querySelectorAll(".sege"); const last = all[all.length - 1]; if(last){ last.scrollIntoView({ block: "center" }); last.querySelector('[name="t"]').focus(); } return; }
+  const seg = b.closest(".sege"); if(!seg) return;
+  /* collect() builds a fresh agenda list from the form, so take the list after it, not before. */
+  const i = +seg.dataset.i;
+  if(act === "up" || act === "down"){
+    collect(); const ag = EDIT.draft.agenda, j = act === "up" ? i - 1 : i + 1; if(j < 0 || j >= ag.length) return;
+    const tmp = ag[i]; ag[i] = ag[j]; ag[j] = tmp; DIRTY = true; renderEditor(); return;
+  }
+  if(act === "delseg"){ arm(b, "Tap again", function(){ collect(); EDIT.draft.agenda.splice(i, 1); DIRTY = true; renderEditor(); }); }
 });
+$("doc").addEventListener("input", function(ev){
+  if(!EDIT) return;
+  DIRTY = true; ev.target.classList && ev.target.classList.remove("bad");
+  if(ev.target.name === "title"){ const h = document.querySelector("#doc h1"); if(h) h.textContent = ev.target.value || "Untitled event"; }
+});
+addEventListener("beforeunload", function(ev){ if(EDIT && DIRTY){ ev.preventDefault(); ev.returnValue = ""; } });
+addEventListener("hashchange", function(){ if(!EDIT){ render(); scrollTo({ top: 0 }); } });
+
 render();
+loadData();
+setInterval(function(){ if(!document.hidden) loadData(); }, 60000);
+document.addEventListener("visibilitychange", function(){ if(!document.hidden) loadData(); });
 
 /* ---------- always the newest version ----------
    GitHub Pages lets a browser reuse its saved copy for ten minutes, and a tab that stays open
-   never asks again, so a phone opened before the last change would keep the old agenda. The page
-   asks the server for its own newest copy, past every cache: on load, when the tab comes back
-   into view, and once a minute. If the script there differs from the one running, it reloads
-   onto it, keeping the event you were on. Nothing here is typed, so nothing to protect. */
-let stale = false, checkedAt = 0, triedAt = 0, staleKey = "";
+   never asks again, so a phone opened before the last change would keep old code. The page asks
+   the server for its own newest copy, past every cache: on load, when the tab comes back into
+   view, and once a minute. If the script there differs from the one running, it reloads onto
+   it, keeping the event you were on. Never while an edit is open: it waits for Save or Cancel. */
 function paintVer(){
   const when = function(t){ return new Date(t).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }); };
   const txt = "Version " + when(BUILD) + (stale ? " · a newer version is out, reloading"
@@ -546,17 +621,18 @@ function reloadWhenSafe(){
   if(!stale){ $("upd").hidden = true; return; }
   let tried = ""; try{ tried = sessionStorage.getItem("team-event-tried") || ""; }catch(e){}
   /* One automatic reload per new version, so a bad edge server can never cause a loop. */
-  if(tried !== staleKey){ reloadNow(); return; }
-  $("updt").textContent = "A newer version of this page is out.";
+  if(tried !== staleKey && !EDIT){ reloadNow(); return; }
+  $("updt").textContent = EDIT ? "A newer version is out. It loads after you save or cancel." : "A newer version of this page is out.";
   $("upd").hidden = false;
 }
 function reloadNow(){
   try{ sessionStorage.setItem("team-event-tried", staleKey); }catch(e){}
   location.replace(location.pathname + "?v=" + Date.now() + location.hash);
 }
-$("updgo").onclick = reloadNow;
+$("updgo").onclick = function(){ if(EDIT && DIRTY){ toast("Save or cancel your edit first."); return; } reloadNow(); };
 paintVer(); freshen();
 setInterval(freshen, 60000);
+setInterval(function(){ if(stale) reloadWhenSafe(); }, 3000);
 document.addEventListener("visibilitychange", function(){ if(!document.hidden) freshen(); });
 addEventListener("focus", freshen);
 addEventListener("pageshow", function(e){ if(e.persisted){ triedAt = 0; freshen(); } });
