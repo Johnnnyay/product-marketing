@@ -248,7 +248,7 @@ body.navopen .scrim{display:block;position:fixed;inset:0;background:rgba(20,26,2
 /* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this
    file. The version check at the bottom reads it, and the script text, to tell an old copy of
    this page from the newest one (DiamondA70/_skills/app-qa/references/self-update.md). */
-const BUILD = "2026-10-15T15:28:32Z";
+const BUILD = "2026-10-15T15:28:52Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 /* The agendas: data/team-events.json next to this page, read fresh through the API (GitHub Pages
@@ -320,7 +320,9 @@ const NIGHTS = {
       zoom: ZOOM_DEFAULT, pass: "", dress: "Sharp business casual", agendaTitle: "", flow: clone(FNH_FLOW),
       roles: [],
       agenda: [
-        { k: "intro", items: [{ min: 5 }] },
+        { k: "intro", items: [{ min: 5 },
+          { t: "Candidates & new IBOs", pts: ["Name · City · Background · One-line Excitement"] },
+          { t: "Existing partners", pts: ["Name · City · Background · What you did this week (2 MG1 / 20+ PV retail) · Goal"] }] },
         { k: "calendar", items: [{}] },
         { k: "volume", items: [{ min: 15 }] },
         { k: "growth", items: [{ t: "Book", min: 2, pts: [READ] }, { t: "Audio", min: 2, pts: [LISTEN] }] },
