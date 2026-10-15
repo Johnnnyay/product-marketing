@@ -83,7 +83,17 @@ button{font-family:inherit}
 .ag > li:first-child{border-top:0;padding-top:4px}
 .ag > li::before{content:counter(seg);position:absolute;left:0;top:16px;font-weight:800;color:var(--sage);font-variant-numeric:tabular-nums}
 .ag > li:first-child::before{top:4px}
-.ag h3{font-size:18px;line-height:1.3;font-weight:700;margin:0}
+.ag h3{font-size:18px;line-height:1.3;font-weight:700;margin:0;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.ag h3 span{font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap}
+.it{margin-top:12px}
+.it:first-of-type{margin-top:8px}
+.ih{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.ih h4{font-size:16px;font-weight:700;line-height:1.35;margin:0}
+.im{font-size:13.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.iw{font-size:14.5px;color:var(--ink-2);margin-top:1px}
+.iw b{font-weight:600;color:var(--ink)}
+.it ul{list-style:disc}
+.it ul ul{list-style:circle}
 .am{font-size:14px;color:var(--muted);margin-top:1px}
 .am b{color:var(--ink-2);font-weight:600}
 .al{margin:6px 0 0;color:var(--ink-2);font-style:italic}
@@ -141,16 +151,20 @@ button{font-family:inherit}
 .ed input:focus,.ed textarea:focus{outline:none;border-color:var(--sage)}
 .ed input.bad{border-color:var(--red)}
 .hint{font-size:12.5px;color:var(--muted);margin:4px 0 0}
-.sege{border:1.5px solid var(--line);border-radius:10px;padding:12px;margin:0 0 10px;background:var(--ground)}
-.sege .sh{display:flex;align-items:center;gap:6px;margin-bottom:8px}
-.sege .sh b{font-size:14px;color:var(--sage);margin-right:auto}
-.sege .grid2{grid-template-columns:2fr 1fr}
+.sece{border:1.5px solid var(--line-2);border-radius:12px;padding:12px;margin:0 0 12px}
+.seh{display:flex;align-items:center;gap:6px;margin-bottom:10px}
+.seh b{font-size:15.5px;color:var(--sage);margin-right:auto}
+.iteme{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 8px;background:var(--ground)}
+.sh{display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.sh b{font-size:13.5px;color:var(--ink-2);margin-right:auto}
+.iteme .grid2{grid-template-columns:2fr 1fr}
+.adds{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:4px}
 .edbar{position:sticky;bottom:0;z-index:15;display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:var(--page);
   border-top:1px solid var(--line);margin:22px 0 0;padding:12px 0}
 .edbar .st{flex:1 1 220px;font-size:14px;font-weight:600;color:var(--ink-2);min-width:0}
 .edbar .st.err{color:var(--red)}
 .edbar .st .btn{margin:6px 6px 0 0}
-@media (max-width:640px){ .grid2,.sege .grid2{grid-template-columns:1fr} }
+@media (max-width:640px){ .grid2,.iteme .grid2{grid-template-columns:1fr} }
 /* Template cards: one per segment type (Add a segment), and one per kind of night (New event). */
 .tpl{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:8px}
 .tc{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;background:var(--page);border:1.5px solid var(--line-2);
@@ -162,7 +176,7 @@ button{font-family:inherit}
 .tc.blank{justify-content:center;align-items:center;color:var(--muted);font-weight:700;border-style:dashed}
 .tc.big{padding:16px 16px}
 .tc.big b{font-size:17px}
-.sege select{font:inherit;font-size:13px;border:1.5px solid var(--line-2);border-radius:7px;padding:3px 6px;background:#fff;color:var(--ink-2);max-width:48%}
+
 
 .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:10px;
   padding:9px 16px;font-size:14px;font-weight:600;z-index:95;max-width:calc(100% - 32px)}
@@ -193,7 +207,7 @@ button{font-family:inherit}
 /* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this
    file. The version check at the bottom reads it, and the script text, to tell an old copy of
    this page from the newest one (DiamondA70/_skills/app-qa/references/self-update.md). */
-const BUILD = "2026-10-15T03:03:40Z";
+const BUILD = "2026-10-15T03:20:28Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 /* The agendas: data/team-events.json next to this page, read fresh through the API (GitHub Pages
@@ -209,77 +223,77 @@ const INTROS = { t: "Introductions & Recognition", pts: [
   ["Existing partners", ["Name · City · Background · What you did this week (2 MG1 / 20+ PV retail) · Goal"]]
 ]};
 
-/* ---------------- templates ----------------
-   Johnny, 2026-10-14: "study each type of topic to develop template card for each type so future
-   event creation can leverage it and be consistent." Built from all 54 segments of the eight
-   agendas from Feb 27 to Oct 16, 2026. Ten types (how often each appeared): intro 7, calendar 6,
-   growth 9, spotlight 4, product 5, retail 5, panel 3, training 7, wrapup 7, qa 1. A card fills
-   in the title, the usual minutes and the standard prompts; who and the topic are left to fill,
-   with a hint in the empty box. Each segment keeps its type in `k`. */
+/* ---------------- the agenda's shape ----------------
+   Johnny, 2026-10-14: an FNH agenda is the event's details, the roles, then the agenda in five
+   sections: Introduction & Recognition, Calendar, Volume & Product Education, Personal Growth and
+   Leadership Training. Every item in every section has the same parts: a topic, a speaker (one
+   person, or a panel and the person who leads it), the minutes, and bullet points. The calendar's
+   item lists events instead. All 54 items of the eight agendas from Feb 27 to Oct 16 fit this.
+   Data: agenda = [{ k, items: [{ t, who, by, min, pts, cal }] }], sections in the event's order. */
 const HOST_NOTE = "Keep energy high and the event on time; have music ready before the event starts.";
 const READ = "What you read, 1 or 2 major takeaways, 1 or 2 things you are implementing";
 const LISTEN = "What you listened to, 1 or 2 major takeaways, 1 or 2 things you are implementing";
-const TYPES = [
-  { k: "intro", name: "Introductions & Recognition", ph: { who: "Hosts" } },
-  { k: "calendar", name: "Calendar", ph: { who: "Host" } },
-  { k: "growth", name: "Personal Growth", ph: { who: "One partner" } },
-  { k: "spotlight", name: "Partner Spotlight", ph: { who: "One partner (or: Lister, interviewed by Irene)", lead: "The win, e.g. 10+ MG1s in two months" } },
-  { k: "product", name: "Product Education & Demo", ph: { who: "Who presents", lead: "The product or area" } },
-  { k: "retail", name: "Retail & Volume", ph: { who: "Who shares", lead: "The theme, e.g. product parties, holiday bundles" } },
-  { k: "panel", name: "Leadership Panel", ph: { who: "Panelists, led by Johnny", lead: "The theme" } },
-  { k: "training", name: "Leadership Training", ph: { who: "Who teaches", lead: "The topic", pts: "3 to 5 points: why it matters, how to do it, what to avoid" } },
-  { k: "wrapup", name: "Wrap-Up Training", ph: { who: "Johnny & Irene", lead: "The topic", pts: "3 to 5 points" } },
-  { k: "qa", name: "Open Q&A", ph: { who: "The leader" } }
+const ORIENT_INTRO = [["New apprentices since the last orientation", ["Name · City · Who you are building with · What you are excited about · One fun fact about yourself"]]];
+const SECTIONS = [
+  { k: "intro", name: "Introduction & Recognition", ph: { who: "Hosts" },
+    add: [["+ Add item", function(){ return { pts: clone(INTROS.pts) }; }]] },
+  { k: "calendar", name: "Calendar", ph: { who: "Host" },
+    add: [["+ Add item", function(){ return { min: 5 }; }]] },
+  { k: "volume", name: "Volume & Product Education", ph: { t: "e.g. Holiday retail, or a new product", who: "Who presents", pts: "What it is, why it matters, a simple demo, how to bring it up" },
+    add: [["+ Add item", function(){ return { min: 10 }; }]] },
+  { k: "growth", name: "Personal Growth", ph: { t: "Book, Audio, or the title", who: "One partner" },
+    add: [["+ Book", function(){ return { t: "Book", min: 2, pts: [READ] }; }], ["+ Audio", function(){ return { t: "Audio", min: 2, pts: [LISTEN] }; }]] },
+  { k: "leadership", name: "Leadership Training", ph: { t: "The topic", who: "One speaker, or the panelists", by: "Who leads the panel", pts: "3 to 5 points or questions" },
+    add: [["+ Add item", function(){ return { min: 15 }; }]] }
 ];
-const TYPE = {}; TYPES.forEach(function(t){ TYPE[t.k] = t; });
-const CARDS = [
-  { id: "intro", about: "Guests and new IBOs introduce themselves; partners share their week.", seg: { k: "intro", t: "Introductions & Recognition", pts: INTROS.pts } },
-  { id: "calendar", about: "What's coming up on the JL team calendar.", seg: { k: "calendar", t: "Calendar", min: 5 } },
-  { id: "book", about: "One partner on what they're reading.", seg: { k: "growth", t: "Personal Growth: Book", min: 2, pts: [READ] } },
-  { id: "audio", about: "One partner on what they're listening to.", seg: { k: "growth", t: "Personal Growth: Audio", min: 2, pts: [LISTEN] } },
-  { id: "spotlight", about: "One partner, one recent win, and how they did it.", seg: { k: "spotlight", t: "Partner Spotlight", min: 5,
-      pts: ["What you did, in numbers", "How you did it: the habits, the help, the hard part", "What you would tell someone starting now"] } },
-  { id: "product", about: "One product or area: why it matters, and a demo anyone can repeat.", seg: { k: "product", t: "Product Education & Demo", min: 10,
-      pts: ["What it is, and who it's for", "Why it matters, in plain words", "One simple demo anyone can repeat", "How to bring it up in an everyday conversation"] } },
-  { id: "retail", about: "How someone found customers and built volume, or a retail skill.", seg: { k: "retail", t: "Retail & Volume", min: 10,
-      pts: ["Personal use first, and why it builds belief", "Where the first customers came from", "What the volume looked like after", "One thing to try this week"] } },
-  { id: "panel", about: "Two or three partners answer questions, led by a host.", seg: { k: "panel", t: "Leadership Panel", min: 15,
-      pts: ["What was it like when you first started?", "What changed, and what made the difference?", "What would you tell someone in their first 90 days?"] } },
-  { id: "training", about: "A leader teaches one topic.", seg: { k: "training", t: "Leadership Training", min: 15 } },
-  { id: "wrapup", about: "The closing talk from a top leader.", seg: { k: "wrapup", t: "Wrap-Up Training", min: 20 } },
-  { id: "qa", about: "Questions to the leader at the end.", seg: { k: "qa", t: "Open Q&A", min: 8 } }
-];
-const CARD = {}; CARDS.forEach(function(c){ CARD[c.id] = c; });
-function fromCard(id, over){ return Object.assign(clone(CARD[id].seg), over || {}); }
-/* The two kinds of night so far. FNH: Friday 7:30 at the condo (Mar to Oct). Orientation: Saturday
-   8 PM on Zoom (Sep 26). The agenda is the usual running order of each. */
+const SEC = {}; SECTIONS.forEach(function(x, i){ x.i = i; SEC[x.k] = x; });
+/* The kinds of night so far. FNH: Friday 7:30 at the condo (Mar to Oct). Orientation: Saturday 8 PM
+   on Zoom (Sep 26). Each starts with the usual sections and the usual items. */
 const NIGHTS = {
-  fnh: { name: "Friday Night Hangout", about: "Friday 7:30 to 9:00 PM at Johnny & Irene's, also on Zoom. Intros, calendar, product, book, audio, training, wrap-up.",
+  fnh: { name: "Friday Night Hangout", about: "Friday 7:30 to 9:00 PM at the HY condo, also on Zoom. All five sections.", day: 5,
     make: function(date){ return {
       date: date, kind: "FNH", title: "HY Friday Night Hangout", sub: monthName(date),
-      time: "7:30 to 9:00 PM ET", where: "Johnny & Irene's place, Flushing", whereNote: "Address in the group chat · also on Zoom",
+      time: "7:30 to 9:00 PM ET", where: "13102B 40th Rd Apartment", whereNote: "HY Condo · also on Zoom",
       zoom: ZOOM_DEFAULT, pass: "", dress: "Sharp business casual", agendaTitle: "", flow: clone(FNH_FLOW),
       roles: [["Host / Co-host", "", HOST_NOTE], ["Online CEO (Chief Energy Officer)", "", ""], ["DJ & Technology", "", ""]],
-      agenda: [fromCard("intro"), fromCard("calendar"), fromCard("product"), fromCard("book"), fromCard("audio"), fromCard("training"), fromCard("wrapup")]
-    }; }, day: 5 },
-  orientation: { name: "New Apprentice Orientation", about: "Saturday 8:00 to 9:00 PM on Zoom, camera on. Welcome, book, audio, product & volume, mentorship, networking, first 90 days, Q&A.",
+      agenda: [
+        { k: "intro", items: [{ pts: clone(INTROS.pts) }] },
+        { k: "calendar", items: [{ min: 5 }] },
+        { k: "volume", items: [{ min: 15 }] },
+        { k: "growth", items: [{ t: "Book", min: 2, pts: [READ] }, { t: "Audio", min: 2, pts: [LISTEN] }] },
+        { k: "leadership", items: [{ min: 15 }, { min: 20 }] }
+      ]
+    }; } },
+  orientation: { name: "New Apprentice Orientation", about: "Saturday 8:00 to 9:00 PM on Zoom, camera on. Welcome, growth, volume, then mentorship, networking, first 90 days and Q&A.", day: 6,
     make: function(date){ return {
       date: date, kind: "Orientation", title: "HY Saturday Night Hangout", sub: monthName(date) + " New Apprentice Orientation",
       time: "8:00 to 9:00 PM ET", where: "Zoom only", whereNote: "", zoom: ZOOM_DEFAULT, pass: "", dress: "Business casual, camera on",
       agendaTitle: "New IBO Orientation", flow: [["7:55 to 8:00 PM", "Check in"], ["8:00 to 9:00 PM", "All partners"]],
       roles: [["Host / Timer", "", "Keep energy high and the event on time. Remind everyone to turn their camera on, and give speakers a 30-second countdown."]],
       agenda: [
-        { k: "intro", t: "Welcome & Introductions", min: 3, pts: [["New apprentices since the last orientation", ["Name · City · Who you are building with · What you are excited about · One fun fact about yourself"]]] },
-        fromCard("book"), fromCard("audio"),
-        fromCard("retail", { t: "Product & Volume", lead: "First circle: personal use and retail" }),
-        fromCard("training", { t: "Mentorship", min: 5 }),
-        fromCard("training", { t: "Networking", min: 10, lead: "Networking in your first 90 days" }),
-        fromCard("wrapup", { t: "Leadership Training: First 90 Days", min: 15 }),
-        fromCard("qa")
+        { k: "intro", items: [{ min: 3, pts: clone(ORIENT_INTRO) }] },
+        { k: "growth", items: [{ t: "Book", min: 2, pts: [READ] }, { t: "Audio", min: 2, pts: [LISTEN] }] },
+        { k: "volume", items: [{ min: 10 }] },
+        { k: "leadership", items: [{ t: "Mentorship", min: 5 }, { t: "Networking", min: 10 }, { t: "First 90 days", min: 15 }, { t: "Open Q&A", min: 8 }] }
       ]
-    }; }, day: 6 }
+    }; } }
 };
 function monthName(d){ return asDate(d).toLocaleDateString("en-US", { month: "long" }); }
+/* A copy kept on a phone before 2026-10-14 can still hold the old flat list of segments: fold it
+   into sections the way the API does, so it never renders blank. */
+const OLDK = { intro: "intro", calendar: "calendar", product: "volume", retail: "volume", growth: "growth",
+  spotlight: "leadership", panel: "leadership", training: "leadership", wrapup: "leadership", qa: "leadership" };
+function sectionsOf(e){
+  const a = Array.isArray(e.agenda) ? e.agenda : [];
+  if(!a.length || a.some(function(x){ return x && Array.isArray(x.items); })) return a.filter(function(x){ return x && SEC[x.k] && Array.isArray(x.items); });
+  const out = [];
+  a.forEach(function(s){
+    const k = OLDK[s.k] || "leadership", last = out[out.length - 1];
+    const it = { t: s.lead || (/^(Introductions|Welcome|Calendar|Upcoming)/.test(s.t || "") ? "" : s.t), who: s.who, min: s.min, pts: s.pts, cal: s.cal };
+    if(last && last.k === k) last.items.push(it); else out.push({ k: k, items: [it] });
+  });
+  return out;
+}
 
 let EVENTS = [], SAVED_AT = null, LOADED = false, LOAD_FAILED = false, KEPT_AT = 0, CHOOSING = false;
 let EDIT = null, DIRTY = false, SAVING = false, CONFLICT = null;
@@ -371,21 +385,27 @@ function pointsHTML(pts){
     return Array.isArray(p) ? '<li>' + esc(p[0]) + (p[1] && p[1].length ? pointsHTML(p[1]) : '') + '</li>' : '<li>' + esc(p) + '</li>';
   }).join("") + '</ul>';
 }
-function segHTML(s){
-  const meta = [s.min ? s.min + " min" : "", s.who ? "<b>" + esc(s.who) + "</b>" : ""].filter(Boolean).join(" · ");
-  return '<li><h3>' + esc(s.t || "") + '</h3>'
-    + (meta ? '<div class="am">' + meta + '</div>' : '')
-    + (s.lead ? '<p class="al">' + esc(s.lead) + '</p>' : '')
-    + (s.cal && s.cal.length ? '<ul class="cal">' + s.cal.map(function(c){ return '<li><span class="k">' + esc(c[0]) + '</span><span>' + esc(c[1]) + '</span></li>'; }).join("") + '</ul>' : '')
-    + (s.pts && s.pts.length ? pointsHTML(s.pts) : '')
-    + '</li>';
+function speakerHTML(it){
+  if(it.by) return 'Panel: <b>' + esc(it.who || "") + '</b> · led by <b>' + esc(it.by) + '</b>';
+  return it.who ? '<b>' + esc(it.who) + '</b>' : '';
 }
+function itemHTML(it){
+  const sp = speakerHTML(it);
+  return '<div class="it">'
+    /* An untitled item (the intros, the calendar) has its minutes on the section heading already. */
+    + (it.t ? '<div class="ih"><h4>' + esc(it.t) + '</h4>' + (it.min ? '<span class="im">' + it.min + ' min</span>' : '') + '</div>' : '')
+    + (sp ? '<div class="iw">' + sp + '</div>' : '')
+    + (it.cal && it.cal.length ? '<ul class="cal">' + it.cal.map(function(c){ return '<li><span class="k">' + esc(c[0]) + '</span><span>' + esc(c[1]) + '</span></li>'; }).join("") + '</ul>' : '')
+    + (it.pts && it.pts.length ? pointsHTML(it.pts) : '')
+    + '</div>';
+}
+function minsOf(items){ return items.reduce(function(n, it){ return n + (it.min || 0); }, 0); }
 function viewHTML(e){
   const st = statusOf(e);
   const zoom = e.zoom || "";
   const zid = zoom.replace(/\D/g, "");
-  const agenda = e.agenda || [];
-  const total = agenda.reduce(function(n, s){ return n + (s.min || 0); }, 0);
+  const secs = sectionsOf(e);
+  const total = secs.reduce(function(n, x){ return n + minsOf(x.items); }, 0);
   const roles = (e.roles || []).filter(function(r){ return r[0] || r[1]; });
   return (KEPT_AT ? '<p class="note">Offline: showing the copy saved on this phone. It updates when you are back online.</p>' : '')
     + '<div class="dtop"><span class="stat ' + st[1] + '">' + esc(st[0]) + '</span><span class="sp"></span>'
@@ -405,7 +425,10 @@ function viewHTML(e){
         return '<li><span class="k">' + esc(r[0]) + '</span><span>' + (r[1] ? esc(r[1]) : '<span class="tbc">To be confirmed</span>') + (r[2] ? '<span class="n">' + esc(r[2]) + '</span>' : '') + '</span></li>';
       }).join("") + '</ul>' : '')
     + '<h2>' + esc(e.agendaTitle || "Agenda") + (total ? '<span>' + total + ' min planned</span>' : '') + '</h2>'
-    + (agenda.length ? '<ol class="ag">' + agenda.map(segHTML).join("") + '</ol>' : '<p class="empty">The agenda is coming.</p>');
+    + (secs.length ? '<ol class="ag">' + secs.map(function(x){
+        const m = minsOf(x.items);
+        return '<li><h3>' + esc(SEC[x.k].name) + (m ? '<span>' + m + ' min</span>' : '') + '</h3>' + x.items.map(itemHTML).join("") + '</li>';
+      }).join("") + '</ol>' : '<p class="empty">The agenda is coming.</p>');
 }
 function footHTML(){ return '<div class="foot">Questions about an event? Ask your upline in the group.<p class="ver"></p></div>'; }
 
@@ -459,20 +482,27 @@ function field(name, label, value, opts){
     : '<input name="' + name + '" type="' + (opts.type || "text") + '" value="' + esc(value == null ? "" : value) + '"' + (opts.ph ? ' placeholder="' + esc(opts.ph) + '"' : '') + (opts.attr || "") + '>';
   return '<label class="fl' + (opts.full ? ' full' : '') + '"><span>' + label + '</span>' + tag + (opts.hint ? '<p class="hint">' + opts.hint + '</p>' : '') + '</label>';
 }
-function segEditHTML(s, i, n){
-  const ph = (TYPE[s.k] || {}).ph || {};
-  return '<div class="sege" data-i="' + i + '"><div class="sh"><b>Segment ' + (i + 1) + '</b>'
-    + '<select name="k" aria-label="Type">' + TYPES.map(function(t){ return '<option value="' + t.k + '"' + (t.k === s.k ? ' selected' : '') + '>' + esc(t.name) + '</option>'; }).join("")
-    +   '<option value=""' + (s.k && TYPE[s.k] ? '' : ' selected') + '>Other</option></select>'
-    + '<button type="button" class="btn sm" data-act="up" ' + (i === 0 ? 'disabled' : '') + ' aria-label="Move up">↑</button>'
-    + '<button type="button" class="btn sm" data-act="down" ' + (i === n - 1 ? 'disabled' : '') + ' aria-label="Move down">↓</button>'
-    + '<button type="button" class="btn sm warn" data-act="delseg">Remove</button></div>'
+function itemEditHTML(k, it, ii, n){
+  const ph = SEC[k].ph;
+  return '<div class="iteme" data-ii="' + ii + '"><div class="sh"><b>Item ' + (ii + 1) + '</b>'
+    + '<button type="button" class="btn sm" data-act="itemup" ' + (ii === 0 ? 'disabled' : '') + ' aria-label="Move item up">↑</button>'
+    + '<button type="button" class="btn sm" data-act="itemdown" ' + (ii === n - 1 ? 'disabled' : '') + ' aria-label="Move item down">↓</button>'
+    + '<button type="button" class="btn sm warn" data-act="itemdel">Remove</button></div>'
     + '<div class="grid2">'
-    +   field("t", "Title", s.t) + field("min", "Minutes", s.min || "", { type: "number", attr: ' min="0" max="240" inputmode="numeric"' })
-    +   field("lead", "Subtitle <i>(optional)</i>", s.lead, { ph: ph.lead }) + field("who", "Who", s.who, { ph: ph.who })
-    +   field("pts", "Points <i>(one per line; start a line with - for a sub-point)</i>", fmtPts(s.pts), { area: true, full: true, rows: Math.max(3, (s.pts || []).length + 1), ph: ph.pts })
-    +   field("cal", "Calendar rows <i>(optional: date | what)</i>", fmtRows(s.cal), { area: true, full: true, rows: s.cal && s.cal.length ? s.cal.length + 1 : 2, ph: "Oct 21 (Wed) | JL Team Evaluation" })
+    +   field("t", "Topic", it.t, { ph: ph.t }) + field("min", "Minutes", it.min || "", { type: "number", attr: ' min="0" max="240" inputmode="numeric"' })
+    +   field("who", "Speaker(s)", it.who, { ph: ph.who }) + field("by", "Panel led by <i>(blank for one speaker)</i>", it.by, { ph: ph.by || "" })
+    +   (k === "calendar" ? field("cal", "Events <i>(one per line: date | what)</i>", fmtRows(it.cal), { area: true, full: true, rows: Math.max(3, (it.cal || []).length + 1), ph: "Oct 21 (Wed) | JL Team Evaluation" }) : '')
+    +   field("pts", "Bullet points <i>(one per line; start a line with - for a sub-point)</i>", fmtPts(it.pts), { area: true, full: true, rows: Math.max(k === "calendar" ? 2 : 3, (it.pts || []).length + 1), ph: ph.pts })
     + '</div></div>';
+}
+function secEditHTML(x, si, n){
+  const S = SEC[x.k];
+  return '<div class="sece" data-si="' + si + '" data-k="' + x.k + '"><div class="seh"><b>' + esc(S.name) + '</b>'
+    + '<button type="button" class="btn sm" data-act="secup" ' + (si === 0 ? 'disabled' : '') + ' aria-label="Move section up">↑</button>'
+    + '<button type="button" class="btn sm" data-act="secdown" ' + (si === n - 1 ? 'disabled' : '') + ' aria-label="Move section down">↓</button>'
+    + '<button type="button" class="btn sm warn" data-act="secdel">Remove section</button></div>'
+    + x.items.map(function(it, ii){ return itemEditHTML(x.k, it, ii, x.items.length); }).join("")
+    + '<div class="adds">' + S.add.map(function(a, ai){ return '<button type="button" class="btn sm" data-act="additem" data-ai="' + ai + '">' + esc(a[0]) + '</button>'; }).join("") + '</div></div>';
 }
 function renderEditor(){
   const d = EDIT.draft, y = scrollY;
@@ -490,11 +520,12 @@ function renderEditor(){
     + '</div>'
     + '<h2>Overview</h2>' + field("flow", "One per line: time | what", fmtRows(d.flow), { area: true, full: true, rows: (d.flow || []).length + 1, ph: "7:30 to 9:00 PM | All partners" })
     + '<h2>Roles</h2>' + field("roles", "One per line: role | person | note", fmtRows(d.roles), { area: true, full: true, rows: (d.roles || []).length + 1, ph: "Host / Co-host | Annie, Wendy | Keep energy high" })
-    + '<h2>Agenda</h2>' + (d.agenda || []).map(function(s, i){ return segEditHTML(s, i, d.agenda.length); }).join("")
-    + '<h2>Add a segment</h2><div class="tpl">' + CARDS.map(function(c){
-        return '<button type="button" class="tc" data-act="addtpl" data-tpl="' + c.id + '"><b>' + esc(c.seg.t) + '</b>'
-          + '<span>' + (c.seg.min ? c.seg.min + ' min' : 'Usually 10 to 15 min') + '</span><i>' + esc(c.about) + '</i></button>';
-      }).join("") + '<button type="button" class="tc blank" data-act="addseg">Blank segment</button></div>'
+    + '<h2>Agenda</h2>' + d.agenda.map(function(x, si){ return secEditHTML(x, si, d.agenda.length); }).join("")
+    + (function(){
+        const missing = SECTIONS.filter(function(S){ return !d.agenda.some(function(x){ return x.k === S.k; }); });
+        return missing.length ? '<div class="adds"><span class="hint" style="margin:0 4px 0 0">Add a section:</span>' + missing.map(function(S){
+          return '<button type="button" class="btn sm" data-act="addsec" data-k="' + S.k + '">' + esc(S.name) + '</button>'; }).join("") + '</div>' : '';
+      })()
     + '<div class="edbar"><span class="st" id="edst" role="status"></span>'
     +   '<button type="button" class="btn" data-act="cancel">Cancel</button>'
     +   (EDIT.isNew ? '' : '<button type="button" class="btn warn" data-act="delevent">Delete event</button>')
@@ -510,16 +541,18 @@ function collect(){
   ["title", "sub", "kind", "date", "time", "where", "whereNote", "zoom", "pass", "dress", "agendaTitle"].forEach(function(k){ d[k] = v(k).trim(); });
   d.flow = parseRows(v("flow"), 2);
   d.roles = parseRows(v("roles"), 3);
-  d.agenda = Array.prototype.map.call(f.querySelectorAll(".sege"), function(s){
-    const seg = { t: v("t", s).trim() };
-    const k = v("k", s); if(k) seg.k = k;
-    const lead = v("lead", s).trim(), who = v("who", s).trim(), min = parseInt(v("min", s), 10);
-    if(lead) seg.lead = lead;
-    if(min > 0) seg.min = min;
-    if(who) seg.who = who;
-    const cal = parseRows(v("cal", s), 2); if(cal.length) seg.cal = cal;
-    const pts = parsePts(v("pts", s)); if(pts.length) seg.pts = pts;
-    return seg;
+  d.agenda = Array.prototype.map.call(f.querySelectorAll(".sece"), function(se){
+    return { k: se.dataset.k, items: Array.prototype.map.call(se.querySelectorAll(".iteme"), function(ie){
+      const it = {};
+      const t = v("t", ie).trim(), who = v("who", ie).trim(), by = v("by", ie).trim(), min = parseInt(v("min", ie), 10);
+      if(t) it.t = t;
+      if(who) it.who = who;
+      if(by) it.by = by;
+      if(min > 0) it.min = min;
+      const pts = parsePts(v("pts", ie)); if(pts.length) it.pts = pts;
+      const cal = parseRows(v("cal", ie), 2); if(cal.length) it.cal = cal;
+      return it;
+    }) };
   });
 }
 function edStatus(t, err){ const el = $("edst"); if(el){ el.textContent = t; el.classList.toggle("err", !!err); } }
@@ -555,7 +588,8 @@ function startFrom(id){
 }
 function startEdit(){
   const e = current(); if(!e) return;
-  EDIT = { id: e.id, isNew: false, base: e.at || null, draft: clone(e) };
+  const draft = clone(e); draft.agenda = clone(sectionsOf(e));
+  EDIT = { id: e.id, isNew: false, base: e.at || null, draft: draft };
   DIRTY = false; CONFLICT = null; render(); scrollTo(0, 0);
 }
 function stopEdit(){ EDIT = null; DIRTY = false; CONFLICT = null; render(); scrollTo(0, 0); }
@@ -626,7 +660,8 @@ function keepMine(){
 function loadTheirs(){
   const cur = EVENTS.filter(function(e){ return e.id === EDIT.id; })[0];
   if(!cur){ stopEdit(); toast("That event was deleted on another device."); return; }
-  EDIT = { id: cur.id, isNew: false, base: cur.at || null, draft: clone(cur) }; DIRTY = false; CONFLICT = null; render();
+  const draft = clone(cur); draft.agenda = clone(sectionsOf(cur));
+  EDIT = { id: cur.id, isNew: false, base: cur.at || null, draft: draft }; DIRTY = false; CONFLICT = null; render();
 }
 function arm(btn, label, fn){
   if(btn.dataset.armed){ fn(); return; }
@@ -673,21 +708,36 @@ document.addEventListener("click", function(ev){
   if(act === "delevent"){ arm(b, "Tap again to delete", deleteEvent); return; }
   if(act === "mine"){ keepMine(); return; }
   if(act === "theirs"){ loadTheirs(); return; }
-  if(act === "addseg" || act === "addtpl"){
-    collect(); EDIT.draft.agenda = EDIT.draft.agenda || [];
-    EDIT.draft.agenda.push(act === "addtpl" ? fromCard(b.dataset.tpl) : { t: "" }); DIRTY = true; renderEditor();
-    const all = document.querySelectorAll(".sege"), last = all[all.length - 1];
-    if(last){ last.scrollIntoView({ block: "center" }); last.querySelector(act === "addtpl" ? '[name="who"]' : '[name="t"]').focus(); }
+  /* collect() rebuilds the agenda from the form, so read the agenda after it, never before. */
+  const se = b.closest(".sece");
+  if(act === "addsec"){
+    collect(); const k = b.dataset.k, ag = EDIT.draft.agenda;
+    let at = ag.length; while(at > 0 && SEC[ag[at - 1].k].i > SEC[k].i) at--;   /* its usual place */
+    ag.splice(at, 0, { k: k, items: [SEC[k].add[0][1]()] }); DIRTY = true; renderEditor();
+    const n = document.querySelector('.sece[data-si="' + at + '"]'); if(n) n.scrollIntoView({ block: "center" });
     return;
   }
-  const seg = b.closest(".sege"); if(!seg) return;
-  /* collect() builds a fresh agenda list from the form, so take the list after it, not before. */
-  const i = +seg.dataset.i;
-  if(act === "up" || act === "down"){
-    collect(); const ag = EDIT.draft.agenda, j = act === "up" ? i - 1 : i + 1; if(j < 0 || j >= ag.length) return;
-    const tmp = ag[i]; ag[i] = ag[j]; ag[j] = tmp; DIRTY = true; renderEditor(); return;
+  if(!se) return;
+  const si = +se.dataset.si;
+  if(act === "additem"){
+    collect(); const items = EDIT.draft.agenda[si].items;
+    items.push(SEC[EDIT.draft.agenda[si].k].add[+b.dataset.ai][1]()); DIRTY = true; renderEditor();
+    const all = document.querySelectorAll('.sece[data-si="' + si + '"] .iteme'), last = all[all.length - 1];
+    if(last){ last.scrollIntoView({ block: "center" }); last.querySelector('[name="' + (last.querySelector('[name="t"]').value ? "who" : "t") + '"]').focus(); }
+    return;
   }
-  if(act === "delseg"){ arm(b, "Tap again", function(){ collect(); EDIT.draft.agenda.splice(i, 1); DIRTY = true; renderEditor(); }); }
+  if(act === "secup" || act === "secdown"){
+    collect(); const ag = EDIT.draft.agenda, j = act === "secup" ? si - 1 : si + 1; if(j < 0 || j >= ag.length) return;
+    const tmp = ag[si]; ag[si] = ag[j]; ag[j] = tmp; DIRTY = true; renderEditor(); return;
+  }
+  if(act === "secdel"){ arm(b, "Tap again", function(){ collect(); EDIT.draft.agenda.splice(si, 1); DIRTY = true; renderEditor(); }); return; }
+  const ie = b.closest(".iteme"); if(!ie) return;
+  const ii = +ie.dataset.ii;
+  if(act === "itemup" || act === "itemdown"){
+    collect(); const items = EDIT.draft.agenda[si].items, j = act === "itemup" ? ii - 1 : ii + 1; if(j < 0 || j >= items.length) return;
+    const tmp = items[ii]; items[ii] = items[j]; items[j] = tmp; DIRTY = true; renderEditor(); return;
+  }
+  if(act === "itemdel"){ arm(b, "Tap again", function(){ collect(); EDIT.draft.agenda[si].items.splice(ii, 1); DIRTY = true; renderEditor(); }); }
 });
 $("doc").addEventListener("input", function(ev){
   if(!EDIT) return;

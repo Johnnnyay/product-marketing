@@ -1,6 +1,6 @@
 {
- "about": "HY team night agendas for team-event.html, newest first. Edited on the page after the admin login (··· → /api/save-functions?doc=team-events) or by Claude. Johnny & Irene's street address never goes here: the page and this file are public.",
- "savedAt": "2026-10-15T03:13:25.755Z",
+ "about": "HY team night agendas for team-event.html, newest first. Edited on the page after the admin login (··· → /api/save-functions?doc=team-events) or by Claude. Each agenda is a list of sections (intro, calendar, volume, growth, leadership); each item has a topic (t), speakers (who), a panel lead (by), minutes (min), bullets (pts) and, in the calendar, events (cal).",
+ "savedAt": "2026-10-15T03:17:13.000Z",
  "events": [
   {
    "id": "2026-10-16",
@@ -30,118 +30,128 @@
    "roles": [],
    "agenda": [
     {
-     "t": "Introductions & Recognition",
      "k": "intro",
-     "pts": [
-      [
-       "Candidates & new IBOs",
-       [
-        "Name · City · Background · What excites you about the opportunity"
+     "items": [
+      {
+       "pts": [
+        [
+         "Candidates & new IBOs",
+         [
+          "Name · City · Background · What excites you about the opportunity"
+         ]
+        ],
+        [
+         "Existing partners",
+         [
+          "Name · City · Background · What you did this week (2 MG1 / 20+ PV retail) · Goal"
+         ]
+        ]
        ]
-      ],
-      [
-       "Existing partners",
-       [
-        "Name · City · Background · What you did this week (2 MG1 / 20+ PV retail) · Goal"
-       ]
-      ]
+      }
      ]
     },
     {
-     "t": "Calendar",
      "k": "calendar",
-     "min": 5,
-     "cal": [
-      [
-       "Oct 20 (Tue)",
-       "Clickner combined virtual team meeting, 9 PM ET"
-      ],
-      [
-       "Oct 21 (Wed)",
-       "NY/NJ in-person JL Team Evaluation ft. Leann Ren (host: Yufan He), Cre8ive Studio NYC, also on Zoom"
-      ],
-      [
-       "Oct 23 (Fri)",
-       "No FNH"
-      ],
-      [
-       "Oct 24 (Sat)",
-       "Leadership 1 “Go 6x15, Bigger Vision Higher Impact” workshop, 2 to 6 PM ET (Phase B IBOs with 600 PV GPV in Sept or Oct, or 300 PV GPV in their first October)"
-      ],
-      [
-       "Oct 28 (Wed)",
-       "JL Team Evaluation ft. Josh Hanamann (host: Wyatt Huang), Zoom"
-      ],
-      [
-       "Oct 30 (Fri)",
-       "FNH, Halloween theme, Cre8ive Studio NYC"
-      ]
+     "items": [
+      {
+       "min": 5,
+       "cal": [
+        [
+         "Oct 20 (Tue)",
+         "Clickner combined virtual team meeting, 9 PM ET"
+        ],
+        [
+         "Oct 21 (Wed)",
+         "NY/NJ in-person JL Team Evaluation ft. Leann Ren (host: Yufan He), Cre8ive Studio NYC, also on Zoom"
+        ],
+        [
+         "Oct 23 (Fri)",
+         "No FNH"
+        ],
+        [
+         "Oct 24 (Sat)",
+         "Leadership 1 “Go 6x15, Bigger Vision Higher Impact” workshop, 2 to 6 PM ET (Phase B IBOs with 600 PV GPV in Sept or Oct, or 300 PV GPV in their first October)"
+        ],
+        [
+         "Oct 28 (Wed)",
+         "JL Team Evaluation ft. Josh Hanamann (host: Wyatt Huang), Zoom"
+        ],
+        [
+         "Oct 30 (Fri)",
+         "FNH, Halloween theme, Cre8ive Studio NYC"
+        ]
+       ]
+      }
      ]
     },
     {
-     "t": "Retail Training",
-     "k": "retail",
-     "lead": "Getting ready for the holidays",
-     "min": 10,
-     "who": "Annice",
-     "pts": [
-      "Retail ideas",
-      "How to leverage a product party",
-      "Holiday bundles and discounts"
+     "k": "volume",
+     "items": [
+      {
+       "t": "Retail: getting ready for the holidays",
+       "who": "Annice",
+       "min": 10,
+       "pts": [
+        "Retail ideas",
+        "How to leverage a product party",
+        "Holiday bundles and discounts"
+       ]
+      },
+      {
+       "t": "Our new cellular aging product",
+       "who": "Wendy",
+       "min": 5
+      },
+      {
+       "t": "Sleep and energy products",
+       "who": "Yoyo",
+       "min": 5
+      }
      ]
     },
     {
-     "t": "Personal Growth: Audio",
      "k": "growth",
-     "min": 2,
-     "who": "Raymond",
-     "pts": [
-      "What you listened to, 1 or 2 major takeaways, 1 or 2 things you are implementing"
+     "items": [
+      {
+       "t": "Audio",
+       "who": "Raymond",
+       "min": 2,
+       "pts": [
+        "What you listened to, 1 or 2 major takeaways, 1 or 2 things you are implementing"
+       ]
+      },
+      {
+       "t": "Book",
+       "who": "Laura",
+       "min": 2,
+       "pts": [
+        "What you read, 1 or 2 major takeaways, 1 or 2 things you are implementing"
+       ]
+      }
      ]
     },
     {
-     "t": "Personal Growth: Book",
-     "k": "growth",
-     "min": 2,
-     "who": "Laura",
-     "pts": [
-      "What you read, 1 or 2 major takeaways, 1 or 2 things you are implementing"
-     ]
-    },
-    {
-     "t": "Product Education",
-     "k": "product",
-     "lead": "Our new cellular aging product",
-     "min": 5,
-     "who": "Wendy"
-    },
-    {
-     "t": "Product Education",
-     "k": "product",
-     "lead": "Sleep and energy products",
-     "min": 5,
-     "who": "Yoyo"
-    },
-    {
-     "t": "Leadership Panel",
-     "k": "panel",
-     "lead": "Building a work habit and leveraging mentorship",
-     "min": 15,
-     "who": "Johnson, Shirley, Lister, led by Johnny"
-    },
-    {
-     "t": "Wrap-Up Training",
-     "k": "wrapup",
-     "min": 25,
-     "who": "Jerry & Leann",
-     "pts": [
-      "Why this business",
-      "What to expect in your first year",
-      "Building your first team of 10"
+     "k": "leadership",
+     "items": [
+      {
+       "t": "Building a work habit and leveraging mentorship",
+       "who": "Johnson, Shirley, Lister",
+       "by": "Johnny",
+       "min": 15
+      },
+      {
+       "t": "Why this business",
+       "who": "Jerry & Leann",
+       "min": 25,
+       "pts": [
+        "What to expect in your first year",
+        "Building your first team of 10"
+       ]
+      }
      ]
     }
    ],
-   "at": "2026-10-15T03:13:25.755Z"
+   "at": "2026-10-15T03:17:13.000Z"
   },
   {
    "id": "2026-09-26",
@@ -172,95 +182,102 @@
    "agendaTitle": "New IBO Orientation",
    "agenda": [
     {
-     "t": "Welcome & Introductions",
-     "min": 3,
-     "who": "Annie",
-     "pts": [
-      [
-       "New apprentices since the last orientation",
-       [
-        "Name · City · Who you are building with · What you are excited about · One fun fact about yourself"
+     "k": "intro",
+     "items": [
+      {
+       "who": "Annie",
+       "min": 3,
+       "pts": [
+        [
+         "New apprentices since the last orientation",
+         [
+          "Name · City · Who you are building with · What you are excited about · One fun fact about yourself"
+         ]
+        ]
        ]
-      ]
-     ],
-     "k": "intro"
+      }
+     ]
     },
     {
-     "t": "Personal Growth: Book",
-     "min": 2,
-     "who": "Shirley",
-     "pts": [
-      "What you read, 1 or 2 major takeaways, 1 or 2 things you are implementing"
-     ],
-     "k": "growth"
+     "k": "growth",
+     "items": [
+      {
+       "t": "Book",
+       "who": "Shirley",
+       "min": 2,
+       "pts": [
+        "What you read, 1 or 2 major takeaways, 1 or 2 things you are implementing"
+       ]
+      },
+      {
+       "t": "Audio",
+       "who": "Yoyo",
+       "min": 2,
+       "pts": [
+        "What you listened to, 1 or 2 major takeaways, 1 or 2 things you are implementing"
+       ]
+      }
+     ]
     },
     {
-     "t": "Personal Growth: Audio",
-     "min": 2,
-     "who": "Yoyo",
-     "pts": [
-      "What you listened to, 1 or 2 major takeaways, 1 or 2 things you are implementing"
-     ],
-     "k": "growth"
+     "k": "volume",
+     "items": [
+      {
+       "t": "First circle: personal use and retail",
+       "who": "Irene",
+       "min": 10,
+       "pts": [
+        "What we ran at the product party, and what people responded to",
+        "Where the first customers came from, and what the volume looked like after",
+        "“People don't get started with a company, they get started with you.”",
+        "What we would do differently next time"
+       ]
+      }
+     ]
     },
     {
-     "t": "Product & Volume",
-     "lead": "First circle: personal use and retail",
-     "min": 10,
-     "who": "Irene",
-     "pts": [
-      "What we ran at the product party, and what people responded to",
-      "Where the first customers came from, and what the volume looked like after",
-      "“People don't get started with a company, they get started with you.”",
-      "What we would do differently next time"
-     ],
-     "k": "retail"
-    },
-    {
-     "t": "Mentorship",
-     "lead": "Turning outwardly to the right people",
-     "min": 5,
-     "who": "Lister",
-     "pts": [
-      "How to get the most out of mentorship",
-      "The wins outside the business: finance and career"
-     ],
-     "k": "training"
-    },
-    {
-     "t": "Networking",
-     "lead": "Networking in your first 90 days",
-     "min": 10,
-     "who": "Johnny",
-     "pts": [
-      "How you approach someone who already knows you",
-      "How to lead people, not convince people",
-      "How to create steady results"
-     ],
-     "k": "training"
-    },
-    {
-     "t": "Leadership Training: First 90 Days",
-     "lead": "Doubt is normal, acting on doubt is not",
-     "min": 15,
-     "who": "Jerry & Leann",
-     "pts": [
-      "How to get good at riding the entrepreneurship roller coaster",
-      "How to build and protect your self-image",
-      "Can I do it? What if I fall off the track? Is my goal too far away?",
-      "How to develop a vision, and the confidence in it"
-     ],
-     "k": "wrapup"
-    },
-    {
-     "t": "Open Q&A with Jerry",
-     "min": 8,
-     "who": "Jerry",
-     "k": "qa"
+     "k": "leadership",
+     "items": [
+      {
+       "t": "Mentorship: turning outwardly to the right people",
+       "who": "Lister",
+       "min": 5,
+       "pts": [
+        "How to get the most out of mentorship",
+        "The wins outside the business: finance and career"
+       ]
+      },
+      {
+       "t": "Networking in your first 90 days",
+       "who": "Johnny",
+       "min": 10,
+       "pts": [
+        "How you approach someone who already knows you",
+        "How to lead people, not convince people",
+        "How to create steady results"
+       ]
+      },
+      {
+       "t": "First 90 days: doubt is normal, acting on doubt is not",
+       "who": "Jerry & Leann",
+       "min": 15,
+       "pts": [
+        "How to get good at riding the entrepreneurship roller coaster",
+        "How to build and protect your self-image",
+        "Can I do it? What if I fall off the track? Is my goal too far away?",
+        "How to develop a vision, and the confidence in it"
+       ]
+      },
+      {
+       "t": "Open Q&A",
+       "who": "Jerry",
+       "min": 8
+      }
+     ]
     }
    ],
    "zoom": "515-333-3193",
-   "at": "2026-10-15T03:02:00.000Z"
+   "at": "2026-10-15T03:17:13.000Z"
   },
   {
    "id": "2026-07-31",
@@ -303,113 +320,127 @@
    ],
    "agenda": [
     {
-     "t": "Introductions & Recognition",
-     "pts": [
-      [
-       "Candidates & new IBOs",
-       [
-        "Name · City · Background · What excites you about the opportunity"
+     "k": "intro",
+     "items": [
+      {
+       "pts": [
+        [
+         "Candidates & new IBOs",
+         [
+          "Name · City · Background · What excites you about the opportunity"
+         ]
+        ],
+        [
+         "Existing partners",
+         [
+          "Name · City · Background · What you did this week (2 MG1 / 20+ PV retail) · Goal"
+         ]
+        ]
        ]
-      ],
-      [
-       "Existing partners",
-       [
-        "Name · City · Background · What you did this week (2 MG1 / 20+ PV retail) · Goal"
+      }
+     ]
+    },
+    {
+     "k": "calendar",
+     "items": [
+      {
+       "min": 5,
+       "cal": [
+        [
+         "Aug 5 (Wed)",
+         "JYT Team Evaluation ft. Johnny Huang"
+        ],
+        [
+         "Aug 7 & 8",
+         "Online function"
+        ],
+        [
+         "Aug 16 (Sun)",
+         "JYT Estate Promotion (qualification extended to the 15th)"
+        ],
+        [
+         "End of Aug",
+         "4th Week Leadership, Phase B + 6 MGs"
+        ],
+        [
+         "End of Aug",
+         "LLC Mastermind Elite"
+        ],
+        [
+         "Oct 2 to 4",
+         "Orlando Spartan Breakthrough Conference"
+        ]
        ]
-      ]
-     ],
-     "k": "intro"
+      }
+     ]
     },
     {
-     "t": "Calendar",
-     "min": 5,
-     "cal": [
-      [
-       "Aug 5 (Wed)",
-       "JYT Team Evaluation ft. Johnny Huang"
-      ],
-      [
-       "Aug 7 & 8",
-       "Online function"
-      ],
-      [
-       "Aug 16 (Sun)",
-       "JYT Estate Promotion (qualification extended to the 15th)"
-      ],
-      [
-       "End of Aug",
-       "4th Week Leadership, Phase B + 6 MGs"
-      ],
-      [
-       "End of Aug",
-       "LLC Mastermind Elite"
-      ],
-      [
-       "Oct 2 to 4",
-       "Orlando Spartan Breakthrough Conference"
-      ]
-     ],
-     "k": "calendar"
+     "k": "volume",
+     "items": [
+      {
+       "t": "Acne & skin",
+       "who": "Johnny",
+       "min": 15,
+       "pts": [
+        "What separates a result that holds from one that comes back next month",
+        "The product and volume knowledge hub: johnnnyay.github.io/product-marketing"
+       ]
+      }
+     ]
     },
     {
-     "t": "Product Demo & Education",
-     "min": 15,
-     "who": "Johnny",
-     "pts": [
-      "Acne & skin: what separates a result that holds from one that comes back next month",
-      "The product and volume knowledge hub: johnnnyay.github.io/product-marketing"
-     ],
-     "k": "product"
+     "k": "growth",
+     "items": [
+      {
+       "t": "Book",
+       "who": "Yoyo",
+       "min": 2,
+       "pts": [
+        "What you read, 1 or 2 major takeaways, 1 or 2 things you are implementing"
+       ]
+      }
+     ]
     },
     {
-     "t": "Personal Growth: Book",
-     "min": 2,
-     "who": "Yoyo",
-     "pts": [
-      "What you read, 1 or 2 major takeaways, 1 or 2 things you are implementing"
-     ],
-     "k": "growth"
-    },
-    {
-     "t": "Leadership Training",
-     "lead": "Creating results in volume",
-     "min": 10,
-     "who": "Johnny interviews Tenzin & Raymond",
-     "pts": [
-      "What was it like when you first started the business?",
-      "What was your mindset, attitude and approach toward personal use?",
-      "How did you create your first few retail successes?"
-     ],
-     "k": "panel"
-    },
-    {
-     "t": "Leadership Training",
-     "lead": "First 90 days to a steady, growing Phase B and beyond",
-     "min": 20,
-     "who": "Annie, Wendy",
-     "pts": [
-      "How did you get started as sisters?",
-      "Dos and don'ts for close friends and family",
-      "The right mindset and expectations in the first 60 DCR",
-      "How did the education habits, the association and the system make a difference in your life?"
-     ],
-     "k": "training"
-    },
-    {
-     "t": "Leadership Training",
-     "min": 25,
-     "who": "Johnny & Irene",
-     "pts": [
-      "What surprised you stepping into business ownership for the first time?",
-      "How do you grow your adversity quotient, your ability to handle stress and things not going the way you want?",
-      "How do you deal with differences between people?",
-      "How do you overcome personal shortcomings that hinder growth?"
-     ],
-     "k": "wrapup"
+     "k": "leadership",
+     "items": [
+      {
+       "t": "Creating results in volume",
+       "who": "Tenzin & Raymond",
+       "by": "Johnny",
+       "min": 10,
+       "pts": [
+        "What was it like when you first started the business?",
+        "What was your mindset, attitude and approach toward personal use?",
+        "How did you create your first few retail successes?"
+       ]
+      },
+      {
+       "t": "First 90 days to a steady, growing Phase B and beyond",
+       "who": "Annie, Wendy",
+       "min": 20,
+       "pts": [
+        "How did you get started as sisters?",
+        "Dos and don'ts for close friends and family",
+        "The right mindset and expectations in the first 60 DCR",
+        "How did the education habits, the association and the system make a difference in your life?"
+       ]
+      },
+      {
+       "who": "Johnny & Irene",
+       "min": 25,
+       "pts": [
+        "What surprised you stepping into business ownership for the first time?",
+        "How do you grow your adversity quotient, your ability to handle stress and things not going the way you want?",
+        "How do you deal with differences between people?",
+        "How do you overcome personal shortcomings that hinder growth?"
+       ]
+      }
+     ]
     }
    ],
    "zoom": "515-333-3193",
-   "at": "2026-10-15T03:02:00.000Z"
+   "at": "2026-10-15T03:17:13.000Z"
   },
   {
    "id": "2026-05-15",
@@ -452,145 +483,157 @@
    ],
    "agenda": [
     {
-     "t": "Introductions & Recognition",
-     "pts": [
-      [
-       "Candidates & new IBOs",
-       [
-        "Name · City · Background · What excites you about the opportunity"
+     "k": "intro",
+     "items": [
+      {
+       "pts": [
+        [
+         "Candidates & new IBOs",
+         [
+          "Name · City · Background · What excites you about the opportunity"
+         ]
+        ],
+        [
+         "Existing partners",
+         [
+          "Name · City · Background · What you did this week (2 MG1 / 20+ PV retail) · Goal"
+         ]
+        ]
        ]
-      ],
-      [
-       "Existing partners",
-       [
-        "Name · City · Background · What you did this week (2 MG1 / 20+ PV retail) · Goal"
+      }
+     ]
+    },
+    {
+     "k": "calendar",
+     "items": [
+      {
+       "min": 5,
+       "cal": [
+        [
+         "May 19 (Tue)",
+         "Clickner Combined Team Meeting"
+        ],
+        [
+         "May 20 (Wed)",
+         "JL Team Evaluation ft. Craig Clickner"
+        ],
+        [
+         "May 23 & 24",
+         "HY trip to Seattle"
+        ],
+        [
+         "May 26 (Tue)",
+         "4th Week Leadership, Phase B + 6 MGs"
+        ],
+        [
+         "May 30 (Sat)",
+         "BAM sessions: Bay Area, Chicago, New Jersey, Orlando, Phoenix"
+        ],
+        [
+         "May 31 (Sun)",
+         "BAM sessions: Detroit, Los Angeles, Seattle"
+        ],
+        [
+         "June 4",
+         "JL Launch 2 Promotion"
+        ],
+        [
+         "June 5 to 7",
+         "Level Up in Milwaukee, WI"
+        ],
+        [
+         "June 20 to 22",
+         "Go Diamond in Breckenridge, CO"
+        ]
        ]
-      ]
-     ],
-     "k": "intro"
+      }
+     ]
     },
     {
-     "t": "Calendar",
-     "min": 5,
-     "cal": [
-      [
-       "May 19 (Tue)",
-       "Clickner Combined Team Meeting"
-      ],
-      [
-       "May 20 (Wed)",
-       "JL Team Evaluation ft. Craig Clickner"
-      ],
-      [
-       "May 23 & 24",
-       "HY trip to Seattle"
-      ],
-      [
-       "May 26 (Tue)",
-       "4th Week Leadership, Phase B + 6 MGs"
-      ],
-      [
-       "May 30 (Sat)",
-       "BAM sessions: Bay Area, Chicago, New Jersey, Orlando, Phoenix"
-      ],
-      [
-       "May 31 (Sun)",
-       "BAM sessions: Detroit, Los Angeles, Seattle"
-      ],
-      [
-       "June 4",
-       "JL Launch 2 Promotion"
-      ],
-      [
-       "June 5 to 7",
-       "Level Up in Milwaukee, WI"
-      ],
-      [
-       "June 20 to 22",
-       "Go Diamond in Breckenridge, CO"
-      ]
-     ],
-     "k": "calendar"
+     "k": "volume",
+     "items": [
+      {
+       "t": "g&h™ and Artistry™ SPF products",
+       "who": "Irene",
+       "min": 15,
+       "pts": [
+        "Why prevention matters long term",
+        "Understanding SPF, and why daily protection matters",
+        "Chemical vs mineral protection",
+        "The g&h, Artistry skincare and SPF lineup",
+        "Simple daily skincare systems",
+        "Retail tips: positioning products through lifestyle conversations",
+        "Demo with the SAM machine"
+       ]
+      }
+     ]
     },
     {
-     "t": "Product Demo & Education",
-     "lead": "g&h™ and Artistry™ SPF products",
-     "min": 15,
-     "who": "Irene",
-     "pts": [
-      "Why prevention matters long term",
-      "Understanding SPF, and why daily protection matters",
-      "Chemical vs mineral protection",
-      "The g&h, Artistry skincare and SPF lineup",
-      "Simple daily skincare systems",
-      "Retail tips: positioning products through lifestyle conversations",
-      "Demo with the SAM machine"
-     ],
-     "k": "product"
+     "k": "growth",
+     "items": [
+      {
+       "t": "Book",
+       "who": "Ting",
+       "min": 2,
+       "pts": [
+        "What you read, 1 or 2 major takeaways, 1 or 2 things you are implementing"
+       ]
+      },
+      {
+       "t": "Podcast",
+       "who": "Lister",
+       "min": 2,
+       "pts": [
+        "What you listened to, 1 or 2 major takeaways, 1 or 2 things you are implementing"
+       ]
+      }
+     ]
     },
     {
-     "t": "Personal Growth: Book",
-     "min": 2,
-     "who": "Ting",
-     "pts": [
-      "What you read, 1 or 2 major takeaways, 1 or 2 things you are implementing"
-     ],
-     "k": "growth"
-    },
-    {
-     "t": "Personal Growth: Podcast",
-     "min": 2,
-     "who": "Lister",
-     "pts": [
-      "What you listened to, 1 or 2 major takeaways, 1 or 2 things you are implementing"
-     ],
-     "k": "growth"
-    },
-    {
-     "t": "Leadership Training: Networking Panel",
-     "lead": "Reflection, PHP & consistency",
-     "min": 10,
-     "who": "Raymond, William, led by Johnny",
-     "pts": [
-      "What you learn from booking MGs with your AB list (Raymond)",
-      "Why PHP matters (Raymond)",
-      "How reflection speeds up your growth (William)",
-      "Patience and consistency, if you want results (William)"
-     ],
-     "k": "panel"
-    },
-    {
-     "t": "Leadership Training",
-     "lead": "Self-image, attitude & prioritization toward 4th Week Leadership",
-     "min": 15,
-     "who": "Annie, Amy",
-     "pts": [
-      "Why and how attitude and belief matter in a good work ethic",
-      "How to handle emotional inconsistency",
-      "What self-image is, and how to work on it",
-      "Time management and life prioritization",
-      "How to stay grateful and joyful in pressure seasons"
-     ],
-     "k": "training"
-    },
-    {
-     "t": "Leadership Training",
-     "lead": "Clarity in your journey, long-term vision, and minimizing the noise",
-     "min": 15,
-     "who": "Johnny & Irene",
-     "pts": [
-      "Long-term vision, and digging the well before you're thirsty",
-      "Controlling the narrative (and the noise)",
-      "Why clarity creates consistency",
-      "How to stay anchored to your WHY",
-      "Why you can't judge your future by temporary emotions",
-      "The power of the spoken word"
-     ],
-     "k": "wrapup"
+     "k": "leadership",
+     "items": [
+      {
+       "t": "Networking panel: reflection, PHP & consistency",
+       "who": "Raymond, William",
+       "by": "Johnny",
+       "min": 10,
+       "pts": [
+        "What you learn from booking MGs with your AB list (Raymond)",
+        "Why PHP matters (Raymond)",
+        "How reflection speeds up your growth (William)",
+        "Patience and consistency, if you want results (William)"
+       ]
+      },
+      {
+       "t": "Self-image, attitude & prioritization toward 4th Week Leadership",
+       "who": "Annie, Amy",
+       "min": 15,
+       "pts": [
+        "Why and how attitude and belief matter in a good work ethic",
+        "How to handle emotional inconsistency",
+        "What self-image is, and how to work on it",
+        "Time management and life prioritization",
+        "How to stay grateful and joyful in pressure seasons"
+       ]
+      },
+      {
+       "t": "Clarity in your journey, long-term vision, and minimizing the noise",
+       "who": "Johnny & Irene",
+       "min": 15,
+       "pts": [
+        "Long-term vision, and digging the well before you're thirsty",
+        "Controlling the narrative (and the noise)",
+        "Why clarity creates consistency",
+        "How to stay anchored to your WHY",
+        "Why you can't judge your future by temporary emotions",
+        "The power of the spoken word"
+       ]
+      }
+     ]
     }
    ],
    "zoom": "515-333-3193",
-   "at": "2026-10-15T03:02:00.000Z"
+   "at": "2026-10-15T03:17:13.000Z"
   },
   {
    "id": "2026-04-10",
@@ -633,135 +676,158 @@
    ],
    "agenda": [
     {
-     "t": "Introductions & Recognition",
-     "pts": [
-      [
-       "Candidates & new IBOs",
-       [
-        "Name · City · Background · What excites you about the opportunity"
+     "k": "intro",
+     "items": [
+      {
+       "pts": [
+        [
+         "Candidates & new IBOs",
+         [
+          "Name · City · Background · What excites you about the opportunity"
+         ]
+        ],
+        [
+         "Existing partners",
+         [
+          "Name · City · Background · What you did this week (2 MG1 / 20+ PV retail) · Goal"
+         ]
+        ]
        ]
-      ],
-      [
-       "Existing partners",
-       [
-        "Name · City · Background · What you did this week (2 MG1 / 20+ PV retail) · Goal"
-       ]
-      ]
-     ],
-     "k": "intro"
+      }
+     ]
     },
     {
-     "t": "Calendar",
-     "min": 5,
-     "cal": [
-      [
-       "Apr 14 to 16",
-       "Amway 20% full PV promotion"
-      ],
-      [
-       "Apr 15",
-       "NYC in-person Team Evaluation ft. Johnny Huang (host: Vemon Cheng)"
-      ],
-      [
-       "May 30 & 31",
-       "BAM sessions"
-      ],
-      [
-       "June 4",
-       "JL Launch 2 Promotion"
-      ],
-      [
-       "June 5 to 7",
-       "Level Up in Milwaukee, WI"
-      ],
-      [
-       "June 20 to 22",
-       "Go Diamond in Breckenridge, CO"
-      ]
-     ],
-     "k": "calendar"
-    },
-    {
-     "t": "Personal Breakthroughs & Learnings",
-     "min": 4,
-     "who": "Tricia, Raymond",
-     "pts": [
-      "Tricia (2 min): my favorite podcast on the Leadership1 app this week, and 1 or 2 points I learned from it",
-      "Raymond (2 min): 1 or 2 points from my reading this week (and the book), and what I'm working on implementing"
-     ],
-     "k": "growth"
-    },
-    {
-     "t": "Sales & Retail Training",
-     "min": 10,
-     "who": "Irene",
-     "pts": [
-      "Normalize the skill of sales, and why it matters",
-      [
-       "A crash course on approach, flow and mindset in different contexts",
-       [
-        "C2C product sharing",
-        "C2C invitations to health and skin analysis sessions"
+     "k": "calendar",
+     "items": [
+      {
+       "min": 5,
+       "cal": [
+        [
+         "Apr 14 to 16",
+         "Amway 20% full PV promotion"
+        ],
+        [
+         "Apr 15",
+         "NYC in-person Team Evaluation ft. Johnny Huang (host: Vemon Cheng)"
+        ],
+        [
+         "May 30 & 31",
+         "BAM sessions"
+        ],
+        [
+         "June 4",
+         "JL Launch 2 Promotion"
+        ],
+        [
+         "June 5 to 7",
+         "Level Up in Milwaukee, WI"
+        ],
+        [
+         "June 20 to 22",
+         "Go Diamond in Breckenridge, CO"
+        ]
        ]
-      ]
-     ],
-     "k": "retail"
+      }
+     ]
     },
     {
-     "t": "Product Education & Demo",
-     "min": 20,
-     "who": "Amy, Wendy, Eunice",
-     "pts": [
-      "Across the product line: Nutrilite, Artistry, XS, LOC",
-      "Brand history, competitive advantage and credentials",
-      "One simple, duplicatable product demo"
-     ],
-     "k": "product"
+     "k": "growth",
+     "items": [
+      {
+       "t": "Podcast",
+       "who": "Tricia",
+       "min": 2,
+       "pts": [
+        "My favorite podcast on the Leadership1 app this week, and 1 or 2 points I learned from it"
+       ]
+      },
+      {
+       "t": "Book",
+       "who": "Raymond",
+       "min": 2,
+       "pts": [
+        "1 or 2 points from my reading this week (and the book), and what I'm working on implementing"
+       ]
+      }
+     ]
     },
     {
-     "t": "Networking & Leadership Training",
-     "min": 20,
-     "who": "Vemon, Annie, Johnny",
-     "pts": [
-      "How to perform well in your career: promotion, time and energy management",
-      [
-       "How to manage your AB list",
-       [
-        "Highlight: Raymond and what he did"
+     "k": "volume",
+     "items": [
+      {
+       "t": "Sales & retail",
+       "who": "Irene",
+       "min": 10,
+       "pts": [
+        "Normalize the skill of sales, and why it matters",
+        [
+         "A crash course on approach, flow and mindset in different contexts",
+         [
+          "C2C product sharing",
+          "C2C invitations to health and skin analysis sessions"
+         ]
+        ]
        ]
-      ],
-      [
-       "Face-to-face networking skills",
-       [
-        "Why mastering MG booking matters",
-        "How to share your story",
-        "How to handle common scenarios and steer the conversation to what you need to check"
+      },
+      {
+       "t": "Across the product line",
+       "who": "Amy, Wendy, Eunice",
+       "min": 20,
+       "pts": [
+        "Across the product line: Nutrilite, Artistry, XS, LOC",
+        "Brand history, competitive advantage and credentials",
+        "One simple, duplicatable product demo"
        ]
-      ],
-      "When and why you want to learn to run the first MG"
-     ],
-     "k": "training"
+      }
+     ]
     },
     {
-     "t": "Wrap-Up: Handling Doubt & Belief",
-     "min": 15,
-     "who": "Johnny & Irene",
-     "pts": [
-      "A crash course on temperament: don't box yourself in",
-      [
-       "Handling the dip in",
-       [
-        "Life and career",
-        "Business",
-        "Self-belief"
+     "k": "leadership",
+     "items": [
+      {
+       "t": "Networking & leadership",
+       "who": "Vemon, Annie, Johnny",
+       "min": 20,
+       "pts": [
+        "How to perform well in your career: promotion, time and energy management",
+        [
+         "How to manage your AB list",
+         [
+          "Highlight: Raymond and what he did"
+         ]
+        ],
+        [
+         "Face-to-face networking skills",
+         [
+          "Why mastering MG booking matters",
+          "How to share your story",
+          "How to handle common scenarios and steer the conversation to what you need to check"
+         ]
+        ],
+        "When and why you want to learn to run the first MG"
        ]
-      ]
-     ],
-     "k": "wrapup"
+      },
+      {
+       "t": "Handling doubt & belief",
+       "who": "Johnny & Irene",
+       "min": 15,
+       "pts": [
+        "A crash course on temperament: don't box yourself in",
+        [
+         "Handling the dip in",
+         [
+          "Life and career",
+          "Business",
+          "Self-belief"
+         ]
+        ]
+       ]
+      }
+     ]
     }
    ],
    "zoom": "515-333-3193",
-   "at": "2026-10-15T03:02:00.000Z"
+   "at": "2026-10-15T03:17:13.000Z"
   },
   {
    "id": "2026-03-13",
@@ -805,121 +871,144 @@
    ],
    "agenda": [
     {
-     "t": "Introductions & Recognition",
-     "pts": [
-      [
-       "Candidates / new IBOs",
-       [
-        "Name · City · Background · What excites you about the opportunity"
+     "k": "intro",
+     "items": [
+      {
+       "pts": [
+        [
+         "Candidates / new IBOs",
+         [
+          "Name · City · Background · What excites you about the opportunity"
+         ]
+        ],
+        [
+         "Existing partners",
+         [
+          "Name · City · Background",
+          "Achievements from the past week",
+          "Next week's goal"
+         ]
+        ],
+        [
+         "Special highlights",
+         [
+          "2 MG conversations booked",
+          "Retail success / product results"
+         ]
+        ]
        ]
-      ],
-      [
-       "Existing partners",
-       [
-        "Name · City · Background",
-        "Achievements from the past week",
-        "Next week's goal"
+      }
+     ]
+    },
+    {
+     "k": "volume",
+     "items": [
+      {
+       "t": "Product & volume generation",
+       "who": "Martin, Vemon, Tenzin",
+       "min": 12,
+       "pts": [
+        "Daily product use, and why it builds belief",
+        "How to reach 150 PV consistently",
+        "A simple strategy to help new IBOs find their first customers",
+        "Quick tips on double core and beyond"
        ]
-      ],
-      [
-       "Special highlights",
-       [
-        "2 MG conversations booked",
-        "Retail success / product results"
+      }
+     ]
+    },
+    {
+     "k": "calendar",
+     "items": [
+      {
+       "who": "Host",
+       "min": 5,
+       "cal": [
+        [
+         "Mar 18",
+         "Team Evaluation Workshop, Sean Chen"
+        ],
+        [
+         "Mar 19",
+         "JL Launch 2 Promotion celebration (Orlando, FL)"
+        ],
+        [
+         "Mar 20 to 22",
+         "In-person #ELEVATE function (Orlando, FL)"
+        ],
+        [
+         "Coming up",
+         "Go Diamond Weekend"
+        ]
        ]
-      ]
-     ],
-     "k": "intro"
+      }
+     ]
     },
     {
-     "t": "Product & Volume Generation",
-     "min": 12,
-     "who": "Martin, Vemon, Tenzin",
-     "pts": [
-      "Daily product use, and why it builds belief",
-      "How to reach 150 PV consistently",
-      "A simple strategy to help new IBOs find their first customers",
-      "Quick tips on double core and beyond"
-     ],
-     "k": "retail"
-    },
-    {
-     "t": "Upcoming Events",
-     "min": 5,
-     "who": "Host",
-     "cal": [
-      [
-       "Mar 18",
-       "Team Evaluation Workshop, Sean Chen"
-      ],
-      [
-       "Mar 19",
-       "JL Launch 2 Promotion celebration (Orlando, FL)"
-      ],
-      [
-       "Mar 20 to 22",
-       "In-person #ELEVATE function (Orlando, FL)"
-      ],
-      [
-       "Coming up",
-       "Go Diamond Weekend"
-      ]
-     ],
-     "k": "calendar"
-    },
-    {
-     "t": "Personal Growth",
-     "min": 4,
-     "who": "Lister, Ding",
-     "pts": [
-      "Lister (2 min): my favorite podcast on the Leadership1 app this week, and 1 or 2 points I learned from it",
-      "Ding (2 min): 1 or 2 points from my reading this week (and the book), and what I'm working on implementing"
-     ],
-     "k": "growth"
-    },
-    {
-     "t": "Leadership Training: Consistency in Networking",
-     "min": 5,
-     "who": "Derek",
-     "pts": [
-      "Why developing a work habit matters",
-      "How to create personal momentum",
-      "How to stay focused when results haven't shown up yet"
-     ],
-     "k": "training"
-    },
-    {
-     "t": "Leadership Training: Ultimate Function Preparation",
-     "min": 15,
-     "who": "Johnny & Irene",
-     "pts": [
-      "Why big functions are essential for short-term and long-term success",
-      "How to prepare apprentices before major events",
-      "Using events to speed up belief and duplication"
-     ],
-     "k": "training"
-    },
-    {
-     "t": "Wrap-Up Training: How to Win in the Next 90 Days",
-     "min": 20,
-     "who": "Jerry Tan",
-     "pts": [
-      [
-       "The first 90 days for a new apprentice",
-       [
-        "Initial excitement, the emotional roller coaster, then long-term commitment",
-        "Getting through doubt, wrong expectations and a lack of activity momentum"
+     "k": "growth",
+     "items": [
+      {
+       "t": "Podcast",
+       "who": "Lister",
+       "min": 2,
+       "pts": [
+        "My favorite podcast on the Leadership1 app this week, and 1 or 2 points I learned from it"
        ]
-      ],
-      "Why the first 90 days are the most important stage for every new apprentice",
-      "How to build self-confidence",
-      "What it's like to grow from 0 to 3/6"
-     ],
-     "k": "wrapup"
+      },
+      {
+       "t": "Book",
+       "who": "Ding",
+       "min": 2,
+       "pts": [
+        "1 or 2 points from my reading this week (and the book), and what I'm working on implementing"
+       ]
+      }
+     ]
+    },
+    {
+     "k": "leadership",
+     "items": [
+      {
+       "t": "Consistency in networking",
+       "who": "Derek",
+       "min": 5,
+       "pts": [
+        "Why developing a work habit matters",
+        "How to create personal momentum",
+        "How to stay focused when results haven't shown up yet"
+       ]
+      },
+      {
+       "t": "Ultimate function preparation",
+       "who": "Johnny & Irene",
+       "min": 15,
+       "pts": [
+        "Why big functions are essential for short-term and long-term success",
+        "How to prepare apprentices before major events",
+        "Using events to speed up belief and duplication"
+       ]
+      },
+      {
+       "t": "How to win in the next 90 days",
+       "who": "Jerry Tan",
+       "min": 20,
+       "pts": [
+        [
+         "The first 90 days for a new apprentice",
+         [
+          "Initial excitement, the emotional roller coaster, then long-term commitment",
+          "Getting through doubt, wrong expectations and a lack of activity momentum"
+         ]
+        ],
+        "Why the first 90 days are the most important stage for every new apprentice",
+        "How to build self-confidence",
+        "What it's like to grow from 0 to 3/6"
+       ]
+      }
+     ]
     }
    ],
    "zoom": "515-333-3193",
-   "at": "2026-10-15T03:02:00.000Z"
+   "at": "2026-10-15T03:17:13.000Z"
   },
   {
    "id": "2026-02-27",
@@ -947,110 +1036,126 @@
    ],
    "agenda": [
     {
-     "t": "Introductions & Recognition",
-     "pts": [
-      [
-       "Candidates & new IBOs",
-       [
-        "Name · City · Background · What excites you about the opportunity"
+     "k": "intro",
+     "items": [
+      {
+       "pts": [
+        [
+         "Candidates & new IBOs",
+         [
+          "Name · City · Background · What excites you about the opportunity"
+         ]
+        ],
+        [
+         "Existing partners (2 MGs or any retail success)",
+         [
+          "Name · City · Background · What you did this week · Goal"
+         ]
+        ]
        ]
-      ],
-      [
-       "Existing partners (2 MGs or any retail success)",
-       [
-        "Name · City · Background · What you did this week · Goal"
+      }
+     ]
+    },
+    {
+     "k": "volume",
+     "items": [
+      {
+       "t": "Health and SAM sessions",
+       "who": "Annice & Wendy",
+       "min": 12,
+       "pts": [
+        "From invite to follow-up, how did you use the health and SAM sessions? How easy was it really? Share your results."
        ]
-      ]
-     ],
-     "k": "intro"
+      }
+     ]
     },
     {
-     "t": "Product & Volume Generation",
-     "min": 12,
-     "who": "Annice & Wendy",
-     "pts": [
-      "From invite to follow-up, how did you use the health and SAM sessions? How easy was it really? Share your results."
-     ],
-     "k": "retail"
+     "k": "calendar",
+     "items": [
+      {
+       "cal": [
+        [
+         "Feb 28",
+         "JL Clinic for the Launch 2 Promotion (qualification: 6+ MGs by 10 PM EST)"
+        ],
+        [
+         "Mar 4",
+         "JYT Team Evaluation Workshop"
+        ],
+        [
+         "Mar 19",
+         "JL Launch 2 Promotion festivities (Orlando, FL)"
+        ],
+        [
+         "Mar 20 to 22",
+         "In-person #ELEVATE function (Orlando, FL)"
+        ],
+        [
+         "Coming up",
+         "Go Diamond Weekend"
+        ]
+       ]
+      }
+     ]
     },
     {
-     "t": "Upcoming Events",
-     "cal": [
-      [
-       "Feb 28",
-       "JL Clinic for the Launch 2 Promotion (qualification: 6+ MGs by 10 PM EST)"
-      ],
-      [
-       "Mar 4",
-       "JYT Team Evaluation Workshop"
-      ],
-      [
-       "Mar 19",
-       "JL Launch 2 Promotion festivities (Orlando, FL)"
-      ],
-      [
-       "Mar 20 to 22",
-       "In-person #ELEVATE function (Orlando, FL)"
-      ],
-      [
-       "Coming up",
-       "Go Diamond Weekend"
-      ]
-     ],
-     "k": "calendar"
+     "k": "growth",
+     "items": [
+      {
+       "t": "A 160+ day Phase B Core Run",
+       "who": "Ting",
+       "min": 4,
+       "pts": [
+        "How you sustained a 160+ day Phase B Core Run while balancing extracurriculars, exams and a part-time job, and still had fun"
+       ]
+      },
+      {
+       "t": "#3 top user in the LLC",
+       "who": "Martin",
+       "min": 4,
+       "pts": [
+        "What it was like being the #3 top user in the whole LLC, and how consistently taking in content in the environment, paired with in-person networking, sped up your work ethic and your confidence"
+       ]
+      }
+     ]
     },
     {
-     "t": "Personal Growth",
-     "min": 4,
-     "who": "Ting",
-     "pts": [
-      "How you sustained a 160+ day Phase B Core Run while balancing extracurriculars, exams and a part-time job, and still had fun"
-     ],
-     "k": "spotlight"
-    },
-    {
-     "t": "Personal Growth",
-     "min": 4,
-     "who": "Martin",
-     "pts": [
-      "What it was like being the #3 top user in the whole LLC, and how consistently taking in content in the environment, paired with in-person networking, sped up your work ethic and your confidence"
-     ],
-     "k": "spotlight"
-    },
-    {
-     "t": "Leadership Training",
-     "min": 5,
-     "who": "Luke",
-     "pts": [
-      "The right mindset when a mentor or coach comes to town, and how you fully booked their calendar",
-      "How anchoring yourself in mentorship and this environment carried you through life's ups and downs"
-     ],
-     "k": "spotlight"
-    },
-    {
-     "t": "Leadership Training",
-     "min": 5,
-     "who": "Lister, interviewed by Irene",
-     "pts": [
-      "How did you book 10+ MG1s from January to February?",
-      "What does mentorship truly look like for you?",
-      "What does doing PHP the right way mean, and why is consistency in it so important?"
-     ],
-     "k": "spotlight"
-    },
-    {
-     "t": "Wrap-Up Training: Networking Skills + Boundaries",
-     "min": 20,
-     "who": "Johnny & Irene",
-     "pts": [
-      "Level up how you handle common scenarios in networking and process meetings",
-      "How to set boundaries in life to prioritize what matters to you"
-     ],
-     "k": "wrapup"
+     "k": "leadership",
+     "items": [
+      {
+       "t": "When a mentor comes to town",
+       "who": "Luke",
+       "min": 5,
+       "pts": [
+        "The right mindset when a mentor or coach comes to town, and how you fully booked their calendar",
+        "How anchoring yourself in mentorship and this environment carried you through life's ups and downs"
+       ]
+      },
+      {
+       "t": "Booking 10+ MG1s in two months",
+       "who": "Lister",
+       "by": "Irene",
+       "min": 5,
+       "pts": [
+        "How did you book 10+ MG1s from January to February?",
+        "What does mentorship truly look like for you?",
+        "What does doing PHP the right way mean, and why is consistency in it so important?"
+       ]
+      },
+      {
+       "t": "Networking skills + boundaries",
+       "who": "Johnny & Irene",
+       "min": 20,
+       "pts": [
+        "Level up how you handle common scenarios in networking and process meetings",
+        "How to set boundaries in life to prioritize what matters to you"
+       ]
+      }
+     ]
     }
    ],
    "zoom": "515-333-3193",
-   "at": "2026-10-15T03:02:00.000Z"
+   "at": "2026-10-15T03:17:13.000Z"
   }
  ]
 }
