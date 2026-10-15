@@ -1,6 +1,6 @@
 {
  "about": "HY team night agendas for team-event.html, newest first. Edited on the page after the admin login (··· → /api/save-functions?doc=team-events) or by Claude. Each agenda is a list of sections (intro, calendar, volume, growth, leadership); each item has a topic (t), speakers (who), a panel lead (by), minutes (min), bullets (pts) and, in the calendar, events (cal).",
- "savedAt": "2026-10-15T03:47:22.656Z",
+ "savedAt": "2026-10-15T03:48:56.627Z",
  "events": [
   {
    "id": "2026-10-16",
@@ -35,7 +35,7 @@
       {
        "t": "Candidates & new IBOs",
        "pts": [
-        "Name · City · Background · What excites you about the opportunity"
+        "Name · City · Background · One-line Excitement"
        ]
       },
       {
@@ -71,6 +71,10 @@
         [
          "Oct 28 (Wed)",
          "JL Team Evaluation ft. Josh Hanamann (host: Wyatt Huang), Zoom"
+        ],
+        [
+         "Oct 30 (Fri)",
+         "HY Product Expo, Cre8ive Studio NYC"
         ],
         [
          "Oct 30 (Fri)",
@@ -147,7 +151,7 @@
      ]
     }
    ],
-   "at": "2026-10-15T03:47:22.656Z"
+   "at": "2026-10-15T03:48:56.627Z"
   },
   {
    "id": "2026-09-26",
