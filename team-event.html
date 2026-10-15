@@ -151,6 +151,18 @@ button{font-family:inherit}
 .edbar .st.err{color:var(--red)}
 .edbar .st .btn{margin:6px 6px 0 0}
 @media (max-width:640px){ .grid2,.sege .grid2{grid-template-columns:1fr} }
+/* Template cards: one per segment type (Add a segment), and one per kind of night (New event). */
+.tpl{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:8px}
+.tc{display:flex;flex-direction:column;align-items:flex-start;gap:2px;text-align:left;background:var(--page);border:1.5px solid var(--line-2);
+  border-radius:10px;padding:10px 12px;font:inherit;color:var(--ink);cursor:pointer}
+.tc:hover{border-color:var(--sage);background:var(--sage-light)}
+.tc b{font-size:14.5px;line-height:1.3}
+.tc span{font-size:12.5px;font-weight:700;color:var(--sage)}
+.tc i{font-style:normal;font-size:13px;color:var(--muted);line-height:1.35}
+.tc.blank{justify-content:center;align-items:center;color:var(--muted);font-weight:700;border-style:dashed}
+.tc.big{padding:16px 16px}
+.tc.big b{font-size:17px}
+.sege select{font:inherit;font-size:13px;border:1.5px solid var(--line-2);border-radius:7px;padding:3px 6px;background:#fff;color:var(--ink-2);max-width:48%}
 
 .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:10px;
   padding:9px 16px;font-size:14px;font-weight:600;z-index:95;max-width:calc(100% - 32px)}
@@ -181,7 +193,7 @@ button{font-family:inherit}
 /* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this
    file. The version check at the bottom reads it, and the script text, to tell an old copy of
    this page from the newest one (DiamondA70/_skills/app-qa/references/self-update.md). */
-const BUILD = "2026-10-15T02:39:57Z";
+const BUILD = "2026-10-15T03:03:40Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 /* The agendas: data/team-events.json next to this page, read fresh through the API (GitHub Pages
@@ -197,7 +209,79 @@ const INTROS = { t: "Introductions & Recognition", pts: [
   ["Existing partners", ["Name · City · Background · What you did this week (2 MG1 / 20+ PV retail) · Goal"]]
 ]};
 
-let EVENTS = [], SAVED_AT = null, LOADED = false, LOAD_FAILED = false, KEPT_AT = 0;
+/* ---------------- templates ----------------
+   Johnny, 2026-10-14: "study each type of topic to develop template card for each type so future
+   event creation can leverage it and be consistent." Built from all 54 segments of the eight
+   agendas from Feb 27 to Oct 16, 2026. Ten types (how often each appeared): intro 7, calendar 6,
+   growth 9, spotlight 4, product 5, retail 5, panel 3, training 7, wrapup 7, qa 1. A card fills
+   in the title, the usual minutes and the standard prompts; who and the topic are left to fill,
+   with a hint in the empty box. Each segment keeps its type in `k`. */
+const HOST_NOTE = "Keep energy high and the event on time; have music ready before the event starts.";
+const READ = "What you read, 1 or 2 major takeaways, 1 or 2 things you are implementing";
+const LISTEN = "What you listened to, 1 or 2 major takeaways, 1 or 2 things you are implementing";
+const TYPES = [
+  { k: "intro", name: "Introductions & Recognition", ph: { who: "Hosts" } },
+  { k: "calendar", name: "Calendar", ph: { who: "Host" } },
+  { k: "growth", name: "Personal Growth", ph: { who: "One partner" } },
+  { k: "spotlight", name: "Partner Spotlight", ph: { who: "One partner (or: Lister, interviewed by Irene)", lead: "The win, e.g. 10+ MG1s in two months" } },
+  { k: "product", name: "Product Education & Demo", ph: { who: "Who presents", lead: "The product or area" } },
+  { k: "retail", name: "Retail & Volume", ph: { who: "Who shares", lead: "The theme, e.g. product parties, holiday bundles" } },
+  { k: "panel", name: "Leadership Panel", ph: { who: "Panelists, led by Johnny", lead: "The theme" } },
+  { k: "training", name: "Leadership Training", ph: { who: "Who teaches", lead: "The topic", pts: "3 to 5 points: why it matters, how to do it, what to avoid" } },
+  { k: "wrapup", name: "Wrap-Up Training", ph: { who: "Johnny & Irene", lead: "The topic", pts: "3 to 5 points" } },
+  { k: "qa", name: "Open Q&A", ph: { who: "The leader" } }
+];
+const TYPE = {}; TYPES.forEach(function(t){ TYPE[t.k] = t; });
+const CARDS = [
+  { id: "intro", about: "Guests and new IBOs introduce themselves; partners share their week.", seg: { k: "intro", t: "Introductions & Recognition", pts: INTROS.pts } },
+  { id: "calendar", about: "What's coming up on the JL team calendar.", seg: { k: "calendar", t: "Calendar", min: 5 } },
+  { id: "book", about: "One partner on what they're reading.", seg: { k: "growth", t: "Personal Growth: Book", min: 2, pts: [READ] } },
+  { id: "audio", about: "One partner on what they're listening to.", seg: { k: "growth", t: "Personal Growth: Audio", min: 2, pts: [LISTEN] } },
+  { id: "spotlight", about: "One partner, one recent win, and how they did it.", seg: { k: "spotlight", t: "Partner Spotlight", min: 5,
+      pts: ["What you did, in numbers", "How you did it: the habits, the help, the hard part", "What you would tell someone starting now"] } },
+  { id: "product", about: "One product or area: why it matters, and a demo anyone can repeat.", seg: { k: "product", t: "Product Education & Demo", min: 10,
+      pts: ["What it is, and who it's for", "Why it matters, in plain words", "One simple demo anyone can repeat", "How to bring it up in an everyday conversation"] } },
+  { id: "retail", about: "How someone found customers and built volume, or a retail skill.", seg: { k: "retail", t: "Retail & Volume", min: 10,
+      pts: ["Personal use first, and why it builds belief", "Where the first customers came from", "What the volume looked like after", "One thing to try this week"] } },
+  { id: "panel", about: "Two or three partners answer questions, led by a host.", seg: { k: "panel", t: "Leadership Panel", min: 15,
+      pts: ["What was it like when you first started?", "What changed, and what made the difference?", "What would you tell someone in their first 90 days?"] } },
+  { id: "training", about: "A leader teaches one topic.", seg: { k: "training", t: "Leadership Training", min: 15 } },
+  { id: "wrapup", about: "The closing talk from a top leader.", seg: { k: "wrapup", t: "Wrap-Up Training", min: 20 } },
+  { id: "qa", about: "Questions to the leader at the end.", seg: { k: "qa", t: "Open Q&A", min: 8 } }
+];
+const CARD = {}; CARDS.forEach(function(c){ CARD[c.id] = c; });
+function fromCard(id, over){ return Object.assign(clone(CARD[id].seg), over || {}); }
+/* The two kinds of night so far. FNH: Friday 7:30 at the condo (Mar to Oct). Orientation: Saturday
+   8 PM on Zoom (Sep 26). The agenda is the usual running order of each. */
+const NIGHTS = {
+  fnh: { name: "Friday Night Hangout", about: "Friday 7:30 to 9:00 PM at Johnny & Irene's, also on Zoom. Intros, calendar, product, book, audio, training, wrap-up.",
+    make: function(date){ return {
+      date: date, kind: "FNH", title: "HY Friday Night Hangout", sub: monthName(date),
+      time: "7:30 to 9:00 PM ET", where: "Johnny & Irene's place, Flushing", whereNote: "Address in the group chat · also on Zoom",
+      zoom: ZOOM_DEFAULT, pass: "", dress: "Sharp business casual", agendaTitle: "", flow: clone(FNH_FLOW),
+      roles: [["Host / Co-host", "", HOST_NOTE], ["Online CEO (Chief Energy Officer)", "", ""], ["DJ & Technology", "", ""]],
+      agenda: [fromCard("intro"), fromCard("calendar"), fromCard("product"), fromCard("book"), fromCard("audio"), fromCard("training"), fromCard("wrapup")]
+    }; }, day: 5 },
+  orientation: { name: "New Apprentice Orientation", about: "Saturday 8:00 to 9:00 PM on Zoom, camera on. Welcome, book, audio, product & volume, mentorship, networking, first 90 days, Q&A.",
+    make: function(date){ return {
+      date: date, kind: "Orientation", title: "HY Saturday Night Hangout", sub: monthName(date) + " New Apprentice Orientation",
+      time: "8:00 to 9:00 PM ET", where: "Zoom only", whereNote: "", zoom: ZOOM_DEFAULT, pass: "", dress: "Business casual, camera on",
+      agendaTitle: "New IBO Orientation", flow: [["7:55 to 8:00 PM", "Check in"], ["8:00 to 9:00 PM", "All partners"]],
+      roles: [["Host / Timer", "", "Keep energy high and the event on time. Remind everyone to turn their camera on, and give speakers a 30-second countdown."]],
+      agenda: [
+        { k: "intro", t: "Welcome & Introductions", min: 3, pts: [["New apprentices since the last orientation", ["Name · City · Who you are building with · What you are excited about · One fun fact about yourself"]]] },
+        fromCard("book"), fromCard("audio"),
+        fromCard("retail", { t: "Product & Volume", lead: "First circle: personal use and retail" }),
+        fromCard("training", { t: "Mentorship", min: 5 }),
+        fromCard("training", { t: "Networking", min: 10, lead: "Networking in your first 90 days" }),
+        fromCard("wrapup", { t: "Leadership Training: First 90 Days", min: 15 }),
+        fromCard("qa")
+      ]
+    }; }, day: 6 }
+};
+function monthName(d){ return asDate(d).toLocaleDateString("en-US", { month: "long" }); }
+
+let EVENTS = [], SAVED_AT = null, LOADED = false, LOAD_FAILED = false, KEPT_AT = 0, CHOOSING = false;
 let EDIT = null, DIRTY = false, SAVING = false, CONFLICT = null;
 let stale = false, checkedAt = 0, triedAt = 0, staleKey = "";   /* the version check, at the bottom */
 
@@ -328,6 +412,8 @@ function footHTML(){ return '<div class="foot">Questions about an event? Ask you
 function render(){
   renderNav();
   if(EDIT){ renderEditor(); return; }
+  if(CHOOSING && admin()){ $("doc").innerHTML = chooserHTML() + footHTML(); paintVer(); return; }
+  CHOOSING = false;
   let html;
   if(!LOADED) html = LOAD_FAILED
     ? '<p class="empty">Couldn\'t load the agenda. Check your connection, then <button type="button" class="linkbtn" data-act="retry">try again</button>.</p>'
@@ -374,14 +460,17 @@ function field(name, label, value, opts){
   return '<label class="fl' + (opts.full ? ' full' : '') + '"><span>' + label + '</span>' + tag + (opts.hint ? '<p class="hint">' + opts.hint + '</p>' : '') + '</label>';
 }
 function segEditHTML(s, i, n){
+  const ph = (TYPE[s.k] || {}).ph || {};
   return '<div class="sege" data-i="' + i + '"><div class="sh"><b>Segment ' + (i + 1) + '</b>'
+    + '<select name="k" aria-label="Type">' + TYPES.map(function(t){ return '<option value="' + t.k + '"' + (t.k === s.k ? ' selected' : '') + '>' + esc(t.name) + '</option>'; }).join("")
+    +   '<option value=""' + (s.k && TYPE[s.k] ? '' : ' selected') + '>Other</option></select>'
     + '<button type="button" class="btn sm" data-act="up" ' + (i === 0 ? 'disabled' : '') + ' aria-label="Move up">↑</button>'
     + '<button type="button" class="btn sm" data-act="down" ' + (i === n - 1 ? 'disabled' : '') + ' aria-label="Move down">↓</button>'
     + '<button type="button" class="btn sm warn" data-act="delseg">Remove</button></div>'
     + '<div class="grid2">'
     +   field("t", "Title", s.t) + field("min", "Minutes", s.min || "", { type: "number", attr: ' min="0" max="240" inputmode="numeric"' })
-    +   field("lead", "Subtitle <i>(optional)</i>", s.lead) + field("who", "Who", s.who)
-    +   field("pts", "Points <i>(one per line; start a line with - for a sub-point)</i>", fmtPts(s.pts), { area: true, full: true, rows: Math.max(3, (s.pts || []).length + 1) })
+    +   field("lead", "Subtitle <i>(optional)</i>", s.lead, { ph: ph.lead }) + field("who", "Who", s.who, { ph: ph.who })
+    +   field("pts", "Points <i>(one per line; start a line with - for a sub-point)</i>", fmtPts(s.pts), { area: true, full: true, rows: Math.max(3, (s.pts || []).length + 1), ph: ph.pts })
     +   field("cal", "Calendar rows <i>(optional: date | what)</i>", fmtRows(s.cal), { area: true, full: true, rows: s.cal && s.cal.length ? s.cal.length + 1 : 2, ph: "Oct 21 (Wed) | JL Team Evaluation" })
     + '</div></div>';
 }
@@ -402,7 +491,10 @@ function renderEditor(){
     + '<h2>Overview</h2>' + field("flow", "One per line: time | what", fmtRows(d.flow), { area: true, full: true, rows: (d.flow || []).length + 1, ph: "7:30 to 9:00 PM | All partners" })
     + '<h2>Roles</h2>' + field("roles", "One per line: role | person | note", fmtRows(d.roles), { area: true, full: true, rows: (d.roles || []).length + 1, ph: "Host / Co-host | Annie, Wendy | Keep energy high" })
     + '<h2>Agenda</h2>' + (d.agenda || []).map(function(s, i){ return segEditHTML(s, i, d.agenda.length); }).join("")
-    + '<button type="button" class="btn" data-act="addseg">+ Add segment</button>'
+    + '<h2>Add a segment</h2><div class="tpl">' + CARDS.map(function(c){
+        return '<button type="button" class="tc" data-act="addtpl" data-tpl="' + c.id + '"><b>' + esc(c.seg.t) + '</b>'
+          + '<span>' + (c.seg.min ? c.seg.min + ' min' : 'Usually 10 to 15 min') + '</span><i>' + esc(c.about) + '</i></button>';
+      }).join("") + '<button type="button" class="tc blank" data-act="addseg">Blank segment</button></div>'
     + '<div class="edbar"><span class="st" id="edst" role="status"></span>'
     +   '<button type="button" class="btn" data-act="cancel">Cancel</button>'
     +   (EDIT.isNew ? '' : '<button type="button" class="btn warn" data-act="delevent">Delete event</button>')
@@ -420,6 +512,7 @@ function collect(){
   d.roles = parseRows(v("roles"), 3);
   d.agenda = Array.prototype.map.call(f.querySelectorAll(".sege"), function(s){
     const seg = { t: v("t", s).trim() };
+    const k = v("k", s); if(k) seg.k = k;
     const lead = v("lead", s).trim(), who = v("who", s).trim(), min = parseInt(v("min", s), 10);
     if(lead) seg.lead = lead;
     if(min > 0) seg.min = min;
@@ -430,23 +523,35 @@ function collect(){
   });
 }
 function edStatus(t, err){ const el = $("edst"); if(el){ el.textContent = t; el.classList.toggle("err", !!err); } }
-function nextFriday(){
+/* The next free date on that weekday (5 Friday, 6 Saturday), today included. */
+function nextDay(dow){
   const t = asDate(todayET());
-  t.setDate(t.getDate() + (5 - t.getDay() + 7) % 7);
+  t.setDate(t.getDate() + (dow - t.getDay() + 7) % 7);
   while(EVENTS.some(function(e){ return e.date === ymd(t); })) t.setDate(t.getDate() + 7);
   return ymd(t);
 }
 function startNew(){
   if(EDIT && DIRTY){ toast("Save or cancel the event you are editing first."); return; }
-  const date = nextFriday();
-  EDIT = { id: null, isNew: true, base: null, draft: {
-    date: date, kind: "FNH", title: "HY Friday Night Hangout", sub: asDate(date).toLocaleDateString("en-US", { month: "long" }),
-    time: "7:30 to 9:00 PM ET", where: "To be confirmed", whereNote: "Details in the group chat · also on Zoom",
-    zoom: ZOOM_DEFAULT, pass: "", dress: "Sharp business casual", agendaTitle: "",
-    flow: clone(FNH_FLOW), roles: [["Host / Co-host", "", ""], ["Online CEO (Chief Energy Officer)", "", ""], ["DJ & Technology", "", ""]],
-    agenda: [clone(INTROS), { t: "Calendar", min: 5 }]
-  }};
-  DIRTY = true; CONFLICT = null; closeNav(); render(); scrollTo(0, 0);
+  EDIT = null; CHOOSING = true; closeNav(); render(); scrollTo(0, 0);
+}
+function chooserHTML(){
+  return '<div class="dtop"><span class="stat">New event</span></div><h1>What kind of night?</h1>'
+    + '<p class="dsub">Starts from the usual running order. Everything can be changed before you save.</p>'
+    + '<div class="tpl" style="margin-top:22px">' + Object.keys(NIGHTS).map(function(id){
+        const n = NIGHTS[id];
+        return '<button type="button" class="tc big" data-act="night" data-night="' + id + '"><b>' + esc(n.name) + '</b>'
+          + '<span>' + esc(navDate(nextDay(n.day))) + '</span><i>' + esc(n.about) + '</i></button>';
+      }).join("")
+    + '<button type="button" class="tc blank big" data-act="night" data-night="">Blank event</button></div>'
+    + '<p style="margin-top:18px"><button type="button" class="btn" data-act="unchoose">Cancel</button></p>';
+}
+function startFrom(id){
+  const n = NIGHTS[id];
+  const draft = n ? n.make(nextDay(n.day)) : { date: nextDay(5), kind: "", title: "", sub: "", time: "", where: "", whereNote: "",
+    zoom: ZOOM_DEFAULT, pass: "", dress: "", agendaTitle: "", flow: [], roles: [], agenda: [] };
+  CHOOSING = false;
+  EDIT = { id: null, isNew: true, base: null, draft: draft };
+  DIRTY = true; CONFLICT = null; render(); scrollTo(0, 0);
 }
 function startEdit(){
   const e = current(); if(!e) return;
@@ -536,6 +641,7 @@ $("scrim").addEventListener("click", closeNav);
 $("nav").addEventListener("click", function(ev){
   const a = ev.target.closest("a.ni"); if(!a) return;
   if(EDIT){ ev.preventDefault(); toast("Save or cancel your edit first."); return; }
+  if(CHOOSING){ CHOOSING = false; if(location.hash === a.getAttribute("href")) render(); }
   closeNav();
 });
 $("dots").addEventListener("click", function(){
@@ -554,6 +660,8 @@ document.addEventListener("click", function(ev){
   const act = b.dataset.act;
   if(act === "retry"){ LOAD_FAILED = false; render(); loadData(); return; }
   if(act === "new"){ startNew(); return; }
+  if(act === "night"){ startFrom(b.dataset.night); return; }
+  if(act === "unchoose"){ CHOOSING = false; render(); return; }
   if(act === "edit"){ startEdit(); return; }
   if(act === "signout"){
     if(EDIT && DIRTY){ toast("Save or cancel your edit first."); return; }
@@ -565,8 +673,13 @@ document.addEventListener("click", function(ev){
   if(act === "delevent"){ arm(b, "Tap again to delete", deleteEvent); return; }
   if(act === "mine"){ keepMine(); return; }
   if(act === "theirs"){ loadTheirs(); return; }
-  if(act === "addseg"){ collect(); EDIT.draft.agenda = EDIT.draft.agenda || []; EDIT.draft.agenda.push({ t: "" }); DIRTY = true; renderEditor();
-    const all = document.querySelectorAll(".sege"); const last = all[all.length - 1]; if(last){ last.scrollIntoView({ block: "center" }); last.querySelector('[name="t"]').focus(); } return; }
+  if(act === "addseg" || act === "addtpl"){
+    collect(); EDIT.draft.agenda = EDIT.draft.agenda || [];
+    EDIT.draft.agenda.push(act === "addtpl" ? fromCard(b.dataset.tpl) : { t: "" }); DIRTY = true; renderEditor();
+    const all = document.querySelectorAll(".sege"), last = all[all.length - 1];
+    if(last){ last.scrollIntoView({ block: "center" }); last.querySelector(act === "addtpl" ? '[name="who"]' : '[name="t"]').focus(); }
+    return;
+  }
   const seg = b.closest(".sege"); if(!seg) return;
   /* collect() builds a fresh agenda list from the form, so take the list after it, not before. */
   const i = +seg.dataset.i;

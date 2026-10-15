@@ -1,6 +1,6 @@
 {
  "about": "HY team night agendas for team-event.html, newest first. Edited on the page after the admin login (··· → /api/save-functions?doc=team-events) or by Claude. Johnny & Irene's street address never goes here: the page and this file are public.",
- "savedAt": "2026-10-15T02:59:12.000Z",
+ "savedAt": "2026-10-15T03:02:00.000Z",
  "events": [
   {
    "id": "2026-10-16",
@@ -43,7 +43,8 @@
         "Name · City · Background · What you did this week (2 MG1 / 20+ PV retail) · Goal"
        ]
       ]
-     ]
+     ],
+     "k": "intro"
     },
     {
      "t": "Calendar",
@@ -73,7 +74,8 @@
        "Oct 30 (Fri)",
        "FNH, Halloween theme, Cre8ive Studio NYC"
       ]
-     ]
+     ],
+     "k": "calendar"
     },
     {
      "t": "Retail Training",
@@ -84,7 +86,8 @@
       "Retail ideas",
       "How to leverage a product party",
       "Holiday bundles and discounts"
-     ]
+     ],
+     "k": "retail"
     },
     {
      "t": "Personal Growth: Audio",
@@ -92,7 +95,8 @@
      "who": "Raymond",
      "pts": [
       "What you listened to, 1 or 2 major takeaways, 1 or 2 things you are implementing"
-     ]
+     ],
+     "k": "growth"
     },
     {
      "t": "Personal Growth: Book",
@@ -100,25 +104,29 @@
      "who": "Laura",
      "pts": [
       "What you read, 1 or 2 major takeaways, 1 or 2 things you are implementing"
-     ]
+     ],
+     "k": "growth"
     },
     {
      "t": "Product Education",
      "lead": "Our new cellular aging product",
      "min": 5,
-     "who": "Wendy"
+     "who": "Wendy",
+     "k": "product"
     },
     {
      "t": "Product Education",
      "lead": "Sleep and energy products",
      "min": 5,
-     "who": "Yoyo"
+     "who": "Yoyo",
+     "k": "product"
     },
     {
      "t": "Leadership Panel",
      "lead": "Building a work habit and leveraging mentorship",
      "min": 15,
-     "who": "Johnson, Shirley, Lister, led by Johnny"
+     "who": "Johnson, Shirley, Lister, led by Johnny",
+     "k": "panel"
     },
     {
      "t": "Wrap-Up Training",
@@ -128,11 +136,12 @@
       "Why this business",
       "What to expect in your first year",
       "Building your first team of 10"
-     ]
+     ],
+     "k": "wrapup"
     }
    ],
    "zoom": "515-333-3193",
-   "at": "2026-10-15T02:59:12.000Z"
+   "at": "2026-10-15T03:02:00.000Z"
   },
   {
    "id": "2026-09-26",
@@ -173,7 +182,8 @@
         "Name · City · Who you are building with · What you are excited about · One fun fact about yourself"
        ]
       ]
-     ]
+     ],
+     "k": "intro"
     },
     {
      "t": "Personal Growth: Book",
@@ -181,7 +191,8 @@
      "who": "Shirley",
      "pts": [
       "What you read, 1 or 2 major takeaways, 1 or 2 things you are implementing"
-     ]
+     ],
+     "k": "growth"
     },
     {
      "t": "Personal Growth: Audio",
@@ -189,7 +200,8 @@
      "who": "Yoyo",
      "pts": [
       "What you listened to, 1 or 2 major takeaways, 1 or 2 things you are implementing"
-     ]
+     ],
+     "k": "growth"
     },
     {
      "t": "Product & Volume",
@@ -201,7 +213,8 @@
       "Where the first customers came from, and what the volume looked like after",
       "“People don't get started with a company, they get started with you.”",
       "What we would do differently next time"
-     ]
+     ],
+     "k": "retail"
     },
     {
      "t": "Mentorship",
@@ -211,7 +224,8 @@
      "pts": [
       "How to get the most out of mentorship",
       "The wins outside the business: finance and career"
-     ]
+     ],
+     "k": "training"
     },
     {
      "t": "Networking",
@@ -222,7 +236,8 @@
       "How you approach someone who already knows you",
       "How to lead people, not convince people",
       "How to create steady results"
-     ]
+     ],
+     "k": "training"
     },
     {
      "t": "Leadership Training: First 90 Days",
@@ -234,16 +249,18 @@
       "How to build and protect your self-image",
       "Can I do it? What if I fall off the track? Is my goal too far away?",
       "How to develop a vision, and the confidence in it"
-     ]
+     ],
+     "k": "wrapup"
     },
     {
      "t": "Open Q&A with Jerry",
      "min": 8,
-     "who": "Jerry"
+     "who": "Jerry",
+     "k": "qa"
     }
    ],
    "zoom": "515-333-3193",
-   "at": "2026-10-14T00:00:00.000Z"
+   "at": "2026-10-15T03:02:00.000Z"
   },
   {
    "id": "2026-07-31",
@@ -300,7 +317,8 @@
         "Name · City · Background · What you did this week (2 MG1 / 20+ PV retail) · Goal"
        ]
       ]
-     ]
+     ],
+     "k": "intro"
     },
     {
      "t": "Calendar",
@@ -330,7 +348,8 @@
        "Oct 2 to 4",
        "Orlando Spartan Breakthrough Conference"
       ]
-     ]
+     ],
+     "k": "calendar"
     },
     {
      "t": "Product Demo & Education",
@@ -339,7 +358,8 @@
      "pts": [
       "Acne & skin: what separates a result that holds from one that comes back next month",
       "The product and volume knowledge hub: johnnnyay.github.io/product-marketing"
-     ]
+     ],
+     "k": "product"
     },
     {
      "t": "Personal Growth: Book",
@@ -347,7 +367,8 @@
      "who": "Yoyo",
      "pts": [
       "What you read, 1 or 2 major takeaways, 1 or 2 things you are implementing"
-     ]
+     ],
+     "k": "growth"
     },
     {
      "t": "Leadership Training",
@@ -358,7 +379,8 @@
       "What was it like when you first started the business?",
       "What was your mindset, attitude and approach toward personal use?",
       "How did you create your first few retail successes?"
-     ]
+     ],
+     "k": "panel"
     },
     {
      "t": "Leadership Training",
@@ -370,7 +392,8 @@
       "Dos and don'ts for close friends and family",
       "The right mindset and expectations in the first 60 DCR",
       "How did the education habits, the association and the system make a difference in your life?"
-     ]
+     ],
+     "k": "training"
     },
     {
      "t": "Leadership Training",
@@ -381,11 +404,12 @@
       "How do you grow your adversity quotient, your ability to handle stress and things not going the way you want?",
       "How do you deal with differences between people?",
       "How do you overcome personal shortcomings that hinder growth?"
-     ]
+     ],
+     "k": "wrapup"
     }
    ],
    "zoom": "515-333-3193",
-   "at": "2026-10-14T00:00:00.000Z"
+   "at": "2026-10-15T03:02:00.000Z"
   },
   {
    "id": "2026-05-15",
@@ -442,7 +466,8 @@
         "Name · City · Background · What you did this week (2 MG1 / 20+ PV retail) · Goal"
        ]
       ]
-     ]
+     ],
+     "k": "intro"
     },
     {
      "t": "Calendar",
@@ -484,7 +509,8 @@
        "June 20 to 22",
        "Go Diamond in Breckenridge, CO"
       ]
-     ]
+     ],
+     "k": "calendar"
     },
     {
      "t": "Product Demo & Education",
@@ -499,7 +525,8 @@
       "Simple daily skincare systems",
       "Retail tips: positioning products through lifestyle conversations",
       "Demo with the SAM machine"
-     ]
+     ],
+     "k": "product"
     },
     {
      "t": "Personal Growth: Book",
@@ -507,7 +534,8 @@
      "who": "Ting",
      "pts": [
       "What you read, 1 or 2 major takeaways, 1 or 2 things you are implementing"
-     ]
+     ],
+     "k": "growth"
     },
     {
      "t": "Personal Growth: Podcast",
@@ -515,7 +543,8 @@
      "who": "Lister",
      "pts": [
       "What you listened to, 1 or 2 major takeaways, 1 or 2 things you are implementing"
-     ]
+     ],
+     "k": "growth"
     },
     {
      "t": "Leadership Training: Networking Panel",
@@ -527,7 +556,8 @@
       "Why PHP matters (Raymond)",
       "How reflection speeds up your growth (William)",
       "Patience and consistency, if you want results (William)"
-     ]
+     ],
+     "k": "panel"
     },
     {
      "t": "Leadership Training",
@@ -540,7 +570,8 @@
       "What self-image is, and how to work on it",
       "Time management and life prioritization",
       "How to stay grateful and joyful in pressure seasons"
-     ]
+     ],
+     "k": "training"
     },
     {
      "t": "Leadership Training",
@@ -554,11 +585,12 @@
       "How to stay anchored to your WHY",
       "Why you can't judge your future by temporary emotions",
       "The power of the spoken word"
-     ]
+     ],
+     "k": "wrapup"
     }
    ],
    "zoom": "515-333-3193",
-   "at": "2026-10-14T00:00:00.000Z"
+   "at": "2026-10-15T03:02:00.000Z"
   },
   {
    "id": "2026-04-10",
@@ -615,7 +647,8 @@
         "Name · City · Background · What you did this week (2 MG1 / 20+ PV retail) · Goal"
        ]
       ]
-     ]
+     ],
+     "k": "intro"
     },
     {
      "t": "Calendar",
@@ -645,7 +678,8 @@
        "June 20 to 22",
        "Go Diamond in Breckenridge, CO"
       ]
-     ]
+     ],
+     "k": "calendar"
     },
     {
      "t": "Personal Breakthroughs & Learnings",
@@ -654,7 +688,8 @@
      "pts": [
       "Tricia (2 min): my favorite podcast on the Leadership1 app this week, and 1 or 2 points I learned from it",
       "Raymond (2 min): 1 or 2 points from my reading this week (and the book), and what I'm working on implementing"
-     ]
+     ],
+     "k": "growth"
     },
     {
      "t": "Sales & Retail Training",
@@ -669,7 +704,8 @@
         "C2C invitations to health and skin analysis sessions"
        ]
       ]
-     ]
+     ],
+     "k": "retail"
     },
     {
      "t": "Product Education & Demo",
@@ -679,7 +715,8 @@
       "Across the product line: Nutrilite, Artistry, XS, LOC",
       "Brand history, competitive advantage and credentials",
       "One simple, duplicatable product demo"
-     ]
+     ],
+     "k": "product"
     },
     {
      "t": "Networking & Leadership Training",
@@ -702,7 +739,8 @@
        ]
       ],
       "When and why you want to learn to run the first MG"
-     ]
+     ],
+     "k": "training"
     },
     {
      "t": "Wrap-Up: Handling Doubt & Belief",
@@ -718,11 +756,12 @@
         "Self-belief"
        ]
       ]
-     ]
+     ],
+     "k": "wrapup"
     }
    ],
    "zoom": "515-333-3193",
-   "at": "2026-10-14T00:00:00.000Z"
+   "at": "2026-10-15T03:02:00.000Z"
   },
   {
    "id": "2026-03-13",
@@ -789,7 +828,8 @@
         "Retail success / product results"
        ]
       ]
-     ]
+     ],
+     "k": "intro"
     },
     {
      "t": "Product & Volume Generation",
@@ -800,7 +840,8 @@
       "How to reach 150 PV consistently",
       "A simple strategy to help new IBOs find their first customers",
       "Quick tips on double core and beyond"
-     ]
+     ],
+     "k": "retail"
     },
     {
      "t": "Upcoming Events",
@@ -823,7 +864,8 @@
        "Coming up",
        "Go Diamond Weekend"
       ]
-     ]
+     ],
+     "k": "calendar"
     },
     {
      "t": "Personal Growth",
@@ -832,7 +874,8 @@
      "pts": [
       "Lister (2 min): my favorite podcast on the Leadership1 app this week, and 1 or 2 points I learned from it",
       "Ding (2 min): 1 or 2 points from my reading this week (and the book), and what I'm working on implementing"
-     ]
+     ],
+     "k": "growth"
     },
     {
      "t": "Leadership Training: Consistency in Networking",
@@ -842,7 +885,8 @@
       "Why developing a work habit matters",
       "How to create personal momentum",
       "How to stay focused when results haven't shown up yet"
-     ]
+     ],
+     "k": "training"
     },
     {
      "t": "Leadership Training: Ultimate Function Preparation",
@@ -852,7 +896,8 @@
       "Why big functions are essential for short-term and long-term success",
       "How to prepare apprentices before major events",
       "Using events to speed up belief and duplication"
-     ]
+     ],
+     "k": "training"
     },
     {
      "t": "Wrap-Up Training: How to Win in the Next 90 Days",
@@ -869,11 +914,12 @@
       "Why the first 90 days are the most important stage for every new apprentice",
       "How to build self-confidence",
       "What it's like to grow from 0 to 3/6"
-     ]
+     ],
+     "k": "wrapup"
     }
    ],
    "zoom": "515-333-3193",
-   "at": "2026-10-14T00:00:00.000Z"
+   "at": "2026-10-15T03:02:00.000Z"
   },
   {
    "id": "2026-02-27",
@@ -915,7 +961,8 @@
         "Name · City · Background · What you did this week · Goal"
        ]
       ]
-     ]
+     ],
+     "k": "intro"
     },
     {
      "t": "Product & Volume Generation",
@@ -923,7 +970,8 @@
      "who": "Annice & Wendy",
      "pts": [
       "From invite to follow-up, how did you use the health and SAM sessions? How easy was it really? Share your results."
-     ]
+     ],
+     "k": "retail"
     },
     {
      "t": "Upcoming Events",
@@ -948,7 +996,8 @@
        "Coming up",
        "Go Diamond Weekend"
       ]
-     ]
+     ],
+     "k": "calendar"
     },
     {
      "t": "Personal Growth",
@@ -956,7 +1005,8 @@
      "who": "Ting",
      "pts": [
       "How you sustained a 160+ day Phase B Core Run while balancing extracurriculars, exams and a part-time job, and still had fun"
-     ]
+     ],
+     "k": "spotlight"
     },
     {
      "t": "Personal Growth",
@@ -964,7 +1014,8 @@
      "who": "Martin",
      "pts": [
       "What it was like being the #3 top user in the whole LLC, and how consistently taking in content in the environment, paired with in-person networking, sped up your work ethic and your confidence"
-     ]
+     ],
+     "k": "spotlight"
     },
     {
      "t": "Leadership Training",
@@ -973,7 +1024,8 @@
      "pts": [
       "The right mindset when a mentor or coach comes to town, and how you fully booked their calendar",
       "How anchoring yourself in mentorship and this environment carried you through life's ups and downs"
-     ]
+     ],
+     "k": "spotlight"
     },
     {
      "t": "Leadership Training",
@@ -983,7 +1035,8 @@
       "How did you book 10+ MG1s from January to February?",
       "What does mentorship truly look like for you?",
       "What does doing PHP the right way mean, and why is consistency in it so important?"
-     ]
+     ],
+     "k": "spotlight"
     },
     {
      "t": "Wrap-Up Training: Networking Skills + Boundaries",
@@ -992,11 +1045,12 @@
      "pts": [
       "Level up how you handle common scenarios in networking and process meetings",
       "How to set boundaries in life to prioritize what matters to you"
-     ]
+     ],
+     "k": "wrapup"
     }
    ],
    "zoom": "515-333-3193",
-   "at": "2026-10-14T00:00:00.000Z"
+   "at": "2026-10-15T03:02:00.000Z"
   }
  ]
 }
