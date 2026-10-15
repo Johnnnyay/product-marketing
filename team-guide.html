@@ -15,7 +15,10 @@
    event on team-event.html. Source: "JL Team FNH Hosting Guidelines" (Irene, JL 3/6 group,
    2026-06-25) and Eden's "Hosting FNH" outline (2026-03-13), set to HY's own night (networking
    from 7:10, start at 7:30), plus Johnny's timing rules (2026-10-15): introductions 5 minutes,
-   30 seconds per calendar event, 15 seconds for each transition and speaker intro. */
+   30 seconds per calendar event, 15 seconds for each transition and speaker intro.
+   English and Chinese (Johnny, 2026-10-15: "do chinese/en button like health page"): the menu in
+   the top bar, the same pv_lang choice as the health site, ?lang=zh on a link. The Chinese is
+   written as its own page, not a line-by-line translation, so the two are whole blocks. */
 :root{
   --ground:#F2F5F1; --page:#FFFFFF; --line:#DDE4DE; --line-2:#C2CCC4;
   --ink:#141A16; --ink-2:#3A453C; --muted:#68756B;
@@ -31,6 +34,24 @@ a{color:var(--sage);font-weight:600}
 .mbar{display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);
   border-bottom:1px solid var(--line);padding:10px max(24px,calc((100% - 1000px) / 2 + 24px))}
 .mbar .n{font-weight:800;font-size:16px;flex:1;color:var(--ink);text-decoration:none}
+[hidden]{display:none !important}
+.lang-wrap{position:relative}
+.lang-btn{display:inline-flex;align-items:center;gap:5px;background:var(--page);border:1.5px solid var(--line-2);color:var(--ink);
+  border-radius:18px;font:inherit;font-size:12.5px;font-weight:700;padding:5px 11px;cursor:pointer;white-space:nowrap}
+.lang-btn:hover{background:var(--sage-light)}
+.lang-caret{width:0;height:0;border-left:3.5px solid transparent;border-right:3.5px solid transparent;border-top:4px solid currentColor;opacity:.65}
+.lang-menu{display:none;position:absolute;top:calc(100% + 7px);right:0;z-index:30;background:#fff;border:1px solid var(--line);
+  border-radius:10px;box-shadow:0 10px 30px rgba(20,26,22,.14);padding:5px;min-width:140px}
+.lang-menu.open{display:block}
+.lang-opt{display:flex;align-items:center;gap:10px;width:100%;background:none;border:0;border-radius:7px;padding:8px 10px;
+  cursor:pointer;text-align:left;font:inherit;font-size:13.5px;color:var(--ink-2);white-space:nowrap}
+.lang-opt:hover,.lang-opt.on{background:var(--sage-light)}
+.lang-opt.on{color:var(--ink);font-weight:650}
+.lang-opt-label{flex:none;width:26px;font-size:10.5px;font-weight:700;letter-spacing:.04em;color:var(--sage)}
+[data-l="zh"]{font-family:Inter,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;line-height:1.75}
+[data-l="zh"] h1{letter-spacing:0}
+[data-l="zh"] h2{font-size:14px;letter-spacing:.2em}
+[data-l="zh"] .ex{font-style:normal}
 .mbar .n span{color:var(--sage)}
 .btn{background:var(--page);border:1.5px solid var(--line-2);color:var(--ink);border-radius:8px;font:inherit;font-size:13px;
   font-weight:700;padding:5px 11px;text-decoration:none;white-space:nowrap}
@@ -92,8 +113,10 @@ li::marker{color:var(--sage-2)}
 }
 </style>
 
-<div class="mbar"><a class="n" href="team-event.html">Team <span>Event</span></a><a class="btn" href="team-event.html">Back to the agenda</a></div>
-<div class="wrap">
+<div class="mbar"><a class="n" href="team-event.html">Team <span>Event</span></a>
+  <div class="lang-wrap"><button type="button" class="lang-btn" id="langbtn" aria-haspopup="true" aria-expanded="false" aria-label="Language"><span id="langcur">EN</span><span class="lang-caret"></span></button><div class="lang-menu" id="langmenu"></div></div>
+  <a class="btn" href="team-event.html" id="back">Back to the agenda</a></div>
+<div class="wrap" data-l="en">
 <nav class="gnav" aria-label="Sections"><div class="gt">On this page</div><a href="#timing">Timing</a><a href="#everyone">For everyone</a><a href="#roles">Roles</a><a href="#skills">Hosting skills</a><a href="#calendar">The calendar</a><a href="#panels">Panels</a><a href="#run">Run of show</a><a href="#monthly">Monthly recognition</a></nav>
 <main class="doc">
   <div class="eyebrow">HY Friday Night Hangout</div>
@@ -241,17 +264,215 @@ li::marker{color:var(--sage-2)}
   <p class="foot">Questions about an event? Ask your coach and mentor. · <a href="team-event.html">Back to the agenda</a></p>
 </main>
 </div>
+<div class="wrap" data-l="zh" lang="zh-Hans" hidden>
+<nav class="gnav" aria-label="章节"><div class="gt">本页目录</div><a href="#zh-timing">时间安排</a><a href="#zh-everyone">全体须知</a><a href="#zh-roles">角色分工</a><a href="#zh-skills">主持技巧</a><a href="#zh-calendar">活动日历</a><a href="#zh-panels">圆桌分享</a><a href="#zh-run">当晚流程</a><a href="#zh-monthly">月度表彰</a></nav>
+<main class="doc">
+  <div class="eyebrow">HY Friday Night Hangout</div>
+  <h1>主持与参与指南</h1>
+  <p class="lede">一个周五晚上怎样办好：时间怎么把控，每个角色各管什么，自我介绍怎么讲，主持人又如何让全场始终在状态、准时推进。</p>
+  <p class="src">根据 JL 团队 FNH 主持指南（2026 年 6 月）整理，并按我们自己的周五晚上做了调整。</p>
+
+  <h2 id="zh-timing">时间安排</h2>
+  <table class="tbl">
+    <thead><tr><th>环节</th><th>预留时间</th></tr></thead>
+    <tbody>
+      <tr><td>介绍与表彰</td><td>5 分钟</td></tr>
+      <tr><td>活动日历</td><td>每个活动 30 秒</td></tr>
+      <tr><td>每个议题</td><td>转场加介绍讲者 15 秒，算在议题本身时间之外</td></tr>
+      <tr><td>个人成长分享</td><td>每人 2 分钟</td></tr>
+      <tr><td>圆桌分享（以 4 位嘉宾、15 分钟为例）</td><td>开场 1 分钟，每位嘉宾约 3 分 20 秒，收尾 30 秒</td></tr>
+      <tr><td>月度表彰分享</td><td>每人 60 秒</td></tr>
+    </tbody>
+  </table>
+  <p>美东时间晚上 7:10 前到场交流。7:30 准时开始，9:30 前全员离场。</p>
+
+  <h2 id="zh-everyone">全体须知</h2>
+  <ul>
+    <li><b>准时到场。</b>美东时间 7:10 开始交流。洗手间、倒水、聊天都在 7:25 前收好，7:30 全员落座，准时开场。</li>
+    <li><b>着装得体。</b>干净利落的商务休闲装。<a href="images/team/dress-code.jpg">查看着装指南</a>。</li>
+    <li><b>线上参加：</b>打开摄像头，用专业背景，在聊天区真正参与进来（表情回应、晒成果）。</li>
+    <li><b>轮到你发言，</b>先说结论，再用一两句话交代背景，不超出自己的时间。</li>
+  </ul>
+  <h3>自我介绍（候选人和新 IBO）</h3>
+  <div class="fmt"><b>按这个顺序</b><span>姓名 · 城市 · 背景 · 一句话说说这个机会最让你兴奋的地方</span></div>
+  <h3>每周表彰（现有伙伴）</h3>
+  <div class="fmt"><b>按这个顺序，只讲这几点</b><span>姓名 · 背景 · 推荐人（知道的话）· 教练 / 导师 · 本周做了什么（2 个 MG1 或 20+ PV 零售）· 目标</span></div>
+  <h3>新学徒迎新会</h3>
+  <div class="fmt"><b>按这个顺序</b><span>姓名 · 城市 · 和谁一起做 · 最期待的是什么 · 一件关于自己的趣事</span></div>
+  <h3>个人成长分享（2 分钟）</h3>
+  <div class="fmt"><b>一本书或一段音频</b><span>读了或听了什么 · 一到两个最大的收获 · 正在落实的一到两件事</span></div>
+
+  <h2 id="zh-roles">角色分工</h2>
+  <div class="cards">
+    <div class="card"><span class="k">主持 & 联合主持</span><h3>掌控全场</h3><ul>
+      <li>7:10 起在门口迎接，让伙伴和来宾一进门就感到被欢迎。</li>
+      <li>7:25 提醒大家方便一下：洗手间、倒水、入座。</li>
+      <li>开场 60 秒定下基调：面带笑容，声音放出去，给全场一个焦点。</li>
+      <li>始终站在台前，环节之间不冷场。</li>
+      <li>介绍每一位讲者，都用 <b>Who 和 So What</b>。</li>
+      <li>盯紧时间。一旦超时，马上和教练商量从哪里压缩。</li>
+      <li>会前和联合主持分好环节，交接时给出清楚的提示。</li>
+    </ul></div>
+    <div class="card"><span class="k">线上 CEO</span><h3>首席能量官</h3><ul>
+      <li>7:30 在 Zoom 聊天区发出参会要求：开摄像头、专业背景、聊天礼仪。</li>
+      <li>告诉线上的朋友怎么参与（表情回应等），让聊天区一直热闹：发链接、晒成果、点名鼓励。</li>
+      <li>有人没开摄像头？先私信提醒。几分钟后还没改变，就请出会议，守住标准。</li>
+      <li>留意参会名单，静音背景噪音，把账号改成一看就懂的名字。</li>
+      <li>确保线上来宾听得清现场，也有参与感。</li>
+    </ul></div>
+    <div class="card"><span class="k">技术</span><h3>音响、屏幕、计时</h3><ul>
+      <li>开场前和转场时放音乐，让现场保持热度，7:30 音乐渐弱。</li>
+      <li>7:10 前调好幻灯片、Zoom 直播和音响。</li>
+      <li>Zoom 上给线上讲者显示倒计时，现场用计时卡提醒（2 分钟、1 分钟、请收尾）。</li>
+      <li>领导人的分享要录下来。</li>
+    </ul></div>
+  </div>
+
+  <h2 id="zh-skills">主持技巧</h2>
+  <h3>Who 和 So What：怎么介绍讲者</h3>
+  <p>每一次介绍都要在 15 秒左右讲清两件事：</p>
+  <ol>
+    <li><b>Who：</b>他是谁，以及他和在座各位的连接点。</li>
+    <li><b>So What：</b>为什么此时此刻、在这个话题上，大家要听他讲。</li>
+  </ol>
+  <p class="ex">“接下来有请 Sarah。今晚大家一定要认真听她分享：她每周工作 50 多个小时，却把自己一整周的流程理得井井有条。现在，她就把这套方法原原本本拆给我们看。”</p>
+  <h3>借力转场：让衔接更顺</h3>
+  <p>别再说“谢谢分享，下面有请……”这类空话。从上一位讲者的话里拎出一个词或一个观点，先肯定它，再顺势引出下一个环节。</p>
+  <p class="ex">“Mike 说得太好了，坚持就是我们这份事业的复利。说到坚持，下一个环节讲的，正是把事业做大所需要的日常习惯……”</p>
+  <h3>把控时间</h3>
+  <ul>
+    <li>有人明显超时，礼貌地打断，压轴总结的讲者除外。</li>
+    <li>表彰时间留给新的成就：新达标、新晋升。前几周讲过的活动不再重复。</li>
+    <li>结尾感谢让这个晚上顺利进行的人：技术、线上 CEO，以及签到台的每一位。</li>
+  </ul>
+
+  <h2 id="zh-calendar">活动日历</h2>
+  <p>每个活动 30 秒。这不是念行程，而是讲价值、讲愿景、讲现场。</p>
+  <ul>
+    <li><b>让人看见现场：</b>放一张上一次的照片（人潮、舞台、交流的画面）。打动人的是场景，不是要点。</li>
+    <li><b>你自己的故事：</b>一句话讲你为什么从不缺席，或者第一次去时你有什么改变。</li>
+    <li><b>为什么值得去：</b>到场的人能带走什么。</li>
+    <li><b>谁会在场：</b>那些平时伙伴们很难接触到的领导人和导师。</li>
+  </ul>
+  <p class="ex">“大家看这张上次大会的照片。下一场之所以重要，是因为你能当面听顶尖领导人讲他们是怎么做起来的。我第一次坐进那个会场，回来之后看每周追踪表的眼光就完全不一样了。达标方式是这样的……”</p>
+
+  <h2 id="zh-panels">圆桌分享</h2>
+  <h3>会前碰头</h3>
+  <p>开始前 10 到 15 分钟和嘉宾碰一下。确认提问顺序，请每位嘉宾先讲核心观点，再用一两句话支撑。</p>
+  <h3>时间怎么分（4 位嘉宾，15 分钟）</h3>
+  <table class="tbl">
+    <thead><tr><th>时间</th><th>内容</th></tr></thead>
+    <tbody>
+      <tr><td>0:00 到 1:00</td><td>主持人引出话题，讲清为什么现在讲这个对大家重要。</td></tr>
+      <tr><td>1:00 到 14:30</td><td>每位嘉宾约 3 分 20 秒：主持人用 Who 和 So What 介绍并提问；嘉宾 10 秒内报上姓名和背景，然后作答，结论先行。</td></tr>
+      <tr><td>14:30 到 15:00</td><td>主持人用一句有力的收获收尾，直接进入下一个环节。</td></tr>
+    </tbody>
+  </table>
+  <p>嘉宾之间不要重新起头：从上一位的回答里拎出一个点，直接交给下一位。</p>
+  <p class="ex">“Sarah，每天追踪数据这一点太关键了。John，同样是这份自律，你当初冲第一个达标的时候，是怎么稳住节奏的？”</p>
+
+  <h2 id="zh-run">当晚流程</h2>
+  <h3>会前准备（主持人）</h3>
+  <ul>
+    <li>把整份议程完整过一遍。</li>
+    <li>给每位讲者和嘉宾写好 Who 和 So What 介绍词。</li>
+    <li>做好幻灯片：每周表彰、月度表彰（每月第一个周五）和活动日历。</li>
+    <li>和联合主持说好谁介绍哪个环节。</li>
+  </ul>
+  <h3>当晚</h3>
+  <ul class="run">
+    <li><span class="t">7:00 PM</span><span>主持和技术提前 30 分钟到场：幻灯片、音响、Zoom、计时器。</span></li>
+    <li><span class="t">7:10 PM</span><span>开门，交流开始。主持人在门口迎接。</span></li>
+    <li><span class="t">7:25 PM</span><span>提醒大家：洗手间、倒水、入座。</span></li>
+    <li><span class="t">7:30 PM</span><span>音乐渐弱，Zoom 取消静音，准时开场。先讲我们为什么每周相聚，再进入介绍与表彰（5 分钟）。没赶上介绍的人，请他补上。</span></li>
+    <li><span class="t">之后</span><span>每个议题留 15 秒转场和介绍。活动日历每个活动 30 秒。</span></li>
+    <li><span class="t">收尾</span><span>感谢各个团队，提醒大家 9:30 前离场。</span></li>
+  </ul>
+
+  <h2 id="zh-monthly">月度表彰</h2>
+  <p>只在每月第一次 FNH 进行。领导人在周四晚上前把名单和照片发过来，方便做幻灯片。同一位伙伴拿了好几个奖章，只表彰一次，放在同一张幻灯片上。教练提前帮自己的伙伴准备好，每人分享控制在 60 秒内。</p>
+  <h3>起立挥手（不上麦）</h3>
+  <p>讲清这项成就意味着什么，念出名字，请他们起立接受掌声：</p>
+  <ul>
+    <li>New Partner 新伙伴</li>
+    <li>SSI 奖金 3/12 和 6/12</li>
+    <li>新达 100 到 300 PV</li>
+    <li>新晋 Phase B</li>
+    <li>20 次 Process Meeting 俱乐部、8 次 MG 俱乐部、双倍 / 三倍 / 四倍 Core</li>
+  </ul>
+  <h3>一分钟分享（上台或线上开麦）</h3>
+  <ul>
+    <li><b>SSI 奖金 12/12：</b>姓名、教练或导师，以及目标或收获。</li>
+    <li><b>新完成 Core Run：</b>姓名、教练或导师，以及最想分享的一条心得。</li>
+    <li><b>新达 600 到 6000 PV、3/6、6/15、BFI 和 BBI：</b>姓名、教练或导师，以及让他们走到这一步的心态转变。</li>
+  </ul>
+  <h3>生活中的喜讯</h3>
+  <p>在台上替他们庆祝，但不把麦克风交出去。借这个机会讲出这个团队的不同：在这里练出来的自律、担当和与人相处的能力，会一路带进健康、感情和事业里。</p>
+
+  <p class="foot">对活动有疑问？请问你的教练和导师。 · <a href="team-event.html">返回议程</a></p>
+</main>
+</div>
 <script>
-/* Mark the section being read in the left column. */
+/* Language: ?lang=zh on the link, then what this reader picked here or on the health site
+   (pv_lang), then English. */
+const LANGS = [["en", "EN", "English"], ["zh", "中", "中文"]];
+const TEXT = {
+  en: { title: "Hosting & Participant Guide · HY Team Event", back: "Back to the agenda" },
+  zh: { title: "主持与参与指南 · HY Team Event", back: "返回议程" }
+};
+let LANG = "en";
+function pick(){
+  let want = "";
+  try { want = (new URLSearchParams(location.search).get("lang") || "").toLowerCase(); } catch(e){}
+  if(!want){ try { want = localStorage.getItem("pv_lang") || ""; } catch(e){} }
+  if(want === "cn" || want === "zh-cn" || want === "zh_hans") want = "zh";
+  return LANGS.some(function(l){ return l[0] === want; }) ? want : "en";
+}
+function wrapOf(code){ return document.querySelector('.wrap[data-l="' + code + '"]'); }
+function setLang(code, keep){
+  const was = LANG, idx = keep ? curIndex() : -1;
+  LANG = code;
+  LANGS.forEach(function(l){ wrapOf(l[0]).hidden = l[0] !== code; });
+  document.documentElement.lang = code === "zh" ? "zh-Hans" : "en";
+  document.title = TEXT[code].title;
+  document.getElementById("back").textContent = TEXT[code].back;
+  document.getElementById("langcur").textContent = LANGS.find(function(l){ return l[0] === code; })[1];
+  document.getElementById("langmenu").innerHTML = LANGS.map(function(l){
+    return '<button type="button" class="lang-opt' + (l[0] === code ? ' on' : '') + '" data-lang="' + l[0] + '"><span class="lang-opt-label">' + l[1] + '</span><span>' + l[2] + '</span></button>';
+  }).join("");
+  /* Stay on the same section in the other language. */
+  if(keep && was !== code && idx > 0){ const h = heads()[idx]; if(h) h.scrollIntoView(); }
+  mark();
+}
+function menu(open){
+  document.getElementById("langmenu").classList.toggle("open", open);
+  document.getElementById("langbtn").setAttribute("aria-expanded", String(open));
+}
+document.getElementById("langbtn").addEventListener("click", function(){ menu(!document.getElementById("langmenu").classList.contains("open")); });
+document.addEventListener("click", function(ev){
+  const o = ev.target.closest(".lang-opt");
+  if(o){ try { localStorage.setItem("pv_lang", o.dataset.lang); } catch(e){} setLang(o.dataset.lang, true); menu(false); return; }
+  if(!ev.target.closest(".lang-wrap")) menu(false);
+});
+addEventListener("keydown", function(ev){ if(ev.key === "Escape") menu(false); });
+
+/* Mark the section being read in the left column (of the language on show). */
+function links(){ return Array.prototype.slice.call(wrapOf(LANG).querySelectorAll(".gnav a")); }
+function heads(){ return links().map(function(a){ return document.getElementById(a.getAttribute("href").slice(1)); }); }
+function curIndex(){
+  let cur = 0;
+  heads().forEach(function(h, i){ if(h && h.getBoundingClientRect().top < 140) cur = i; });
+  return cur;
+}
+function mark(){ const cur = curIndex(); links().forEach(function(a, i){ a.classList.toggle("on", i === cur); }); }
+addEventListener("scroll", mark, { passive: true });
+
+setLang(pick());
+/* A link to #timing opens that section in Chinese too (#zh-timing), and the other way round. */
 (function(){
-  const links = Array.prototype.slice.call(document.querySelectorAll(".gnav a"));
-  const heads = links.map(function(a){ return document.getElementById(a.getAttribute("href").slice(1)); });
-  function mark(){
-    let cur = 0;
-    heads.forEach(function(h, i){ if(h && h.getBoundingClientRect().top < 140) cur = i; });
-    links.forEach(function(a, i){ a.classList.toggle("on", i === cur); });
-  }
-  addEventListener("scroll", mark, { passive: true }); mark();
+  const id = location.hash.slice(1); if(!id) return;
+  const want = LANG === "zh" ? (id.indexOf("zh-") === 0 ? id : "zh-" + id) : id.replace(/^zh-/, "");
+  const h = document.getElementById(want); if(h) setTimeout(function(){ h.scrollIntoView(); mark(); }, 0);
 })();
 </script>
 </html>
