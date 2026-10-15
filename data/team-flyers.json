@@ -8,8 +8,23 @@
    "date": "2026-10-24",
    "img": "images/team/flyers/go-6x15.jpg",
    "alt": "Leadership 1 Go 6x15, Bigger Vision Higher Impact. Workshop Oct 24, 2026, 2 to 6 PM EST. To qualify: Phase B IBO, 600 PV GPV in Sept or Oct, or 300 PV GPV in the first October.",
-   "match": ["6x15"],
+   "match": [
+    "6x15"
+   ],
    "from": "JL Phase B+ Info Group, Jerry, 2026-10-06"
+  },
+  {
+   "id": "glow-halloween-2026",
+   "title": "Glow From Within, Halloween · HY Product Expo",
+   "when": "Fri, Oct 30, 2026",
+   "date": "2026-10-30",
+   "img": "images/team/flyers/glow-halloween-2026.jpg",
+   "alt": "Glow From Within, Halloween edition. Feel good, look good, live well. Health and nutrition: personalized nutrition. Skincare: blue light skin analysis. Friday, Oct 30, 5:00 to 7:30 PM, 134 W 29th St, Floor 2, Space 1-1, New York, NY 10001. QR code to RSVP.",
+   "match": [
+    "product expo",
+    "glow from within"
+   ],
+   "from": "NYC Elite Networking Circle, Wendy, 2026-10-11"
   },
   {
    "id": "year-end-trip-2026",
@@ -18,7 +33,10 @@
    "date": "2026-12-28",
    "img": "images/team/flyers/year-end-trip-2026.jpg",
    "alt": "Year End Trip 2026, Scottsdale, Arizona. Five-star hotel downtown, Dec 28 to Jan 1, 4 nights. First 60 people $550 single, $1,500 per couple; the rate goes up after that. Pay Jerry by Zelle or Venmo to hold a spot. Arrive Dec 28 around 6 PM, leave Jan 1.",
-   "match": ["year end trip", "scottsdale"],
+   "match": [
+    "year end trip",
+    "scottsdale"
+   ],
    "from": "JL 3/6 group, Johnny, 2026-10-06"
   },
   {
@@ -28,7 +46,9 @@
    "date": "",
    "img": "images/team/flyers/bbi-puerto-rico.jpg",
    "alt": "The Leadership 1 BBI Trip to Puerto Rico. New BBI in 2026-27: 1 month qualification, 2 months (1 night room paid), 3 months (2 nights room paid). Old BBI qualifiers: one leg qualifies for the BBI trip and one more leg BFI, a new 7500 PV month in 2026-27, or qualified Platinums in 2026-27.",
-   "match": ["puerto rico"],
+   "match": [
+    "puerto rico"
+   ],
    "from": "JL Phase B+ Info Group, Jerry, 2026-08-31"
   }
  ]
