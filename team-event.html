@@ -66,6 +66,8 @@ body.navopen .scrim{display:block;position:fixed;inset:0;background:rgba(20,26,2
 .stat.past{color:var(--muted)}
 .dtop .sp{flex:1}
 .dtop .btn{font-size:13px;padding:5px 11px}
+.glink{text-align:right;margin:8px 0 0;font-size:13.5px}
+.ghow{margin:2px 0 0;font-size:14px}
 .doc h1{font-size:32px;line-height:1.12;font-weight:800;letter-spacing:-.025em;margin:6px 0 4px;text-wrap:balance}
 .dsub{font-size:18px;color:var(--ink-2);margin:0}
 .meta{margin:24px 0 0;border-top:1px solid var(--line)}
@@ -246,7 +248,7 @@ body.navopen .scrim{display:block;position:fixed;inset:0;background:rgba(20,26,2
 /* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this
    file. The version check at the bottom reads it, and the script text, to tell an old copy of
    this page from the newest one (DiamondA70/_skills/app-qa/references/self-update.md). */
-const BUILD = "2026-10-15T15:17:38Z";
+const BUILD = "2026-10-15T15:25:00Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 /* The agendas: data/team-events.json next to this page, read fresh through the API (GitHub Pages
@@ -297,9 +299,9 @@ const LISTEN = "What you listened to, 1 or 2 major takeaways, 1 or 2 things you 
 const ORIENT_INTRO = [["New apprentices since the last orientation", ["Name · City · Who you are building with · What you are excited about · One fun fact about yourself"]]];
 const SECTIONS = [
   { k: "intro", name: "Introduction & Recognition", ph: { who: "Hosts" },
-    add: [["+ Add item", function(){ return { pts: clone(INTROS.pts) }; }]] },
-  { k: "calendar", name: "Calendar", ph: { who: "Host" },
     add: [["+ Add item", function(){ return { min: 5 }; }]] },
+  { k: "calendar", name: "Calendar", ph: { who: "Host" },
+    add: [["+ Add item", function(){ return {}; }]] },
   { k: "volume", name: "Volume & Product Education", ph: { t: "e.g. Holiday retail, or a new product", who: "Who presents", pts: "What it is, why it matters, a simple demo, how to bring it up" },
     add: [["+ Add item", function(){ return { min: 10 }; }]] },
   { k: "growth", name: "Personal Growth", ph: { t: "Book, Audio, or the title", who: "One partner" },
@@ -318,8 +320,8 @@ const NIGHTS = {
       zoom: ZOOM_DEFAULT, pass: "", dress: "Sharp business casual", agendaTitle: "", flow: clone(FNH_FLOW),
       roles: [],
       agenda: [
-        { k: "intro", items: [{ pts: clone(INTROS.pts) }] },
-        { k: "calendar", items: [{ min: 5 }] },
+        { k: "intro", items: [{ min: 5 }] },
+        { k: "calendar", items: [{}] },
         { k: "volume", items: [{ min: 15 }] },
         { k: "growth", items: [{ t: "Book", min: 2, pts: [READ] }, { t: "Audio", min: 2, pts: [LISTEN] }] },
         { k: "leadership", items: [{ min: 15 }, { min: 20 }] }
@@ -332,7 +334,7 @@ const NIGHTS = {
       agendaTitle: "New IBO Orientation", flow: [["7:55 to 8:00 PM", "Check in"], ["8:00 to 9:00 PM", "All partners"]],
       roles: [],
       agenda: [
-        { k: "intro", items: [{ min: 3, pts: clone(ORIENT_INTRO) }] },
+        { k: "intro", items: [{ min: 3 }] },
         { k: "growth", items: [{ t: "Book", min: 2, pts: [READ] }, { t: "Audio", min: 2, pts: [LISTEN] }] },
         { k: "volume", items: [{ min: 10 }] },
         { k: "leadership", items: [{ t: "Mentorship", min: 5 }, { t: "Networking", min: 10 }, { t: "First 90 days", min: 15 }, { t: "Open Q&A", min: 8 }] }
@@ -539,12 +541,12 @@ function agendaText(e){
   }
   if(secs.length){
     const total = secs.reduce(function(n, x){ return n + minsOf(x.items); }, 0);
-    L.push("", "*" + (e.agendaTitle || "Agenda").toUpperCase() + "*" + (total ? " (" + total + " min)" : ""));
+    L.push("", "*" + (e.agendaTitle || "Agenda").toUpperCase() + "*" + (total ? " (" + fmtMin(total) + " min)" : ""));
     secs.forEach(function(x){
       const m = minsOf(x.items);
-      L.push("", "*" + SEC[x.k].name + "*" + (m ? " · " + m + " min" : ""));
+      L.push("", "*" + SEC[x.k].name + "*" + (m ? " · " + fmtMin(m) + " min" : ""));
       x.items.forEach(function(it){
-        const sp = speakerText(it), head = [it.t, sp, it.min && (it.t || sp) ? it.min + " min" : ""].filter(Boolean).join(" – ");
+        const sp = speakerText(it), head = [it.t, sp, itemMin(it) && (it.t || sp) ? fmtMin(itemMin(it)) + " min" : ""].filter(Boolean).join(" – ");
         if(head) L.push("• " + head);
         (it.cal || []).forEach(function(c){
           L.push("• " + c[0] + ": " + (c[2] !== undefined ? c[1] : zonesPlain(c[1])));
@@ -559,6 +561,7 @@ function agendaText(e){
     });
   }
   L.push("", "Full agenda: " + location.origin + location.pathname + "#" + e.id);
+  L.push("How to introduce yourself, and the hosting guide: " + location.origin + location.pathname.replace(/[^/]*$/, "") + "team-guide.html");
   return L.join("\n");
 }
 function showCopyBox(t){
@@ -623,14 +626,17 @@ function itemHTML(it){
   const sp = speakerText(it), parts = [];
   if(it.t) parts.push('<b>' + esc(it.t) + '</b>');
   if(sp) parts.push('<span class="iw">' + esc(sp) + '</span>');
-  if(it.min && parts.length) parts.push('<span class="im">' + it.min + '\u00a0min</span>');
+  if(itemMin(it) && parts.length) parts.push('<span class="im">' + fmtMin(itemMin(it)) + '\u00a0min</span>');
   return '<div class="it">'
     + (parts.length ? '<p class="ih">' + parts.join('\u00a0<span class="sep">–</span> ') + '</p>' : '')
     + (it.cal && it.cal.length ? calHTML(it.cal) : '')
     + (it.pts && it.pts.length ? pointsHTML(it.pts) : '')
     + '</div>';
 }
-function minsOf(items){ return items.reduce(function(n, it){ return n + (it.min || 0); }, 0); }
+/* Johnny, 2026-10-15: the calendar plans 30 seconds per event, so its minutes come from the count. */
+function itemMin(it){ return it.cal && it.cal.length ? it.cal.length / 2 : (it.min || 0); }
+function fmtMin(m){ return (m % 1 ? m.toFixed(1) : String(m)); }
+function minsOf(items){ return items.reduce(function(n, it){ return n + itemMin(it); }, 0); }
 function viewHTML(e){
   const st = statusOf(e);
   const zoom = e.zoom || "";
@@ -660,11 +666,14 @@ function viewHTML(e){
         const m = /^(.*?)\s*\((.+)\)\s*$/.exec(r[0]);          /* "Online CEO (Chief Energy Officer)" */
         return '<div><span>' + esc(m ? m[1] : r[0]) + '</span>' + (r[1] ? '<b>' + esc(r[1]) + '</b>' : '<b class="tbc">To be confirmed</b>')
           + (m ? '<i>' + esc(m[2]) + '</i>' : '') + '</div>';
-      }).join("") + '</div>' : '')
-    + '<h2>' + esc(e.agendaTitle || "Agenda") + (total ? '<span>' + total + ' min planned</span>' : '') + '</h2>'
+      }).join("") + '</div><p class="glink"><a href="team-guide.html">Hosting & participant guide</a></p>' : '')
+    + '<h2>' + esc(e.agendaTitle || "Agenda") + (total ? '<span>' + fmtMin(total) + ' min planned</span>' : '') + '</h2>'
     + (secs.length ? '<ol class="ag">' + secs.map(function(x){
         const m = minsOf(x.items);
-        return '<li><h3>' + esc(SEC[x.k].name) + (m ? '<span>' + m + ' min</span>' : '') + '</h3>' + x.items.map(itemHTML).join("") + '</li>';
+        /* The intro's format lives in the guide, not on the agenda. */
+        const how = x.k === "intro" && !x.items.some(function(it){ return it.pts && it.pts.length; })
+          ? '<p class="ghow"><a href="team-guide.html#everyone">How to introduce yourself</a></p>' : '';
+        return '<li><h3>' + esc(SEC[x.k].name) + (m ? '<span>' + fmtMin(m) + ' min</span>' : '') + '</h3>' + how + x.items.map(itemHTML).join("") + '</li>';
       }).join("") + '</ol>' : '<p class="empty">The agenda is coming.</p>');
 }
 function footHTML(){ return '<div class="foot">Questions about an event? Ask your coach and mentor.<p class="ver"></p></div>'; }
@@ -726,7 +735,9 @@ function itemEditHTML(k, it, ii, n){
     + '<button type="button" class="btn sm" data-act="itemdown" ' + (ii === n - 1 ? 'disabled' : '') + ' aria-label="Move item down">↓</button>'
     + '<button type="button" class="btn sm warn" data-act="itemdel">Remove</button></div>'
     + '<div class="grid2">'
-    +   field("t", "Topic", it.t, { ph: ph.t }) + field("min", "Minutes", it.min || "", { type: "number", attr: ' min="0" max="240" inputmode="numeric"' })
+    +   field("t", "Topic", it.t, { ph: ph.t }) + (k === "calendar"
+          ? field("min", "Minutes <i>(automatic: 30 sec per event)</i>", "", { attr: ' disabled', ph: fmtMin((it.cal || []).length / 2) + " min" })
+          : field("min", "Minutes", it.min || "", { type: "number", attr: ' min="0" max="240" inputmode="numeric"' }))
     +   field("who", "Speaker(s)", it.who, { ph: ph.who }) + field("by", "Panel led by <i>(blank for one speaker)</i>", it.by, { ph: ph.by || "" })
     +   (k === "calendar" ? field("cal", "Events <i>(one per line: date | what | details: time in ET, host, place)</i>", fmtRows(it.cal), { area: true, full: true, rows: Math.max(3, (it.cal || []).length + 1), ph: "Oct 21 (Wed) | JL Team Evaluation | 8 PM ET · Zoom" }) : '')
     +   field("pts", "Bullet points <i>(one per line; start a line with - for a sub-point)</i>", fmtPts(it.pts), { area: true, full: true, rows: Math.max(k === "calendar" ? 2 : 3, (it.pts || []).length + 1), ph: ph.pts })

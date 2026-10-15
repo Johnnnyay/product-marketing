@@ -1,6 +1,6 @@
 {
  "about": "HY team night agendas for team-event.html, newest first. Edited on the page after the admin login (··· → /api/save-functions?doc=team-events) or by Claude. Each agenda is a list of sections (intro, calendar, volume, growth, leadership); each item has a topic (t), speakers (who), a panel lead (by), minutes (min), bullets (pts) and, in the calendar, events (cal).",
- "savedAt": "2026-10-15T15:17:22.000Z",
+ "savedAt": "2026-10-15T15:24:32.000Z",
  "events": [
   {
    "id": "2026-10-16",
@@ -54,16 +54,7 @@
      "k": "intro",
      "items": [
       {
-       "t": "Candidates & new IBOs",
-       "pts": [
-        "Name · City · Background · One-line Excitement"
-       ]
-      },
-      {
-       "t": "Existing partners",
-       "pts": [
-        "Name · City · Background · What you did this week (2 MG1 / 20+ PV retail) · Goal"
-       ]
+       "min": 5
       }
      ]
     },
@@ -71,7 +62,6 @@
      "k": "calendar",
      "items": [
       {
-       "min": 5,
        "cal": [
         [
          "Oct 20 (Tue)",
@@ -91,6 +81,10 @@
          "Oct 24 (Sat)",
          "Leadership 1 “Go 6x15, Bigger Vision Higher Impact” workshop",
          "2 to 6 PM ET · For Phase B IBOs with 600 PV GPV in Sept or Oct, or 300 PV GPV in their first October"
+        ],
+        [
+         "Oct 25 (Sun)",
+         "HY Seattle trip"
         ],
         [
          "Oct 28 (Wed)",
@@ -185,7 +179,7 @@
      ]
     }
    ],
-   "at": "2026-10-15T15:17:22.000Z"
+   "at": "2026-10-15T15:24:32.000Z"
   },
   {
    "id": "2026-09-26",
