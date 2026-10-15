@@ -1,6 +1,6 @@
 {
  "about": "HY team night agendas for team-event.html, newest first. Edited on the page after the admin login (··· → /api/save-functions?doc=team-events) or by Claude. Each agenda is a list of sections (intro, calendar, volume, growth, leadership); each item has a topic (t), speakers (who), a panel lead (by), minutes (min), bullets (pts) and, in the calendar, events (cal).",
- "savedAt": "2026-10-15T14:44:14.677Z",
+ "savedAt": "2026-10-15T14:53:16.000Z",
  "events": [
   {
    "id": "2026-10-16",
@@ -15,7 +15,7 @@
    "dress": "Business Casual",
    "flow": [
     [
-     "7:20 to 7:30 PM",
+     "7:10 to 7:30 PM",
      "Networking"
     ],
     [
@@ -179,7 +179,7 @@
      ]
     }
    ],
-   "at": "2026-10-15T14:44:14.677Z"
+   "at": "2026-10-15T14:53:16.000Z"
   },
   {
    "id": "2026-09-26",
