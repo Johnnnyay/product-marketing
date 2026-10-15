@@ -220,7 +220,7 @@ body.navopen .scrim{display:block;position:fixed;inset:0;background:rgba(20,26,2
 /* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this
    file. The version check at the bottom reads it, and the script text, to tell an old copy of
    this page from the newest one (DiamondA70/_skills/app-qa/references/self-update.md). */
-const BUILD = "2026-10-15T14:53:16Z";
+const BUILD = "2026-10-15T14:53:39Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 /* The agendas: data/team-events.json next to this page, read fresh through the API (GitHub Pages
@@ -586,7 +586,7 @@ function viewHTML(e){
         return '<li><h3>' + esc(SEC[x.k].name) + (m ? '<span>' + m + ' min</span>' : '') + '</h3>' + x.items.map(itemHTML).join("") + '</li>';
       }).join("") + '</ol>' : '<p class="empty">The agenda is coming.</p>');
 }
-function footHTML(){ return '<div class="foot">Questions about an event? Ask your upline in the group.<p class="ver"></p></div>'; }
+function footHTML(){ return '<div class="foot">Questions about an event? Ask your coach and mentor.<p class="ver"></p></div>'; }
 
 function render(){
   renderNav();
