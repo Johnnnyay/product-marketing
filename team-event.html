@@ -61,6 +61,7 @@ button{font-family:inherit}
 .stat{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--sage)}
 .stat.past{color:var(--muted)}
 .dtop .sp{flex:1}
+.dtop .btn{font-size:13px;padding:5px 11px}
 .doc h1{font-size:32px;line-height:1.12;font-weight:800;letter-spacing:-.025em;margin:6px 0 4px;text-wrap:balance}
 .dsub{font-size:18px;color:var(--ink-2);margin:0}
 .meta{margin:24px 0 0;border-top:1px solid var(--line)}
@@ -188,6 +189,11 @@ button{font-family:inherit}
 .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:10px;
   padding:9px 16px;font-size:14px;font-weight:600;z-index:95;max-width:calc(100% - 32px)}
 .toast[hidden]{display:none}
+.cbox{position:fixed;inset:0;z-index:96;background:rgba(20,26,22,.4);display:flex;align-items:center;justify-content:center;padding:16px}
+.cbox[hidden]{display:none}
+.cdlg{background:var(--page);border-radius:14px;padding:16px;width:min(560px,100%);box-shadow:0 20px 60px rgba(20,26,22,.3)}
+.cdlg p{margin:0 0 8px;font-size:14px}
+.cdlg textarea{width:100%;height:min(60vh,420px);font:inherit;font-size:13.5px;border:1.5px solid var(--line-2);border-radius:8px;padding:8px 10px}
 #upd{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:12px;
   background:var(--ink);color:#fff;border-radius:999px;padding:8px 10px 8px 18px;font-size:14px;font-weight:600;max-width:calc(100% - 24px)}
 #upd[hidden]{display:none}
@@ -214,7 +220,7 @@ button{font-family:inherit}
 /* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this
    file. The version check at the bottom reads it, and the script text, to tell an old copy of
    this page from the newest one (DiamondA70/_skills/app-qa/references/self-update.md). */
-const BUILD = "2026-10-15T14:47:40Z";
+const BUILD = "2026-10-15T14:49:37Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 /* The agendas: data/team-events.json next to this page, read fresh through the API (GitHub Pages
@@ -441,6 +447,82 @@ function withZones(text){
   });
 }
 
+/* ---------------- copy as text ----------------
+   Johnny, 2026-10-15: a button that copies the agenda so people can paste it into WhatsApp or a
+   text, clean but organized. WhatsApp shows *this* as bold; the emoji lead-ins follow the HY agenda
+   of Feb 27 in Notion. Ends with the link to this event. */
+function zonesPlain(text){
+  return String(text).replace(/(\d{1,2}(?::\d{2})?\s*(?:AM|PM)?\s*(?:to|–|-)\s*)?\d{1,2}(?::\d{2})?\s*(?:AM|PM)\s*ET\b/gi, function(t){
+    return t + " (" + otherZones(t.replace(/\s*ET$/i, "")) + ")";
+  });
+}
+function agendaText(e){
+  const L = [], secs = sectionsOf(e), rs = roleSlots(e);
+  L.push("*" + e.title + "*" + (e.sub ? " · " + e.sub : ""));
+  L.push("");
+  L.push("📅 " + longDate(e.date));
+  if(e.time){ L.push("⏰ " + e.time); const z = otherZones(e.time); if(z) L.push("      " + z); }
+  if(e.where) L.push("📍 " + e.where + (e.whereNote ? " (" + e.whereNote + ")" : ""));
+  if(e.zoom) L.push("💻 Zoom " + e.zoom + (e.pass ? ", passcode " + e.pass : "") + ": https://zoom.us/j/" + e.zoom.replace(/\D/g, ""));
+  if(e.dress) L.push("👔 " + e.dress);
+  if(e.flow && e.flow.length){
+    L.push("", "*Overview*");
+    e.flow.forEach(function(f){ L.push(f[0] + (otherZones(f[0]) && !/\bET\b/.test(f[0]) ? " ET" : "") + " · " + f[1]); });
+  }
+  const roles = STD_ROLES.filter(function(r){ return isFNH(e) || rs.std[r[0]]; }).map(function(r){ return [r[1], rs.std[r[0]] || ""]; }).concat(rs.extra);
+  if(roles.length){
+    L.push("", "*Roles*");
+    roles.forEach(function(r){ L.push(r[0] + ": " + (r[1] || "To be confirmed")); });
+  }
+  if(secs.length){
+    const total = secs.reduce(function(n, x){ return n + minsOf(x.items); }, 0);
+    L.push("", "*" + (e.agendaTitle || "Agenda").toUpperCase() + "*" + (total ? " (" + total + " min)" : ""));
+    secs.forEach(function(x){
+      const m = minsOf(x.items);
+      L.push("", "*" + SEC[x.k].name + "*" + (m ? " · " + m + " min" : ""));
+      x.items.forEach(function(it){
+        const sp = speakerText(it), head = [it.t, sp, it.min && (it.t || sp) ? it.min + " min" : ""].filter(Boolean).join(" – ");
+        if(head) L.push("• " + head);
+        (it.cal || []).forEach(function(c){ L.push("• " + c[0] + ": " + zonesPlain(c[1])); });
+        (it.pts || []).forEach(function(p){
+          const top = head ? "   - " : "• ", sub = head ? "      ◦ " : "   - ";
+          if(Array.isArray(p)){ L.push(top + p[0]); (p[1] || []).forEach(function(q){ L.push(sub + q); }); }
+          else L.push(top + p);
+        });
+      });
+    });
+  }
+  L.push("", "Full agenda: " + location.origin + location.pathname + "#" + e.id);
+  return L.join("\n");
+}
+function showCopyBox(t){
+  let box = $("copybox");
+  if(!box){
+    box = document.createElement("div"); box.id = "copybox"; box.className = "cbox";
+    box.innerHTML = '<div class="cdlg" role="dialog" aria-label="Agenda text"><p><b>Copy the agenda</b> · select all, then copy</p>'
+      + '<textarea readonly></textarea><p style="text-align:right;margin:10px 0 0"><button type="button" class="btn" id="cboxclose">Close</button></p></div>';
+    document.body.appendChild(box);
+    box.addEventListener("click", function(ev){ if(ev.target === box || ev.target.id === "cboxclose") box.hidden = true; });
+  }
+  const ta = box.querySelector("textarea"); ta.value = t; box.hidden = false;
+  setTimeout(function(){ ta.focus(); ta.select(); ta.setSelectionRange(0, t.length); }, 30);
+}
+function copyAgenda(){
+  const e = current(); if(!e) return;
+  const t = agendaText(e);
+  const legacy = function(){
+    const ta = document.createElement("textarea"); ta.value = t; ta.setAttribute("readonly", "");
+    ta.style.position = "fixed"; ta.style.top = "0"; ta.style.opacity = "0"; document.body.appendChild(ta);
+    ta.select(); ta.setSelectionRange(0, t.length);
+    let ok = false; try { ok = document.execCommand("copy"); } catch(err){}
+    ta.remove(); return ok;
+  };
+  /* If this browser won't copy (some in-app browsers), show the text selected so it can be copied by hand. */
+  const done = function(ok){ if(ok) toast("Agenda copied. Paste it into WhatsApp or a text."); else showCopyBox(t); };
+  if(navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t).then(function(){ done(true); }, function(){ done(legacy()); });
+  else done(legacy());
+}
+
 /* ---------------- the agenda page ---------------- */
 function pointsHTML(pts){
   return '<ul>' + pts.map(function(p){
@@ -477,6 +559,7 @@ function viewHTML(e){
   const roles = STD_ROLES.filter(function(r){ return isFNH(e) || rs.std[r[0]]; }).map(function(r){ return [r[1], rs.std[r[0]] || ""]; }).concat(rs.extra);
   return (KEPT_AT ? '<p class="note">Offline: showing the copy saved on this phone. It updates when you are back online.</p>' : '')
     + '<div class="dtop"><span class="stat ' + st[1] + '">' + esc(st[0]) + '</span><span class="sp"></span>'
+    + '<button type="button" class="btn" data-act="copy" title="Copy this agenda as text for WhatsApp or a message">Copy agenda</button>'
     + (admin() ? '<button type="button" class="btn" data-act="edit">Edit</button>' : '') + '</div>'
     + '<h1>' + esc(e.title) + '</h1>'
     + (e.sub ? '<p class="dsub">' + esc(e.sub) + '</p>' : '')
@@ -772,6 +855,7 @@ document.addEventListener("click", function(ev){
   const b = ev.target.closest("[data-act]"); if(!b || b.disabled) return;
   const act = b.dataset.act;
   if(act === "retry"){ LOAD_FAILED = false; render(); loadData(); return; }
+  if(act === "copy"){ copyAgenda(); return; }
   if(act === "new"){ startNew(); return; }
   if(act === "night"){ startFrom(b.dataset.night); return; }
   if(act === "unchoose"){ CHOOSING = false; render(); return; }
