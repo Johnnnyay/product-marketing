@@ -1,6 +1,6 @@
 {
  "about": "HY team night agendas for team-event.html, newest first. Edited on the page after the admin login (··· → /api/save-functions?doc=team-events) or by Claude. Each agenda is a list of sections (intro, calendar, volume, growth, leadership); each item has a topic (t), speakers (who), a panel lead (by), minutes (min), bullets (pts) and, in the calendar, events (cal).",
- "savedAt": "2026-10-15T14:43:29.000Z",
+ "savedAt": "2026-10-15T14:44:14.677Z",
  "events": [
   {
    "id": "2026-10-16",
@@ -27,7 +27,28 @@
      "Hangout"
     ]
    ],
-   "roles": [],
+   "roles": [
+    [
+     "Host",
+     "Eunice",
+     ""
+    ],
+    [
+     "Co-host",
+     "Luke",
+     ""
+    ],
+    [
+     "Online CEO (Chief Energy Officer)",
+     "Tyler",
+     ""
+    ],
+    [
+     "Tech",
+     "Johnny",
+     ""
+    ]
+   ],
    "agenda": [
     {
      "k": "intro",
@@ -158,7 +179,7 @@
      ]
     }
    ],
-   "at": "2026-10-15T14:43:29.000Z"
+   "at": "2026-10-15T14:44:14.677Z"
   },
   {
    "id": "2026-09-26",
