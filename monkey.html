@@ -1,0 +1,542 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monkeys in the Desert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+/* Same projector-first palette as fnh.html: light ground, near-black text, solid colour blocks. */
+:root{
+  --ground:#F2F5F1; --panel:#FFFFFF; --panel-2:#E8EEE8; --line:#C8D2C9; --line-2:#A8B6AA;
+  --ink:#141A16; --ink-2:#3A453C; --muted:#5F6C62;
+  --sage:#345043; --sage-2:#4A7060; --sage-light:#E4EDE6;
+  --amber:#96420A; --amber-light:#FBEEE2; --red:#A81C1C; --blue:#1546B0;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1100px;margin:0 auto;padding:18px 16px 80px}
+h1,h2{font-weight:800;letter-spacing:-.02em;text-wrap:balance;margin:0}
+h1{font-size:34px;line-height:1.05}
+h2{font-size:24px;margin:0 0 10px}
+p{margin:0 0 12px}
+a{color:var(--sage);font-weight:600}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.eyebrow{font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+.top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.top .back{font-size:14px}
+.top .sp{flex:1}
+.pill{background:#fff;border:2px solid var(--line-2);color:var(--ink-2);border-radius:999px;
+  font-size:14px;font-weight:700;padding:6px 14px}
+.pill[aria-pressed="true"]{background:var(--sage);border-color:var(--sage);color:#fff}
+.tabs{display:flex;gap:8px;margin:6px 0 16px}
+.tabs .pill{font-size:16px;padding:9px 20px}
+
+.card{background:var(--panel);border:2px solid var(--line);border-radius:14px;padding:22px}
+
+/* rules */
+.rules{display:grid;gap:14px;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start}
+.rules .call{grid-column:1/-1}
+.rules .side{display:grid;gap:14px}
+.call{background:var(--sage);color:#fff;border-radius:14px;padding:22px 24px;text-align:center}
+.call .q{font-size:clamp(28px,5vw,52px);font-weight:800;line-height:1.15}
+.call .a{font-size:clamp(18px,2.4vw,24px);opacity:.9;margin-top:6px}
+.steps{margin:0;padding-left:1.3em;font-size:clamp(17px,1.6vw,20px)}
+.steps li{margin:0 0 10px}
+.ex{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 4px}
+.ex span{border-radius:10px;padding:8px 12px;font-weight:700;background:var(--panel-2);font-size:15px}
+.ex .c{background:var(--sage);color:#fff}.ex .m{background:var(--amber);color:#fff}
+.note{font-size:14px;color:var(--muted)}
+
+/* setup */
+textarea{width:100%;min-height:220px;background:#fff;border:2px solid var(--line-2);border-radius:10px;
+  color:var(--ink);font:inherit;font-size:18px;padding:12px 14px;resize:vertical}
+textarea:focus{border-color:var(--sage);outline:none}
+.opt{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.opt button{background:#fff;border:3px solid var(--line);color:var(--ink-2);border-radius:11px;
+  font-size:15px;font-weight:700;padding:12px 10px;text-align:left;line-height:1.35}
+.opt button small{display:block;font-weight:500;color:var(--muted);margin-top:3px}
+.opt button[aria-pressed="true"]{border-color:var(--sage);background:var(--sage-light);color:var(--ink)}
+.go{background:var(--sage);color:#fff;border:0;border-radius:11px;font-weight:800;font-size:19px;padding:14px 22px}
+.go:hover{background:var(--sage-2)}
+.go:disabled{opacity:.45;cursor:default}
+.ghost{background:#fff;border:2px solid var(--line-2);color:var(--ink-2);border-radius:10px;
+  font-size:15px;font-weight:700;padding:10px 16px}
+.err{color:var(--red);font-weight:600;font-size:15px;min-height:1px;margin-top:8px}
+
+/* board */
+.stage{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px;align-items:start}
+.now{background:var(--panel);border:2px solid var(--line);border-radius:14px;padding:20px;text-align:center}
+.now .rd{font-size:14px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.now .who{font-size:clamp(30px,4.6vw,54px);font-weight:800;line-height:1.1;margin:4px 0 8px;color:var(--sage);overflow-wrap:anywhere}
+.now .ask{font-size:clamp(18px,2.2vw,24px);font-weight:700;color:var(--ink-2)}
+.rule{font-size:14px;font-weight:600;color:var(--muted);margin-top:2px}
+.nums{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:16px 0 4px}
+.nums button{width:64px;height:64px;border-radius:14px;border:3px solid var(--line-2);background:#fff;
+  font-size:30px;font-weight:800;color:var(--ink)}
+.nums button[aria-pressed="true"]{background:var(--amber);border-color:var(--amber);color:#fff}
+.said{font-size:clamp(20px,2.6vw,28px);font-weight:800;margin-top:12px;min-height:1.3em}
+.acts{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:14px}
+.hint{font-size:14px;color:var(--muted);margin-top:12px}
+
+.ring{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.ring li{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--line);border-radius:12px;padding:8px 10px 8px 12px}
+.ring .ix{width:30px;flex:none;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
+.ring .nm{flex:1;min-width:0;font-weight:700;font-size:clamp(17px,1.9vw,21px);overflow-wrap:anywhere}
+.ring .tag{flex:none;font-size:13px;font-weight:800;border-radius:999px;padding:3px 10px}
+.ring li.caller{border-color:var(--sage);background:var(--sage-light)}
+.ring li.caller .tag{background:var(--sage);color:#fff}
+.ring li.monkey{border-color:var(--amber);background:var(--amber-light)}
+.ring li.monkey .tag{background:var(--amber);color:#fff}
+.ring li.next .tag{background:var(--blue);color:#fff}
+.ring li.out{opacity:.5}
+.ring li.out .nm{text-decoration:line-through}
+.ring .x{flex:none;background:#fff;border:2px solid var(--line-2);color:var(--red);border-radius:9px;font-size:14px;font-weight:800;padding:5px 12px}
+.ring li.out .x{color:var(--ink-2)}
+
+.foot{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.foot .l{font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.ver{flex-basis:100%;margin:6px 0 0;font-size:12px;color:var(--muted)}
+.ver.old{color:var(--red);font-weight:700}
+
+#win{position:fixed;inset:0;z-index:80;background:var(--sage);color:#fff;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;padding:24px}
+#win[hidden]{display:none}
+#win .big{font-size:clamp(64px,12vw,140px);line-height:1}
+#win .nm{font-size:clamp(36px,7vw,84px);font-weight:800;line-height:1.1;margin:10px 0;overflow-wrap:anywhere}
+#win .row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+#win .ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+#win .go{background:#fff;color:var(--sage)}
+
+#upd{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:12px;
+  background:var(--ink);color:#fff;border-radius:999px;padding:8px 8px 8px 18px;font-size:14px;font-weight:700;max-width:calc(100vw - 24px)}
+#upd[hidden]{display:none}
+#upd button{font:inherit;font-size:13px;font-weight:800;background:#FFD166;color:var(--ink);border:0;border-radius:999px;padding:7px 14px;white-space:nowrap}
+
+[hidden]{display:none!important}
+@media (max-width:760px){
+  .stage{grid-template-columns:1fr}
+  .rules{grid-template-columns:1fr}
+  .opt{grid-template-columns:1fr}
+  h1{font-size:28px}
+  .nums button{width:56px;height:56px;font-size:26px}
+}
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <a class="back" href="games.html" data-t="back"></a>
+    <span class="sp"></span>
+    <button type="button" class="pill" data-lang="en">English</button>
+    <button type="button" class="pill" data-lang="zh">中文</button>
+  </div>
+  <div class="eyebrow" data-t="eyebrow"></div>
+  <h1 data-t="title"></h1>
+
+  <div class="tabs">
+    <button type="button" class="pill" data-tab="rules" data-t="tabRules"></button>
+    <button type="button" class="pill" data-tab="play" data-t="tabPlay"></button>
+  </div>
+
+  <!-- RULES: what the host screen-shares before the first round -->
+  <section id="rules" class="rules" hidden>
+    <div class="call">
+      <div class="q" data-t="callQ"></div>
+      <div class="a" data-t="callA"></div>
+    </div>
+    <div class="card">
+      <h2 data-t="howTitle"></h2>
+      <ol class="steps" id="steps"></ol>
+    </div>
+    <div class="side">
+    <div class="card">
+      <h2 data-t="exTitle"></h2>
+      <p data-t="exLead"></p>
+      <div class="ex" id="ex"></div>
+      <p class="note" data-t="exNext"></p>
+    </div>
+    <div class="card">
+      <h2 data-t="zoomTitle"></h2>
+      <p data-t="zoom1"></p>
+      <p data-t="zoom2"></p>
+      <p class="note" data-t="source"></p>
+    </div>
+    </div>
+  </section>
+
+  <!-- PLAY: setup, then the host board -->
+  <section id="play" hidden>
+    <div id="setup" class="card">
+      <h2 data-t="setupTitle"></h2>
+      <p data-t="setupLead"></p>
+      <textarea id="names" spellcheck="false" autocomplete="off"></textarea>
+      <div class="opt" id="countOpt">
+        <button type="button" data-c="1"><span data-t="optIn"></span><small data-t="optInEx"></small></button>
+        <button type="button" data-c="0"><span data-t="optOut"></span><small data-t="optOutEx"></small></button>
+      </div>
+      <button type="button" class="go" id="start"></button>
+      <button type="button" class="ghost" id="cancelEdit" data-t="cancel" hidden></button>
+      <div class="err" id="err"></div>
+    </div>
+
+    <div id="board" hidden>
+      <div class="stage">
+        <div class="now">
+          <div class="rd" id="rd"></div>
+          <div class="who" id="who"></div>
+          <div class="ask" id="ask"></div>
+          <div class="rule" id="rule"></div>
+          <div class="nums" id="nums"></div>
+          <div class="said" id="said"></div>
+          <div class="acts">
+            <button type="button" class="go" id="ok"></button>
+            <button type="button" class="ghost" id="redo" data-t="redo"></button>
+            <button type="button" class="ghost" id="undo" data-t="undo"></button>
+          </div>
+          <div class="hint" data-t="hint"></div>
+        </div>
+        <ul class="ring" id="ring"></ul>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span class="l" data-t="hostTools"></span>
+      <button type="button" class="ghost" id="edit" data-t="edit"></button>
+      <button type="button" class="ghost" id="again" data-t="again"></button>
+      <button type="button" class="ghost" id="wipe" data-t="wipe"></button>
+    </div>
+  </section>
+
+  <p class="ver"></p>
+</div>
+
+<div id="win" hidden>
+  <div class="big">🐒</div>
+  <div class="eyebrow" style="color:#fff;opacity:.8" data-t="winLbl"></div>
+  <div class="nm" id="winName"></div>
+  <div class="row">
+    <button type="button" class="go" id="winAgain" data-t="again"></button>
+    <button type="button" class="ghost" id="winUndo" data-t="undo"></button>
+  </div>
+</div>
+<div id="upd" hidden><span id="updt"></span><button type="button" id="updgo">Reload now</button></div>
+
+<script>
+/* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this
+   file; the version check at the bottom compares it, and this script's text, with the server's copy. */
+const BUILD = "2026-10-16T23:29:22Z";
+const SELF = document.currentScript ? document.currentScript.textContent : "";
+const KEY = "monkey-game-v1";
+const $ = function(id){ return document.getElementById(id); };
+
+/* Copy. The Chinese is written for a Chinese room, not translated from the English. */
+const T = {
+  en: {
+    back: "← All team games", eyebrow: "JL Team Games", title: "Monkeys in the Desert",
+    tabRules: "Rules", tabPlay: "Play",
+    callQ: "“How many monkeys in the desert?”", callA: "Everyone asks it together. The caller answers.",
+    howTitle: "How it works",
+    steps: [
+      "Everyone asks together: <b>“How many monkeys in the desert?”</b>",
+      "The caller answers with a number, <b>“Three monkeys!”</b>, and scratches their head like a monkey.",
+      "Going around in order, the next people join until there are that many monkeys. Each one scratches their head and says <b>“hehe!”</b>",
+      "The person after the last monkey is the next caller, and everyone asks again.",
+      "Move when it isn't your turn, freeze when it is, or get the count wrong, and you're out. Last one standing wins."
+    ],
+    exTitle: "Example", exLead: "Five players in this order. Sam is the caller and says “Three monkeys!”",
+    exNext: "Sam, Lily and Ken are the three monkeys. Ava is the next caller. Max sits still: if Max scratches, Max is out.",
+    exNames: ["Sam", "Lily", "Ken", "Ava", "Max"], exCaller: "caller", exMonkey: "monkey", exNextLbl: "next caller",
+    zoomTitle: "Playing on Zoom",
+    zoom1: "There's no circle on Zoom, so the host's list is the order. Read it out before the first round and keep it on screen.",
+    zoom2: "Everyone stays unmuted. A monkey scratches on camera and says “hehe”. The host calls who's out and taps it here.",
+    source: "From the 沙漠里有几只猴 game in the Season 2 outtakes of 现在就出发. The show's rule card leaves open whether the caller counts as the first monkey, so the host picks below. The “hehe” isn't in the official rules; the cast all did it anyway.",
+    setupTitle: "Players, in order", setupLead: "One name per line, in the order you'll go around. The first name is the first caller.",
+    optIn: "The caller is monkey #1", optInEx: "“Three!” = the caller and the next 2",
+    optOut: "The caller only calls", optOutEx: "“Three!” = the next 3 after the caller",
+    startNew: "Start the game", saveEdit: "Save the list", cancel: "Cancel",
+    needTwo: "Add at least 2 names.", dupes: "Two players have the same name. Add an initial to tell them apart: ",
+    round: "Round", caller: "caller", monkey: "monkey", nextC: "next caller",
+    askLine: "How many monkeys did {n} say?", said: "{k} monkeys: {list}", said1: "1 monkey: {list}",
+    ok: "✓ All correct", okNext: "✓ All correct · next: {n}", redo: "Ask again", undo: "↶ Undo",
+    hint: "Someone moved out of turn, froze or miscounted? Tap Out next to their name.",
+    out: "Out", back2: "Back in",
+    hostTools: "Host", edit: "Edit players", again: "New game, same players", wipe: "Clear everything",
+    sureAgain: "Start a new game with the same players? Everyone comes back in.",
+    sureWipe: "Clear the player list and the game on this device?",
+    winLbl: "Last monkey standing"
+  },
+  zh: {
+    back: "← 全部团队游戏", eyebrow: "JL 团队游戏", title: "沙漠里有几只猴",
+    tabRules: "玩法", tabPlay: "开玩",
+    callQ: "「沙漠里有几只猴？」", callA: "大家一起问，轮到的人报数。",
+    howTitle: "怎么玩",
+    steps: [
+      "大家一起问：<b>「沙漠里有几只猴？」</b>",
+      "轮到的人报数，比如<b>「三只猴！」</b>，边说边学猴子挠头。",
+      "按顺序往下接，凑够这个数为止，每只猴都挠头，叫一声<b>「嘿！」</b>",
+      "最后一只猴的下一位接着报数，大家再一起问。",
+      "不该你动你动了，该你动你没动，或者数错了，就出局。留到最后的人赢。"
+    ],
+    exTitle: "举个例子", exLead: "五个人按这个顺序。小明报数：「三只猴！」",
+    exNext: "小明、小红、阿强是三只猴，小美接着报数。阿杰不能动，动了就出局。",
+    exNames: ["小明", "小红", "阿强", "小美", "阿杰"], exCaller: "报数", exMonkey: "猴", exNextLbl: "下一个报数",
+    zoomTitle: "在 Zoom 上玩",
+    zoom1: "线上没有顺时针，就按主持人的名单顺序来。第一轮前先把顺序念一遍，名单一直放在屏幕上。",
+    zoom2: "大家都开着麦。轮到当猴的人对着镜头挠头，叫一声「嘿」。谁出局由主持人判，在这里点一下。",
+    source: "出自《现在就出发》第二季花絮里的「沙漠里有几只猴」。节目规则卡没说清报数的人算不算第一只猴，所以由主持人在下面选。「嘿」的叫声规则里本来没有，是嘉宾们自己默契加上的。",
+    setupTitle: "玩家名单（按顺序）", setupLead: "一行一个名字，按大家轮的顺序写。第一个人先报数。",
+    optIn: "报数的人算第一只猴", optInEx: "「三只！」= 报数的人 + 后面 2 个",
+    optOut: "报数的人只报不算", optOutEx: "「三只！」= 报数的人后面 3 个",
+    startNew: "开始游戏", saveEdit: "保存名单", cancel: "取消",
+    needTwo: "至少写两个名字。", dupes: "有两个人名字一样，加个字区分一下：",
+    round: "第几轮", caller: "报数", monkey: "猴", nextC: "下一个报数",
+    askLine: "{n} 报了几只猴？", said: "{k} 只猴：{list}", said1: "1 只猴：{list}",
+    ok: "✓ 全对", okNext: "✓ 全对 · 下一个：{n}", redo: "重新问", undo: "↶ 撤销",
+    hint: "有人抢了、卡住了或者数错了？点他名字旁边的「出局」。",
+    out: "出局", back2: "回来",
+    hostTools: "主持人", edit: "改名单", again: "同一批人再来一局", wipe: "全部清空",
+    sureAgain: "同一批人重新开一局？所有人回到场上。",
+    sureWipe: "清空这台设备上的名单和这局游戏？",
+    winLbl: "最后一只猴"
+  }
+};
+let LANG = "en";
+function t(k, v){ let s = T[LANG][k]; if(v) for(const p in v) s = s.split("{" + p + "}").join(v[p]); return s; }
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
+/* ---------- game state ----------
+   One device holds the game: the host laptop that is screen-shared. Every action pushes a snapshot
+   first, so Undo walks back any tap, including an Out by mistake and the winner screen. */
+let G = blank();
+function blank(){ return { players: [], caller: 0, n: null, inc: true, round: 1, hist: [] }; }
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(G)); }catch(e){} }
+function snap(){ const c = JSON.parse(JSON.stringify(G)); delete c.hist; G.hist.push(c); if(G.hist.length > 60) G.hist.shift(); }
+function undo(){ if(!G.hist.length) return; const h = G.hist; const prev = h.pop(); G = prev; G.hist = h; save(); draw(); }
+
+function active(){ return G.players.map(function(p, i){ return p.out ? -1 : i; }).filter(function(i){ return i > -1; }); }
+/* The next player still in, going round from i (i itself excluded). */
+function after(i){
+  const L = G.players.length;
+  for(let k = 1; k <= L; k++){ const j = (i + k) % L; if(!G.players[j].out) return j; }
+  return -1;
+}
+/* Who has to be a monkey this round, in order. */
+function monkeys(){
+  if(G.n == null) return [];
+  const list = []; let j = G.inc ? G.caller : after(G.caller);
+  for(let k = 0; k < G.n && j > -1; k++){ list.push(j); j = after(j); }
+  return list;
+}
+function maxN(){ const a = active().length; return Math.max(1, Math.min(8, G.inc ? a : a - 1)); }
+function fixCaller(){ if(!G.players.length) return; if(G.players[G.caller] == null || G.players[G.caller].out) G.caller = after(G.caller); }
+
+function pick(n){ snap(); G.n = G.n === n ? null : n; save(); draw(); }
+function allOk(){
+  const m = monkeys(); if(!m.length) return;
+  snap(); G.caller = after(m[m.length - 1]); G.n = null; G.round++; save(); draw();
+}
+function redo(){ if(G.n == null) return; snap(); G.n = null; save(); draw(); }
+function toggleOut(i){
+  snap();
+  const p = G.players[i];
+  if(p.out){ p.out = false; }
+  else{
+    p.out = true;
+    /* A mistake ends the round. The next player still in after the one who went out calls next. */
+    G.caller = after(i); G.n = null; G.round++;
+  }
+  save(); draw();
+}
+function newGame(){
+  if(!confirm(t("sureAgain"))) return;
+  snap(); G.players.forEach(function(p){ p.out = false; }); G.caller = 0; G.n = null; G.round = 1; save(); draw();
+}
+function wipe(){
+  if(!confirm(t("sureWipe"))) return;
+  G = blank(); editing = false; $("names").value = ""; save(); draw();
+}
+
+/* ---------- setup ---------- */
+let editing = false;
+function readNames(){ return $("names").value.split("\n").map(function(s){ return s.trim(); }).filter(Boolean); }
+function startOrSave(){
+  const names = readNames();
+  if(names.length < 2){ $("err").textContent = t("needTwo"); return; }
+  const seen = {}, dup = names.filter(function(n){ const k = n.toLowerCase(); if(seen[k]) return true; seen[k] = 1; return false; });
+  if(dup.length){ $("err").textContent = t("dupes") + dup.join(", "); return; }
+  $("err").textContent = "";
+  snap();
+  if(editing && G.players.length){
+    /* Keep who is out and who is calling, matched by name, so a late joiner can be added mid-game. */
+    const was = {}; G.players.forEach(function(p){ was[p.n.toLowerCase()] = p; });
+    const callerName = G.players[G.caller] ? G.players[G.caller].n.toLowerCase() : "";
+    G.players = names.map(function(n){ return { n: n, out: !!(was[n.toLowerCase()] && was[n.toLowerCase()].out) }; });
+    const ci = G.players.findIndex(function(p){ return p.n.toLowerCase() === callerName; });
+    G.caller = ci > -1 ? ci : 0; G.n = null; fixCaller();
+    if(active().length < 1) G.players.forEach(function(p){ p.out = false; });
+  }else{
+    G.players = names.map(function(n){ return { n: n, out: false }; });
+    G.caller = 0; G.n = null; G.round = 1;
+  }
+  editing = false; $("names").blur(); save(); draw();
+}
+function openEdit(){ editing = true; $("names").value = G.players.map(function(p){ return p.n; }).join("\n"); draw(); $("names").focus(); }
+
+/* ---------- drawing ---------- */
+let TAB = "rules";
+function draw(){
+  document.documentElement.lang = LANG === "zh" ? "zh-CN" : "en";
+  document.title = t("title");
+  document.querySelectorAll("[data-t]").forEach(function(el){ el.textContent = t(el.dataset.t); });
+  document.querySelectorAll("[data-lang]").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.lang === LANG); });
+  document.querySelectorAll("[data-tab]").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.tab === TAB); });
+  $("rules").hidden = TAB !== "rules"; $("play").hidden = TAB !== "play";
+
+  $("steps").innerHTML = T[LANG].steps.map(function(s){ return "<li>" + s + "</li>"; }).join("");
+  const xn = T[LANG].exNames;
+  $("ex").innerHTML = xn.map(function(n, i){
+    const cls = i < 3 ? (i === 0 ? "c" : "m") : "";
+    const lbl = i === 0 ? T[LANG].exCaller + " · " + T[LANG].exMonkey + " 1" : i < 3 ? T[LANG].exMonkey + " " + (i + 1) : i === 3 ? T[LANG].exNextLbl : "";
+    return '<span class="' + cls + '">' + (i + 1) + ". " + esc(n) + (lbl ? " · " + esc(lbl) : "") + "</span>";
+  }).join("");
+  /* The example follows the caller rule picked on the Play tab. */
+  if(!G.inc){
+    $("ex").innerHTML = xn.map(function(n, i){
+      const cls = i === 0 ? "c" : i < 4 ? "m" : "";
+      const lbl = i === 0 ? T[LANG].exCaller : i < 4 ? T[LANG].exMonkey + " " + i : T[LANG].exNextLbl;
+      return '<span class="' + cls + '">' + (i + 1) + ". " + esc(n) + " · " + esc(lbl) + "</span>";
+    }).join("");
+  }
+  document.querySelector('[data-t="exNext"]').textContent = G.inc ? t("exNext")
+    : (LANG === "zh" ? "小红、阿强、小美是三只猴，阿杰接着报数。小明报完数就不能再动。"
+                     : "Lily, Ken and Ava are the three monkeys. Max is the next caller. Sam only calls, so Sam sits still.");
+
+  const playing = G.players.length >= 2 && !editing;
+  $("setup").hidden = playing; $("board").hidden = !playing;
+  $("start").textContent = editing ? t("saveEdit") : t("startNew");
+  $("cancelEdit").hidden = !(editing && G.players.length >= 2);
+  document.querySelectorAll("#countOpt button").forEach(function(b){ b.setAttribute("aria-pressed", String(+G.inc) === b.dataset.c); });
+  $("edit").hidden = !playing; $("again").hidden = !playing;
+
+  const a = active();
+  const won = playing && a.length === 1;
+  $("win").hidden = !won;
+  if(won) $("winName").textContent = G.players[a[0]].n;
+  if(!playing){ return; }
+
+  fixCaller();
+  const c = G.players[G.caller], m = monkeys();
+  const nextC = m.length ? after(m[m.length - 1]) : -1;
+  $("rd").textContent = (LANG === "zh" ? "第 " + G.round + " 轮" : t("round") + " " + G.round);
+  $("who").textContent = c ? c.n : "";
+  $("ask").textContent = c ? t("askLine", { n: c.n }) : "";
+  $("rule").textContent = (G.inc ? t("optIn") : t("optOut")) + " · " + (G.inc ? t("optInEx") : t("optOutEx"));
+  let nb = ""; for(let k = 1; k <= maxN(); k++) nb += '<button type="button" data-n="' + k + '" aria-pressed="' + (G.n === k) + '">' + k + "</button>";
+  $("nums").innerHTML = nb;
+  $("said").textContent = m.length ? t(G.n === 1 ? "said1" : "said", { k: G.n, list: m.map(function(i){ return G.players[i].n; }).join(LANG === "zh" ? "、" : ", ") }) : "";
+  $("ok").disabled = !m.length;
+  $("ok").textContent = m.length && nextC > -1 ? t("okNext", { n: G.players[nextC].n }) : t("ok");
+  $("redo").disabled = G.n == null;
+  $("undo").disabled = !G.hist.length; $("winUndo").disabled = !G.hist.length;
+
+  $("ring").innerHTML = G.players.map(function(p, i){
+    const mi = m.indexOf(i);
+    let cls = "", tag = "";
+    if(p.out) cls = "out";
+    else if(mi > -1){ cls = "monkey" + (i === G.caller ? " caller" : ""); tag = "🐒 " + (mi + 1) + (i === G.caller ? " · " + t("caller") : ""); }
+    else if(i === G.caller){ cls = "caller"; tag = t("caller"); }
+    else if(i === nextC){ cls = "next"; tag = t("nextC"); }
+    if(cls === "monkey caller") cls = "monkey";
+    return '<li class="' + cls + '"><span class="ix">' + (i + 1) + '</span><span class="nm">' + esc(p.n) + "</span>"
+      + (tag ? '<span class="tag">' + esc(tag) + "</span>" : "")
+      + '<button type="button" class="x" data-out="' + i + '">' + (p.out ? t("back2") : t("out")) + "</button></li>";
+  }).join("");
+}
+
+/* ---------- events ---------- */
+document.querySelectorAll("[data-lang]").forEach(function(b){ b.onclick = function(){ LANG = b.dataset.lang; try{ localStorage.setItem("fnh-lang", LANG); }catch(e){} draw(); }; });
+document.querySelectorAll("[data-tab]").forEach(function(b){ b.onclick = function(){ TAB = b.dataset.tab; try{ sessionStorage.setItem("monkey-tab", TAB); }catch(e){} draw(); }; });
+document.querySelectorAll("#countOpt button").forEach(function(b){ b.onclick = function(){ G.inc = b.dataset.c === "1"; save(); draw(); }; });
+$("start").onclick = startOrSave;
+$("cancelEdit").onclick = function(){ editing = false; $("names").blur(); draw(); setTimeout(reloadWhenSafe, 400); };
+$("nums").onclick = function(e){ const b = e.target.closest("[data-n]"); if(b) pick(+b.dataset.n); };
+$("ring").onclick = function(e){ const b = e.target.closest("[data-out]"); if(b) toggleOut(+b.dataset.out); };
+$("ok").onclick = allOk; $("redo").onclick = redo;
+$("undo").onclick = undo; $("winUndo").onclick = function(){ undo(); setTimeout(reloadWhenSafe, 400); };
+$("again").onclick = newGame; $("winAgain").onclick = function(){ snap(); G.players.forEach(function(p){ p.out = false; }); G.caller = 0; G.n = null; G.round = 1; save(); draw(); setTimeout(reloadWhenSafe, 400); };
+$("edit").onclick = openEdit; $("wipe").onclick = wipe;
+document.addEventListener("keydown", function(e){
+  if(TAB !== "play" || /^(INPUT|TEXTAREA)$/.test((document.activeElement || {}).tagName || "")) return;
+  if(/^[1-8]$/.test(e.key) && +e.key <= maxN()) pick(+e.key);
+  else if(e.key === "Enter" && !$("ok").disabled) allOk();
+  else if((e.key === "z" || e.key === "Z") && (e.metaKey || e.ctrlKey)) undo();
+});
+
+/* ---------- start-up ---------- */
+try{
+  if(/[?&]v=/.test(location.search)) history.replaceState(null, "", location.pathname + location.hash);
+  const g = localStorage.getItem(KEY); if(g){ const o = JSON.parse(g); if(o && Array.isArray(o.players)) G = Object.assign(blank(), o); }
+  const l = localStorage.getItem("fnh-lang"); if(l === "zh" || l === "en") LANG = l;
+  else if(/^zh/i.test(navigator.language || "")) LANG = "zh";
+  const tb = sessionStorage.getItem("monkey-tab"); if(tb === "play" || tb === "rules") TAB = tb;
+  /* A half-typed list survives a reload too. */
+  const d = sessionStorage.getItem("monkey-draft"); if(d && !G.players.length) $("names").value = d;
+}catch(e){}
+$("names").addEventListener("input", function(){ try{ sessionStorage.setItem("monkey-draft", $("names").value); }catch(e){} });
+draw();
+
+/* ---------- always the newest version ----------
+   Same check as fnh.html (DiamondA70/_skills/app-qa/references/self-update.md). GitHub Pages lets
+   a browser reuse its saved copy for ten minutes and an open tab never asks again, so the page asks
+   the server for its own newest copy and reloads onto it. The game, the tab and the language all
+   survive a reload. It never reloads over the winner screen or a half-edited player list. */
+let stale = false, checkedAt = 0, triedAt = 0, staleKey = "";
+function fmtWhen(t){ return new Date(t).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }); }
+function paintVer(){
+  const txt = "Version " + fmtWhen(BUILD) + (stale ? " · a newer version is out, reloading"
+    : checkedAt ? " · the newest (checked " + new Date(checkedAt).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }) + ")" : "");
+  document.querySelectorAll(".ver").forEach(function(el){ el.textContent = txt; el.classList.toggle("old", stale); });
+}
+function busy(){
+  const a = document.activeElement;
+  return !$("win").hidden || editing || !!(a && /^(INPUT|TEXTAREA)$/.test(a.tagName) && a.value && a.offsetParent)
+    || (!G.players.length && !!$("names").value.trim());
+}
+function freshen(){
+  if(!/^https?:$/.test(location.protocol) || document.hidden || Date.now() - triedAt < 8000) return;
+  triedAt = Date.now();
+  fetch(location.pathname + "?latest=" + Date.now(), { cache: "no-store" })
+    .then(function(r){ return r.ok ? r.text() : ""; })
+    .then(function(html){
+      const m = /const BUILD = "([^"]+)";/.exec(html);
+      if(!m || !SELF) return;
+      checkedAt = Date.now();
+      stale = m[1] >= BUILD && html.indexOf(SELF) < 0;
+      staleKey = m[1] + ":" + html.length;
+      paintVer(); reloadWhenSafe();
+    }).catch(function(){});
+}
+function reloadWhenSafe(){
+  if(!stale){ $("upd").hidden = true; return; }
+  let tried = ""; try{ tried = sessionStorage.getItem("monkey-tried") || ""; }catch(e){}
+  if(tried !== staleKey && !busy()){ reloadNow(); return; }
+  $("updt").textContent = tried === staleKey ? "A newer version of this page is out."
+                                             : "A newer version is out. It loads when you close this.";
+  $("upd").hidden = false;
+}
+function reloadNow(){
+  try{ sessionStorage.setItem("monkey-tried", staleKey); sessionStorage.setItem("monkey-tab", TAB); }catch(e){}
+  location.replace(location.pathname + "?v=" + Date.now() + location.hash);
+}
+$("updgo").onclick = reloadNow;
+paintVer(); freshen();
+setInterval(freshen, 60000);
+setInterval(function(){ if(stale) reloadWhenSafe(); }, 3000);
+document.addEventListener("visibilitychange", function(){ if(!document.hidden) freshen(); });
+addEventListener("focus", freshen);
+addEventListener("pageshow", function(e){ if(e.persisted){ triedAt = 0; freshen(); } });
+</script>

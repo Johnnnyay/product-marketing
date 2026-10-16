@@ -1,0 +1,138 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JL Team Games</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+:root{
+  --ground:#F2F5F1; --panel:#FFFFFF; --panel-2:#E8EEE8; --line:#C8D2C9; --line-2:#A8B6AA;
+  --ink:#141A16; --ink-2:#3A453C; --muted:#5F6C62;
+  --sage:#345043; --sage-2:#4A7060; --sage-light:#E4EDE6; --amber:#96420A; --red:#A81C1C; --blue:#1546B0;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:980px;margin:0 auto;padding:18px 16px 70px}
+.top{display:flex;justify-content:flex-end;gap:8px;margin-bottom:18px}
+.pill{background:#fff;border:2px solid var(--line-2);color:var(--ink-2);border-radius:999px;
+  font:inherit;font-size:14px;font-weight:700;padding:6px 14px;cursor:pointer}
+.pill[aria-pressed="true"]{background:var(--sage);border-color:var(--sage);color:#fff}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.eyebrow{font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:40px;line-height:1.05;font-weight:800;letter-spacing:-.02em;margin:2px 0 6px}
+.sub{color:var(--ink-2);margin:0 0 26px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.game{display:flex;flex-direction:column;background:var(--panel);border:2px solid var(--line);border-radius:16px;
+  overflow:hidden;color:inherit;text-decoration:none}
+.game:hover{border-color:var(--sage)}
+.game .art{height:120px;display:flex;align-items:center;justify-content:center;font-size:64px;color:#fff;font-weight:800}
+.game .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.game h2{font-size:22px;line-height:1.2;margin:0;font-weight:800}
+.game p{margin:0;color:var(--ink-2);font-size:15px}
+.game .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:8px}
+.tag{font-size:12px;font-weight:800;border-radius:999px;padding:3px 10px;background:var(--panel-2);color:var(--ink-2)}
+.tag.new{background:var(--amber);color:#fff}
+.tag.arch{background:var(--sage-light);color:var(--sage)}
+.ver{margin:30px 0 0;font-size:12px;color:var(--muted)}
+.ver.old{color:var(--red);font-weight:700}
+#upd{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:12px;
+  background:var(--ink);color:#fff;border-radius:999px;padding:8px 8px 8px 18px;font-size:14px;font-weight:700;max-width:calc(100vw - 24px)}
+#upd[hidden]{display:none}
+#upd button{font:inherit;font-size:13px;font-weight:800;background:#FFD166;color:var(--ink);border:0;border-radius:999px;padding:7px 14px;cursor:pointer;white-space:nowrap}
+@media (max-width:500px){ h1{font-size:32px} }
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <button type="button" class="pill" data-lang="en">English</button>
+    <button type="button" class="pill" data-lang="zh">中文</button>
+  </div>
+  <div class="eyebrow" data-t="eyebrow"></div>
+  <h1 data-t="title"></h1>
+  <p class="sub" data-t="sub"></p>
+  <div class="grid" id="grid"></div>
+  <p class="ver"></p>
+</div>
+<div id="upd" hidden><span id="updt"></span><button type="button" id="updgo">Reload now</button></div>
+
+<script>
+/* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this file. */
+const BUILD = "2026-10-16T23:29:22Z";
+const SELF = document.currentScript ? document.currentScript.textContent : "";
+const $ = function(id){ return document.getElementById(id); };
+
+/* Newest first. To add a game: one entry here, a page next to this one. */
+const GAMES = [
+  { u: "monkey.html", art: "🐒", bg: "#96420A", tag: "new",
+    en: { t: "Monkeys in the Desert", d: "A fast reaction game for the whole room. One person calls a number, the next ones scratch like monkeys. Rules screen plus a host board for Zoom.", m: ["Whole room", "Host board", "Zoom ready"] },
+    zh: { t: "沙漠里有几只猴", d: "全场一起玩的反应游戏。一个人报数，后面的人轮流学猴挠头。有玩法页，也有在 Zoom 上用的主持人面板。", m: ["全场参与", "主持人面板", "Zoom 可用"] } },
+  { u: "fnh.html", art: "?", bg: "#345043", tag: "arch",
+    en: { t: "JL Team Jeopardy", d: "Played at FNH on Sep 11, 2026. Four groups, five topics, PHP hearts. Board, walkthrough and host script.", m: ["4 groups", "Played Sep 11, 2026"] },
+    zh: { t: "JL 团队 Jeopardy", d: "2026 年 9 月 11 日 FNH 玩过。四个小组、五个题目类别、PHP 爱心。有题板、玩法演示和主持稿。", m: ["4 个小组", "2026.9.11 玩过"] } }
+];
+const T = {
+  en: { eyebrow: "FNH · Team nights", title: "JL Team Games", sub: "Games for FNH and team nights. Open one, share your screen, play.", new: "New", arch: "Archive" },
+  zh: { eyebrow: "FNH · 团队之夜", title: "JL 团队游戏", sub: "FNH 和团队之夜用的游戏。点开一个，共享屏幕，直接玩。", new: "新", arch: "往期" }
+};
+let LANG = "en";
+try{ const l = localStorage.getItem("fnh-lang"); if(l === "zh" || l === "en") LANG = l; else if(/^zh/i.test(navigator.language || "")) LANG = "zh"; }catch(e){}
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+function draw(){
+  document.documentElement.lang = LANG === "zh" ? "zh-CN" : "en";
+  document.title = T[LANG].title;
+  document.querySelectorAll("[data-t]").forEach(function(el){ el.textContent = T[LANG][el.dataset.t]; });
+  document.querySelectorAll("[data-lang]").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.lang === LANG); });
+  $("grid").innerHTML = GAMES.map(function(g){
+    const c = g[LANG];
+    return '<a class="game" href="' + g.u + '"><div class="art" style="background:' + g.bg + '">' + g.art + '</div><div class="body">'
+      + "<h2>" + esc(c.t) + "</h2><p>" + esc(c.d) + '</p><div class="meta"><span class="tag ' + g.tag + '">' + esc(T[LANG][g.tag]) + "</span>"
+      + c.m.map(function(x){ return '<span class="tag">' + esc(x) + "</span>"; }).join("") + "</div></div></a>";
+  }).join("");
+}
+document.querySelectorAll("[data-lang]").forEach(function(b){ b.onclick = function(){ LANG = b.dataset.lang; try{ localStorage.setItem("fnh-lang", LANG); }catch(e){} draw(); }; });
+if(/[?&]v=/.test(location.search)) history.replaceState(null, "", location.pathname + location.hash);
+draw();
+
+/* ---------- always the newest version (see fnh.html and app-qa/references/self-update.md) ---------- */
+let stale = false, checkedAt = 0, triedAt = 0, staleKey = "";
+function fmtWhen(t){ return new Date(t).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }); }
+function paintVer(){
+  const txt = "Version " + fmtWhen(BUILD) + (stale ? " · a newer version is out, reloading"
+    : checkedAt ? " · the newest (checked " + new Date(checkedAt).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }) + ")" : "");
+  document.querySelectorAll(".ver").forEach(function(el){ el.textContent = txt; el.classList.toggle("old", stale); });
+}
+function freshen(){
+  if(!/^https?:$/.test(location.protocol) || document.hidden || Date.now() - triedAt < 8000) return;
+  triedAt = Date.now();
+  fetch(location.pathname + "?latest=" + Date.now(), { cache: "no-store" })
+    .then(function(r){ return r.ok ? r.text() : ""; })
+    .then(function(html){
+      const m = /const BUILD = "([^"]+)";/.exec(html);
+      if(!m || !SELF) return;
+      checkedAt = Date.now();
+      stale = m[1] >= BUILD && html.indexOf(SELF) < 0;
+      staleKey = m[1] + ":" + html.length;
+      paintVer(); reloadWhenSafe();
+    }).catch(function(){});
+}
+function reloadWhenSafe(){
+  if(!stale){ $("upd").hidden = true; return; }
+  let tried = ""; try{ tried = sessionStorage.getItem("games-tried") || ""; }catch(e){}
+  if(tried !== staleKey){ reloadNow(); return; }
+  $("updt").textContent = "A newer version of this page is out.";
+  $("upd").hidden = false;
+}
+function reloadNow(){
+  try{ sessionStorage.setItem("games-tried", staleKey); }catch(e){}
+  location.replace(location.pathname + "?v=" + Date.now() + location.hash);
+}
+$("updgo").onclick = reloadNow;
+paintVer(); freshen();
+setInterval(freshen, 60000);
+document.addEventListener("visibilitychange", function(){ if(!document.hidden) freshen(); });
+addEventListener("focus", freshen);
+addEventListener("pageshow", function(e){ if(e.persisted){ triedAt = 0; freshen(); } });
+</script>
