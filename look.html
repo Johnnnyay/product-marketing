@@ -1,7 +1,7 @@
 <!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>1, 2, 3, Look!</title>
+<title>1, 2, 3, This Way!</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
@@ -207,23 +207,23 @@ textarea:focus{border-color:var(--sage);outline:none}
 
 <script>
 /* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this file. */
-const BUILD = "2026-10-17T02:24:50Z";
+const BUILD = "2026-10-17T02:33:02Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 const KEY = "look-game-v1";
 const $ = function(id){ return document.getElementById(id); };
 
-/* English is written for an English room: "1, 2, 3, LOOK!" is the beat, the same shape as
+/* English is written for an English room: "1, 2, 3, THIS WAY!" is the beat, the same shape as
    Korea's cham-cham-cham. The Chinese keeps the show's own call. */
 const T = {
   en: {
-    back: "← All team games", eyebrow: "JL Team Games", title: "1, 2, 3, Look!",
+    back: "← All team games", eyebrow: "JL Team Games", title: "1, 2, 3, This Way!",
     tabRules: "Rules", tabPlay: "Play",
-    callQ: "“One, two, three… LOOK!”", callA: "On “LOOK!” the finger points and every head turns. Don't get caught looking where it points.",
+    callQ: "“One, two, three… THIS WAY!”", callA: "On “THIS WAY!” the finger points and every head turns. Don't get caught looking where it points.",
     howTitle: "How it works",
     steps: [
       "One person is the pointer. Everyone else faces them. On Zoom, the screen is the pointer.",
-      "Everyone says it together: <b>“One, two, three… LOOK!”</b>",
-      "On <b>“LOOK!”</b> the pointer points up, down, left or right. At the same moment, everyone turns their head up, down, left or right.",
+      "Everyone says it together: <b>“One, two, three… THIS WAY!”</b>",
+      "On <b>“THIS WAY!”</b> the pointer points up, down, left or right. At the same moment, everyone turns their head up, down, left or right.",
       "If your face goes <b>the same way</b> the finger points, you're caught. Any other way, you're safe.",
       "Turning late, not turning, or just moving your eyes also gets you caught. Last one in wins."
     ],
@@ -236,9 +236,9 @@ const T = {
     setupTitle: "Who's playing?", setupLead: "One name per line to keep score. Or skip the list and just run the arrow.",
     startNew: "Start with this list", saveEdit: "Save the list", soloBtn: "Just the arrow, no list", cancel: "Cancel",
     needTwo: "Add at least 2 names, or use Just the arrow.", dupes: "Two players have the same name. Add an initial: ",
-    round: "Round", goBtn: "▶ 1, 2, 3, LOOK!", speed: "Speed", spSlow: "Slow", spNormal: "Normal", spFast: "Fast",
+    round: "Round", goBtn: "▶ 1, 2, 3, THIS WAY!", speed: "Speed", spSlow: "Slow", spNormal: "Normal", spFast: "Fast",
     keyHint: "Space bar runs it too.", idle: "Ready when you are",
-    beats: ["1", "2", "3"], look: "LOOK!",
+    beats: ["1", "2", "3"], look: "THIS WAY!",
     dir: { up: "Up", down: "Down", left: "Left", right: "Right" },
     noteLR: "Caught: anyone who turned to their own {side}. On your Zoom screen their face turns {screen}.",
     sideL: "left", sideR: "right", scrL: "to the right →", scrR: "to the left ←",
