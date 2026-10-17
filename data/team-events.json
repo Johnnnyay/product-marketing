@@ -3,6 +3,74 @@
  "savedAt": "2026-10-15T15:28:52.000Z",
  "events": [
   {
+   "id": "2026-10-17",
+   "date": "2026-10-17",
+   "kind": "Brainstorm",
+   "title": "Halloween Product Party Brainstorm",
+   "sub": "Session 2",
+   "time": "9:30 to 10:30 PM ET",
+   "where": "Zoom",
+   "zoom": "https://us06web.zoom.us/j/5153333193",
+   "agenda": [
+    {
+     "k": "intro",
+     "items": [
+      {
+       "t": "Pre-work",
+       "pts": [
+        "Everyone: master one pain point before the training, like liver detox or acne"
+       ]
+      }
+     ]
+    },
+    {
+     "k": "leadership",
+     "items": [
+      {
+       "t": "Closing and role-play training",
+       "pts": [
+        "The Pain-Point Specialist Course: the goal, the 5 levels, the two-week path",
+        "Pick your module: tired and sleep, or acne",
+        "Course page: johnnnyay.github.io/product-marketing/expo-training.html"
+       ]
+      }
+     ]
+    },
+    {
+     "k": "volume",
+     "items": [
+      {
+       "t": "Standard product set per pain point",
+       "pts": [
+        "Energy & Sleep starter and Clear Skin starter, plus one add-on by the guest's moment",
+        "Bundle prices"
+       ]
+      },
+      {
+       "t": "Health and skin guide sheet",
+       "who": "Irene"
+      },
+      {
+       "t": "Demo finalized",
+       "pts": [
+        "Vitamin C apple",
+        "XS mocktail"
+       ]
+      },
+      {
+       "t": "Extra inventory order placed",
+       "pts": [
+        "By Tue, Oct 20, 10 days before the expo; unsold stock can be returned"
+       ]
+      },
+      {
+       "t": "Short invite script ready for past customers"
+      }
+     ]
+    }
+   ]
+  },
+  {
    "id": "2026-10-16",
    "date": "2026-10-16",
    "kind": "FNH",
