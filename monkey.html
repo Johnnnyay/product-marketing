@@ -56,11 +56,6 @@ button{font-family:inherit;cursor:pointer}
 textarea{width:100%;min-height:220px;background:#fff;border:2px solid var(--line-2);border-radius:10px;
   color:var(--ink);font:inherit;font-size:18px;padding:12px 14px;resize:vertical}
 textarea:focus{border-color:var(--sage);outline:none}
-.opt{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
-.opt button{background:#fff;border:3px solid var(--line);color:var(--ink-2);border-radius:11px;
-  font-size:15px;font-weight:700;padding:12px 10px;text-align:left;line-height:1.35}
-.opt button small{display:block;font-weight:500;color:var(--muted);margin-top:3px}
-.opt button[aria-pressed="true"]{border-color:var(--sage);background:var(--sage-light);color:var(--ink)}
 .go{background:var(--sage);color:#fff;border:0;border-radius:11px;font-weight:800;font-size:19px;padding:14px 22px}
 .go:hover{background:var(--sage-2)}
 .go:disabled{opacity:.45;cursor:default}
@@ -74,7 +69,6 @@ textarea:focus{border-color:var(--sage);outline:none}
 .now .rd{font-size:14px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
 .now .who{font-size:clamp(30px,4.6vw,54px);font-weight:800;line-height:1.1;margin:4px 0 8px;color:var(--sage);overflow-wrap:anywhere}
 .now .ask{font-size:clamp(18px,2.2vw,24px);font-weight:700;color:var(--ink-2)}
-.rule{font-size:14px;font-weight:600;color:var(--muted);margin-top:2px}
 .nums{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:16px 0 4px}
 .nums button{width:64px;height:64px;border-radius:14px;border:3px solid var(--line-2);background:#fff;
   font-size:30px;font-weight:800;color:var(--ink)}
@@ -121,8 +115,7 @@ textarea:focus{border-color:var(--sage);outline:none}
 @media (max-width:760px){
   .stage{grid-template-columns:1fr}
   .rules{grid-template-columns:1fr}
-  .opt{grid-template-columns:1fr}
-  h1{font-size:28px}
+    h1{font-size:28px}
   .nums button{width:56px;height:56px;font-size:26px}
 }
 </style>
@@ -174,11 +167,7 @@ textarea:focus{border-color:var(--sage);outline:none}
       <h2 data-t="setupTitle"></h2>
       <p data-t="setupLead"></p>
       <textarea id="names" spellcheck="false" autocomplete="off"></textarea>
-      <div class="opt" id="countOpt">
-        <button type="button" data-c="1"><span data-t="optIn"></span><small data-t="optInEx"></small></button>
-        <button type="button" data-c="0"><span data-t="optOut"></span><small data-t="optOutEx"></small></button>
-      </div>
-      <button type="button" class="go" id="start"></button>
+      <button type="button" class="go" id="start" style="margin-top:14px"></button>
       <button type="button" class="ghost" id="cancelEdit" data-t="cancel" hidden></button>
       <div class="err" id="err"></div>
     </div>
@@ -189,7 +178,6 @@ textarea:focus{border-color:var(--sage);outline:none}
           <div class="rd" id="rd"></div>
           <div class="who" id="who"></div>
           <div class="ask" id="ask"></div>
-          <div class="rule" id="rule"></div>
           <div class="nums" id="nums"></div>
           <div class="said" id="said"></div>
           <div class="acts">
@@ -228,7 +216,7 @@ textarea:focus{border-color:var(--sage);outline:none}
 <script>
 /* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this
    file; the version check at the bottom compares it, and this script's text, with the server's copy. */
-const BUILD = "2026-10-17T02:24:50Z";
+const BUILD = "2026-10-17T02:39:04Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 const KEY = "monkey-game-v1";
 const $ = function(id){ return document.getElementById(id); };
@@ -238,31 +226,29 @@ const T = {
   en: {
     back: "← All team games", eyebrow: "JL Team Games", title: "Monkeys in the Desert",
     tabRules: "Rules", tabPlay: "Play",
-    callQ: "“How many monkeys?”", callA: "Everyone asks it together. The caller answers.",
+    callQ: "“How many monkeys in the desert?”", callA: "Everyone chants it, one clap per word. Then the Head Monkey calls a number.",
     howTitle: "How it works",
     steps: [
-      "Everyone asks together: <b>“How many monkeys?”</b>",
-      "The caller answers with a number, <b>“Three monkeys!”</b>, and scratches their head like a monkey.",
-      "Going around in order, the next people join until there are that many monkeys. Each one scratches their head and says <b>“Ooh!”</b>",
-      "The person after the last monkey is the next caller, and everyone asks again.",
-      "Move when it isn't your turn, freeze when it is, or get the count wrong, and you're out. Last one standing wins."
+      "Everyone chants together, clapping on every word: <b>“How · many · monkeys · in · the · desert?”</b> That's 6 claps.",
+      "The <b>Head Monkey</b> calls a number: <b>“Three monkeys!”</b> The host is the first Head Monkey.",
+      "The next 3 people in order stand up one after another, scratch their head and say <b>“hehe!”</b>",
+      "The person right after the last monkey is the new Head Monkey and calls straight away: <b>“Two monkeys!”</b> No chant in between, keep it moving.",
+      "Move when it isn't your turn, freeze when it is, or get the count wrong, and you're out. The next person becomes Head Monkey, everyone chants again, and play goes on. Last one standing wins."
     ],
-    exTitle: "Example", exLead: "Five players in this order. Sam is the caller and says “Three monkeys!”",
-    exNext: "Sam, Lily and Ken are the three monkeys. Ava is the next caller. Max sits still: if Max scratches, Max is out.",
-    exNames: ["Sam", "Lily", "Ken", "Ava", "Max"], exCaller: "caller", exMonkey: "monkey", exNextLbl: "next caller",
+    exTitle: "Example", exLead: "Five players in this order. Sam is Head Monkey and calls “Three monkeys!”",
+    exNext: "Lily, Ken and Ava are the three monkeys: stand, scratch, “hehe!”. Max is the next Head Monkey and calls right away. Sam just called, so Sam stays put.",
+    exNames: ["Sam", "Lily", "Ken", "Ava", "Max"], exCaller: "Head Monkey", exMonkey: "monkey", exNextLbl: "next Head Monkey",
     zoomTitle: "Playing on Zoom",
     zoom1: "There's no circle on Zoom, so the host's list is the order. Read it out before the first round and keep it on screen.",
-    zoom2: "Everyone stays unmuted. A monkey scratches on camera and says “Ooh!” The host calls who's out and taps it here.",
-    source: "From the 沙漠里有几只猴 game in the Season 2 outtakes of 现在就出发. The show's rule card leaves open whether the caller counts as the first monkey, so the host picks below. In the show the cast added a “嘿” monkey sound on their own; in English “Ooh!” does the same job.",
-    setupTitle: "Players, in order", setupLead: "One name per line, in the order you'll go around. The first name is the first caller.",
-    optIn: "The caller is monkey #1", optInEx: "“Three!” = the caller and the next 2",
-    optOut: "The caller only calls", optOutEx: "“Three!” = the next 3 after the caller",
+    zoom2: "Cameras on, everyone unmuted. Claps drift out of sync on Zoom, so the host leads the chant. Monkeys don't need to stand: scratch your head on camera and say “hehe!” The host calls who's out and taps it here.",
+    source: "From the 沙漠里有几只猴 game in the Season 2 outtakes of 现在就出发. The “hehe” isn't on the show's rule card; the cast all did it anyway.",
+    setupTitle: "Players, in order", setupLead: "One name per line, in the order you'll go around. Put the host first: the host is the first Head Monkey.",
     startNew: "Start the game", saveEdit: "Save the list", cancel: "Cancel",
     needTwo: "Add at least 2 names.", dupes: "Two players have the same name. Add an initial to tell them apart: ",
-    round: "Round", caller: "caller", monkey: "monkey", nextC: "next caller",
-    askLine: "How many monkeys did {n} say?", said: "{k} monkeys: {list}", said1: "1 monkey: {list}",
-    ok: "✓ All correct", okNext: "✓ All correct · next: {n}", redo: "Ask again", undo: "↶ Undo",
-    hint: "Someone moved out of turn, froze or miscounted? Tap Out next to their name.",
+    round: "Round", caller: "Head Monkey", monkey: "monkey", nextC: "next Head Monkey",
+    askLine: "How many monkeys did {n} call?", said: "{k} monkeys: {list}", said1: "1 monkey: {list}",
+    ok: "✓ All correct", okNext: "✓ All correct · next Head Monkey: {n}", redo: "Call again", undo: "↶ Undo",
+    hint: "Someone moved out of turn, froze or miscounted? Tap Out next to their name. The next person becomes Head Monkey and everyone chants again.",
     out: "Out", back2: "Back in",
     hostTools: "Host", edit: "Edit players", again: "New game, same players", wipe: "Clear everything",
     sureAgain: "Start a new game with the same players? Everyone comes back in.",
@@ -272,31 +258,29 @@ const T = {
   zh: {
     back: "← 全部团队游戏", eyebrow: "JL 团队游戏", title: "沙漠里有几只猴",
     tabRules: "玩法", tabPlay: "开玩",
-    callQ: "「沙漠里有几只猴？」", callA: "大家一起问，轮到的人报数。",
+    callQ: "「沙漠里有几只猴？」", callA: "大家一起喊，一个字拍一下手。然后猴王报数。",
     howTitle: "怎么玩",
     steps: [
-      "大家一起问：<b>「沙漠里有几只猴？」</b>",
-      "轮到的人报数，比如<b>「三只猴！」</b>，边说边学猴子挠头。",
-      "按顺序往下接，凑够这个数为止，每只猴都挠头，叫一声<b>「嘿！」</b>",
-      "最后一只猴的下一位接着报数，大家再一起问。",
-      "不该你动你动了，该你动你没动，或者数错了，就出局。留到最后的人赢。"
+      "大家一起喊，每个字拍一下手：<b>「沙·漠·里·有·几·只·猴？」</b>一共拍 7 下。",
+      "<b>猴王</b>报数，比如<b>「三只猴！」</b>第一轮由主持人当猴王。",
+      "按顺序往下的 3 个人，一个接一个站起来，挠挠头，叫一声<b>「嘿嘿！」</b>",
+      "最后一只猴的下一位就是新猴王，马上接着报数，比如<b>「两只猴！」</b>中间不用再喊，节奏别断。",
+      "不该你动你动了，该你动你没动，或者数错了，就出局。出局的人下一位当猴王，大家重新喊一遍，接着玩。留到最后的人赢。"
     ],
-    exTitle: "举个例子", exLead: "五个人按这个顺序。小明报数：「三只猴！」",
-    exNext: "小明、小红、阿强是三只猴，小美接着报数。阿杰不能动，动了就出局。",
-    exNames: ["小明", "小红", "阿强", "小美", "阿杰"], exCaller: "报数", exMonkey: "猴", exNextLbl: "下一个报数",
+    exTitle: "举个例子", exLead: "五个人按这个顺序。小明是猴王，报「三只猴！」",
+    exNext: "小红、阿强、小美是三只猴，站起来挠头叫「嘿嘿！」。阿杰是下一个猴王，马上接着报。小明刚报完，坐着别动。",
+    exNames: ["小明", "小红", "阿强", "小美", "阿杰"], exCaller: "猴王", exMonkey: "猴", exNextLbl: "下一个猴王",
     zoomTitle: "在 Zoom 上玩",
     zoom1: "线上没有顺时针，就按主持人的名单顺序来。第一轮前先把顺序念一遍，名单一直放在屏幕上。",
-    zoom2: "大家都开着麦。轮到当猴的人对着镜头挠头，叫一声「嘿」。谁出局由主持人判，在这里点一下。",
-    source: "出自《现在就出发》第二季花絮里的「沙漠里有几只猴」。节目规则卡没说清报数的人算不算第一只猴，所以由主持人在下面选。「嘿」的叫声规则里本来没有，是嘉宾们自己默契加上的。",
-    setupTitle: "玩家名单（按顺序）", setupLead: "一行一个名字，按大家轮的顺序写。第一个人先报数。",
-    optIn: "报数的人算第一只猴", optInEx: "「三只！」= 报数的人 + 后面 2 个",
-    optOut: "报数的人只报不算", optOutEx: "「三只！」= 报数的人后面 3 个",
+    zoom2: "大家开摄像头、开麦。线上拍手容易对不齐，由主持人带着喊。在 Zoom 上不用真站起来，对着镜头挠头叫「嘿嘿！」就算。谁出局由主持人判，在这里点一下。",
+    source: "出自《现在就出发》第二季花絮里的「沙漠里有几只猴」。「嘿嘿」的叫声节目规则卡上没有，是嘉宾们自己默契加上的。",
+    setupTitle: "玩家名单（按顺序）", setupLead: "一行一个名字，按大家轮的顺序写。主持人写第一个，第一轮由主持人当猴王。",
     startNew: "开始游戏", saveEdit: "保存名单", cancel: "取消",
     needTwo: "至少写两个名字。", dupes: "有两个人名字一样，加个字区分一下：",
-    round: "第几轮", caller: "报数", monkey: "猴", nextC: "下一个报数",
+    round: "第几轮", caller: "猴王", monkey: "猴", nextC: "下一个猴王",
     askLine: "{n} 报了几只猴？", said: "{k} 只猴：{list}", said1: "1 只猴：{list}",
-    ok: "✓ 全对", okNext: "✓ 全对 · 下一个：{n}", redo: "重新问", undo: "↶ 撤销",
-    hint: "有人抢了、卡住了或者数错了？点他名字旁边的「出局」。",
+    ok: "✓ 全对", okNext: "✓ 全对 · 下一个猴王：{n}", redo: "重新报", undo: "↶ 撤销",
+    hint: "有人抢了、卡住了或者数错了？点他名字旁边的「出局」。他的下一位当猴王，大家重新喊一遍。",
     out: "出局", back2: "回来",
     hostTools: "主持人", edit: "改名单", again: "同一批人再来一局", wipe: "全部清空",
     sureAgain: "同一批人重新开一局？所有人回到场上。",
@@ -312,7 +296,7 @@ function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return { "&": 
    One device holds the game: the host laptop that is screen-shared. Every action pushes a snapshot
    first, so Undo walks back any tap, including an Out by mistake and the winner screen. */
 let G = blank();
-function blank(){ return { players: [], caller: 0, n: null, inc: true, round: 1, hist: [] }; }
+function blank(){ return { players: [], caller: 0, n: null, round: 1, hist: [] }; }
 function save(){ try{ localStorage.setItem(KEY, JSON.stringify(G)); }catch(e){} }
 function snap(){ const c = JSON.parse(JSON.stringify(G)); delete c.hist; G.hist.push(c); if(G.hist.length > 60) G.hist.shift(); }
 function undo(){ if(!G.hist.length) return; const h = G.hist; const prev = h.pop(); G = prev; G.hist = h; save(); draw(); }
@@ -327,11 +311,12 @@ function after(i){
 /* Who has to be a monkey this round, in order. */
 function monkeys(){
   if(G.n == null) return [];
-  const list = []; let j = G.inc ? G.caller : after(G.caller);
+  const list = []; let j = after(G.caller);
   for(let k = 0; k < G.n && j > -1; k++){ list.push(j); j = after(j); }
   return list;
 }
-function maxN(){ const a = active().length; return Math.max(1, Math.min(8, G.inc ? a : a - 1)); }
+/* Leave at least one player after the monkeys, so the next Head Monkey is always someone else. */
+function maxN(){ const a = active().length; return Math.max(1, Math.min(8, a - 2)); }
 function fixCaller(){ if(!G.players.length) return; if(G.players[G.caller] == null || G.players[G.caller].out) G.caller = after(G.caller); }
 
 function pick(n){ snap(); G.n = G.n === n ? null : n; save(); draw(); }
@@ -397,29 +382,18 @@ function draw(){
   $("rules").hidden = TAB !== "rules"; $("play").hidden = TAB !== "play";
 
   $("steps").innerHTML = T[LANG].steps.map(function(s){ return "<li>" + s + "</li>"; }).join("");
+  /* The Head Monkey only calls; the next N players are the monkeys. */
   const xn = T[LANG].exNames;
   $("ex").innerHTML = xn.map(function(n, i){
-    const cls = i < 3 ? (i === 0 ? "c" : "m") : "";
-    const lbl = i === 0 ? T[LANG].exCaller + " · " + T[LANG].exMonkey + " 1" : i < 3 ? T[LANG].exMonkey + " " + (i + 1) : i === 3 ? T[LANG].exNextLbl : "";
-    return '<span class="' + cls + '">' + (i + 1) + ". " + esc(n) + (lbl ? " · " + esc(lbl) : "") + "</span>";
+    const cls = i === 0 ? "c" : i < 4 ? "m" : "";
+    const lbl = i === 0 ? T[LANG].exCaller : i < 4 ? T[LANG].exMonkey + " " + i : T[LANG].exNextLbl;
+    return '<span class="' + cls + '">' + (i + 1) + ". " + esc(n) + " · " + esc(lbl) + "</span>";
   }).join("");
-  /* The example follows the caller rule picked on the Play tab. */
-  if(!G.inc){
-    $("ex").innerHTML = xn.map(function(n, i){
-      const cls = i === 0 ? "c" : i < 4 ? "m" : "";
-      const lbl = i === 0 ? T[LANG].exCaller : i < 4 ? T[LANG].exMonkey + " " + i : T[LANG].exNextLbl;
-      return '<span class="' + cls + '">' + (i + 1) + ". " + esc(n) + " · " + esc(lbl) + "</span>";
-    }).join("");
-  }
-  document.querySelector('[data-t="exNext"]').textContent = G.inc ? t("exNext")
-    : (LANG === "zh" ? "小红、阿强、小美是三只猴，阿杰接着报数。小明报完数就不能再动。"
-                     : "Lily, Ken and Ava are the three monkeys. Max is the next caller. Sam only calls, so Sam sits still.");
 
   const playing = G.players.length >= 2 && !editing;
   $("setup").hidden = playing; $("board").hidden = !playing;
   $("start").textContent = editing ? t("saveEdit") : t("startNew");
   $("cancelEdit").hidden = !(editing && G.players.length >= 2);
-  document.querySelectorAll("#countOpt button").forEach(function(b){ b.setAttribute("aria-pressed", String(+G.inc) === b.dataset.c); });
   $("edit").hidden = !playing; $("again").hidden = !playing;
 
   const a = active();
@@ -434,7 +408,6 @@ function draw(){
   $("rd").textContent = (LANG === "zh" ? "第 " + G.round + " 轮" : t("round") + " " + G.round);
   $("who").textContent = c ? c.n : "";
   $("ask").textContent = c ? t("askLine", { n: c.n }) : "";
-  $("rule").textContent = (G.inc ? t("optIn") : t("optOut")) + " · " + (G.inc ? t("optInEx") : t("optOutEx"));
   let nb = ""; for(let k = 1; k <= maxN(); k++) nb += '<button type="button" data-n="' + k + '" aria-pressed="' + (G.n === k) + '">' + k + "</button>";
   $("nums").innerHTML = nb;
   $("said").textContent = m.length ? t(G.n === 1 ? "said1" : "said", { k: G.n, list: m.map(function(i){ return G.players[i].n; }).join(LANG === "zh" ? "、" : ", ") }) : "";
@@ -460,7 +433,6 @@ function draw(){
 /* ---------- events ---------- */
 document.querySelectorAll("[data-lang]").forEach(function(b){ b.onclick = function(){ LANG = b.dataset.lang; try{ localStorage.setItem("fnh-lang", LANG); }catch(e){} draw(); }; });
 document.querySelectorAll("[data-tab]").forEach(function(b){ b.onclick = function(){ TAB = b.dataset.tab; try{ sessionStorage.setItem("monkey-tab", TAB); }catch(e){} draw(); }; });
-document.querySelectorAll("#countOpt button").forEach(function(b){ b.onclick = function(){ G.inc = b.dataset.c === "1"; save(); draw(); }; });
 $("start").onclick = startOrSave;
 $("cancelEdit").onclick = function(){ editing = false; $("names").blur(); draw(); setTimeout(reloadWhenSafe, 400); };
 $("nums").onclick = function(e){ const b = e.target.closest("[data-n]"); if(b) pick(+b.dataset.n); };
