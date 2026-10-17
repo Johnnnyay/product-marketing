@@ -3,17 +3,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Expo Specialist Training · HY Team Event</title>
-<meta property="og:title" content="Expo Specialist Training">
-<meta property="og:description" content="How every one of us walks a guest through health and skin, demos, and asks for the sale at the Oct 30 HY Product Expo.">
+<title>Pain-Point Specialist Course · HY Team Event</title>
+<meta property="og:title" content="Pain-Point Specialist Course">
+<meta property="og:description" content="Learn one pain point end to end, from the knowledge to the conversation to the sale, and run it yourself at the Oct 30 HY Product Expo.">
 <meta name="theme-color" content="#F2F5F1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <style>
-/* Training for the Oct 30 HY Product Expo (Glow From Within, Halloween edition). Source: the team
-   retro after the Sep 25 Glow evening (Johnny, Irene, Wendy, Eunice, Martin, Raymond, Lister,
-   Steven) and the product site's Areas of Support quick guides. Same look as team-guide.html. */
+/* The specialist course for the Oct 30 HY Product Expo (Halloween edition of Glow From Within).
+   Johnny, 2026-10-17: productize the pain points so it is not only him who can read a check-in
+   and recommend; each pain point is a course with a framework, steps and a procedure, and in two
+   weeks each IBO masters one or two, from the knowledge to the sale. Sources: the Sep 25 retro,
+   the brainstorm agenda (FTF Event Calendar, Oct 17), the product site's Areas of Support (quick
+   guides and full plans), and Volume/KNOWLEDGE/KB.md. Same look as team-guide.html. */
 :root{
   --ground:#F2F5F1; --page:#FFFFFF; --line:#DDE4DE; --line-2:#C2CCC4;
   --ink:#141A16; --ink-2:#3A453C; --muted:#68756B;
@@ -34,7 +37,8 @@ a{color:var(--sage);font-weight:600}
 .wrap{display:grid;grid-template-columns:190px minmax(0,720px);gap:36px;justify-content:center;max-width:1000px;margin:0 auto;padding:0 24px}
 .doc{padding:30px 0 70px}
 .gnav{position:sticky;top:64px;align-self:start;padding-top:34px;display:flex;flex-direction:column;gap:2px}
-.gnav .gt{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 6px 12px}
+.gnav .gt{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:10px 0 6px 12px}
+.gnav .gt:first-child{margin-top:0}
 .gnav a{display:block;font-size:14px;font-weight:600;color:var(--ink-2);text-decoration:none;padding:5px 10px;border-left:2px solid var(--line)}
 .gnav a:hover{color:var(--sage);border-left-color:var(--sage-2)}
 .gnav a.on{color:var(--sage);border-left-color:var(--sage);background:var(--sage-light);border-radius:0 6px 6px 0}
@@ -43,38 +47,52 @@ h1{font-size:32px;line-height:1.12;font-weight:800;letter-spacing:-.025em;margin
 .lede{font-size:17px;color:var(--ink-2);margin:0}
 .when{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
 .when span{background:var(--sage-light);color:var(--sage);border-radius:999px;padding:4px 12px;font-size:13.5px;font-weight:700}
-h2{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:44px 0 12px;text-align:center;scroll-margin-top:70px}
-h3{font-size:18px;font-weight:700;margin:22px 0 4px}
+h2{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:46px 0 12px;text-align:center;scroll-margin-top:70px}
+h2.mod{font-size:22px;letter-spacing:-.01em;text-transform:none;color:var(--ink);text-align:left;margin-top:54px;padding-top:18px;border-top:3px solid var(--sage)}
+h2.mod small{display:block;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);margin-bottom:2px}
+h3{font-size:18px;font-weight:700;margin:24px 0 4px}
+h3 .lv{display:inline-block;background:var(--sage);color:#fff;border-radius:6px;font-size:12px;font-weight:800;padding:1px 7px;margin-right:8px;vertical-align:2px}
 p{margin:6px 0}
 ul,ol{margin:6px 0;padding-left:20px}
 li{margin:4px 0}
 li::marker{color:var(--sage-2)}
+.goal{border:1px solid var(--line);border-radius:14px;background:var(--ground);padding:16px 18px}
+.goal b.k{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.ladder{list-style:none;padding:0;margin:8px 0 0;counter-reset:l}
+.ladder li{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line);margin:0}
+.ladder li:first-child{border-top:0}
+.ladder .n{width:36px;height:36px;border-radius:10px;background:var(--sage);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+.ladder b{display:block;font-size:16.5px}
+.ladder span{color:var(--ink-2)}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
 .card{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:var(--ground)}
 .card h3{margin:0 0 4px;font-size:16.5px}
 .card .k{display:block;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:8px}
 .card ul{margin:4px 0 0}
-.card a.qg{display:inline-block;margin-top:8px;font-size:13.5px}
-.steps{list-style:none;padding:0;margin:0;counter-reset:s}
-.steps li{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--line);margin:0}
-.steps li:first-child{border-top:0}
-.steps .n{width:36px;height:36px;border-radius:50%;background:var(--sage);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
-.steps h3{margin:4px 0 2px;font-size:17px}
-.steps .min{font-size:12.5px;font-weight:700;color:var(--muted);letter-spacing:.04em}
 .say{font-size:15.5px;color:var(--ink);background:var(--ground);border-left:3px solid var(--sage);border-radius:0 10px 10px 0;padding:8px 12px;margin:8px 0}
 .say b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.draft{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:#FFF3E0;color:#8A4B08;border-radius:6px;padding:1px 7px;margin-left:6px;vertical-align:2px}
 .tbl{width:100%;border-collapse:collapse}
 .tbl td,.tbl th{padding:9px 10px 9px 0;border-top:1px solid var(--line);vertical-align:top;text-align:left}
 .tbl th{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border-top:0;padding-top:0}
-.tbl td:first-child{font-weight:600;width:36%}
+.tbl td:first-child{font-weight:600;width:34%}
 .tbl td:last-child{padding-right:0}
 .run{list-style:none;padding:0}
-.run li{display:grid;grid-template-columns:86px 1fr;gap:12px;padding:7px 0;border-top:1px solid var(--line);margin:0}
+.run li{display:grid;grid-template-columns:118px 1fr;gap:12px;padding:8px 0;border-top:1px solid var(--line);margin:0}
 .run li:first-child{border-top:0}
 .run .t{font-weight:700;color:var(--sage);font-variant-numeric:tabular-nums}
+.run b{font-weight:700}
+.check{padding-left:0}
 .check li{list-style:none;position:relative;padding-left:26px}
 .check li::before{content:'';position:absolute;left:0;top:5px;width:15px;height:15px;border:2px solid var(--line-2);border-radius:4px}
-.check{padding-left:0}
+details.q{border-top:1px solid var(--line);padding:8px 0}
+details.q:last-of-type{border-bottom:1px solid var(--line)}
+details.q summary{cursor:pointer;font-weight:600;list-style:none}
+details.q summary::-webkit-details-marker{display:none}
+details.q summary::before{content:'+';display:inline-block;width:18px;color:var(--sage);font-weight:800}
+details.q[open] summary::before{content:'−'}
+details.q p{margin:6px 0 2px 18px;color:var(--ink-2)}
+.links a{display:inline-block;margin:2px 10px 2px 0}
 .foot{margin-top:46px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
 @media (max-width:900px){
   .wrap{display:block;padding:0}
@@ -86,174 +104,234 @@ li::marker{color:var(--sage-2)}
   .mbar{padding:10px 16px}
   h1{font-size:26px}
   .cards{grid-template-columns:1fr}
-  .tbl td:first-child{width:42%}
-  .run li{grid-template-columns:70px 1fr;gap:8px}
+  .tbl td:first-child{width:40%}
+  .run li{grid-template-columns:92px 1fr;gap:8px}
 }
 </style>
 
 <div class="mbar"><a class="n" href="team-event.html">Team <span>Event</span></a>
   <a class="btn" href="team-event.html">Back to the agenda</a></div>
 <div class="wrap">
-<nav class="gnav" aria-label="Sections"><div class="gt">On this page</div>
-  <a href="#changed">What we decided</a><a href="#before">Before the night</a><a href="#walk">The walk-through</a>
-  <a href="#playbook">Pain-point playbook</a><a href="#ask">Asking for the sale</a><a href="#demos">Demos</a>
-  <a href="#roles">Roles</a><a href="#training">Training session</a><a href="#decide">Decide today</a></nav>
+<nav class="gnav" aria-label="Sections">
+  <div class="gt">The course</div>
+  <a href="#goal">The goal</a><a href="#ladder">The 5 levels</a><a href="#path">Two-week path</a>
+  <a href="#tired">Module: Tired &amp; sleep</a><a href="#acne">Module: Acne</a><a href="#cert">Certification</a>
+  <div class="gt">The expo</div>
+  <a href="#walk">The walk-through</a><a href="#ask">Asking for the sale</a><a href="#demos">Demos</a><a href="#roles">Roles</a><a href="#inventory">Inventory</a>
+</nav>
 <main class="doc">
   <div class="eyebrow">HY Product Expo · Glow From Within</div>
-  <h1>Expo Specialist Training</h1>
-  <p class="lede">Last time most of us waited for Irene to close. This time every one of us is a specialist: you take one guest through health and skin, show them a demo, ask for the sale, and walk them to checkout with the product in their hand.</p>
-  <div class="when"><span>Fri, Oct 30</span><span>5:00 to 7:30 PM</span><span>Right before FNH</span></div>
+  <h1>Pain-Point Specialist Course</h1>
+  <p class="lede">Right now only Johnny and Irene can read a check-in and recommend with confidence. This course turns each common pain point into something any of us can learn in two weeks: the knowledge, how to manage it, the conversation, the bundle, and the sale.</p>
+  <div class="when"><span>Starts tonight, Oct 17</span><span>Expo: Fri, Oct 30, 5:00 to 7:30 PM</span></div>
 
-  <h2 id="changed">What we decided</h2>
-  <p>From our retro after the Sep 25 evening:</p>
-  <ul>
-    <li><b>One guest, one specialist.</b> You stay with your guest from hello to checkout, through health and skin. No handing them from station to station.</li>
-    <li><b>Two sides of the room.</b> Health sits next to XS (protein is right there). Skin on the other side. Hair is optional this time. Irene booked a bigger room.</li>
-    <li><b>Booking is optional.</b> If a guest booked a slot and shows up on time, they go next. Late or no booking, they join the waitlist, first come first served.</li>
-    <li><b>Check-ins before they arrive.</b> Guests fill in the health and skin check-ins from the event page before they come. It made Irene's skin consultations quick last time.</li>
-    <li><b>Demos are yours.</b> Run the demo for your own guest when it fits their pain point. We will also announce a few demos to the room.</li>
-    <li><b>Every sale goes through checkout.</b> Wendy runs checkout. Even if a product is not there that night, take the order at checkout and we place it after. Never leave it to the guest to follow up.</li>
-    <li><b>Invite people with a real interest.</b> Not "come have fun", but "you mentioned your sleep, come do a check-in".</li>
-  </ul>
+  <h2 id="goal">The goal</h2>
+  <div class="goal">
+    <b class="k">By Oct 30, every one of us</b>
+    <ul>
+      <li>has <b>mastered one or two pain points</b> end to end,</li>
+      <li>can <b>read a guest's check-in</b> and explain what's going on in plain words,</li>
+      <li>can recommend <b>the standard bundle</b> for that pain point with confidence,</li>
+      <li>and <b>asks for the sale</b> and walks the guest to checkout, without waiting for Johnny or Irene.</li>
+    </ul>
+    <b class="k" style="margin-top:12px">Start with the two most common pain points</b>
+    <p>From the check-ins guests filled in on Sep 25 and before: <b>tired and poor sleep</b>, and <b>acne</b>. More modules follow the same shape (gut, liver, dull skin, immunity).</p>
+  </div>
 
-  <h2 id="before">Before the night</h2>
-  <h3>1. Invite the right people</h3>
-  <p>Find out what they care about first, then invite them to the thing that helps with it.</p>
-  <div class="say"><b>Say it like this</b>"You mentioned you've been struggling with your sleep. What have you tried so far? We're doing a health night on Oct 30 where you can do a quick check-in and see what might help. Want me to save you a spot?"</div>
-  <h3>2. Re-invite last time's guests</h3>
-  <p>Keep it simple, don't overthink the reason. They already know we have products.</p>
-  <div class="say"><b>Say it like this</b>"Hey! We're doing another one on Oct 30, Halloween edition. Come by to tell me how the products are working, or to check out something new."</div>
-  <h3>3. Send the check-ins</h3>
-  <p>Every guest gets the event page link and fills in the health check-in (and skin) before they come. Ask them to text you when it's done.</p>
-  <h3>4. Master one pain point</h3>
-  <p>Pick one from the playbook below and know it cold: what's going on, the one line that explains it, the bundle, and the demo. Liver, sleep and stress, gut, and acne cover most of the people our age.</p>
-
-  <h2 id="walk">The walk-through</h2>
-  <p>About 15 to 20 minutes per guest. If you have been talking to the same person for 20 minutes, ask for the sale or let them go. More time does not close more.</p>
-  <ol class="steps">
-    <li><span class="n">1</span><div><span class="min">1 MIN</span><h3>Greet and set the frame</h3>
-      <div class="say"><b>Say it like this</b>"Hi, I'm Lister. Who invited you? Great. Tonight we'll look at your check-in together, I'll show you what's going on and what could help, and if something clicks you can grab it at checkout."</div></div></li>
-    <li><span class="n">2</span><div><span class="min">3 MIN</span><h3>Read their check-in</h3>
-      <p>Open their answers in the event page's admin view. Pick the one or two things they marked <b>often</b>. That is your focus. Ask one question about it: "When does it hit you most?"</p></div></li>
-    <li><span class="n">3</span><div><span class="min">5 MIN</span><h3>Explain and show</h3>
-      <p>Open that area's <b>quick guide</b> on your phone (links in the playbook). It's written the way Johnny explains it: what's going on, then the reassurance. Then show the demo that fits.</p>
-      <div class="say"><b>Say it like this</b>"That's a sugar spike. You don't have to stop eating rice, you just slow the sugar down."</div></div></li>
-    <li><span class="n">4</span><div><span class="min">3 MIN</span><h3>Recommend one bundle and ask</h3>
-      <p>One bundle, not a menu. Show the price list. Then ask, out loud, and wait.</p>
-      <div class="say"><b>Say it like this</b>"Based on what you marked, this is where I'd start. Do you want to take it home tonight?"</div></div></li>
-    <li><span class="n">5</span><div><span class="min">2 MIN</span><h3>Close or release</h3>
-      <p><b>Yes:</b> walk them to Wendy with the product in their hand. <b>No:</b> no problem, find out who invited them so that person follows up, note it, and go get your next guest.</p></div></li>
+  <h2 id="ladder">The 5 levels</h2>
+  <p>Every module is learned in the same five levels. You move up only when you can do the level, not just read it.</p>
+  <ol class="ladder">
+    <li><span class="n">1</span><div><b>Know it</b><span>What is going on in the body, why it happens, and the signs. You can explain it in one or two plain sentences.</span></div></li>
+    <li><span class="n">2</span><div><b>Manage it</b><span>The four-step plan (clear, regulate, replenish, sustain), the habits that matter more than any bottle, and when it's a doctor's question instead.</span></div></li>
+    <li><span class="n">3</span><div><b>Consult it</b><span>Read the check-in, ask the right three questions, explain it the way Johnny does, and show the demo.</span></div></li>
+    <li><span class="n">4</span><div><b>Recommend and close</b><span>One standard bundle plus one add-on that matches their moment, the price, and the ask.</span></div></li>
+    <li><span class="n">5</span><div><b>Follow up</b><span>Check in at day 7 and day 28, adjust, and set up the reorder.</span></div></li>
   </ol>
 
-  <h2 id="playbook">Pain-point playbook</h2>
-  <p>The most common things our guests mark, with the one line to say and where to start. Every card links to the quick guide on the product site, which has the full walk-through in plain words. Open it on your phone during the conversation.</p>
-  <div class="cards">
-    <div class="card"><h3>Tired, afternoon crash</h3>
-      <p>"After lunch it's a sugar spike. After work it's a body that burned through its vitamins."</p>
-      <span class="k">Start with</span><ul><li>After lunch: Carb Blocker, Prebiotic Fiber, Plant Protein</li><li>After work: Double X, Vitamin B</li></ul>
-      <a class="qg" href="index.html?area=energy" target="_blank" rel="noopener">Energy quick guide ›</a></div>
-    <div class="card"><h3>Takeout, drinks, late nights</h3>
-      <p>"Your liver is your body's filter, and it's been working overtime."</p>
-      <span class="k">Start with</span><ul><li>Liver Support and Vitamin B together in the evening</li><li>Prebiotic Fiber for the gut half</li></ul>
-      <a class="qg" href="index.html?area=energy" target="_blank" rel="noopener">Energy quick guide ›</a></div>
-    <div class="card"><h3>Sleep and stress</h3>
-      <p>"Your stress system never stood down, so the body can't get into deep sleep."</p>
-      <span class="k">Start with</span><ul><li>Magnesium or Cal Mag D, Ashwagandha</li><li>Odd nights, jet lag: Sleep Gummies (3 mg melatonin, not for kids or pregnancy)</li></ul>
-      <a class="qg" href="index.html?area=sleep" target="_blank" rel="noopener">Sleep quick guide ›</a></div>
-    <div class="card"><h3>Bloating, not regular</h3>
-      <p>"Fibre for bulk, water to keep it soft, and the right bacteria to keep it moving."</p>
-      <span class="k">Start with</span><ul><li>Probiotic and Prebiotic Fiber</li><li>Heavy after big meals: Digestive Enzyme</li></ul>
-      <a class="qg" href="index.html?area=digestion" target="_blank" rel="noopener">Gut quick guide ›</a></div>
-    <div class="card"><h3>Breakouts</h3>
-      <p>"Most of what turns a pore into a pimple happens before your face is involved."</p>
-      <span class="k">Start with</span><ul><li>Inside: Liver Support, or Carb Blocker and Fiber after sugar and takeout</li><li>Outside: Artistry anti-acne toner, Spot On Dots</li><li>Before the period: Cycle Support</li></ul>
-      <a class="qg" href="index.html?area=skin" target="_blank" rel="noopener">Skin quick guide ›</a></div>
-    <div class="card"><h3>Dull skin, marks</h3>
-      <p>"Marks are pigment left after inflammation. Sun makes them darker."</p>
-      <span class="k">Start with</span><ul><li>Vitamin C, Artistry Vitamin C serum, SPF 50 every day</li><li>Demo: the vitamin C apple</li></ul>
-      <a class="qg" href="index.html?area=skin" target="_blank" rel="noopener">Skin quick guide ›</a></div>
-    <div class="card"><h3>Dry, sensitive, eczema</h3>
-      <p>"The skin barrier is a brick wall and the mortar is fat."</p>
-      <span class="k">Start with</span><ul><li>Advanced Omega, g&amp;h Nourish wash and lotion</li><li>Reactive face: the hydrating mousse cleanser</li></ul>
-      <a class="qg" href="index.html?area=eczema" target="_blank" rel="noopener">Eczema quick guide ›</a></div>
-    <div class="card"><h3>Always catching colds</h3>
-      <p>"Immunity isn't something you boost, it's something you don't let run short."</p>
-      <span class="k">Start with</span><ul><li>Probiotic, Vitamin C, Vitamin D</li><li>Short sleeper: protect seven hours first</li></ul>
-      <a class="qg" href="index.html?area=immunity" target="_blank" rel="noopener">Immunity quick guide ›</a></div>
-  </div>
-  <p style="margin-top:12px">Something else came up? Every area has a quick guide: weight, blood sugar, cycle, hair, allergies, eyes, focus and muscle are all on the product site under Areas of Support.</p>
-
-  <h2 id="ask">Asking for the sale</h2>
-  <p>Irene's rule: there is no secret strategy. You ask, and if it's a no, the world still turns. The thing we were missing last time was the ask itself.</p>
-  <table class="tbl">
-    <tr><th>When they say</th><th>You say</th></tr>
-    <tr><td>"How much is it?"</td><td>Show the price list. "This is the price. Do you want to take it home tonight?"</td></tr>
-    <tr><td>"I'll think about it."</td><td>"Totally. What's the part you're not sure about?" If still no: "No problem, who invited you? They'll check in with you next week."</td></tr>
-    <tr><td>"I'm just here for fun."</td><td>"Love that. Want the two-minute version of your check-in? It takes no time."</td></tr>
-    <tr><td>"I already take vitamins."</td><td>"Great, what are you taking? Let's see if it covers what you marked."</td></tr>
-    <tr><td>"Too many things."</td><td>Drop to one product. "Then start with just this one."</td></tr>
-    <tr><td>Product not there tonight</td><td>Take the order at checkout anyway. We place it after.</td></tr>
-  </table>
-  <h3>Don't</h3>
-  <ul>
-    <li>Talk for 20 minutes to build the relationship. It doesn't close the sale.</li>
-    <li>Hand them a menu of five bottles. One bundle.</li>
-    <li>Tell them to follow up with someone later. Lead them to the end tonight.</li>
-    <li>Promise results or say anything cures or treats. These are foods, not drugs.</li>
+  <h2 id="path">Two-week path</h2>
+  <ul class="run">
+    <li><span class="t">Sat, Oct 17</span><span><b>Tonight.</b> Pick your module (one or two). Get your study links.</span></li>
+    <li><span class="t">Oct 18 to 19</span><span><b>Levels 1 and 2.</b> Read the quick guide, then the full plan, then the lessons listed in your module. Take the quiz.</span></li>
+    <li><span class="t">Tue, Oct 20</span><span><b>Inventory order placed</b> (10 days before the expo, unsold stock can go back). Bundles final.</span></li>
+    <li><span class="t">Oct 21 to 22</span><span><b>Levels 3 and 4.</b> Practise the conversation with a partner. Teach your module back to your mentor in 3 minutes.</span></li>
+    <li><span class="t">Oct 24 or 25</span><span><b>Role-play training and certification</b> (about an hour, date set tonight).</span></li>
+    <li><span class="t">Oct 26 to 29</span><span><b>Two real consultations</b> with friends or past guests, using their check-in. Confirm your invites.</span></li>
+    <li><span class="t">Fri, Oct 30</span><span><b>The expo.</b> You run your guests from hello to checkout.</span></li>
+    <li><span class="t">Nov 6 and 27</span><span><b>Level 5.</b> Day 7 and day 28 check-ins with everyone who bought.</span></li>
   </ul>
 
-  <h2 id="demos">Demos</h2>
-  <div class="cards">
-    <div class="card"><h3>Vitamin C apple</h3><p>Our best demo, and we sold none last time because we didn't run it.</p>
-      <ul><li>Slice an apple into small pieces (bring a fruit knife)</li><li>Coat half the pieces with dissolved vitamin C</li><li>Show both after 10 to 15 minutes: plain slices brown, the vitamin C ones stay fresh</li></ul>
-      <span class="k">Bridge</span><p>"Vitamin C is the body's main antioxidant. This is what it does on an apple."</p></div>
-    <div class="card"><h3>XS mocktail</h3><p>People loved the drinks last time.</p>
-      <ul><li>XS, lemon, lime and mint in a cup</li><li>Two cans tied with a ribbon at 2 for $5</li></ul>
-      <span class="k">Bridge</span><p>"Zero sugar, B vitamins. This is what I drink instead of soda."</p></div>
-    <div class="card"><h3>Twist Tubes</h3><p>Twist, shake into water, drink. Good for anyone who travels or skips tablets.</p></div>
-  </div>
-  <p style="margin-top:12px">Run the demo for your own guest when it fits. When a few people gather, announce one to the room: "We're doing the vitamin C demo now."</p>
+  <!-- ───────────── MODULE: TIRED & SLEEP ───────────── -->
+  <h2 class="mod" id="tired"><small>Module 1</small>Tired all the time, and sleeping badly</h2>
+  <p><b>Who it's for:</b> guests who mark tired, afternoon crash, sleepy after meals, hard to fall asleep, waking at night, waking up unrefreshed, or stressed. The two travel together: poor sleep makes the day tired, and a tired, wired day makes the night worse.</p>
+  <p class="links"><b>Study:</b> <a href="index.html?area=energy" target="_blank" rel="noopener">Energy quick guide</a><a href="index.html?area=sleep" target="_blank" rel="noopener">Sleep quick guide</a> · then tap "Full 4-step plan" on each · KB lessons 03 (sleep debt), 13 (sleep cycles), 16 and 17 (hidden hunger), 22 and 23 (B vitamins), 20 and 21 (protein), 37 (minerals).</p>
 
-  <h2 id="roles">Roles</h2>
+  <h3><span class="lv">1</span>Know it</h3>
+  <ul>
+    <li><b>Sleepy after lunch</b> is a sugar spike and crash: carbs alone turn into sugar fast, insulin rushes out, blood sugar drops, you crash.</li>
+    <li><b>Drained after work</b> is a body that burned through its raw materials: B vitamins, iron, magnesium and protein turn food into energy, and running short sends no hunger signal.</li>
+    <li><b>Coffee borrows energy.</b> It hides the tired signal and you pay it back later. Two weeks of six-hour nights leaves you as foggy as two nights awake, and you don't notice.</li>
+    <li><b>Tired but wired</b> is a stress system that never stands down at night. Stress also uses up magnesium.</li>
+    <li><b>Late nights, takeout and drinks</b> keep the liver working overtime, which leaves you heavy and tired even after sleep.</li>
+  </ul>
+  <h3><span class="lv">2</span>Manage it</h3>
+  <ul>
+    <li><b>Clear:</b> stop eating carbs alone; last coffee before 2 pm; phone out of the bedroom.</li>
+    <li><b>Regulate:</b> same wake time 7 days a week, 7+ hours; coffee and tea an hour away from meals (they block iron).</li>
+    <li><b>Replenish:</b> protein, a third of it at breakfast (60 kg means about 72 g a day); B vitamins; magnesium; iron only after a ferritin test.</li>
+    <li><b>Sustain:</b> the same breakfast 7 to 9 am; the evening routine of Liver Support and Vitamin B around 7:30 to 8:40 pm, judged over months.</li>
+    <li><b>Doctor first</b> if tired for more than a few weeks, or with weight loss, breathlessness, very heavy periods, low mood, loud snoring or pauses in breathing.</li>
+  </ul>
+  <h3><span class="lv">3</span>Consult it</h3>
+  <p><b>Ask:</b> "When does it hit you most?" · "How many hours do you sleep, and what time do you get up?" · "What's breakfast usually?"</p>
   <table class="tbl">
-    <tr><th>Role</th><th>Who and what</th></tr>
-    <tr><td>Specialists</td><td>All of us. Walk your guest through health and skin, demo, ask, checkout. Free? Greet the next guest yourself.</td></tr>
-    <tr><td>Ushers</td><td>Apprentices. Greet at the door, explain the room in one line, check the guest's check-in is done, and hand them to a free specialist or the waitlist.</td></tr>
-    <tr><td>Checkout</td><td>Wendy. Every sale, including orders for products not there that night.</td></tr>
-    <tr><td>Waitlist</td><td>One sheet at the door. Booked and on time goes next; everyone else in order.</td></tr>
+    <tr><th>When they say</th><th>You explain</th></tr>
+    <tr><td>After lunch</td><td>"That's a sugar spike. You don't have to stop eating rice, you just slow the sugar down."</td></tr>
+    <tr><td>After work</td><td>"Your day burns through vitamins faster than a rushed lunch puts them back. Refill the tank every morning."</td></tr>
+    <tr><td>On coffee all day</td><td>"Coffee borrows energy. B vitamins help your body pull energy out of the food you already eat."</td></tr>
+    <tr><td>Wake up tired</td><td>"That's usually sleep debt. Same wake time every day, aim for seven hours."</td></tr>
+    <tr><td>Stressed and wired</td><td>"Your stress system never stood down. Calm it first, then sleep comes."</td></tr>
+    <tr><td>Late nights, drinks, takeout</td><td>"Your liver is your body's filter, and it's been working overtime. Give it an evening routine."</td></tr>
   </table>
+  <p><b>Demo:</b> the XS mocktail as the swap for the afternoon sugar drink.</p>
+  <h3><span class="lv">4</span>Recommend and close <span class="draft">Bundle draft, Johnny to finalize</span></h3>
+  <div class="cards">
+    <div class="card"><h3>Core: Energy &amp; Sleep starter</h3><ul><li>Double X</li><li>Vitamin B Complex</li><li>Cal Mag D (evening)</li></ul></div>
+    <div class="card"><h3>Add one, by their moment</h3><ul><li>After lunch: Plant Protein (or Carb Blocker)</li><li>Stressed and wired: Ashwagandha</li><li>Late nights and drinks: Liver Support</li><li>Odd nights, jet lag: Sleep Gummies (3 mg melatonin; not for kids, pregnancy or anyone on blood thinners)</li></ul></div>
+  </div>
+  <div class="say"><b>The ask</b>"Based on what you marked, I'd start with these three, and add the protein for your afternoons. Do you want to take it home tonight?"</div>
+  <h3><span class="lv">5</span>Follow up</h3>
+  <p><b>Day 7:</b> "How's your afternoon energy? Are you taking the evening ones at the same time?" <b>Day 28:</b> "How's sleep now? Let's set up your next month so you don't run out."</p>
+  <h3>Quiz</h3>
+  <details class="q"><summary>Someone gets sleepy after lunch. What's going on, in one sentence?</summary><p>A sugar spike and crash: carbs alone turn into sugar fast, insulin rises, blood sugar drops.</p></details>
+  <details class="q"><summary>Two ways to slow the sugar down without giving up rice?</summary><p>Eat vegetables and protein first and the rice last; add fibre; Carb Blocker before the meal; swap one meal for a protein shake.</p></details>
+  <details class="q"><summary>Why doesn't coffee fix tiredness?</summary><p>It borrows energy and hides the tired signal; the sleep debt is still there.</p></details>
+  <details class="q"><summary>What do two weeks of six-hour nights do?</summary><p>Leave you about as impaired as two nights with no sleep, without you noticing.</p></details>
+  <details class="q"><summary>Which raw materials turn food into energy?</summary><p>B vitamins, iron, magnesium and protein.</p></details>
+  <details class="q"><summary>Who should get ferritin checked before taking iron?</summary><p>Women who are tired all the time, especially with heavy periods; vegetarians; frequent blood donors.</p></details>
+  <details class="q"><summary>Protein target for someone who weighs 60 kg?</summary><p>About 72 g a day (1.2 g per kg), a third of it at breakfast.</p></details>
+  <details class="q"><summary>What is in Sleep Gummies, and who shouldn't take them?</summary><p>3 mg melatonin with passionflower. Occasional nights only; not for children, pregnancy, breastfeeding or people on blood thinners; no driving after.</p></details>
+  <details class="q"><summary>What is the evening liver routine?</summary><p>Liver Support and Vitamin B together around 7:30 to 8:40 pm, every night, judged over months (liver cells renew in about 180 days).</p></details>
+  <details class="q"><summary>When do you send them to a doctor first?</summary><p>Tired for weeks, or with weight loss, breathlessness, very heavy periods, low mood, loud snoring or breathing pauses.</p></details>
 
-  <h2 id="training">Training session</h2>
-  <p>About an hour, the weekend before the expo.</p>
-  <ul class="run">
-    <li><span class="t">10 min</span><span>What changed and why: one guest, one specialist, ask every time.</span></li>
-    <li><span class="t">15 min</span><span>Irene walks one volunteer through health and skin live, start to checkout.</span></li>
-    <li><span class="t">25 min</span><span>Role-play in threes: specialist, guest, observer. Three rounds, swap each time. Guests play: "tired after lunch", "breakouts before my period", "just here for fun, how much is it?"</span></li>
-    <li><span class="t">10 min</span><span>Practice the vitamin C apple and the XS mocktail.</span></li>
-    <li><span class="t">5 min</span><span>Pick your pain point, confirm roles.</span></li>
+  <!-- ───────────── MODULE: ACNE ───────────── -->
+  <h2 class="mod" id="acne"><small>Module 2</small>Acne and breakouts</h2>
+  <p><b>Who it's for:</b> guests who mark breakouts, oily skin, breakouts before their period, marks left after pimples, or breakouts with stress.</p>
+  <p class="links"><b>Study:</b> <a href="index.html?area=skin" target="_blank" rel="noopener">Acne &amp; Skin quick guide</a><a href="index.html?area=hormone" target="_blank" rel="noopener">Cycle quick guide</a> · then the full 4-step plan · Irene's skin guide sheet · KB sections 4 (liver) and 5 (gut), lessons 41 (fibre), 42 (probiotics and skin), 29 (vitamin C), 24 (B2), 31 (vitamin E).</p>
+
+  <h3><span class="lv">1</span>Know it</h3>
+  <ul>
+    <li>A pore becomes a pimple when four things line up: <b>too much oil, a plug, bacteria in the trapped oil, and inflammation.</b> Skincare handles the last two.</li>
+    <li>The first two are set <b>inside</b>: sugar spikes raise insulin and IGF-1, which turn up oil; a gut out of balance adds inflammation; stress and short sleep turn up oil too.</li>
+    <li><b>Before the period</b>, hormones shift and breakouts show up on the jaw and chin, on schedule.</li>
+    <li><b>Marks</b> are mostly pigment left after inflammation, not scars. Picking and sun make them darker.</li>
+    <li><b>Washing harder backfires.</b> Stripped skin makes more oil.</li>
+  </ul>
+  <h3><span class="lv">2</span>Manage it</h3>
+  <ul>
+    <li><b>Clear:</b> stop the sugar spike (don't quit rice, slow it down); fibre and probiotics for the gut; liver support for the load.</li>
+    <li><b>Regulate:</b> a gentle cleanser; salicylic acid toner on the whole area; patch, don't pick.</li>
+    <li><b>Replenish:</b> protein (skin rebuilds with it), vitamin C, B vitamins.</li>
+    <li><b>Sustain:</b> SPF every day; sleep; skin renews about monthly, so judge it over two or three months.</li>
+    <li><b>Doctor first</b> for deep painful lumps, scarring, acne with irregular periods or extra hair growth, or breakouts affecting their mood.</li>
+  </ul>
+  <h3><span class="lv">3</span>Consult it</h3>
+  <p><b>Ask:</b> "When do you break out most?" · "Where on your face?" · "What do you use on your skin now?"</p>
+  <table class="tbl">
+    <tr><th>When they say</th><th>You explain</th></tr>
+    <tr><td>After sugar or takeout</td><td>"That's a sugar spike turning up your oil. You don't have to quit rice, you just stop the spike."</td></tr>
+    <tr><td>Before my period, on the jaw</td><td>"It comes on schedule, so you can get ahead of it. Start before it shows."</td></tr>
+    <tr><td>Oily by noon</td><td>"Washing harder makes it worse. Wash gentler and keep the skin hydrated."</td></tr>
+    <tr><td>Marks that won't fade</td><td>"Those are pigment, not scars. Don't pick, and wear sunscreen every day so they don't get darker."</td></tr>
+    <tr><td>When I'm stressed</td><td>"Your oil glands listen to stress. Sleep is the free half of this plan."</td></tr>
+  </table>
+  <p><b>Demo:</b> the vitamin C apple for marks and dull skin; the toner and Spot On Dots in hand.</p>
+  <h3><span class="lv">4</span>Recommend and close <span class="draft">Bundle draft, Johnny to finalize</span></h3>
+  <div class="cards">
+    <div class="card"><h3>Core: Clear Skin starter</h3><ul><li>Inside: Liver Support and Prebiotic Fiber</li><li>Outside: Artistry anti-acne toner and Spot On Dots</li></ul></div>
+    <div class="card"><h3>Add one, by their moment</h3><ul><li>After sugar and takeout: Carb Blocker</li><li>Before the period: Cycle Support (take all month; ask first if pregnant or on hormonal birth control)</li><li>Marks: Vitamin C, Artistry Vitamin C serum, SPF 50</li><li>Oily: the hydrating mousse cleanser</li></ul></div>
+  </div>
+  <div class="say"><b>The ask</b>"From what you told me, I'd work on it from the inside and the outside together. This is where I'd start. Want to take it home tonight?"</div>
+  <h3><span class="lv">5</span>Follow up</h3>
+  <p><b>Day 7:</b> "Are you using the toner on the whole area, not just the spot?" <b>Day 28:</b> "Skin renews about once a month, so this is the first real check. What's changed?"</p>
+  <h3>Quiz</h3>
+  <details class="q"><summary>What four things turn a pore into a pimple?</summary><p>Too much oil, a plug, bacteria in the trapped oil, inflammation.</p></details>
+  <details class="q"><summary>Which of them are set inside the body?</summary><p>Oil output (sugar spikes, insulin and IGF-1, stress and sleep) and inflammation (gut, liver load).</p></details>
+  <details class="q"><summary>Why salicylic acid in the toner?</summary><p>It dissolves in oil, so it gets inside the pore and breaks the plug up.</p></details>
+  <details class="q"><summary>Why patch instead of pick?</summary><p>Picking is the main cause of marks, and marks last months longer than the pimple.</p></details>
+  <details class="q"><summary>Breakouts before the period: what helps and how is it taken?</summary><p>Cycle Support, every day through the month, judged over about three cycles. Ask first if pregnant, trying, or on hormonal birth control.</p></details>
+  <details class="q"><summary>What stops marks from getting darker?</summary><p>Not picking, sunscreen every day, and vitamin C.</p></details>
+  <details class="q"><summary>Oily skin: wash more?</summary><p>No. Stripped skin makes more oil. Wash gentler and hydrate.</p></details>
+  <details class="q"><summary>Why the liver in an acne plan?</summary><p>In the teaching we follow, the liver and gut clear what the skin would otherwise show; the liver also clears used hormones.</p></details>
+  <details class="q"><summary>The one line for breakouts after takeout?</summary><p>"You don't have to quit rice, you just stop the spike."</p></details>
+  <details class="q"><summary>When do you send them to a doctor or dermatologist first?</summary><p>Deep painful lumps, scarring, acne with irregular periods or extra hair growth, or breakouts affecting their mood.</p></details>
+
+  <h2 id="cert">Certification</h2>
+  <p>You're certified for a module, and run those guests on your own on Oct 30, when you have done all five:</p>
+  <ul class="check">
+    <li>Quiz: 8 of 10 without looking</li>
+    <li>Teach-back: explain the module to your mentor in 3 minutes</li>
+    <li>Role-play: pass the observer checklist below</li>
+    <li>Two real consultations before Oct 30, using the person's check-in</li>
+    <li>Know your bundle and its price by heart</li>
   </ul>
   <h3>The observer checks</h3>
   <ul class="check">
     <li>Under 20 minutes</li>
     <li>Used the guest's check-in answers</li>
     <li>Explained it in one or two plain sentences</li>
-    <li>One bundle, not a menu</li>
+    <li>One bundle and one add-on, not a menu</li>
     <li>Asked for the sale out loud</li>
-    <li>Ended at checkout or with the inviter's name noted</li>
+    <li>Ended at checkout, or with the inviter's name noted</li>
   </ul>
 
-  <h2 id="decide">Decide today</h2>
-  <ul class="check">
-    <li>Specialist list and usher list</li>
-    <li>Training date and time (weekend before Oct 30)</li>
-    <li>Which pain point each person masters</li>
-    <li>Bundles: XS 2 for $5, the mocktail bundle, a holiday bundle, and their prices</li>
-    <li>Referral offer for guests who bring a friend, yes or no</li>
-    <li>Booking page: two groups per time slot (Wendy)</li>
-    <li>Halloween flyer and event page (Wendy), printing (Raymond)</li>
-    <li>Demo supplies: apples, knife, cups, ice, lemon, lime, mint (who brings what)</li>
-    <li>Updated price list</li>
-  </ul>
+  <!-- ───────────── THE EXPO ───────────── -->
+  <h2 id="walk">The walk-through on Oct 30</h2>
+  <p>One guest, one specialist, from hello to checkout. About 15 to 20 minutes. Health sits next to XS, skin on the other side. Booked and on time goes next; everyone else joins the waitlist in order.</p>
+  <ol>
+    <li><b>Greet and set the frame</b> (1 min): "Who invited you? Tonight we'll look at your check-in together, and if something clicks you can grab it at checkout."</li>
+    <li><b>Read the check-in</b> (3 min): pick the one or two things they marked often. Ask "When does it hit you most?"</li>
+    <li><b>Explain and show</b> (5 min): the one line from your module, the quick guide on your phone, the demo.</li>
+    <li><b>Recommend and ask</b> (3 min): one bundle plus one add-on, the price list, then the ask. Wait.</li>
+    <li><b>Close or release</b> (2 min): yes, walk them to Wendy with the product in hand. No, note who invited them, and go get your next guest.</li>
+  </ol>
+  <p>A guest with a pain point you haven't certified in? Bring in a teammate who has.</p>
+
+  <h2 id="ask">Asking for the sale</h2>
+  <p>Irene's rule: there's no secret strategy. You ask, and if it's a no, the world still turns. What we were missing on Sep 25 was the ask itself.</p>
+  <table class="tbl">
+    <tr><th>When they say</th><th>You say</th></tr>
+    <tr><td>"How much is it?"</td><td>Show the price list. "This is the price. Do you want to take it home tonight?"</td></tr>
+    <tr><td>"I'll think about it."</td><td>"Totally. What's the part you're not sure about?" If still no: "No problem, who invited you? They'll check in with you next week."</td></tr>
+    <tr><td>"I'm just here for fun."</td><td>"Love that. Want the two-minute version of your check-in?"</td></tr>
+    <tr><td>"I already take vitamins."</td><td>"Great, what are you taking? Let's see if it covers what you marked."</td></tr>
+    <tr><td>"Too many things."</td><td>Drop to one product. "Then start with just this one."</td></tr>
+    <tr><td>Not in stock tonight</td><td>Take the order at checkout anyway. We place it after.</td></tr>
+  </table>
+  <p><b>Don't:</b> talk 20 minutes to build the relationship, hand over a menu of five bottles, leave the follow-up to the guest, or promise results. These are foods, not drugs.</p>
+
+  <h2 id="demos">Demos</h2>
+  <div class="cards">
+    <div class="card"><h3>Vitamin C apple</h3><ul><li>Slice an apple into small pieces (bring a fruit knife)</li><li>Coat half with dissolved vitamin C</li><li>After 10 to 15 minutes the plain slices brown, the vitamin C ones stay fresh</li></ul><span class="k">Bridge</span><p>"Vitamin C is the body's main antioxidant. This is what it does on an apple."</p></div>
+    <div class="card"><h3>XS mocktail</h3><ul><li>XS, lemon, lime and mint in a cup</li><li>Two cans with a ribbon at 2 for $5</li></ul><span class="k">Bridge</span><p>"Zero sugar. This is what I drink instead of the afternoon soda."</p></div>
+  </div>
+  <p style="margin-top:10px">Run the demo for your own guest when it fits. When a few people gather, announce one to the room.</p>
+
+  <h2 id="roles">Roles</h2>
+  <table class="tbl">
+    <tr><th>Role</th><th>Who and what</th></tr>
+    <tr><td>Specialists</td><td>Everyone certified. Walk your guest through, demo, ask, checkout.</td></tr>
+    <tr><td>Ushers</td><td>Apprentices. Greet, explain the room in one line, check the check-in is done, hand to a free specialist or the waitlist.</td></tr>
+    <tr><td>Checkout</td><td>Wendy. Every sale, including orders for products not there that night.</td></tr>
+  </table>
+
+  <h2 id="inventory">Inventory</h2>
+  <p>Order <b>10 days before every expo</b>: for Oct 30, that's <b>Tue, Oct 20</b>. Unsold stock can be returned, so order for the guests we expect, not the guests we're sure of.</p>
+  <table class="tbl">
+    <tr><th>Bundle</th><th>How to size it</th></tr>
+    <tr><td>Energy &amp; Sleep starter</td><td>Confirmed guests × the share who mark tired or sleep (most of them) × an expected close rate, plus add-on stock</td></tr>
+    <tr><td>Clear Skin starter</td><td>Confirmed guests × the share who mark acne × the close rate</td></tr>
+    <tr><td>Demo stock</td><td>XS cans for the mocktails and 2 for $5, vitamin C for the apple demo, testers of the toner</td></tr>
+  </table>
 
   <p class="foot">Questions? Ask your coach and mentor. · <a href="team-event.html">Back to the agenda</a></p>
 </main>
