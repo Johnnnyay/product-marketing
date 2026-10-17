@@ -228,7 +228,7 @@ textarea:focus{border-color:var(--sage);outline:none}
 <script>
 /* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this
    file; the version check at the bottom compares it, and this script's text, with the server's copy. */
-const BUILD = "2026-10-16T23:29:22Z";
+const BUILD = "2026-10-17T02:24:50Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 const KEY = "monkey-game-v1";
 const $ = function(id){ return document.getElementById(id); };
@@ -238,12 +238,12 @@ const T = {
   en: {
     back: "← All team games", eyebrow: "JL Team Games", title: "Monkeys in the Desert",
     tabRules: "Rules", tabPlay: "Play",
-    callQ: "“How many monkeys in the desert?”", callA: "Everyone asks it together. The caller answers.",
+    callQ: "“How many monkeys?”", callA: "Everyone asks it together. The caller answers.",
     howTitle: "How it works",
     steps: [
-      "Everyone asks together: <b>“How many monkeys in the desert?”</b>",
+      "Everyone asks together: <b>“How many monkeys?”</b>",
       "The caller answers with a number, <b>“Three monkeys!”</b>, and scratches their head like a monkey.",
-      "Going around in order, the next people join until there are that many monkeys. Each one scratches their head and says <b>“hehe!”</b>",
+      "Going around in order, the next people join until there are that many monkeys. Each one scratches their head and says <b>“Ooh!”</b>",
       "The person after the last monkey is the next caller, and everyone asks again.",
       "Move when it isn't your turn, freeze when it is, or get the count wrong, and you're out. Last one standing wins."
     ],
@@ -252,8 +252,8 @@ const T = {
     exNames: ["Sam", "Lily", "Ken", "Ava", "Max"], exCaller: "caller", exMonkey: "monkey", exNextLbl: "next caller",
     zoomTitle: "Playing on Zoom",
     zoom1: "There's no circle on Zoom, so the host's list is the order. Read it out before the first round and keep it on screen.",
-    zoom2: "Everyone stays unmuted. A monkey scratches on camera and says “hehe”. The host calls who's out and taps it here.",
-    source: "From the 沙漠里有几只猴 game in the Season 2 outtakes of 现在就出发. The show's rule card leaves open whether the caller counts as the first monkey, so the host picks below. The “hehe” isn't in the official rules; the cast all did it anyway.",
+    zoom2: "Everyone stays unmuted. A monkey scratches on camera and says “Ooh!” The host calls who's out and taps it here.",
+    source: "From the 沙漠里有几只猴 game in the Season 2 outtakes of 现在就出发. The show's rule card leaves open whether the caller counts as the first monkey, so the host picks below. In the show the cast added a “嘿” monkey sound on their own; in English “Ooh!” does the same job.",
     setupTitle: "Players, in order", setupLead: "One name per line, in the order you'll go around. The first name is the first caller.",
     optIn: "The caller is monkey #1", optInEx: "“Three!” = the caller and the next 2",
     optOut: "The caller only calls", optOutEx: "“Three!” = the next 3 after the caller",

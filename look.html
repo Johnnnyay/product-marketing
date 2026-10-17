@@ -1,0 +1,502 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1, 2, 3, Look!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+/* Same projector-first palette as fnh.html and monkey.html. */
+:root{
+  --ground:#F2F5F1; --panel:#FFFFFF; --panel-2:#E8EEE8; --line:#C8D2C9; --line-2:#A8B6AA;
+  --ink:#141A16; --ink-2:#3A453C; --muted:#5F6C62;
+  --sage:#345043; --sage-2:#4A7060; --sage-light:#E4EDE6;
+  --amber:#96420A; --amber-light:#FBEEE2; --red:#A81C1C; --red-light:#F8E3E3; --blue:#1546B0;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1100px;margin:0 auto;padding:18px 16px 80px}
+h1,h2{font-weight:800;letter-spacing:-.02em;text-wrap:balance;margin:0}
+h1{font-size:34px;line-height:1.05}
+h2{font-size:24px;margin:0 0 10px}
+p{margin:0 0 12px}
+a{color:var(--sage);font-weight:600}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.eyebrow{font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.top .back{font-size:14px}
+.top .sp{flex:1}
+.pill{background:#fff;border:2px solid var(--line-2);color:var(--ink-2);border-radius:999px;font-size:14px;font-weight:700;padding:6px 14px}
+.pill[aria-pressed="true"]{background:var(--sage);border-color:var(--sage);color:#fff}
+.tabs{display:flex;gap:8px;margin:6px 0 16px}
+.tabs .pill{font-size:16px;padding:9px 20px}
+.card{background:var(--panel);border:2px solid var(--line);border-radius:14px;padding:22px}
+
+.rules{display:grid;gap:14px;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start}
+.rules .call{grid-column:1/-1}
+.rules .side{display:grid;gap:14px}
+.call{background:var(--sage);color:#fff;border-radius:14px;padding:22px 24px;text-align:center}
+.call .q{font-size:clamp(28px,5vw,52px);font-weight:800;line-height:1.15}
+.call .a{font-size:clamp(18px,2.4vw,24px);opacity:.9;margin-top:6px}
+.steps{margin:0;padding-left:1.3em;font-size:clamp(17px,1.6vw,20px)}
+.steps li{margin:0 0 10px}
+.note{font-size:14px;color:var(--muted)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:6px 0 10px}
+.pair div{border-radius:12px;padding:12px;text-align:center;font-weight:700;font-size:15px}
+.pair .bad{background:var(--red-light);color:var(--red)}
+.pair .good{background:var(--sage-light);color:var(--sage)}
+.pair b{display:block;font-size:34px;line-height:1.2}
+
+textarea{width:100%;min-height:200px;background:#fff;border:2px solid var(--line-2);border-radius:10px;color:var(--ink);font:inherit;font-size:18px;padding:12px 14px;resize:vertical}
+textarea:focus{border-color:var(--sage);outline:none}
+.seg{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.seg span{font-size:14px;font-weight:700;color:var(--ink-2);align-self:center;margin-right:4px}
+.go{background:var(--sage);color:#fff;border:0;border-radius:11px;font-weight:800;font-size:19px;padding:14px 22px}
+.go:hover{background:var(--sage-2)}
+.go:disabled{opacity:.45;cursor:default}
+.ghost{background:#fff;border:2px solid var(--line-2);color:var(--ink-2);border-radius:10px;font-size:15px;font-weight:700;padding:10px 16px}
+.ghost:disabled{opacity:.45;cursor:default}
+.err{color:var(--red);font-weight:600;font-size:15px;min-height:1px;margin-top:8px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+.stage{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px;align-items:start}
+.stage.solo{grid-template-columns:1fr}
+.pointer{background:var(--panel);border:2px solid var(--line);border-radius:14px;padding:18px;text-align:center}
+.pointer .rd{font-size:14px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.screen{height:min(46vh,360px);display:flex;align-items:center;justify-content:center;flex-direction:column;margin:6px 0 10px}
+.screen .beat{font-size:min(30vh,220px);font-weight:800;line-height:1;color:var(--sage);font-variant-numeric:tabular-nums}
+.screen .look{font-size:clamp(28px,5vw,48px);font-weight:800;color:var(--amber);line-height:1.1}
+.screen svg{width:min(30vh,230px);height:min(30vh,230px);display:block}
+.screen .dirw{font-size:clamp(18px,2.4vw,26px);font-weight:800;margin-top:4px}
+.screen .idle{font-size:clamp(20px,2.6vw,28px);font-weight:700;color:var(--muted)}
+.hostnote{font-size:14px;color:var(--ink-2);background:var(--amber-light);border-radius:10px;padding:8px 12px;margin:0 auto 10px;max-width:520px}
+.hint{font-size:14px;color:var(--muted);margin-top:12px}
+
+.ring{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.ring li{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--line);border-radius:12px;padding:8px 10px 8px 12px}
+.ring .nm{flex:1;min-width:0;font-weight:700;font-size:clamp(17px,1.9vw,21px);overflow-wrap:anywhere}
+.ring .x{flex:none;background:#fff;border:2px solid var(--line-2);color:var(--red);border-radius:9px;font-size:14px;font-weight:800;padding:5px 12px}
+.ring li.caught{border-color:var(--red);background:var(--red-light)}
+.ring li.caught .x{background:var(--red);border-color:var(--red);color:#fff}
+.ring li.out{opacity:.5}
+.ring li.out .nm{text-decoration:line-through}
+.ring li.out .x{color:var(--ink-2)}
+.ringhead{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 8px}
+.ringhead b{font-size:18px}
+.ringhead span{font-size:14px;color:var(--muted);font-weight:600}
+.msg{font-weight:700;color:var(--amber);min-height:1.4em;margin-top:10px}
+
+.foot{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.foot .l{font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.ver{flex-basis:100%;margin:6px 0 0;font-size:12px;color:var(--muted)}
+.ver.old{color:var(--red);font-weight:700}
+
+#win{position:fixed;inset:0;z-index:80;background:var(--sage);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px}
+#win .big{font-size:clamp(64px,12vw,140px);line-height:1}
+#win .nm{font-size:clamp(36px,7vw,84px);font-weight:800;line-height:1.1;margin:10px 0;overflow-wrap:anywhere}
+#win .row{justify-content:center;margin-top:22px}
+#win .ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+#win .go{background:#fff;color:var(--sage)}
+#upd{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:12px;background:var(--ink);color:#fff;border-radius:999px;padding:8px 8px 8px 18px;font-size:14px;font-weight:700;max-width:calc(100vw - 24px)}
+#upd button{font:inherit;font-size:13px;font-weight:800;background:#FFD166;color:var(--ink);border:0;border-radius:999px;padding:7px 14px;white-space:nowrap}
+[hidden]{display:none!important}
+@media (max-width:760px){
+  .stage,.rules{grid-template-columns:1fr}
+  h1{font-size:28px}
+}
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <a class="back" href="games.html" data-t="back"></a>
+    <span class="sp"></span>
+    <button type="button" class="pill" data-lang="en">English</button>
+    <button type="button" class="pill" data-lang="zh">中文</button>
+  </div>
+  <div class="eyebrow" data-t="eyebrow"></div>
+  <h1 data-t="title"></h1>
+  <div class="tabs">
+    <button type="button" class="pill" data-tab="rules" data-t="tabRules"></button>
+    <button type="button" class="pill" data-tab="play" data-t="tabPlay"></button>
+  </div>
+
+  <section id="rules" class="rules" hidden>
+    <div class="call"><div class="q" data-t="callQ"></div><div class="a" data-t="callA"></div></div>
+    <div class="card"><h2 data-t="howTitle"></h2><ol class="steps" id="steps"></ol></div>
+    <div class="side">
+      <div class="card">
+        <h2 data-t="exTitle"></h2>
+        <p data-t="exLead"></p>
+        <div class="pair"><div class="bad"><b>👉 👀</b><span data-t="exBad"></span></div><div class="good"><b>👉 🙃</b><span data-t="exGood"></span></div></div>
+      </div>
+      <div class="card">
+        <h2 data-t="zoomTitle"></h2>
+        <p data-t="zoom1"></p>
+        <p data-t="zoom2"></p>
+        <p class="note" data-t="source"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="play" hidden>
+    <div id="setup" class="card">
+      <h2 data-t="setupTitle"></h2>
+      <p data-t="setupLead"></p>
+      <textarea id="names" spellcheck="false" autocomplete="off"></textarea>
+      <div class="row" style="margin-top:14px">
+        <button type="button" class="go" id="start"></button>
+        <button type="button" class="ghost" id="solo" data-t="soloBtn"></button>
+        <button type="button" class="ghost" id="cancelEdit" data-t="cancel" hidden></button>
+      </div>
+      <div class="err" id="err"></div>
+    </div>
+
+    <div id="board" hidden>
+      <div class="stage" id="stage">
+        <div class="pointer">
+          <div class="rd" id="rd"></div>
+          <div class="screen" id="screen"></div>
+          <div class="hostnote" id="hostnote" hidden></div>
+          <div class="row" style="justify-content:center">
+            <button type="button" class="go" id="go" data-t="goBtn"></button>
+          </div>
+          <div class="seg" style="justify-content:center">
+            <span data-t="speed"></span>
+            <button type="button" class="pill" data-sp="slow" data-t="spSlow"></button>
+            <button type="button" class="pill" data-sp="normal" data-t="spNormal"></button>
+            <button type="button" class="pill" data-sp="fast" data-t="spFast"></button>
+          </div>
+          <div class="hint" data-t="keyHint"></div>
+        </div>
+        <div id="list">
+          <div class="ringhead"><b data-t="caughtTitle"></b><span id="left"></span></div>
+          <ul class="ring" id="ring"></ul>
+          <div class="row" style="margin-top:12px">
+            <button type="button" class="go" id="next"></button>
+            <button type="button" class="ghost" id="undo" data-t="undo"></button>
+          </div>
+          <div class="msg" id="msg"></div>
+          <div class="hint" data-t="listHint"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span class="l" data-t="hostTools"></span>
+      <button type="button" class="ghost" id="edit" data-t="edit"></button>
+      <button type="button" class="ghost" id="again" data-t="again"></button>
+      <button type="button" class="ghost" id="wipe" data-t="wipe"></button>
+    </div>
+  </section>
+  <p class="ver"></p>
+</div>
+
+<div id="win" hidden>
+  <div class="big">👀</div>
+  <div class="eyebrow" style="color:#fff;opacity:.8" data-t="winLbl"></div>
+  <div class="nm" id="winName"></div>
+  <div class="row">
+    <button type="button" class="go" id="winAgain" data-t="again"></button>
+    <button type="button" class="ghost" id="winUndo" data-t="undo"></button>
+  </div>
+</div>
+<div id="upd" hidden><span id="updt"></span><button type="button" id="updgo">Reload now</button></div>
+
+<script>
+/* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this file. */
+const BUILD = "2026-10-17T02:24:50Z";
+const SELF = document.currentScript ? document.currentScript.textContent : "";
+const KEY = "look-game-v1";
+const $ = function(id){ return document.getElementById(id); };
+
+/* English is written for an English room: "1, 2, 3, LOOK!" is the beat, the same shape as
+   Korea's cham-cham-cham. The Chinese keeps the show's own call. */
+const T = {
+  en: {
+    back: "← All team games", eyebrow: "JL Team Games", title: "1, 2, 3, Look!",
+    tabRules: "Rules", tabPlay: "Play",
+    callQ: "“One, two, three… LOOK!”", callA: "On “LOOK!” the finger points and every head turns. Don't get caught looking where it points.",
+    howTitle: "How it works",
+    steps: [
+      "One person is the pointer. Everyone else faces them. On Zoom, the screen is the pointer.",
+      "Everyone says it together: <b>“One, two, three… LOOK!”</b>",
+      "On <b>“LOOK!”</b> the pointer points up, down, left or right. At the same moment, everyone turns their head up, down, left or right.",
+      "If your face goes <b>the same way</b> the finger points, you're caught. Any other way, you're safe.",
+      "Turning late, not turning, or just moving your eyes also gets you caught. Last one in wins."
+    ],
+    exTitle: "Example", exLead: "The finger points left.",
+    exBad: "You look left: caught", exGood: "You look up, down or right: safe",
+    zoomTitle: "Playing on Zoom",
+    zoom1: "Share this page. The arrow is the pointer, so everyone plays at once. Turn your whole head, not just your eyes, and keep your face in the camera.",
+    zoom2: "The arrow means your own side: ← is your left. Zoom shows everyone else mirror-flipped from their side, so the host gets a reminder which way the caught faces look on screen.",
+    source: "From the 看这边 game on 快乐大本营 and the “321 看这边” round on 你好星期六. The show tip: watch the pointer's eyes, not the hand.",
+    setupTitle: "Who's playing?", setupLead: "One name per line to keep score. Or skip the list and just run the arrow.",
+    startNew: "Start with this list", saveEdit: "Save the list", soloBtn: "Just the arrow, no list", cancel: "Cancel",
+    needTwo: "Add at least 2 names, or use Just the arrow.", dupes: "Two players have the same name. Add an initial: ",
+    round: "Round", goBtn: "▶ 1, 2, 3, LOOK!", speed: "Speed", spSlow: "Slow", spNormal: "Normal", spFast: "Fast",
+    keyHint: "Space bar runs it too.", idle: "Ready when you are",
+    beats: ["1", "2", "3"], look: "LOOK!",
+    dir: { up: "Up", down: "Down", left: "Left", right: "Right" },
+    noteLR: "Caught: anyone who turned to their own {side}. On your Zoom screen their face turns {screen}.",
+    sideL: "left", sideR: "right", scrL: "to the right →", scrR: "to the left ←",
+    caughtTitle: "Who got caught?", left: "{n} still in",
+    nextBtn: "Next round", nextOut: "Next round · {n} out",
+    allCaught: "Everyone left got caught, so everyone stays in.",
+    listHint: "Tap everyone caught this round, then Next round. Tapped by mistake? Tap again.",
+    caught: "Caught", out: "Out", back2: "Back in",
+    undo: "↶ Undo", hostTools: "Host", edit: "Edit players", again: "New game, same players", wipe: "Clear everything",
+    sureAgain: "Start a new game with the same players? Everyone comes back in.",
+    sureWipe: "Clear the player list and the game on this device?", winLbl: "Last one looking"
+  },
+  zh: {
+    back: "← 全部团队游戏", eyebrow: "JL 团队游戏", title: "一二三，看这边",
+    tabRules: "玩法", tabPlay: "开玩",
+    callQ: "「一、二、三，看这边！」", callA: "喊到「边」，手指一指，所有人同时转头。别跟着手指的方向看。",
+    howTitle: "怎么玩",
+    steps: [
+      "一个人当出题人，其他人面对着他。在 Zoom 上就让屏幕来出题。",
+      "大家一起喊：<b>「一、二、三，看这边！」</b>",
+      "喊到<b>「边」</b>的一瞬间，出题人往上、下、左、右指一个方向，所有人同时把头转向上、下、左、右其中一边。",
+      "脸转到<b>和手指同一个方向</b>，就被抓到。转到别的方向就安全。",
+      "转慢了、没转、或者只动眼睛不动头，也算被抓。留到最后的人赢。"
+    ],
+    exTitle: "举个例子", exLead: "手指指向左边。",
+    exBad: "你看左边：被抓", exGood: "你看上、下或右边：安全",
+    zoomTitle: "在 Zoom 上玩",
+    zoom1: "共享这个页面，屏幕上的箭头就是出题人，大家一起玩。整个头转过去，不能只动眼睛，脸别出镜头。",
+    zoom2: "箭头指的是你自己的方向：← 就是你的左边。Zoom 里别人的画面是左右反的，所以页面会提示主持人，被抓的人在屏幕上脸朝哪边。",
+    source: "出自《快乐大本营》的「看这边」和《你好星期六》的「321 看这边」。节目里的诀窍：盯出题人的眼睛，别看手。",
+    setupTitle: "谁来玩？", setupLead: "一行一个名字，用来记谁出局。也可以不写名单，只用箭头。",
+    startNew: "用这份名单开始", saveEdit: "保存名单", soloBtn: "只用箭头，不记名单", cancel: "取消",
+    needTwo: "至少写两个名字，或者点「只用箭头」。", dupes: "有两个人名字一样，加个字区分一下：",
+    round: "第几轮", goBtn: "▶ 一、二、三，看这边！", speed: "速度", spSlow: "慢", spNormal: "正常", spFast: "快",
+    keyHint: "按空格键也可以开始。", idle: "准备好就开始",
+    beats: ["一", "二", "三"], look: "看这边！",
+    dir: { up: "上", down: "下", left: "左", right: "右" },
+    noteLR: "被抓的人：转向自己{side}边的。在你的 Zoom 屏幕上，他们的脸是{screen}。",
+    sideL: "左", sideR: "右", scrL: "朝右转 →", scrR: "朝左转 ←",
+    caughtTitle: "谁被抓到了？", left: "还剩 {n} 人",
+    nextBtn: "下一轮", nextOut: "下一轮 · {n} 人出局",
+    allCaught: "剩下的人全被抓了，这轮大家都留下。",
+    listHint: "这一轮被抓的人都点一下，再点「下一轮」。点错了再点一下就取消。",
+    caught: "被抓", out: "出局", back2: "回来",
+    undo: "↶ 撤销", hostTools: "主持人", edit: "改名单", again: "同一批人再来一局", wipe: "全部清空",
+    sureAgain: "同一批人重新开一局？所有人回到场上。",
+    sureWipe: "清空这台设备上的名单和这局游戏？", winLbl: "最后的赢家"
+  }
+};
+let LANG = "en";
+function t(k, v){ let s = T[LANG][k]; if(v) for(const p in v) s = s.split("{" + p + "}").join(v[p]); return s; }
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
+/* ---------- state ----------
+   The host laptop is the only copy. A round's taps are "caught" marks; Next round turns them into
+   outs. If every player still in was caught, nobody goes out, so a round can never end the game
+   with no winner. Every action pushes a snapshot for Undo. */
+let G = blank();
+function blank(){ return { players: [], solo: false, round: 1, speed: "normal", last: [], hist: [] }; }
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(G)); }catch(e){} }
+function snap(){ const c = JSON.parse(JSON.stringify(G)); delete c.hist; G.hist.push(c); if(G.hist.length > 60) G.hist.shift(); }
+function undo(){ if(!G.hist.length) return; const h = G.hist; G = h.pop(); G.hist = h; msg = ""; save(); draw(); }
+function active(){ return G.players.filter(function(p){ return !p.out; }); }
+
+let msg = "";
+function toggle(i){
+  const p = G.players[i]; snap();
+  if(p.out) p.out = false; else p.caught = !p.caught;
+  msg = ""; save(); draw();
+}
+function nextRound(){
+  snap();
+  const a = active(), c = a.filter(function(p){ return p.caught; });
+  if(G.players.length && c.length && c.length === a.length){ msg = t("allCaught"); }
+  else { c.forEach(function(p){ p.out = true; }); msg = ""; }
+  G.players.forEach(function(p){ p.caught = false; });
+  G.round++; shown = null; save(); draw();
+}
+
+/* ---------- the pointer ---------- */
+const DIRS = ["up", "right", "down", "left"];
+const ROT = { up: 0, right: 90, down: 180, left: 270 };
+const SPEED = { slow: 1000, normal: 700, fast: 450 };
+let running = false, shown = null, timers = [];
+function pickDir(){
+  /* Random, but never the same direction three times running. */
+  let d; do { d = DIRS[Math.floor(Math.random() * 4)]; } while(G.last.length >= 2 && G.last[0] === d && G.last[1] === d);
+  G.last = [d].concat(G.last).slice(0, 2); return d;
+}
+function run(){
+  if(running) return;
+  running = true; msg = ""; shown = null; drawScreen();
+  const beat = SPEED[G.speed] || 700;
+  T[LANG].beats.forEach(function(b, k){
+    timers.push(setTimeout(function(){ $("screen").innerHTML = '<div class="beat">' + esc(b) + "</div>"; }, k * beat));
+  });
+  timers.push(setTimeout(function(){
+    shown = pickDir(); running = false; timers = []; save(); drawScreen();
+    setTimeout(reloadWhenSafe, 400);
+  }, 3 * beat));
+  $("go").disabled = true;
+}
+function drawScreen(){
+  $("go").disabled = running;
+  $("hostnote").hidden = true;
+  if(running) return;
+  if(!shown){ $("screen").innerHTML = '<div class="idle">' + esc(t("idle")) + "</div>"; return; }
+  $("screen").innerHTML = '<div class="look">' + esc(t("look")) + "</div>"
+    + '<svg viewBox="0 0 100 100" aria-hidden="true" style="transform:rotate(' + ROT[shown] + 'deg)"><path d="M50 6 L88 50 L64 50 L64 94 L36 94 L36 50 L12 50 Z" fill="#96420A"/></svg>'
+    + '<div class="dirw">' + esc(T[LANG].dir[shown]) + "</div>";
+  if(shown === "left" || shown === "right"){
+    $("hostnote").textContent = t("noteLR", shown === "left" ? { side: t("sideL"), screen: t("scrL") } : { side: t("sideR"), screen: t("scrR") });
+    $("hostnote").hidden = false;
+  }
+}
+
+/* ---------- setup ---------- */
+let editing = false;
+function readNames(){ return $("names").value.split("\n").map(function(s){ return s.trim(); }).filter(Boolean); }
+function startOrSave(){
+  const names = readNames();
+  if(names.length < 2){ $("err").textContent = t("needTwo"); return; }
+  const seen = {}, dup = names.filter(function(n){ const k = n.toLowerCase(); if(seen[k]) return true; seen[k] = 1; return false; });
+  if(dup.length){ $("err").textContent = t("dupes") + dup.join(", "); return; }
+  $("err").textContent = ""; snap();
+  if(editing && G.players.length){
+    const was = {}; G.players.forEach(function(p){ was[p.n.toLowerCase()] = p; });
+    G.players = names.map(function(n){ const w = was[n.toLowerCase()]; return { n: n, out: !!(w && w.out), caught: !!(w && w.caught) }; });
+    if(!active().length) G.players.forEach(function(p){ p.out = false; });
+  }else{
+    G.players = names.map(function(n){ return { n: n, out: false, caught: false }; }); G.round = 1;
+  }
+  G.solo = false; editing = false; $("names").blur(); save(); draw();
+}
+function goSolo(){ snap(); G.solo = true; G.players = []; G.round = 1; editing = false; save(); draw(); }
+function openEdit(){ editing = true; $("names").value = G.players.map(function(p){ return p.n; }).join("\n"); draw(); $("names").focus(); }
+function newGame(ask){
+  if(ask && !confirm(t("sureAgain"))) return;
+  snap(); G.players.forEach(function(p){ p.out = false; p.caught = false; }); G.round = 1; shown = null; msg = ""; save(); draw();
+}
+function wipe(){ if(!confirm(t("sureWipe"))) return; G = blank(); editing = false; shown = null; msg = ""; $("names").value = ""; save(); draw(); }
+
+/* ---------- drawing ---------- */
+let TAB = "rules";
+function draw(){
+  document.documentElement.lang = LANG === "zh" ? "zh-CN" : "en";
+  document.title = t("title");
+  document.querySelectorAll("[data-t]").forEach(function(el){ el.textContent = t(el.dataset.t); });
+  document.querySelectorAll("[data-lang]").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.lang === LANG); });
+  document.querySelectorAll("[data-tab]").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.tab === TAB); });
+  document.querySelectorAll("[data-sp]").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.sp === G.speed); });
+  $("rules").hidden = TAB !== "rules"; $("play").hidden = TAB !== "play";
+  $("steps").innerHTML = T[LANG].steps.map(function(s){ return "<li>" + s + "</li>"; }).join("");
+
+  const listed = G.players.length >= 2;
+  const playing = (listed || G.solo) && !editing;
+  $("setup").hidden = playing; $("board").hidden = !playing;
+  $("start").textContent = editing ? t("saveEdit") : t("startNew");
+  $("cancelEdit").hidden = !(editing && (listed || G.solo));
+  $("solo").hidden = editing && listed;
+  $("edit").hidden = !playing; $("again").hidden = !(playing && listed);
+  $("list").hidden = !listed; $("stage").classList.toggle("solo", !listed);
+
+  const a = active();
+  const won = playing && listed && a.length === 1;
+  $("win").hidden = !won;
+  if(won) $("winName").textContent = a[0].n;
+  if(!playing) return;
+
+  $("rd").textContent = LANG === "zh" ? "第 " + G.round + " 轮" : t("round") + " " + G.round;
+  if(!running) drawScreen();
+  if(listed){
+    $("left").textContent = t("left", { n: a.length });
+    const nc = a.filter(function(p){ return p.caught; }).length;
+    $("next").textContent = nc ? t("nextOut", { n: nc }) : t("nextBtn");
+    $("ring").innerHTML = G.players.map(function(p, i){
+      const cls = p.out ? "out" : p.caught ? "caught" : "";
+      return '<li class="' + cls + '"><span class="nm">' + esc(p.n) + '</span><button type="button" class="x" data-i="' + i + '">'
+        + (p.out ? t("back2") : t("caught")) + "</button></li>";
+    }).join("");
+  }
+  $("msg").textContent = msg;
+  $("undo").disabled = !G.hist.length; $("winUndo").disabled = !G.hist.length;
+}
+
+/* ---------- events ---------- */
+document.querySelectorAll("[data-lang]").forEach(function(b){ b.onclick = function(){ LANG = b.dataset.lang; try{ localStorage.setItem("fnh-lang", LANG); }catch(e){} draw(); }; });
+document.querySelectorAll("[data-tab]").forEach(function(b){ b.onclick = function(){ TAB = b.dataset.tab; try{ sessionStorage.setItem("look-tab", TAB); }catch(e){} draw(); }; });
+document.querySelectorAll("[data-sp]").forEach(function(b){ b.onclick = function(){ G.speed = b.dataset.sp; save(); draw(); }; });
+$("start").onclick = startOrSave; $("solo").onclick = goSolo;
+$("cancelEdit").onclick = function(){ editing = false; $("names").blur(); draw(); setTimeout(reloadWhenSafe, 400); };
+$("go").onclick = run;
+$("ring").onclick = function(e){ const b = e.target.closest("[data-i]"); if(b) toggle(+b.dataset.i); };
+$("next").onclick = nextRound; $("undo").onclick = undo;
+$("winUndo").onclick = function(){ undo(); setTimeout(reloadWhenSafe, 400); };
+$("again").onclick = function(){ newGame(true); };
+$("winAgain").onclick = function(){ newGame(false); setTimeout(reloadWhenSafe, 400); };
+$("edit").onclick = openEdit; $("wipe").onclick = wipe;
+document.addEventListener("keydown", function(e){
+  if(TAB !== "play" || $("board").hidden || /^(INPUT|TEXTAREA|BUTTON)$/.test((document.activeElement || {}).tagName || "")) return;
+  if(e.key === " "){ e.preventDefault(); run(); }
+});
+
+/* ---------- start-up ---------- */
+try{
+  if(/[?&]v=/.test(location.search)) history.replaceState(null, "", location.pathname + location.hash);
+  const g = localStorage.getItem(KEY); if(g){ const o = JSON.parse(g); if(o && Array.isArray(o.players)) G = Object.assign(blank(), o); }
+  const l = localStorage.getItem("fnh-lang"); if(l === "zh" || l === "en") LANG = l; else if(/^zh/i.test(navigator.language || "")) LANG = "zh";
+  const tb = sessionStorage.getItem("look-tab"); if(tb === "play" || tb === "rules") TAB = tb;
+  const d = sessionStorage.getItem("look-draft"); if(d && !G.players.length) $("names").value = d;
+}catch(e){}
+$("names").addEventListener("input", function(){ try{ sessionStorage.setItem("look-draft", $("names").value); }catch(e){} });
+draw();
+
+/* ---------- always the newest version (see fnh.html and app-qa/references/self-update.md) ----------
+   Never reloads during a countdown, over the winner screen, or over an open player list. */
+let stale = false, checkedAt = 0, triedAt = 0, staleKey = "";
+function fmtWhen(t){ return new Date(t).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }); }
+function paintVer(){
+  const txt = "Version " + fmtWhen(BUILD) + (stale ? " · a newer version is out, reloading"
+    : checkedAt ? " · the newest (checked " + new Date(checkedAt).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }) + ")" : "");
+  document.querySelectorAll(".ver").forEach(function(el){ el.textContent = txt; el.classList.toggle("old", stale); });
+}
+function busy(){
+  const a = document.activeElement;
+  return running || !$("win").hidden || editing || !!(a && /^(INPUT|TEXTAREA)$/.test(a.tagName) && a.value && a.offsetParent)
+    || (!G.players.length && !G.solo && !!$("names").value.trim());
+}
+function freshen(){
+  if(!/^https?:$/.test(location.protocol) || document.hidden || Date.now() - triedAt < 8000) return;
+  triedAt = Date.now();
+  fetch(location.pathname + "?latest=" + Date.now(), { cache: "no-store" })
+    .then(function(r){ return r.ok ? r.text() : ""; })
+    .then(function(html){
+      const m = /const BUILD = "([^"]+)";/.exec(html);
+      if(!m || !SELF) return;
+      checkedAt = Date.now();
+      stale = m[1] >= BUILD && html.indexOf(SELF) < 0;
+      staleKey = m[1] + ":" + html.length;
+      paintVer(); reloadWhenSafe();
+    }).catch(function(){});
+}
+function reloadWhenSafe(){
+  if(!stale){ $("upd").hidden = true; return; }
+  let tried = ""; try{ tried = sessionStorage.getItem("look-tried") || ""; }catch(e){}
+  if(tried !== staleKey && !busy()){ reloadNow(); return; }
+  $("updt").textContent = tried === staleKey ? "A newer version of this page is out." : "A newer version is out. It loads when you close this.";
+  $("upd").hidden = false;
+}
+function reloadNow(){
+  try{ sessionStorage.setItem("look-tried", staleKey); sessionStorage.setItem("look-tab", TAB); }catch(e){}
+  location.replace(location.pathname + "?v=" + Date.now() + location.hash);
+}
+$("updgo").onclick = reloadNow;
+paintVer(); freshen();
+setInterval(freshen, 60000);
+setInterval(function(){ if(stale) reloadWhenSafe(); }, 3000);
+document.addEventListener("visibilitychange", function(){ if(!document.hidden) freshen(); });
+addEventListener("focus", freshen);
+addEventListener("pageshow", function(e){ if(e.persisted){ triedAt = 0; freshen(); } });
+</script>

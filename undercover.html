@@ -1,0 +1,647 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Undercover</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+/* Same projector-first palette as fnh.html. */
+:root{
+  --ground:#F2F5F1; --panel:#FFFFFF; --panel-2:#E8EEE8; --line:#C8D2C9; --line-2:#A8B6AA;
+  --ink:#141A16; --ink-2:#3A453C; --muted:#5F6C62;
+  --sage:#345043; --sage-2:#4A7060; --sage-light:#E4EDE6;
+  --amber:#96420A; --amber-light:#FBEEE2; --red:#A81C1C; --red-light:#F8E3E3; --blue:#1546B0; --purple:#5B3391;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1100px;margin:0 auto;padding:18px 16px 80px}
+.wrap.narrow{max-width:520px}
+h1,h2{font-weight:800;letter-spacing:-.02em;text-wrap:balance;margin:0}
+h1{font-size:34px;line-height:1.05}
+h2{font-size:24px;margin:0 0 10px}
+p{margin:0 0 12px}
+a{color:var(--sage);font-weight:600}
+button,select{font-family:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.eyebrow{font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.top .back{font-size:14px}
+.top .sp{flex:1}
+.pill{background:#fff;border:2px solid var(--line-2);color:var(--ink-2);border-radius:999px;font-size:14px;font-weight:700;padding:6px 14px}
+.pill[aria-pressed="true"]{background:var(--sage);border-color:var(--sage);color:#fff}
+.pill:disabled{opacity:.4;cursor:default}
+.tabs{display:flex;gap:8px;margin:6px 0 16px}
+.tabs .pill{font-size:16px;padding:9px 20px}
+.card{background:var(--panel);border:2px solid var(--line);border-radius:14px;padding:22px}
+.go{background:var(--sage);color:#fff;border:0;border-radius:11px;font-weight:800;font-size:19px;padding:14px 22px}
+.go:hover{background:var(--sage-2)}
+.go:disabled{opacity:.45;cursor:default}
+.ghost{background:#fff;border:2px solid var(--line-2);color:var(--ink-2);border-radius:10px;font-size:15px;font-weight:700;padding:10px 16px}
+.ghost:disabled{opacity:.45;cursor:default}
+.err{color:var(--red);font-weight:600;font-size:15px;min-height:1px;margin-top:8px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.note{font-size:14px;color:var(--muted)}
+.hint{font-size:14px;color:var(--muted);margin-top:12px}
+
+.rules{display:grid;gap:14px;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start}
+.rules .call{grid-column:1/-1}
+.rules .side{display:grid;gap:14px}
+.call{background:var(--sage);color:#fff;border-radius:14px;padding:22px 24px;text-align:center}
+.call .q{font-size:clamp(28px,5vw,52px);font-weight:800;line-height:1.15}
+.call .a{font-size:clamp(18px,2.4vw,24px);opacity:.9;margin-top:6px}
+.steps{margin:0;padding-left:1.3em;font-size:clamp(17px,1.6vw,20px)}
+.steps li{margin:0 0 10px}
+.ex{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.ex span{border-radius:10px;padding:8px 12px;font-weight:700;background:var(--panel-2);font-size:15px}
+.ex .u{background:var(--amber);color:#fff}
+
+textarea{width:100%;min-height:200px;background:#fff;border:2px solid var(--line-2);border-radius:10px;color:var(--ink);font:inherit;font-size:18px;padding:12px 14px;resize:vertical}
+textarea:focus{border-color:var(--sage);outline:none}
+.opts{display:grid;gap:12px;margin:14px 0}
+.opts .lbl{font-size:14px;font-weight:700;color:var(--ink-2);margin-right:6px}
+
+/* host board */
+.link{display:flex;gap:8px;align-items:center;background:var(--sage-light);border:2px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:14px;flex-wrap:wrap}
+.link b{font-size:17px}
+.link code{flex:1;min-width:0;font-size:13px;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:16px;align-items:start}
+.now{background:var(--panel);border:2px solid var(--line);border-radius:14px;padding:20px;text-align:center}
+.now .rd{font-size:14px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.now .gm{font-size:clamp(40px,6vw,72px);font-weight:800;line-height:1;color:var(--sage);margin:6px 0}
+.now .who{font-size:clamp(20px,2.6vw,28px);font-weight:800;margin-top:10px;overflow-wrap:anywhere}
+.now .counts{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.now .counts span{background:var(--panel-2);border-radius:999px;padding:4px 12px;font-size:14px;font-weight:700}
+.ring{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.ring li{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--line);border-radius:12px;padding:8px 10px 8px 12px}
+.ring .ix{width:26px;flex:none;font-weight:800;color:var(--muted)}
+.ring .nm{flex:1;min-width:0;font-weight:700;font-size:clamp(17px,1.9vw,21px);overflow-wrap:anywhere}
+.ring .tag{flex:none;font-size:13px;font-weight:800;border-radius:999px;padding:3px 10px;color:#fff}
+.ring .tag.c{background:var(--sage)} .ring .tag.u{background:var(--amber)} .ring .tag.b{background:var(--purple)}
+.ring .x{flex:none;background:#fff;border:2px solid var(--line-2);color:var(--red);border-radius:9px;font-size:14px;font-weight:800;padding:5px 12px}
+.ring li.out{background:var(--panel-2)}
+.ring li.out .nm{text-decoration:line-through;color:var(--muted)}
+.ring li.first{border-color:var(--blue)}
+
+.foot{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.foot .l{font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.ver{flex-basis:100%;margin:6px 0 0;font-size:12px;color:var(--muted)}
+.ver.old{color:var(--red);font-weight:700}
+
+/* end screen */
+#end{position:fixed;inset:0;z-index:80;background:var(--sage);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;overflow:auto}
+#end.u{background:var(--amber)} #end.b{background:var(--purple)}
+#end .big{font-size:clamp(40px,8vw,96px);font-weight:800;line-height:1.05}
+#end .words{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:22px 0 10px}
+#end .words div{background:rgba(255,255,255,.14);border-radius:14px;padding:12px 20px;min-width:180px}
+#end .words small{display:block;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+#end .words b{font-size:clamp(26px,4vw,40px)}
+#end .who{font-size:18px;font-weight:600;opacity:.95}
+#end .row{justify-content:center;margin-top:22px}
+#end .ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}
+#end .go{background:#fff;color:var(--ink)}
+#end .note{color:#fff;opacity:.85;margin-top:10px}
+
+/* player phone */
+.seats{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin-top:10px}
+.seats button{background:#fff;border:2px solid var(--line-2);border-radius:12px;font-size:17px;font-weight:700;padding:14px 8px;color:var(--ink);overflow-wrap:anywhere}
+.gamebar{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;border:2px solid var(--line);border-radius:12px;padding:8px 10px 8px 16px;margin:12px 0}
+.gamebar b{font-size:20px}
+.gamebar .row{gap:6px}
+.gamebar button{width:44px;height:44px;border-radius:10px;border:2px solid var(--line-2);background:#fff;font-size:22px;font-weight:800;color:var(--ink)}
+.reveal{width:100%;min-height:220px;border-radius:16px;border:0;background:var(--sage);color:#fff;font-size:22px;font-weight:800;padding:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.reveal .w{font-size:clamp(40px,12vw,64px);line-height:1.1;overflow-wrap:anywhere}
+.reveal small{font-size:14px;font-weight:600;opacity:.85}
+.reveal.on{background:#fff;color:var(--ink);border:3px solid var(--sage)}
+.reveal.on.b{border-color:var(--purple);color:var(--purple)}
+
+#upd{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:90;display:flex;align-items:center;gap:12px;background:var(--ink);color:#fff;border-radius:999px;padding:8px 8px 8px 18px;font-size:14px;font-weight:700;max-width:calc(100vw - 24px)}
+#upd button{font:inherit;font-size:13px;font-weight:800;background:#FFD166;color:var(--ink);border:0;border-radius:999px;padding:7px 14px;white-space:nowrap}
+[hidden]{display:none!important}
+@media (max-width:760px){
+  .stage,.rules{grid-template-columns:1fr}
+  h1{font-size:28px}
+}
+</style>
+
+<!-- ===================== HOST ===================== -->
+<div class="wrap" id="host" hidden>
+  <div class="top">
+    <a class="back" href="games.html" data-t="back"></a>
+    <span class="sp"></span>
+    <button type="button" class="pill" data-lang="en">English</button>
+    <button type="button" class="pill" data-lang="zh">中文</button>
+  </div>
+  <div class="eyebrow" data-t="eyebrow"></div>
+  <h1 data-t="title"></h1>
+  <div class="tabs">
+    <button type="button" class="pill" data-tab="rules" data-t="tabRules"></button>
+    <button type="button" class="pill" data-tab="play" data-t="tabPlay"></button>
+  </div>
+
+  <section id="rules" class="rules" hidden>
+    <div class="call"><div class="q" data-t="callQ"></div><div class="a" data-t="callA"></div></div>
+    <div class="card"><h2 data-t="howTitle"></h2><ol class="steps" id="steps"></ol></div>
+    <div class="side">
+      <div class="card">
+        <h2 data-t="exTitle"></h2>
+        <p data-t="exLead"></p>
+        <div class="ex" id="ex"></div>
+        <p class="note" data-t="exNote"></p>
+      </div>
+      <div class="card">
+        <h2 data-t="tipsTitle"></h2>
+        <p data-t="tip1"></p>
+        <p data-t="tip2"></p>
+        <p class="note" data-t="source"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="play" hidden>
+    <div id="setup" class="card">
+      <h2 data-t="setupTitle"></h2>
+      <p data-t="setupLead"></p>
+      <textarea id="names" spellcheck="false" autocomplete="off"></textarea>
+      <div class="opts">
+        <div class="row"><span class="lbl" data-t="ucLbl"></span><span id="ucOpts" class="row"></span></div>
+        <div class="row"><span class="lbl" data-t="blankLbl"></span>
+          <button type="button" class="pill" data-blank="0" data-t="no"></button>
+          <button type="button" class="pill" data-blank="1" data-t="yes"></button>
+          <span class="note" data-t="blankNote"></span></div>
+        <div class="row"><span class="lbl" data-t="wordsLbl"></span>
+          <button type="button" class="pill" data-wl="en">English</button>
+          <button type="button" class="pill" data-wl="zh">中文</button></div>
+      </div>
+      <button type="button" class="go" id="create" data-t="create"></button>
+      <div class="err" id="err"></div>
+    </div>
+
+    <div id="board" hidden>
+      <div class="link">
+        <b data-t="linkLbl"></b>
+        <code id="linkText"></code>
+        <button type="button" class="ghost" id="copy" data-t="copy"></button>
+        <a id="openSelf" target="_blank" rel="noopener" data-t="openOne"></a>
+      </div>
+      <div class="stage">
+        <div class="now">
+          <div class="rd" data-t="gameLbl"></div>
+          <div class="gm" id="gm"></div>
+          <div class="note" id="gmNote"></div>
+          <div class="who" id="starts"></div>
+          <div class="counts" id="counts"></div>
+          <div class="row" style="justify-content:center;margin-top:14px">
+            <button type="button" class="ghost" id="undo" data-t="undo"></button>
+          </div>
+          <div class="hint" data-t="tieHint"></div>
+        </div>
+        <ul class="ring" id="ring"></ul>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span class="l" data-t="hostTools"></span>
+      <button type="button" class="ghost" id="skip" data-t="skip"></button>
+      <button type="button" class="ghost" id="reveal" data-t="revealBtn"></button>
+      <button type="button" class="ghost" id="wipe" data-t="wipe"></button>
+    </div>
+  </section>
+  <p class="ver"></p>
+</div>
+
+<div id="end" hidden>
+  <div class="eyebrow" style="color:#fff;opacity:.85" id="endGame"></div>
+  <div class="big" id="endTitle"></div>
+  <div class="words" id="endWords"></div>
+  <div class="who" id="endWho"></div>
+  <div class="row">
+    <button type="button" class="go" id="nextGame" data-t="nextGame"></button>
+    <button type="button" class="ghost" id="endUndo" data-t="undo"></button>
+  </div>
+  <div class="note" id="endNote"></div>
+</div>
+
+<!-- ===================== PLAYER PHONE ===================== -->
+<div class="wrap narrow" id="player" hidden>
+  <div class="top">
+    <div class="eyebrow" data-t="title"></div>
+    <span class="sp"></span>
+    <button type="button" class="pill" data-lang="en">EN</button>
+    <button type="button" class="pill" data-lang="zh">中文</button>
+  </div>
+  <div id="pickSeat">
+    <h1 data-t="whoAreYou"></h1>
+    <p class="note" data-t="whoNote"></p>
+    <div class="seats" id="seats"></div>
+  </div>
+  <div id="mine" hidden>
+    <h1 id="meName"></h1>
+    <div class="gamebar">
+      <b id="pGame"></b>
+      <div class="row">
+        <button type="button" id="gMinus" aria-label="Previous game">−</button>
+        <button type="button" id="gPlus" aria-label="Next game">+</button>
+      </div>
+    </div>
+    <p class="note" data-t="gameNote"></p>
+    <button type="button" class="reveal" id="rv"></button>
+    <p class="hint" style="text-align:center"><button type="button" class="ghost" id="notMe" data-t="notMe"></button></p>
+  </div>
+  <p class="ver"></p>
+</div>
+
+<div id="upd" hidden><span id="updt"></span><button type="button" id="updgo">Reload now</button></div>
+
+<script>
+/* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this file. */
+const BUILD = "2026-10-17T02:24:50Z";
+const SELF = document.currentScript ? document.currentScript.textContent : "";
+const $ = function(id){ return document.getElementById(id); };
+
+/* ---------- word pairs ----------
+   APPEND ONLY. A game stores how many pairs existed when it was created and picks from those, so
+   adding pairs at the end never changes a game in progress. Reordering or deleting would hand the
+   host's screen and the players' phones different words. Pairs are written for each room: the
+   English ones are things an American team knows, the Chinese ones are the classic 谁是卧底 kind. */
+const WORDS = {
+  en: [
+    ["Coffee", "Tea"], ["Pancakes", "Waffles"], ["Beach", "Pool"], ["Pizza", "Burger"], ["Lion", "Tiger"],
+    ["Guitar", "Violin"], ["Sunrise", "Sunset"], ["Instagram", "TikTok"], ["Uber", "Taxi"], ["Doctor", "Nurse"],
+    ["Ketchup", "Mustard"], ["Basketball", "Volleyball"], ["Netflix", "YouTube"], ["Harry Potter", "Lord of the Rings"], ["Shower", "Bath"],
+    ["Cupcake", "Muffin"], ["Hotel", "Airbnb"], ["Train", "Subway"], ["Snow", "Rain"], ["Gym", "Yoga studio"],
+    ["Wedding", "Birthday party"], ["Laptop", "Tablet"], ["Sushi", "Ramen"], ["Spider-Man", "Batman"], ["Zoom", "FaceTime"],
+    ["Jeans", "Leggings"], ["Ocean", "Lake"], ["Elevator", "Escalator"], ["Text message", "Email"], ["Christmas", "Thanksgiving"],
+    ["Running", "Hiking"], ["Popcorn", "Chips"], ["Starbucks", "Dunkin'"], ["Smoothie", "Milkshake"], ["Pillow", "Blanket"],
+    ["Movie theater", "Concert"], ["Passport", "Driver's license"], ["Vitamins", "Protein powder"], ["Breakfast", "Brunch"], ["Camping", "Glamping"],
+    ["Mentor", "Coach"], ["Airport", "Train station"], ["Toothbrush", "Floss"], ["Dog", "Cat"], ["Mountain", "Volcano"]
+  ],
+  zh: [
+    ["牛奶", "豆浆"], ["饺子", "包子"], ["火锅", "麻辣烫"], ["微信", "QQ"], ["眉毛", "睫毛"],
+    ["情人节", "七夕"], ["洗发水", "护发素"], ["奶茶", "咖啡"], ["高铁", "动车"], ["口红", "唇膏"],
+    ["蜜蜂", "蝴蝶"], ["月饼", "粽子"], ["麦当劳", "肯德基"], ["淘宝", "京东"], ["支付宝", "微信支付"],
+    ["西瓜", "哈密瓜"], ["雪碧", "七喜"], ["拖鞋", "凉鞋"], ["外卖", "快递"], ["班主任", "辅导员"],
+    ["健身房", "瑜伽馆"], ["电梯", "扶梯"], ["抖音", "快手"], ["小龙虾", "大闸蟹"], ["婚礼", "订婚宴"],
+    ["护照", "身份证"], ["维生素", "蛋白粉"], ["油条", "麻花"], ["地铁", "公交"], ["演唱会", "音乐节"],
+    ["枕头", "抱枕"], ["牙刷", "牙线"], ["熊猫", "考拉"], ["葡萄", "提子"], ["孙悟空", "六耳猕猴"],
+    ["汤圆", "元宵"], ["相亲", "约会"], ["酸奶", "奶酪"], ["春晚", "跨年晚会"], ["自拍", "合照"]
+  ]
+};
+
+const T = {
+  en: {
+    back: "← All team games", eyebrow: "JL Team Games", title: "Undercover",
+    tabRules: "Rules", tabPlay: "Play",
+    callQ: "Who's the undercover?", callA: "Everyone has a secret word. One of you has a slightly different one, and doesn't know it.",
+    howTitle: "How it works",
+    steps: [
+      "Everyone opens the host's link on their phone and taps their own name. Your phone shows your secret word. Don't show anyone.",
+      "Most players share the same word. The <b>undercover</b> gets a similar word and doesn't know they're the undercover.",
+      "Going down the list, everyone gives <b>one short clue</b> about their word. Don't say the word itself. Too obvious and the undercover catches on; too vague and people suspect you.",
+      "After everyone's clue, vote on who you think is the undercover. The player with the most votes is out, and the host reveals their role.",
+      "Civilians win when every undercover is out. The undercover wins by surviving until <b>2 players</b> are left (<b>3</b> in games of 7 or more)."
+    ],
+    exTitle: "Example", exLead: "Five players. Four have “Coffee”, one has “Tea”.",
+    exClues: [["Ava", "“I need it every morning”"], ["Ken", "“Comes in a mug”"], ["Lily", "“My grandma drinks it with honey”", 1], ["Sam", "“Starbucks”"], ["Max", "“Better iced”"]],
+    exNote: "Lily's clue fits tea better than coffee, so Lily gets the votes. The host taps Vote out and the page reveals: undercover. Civilians win.",
+    tipsTitle: "Good to know",
+    tip1: "Optional Mr. White gets no word at all and bluffs from everyone else's clues. If every undercover is out but Mr. White is still in, Mr. White wins.",
+    tip2: "Tie vote? The tied players each give one more clue, then everyone votes again between them. Clues can't repeat one already given.",
+    source: "The Chinese party classic 谁是卧底, known in English as Undercover. Win lines follow the common judge rules: 2 left under 7 players, 3 left at 7 or more.",
+    setupTitle: "Players, in clue order", setupLead: "One name per line. Each player taps their own name on their phone, so first names are enough.",
+    ucLbl: "Undercovers", blankLbl: "Mr. White", blankNote: "(no word, 5+ players)", wordsLbl: "Words in", no: "No", yes: "Yes",
+    create: "Create the game", needFour: "Add at least 4 names.", dupes: "Two players have the same name. Add an initial: ",
+    linkLbl: "Players open this on their phone:", copy: "Copy link", copied: "Copied ✓", openOne: "Open a player view",
+    gameLbl: "Game", gmNote: "Players: make sure your phone says Game {g}.",
+    starts: "Round {r} · clues start with {n}", counts: "{a} still in", ucLeft: "{u} undercover in play", ucLeftP: "{u} undercovers in play",
+    voteOut: "Vote out", back2: "Back in",
+    role: { c: "Civilian", u: "Undercover", b: "Mr. White" },
+    tieHint: "Tied vote? The tied players give one more clue each, then vote again. Voted out by mistake? Undo.",
+    undo: "↶ Undo", hostTools: "Host", skip: "New words now", revealBtn: "End and show words", wipe: "New players",
+    sureSkip: "Start the next game with new words? This game ends without a winner.",
+    sureReveal: "End this game and show both words to everyone watching?",
+    sureWipe: "Clear the players and the game on this device?",
+    winC: "Civilians win!", winU: "The undercover wins!", winUs: "The undercovers win!", winB: "Mr. White wins!", ended: "Game over",
+    civW: "Civilians", ucW: "Undercover", bW: "Mr. White", noWord: "(no word)",
+    ucWere: "Undercover: {n}", bWas: "Mr. White: {n}",
+    nextGame: "Next game, new words", endNote: "Players tap + on their phone until it says Game {g}.",
+    whoAreYou: "Who are you?", whoNote: "Tap your own name. Only you should see your word.",
+    pGame: "Game {g}", gameNote: "If the host says a different game number, change it here with − or +.",
+    tapSee: "Tap to see your word", hides: "Hides again in 5 seconds. Don't show anyone.",
+    yourWord: "Your word", blankWord: "You're Mr. White", blankSub: "You have no word. Listen to the clues and bluff.",
+    notMe: "Not me, pick again", sureNotMe: "Pick a different name?",
+    badLink: "This game link doesn't work. Ask the host to send it again."
+  },
+  zh: {
+    back: "← 全部团队游戏", eyebrow: "JL 团队游戏", title: "谁是卧底",
+    tabRules: "玩法", tabPlay: "开玩",
+    callQ: "谁是卧底？", callA: "每人一个秘密词。有人拿到的词不太一样，但他自己不知道。",
+    howTitle: "怎么玩",
+    steps: [
+      "大家用手机打开主持人发的链接，点自己的名字，就能看到自己的词。别给别人看。",
+      "大部分人的词一样，是平民。<b>卧底</b>拿到一个相近的词，而且他自己不知道自己是卧底。",
+      "按名单顺序，每人用<b>一句话</b>描述自己的词，不能直接说出这个词。说得太明显，卧底就猜到了；说得太模糊，大家会怀疑你。",
+      "所有人说完后投票，选出你觉得是卧底的人。票最多的人出局，主持人公布他的身份。",
+      "卧底全部出局，平民赢。卧底撑到只剩 <b>2 个人</b>（7 人以上的局剩 <b>3 个人</b>），卧底赢。"
+    ],
+    exTitle: "举个例子", exLead: "五个人。四个人的词是「牛奶」，一个人是「豆浆」。",
+    exClues: [["小美", "「早餐常喝」"], ["阿强", "「白色的」"], ["小红", "「配油条最好」", 1], ["小明", "「补钙」"], ["阿杰", "「超市冷藏柜里有」"]],
+    exNote: "小红说的更像豆浆，大家投她出局。主持人点「投票出局」，页面显示：卧底。平民赢。",
+    tipsTitle: "补充规则",
+    tip1: "可以加一个白板。白板没有词，只能听别人的描述来混。卧底全部出局但白板还在，白板赢。",
+    tip2: "平票的话，平票的人各再说一句，大家只在他们之间重新投。描述不能和前面的人重复。",
+    source: "经典聚会游戏「谁是卧底」。胜负线按常见法官规则：7 人以下剩 2 人，7 人及以上剩 3 人。",
+    setupTitle: "玩家名单（发言顺序）", setupLead: "一行一个名字。每个人要在手机上点自己的名字，写名字就够了。",
+    ucLbl: "卧底人数", blankLbl: "白板", blankNote: "（没有词，5 人以上）", wordsLbl: "词语", no: "不要", yes: "要",
+    create: "创建游戏", needFour: "至少写四个名字。", dupes: "有两个人名字一样，加个字区分一下：",
+    linkLbl: "让大家用手机打开：", copy: "复制链接", copied: "已复制 ✓", openOne: "打开一个玩家页面",
+    gameLbl: "局数", gmNote: "大家确认手机上显示的是第 {g} 局。",
+    starts: "第 {r} 轮 · 从 {n} 开始描述", counts: "还剩 {a} 人", ucLeft: "场上还有 {u} 个卧底", ucLeftP: "场上还有 {u} 个卧底",
+    voteOut: "投票出局", back2: "回来",
+    role: { c: "平民", u: "卧底", b: "白板" },
+    tieHint: "平票？平票的人各再说一句，然后重新投。投错了？点撤销。",
+    undo: "↶ 撤销", hostTools: "主持人", skip: "直接换词", revealBtn: "结束并公布答案", wipe: "换一批玩家",
+    sureSkip: "直接开下一局换新词？这一局不计胜负。",
+    sureReveal: "结束这一局，把两个词公布给所有人？",
+    sureWipe: "清空这台设备上的玩家和游戏？",
+    winC: "平民赢了！", winU: "卧底赢了！", winUs: "卧底赢了！", winB: "白板赢了！", ended: "本局结束",
+    civW: "平民", ucW: "卧底", bW: "白板", noWord: "（没有词）",
+    ucWere: "卧底：{n}", bWas: "白板：{n}",
+    nextGame: "下一局，换新词", endNote: "大家在手机上点 +，直到显示第 {g} 局。",
+    whoAreYou: "你是谁？", whoNote: "点你自己的名字。你的词只有你能看。",
+    pGame: "第 {g} 局", gameNote: "主持人说的局数不一样？用 − 或 + 改过来。",
+    tapSee: "点一下看你的词", hides: "5 秒后自动盖住，别给别人看。",
+    yourWord: "你的词", blankWord: "你是白板", blankSub: "你没有词。听别人怎么说，想办法混过去。",
+    notMe: "选错了，重新选", sureNotMe: "重新选一个名字？",
+    badLink: "这个链接打不开。请主持人重新发一次。"
+  }
+};
+let LANG = "en";
+function t(k, v){ let s = T[LANG][k]; if(v) for(const p in v) s = s.split("{" + p + "}").join(v[p]); return s; }
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
+/* ---------- dealing ----------
+   No server: the host's link carries a seed, the names, the settings and how many pairs existed.
+   Every phone works out the same deal from that, game by game. A curious player could tap someone
+   else's name or read the code to see more, so this is honour-system, fine for a team game. */
+function rng(a){ return function(){ a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function pairIdx(cfg, g){ return Math.floor(rng(cfg.s ^ Math.imul(g, 0x9E3779B1))() * cfg.L); }
+function deal(cfg, g){
+  const r = rng((cfg.s ^ Math.imul(g, 0x9E3779B1)) + 7);
+  let pi = pairIdx(cfg, g);
+  if(g > 1 && pi === pairIdx(cfg, g - 1)) pi = (pi + 1) % cfg.L;   /* never the same pair twice running */
+  const pair = WORDS[cfg.l][pi], flip = r() < 0.5;
+  const civ = flip ? pair[1] : pair[0], uc = flip ? pair[0] : pair[1];
+  const order = cfg.n.map(function(_, i){ return i; });
+  for(let i = order.length - 1; i > 0; i--){ const j = Math.floor(r() * (i + 1)); const x = order[i]; order[i] = order[j]; order[j] = x; }
+  const role = cfg.n.map(function(){ return "c"; });
+  order.slice(0, cfg.u).forEach(function(i){ role[i] = "u"; });
+  if(cfg.b) role[order[cfg.u]] = "b";
+  return { civ: civ, uc: uc, role: role };
+}
+function b64e(o){ return btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
+function b64d(s){ return JSON.parse(decodeURIComponent(escape(atob(s.replace(/-/g, "+").replace(/_/g, "/"))))); }
+function validCfg(c){ return c && Array.isArray(c.n) && c.n.length >= 4 && WORDS[c.l] && c.L >= 1 && c.L <= WORDS[c.l].length && c.u >= 1 && typeof c.s === "number"; }
+
+/* ===================== HOST ===================== */
+const HKEY = "undercover-host-v1";
+let H = hblank();
+function hblank(){ return { cfg: null, game: 1, out: [], round: 1, starter: 0, ended: false, shown: false, hist: [], u: 0, b: 0, wl: null }; }
+function hsave(){ try{ localStorage.setItem(HKEY, JSON.stringify(H)); }catch(e){} }
+function hsnap(){ const c = JSON.parse(JSON.stringify(H)); delete c.hist; H.hist.push(c); if(H.hist.length > 60) H.hist.shift(); }
+function hundo(){ if(!H.hist.length) return; const h = H.hist; H = h.pop(); H.hist = h; hsave(); drawHost(); }
+function alive(){ return H.cfg ? H.cfg.n.map(function(_, i){ return i; }).filter(function(i){ return H.out.indexOf(i) < 0; }) : []; }
+function pickStarter(){ const a = alive(); H.starter = a[Math.floor(Math.random() * a.length)]; }
+function maxUc(n){ return Math.max(1, Math.min(3, Math.floor((n - 1) / 2) - (H.b && n >= 5 ? 1 : 0) || 1)); }
+function defUc(n){ return n <= 6 ? 1 : n <= 10 ? 2 : 3; }
+/* Who has won, if anyone: civilians when no undercover or Mr. White is left; Mr. White when only the
+   undercovers are gone; the undercover when alive players fall to the line (2, or 3 at 7+). */
+function verdict(){
+  const d = deal(H.cfg, H.game), a = alive();
+  const u = a.filter(function(i){ return d.role[i] === "u"; }).length, b = a.filter(function(i){ return d.role[i] === "b"; }).length;
+  if(!u && !b) return "c";
+  if(!u && b) return "b";
+  if(a.length <= (H.cfg.n.length >= 7 ? 3 : 2)) return "u";
+  return "";
+}
+
+let editingNames = true;
+function readNames(){ return $("names").value.split("\n").map(function(s){ return s.trim(); }).filter(Boolean); }
+function create(){
+  const names = readNames();
+  if(names.length < 4){ $("err").textContent = t("needFour"); return; }
+  const seen = {}, dup = names.filter(function(n){ const k = n.toLowerCase(); if(seen[k]) return true; seen[k] = 1; return false; });
+  if(dup.length){ $("err").textContent = t("dupes") + dup.join(", "); return; }
+  $("err").textContent = "";
+  const b = H.b && names.length >= 5 ? 1 : 0;
+  const u = Math.min(H.u || defUc(names.length), maxUc(names.length));
+  const wl = H.wl || LANG;
+  hsnap();
+  H.cfg = { s: Math.floor(Math.random() * 2147483647), n: names, u: u, b: b, l: wl, L: WORDS[wl].length };
+  H.game = 1; H.out = []; H.round = 1; H.ended = false; H.shown = false; pickStarter();
+  $("names").blur(); try{ sessionStorage.removeItem("uc-draft"); }catch(e){}
+  hsave(); drawHost();
+}
+function voteOut(i){
+  hsnap();
+  if(H.out.indexOf(i) > -1){ H.out = H.out.filter(function(x){ return x !== i; }); }
+  else{
+    H.out.push(i);
+    if(verdict()){ H.ended = true; H.shown = true; }
+    else { H.round++; pickStarter(); }
+  }
+  hsave(); drawHost();
+}
+function nextGame(){ hsnap(); H.game++; H.out = []; H.round = 1; H.ended = false; H.shown = false; pickStarter(); hsave(); drawHost(); setTimeout(reloadWhenSafe, 400); }
+function linkFor(){ return location.origin + location.pathname + "#j=" + b64e(H.cfg); }
+
+let TAB = "rules";
+function drawCommon(){
+  document.documentElement.lang = LANG === "zh" ? "zh-CN" : "en";
+  document.querySelectorAll("[data-t]").forEach(function(el){ const v = T[LANG][el.dataset.t]; if(typeof v === "string") el.textContent = v; });
+  document.querySelectorAll("[data-lang]").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.lang === LANG); });
+}
+function drawHost(){
+  drawCommon();
+  document.title = t("title");
+  document.querySelectorAll("[data-tab]").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.tab === TAB); });
+  $("rules").hidden = TAB !== "rules"; $("play").hidden = TAB !== "play";
+  $("steps").innerHTML = T[LANG].steps.map(function(s){ return "<li>" + s + "</li>"; }).join("");
+  $("ex").innerHTML = T[LANG].exClues.map(function(c){ return '<span class="' + (c[2] ? "u" : "") + '">' + esc(c[0]) + " · " + esc(c[1]) + "</span>"; }).join("");
+
+  const n = readNames().length || (H.cfg ? H.cfg.n.length : 0);
+  const mx = maxUc(Math.max(n, 4)), cur = Math.min(H.u || defUc(n), mx);
+  let uo = ""; for(let k = 1; k <= 3; k++) uo += '<button type="button" class="pill" data-uc="' + k + '" aria-pressed="' + (k === cur) + '"' + (k > mx ? " disabled" : "") + ">" + k + "</button>";
+  $("ucOpts").innerHTML = uo;
+  document.querySelectorAll("[data-blank]").forEach(function(b){ b.setAttribute("aria-pressed", String(H.b ? 1 : 0) === b.dataset.blank); });
+  document.querySelectorAll("[data-wl]").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.wl === (H.wl || LANG)); });
+
+  const playing = !!H.cfg;
+  $("setup").hidden = playing; $("board").hidden = !playing;
+  $("skip").hidden = !playing; $("reveal").hidden = !playing || H.ended;
+  $("end").hidden = !(playing && H.shown && TAB === "play");
+  if(!playing) return;
+
+  const d = deal(H.cfg, H.game), a = alive();
+  $("linkText").textContent = linkFor();
+  $("openSelf").href = linkFor();
+  $("gm").textContent = H.game;
+  $("gmNote").textContent = t("gmNote", { g: H.game });
+  $("starts").textContent = H.ended ? t("ended") : t("starts", { r: H.round, n: H.cfg.n[H.starter] || "" });
+  const ucIn = a.filter(function(i){ return d.role[i] === "u"; }).length;
+  $("counts").innerHTML = "<span>" + esc(t("counts", { a: a.length })) + "</span><span>" + esc(t(ucIn === 1 ? "ucLeft" : "ucLeftP", { u: ucIn })) + "</span>";
+  $("ring").innerHTML = H.cfg.n.map(function(nm, i){
+    const out = H.out.indexOf(i) > -1, showRole = out || H.shown;
+    return '<li class="' + (out ? "out" : "") + (i === H.starter && !H.ended && !out ? " first" : "") + '"><span class="ix">' + (i + 1) + '</span><span class="nm">' + esc(nm) + "</span>"
+      + (showRole ? '<span class="tag ' + d.role[i] + '">' + esc(T[LANG].role[d.role[i]]) + "</span>" : "")
+      + (H.ended ? "" : '<button type="button" class="x" data-v="' + i + '">' + (out ? t("back2") : t("voteOut")) + "</button>")
+      + "</li>";
+  }).join("");
+  $("undo").disabled = !H.hist.length; $("endUndo").disabled = !H.hist.length;
+
+  if(H.shown){
+    const v = H.ended ? verdict() : "";
+    const ucNames = H.cfg.n.filter(function(_, i){ return d.role[i] === "u"; }), bName = H.cfg.n.filter(function(_, i){ return d.role[i] === "b"; });
+    $("end").className = v === "u" ? "u" : v === "b" ? "b" : "";
+    $("endGame").textContent = LANG === "zh" ? "第 " + H.game + " 局" : "Game " + H.game;
+    $("endTitle").textContent = v === "c" ? t("winC") : v === "u" ? t(ucNames.length > 1 ? "winUs" : "winU") : v === "b" ? t("winB") : t("ended");
+    $("endWords").innerHTML = "<div><small>" + esc(t("civW")) + "</small><b>" + esc(d.civ) + "</b></div><div><small>" + esc(t("ucW")) + "</small><b>" + esc(d.uc) + "</b></div>";
+    $("endWho").textContent = t("ucWere", { n: ucNames.join(LANG === "zh" ? "、" : ", ") }) + (bName.length ? " · " + t("bWas", { n: bName[0] }) : "");
+    $("endNote").textContent = t("endNote", { g: H.game + 1 });
+  }
+}
+
+/* ===================== PLAYER ===================== */
+let P = null, pcfg = null, rvTimer = 0;
+function pkey(){ return "undercover-me-" + pcfg.s; }
+function pload(){ try{ P = JSON.parse(localStorage.getItem(pkey()) || "null"); }catch(e){ P = null; } if(!P) P = { seat: -1, game: 1 }; }
+function psave(){ try{ localStorage.setItem(pkey(), JSON.stringify(P)); }catch(e){} }
+let shownWord = false;
+function drawPlayer(){
+  drawCommon();
+  document.title = t("title");
+  if(!pcfg){ $("pickSeat").hidden = false; $("mine").hidden = true; $("seats").innerHTML = '<p class="err">' + esc(t("badLink")) + "</p>"; return; }
+  const has = P.seat > -1 && P.seat < pcfg.n.length;
+  $("pickSeat").hidden = has; $("mine").hidden = !has;
+  $("seats").innerHTML = pcfg.n.map(function(nm, i){ return '<button type="button" data-seat="' + i + '">' + esc(nm) + "</button>"; }).join("");
+  if(!has) return;
+  $("meName").textContent = pcfg.n[P.seat];
+  $("pGame").textContent = t("pGame", { g: P.game });
+  $("gMinus").disabled = P.game <= 1;
+  const d = deal(pcfg, P.game), r = d.role[P.seat];
+  const rv = $("rv");
+  rv.classList.toggle("on", shownWord); rv.classList.toggle("b", shownWord && r === "b");
+  if(!shownWord) rv.innerHTML = "<span>" + esc(t("tapSee")) + "</span><small>" + esc(t("hides")) + "</small>";
+  else if(r === "b") rv.innerHTML = '<span class="w">' + esc(t("blankWord")) + "</span><small>" + esc(t("blankSub")) + "</small>";
+  else rv.innerHTML = "<small>" + esc(t("yourWord")) + '</small><span class="w">' + esc(r === "u" ? d.uc : d.civ) + "</span><small>" + esc(t("hides")) + "</small>";
+}
+function toggleWord(){
+  shownWord = !shownWord; clearTimeout(rvTimer);
+  if(shownWord) rvTimer = setTimeout(function(){ shownWord = false; drawPlayer(); setTimeout(reloadWhenSafe, 400); }, 5000);
+  drawPlayer();
+}
+
+/* ===================== start-up ===================== */
+const MODE = /^#j=/.test(location.hash) ? "player" : "host";
+try{
+  if(/[?&]v=/.test(location.search)) history.replaceState(null, "", location.pathname + location.hash);
+  const l = localStorage.getItem("fnh-lang"); if(l === "zh" || l === "en") LANG = l; else if(/^zh/i.test(navigator.language || "")) LANG = "zh";
+}catch(e){}
+function setLang(l){ LANG = l; try{ localStorage.setItem("fnh-lang", LANG); }catch(e){} MODE === "host" ? drawHost() : drawPlayer(); }
+document.querySelectorAll("[data-lang]").forEach(function(b){ b.onclick = function(){ setLang(b.dataset.lang); }; });
+
+if(MODE === "player"){
+  $("player").hidden = false;
+  try{ const c = b64d(location.hash.slice(3)); if(validCfg(c)) pcfg = c; }catch(e){}
+  if(pcfg) pload();
+  /* The words follow the language the host picked, so the page does too unless the player changed it. */
+  $("seats").onclick = function(e){ const b = e.target.closest("[data-seat]"); if(!b) return; P.seat = +b.dataset.seat; shownWord = false; psave(); drawPlayer(); };
+  $("gPlus").onclick = function(){ P.game++; shownWord = false; psave(); drawPlayer(); };
+  $("gMinus").onclick = function(){ if(P.game > 1){ P.game--; shownWord = false; psave(); drawPlayer(); } };
+  $("rv").onclick = toggleWord;
+  $("notMe").onclick = function(){ if(!confirm(t("sureNotMe"))) return; P.seat = -1; shownWord = false; psave(); drawPlayer(); };
+  drawPlayer();
+}else{
+  $("host").hidden = false;
+  try{
+    const g = localStorage.getItem(HKEY); if(g){ const o = JSON.parse(g); if(o) H = Object.assign(hblank(), o); if(H.cfg && !validCfg(H.cfg)) H.cfg = null; }
+    const tb = sessionStorage.getItem("uc-tab"); if(tb === "play" || tb === "rules") TAB = tb;
+    const d = sessionStorage.getItem("uc-draft"); if(d && !H.cfg) $("names").value = d;
+  }catch(e){}
+  $("names").addEventListener("input", function(){ try{ sessionStorage.setItem("uc-draft", $("names").value); }catch(e){} drawHost(); });
+  document.querySelectorAll("[data-tab]").forEach(function(b){ b.onclick = function(){ TAB = b.dataset.tab; try{ sessionStorage.setItem("uc-tab", TAB); }catch(e){} drawHost(); }; });
+  $("ucOpts").onclick = function(e){ const b = e.target.closest("[data-uc]"); if(b && !b.disabled){ H.u = +b.dataset.uc; hsave(); drawHost(); } };
+  document.querySelectorAll("[data-blank]").forEach(function(b){ b.onclick = function(){ H.b = +b.dataset.blank; hsave(); drawHost(); }; });
+  document.querySelectorAll("[data-wl]").forEach(function(b){ b.onclick = function(){ H.wl = b.dataset.wl; hsave(); drawHost(); }; });
+  $("create").onclick = create;
+  $("ring").onclick = function(e){ const b = e.target.closest("[data-v]"); if(b) voteOut(+b.dataset.v); };
+  $("undo").onclick = hundo; $("endUndo").onclick = function(){ hundo(); setTimeout(reloadWhenSafe, 400); };
+  $("nextGame").onclick = nextGame;
+  $("skip").onclick = function(){ if(confirm(t("sureSkip"))) nextGame(); };
+  $("reveal").onclick = function(){ if(!confirm(t("sureReveal"))) return; hsnap(); H.ended = true; H.shown = true; hsave(); drawHost(); };
+  $("wipe").onclick = function(){
+    if(!confirm(t("sureWipe"))) return;
+    const keep = { u: H.u, b: H.b, wl: H.wl }; const names = H.cfg ? H.cfg.n.join("\n") : "";
+    H = Object.assign(hblank(), keep); $("names").value = names; hsave(); drawHost();
+  };
+  $("copy").onclick = function(){
+    const done = function(){ $("copy").textContent = t("copied"); setTimeout(function(){ $("copy").textContent = t("copy"); }, 1600); };
+    if(navigator.clipboard) navigator.clipboard.writeText(linkFor()).then(done, function(){ prompt("", linkFor()); });
+    else prompt("", linkFor());
+  };
+  drawHost();
+}
+
+/* ---------- always the newest version (see fnh.html and app-qa/references/self-update.md) ----------
+   On a phone it never reloads while the word is showing; on the host laptop never over the end
+   screen or a half-typed list. The link's #j= part survives the reload, so each phone keeps its
+   name and game number. */
+let stale = false, checkedAt = 0, triedAt = 0, staleKey = "";
+function fmtWhen(t){ return new Date(t).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }); }
+function paintVer(){
+  const txt = "Version " + fmtWhen(BUILD) + (stale ? " · a newer version is out, reloading"
+    : checkedAt ? " · the newest (checked " + new Date(checkedAt).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }) + ")" : "");
+  document.querySelectorAll(".ver").forEach(function(el){ el.textContent = txt; el.classList.toggle("old", stale); });
+}
+function busy(){
+  const a = document.activeElement;
+  if(MODE === "player") return shownWord;
+  return !$("end").hidden || !!(a && /^(INPUT|TEXTAREA)$/.test(a.tagName) && a.value && a.offsetParent)
+    || (!H.cfg && !!$("names").value.trim());
+}
+function freshen(){
+  if(!/^https?:$/.test(location.protocol) || document.hidden || Date.now() - triedAt < 8000) return;
+  triedAt = Date.now();
+  fetch(location.pathname + "?latest=" + Date.now(), { cache: "no-store" })
+    .then(function(r){ return r.ok ? r.text() : ""; })
+    .then(function(html){
+      const m = /const BUILD = "([^"]+)";/.exec(html);
+      if(!m || !SELF) return;
+      checkedAt = Date.now();
+      stale = m[1] >= BUILD && html.indexOf(SELF) < 0;
+      staleKey = m[1] + ":" + html.length;
+      paintVer(); reloadWhenSafe();
+    }).catch(function(){});
+}
+function reloadWhenSafe(){
+  if(!stale){ $("upd").hidden = true; return; }
+  let tried = ""; try{ tried = sessionStorage.getItem("uc-tried") || ""; }catch(e){}
+  if(tried !== staleKey && !busy()){ reloadNow(); return; }
+  $("updt").textContent = tried === staleKey ? "A newer version of this page is out." : "A newer version is out. It loads when you close this.";
+  $("upd").hidden = false;
+}
+function reloadNow(){
+  try{ sessionStorage.setItem("uc-tried", staleKey); if(MODE === "host") sessionStorage.setItem("uc-tab", TAB); }catch(e){}
+  location.replace(location.pathname + "?v=" + Date.now() + location.hash);
+}
+$("updgo").onclick = reloadNow;
+paintVer(); freshen();
+setInterval(freshen, 60000);
+setInterval(function(){ if(stale) reloadWhenSafe(); }, 3000);
+document.addEventListener("visibilitychange", function(){ if(!document.hidden) freshen(); });
+addEventListener("focus", freshen);
+addEventListener("pageshow", function(e){ if(e.persisted){ triedAt = 0; freshen(); } });
+addEventListener("hashchange", function(){ location.reload(); });
+</script>
