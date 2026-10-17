@@ -207,7 +207,7 @@ textarea:focus{border-color:var(--sage);outline:none}
 
 <script>
 /* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this file. */
-const BUILD = "2026-10-17T02:33:02Z";
+const BUILD = "2026-10-17T02:33:41Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 const KEY = "look-game-v1";
 const $ = function(id){ return document.getElementById(id); };
@@ -231,7 +231,7 @@ const T = {
     exBad: "You look left: caught", exGood: "You look up, down or right: safe",
     zoomTitle: "Playing on Zoom",
     zoom1: "Share this page. The arrow is the pointer, so everyone plays at once. Turn your whole head, not just your eyes, and keep your face in the camera.",
-    zoom2: "The arrow means your own side: ← is your left. Zoom shows everyone else mirror-flipped from their side, so the host gets a reminder which way the caught faces look on screen.",
+    zoom2: "Before the first round, everyone turns off mirror view: in Zoom, Settings › Video › untick “Mirror my video”. Then everyone sees the same picture, and the rule is simple: if your face on screen turns the same way as the arrow, you're caught.",
     source: "From the 看这边 game on 快乐大本营 and the “321 看这边” round on 你好星期六. The show tip: watch the pointer's eyes, not the hand.",
     setupTitle: "Who's playing?", setupLead: "One name per line to keep score. Or skip the list and just run the arrow.",
     startNew: "Start with this list", saveEdit: "Save the list", soloBtn: "Just the arrow, no list", cancel: "Cancel",
@@ -240,8 +240,7 @@ const T = {
     keyHint: "Space bar runs it too.", idle: "Ready when you are",
     beats: ["1", "2", "3"], look: "THIS WAY!",
     dir: { up: "Up", down: "Down", left: "Left", right: "Right" },
-    noteLR: "Caught: anyone who turned to their own {side}. On your Zoom screen their face turns {screen}.",
-    sideL: "left", sideR: "right", scrL: "to the right →", scrR: "to the left ←",
+    noteLR: "Judge on screen: a face turned {a} is caught. Everyone's mirror view must be off.",
     caughtTitle: "Who got caught?", left: "{n} still in",
     nextBtn: "Next round", nextOut: "Next round · {n} out",
     allCaught: "Everyone left got caught, so everyone stays in.",
@@ -267,7 +266,7 @@ const T = {
     exBad: "你看左边：被抓", exGood: "你看上、下或右边：安全",
     zoomTitle: "在 Zoom 上玩",
     zoom1: "共享这个页面，屏幕上的箭头就是出题人，大家一起玩。整个头转过去，不能只动眼睛，脸别出镜头。",
-    zoom2: "箭头指的是你自己的方向：← 就是你的左边。Zoom 里别人的画面是左右反的，所以页面会提示主持人，被抓的人在屏幕上脸朝哪边。",
+    zoom2: "第一轮之前，大家先关掉镜像：Zoom 设置 › 视频 › 取消勾选「镜像我的视频」。这样所有人看到的画面都一样，规则就很简单：屏幕上你的脸和箭头朝同一边，就被抓。",
     source: "出自《快乐大本营》的「看这边」和《你好星期六》的「321 看这边」。节目里的诀窍：盯出题人的眼睛，别看手。",
     setupTitle: "谁来玩？", setupLead: "一行一个名字，用来记谁出局。也可以不写名单，只用箭头。",
     startNew: "用这份名单开始", saveEdit: "保存名单", soloBtn: "只用箭头，不记名单", cancel: "取消",
@@ -276,8 +275,7 @@ const T = {
     keyHint: "按空格键也可以开始。", idle: "准备好就开始",
     beats: ["一", "二", "三"], look: "看这边！",
     dir: { up: "上", down: "下", left: "左", right: "右" },
-    noteLR: "被抓的人：转向自己{side}边的。在你的 Zoom 屏幕上，他们的脸是{screen}。",
-    sideL: "左", sideR: "右", scrL: "朝右转 →", scrR: "朝左转 ←",
+    noteLR: "看屏幕判：脸朝 {a} 的人被抓。所有人都要关掉镜像。",
     caughtTitle: "谁被抓到了？", left: "还剩 {n} 人",
     nextBtn: "下一轮", nextOut: "下一轮 · {n} 人出局",
     allCaught: "剩下的人全被抓了，这轮大家都留下。",
@@ -350,7 +348,7 @@ function drawScreen(){
     + '<svg viewBox="0 0 100 100" aria-hidden="true" style="transform:rotate(' + ROT[shown] + 'deg)"><path d="M50 6 L88 50 L64 50 L64 94 L36 94 L36 50 L12 50 Z" fill="#96420A"/></svg>'
     + '<div class="dirw">' + esc(T[LANG].dir[shown]) + "</div>";
   if(shown === "left" || shown === "right"){
-    $("hostnote").textContent = t("noteLR", shown === "left" ? { side: t("sideL"), screen: t("scrL") } : { side: t("sideR"), screen: t("scrR") });
+    $("hostnote").textContent = t("noteLR", { a: shown === "left" ? "←" : "→" });
     $("hostnote").hidden = false;
   }
 }
