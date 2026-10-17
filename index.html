@@ -424,6 +424,44 @@
     .edu-card-title { font-size: 30px; font-weight: 700; line-height: 1.25; }
     .edu-card-sub { font-size: 14.5px; line-height: 1.6; color: rgba(255,255,255,0.88); }
     .edu-card-go { margin-top: auto; font-size: 14px; font-weight: 600; }
+    .edu-sec { font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-500); margin: 30px 0 12px; }
+    .edu-cards-sm { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .edu-card-pain, .edu-card-pain:nth-child(2) { min-height: 150px; padding: 20px 20px 18px; background: var(--green-light); color: var(--navy); }
+    .edu-card-pain .edu-card-kicker { color: var(--green); }
+    .edu-card-pain .edu-card-title { font-size: 21px; }
+    .edu-card-pain.soon { cursor: default; background: #fff; border: 1.5px dashed var(--gray-200); color: var(--gray-500); }
+    .edu-card-pain.soon:hover { transform: none; box-shadow: none; }
+    .edu-card-pain.soon .edu-card-kicker { color: var(--gray-400); }
+    .pm { max-width: 820px; }
+    .pm-box { display: flex; flex-direction: column; gap: 6px; background: #fff; border: 1px solid var(--gray-200); border-radius: 16px; padding: 18px 20px; margin: 18px 0 8px; }
+    .pm-box > b { font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-500); margin-bottom: 4px; }
+    .pm-link { background: none; border: 0; padding: 6px 0; text-align: left; font: inherit; font-size: 15px; font-weight: 600; color: var(--navy); cursor: pointer; border-top: 1px solid var(--gray-100); }
+    .pm-link:first-of-type { border-top: 0; }
+    .pm-link:hover { color: var(--green); }
+    .pm-why { font-weight: 400; color: var(--gray-500); }
+    .pm-level { margin-top: 30px; }
+    .pm-level h2 { display: flex; align-items: center; gap: 12px; font-size: 22px; font-weight: 800; color: var(--gray-800); margin: 0 0 10px; }
+    .pm-n { flex: none; width: 36px; height: 36px; border-radius: 10px; background: var(--navy); color: #fff; font-size: 17px; display: flex; align-items: center; justify-content: center; }
+    .pm-level ul { margin: 6px 0; padding-left: 20px; }
+    .pm-level li { margin: 6px 0; font-size: 15.5px; line-height: 1.6; color: var(--gray-700, #374151); }
+    .pm-level p { font-size: 15.5px; line-height: 1.6; }
+    .pm-tbl { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 15px; }
+    .pm-tbl th { text-align: left; font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-500); padding: 0 10px 6px 0; }
+    .pm-tbl td { border-top: 1px solid var(--gray-200); padding: 9px 10px 9px 0; vertical-align: top; line-height: 1.55; }
+    .pm-tbl td:first-child { font-weight: 600; width: 34%; color: var(--gray-800); }
+    .pm-draft { font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; background: #FFF3E0; color: #8A4B08; border-radius: 6px; padding: 2px 8px; }
+    .pm-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .pm-card { background: var(--green-light); border-radius: 14px; padding: 14px 16px; }
+    .pm-card b { font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); }
+    .pm-say { margin-top: 12px; background: #fff; border-left: 4px solid var(--green); border-radius: 0 12px 12px 0; padding: 12px 16px; font-size: 16px; line-height: 1.5; font-weight: 600; color: var(--navy); }
+    .pm-say b { display: block; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-500); font-weight: 700; margin-bottom: 2px; }
+    .pm-check { list-style: none; padding-left: 0 !important; }
+    .pm-check li { position: relative; padding-left: 26px; }
+    .pm-check li::before { content: ''; position: absolute; left: 0; top: 4px; width: 15px; height: 15px; border: 2px solid var(--gray-300, #C9CFCC); border-radius: 4px; }
+    .pm-q { border-top: 1px solid var(--gray-200); padding: 10px 0; }
+    .pm-q summary { cursor: pointer; font-weight: 600; font-size: 15.5px; color: var(--gray-800); }
+    .pm-q p { margin: 8px 0 2px; color: var(--gray-600); }
+    @media (max-width: 760px) { .edu-cards-sm { grid-template-columns: 1fr 1fr; } .pm-cards { grid-template-columns: 1fr; } .pm-level h2 { font-size: 19px; } .pm-tbl td:first-child { width: 40%; } }
     .edu-back { background: none; border: 0; padding: 0; margin-bottom: 18px; font: inherit; font-size: 14px; font-weight: 600; color: var(--green); cursor: pointer; }
     .edu-back:hover { text-decoration: underline; }
     .edu-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--gray-200); }
@@ -2201,7 +2239,7 @@ function renderPrimaryTabs() {
 }
 
 function setViewMode(mode) {
-  if (mode === 'education' && viewMode === 'education') { eduSeries = eduLesson = null; }
+  if (mode === 'education' && viewMode === 'education') { eduSeries = eduLesson = eduModule = eduReturn = null; }
   viewMode = mode;
   document.querySelectorAll('.primary-tab').forEach(b => b.classList.remove('active'));
   document.getElementById('vtab-' + mode).classList.add('active');
@@ -2694,6 +2732,19 @@ function loadStack(solutionId) {
    ═══════════════════════════════════════════════ */
 let EDU_INDEX = null;                 // education/index.json, loaded the first time the tab opens
 let eduSeries = null, eduLesson = null, eduTok = 0;
+/* The tab is organised as modules (Johnny, 2026-10-17): one "Holistic Health Management Knowledge
+   Materials" module holding the two lecture series, then one course module per pain point, each
+   built the same way (know it, manage it, consult it, recommend and ask, follow up, graduate).
+   Sleep is the template. A module's content is education/modules/<id>.json, fetched only when an
+   admin opens it, like the lessons. */
+let eduModule = null, eduReturn = null;
+const eduMods = {};
+const EDU_PAIN = [
+  { id: 'sleep',  en: 'Sleep & Stress',      zh: '睡眠与压力', ready: true },
+  { id: 'energy', en: 'Energy & Fatigue',    zh: '精力与疲劳', ready: false },
+  { id: 'skin',   en: 'Acne & Skin',         zh: '皮肤与痘痘', ready: false },
+  { id: 'weight', en: 'Weight Management',   zh: '体重管理',   ready: false },
+];
 const eduText = {};                   // lesson text already fetched, keyed 'series/id'
 const EDU_VIDEO_NOTE = '（此处播放了一段视频，录音无法准确转写。）';
 
@@ -2736,9 +2787,109 @@ function eduPlaceBubbles() {
 }
 window.addEventListener('resize', eduPlaceBubbles);
 function eduTop() { window.scrollTo({ top: 0, behavior: 'auto' }); }
-function eduOpenSeries(id) { eduSeries = id; eduLesson = null; renderEducationView(); eduTop(); }
+function eduOpenModule(id) { eduModule = id; eduSeries = eduLesson = null; eduReturn = null; renderEducationView(); eduTop(); }
+function eduOpenSeries(id) { eduModule = 'holistic'; eduSeries = id; eduLesson = null; renderEducationView(); eduTop(); }
 function eduOpenLesson(sid, lid) { eduSeries = sid; eduLesson = lid; renderEducationView(); eduTop(); }
-function eduBack() { if (eduLesson) eduLesson = null; else eduSeries = null; renderEducationView(); eduTop(); }
+/* A lesson opened from a pain-point module's study list comes back to that module. */
+function eduStudy(mod, sid, lid) { eduReturn = mod; eduOpenLesson(sid, lid); }
+function eduBack() {
+  if (eduLesson) {
+    eduLesson = null;
+    if (eduReturn) { eduModule = eduReturn; eduSeries = null; eduReturn = null; }
+  } else if (eduSeries) eduSeries = null;
+  else eduModule = null;
+  renderEducationView(); eduTop();
+}
+
+/* The front of the tab: the knowledge module, then the pain-point course modules. */
+function eduHomeHtml() {
+  const lessons = EDU_INDEX.series.reduce((a, s) => a + s.lessons.length, 0);
+  return `
+    <div class="edu-wrap">
+      <div class="edu-eyebrow">${t('Admin only', '仅限管理员')}</div>
+      <h1 class="edu-h1">${t('Education', '培训')}</h1>
+      <p class="edu-sub">${t('Start with the knowledge, then master one pain point at a time.', '先打好知识基础，再一次吃透一个痛点。')}</p>
+      <div class="edu-sec">${t('Knowledge', '知识基础')}</div>
+      <div class="edu-cards">
+        <button class="edu-card" onclick="eduOpenModule('holistic')">
+          <span class="edu-card-kicker">${t(`${EDU_INDEX.series.length} courses · ${lessons} lessons`, `${EDU_INDEX.series.length}门课 · 共${lessons}课`)}</span>
+          <span class="edu-card-title">${t('Holistic Health Management Knowledge Materials', '整体健康管理知识')}</span>
+          <span class="edu-card-sub">${t('Family Health Management (肖子程) and Clear, Regulate, Replenish, Nourish (清调补养)', '肖子程52健康课 与 清调补养')}</span>
+          <span class="edu-card-go">${t('Open', '打开')} ›</span>
+        </button>
+      </div>
+      <div class="edu-sec">${t('Pain-point modules', '痛点课程')}</div>
+      <p class="edu-sub" style="margin-top:-4px">${t('Each module takes you from the knowledge to guiding a guest on your own: know it, manage it, consult it, recommend and ask, follow up.', '每个模块带你从知识一路走到独立带客户：懂它、管理它、咨询、推荐与开口、跟进。')}</p>
+      <div class="edu-cards edu-cards-sm">
+        ${EDU_PAIN.map(m => m.ready ? `
+        <button class="edu-card edu-card-pain" onclick="eduOpenModule('${m.id}')">
+          <span class="edu-card-kicker">${t('Module', '模块')}</span>
+          <span class="edu-card-title">${t(m.en, m.zh)}</span>
+          <span class="edu-card-go">${t('Start the module', '开始学习')} ›</span>
+        </button>` : `
+        <div class="edu-card edu-card-pain soon">
+          <span class="edu-card-kicker">${t('Coming next', '即将上线')}</span>
+          <span class="edu-card-title">${t(m.en, m.zh)}</span>
+        </div>`).join('')}
+      </div>
+    </div>`;
+}
+
+/* One pain-point module, from education/modules/<id>.json. */
+function eduPainHtml(M) {
+  const li = (arr) => arr.map(x => `<li>${eduEsc(x)}</li>`).join('');
+  const lessonTitle = (sid, lid) => {
+    const s = EDU_INDEX.series.find(x => x.id === sid); const l = s && s.lessons.find(x => x.id === lid);
+    return l ? `${eduEsc(eduSeriesTitle(s))} ${l.n}: ${eduEsc(eduTitle(l))}` : '';
+  };
+  const level = (n, title, body) => `<section class="pm-level"><h2><span class="pm-n">${n}</span>${title}</h2>${body}</section>`;
+  return `
+    <div class="edu-wrap pm">
+      <button class="edu-back" onclick="eduBack()">‹ ${t('Education', '培训')}</button>
+      <div class="edu-eyebrow">${t('Pain-point module', '痛点课程')}</div>
+      <h1 class="edu-h1">${eduEsc(t(M.title, M.titleZh))}</h1>
+      <p class="edu-sub">${eduEsc(M.who)}</p>
+      ${currentLang === 'zh' ? `<div class="edu-fallback">中文版正在编写，以下内容暂为英文。</div>` : ''}
+
+      <div class="pm-box">
+        <b>${t('Study first', '先学习')}</b>
+        <button class="pm-link" onclick="homeOpenArea('${M.area}')">${t('The quick guide (what the guest sees)', '快速了解（客户看到的版本）')} ›</button>
+        <button class="pm-link" onclick="areaMode['${M.area}']='full';homeOpenArea('${M.area}')">${t('The full 4-step plan (the science)', '完整四步方案（背后的原理）')} ›</button>
+        ${M.study.map(([sid, lid, why]) => `<button class="pm-link" onclick="eduStudy('${M.id}','${sid}','${lid}')">${lessonTitle(sid, lid)} <span class="pm-why">· ${eduEsc(why)}</span> ›</button>`).join('')}
+      </div>
+
+      ${level(1, t('Know it', '懂它'), `<ul>${li(M.levels[0].items)}</ul>`)}
+      ${level(2, t('Manage it', '管理它'), `<ul>${li(M.levels[1].items)}</ul>`)}
+      ${level(3, t('Consult it', '咨询'), `
+        <p><b>${t('Ask', '先问')}:</b></p><ul>${li(M.ask)}</ul>
+        <table class="pm-tbl"><tr><th>${t('When they say', '客户说')}</th><th>${t('You explain', '你这样讲')}</th></tr>
+        ${M.consult.map(([a, b]) => `<tr><td>${eduEsc(a)}</td><td>${eduEsc(b)}</td></tr>`).join('')}</table>
+        <p><b>${t('Show', '展示')}:</b> ${eduEsc(M.demo)}</p>`)}
+      ${level(4, t('Recommend and ask', '推荐与开口') + ` <span class="pm-draft">${t('Bundle draft', '组合草案')}</span>`, `
+        <div class="pm-cards">
+          <div class="pm-card"><b>${t('Core', '核心组合')}</b><ul>${li(M.bundle.core)}</ul></div>
+          <div class="pm-card"><b>${t('Add one, by their moment', '按情况加一样')}</b><ul>${li(M.bundle.addons)}</ul></div>
+        </div>
+        <div class="pm-say"><b>${t('The ask', '开口')}</b>${eduEsc(M.bundle.ask)}</div>`)}
+      ${level(5, t('Follow up', '跟进'), `<table class="pm-tbl">${M.followup.map(([a, b]) => `<tr><td>${eduEsc(a)}</td><td>${eduEsc(b)}</td></tr>`).join('')}</table>`)}
+
+      <section class="pm-level"><h2><span class="pm-n">✓</span>${t('Graduate', '结业')}</h2>
+        <p>${t('You own this pain point, and guide guests through it on your own, when you have done all five:', '完成以下五项，你就能独立负责这个痛点、自己带客户：')}</p>
+        <ul class="pm-check">
+          <li>${t('Quiz: 8 of 10 without looking', '测验：不看资料答对8题以上')}</li>
+          <li>${t('Teach-back: explain the module to your mentor in 3 minutes', '回讲：3分钟内把这个模块讲给你的导师听')}</li>
+          <li>${t('Role-play: under 20 minutes, used the check-in, plain words, one bundle, asked out loud, ended at checkout', '角色扮演：20分钟内、用到问卷、讲得通俗、只推一个组合、开口要单、带到结账')}</li>
+          <li>${t('Two real consultations, using the person\'s check-in', '两次真实咨询，使用对方的问卷')}</li>
+          <li>${t('Know the bundle and its price by heart', '组合和价格熟记于心')}</li>
+        </ul>
+      </section>
+
+      <section class="pm-level"><h2><span class="pm-n">?</span>${t('Quiz', '测验')}</h2>
+        ${M.quiz.map(([q, a]) => `<details class="pm-q"><summary>${eduEsc(q)}</summary><p>${eduEsc(a)}</p></details>`).join('')}
+      </section>
+      <p class="edu-note">${eduEsc(M.doctor)}</p>
+    </div>`;
+}
 
 function eduCardsHtml() {
   const blurb = (s) => s.id === 'xzc52'
@@ -2746,9 +2897,10 @@ function eduCardsHtml() {
     : (n => t(`Talks from ${n} teachers`, `${n}位老师的分享`))(new Set(s.lessons.map(l => l.speaker).filter(Boolean)).size);
   return `
     <div class="edu-wrap">
-      <div class="edu-eyebrow">${t('Admin only', '仅限管理员')}</div>
-      <h1 class="edu-h1">${t('Education', '培训')}</h1>
-      <p class="edu-sub">${t('Read at your own pace.', '按自己的节奏阅读。')}</p>
+      <button class="edu-back" onclick="eduBack()">‹ ${t('Education', '培训')}</button>
+      <div class="edu-eyebrow">${t('Knowledge', '知识基础')}</div>
+      <h1 class="edu-h1">${t('Holistic Health Management Knowledge Materials', '整体健康管理知识')}</h1>
+      <p class="edu-sub">${t('The foundation every pain-point module draws on. Read at your own pace.', '所有痛点课程的知识来源。按自己的节奏阅读。')}</p>
       <div class="edu-cards">
         ${EDU_INDEX.series.map(s => {
           const hrs = Math.max(1, Math.round(s.lessons.reduce((a, l) => a + l.mins, 0) / 60));
@@ -2767,7 +2919,7 @@ function eduCardsHtml() {
 function eduListHtml(series) {
   return `
     <div class="edu-wrap">
-      <button class="edu-back" onclick="eduBack()">‹ ${t('Education', '培训')}</button>
+      <button class="edu-back" onclick="eduBack()">‹ ${t('Holistic Health Management', '整体健康管理知识')}</button>
       <h1 class="edu-h1">${eduEsc(eduSeriesTitle(series))}</h1>
       <p class="edu-sub">${t(`${series.lessons.length} lessons`, `共${series.lessons.length}课`)}${eduWantsEn() ? ` · ${series.lessons.filter(l => l.titleEn).length} ${t('in English', '')}` : ''}</p>
       <ol class="edu-list">
@@ -2834,7 +2986,19 @@ async function renderEducationView() {
     if (tok !== eduTok || viewMode !== 'education') return;
   }
   const series = EDU_INDEX.series.find(s => s.id === eduSeries);
-  if (!series) { eduSeries = eduLesson = null; host.innerHTML = eduCardsHtml(); return; }
+  if (!series) {
+    eduSeries = eduLesson = null;
+    if (!eduModule) { host.innerHTML = eduHomeHtml(); return; }
+    if (eduModule === 'holistic') { host.innerHTML = eduCardsHtml(); return; }
+    if (!eduMods[eduModule]) {
+      loading();
+      try { const r = await fetch('education/modules/' + eduModule + '.json'); if (!r.ok) throw 0; eduMods[eduModule] = await r.json(); }
+      catch (e) { if (tok === eduTok) failed(); return; }
+      if (tok !== eduTok || viewMode !== 'education') return;
+    }
+    host.innerHTML = eduPainHtml(eduMods[eduModule]);
+    return;
+  }
   if (!eduLesson) { host.innerHTML = eduListHtml(series); return; }
 
   const idx = series.lessons.findIndex(l => l.id === eduLesson);
