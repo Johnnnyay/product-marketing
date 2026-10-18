@@ -1,0 +1,188 @@
+{
+ "id": "metabolic",
+ "area": "metabolic",
+ "study": [
+  [
+   "qtby",
+   "04"
+  ],
+  [
+   "xzc52",
+   "41"
+  ],
+  [
+   "qtby",
+   "15"
+  ],
+  [
+   "xzc52",
+   "20"
+  ],
+  [
+   "xzc52",
+   "37"
+  ],
+  [
+   "qtby",
+   "17"
+  ],
+  [
+   "qtby",
+   "10"
+  ]
+ ],
+ "en": {
+  "title": "Blood Sugar",
+  "who": "Guests who mark sleepy or hungry after meals, sugar cravings, being told their blood sugar is borderline, high blood sugar in the family, belly fat with slim arms, or things changing after 40. Already on blood sugar medication? Everything here goes alongside the doctor, never instead.",
+  "studyWhy": [
+   "reading a check-up report",
+   "fibre",
+   "the nourishing breakfast",
+   "protein",
+   "minerals, including magnesium",
+   "the liver",
+   "inflammation and plant compounds"
+  ],
+  "feel": {
+   "say": [
+    "I hear you. You eat lunch and an hour later you're fighting to stay awake, or you're already hungry again. And once a check-up or a parent's health puts blood sugar on your mind, it's hard to stop thinking about it."
+   ],
+   "tip": "Say back what they marked, in their words. Then ask: \"What made you start paying attention: how you feel after meals, a check-up, or your family?\""
+  },
+  "felt": {
+   "say": [
+    "Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"
+   ],
+   "tip": "Your own story, or someone close to you (\"my dad\", \"a friend from work\"). No story yet? \"A lot of the people I talk to say exactly the same thing.\" Never make one up."
+  },
+  "found": {
+   "say": [
+    "What I learned is that for most people the pancreas is still sending insulin, often more than ever. What changed is that the cells stopped answering it well, so sugar stays in the blood longer. And the usual reason is fat in the wrong place: around the organs and inside the liver, not on the arms. That's why your waist tells you more than the scale.",
+    "The good news is you don't have to give up rice. Eat vegetables and protein first and the rice last, put protein into breakfast, and protect your sleep. Same plate, same person, a lower curve. And all of this goes alongside your doctor, never instead.",
+    "So this is what I'd start with."
+   ],
+   "tip": "Two or three sentences, then go to the map. Pick the row that matches what they marked."
+  },
+  "map": [
+   [
+    "Sleepy or hungry after meals",
+    "Carb Blocker, before a starch-heavy meal",
+    "Part of the starch passes through instead of arriving as sugar all at once"
+   ],
+   [
+    "Not a salad person, no vegetables today",
+    "Prebiotic Fiber or Green Superfood, before the meal",
+    "Slows the whole meal down, so the greens still come first"
+   ],
+   [
+    "Sugar cravings mid-morning",
+    "Plant Protein, for breakfast",
+    "No spike at breakfast, so no crash and no craving after it"
+   ],
+   [
+    "Told it's borderline",
+    "Magnesium and Double X",
+    "Magnesium is one of the best-studied nutrients for blood sugar, Double X covers the rest of the base. On medication? Tell the doctor before adding anything"
+   ],
+   [
+    "Belly fat, slim arms",
+    "Liver Support, Turmeric, Metabolic Pre & Postbiotic",
+    "The liver is what this whole area turns on, plus the background inflammation and the gut. Judge it in months. On blood thinners? Ask the doctor before turmeric"
+   ],
+   [
+    "High blood sugar runs in the family",
+    "Advanced Omega and Concentrated Fruits & Vegetables",
+    "Works on the low-grade inflammation, and adds the colours the family plate misses. Check the numbers every year. On blood thinners? Ask the doctor first"
+   ],
+   [
+    "After 40, sleeping lighter",
+    "Cal Mag D in the evening, Stress Relief Probiotic",
+    "Short sleep pushes blood sugar up. These help you wind down, they don't replace going to bed earlier"
+   ],
+   [
+    "Lots of rice and noodles, low energy",
+    "Vitamin B Complex",
+    "A high-carb diet uses up the B vitamins that turn food into steady energy"
+   ]
+  ],
+  "ask": "Based on what you told me, I'd start with protein at breakfast and the Carb Blocker before your rice meals, and keep doing exactly what your doctor tells you. Do you want to take it home tonight?",
+  "doctor": "Very thirsty, peeing a lot, losing weight without trying, blurry vision or cuts that heal slowly? See a doctor first. Already on blood sugar medication? Keep taking it exactly as prescribed, never change it on your own, and tell the doctor before adding anything."
+ },
+ "zh": {
+  "title": "血糖管理",
+  "who": "适合在问卷里勾了饭后犯困又很快饿、总想吃甜的、体检说血糖临界、家里有人血糖高、四肢不胖肚子大，或者过了40身体变了的客人。已经在吃降糖药的，这里的一切都是配合医生，不是替代。",
+  "studyWhy": [
+   "读懂体检报告",
+   "膳食纤维",
+   "营养早餐",
+   "蛋白质",
+   "矿物质，包括镁",
+   "肝",
+   "炎症与植物营养素"
+  ],
+  "feel": {
+   "say": [
+    "我懂。中午吃完饭，过一个小时就困得睁不开眼，要不就是又饿了。再加上体检报告上一个数字，或者看到爸妈的身体，心里就一直放不下。"
+   ],
+   "tip": "用对方自己的话，把问卷上勾的说回去。然后问一句：“你是从什么时候开始留意的？是饭后的感觉、体检报告，还是因为家里人？”"
+  },
+  "felt": {
+   "say": [
+    "说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"
+   ],
+   "tip": "讲你自己的，或者身边人的（“我爸爸”“我一个同事”）。还没有故事？就说：“我身边很多朋友也是这样。”千万别编。"
+  },
+  "found": {
+   "say": [
+    "我后来学到，大多数人的胰腺其实还在分泌胰岛素，甚至比以前还多。变的是细胞不怎么“听”它了，糖就在血里停得更久。原因通常是脂肪长错了地方：包在内脏周围、长在肝里，而不是胳膊腿上。所以腰围比体重更能说明问题。",
+    "好消息是，不用戒米饭。先吃菜和肉，最后吃饭，早餐把蛋白质吃够，再把觉睡好。同样一盘菜，同一个人，血糖曲线就低很多。而且这些都是配合医生，不是替代医生。",
+    "所以，我会先从这个开始。"
+   ],
+   "tip": "两三句就够，然后看下面的对照表，挑跟对方勾的那一项对得上的。"
+  },
+  "map": [
+   [
+    "饭后犯困，又很快饿",
+    "阻碳片，碳水多的那顿饭前吃",
+    "一部分淀粉直接过去，不会一下子全变成糖"
+   ],
+   [
+    "不爱吃沙拉，今天没吃到菜",
+    "益生元纤维粉或绿色超级食物粉，饭前喝",
+    "让整顿饭消化得慢一点，绿色的东西还是排在最前面"
+   ],
+   [
+    "早餐后一两个小时就想吃甜的",
+    "有机植物蛋白粉，当早餐",
+    "早餐没有冲高，就不会跌下来，也就不会嘴馋"
+   ],
+   [
+    "体检说血糖临界",
+    "镁片和双X",
+    "镁是和血糖相关研究最多的营养素之一，双X把其他基础铺好。在吃药的，添加任何东西前先告诉医生"
+   ],
+   [
+    "四肢不胖，肚子大",
+    "护肝片、有机姜黄胶囊、代谢益生元后生元",
+    "血糖的关键在肝，再加上慢性炎症和肠道一起调。按月看效果。在吃抗凝药的，吃姜黄前先问医生"
+   ],
+   [
+    "家里有人血糖高",
+    "深海鱼油和浓缩果蔬精华",
+    "针对慢性炎症，再把家里饭桌上缺的颜色补上。每年查一次血糖。在吃抗凝药的，先问医生"
+   ],
+   [
+    "过了40，睡得越来越浅",
+    "钙镁D片晚上吃，加舒压益生菌",
+    "睡不好血糖就往上走。它们帮你放松，但代替不了早点上床"
+   ],
+   [
+    "米饭面条吃得多，人没劲",
+    "B族维生素",
+    "碳水吃得多，B族消耗就快，而把食物变成稳定的能量靠的就是它"
+   ]
+  ],
+  "ask": "按你刚才说的，我建议先从早餐的蛋白粉和吃米饭前的阻碳片开始，医生那边该怎么做还是照做。今天要不要先带回去？",
+  "doctor": "如果口很渴、小便多、体重莫名下降、视力模糊，或者伤口好得很慢，请先去看医生。已经在吃降糖药的，一定按医嘱继续吃，不要自己调整，添加任何保健品之前先告诉医生。"
+ }
+}

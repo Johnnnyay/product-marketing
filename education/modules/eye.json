@@ -1,0 +1,71 @@
+{
+ "id": "eye",
+ "area": "eye",
+ "study": [["xzc52", "33"], ["xzc52", "36"], ["xzc52", "35"], ["xzc52", "29"], ["qtby", "14"], ["qtby", "17"]],
+ "en": {
+  "title": "Eye Health",
+  "who": "Guests who mark tired eyes after screens all day, dry or gritty eyes, trouble seeing at night, worry about aging eyes, or kids on screens all day.",
+  "studyWhy": ["carotenoids, vitamin A and the eyes", "vitamin A in the eye, and taking it safely", "vitamin A and growth", "vitamin C", "the antioxidant trio", "the liver"],
+  "feel": {
+   "say": ["I totally get it. By the end of the day your eyes feel heavy and dry, and things start to blur a little. And you can't exactly stop looking at a screen for work, right?"],
+   "tip": "Say back what they marked, in their words. Then ask: \"When do you notice it most?\""
+  },
+  "felt": {
+   "say": ["Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"],
+   "tip": "Your own story, or someone close to you (\"my dad\", \"a friend from work\"). No story yet? \"A lot of the people I talk to say exactly the same thing.\" Never make one up."
+  },
+  "found": {
+   "say": [
+    "What I learned is that most tired eyes aren't damaged, they're overworked. At a screen the focusing muscle stays tight for hours and you blink about a third as often, so the surface dries out. The habit comes first: every 20 minutes, look about 20 feet away for 20 seconds, and blink properly.",
+    "The centre of the eye, the part you read with, is protected by two yellow pigments, lutein and zeaxanthin. The body can't make them, they only come from food like dark greens, corn and egg yolk, and most of us eat far less than that. They need fat to absorb, so you take them with a real meal, not with black coffee.",
+    "So this is what I'd start with."
+   ],
+   "tip": "Two or three sentences, then go to the map. Pick the row that matches what they marked."
+  },
+  "map": [
+   ["Tired after screens all day", "Vision Health, with the biggest meal that has some fat", "The light-filtering pigments the body can't make"],
+   ["Wants a gummy, or works at a desk", "Eye Mojo Blue Light Gummies", "The same pigments. Keep it on the desk as a reminder to look away. Pick this or Vision Health, not both"],
+   ["Dry or gritty eyes", "Blinking, a humidifier and pharmacy drops first; Double X for the daily base", "Vitamin A keeps the eye surface moist. Fish oil didn't beat olive oil for dry eyes, so don't offer it for that"],
+   ["Hard to see at night", "Double X Multivitamin; Vision Health for glare", "Vitamin A is the raw material for seeing in dim light. New or getting worse? Eye check first"],
+   ["Worried about aging eyes", "Vision Health with Concentrated Fruits & Vegetables", "Keeps the pigment topped up, along with sunglasses and not smoking. Smokers ask a doctor first, it has beta-carotene"],
+   ["Smokes, or outdoors a lot", "Vitamin C Extended Release, plus UV400 sunglasses", "Sun and smoke burn through antioxidants. Quitting is the step that really counts"],
+   ["Kids on screens all day", "About two hours outside a day first; Eye Mojo or Concentrated Fruits & Vegetables", "Daylight is the best-proven habit. Check the age on the label before giving any of it to a child"],
+   ["Tired eyes with late nights, drinks or takeout", "Liver Support with Vitamin B Complex in the evening", "The liver stores most of the body's vitamin A. This is the evening routine from the teaching, not an eye claim"]
+  ],
+  "ask": "Based on what you told me, I'd start with the Vision Health with dinner and the 20-20-20 break, with the Double X underneath. Do you want to take it home tonight?",
+  "doctor": "Sudden change in vision, eye pain, a red eye that hurts, new flashes or a shower of floaters, or a shadow across their sight? See an eye doctor the same day, before anything else."
+ },
+ "zh": {
+  "title": "眼睛健康",
+  "who": "适合在问卷里勾了屏幕看久眼好累、眼睛干涩、晚上看不清、担心眼睛老化，或者孩子整天盯屏幕的客人。",
+  "studyWhy": ["类胡萝卜素、维生素A与视力", "维生素A在眼睛里怎么用、怎么安全地补", "维生素A与儿童发育", "维生素C", "抗氧化三剑客", "肝"],
+  "feel": {
+   "say": ["我特别懂。一到下午眼睛又酸又干，看东西还有点花。可是工作又离不开电脑，对吧？"],
+   "tip": "用对方自己的话，把问卷上勾的说回去。然后问一句：“一般什么时候最明显？”"
+  },
+  "felt": {
+   "say": ["说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"],
+   "tip": "讲你自己的，或者身边人的（“我爸爸”“我一个同事”）。还没有故事？就说：“我身边很多朋友也是这样。”千万别编。"
+  },
+  "found": {
+   "say": [
+    "我后来学到，大多数眼睛累，不是眼睛坏了，是用得太狠了。盯着屏幕的时候，对焦的肌肉几个小时一直绷着，眨眼也只剩平时的三分之一，眼睛表面就干了。所以先改习惯：每20分钟，看6米外的地方20秒，再好好眨几下眼。",
+    "眼睛中间看字、认人脸的那块叫黄斑，靠两种黄色的色素保护，叫叶黄素和玉米黄质。身体自己造不出来，只能从深绿色蔬菜、玉米、蛋黄里来，大多数人吃得远远不够。它们要有油才吸收得进去，所以要跟正餐一起吃，别配着黑咖啡空腹吞。",
+    "所以，我会先从这个开始。"
+   ],
+   "tip": "两三句就够，然后看下面的对照表，挑跟对方勾的那一项对得上的。"
+  },
+  "map": [
+   ["屏幕看久眼好累", "护眼片，跟一天里最丰盛、带点油的那顿一起吃", "补上眼睛里过滤光线、身体又造不出来的色素"],
+   ["喜欢吃软糖，或者整天坐办公桌", "蓝光护眼软糖", "同样的色素。放在桌上，顺便提醒自己抬头看远处。和护眼片二选一就够"],
+   ["眼睛干涩", "先刻意眨眼、放加湿器、用人工泪液；双X打底", "维生素A让眼睛表面保持湿润。鱼油改善干眼和橄榄油差不多，别拿它来推干眼"],
+   ["晚上看不清", "双X综合营养片；怕车灯晃眼加护眼片", "维生素A是暗处看东西的原料。最近才出现或越来越明显，先去查眼睛"],
+   ["担心眼睛老化", "护眼片，配浓缩果蔬精华", "把色素补满，再加上戴太阳镜、不抽烟。抽烟的人先问医生，因为里面有β-胡萝卜素"],
+   ["抽烟，或者常在户外", "维生素C缓释片，出门戴UV400太阳镜", "阳光和烟都特别耗抗氧化剂。真正算数的一步是戒烟"],
+   ["孩子整天盯屏幕", "先保证每天户外两小时左右；蓝光护眼软糖或浓缩果蔬精华", "晒太阳是最有证据的办法。给孩子吃任何一样之前，先看清标签上的适用年龄"],
+   ["眼睛累，又常熬夜、喝酒、吃外卖", "护肝片，晚上和B族一起吃", "身体大部分的维生素A存在肝里。这是课程里的晚间调理节奏，不是护眼功效"]
+  ],
+  "ask": "按你刚才说的，我建议先从护眼片开始，晚饭一起吃，用双X打底，再配合20-20-20的休息。今天要不要先带回去？",
+  "doctor": "如果视力突然变化、眼睛疼、眼睛红而且痛、突然出现闪光或一大片飞蚊，或者视野里像有一块阴影挡着，请当天就去看眼科，其他的都先放一边。"
+ }
+}

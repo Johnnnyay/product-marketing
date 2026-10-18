@@ -1,0 +1,71 @@
+{
+ "id": "muscle",
+ "area": "muscle",
+ "study": [["xzc52", "20"], ["xzc52", "21"], ["qtby", "12"], ["xzc52", "14"], ["xzc52", "13"], ["xzc52", "37"], ["xzc52", "38"]],
+ "en": {
+  "title": "Muscle & Fitness",
+  "who": "Guests who mark training hard with no results, sore for days after, no energy for the gym after work, getting older and losing strength, or just starting out. If the goal is losing fat, use Weight Management too.",
+  "studyWhy": ["protein", "protein: how much and when", "protein, the source of life", "exercise in the right amount", "sleep and repair", "minerals", "calcium"],
+  "feel": {
+   "say": ["I totally get it. You're showing up and putting in the work, and the weights and the mirror just aren't moving. That's frustrating."],
+   "tip": "Say back what they marked, in their words. Then ask: \"What do you usually eat on a training day?\""
+  },
+  "felt": {
+   "say": ["Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"],
+   "tip": "Your own story, or someone close to you (\"my brother\", \"a friend from the gym\"). No story yet? \"A lot of the people I talk to say exactly the same thing.\" Never make one up."
+  },
+  "found": {
+   "say": [
+    "What I learned is that muscle doesn't grow in the gym, it grows after, while you recover, and it's built out of protein. Most people who train eat enough protein for sitting on a couch, and most of it lands in one big dinner. The body can't store it, so spreading it out, 20 to 40 grams a meal, matters almost as much as the total. Breakfast is usually where it's missing.",
+    "The other piece is sleep. Repair mostly happens at night, so a short night shows up in the muscle the next day. And being sore for days doesn't mean it was a good workout, it means the movement was new, or you're adding load faster than you recover.",
+    "So this is what I'd start with."
+   ],
+   "tip": "Two or three sentences, then go to the map. Pick the row that matches what they marked."
+  },
+  "map": [
+   ["Training hard, no results", "XS Grass-Fed Whey Protein, a scoop at breakfast", "Closes the protein gap. Whey is rich in leucine, which switches on repair. Kidney disease: doctor first"],
+   ["Whey bloats them", "Plant Protein Powder", "Builds muscle just as well when they get enough of it"],
+   ["Busy, won't make a shake", "XS RTD Protein Shakes or XS Protein Bars", "Spreads protein through the day with zero prep"],
+   ["Sore for days after", "Advanced Omega daily; Magnesium in the evening; XS CBD Cream on the spot", "Less soreness, a better wind-down for sleep, and comfort on the sore spot. No drinks after training"],
+   ["No energy for the gym after work", "XS Protein Bars around 5 pm and XS CocoWater; XS Pre-Workout Boost if needed", "The tank is empty, it's not laziness. The pre-workout is about a cup of coffee, not within six hours of bed"],
+   ["Getting older, losing strength", "Plant Protein Powder at breakfast and Calcium Magnesium D", "Older muscle needs more protein per meal, and bones carry the load. Ask a doctor to check vitamin D"],
+   ["Knees complain on the stairs", "Joint Health", "Raw material for cartilage. Give it a few months, and stop if nothing changes"],
+   ["Just starting out", "XS Fitness Jump Start Solution, or Everyday Nutrition Solution", "Gets the nutrition handled, so the only job is showing up"]
+  ],
+  "ask": "Based on what you told me, I'd start with the XS Grass-Fed Whey Protein at breakfast and the Magnesium in the evening for recovery. Do you want to take it home tonight?",
+  "doctor": "Kidney or liver disease, a heart condition, or joint pain that won't settle? See a doctor first, before adding protein or training harder."
+ },
+ "zh": {
+  "title": "增肌与运动表现",
+  "who": "适合在问卷里勾了练得很拼就是不长、练完酸好几天、下班后没力气去练、年纪大了力气变小，或者刚开始练的客人。如果目标是减脂，同时用「体重管理」。",
+  "studyWhy": ["蛋白质", "蛋白质吃多少、什么时候吃", "蛋白质，生命之基", "运动要适量", "睡眠与修复", "矿物质", "补钙"],
+  "feel": {
+   "say": ["我特别懂。每次都按时去练，也很拼，可是重量上不去，镜子里也没什么变化，真的挺让人泄气的。"],
+   "tip": "用对方自己的话，把问卷上勾的说回去。然后问一句：“练的那天，一般都吃些什么？”"
+  },
+  "felt": {
+   "say": ["说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"],
+   "tip": "讲你自己的，或者身边人的（“我弟弟”“我一个健身的朋友”）。还没有故事？就说：“我身边很多朋友也是这样。”千万别编。"
+  },
+  "found": {
+   "say": [
+    "我后来学到，肌肉不是在健身房里长的，是练完之后恢复的时候长的，原料就是蛋白质。大多数练的人，吃的蛋白质只够坐沙发，而且大部分都堆在晚饭那一顿。身体存不住蛋白质，所以分开吃，每餐20到40克，几乎和总量一样重要。最常缺的就是早餐。",
+    "另一块是睡眠。修复主要在晚上，睡少了，第二天肌肉就能反映出来。还有，酸好几天不代表练得好，只是动作是新的，或者加量加得比恢复还快。",
+    "所以，我会先从这个开始。"
+   ],
+   "tip": "两三句就够，然后看下面的对照表，挑跟对方勾的那一项对得上的。"
+  },
+  "map": [
+   ["练得很拼，就是不长", "XS草饲乳清蛋白，早餐来一勺", "把蛋白质的缺口补上。乳清富含亮氨酸，就是启动修复的那个。有肾病的先问医生"],
+   ["喝乳清会胀气", "有机植物蛋白粉", "只要量吃够，增肌效果一样好"],
+   ["太忙，懒得冲奶昔", "XS即饮蛋白奶昔或XS蛋白棒", "不用准备，就把一天的蛋白质分匀了"],
+   ["练完酸好几天", "深海鱼油每天吃；晚上吃镁片；酸的地方涂XS舒缓膏", "酸痛轻一点，晚上睡得更放松，局部舒服一点。练完别去喝酒"],
+   ["下班后没力气去练", "下午五点左右一根XS蛋白棒，加XS椰子水；实在没劲再来XS训练前激活粉", "不是懒，是油箱空了。激活粉大约一杯咖啡的咖啡因，睡前六小时内别喝"],
+   ["年纪大了，力气变小", "早餐加有机植物蛋白粉，再配钙镁D片", "年纪大了每餐要更多蛋白质，骨头也要扛得住。可以请医生查一下维生素D"],
+   ["上楼梯膝盖不舒服", "关节灵", "给软骨补点原料。给它几个月，没变化就停"],
+   ["刚开始练", "XS健身启动方案，或每日基础营养方案", "先把营养安排好，你只管按时去练"]
+  ],
+  "ask": "按你刚才说的，我建议早餐先加一勺XS草饲乳清蛋白，晚上吃镁片帮助恢复。今天要不要先带回去？",
+  "doctor": "如果有肾病、肝病、心脏问题，或者关节疼痛一直不好，加蛋白质或加大训练强度之前，请先去看医生。"
+ }
+}

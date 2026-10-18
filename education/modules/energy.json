@@ -1,67 +1,212 @@
 {
  "id": "energy",
  "area": "energy",
- "study": [["xzc52", "16"], ["xzc52", "17"], ["xzc52", "22"], ["xzc52", "23"], ["xzc52", "20"], ["xzc52", "21"], ["qtby", "15"], ["qtby", "17"]],
+ "study": [
+  [
+   "xzc52",
+   "16"
+  ],
+  [
+   "xzc52",
+   "17"
+  ],
+  [
+   "xzc52",
+   "22"
+  ],
+  [
+   "xzc52",
+   "23"
+  ],
+  [
+   "xzc52",
+   "20"
+  ],
+  [
+   "xzc52",
+   "21"
+  ],
+  [
+   "qtby",
+   "15"
+  ],
+  [
+   "qtby",
+   "17"
+  ],
+  [
+   "xzc52",
+   "51"
+  ]
+ ],
  "en": {
-  "title": "Energy & Fatigue",
-  "who": "Guests who mark tired all the time, an afternoon crash, sleepy after meals, drained after work, or running on coffee. If sleep itself is the problem, use Sleep & Stress.",
-  "studyWhy": ["hidden hunger", "hungry cells need food, not medicine", "the B vitamins", "B1 and energy", "protein", "protein, part two", "the nourishing breakfast", "the liver"],
+  "title": "Energy & Focus",
+  "who": "Guests who mark tired all the time, an afternoon crash, sleepy after meals, running on coffee, brain fog, fading in meetings, forgetting words, or studying for exams. If sleep itself is the problem, use Sleep & Stress.",
+  "studyWhy": [
+   "hidden hunger",
+   "hungry cells need food, not medicine",
+   "the B vitamins",
+   "B1 and energy",
+   "protein",
+   "protein, part two",
+   "the nourishing breakfast",
+   "the liver",
+   "keeping the brain young"
+  ],
   "feel": {
-   "say": ["I totally get it. You hit a wall in the afternoon, and by the time you get home there's nothing left. And coffee doesn't really fix it anymore, right?"],
+   "say": [
+    "I totally get it. You hit a wall in the afternoon, your head goes foggy, and by the time you get home there's nothing left. And coffee doesn't really fix it anymore, right?"
+   ],
    "tip": "Say back what they marked, in their words. Then ask: \"When does it hit you most?\""
   },
   "felt": {
-   "say": ["Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"],
+   "say": [
+    "Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"
+   ],
    "tip": "Your own story, or someone close to you (\"my mom\", \"a friend from work\"). No story yet? \"A lot of the people I talk to say exactly the same thing.\" Never make one up."
   },
   "found": {
    "say": [
     "What I learned is that being tired usually isn't about needing more sleep or more coffee. The body ran out of the raw materials that turn food into energy, like the B vitamins, minerals and protein, and a rushed lunch doesn't put them back.",
     "And being sleepy after lunch is a sugar spike. You don't have to stop eating rice, you just slow the sugar down: vegetables and protein first, rice last.",
+    "The brain fog is usually the same story, not your brain. Add a body short on water and on omega-3, which the brain is built from and most of us barely eat.",
     "So this is what I'd start with."
    ],
    "tip": "Two or three sentences, then go to the map. Pick the row that matches what they marked."
   },
   "map": [
-   ["Tired all the time, drained after work", "Double X", "Fills the gaps a busy week of eating leaves"],
-   ["Running on coffee, foggy", "Vitamin B Complex", "Helps the body turn food into energy"],
-   ["Sleepy after lunch", "Carb Blocker, Prebiotic Fiber, or a Plant Protein shake", "Slows the sugar spike"],
-   ["Late nights, drinks, takeout", "Liver Support, in the evening with Vitamin B", "Supports a liver that's been working overtime"],
-   ["Stressed and wired", "Ashwagandha, Vitamin C, Advanced Omega", "Calms the stress system from the inside"],
-   ["A woman tired all the time, heavy periods", "Iron & Folic Acid, only after a ferritin test", "Low iron is a common hidden cause"]
+   [
+    "Tired all the time, drained after work",
+    "Double X",
+    "Fills the gaps a busy week of eating leaves"
+   ],
+   [
+    "Running on coffee, foggy",
+    "Vitamin B Complex",
+    "Helps the body turn food into energy"
+   ],
+   [
+    "Sleepy after lunch",
+    "Carb Blocker, Prebiotic Fiber, or a Plant Protein shake",
+    "Slows the sugar spike"
+   ],
+   [
+    "Late nights, drinks, takeout",
+    "Liver Support, in the evening with Vitamin B",
+    "Supports a liver that's been working overtime"
+   ],
+   [
+    "Stressed and wired",
+    "Ashwagandha, Vitamin C, Advanced Omega",
+    "Calms the stress system from the inside"
+   ],
+   [
+    "A woman tired all the time, heavy periods",
+    "Iron & Folic Acid, only after a ferritin test",
+    "Low iron is a common hidden cause"
+   ],
+   [
+    "Fading in afternoon meetings",
+    "XS Energy + Focus, early afternoon at the latest",
+    "Caffeine from green tea in one tablet; a big glass of water first"
+   ],
+   [
+    "Words on the tip of the tongue, forgetful",
+    "Memory Builder, with Advanced Omega",
+    "Ginkgo for memory, DHA for the brain. On blood thinners or aspirin, ask the doctor first"
+   ],
+   [
+    "Studying for exams",
+    "Advanced Omega, a Plant Protein shake at breakfast",
+    "DHA if they rarely eat fish, protein to keep the morning steady. Kids: Brainiums DHA Jelly"
+   ]
   ],
   "ask": "Based on what you told me, I'd start with the Double X and the B vitamins. Do you want to take it home tonight?",
-  "doctor": "Tired for more than a few weeks, or with weight loss, breathlessness, very heavy periods or low mood? See a doctor first."
+  "doctor": "Tired for more than a few weeks, or with weight loss, breathlessness, very heavy periods or low mood? Memory loss that gets in the way of daily life, or sudden confusion? See a doctor first."
  },
  "zh": {
-  "title": "精力与疲劳",
-  "who": "适合在问卷里勾了总是很累、下午犯困、饭后想睡、下班后被掏空、全靠咖啡撑的客人。如果主要是睡不好，用「睡眠与压力」。",
-  "studyWhy": ["隐性饥饿", "细胞饿了需要的是食物，不是药", "B族维生素", "B1与能量代谢", "蛋白质", "蛋白质（下）", "营养早餐", "肝"],
+  "title": "精力与专注",
+  "who": "适合在问卷里勾了总是很累、下午犯困、饭后想睡、全靠咖啡撑、脑子发懵、开会走神、话到嘴边想不起来，或者正在备考的客人。如果主要是睡不好，用「睡眠与压力」。",
+  "studyWhy": [
+   "隐性饥饿",
+   "细胞饿了需要的是食物，不是药",
+   "B族维生素",
+   "B1与能量代谢",
+   "蛋白质",
+   "蛋白质（下）",
+   "营养早餐",
+   "肝",
+   "让大脑保持年轻"
+  ],
   "feel": {
-   "say": ["我特别懂。下午一到就没电，下班回到家整个人都空了。而且咖啡好像也越来越不管用了，对吧？"],
+   "say": [
+    "我特别懂。下午一到就没电，脑子也转不动，下班回到家整个人都空了。而且咖啡好像也越来越不管用了，对吧？"
+   ],
    "tip": "用对方自己的话，把问卷上勾的说回去。然后问一句：“一般什么时候最明显？”"
   },
   "felt": {
-   "say": ["说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"],
+   "say": [
+    "说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"
+   ],
    "tip": "讲你自己的，或者身边人的（“我妈妈”“我一个同事”）。还没有故事？就说：“我身边很多朋友也是这样。”千万别编。"
   },
   "found": {
    "say": [
     "我后来才知道，累通常不是因为睡得不够、咖啡喝得不够，而是身体把那些把食物变成能量的原料用光了，像B族、矿物质、蛋白质。一顿匆忙的午饭是补不回来的。",
     "还有，午饭后犯困其实是血糖冲高再掉下来。不用戒米饭，只要让糖慢下来：先吃菜和肉，最后吃饭。",
+    "脑子发懵通常也是同一回事，不是脑子本身出了问题。再加上水喝得不够、Omega-3吃得太少，而大脑本来就是靠它搭起来的，我们大多数人却几乎吃不到。",
     "所以，我会先从这个开始。"
    ],
    "tip": "两三句就够，然后看下面的对照表，挑跟对方勾的那一项对得上的。"
   },
   "map": [
-   ["总是累、下班后被掏空", "双X综合营养片", "补上忙碌饮食留下的缺口"],
-   ["全靠咖啡撑、脑子发懵", "B族维生素", "帮身体把食物变成能量"],
-   ["午饭后犯困", "阻碳片、益生元纤维粉，或一杯植物蛋白", "让血糖慢下来"],
-   ["熬夜、应酬、外卖多", "护肝片，晚上和B族一起吃", "给一直在加班的肝减负"],
-   ["压力大、又累又亢奋", "南非醉茄、维生素C、深海鱼油", "从身体里面让压力系统平静下来"],
-   ["总是很累的女生、经量多", "铁质叶酸片，先查铁蛋白再补", "缺铁是很常见的隐藏原因"]
+   [
+    "总是累、下班后被掏空",
+    "双X综合营养片",
+    "补上忙碌饮食留下的缺口"
+   ],
+   [
+    "全靠咖啡撑、脑子发懵",
+    "B族维生素",
+    "帮身体把食物变成能量"
+   ],
+   [
+    "午饭后犯困",
+    "阻碳片、益生元纤维粉，或一杯植物蛋白",
+    "让血糖慢下来"
+   ],
+   [
+    "熬夜、应酬、外卖多",
+    "护肝片，晚上和B族一起吃",
+    "给一直在加班的肝减负"
+   ],
+   [
+    "压力大、又累又亢奋",
+    "南非醉茄、维生素C、深海鱼油",
+    "从身体里面让压力系统平静下来"
+   ],
+   [
+    "总是很累的女生、经量多",
+    "铁质叶酸片，先查铁蛋白再补",
+    "缺铁是很常见的隐藏原因"
+   ],
+   [
+    "下午开会就走神",
+    "XS能量专注片，最晚午后早一点吃",
+    "一片里是来自绿茶的咖啡因；先喝一大杯水"
+   ],
+   [
+    "话到嘴边想不起来、健忘",
+    "记忆力支持片，配深海鱼油",
+    "银杏帮记忆，DHA养大脑。在吃抗凝药或阿司匹林的，先问医生"
+   ],
+   [
+    "正在备考",
+    "深海鱼油，早餐一杯植物蛋白",
+    "不常吃鱼就补DHA，蛋白质让一上午都稳。孩子用儿童DHA果冻"
+   ]
   ],
   "ask": "按你刚才说的，我建议先从双X和B族开始。今天要不要先带回去？",
-  "doctor": "如果累了已经好几周，或者同时有体重下降、气短、经量很多、情绪低落，请先去看医生。"
+  "doctor": "如果累了已经好几周，或者同时有体重下降、气短、经量很多、情绪低落；或者健忘已经影响到日常生活、突然变得糊涂，请先去看医生。"
  }
 }

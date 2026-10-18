@@ -1,0 +1,71 @@
+{
+ "id": "immunity",
+ "area": "immunity",
+ "study": [["xzc52", "07"], ["qtby", "07"], ["xzc52", "43"], ["xzc52", "03"], ["xzc52", "20"], ["xzc52", "30"], ["xzc52", "37"]],
+ "en": {
+  "title": "Immunity",
+  "who": "Guests who mark catching every cold going around, kids bringing everything home, getting sick after a busy stretch, getting sick after short sleep, a trip or flu season coming up, or only taking vitamin C once a cold starts.",
+  "studyWhy": ["why health management is about immunity", "most illness starts in the gut", "probiotics and immunity", "how sleep debt adds up", "protein", "vitamin C and immunity", "minerals, including zinc"],
+  "feel": {
+   "say": ["I totally get it. Someone at work sneezes, and a few days later it's you. Or you push through a crazy busy stretch, and the moment it's over, you're the one in bed."],
+   "tip": "Say back what they marked, in their words. Then ask: \"When does it usually get you?\""
+  },
+  "felt": {
+   "say": ["Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"],
+   "tip": "Your own story, or someone close to you (\"my mom\", \"a friend from work\"). No story yet? \"A lot of the people I talk to say exactly the same thing.\" Never make one up."
+  },
+  "found": {
+   "say": [
+    "What I learned is that the immune system isn't a muscle you can pump up. It rebuilds itself every day out of protein and vitamins, and a big part of it lives in your gut. When the gut is out of balance or the supply runs short, it just has less left for everything else.",
+    "And sleep matters more than anything in a bottle. The vitamins work as a daily habit, not a rescue: starting vitamin C once the cold is already there doesn't really do much. Nothing stops every cold, so the goal is simply not to run short.",
+    "So this is what I'd start with."
+   ],
+   "tip": "Two or three sentences, then go to the map. Pick the row that matches what they marked."
+  },
+  "map": [
+   ["Catches every cold going around", "Probiotic, with cool water, not hot, plus Prebiotic Fiber", "A big part of the immune system lives in the gut. Judge it at four weeks"],
+   ["Kids bring everything home", "g&h Protect Hand Soap; Kids Daily Chewable Multivitamin, or Kids Toddler Immunity Drops under about three", "Hands that don't crack keep getting washed, and kids need a format they'll actually take"],
+   ["Sick after a busy stretch, toast for breakfast", "Plant Protein Powder at breakfast, and Double X", "Antibodies are made of protein; the multivitamin covers the everyday zinc, selenium and iron"],
+   ["Sleeps short, then gets sick", "Magnesium, in the evening", "Helps the body wind down so the seven hours actually happen. The habit does the work"],
+   ["Deadline weeks, sleep slipping", "Immunity Defense Zinc + Holy Basil, for the stretch only", "Not all year. Keep zinc from all sources under 40 mg a day"],
+   ["A trip or flu season coming up", "Immunity Echinacea, Twist Tubes, g&h Protect Hand Sanitizer", "Use them for the stretch, then stop. Sanitiser is for when there's no soap, not instead of it"],
+   ["Takes vitamin C only once it starts", "Vitamin C Extended Release every day, and Vitamin D", "A daily habit, not a rescue. Indoors most of the day? Ask the doctor for a vitamin D test"],
+   ["Wants the routine not to lapse", "Everyday Nutrition Solution, on a monthly order", "Multivitamin, protein and omega-3 together, so the busy week doesn't break the habit"]
+  ],
+  "ask": "Based on what you told me, I'd start with the Probiotic, the daily Vitamin C, and a scoop of protein at breakfast. Do you want to take it home tonight?",
+  "doctor": "A fever for more than three days, trouble breathing, infections that keep coming back, or any fever in a baby under three months? See a doctor first."
+ },
+ "zh": {
+  "title": "免疫力",
+  "who": "适合在问卷里勾了别人一感冒就中招、孩子一上学全家轮着病、一忙完就病倒、一熬夜就感冒、要出门旅行或流感季快到了，或者感冒了才想起吃维C的客人。",
+  "studyWhy": ["健康管理重在免疫", "万病始于肠", "益生菌与免疫", "睡眠债是怎么欠下的", "蛋白质", "维C与免疫", "矿物质，包括锌"],
+  "feel": {
+   "say": ["我特别懂。办公室有人打个喷嚏，过几天就轮到你了。或者拼命忙完一阵，刚一放松，人就倒下了。"],
+   "tip": "用对方自己的话，把问卷上勾的说回去。然后问一句：“一般是什么时候最容易中招？”"
+  },
+  "felt": {
+   "say": ["说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"],
+   "tip": "讲你自己的，或者身边人的（“我妈妈”“我一个同事”）。还没有故事？就说：“我身边很多朋友也是这样。”千万别编。"
+  },
+  "found": {
+   "say": [
+    "我后来才知道，免疫力不是肌肉，练不大。它每天都在用蛋白质和维生素给自己更新，而且很大一部分就在肠道里。肠道一乱，或者原料跟不上，它对外面的东西就顾不过来了。",
+    "还有，睡眠比瓶子里的任何东西都重要。营养素要每天吃才有用，感冒了才想起吃维C，其实帮不了多少。没有什么能让人一次都不感冒，我们要做的，就是别让它缺。",
+    "所以，我会先从这个开始。"
+   ],
+   "tip": "两三句就够，然后看下面的对照表，挑跟对方勾的那一项对得上的。"
+  },
+  "map": [
+   ["别人一感冒就中招", "益生菌，用凉白开送服，别用热水；加益生元纤维粉", "免疫系统很大一部分在肠道里。吃满四周再看"],
+   ["孩子一上学全家轮着病", "g&h洗手液；儿童咀嚼综合营养片，三岁左右以前用幼儿免疫滴剂", "手不干裂，全家才愿意好好洗；给孩子补，关键是他愿意吃的形式"],
+   ["一忙完就病倒，早餐随便对付", "早餐加一勺有机植物蛋白粉，再加双X综合营养片", "抗体是蛋白质做的；双X把锌、硒、铁的日常量打好底"],
+   ["一熬夜就感冒", "镁片，晚上吃", "帮身体放松下来，七小时才睡得满。真正起作用的是习惯"],
+   ["赶项目、睡不够的那几周", "锌+圣罗勒免疫片，只在这段时间吃", "不是一年到头吃。所有来源加起来，锌每天不超过40毫克"],
+   ["要出门旅行、流感季快到了", "紫锥菊免疫片、随身营养饮管、g&h免洗洗手液", "就用这一段，过了就停。免洗洗手液是没有肥皂时用的，不是代替洗手"],
+   ["感冒了才想起吃维C", "维生素C缓释片每天吃，加维生素D", "是日常习惯，不是救急。常待在室内的，请医生查一下维生素D"],
+   ["怕一忙起来习惯就断", "每日基础营养方案，设成每月自动送货", "综合营养片、蛋白粉、鱼油一次配齐，最累的那一周也不断"]
+  ],
+  "ask": "按你刚才说的，我建议先从益生菌、每天的维C，还有早餐加一勺蛋白粉开始。今天要不要先带回去？",
+  "doctor": "发烧超过三天、呼吸困难、感染反反复复，或者三个月以下的宝宝发烧，请先去看医生。"
+ }
+}
