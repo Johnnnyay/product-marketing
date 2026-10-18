@@ -1,71 +1,269 @@
 {
  "id": "hair",
  "area": "hair",
- "study": [["xzc52", "16"], ["xzc52", "20"], ["xzc52", "21"], ["xzc52", "37"], ["xzc52", "24"], ["xzc52", "36"], ["qtby", "07"]],
+ "study": [
+  [
+   "xzc52",
+   "16"
+  ],
+  [
+   "xzc52",
+   "20"
+  ],
+  [
+   "xzc52",
+   "21"
+  ],
+  [
+   "xzc52",
+   "37"
+  ],
+  [
+   "xzc52",
+   "24"
+  ],
+  [
+   "xzc52",
+   "36"
+  ],
+  [
+   "qtby",
+   "07"
+  ]
+ ],
  "en": {
   "title": "Hair Health",
   "who": "Guests who mark more hair falling out, shedding after a stressful stretch or an illness, shedding after a baby or a diet, thinning and tired too, dry or brittle ends, or an oily, itchy, flaky scalp.",
-  "studyWhy": ["hidden hunger", "protein, what hair is made of", "protein, part two", "minerals, including iron and zinc", "B2, and a greasy, flaky scalp", "vitamin A, and why more isn't better", "all illness starts in the gut"],
+  "studyWhy": [
+   "hidden hunger",
+   "protein, what hair is made of",
+   "protein, part two",
+   "minerals, including iron and zinc",
+   "B2, and a greasy, flaky scalp",
+   "vitamin A, and why more isn't better",
+   "all illness starts in the gut"
+  ],
   "feel": {
-   "say": ["I totally get it. You see it in the shower drain and on your pillow, and every time it worries you a little more. And it's hard to tell if it's getting better or worse, right?"],
+   "say": [
+    "I totally get it. You see it in the shower drain and on your pillow, and every time it worries you a little more. And it's hard to tell if it's getting better or worse, right?"
+   ],
    "tip": "Say back what they marked, in their words. Then ask: \"What was going on in your life two or three months before it started?\""
   },
   "felt": {
-   "say": ["Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"],
+   "say": [
+    "Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"
+   ],
    "tip": "Your own story, or someone close to you (\"my mom\", \"a friend from work\"). No story yet? \"A lot of the people I talk to say exactly the same thing.\" Never make one up."
   },
   "found": {
    "say": [
-    "What I learned is that hair runs on a calendar. A hard stretch at work, a bad flu, a baby or a crash diet pushes lots of hairs into rest at the same time, and they all fall out two or three months later. The roots are fine, so this kind of shedding is usually temporary.",
-    "And hair is made of protein. When protein or iron runs short, the body keeps it for the organs, and hair is one of the first things it cuts. So the fix starts on the inside, and on the outside it's mostly a clean scalp and gentle care for the ends.",
+    "What I learned is that hair runs on a calendar: most shedding is an echo of something two or three months earlier, and the roots are usually fine. Hair is made of protein, so when protein or iron runs short, it's one of the first things the body cuts.",
     "So this is what I'd start with."
    ],
-   "tip": "Two or three sentences, then go to the map. Pick the row that matches what they marked."
+   "tip": "One or two sentences from Part A, then the routine. Pick the products that match what they marked."
   },
-  "map": [
-   ["Shedding after a stressful stretch or an illness", "Plant Protein, Ashwagandha, Double X", "Protein for the new hair, work on the stress behind it, and a daily base at sensible doses. No ashwagandha if pregnant or breastfeeding"],
-   ["Shedding after a baby", "Plant Protein, and Iron & Folic Acid only after a ferritin test", "Giving birth costs iron. Breastfeeding? Ask the doctor before anything new"],
-   ["Shedding after a diet, or skipping meals", "Plant Protein, or an All-in-One Shake in place of the skipped meal", "So hair isn't the thing that gets cut. Lose it slower and keep the protein up"],
-   ["Thinning and tired too", "Iron & Folic Acid, only after a ferritin test, with Vitamin C at meals", "Low iron can hide behind a normal blood count. Keep tea and coffee an hour away from meals"],
-   ["Dry, brittle ends, coloured or heat-styled", "Satinique Intensive Repair Shampoo and Conditioner", "Protects the length you have. Conditioner on the ends, every wash"],
-   ["Diet has been restricted, asks about biotin", "Hair Skin Nail", "Biotin and collagen for the new hair coming in. Tell the lab before any blood test"],
-   ["Oily, itchy, flaky scalp", "Satinique Anti-Dandruff Shampoo, Satinique Purifying Shampoo on the other days", "Wash more, not less, and leave it on the scalp for five minutes before rinsing"],
-   ["Greasy, flaky scalp and face", "Vitamin B Complex", "A classic sign of running low on B2 and B6"]
-  ],
   "ask": "Based on what you told me, I'd start with the Plant Protein and the Double X, plus the Satinique shampoo that fits your scalp. Do you want to take it home tonight?",
-  "doctor": "Hair coming out in patches or clumps, a sore, red or scarred scalp, a widening part, shedding for more than six months, or shedding with tiredness, feeling cold or heavy periods? See a doctor or dermatologist first."
+  "doctor": "Hair coming out in patches or clumps, a sore, red or scarred scalp, a widening part, shedding for more than six months, or shedding with tiredness, feeling cold or heavy periods? See a doctor or dermatologist first. Pregnant or breastfeeding: no ashwagandha, and ask before anything new.",
+  "groups": [
+   "The scalp comes first",
+   "What blocks the supply",
+   "What hair is made of",
+   "Biotin and collagen, honestly",
+   "Protect the length",
+   "Every day, for months"
+  ],
+  "know": [
+   [
+    "Hair runs on a calendar.",
+    "A hard stretch at work, a bad flu, an operation, a baby or a crash diet pushes lots of hairs into rest at once, and they fall out two or three months later. By then the stress feels over, so nobody connects the two."
+   ],
+   [
+    "That kind of shedding is usually temporary.",
+    "The roots aren't harmed. Once the trigger passes, the shedding stops and most people are back to normal fullness in six to nine months. After a baby, hair is usually back by the child's first birthday."
+   ],
+   [
+    "Not every hair in the drain came out at the root.",
+    "Losing 50 to 100 a day is normal. A shed hair has a tiny white bulb at one end; a broken one doesn't. Breakage comes from bleach, colour, daily heat and tight ponytails."
+   ],
+   [
+    "Hair is protein, and it's one of the first things the body cuts.",
+    "When protein runs short, the body keeps it for the organs and muscle. A practical target is 1.2 g per kilogram a day, so 72 g for someone of 60 kg. One shake adds 21 g."
+   ],
+   [
+    "Iron is the best-studied nutrient in shedding, and low stores hide behind a normal blood count.",
+    "Ask for a ferritin test, not just a blood count. In one study, black tea with a meal cut plant iron absorption by 79 to 94 percent; vitamin C does the opposite. So keep tea and coffee an hour away from meals."
+   ],
+   [
+    "An oily, flaky scalp needs washing more, not less.",
+    "A yeast lives on everyone's scalp and feeds on oil. Rub the shampoo into the scalp and leave it five minutes before rinsing; that contact time is what does the work."
+   ],
+   [
+    "With vitamins, more is not better.",
+    "Vitamin A above 3,000 mcg a day and selenium above 400 mcg can cause hair loss themselves, and zinc above 40 mg drains copper. A daily base at sensible doses, not megadoses. Biotin has narrow evidence, and it can throw off blood tests."
+   ],
+   [
+    "The length you have can be protected, not rebuilt.",
+    "Once hair leaves the scalp it's dead fibre, and new hair grows about a centimetre a month. Shampoo the scalp, condition the ends every wash, pat dry, turn the heat down, and judge the rest in months."
+   ]
+  ],
+  "routine": [
+   [
+    "Breakfast, 7 to 9 am",
+    "A Plant Protein shake, Double X and Vitamin C; Iron & Folic Acid too if your ferritin is low"
+   ],
+   [
+    "Tea and coffee",
+    "At least an hour away from meals"
+   ],
+   [
+    "Dinner",
+    "The evening Double X, Vitamin B and Magnesium, plus Ashwagandha after a hard stretch"
+   ],
+   [
+    "Every wash",
+    "Shampoo on the scalp (the dandruff shampoo stays on five minutes), conditioner on the ends"
+   ],
+   [
+    "After washing",
+    "Scalp Tonic on the scalp, left on; pat dry and keep the heat low"
+   ]
+  ]
  },
  "zh": {
   "title": "头发与脱发",
   "who": "适合在问卷里勾了掉发变多、忙过一阵或病过一场后开始掉、生完孩子或减肥后掉发、头发变少人也没劲、发尾干枯易断，或者头皮油、痒、头皮屑多的客人。",
-  "studyWhy": ["隐性饥饿", "蛋白质，头发的原料", "蛋白质（下）", "矿物质，包括铁和锌", "B2，以及头皮又油又起屑", "维生素A，为什么不是越多越好", "万病始于肠"],
+  "studyWhy": [
+   "隐性饥饿",
+   "蛋白质，头发的原料",
+   "蛋白质（下）",
+   "矿物质，包括铁和锌",
+   "B2，以及头皮又油又起屑",
+   "维生素A，为什么不是越多越好",
+   "万病始于肠"
+  ],
   "feel": {
-   "say": ["我特别懂。洗头的时候下水口一团，枕头上也是，每次看到心里都咯噔一下。而且自己也说不清，到底是在变好还是变糟，对吧？"],
+   "say": [
+    "我特别懂。洗头的时候下水口一团，枕头上也是，每次看到心里都咯噔一下。而且自己也说不清，到底是在变好还是变糟，对吧？"
+   ],
    "tip": "用对方自己的话，把问卷上勾的说回去。然后问一句：“开始掉之前的两三个月，生活里发生过什么吗？”"
   },
   "felt": {
-   "say": ["说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"],
+   "say": [
+    "说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"
+   ],
    "tip": "讲你自己的，或者身边人的（“我妈妈”“我一个同事”）。还没有故事？就说：“我身边很多朋友也是这样。”千万别编。"
   },
   "found": {
    "say": [
-    "我后来才知道，头发是按日历走的。一段高压期、一场重感冒、生孩子或者节食，会让很多头发同时停下来休息，两三个月后才一起掉。毛根没受损，所以这种掉发通常是暂时的。",
-    "而且头发本身就是蛋白质做的。蛋白质或铁一不够，身体会先留给器官，头发是最先被省掉的。所以要从里面把原料补上，外面就是把头皮洗干净，发尾温柔一点对待。",
+    "我后来学到，头发是按日历走的：大部分掉发，是两三个月前某件事的回声，毛根通常没事。头发是蛋白质做的，蛋白质或铁一不够，身体最先省掉的就是它。",
     "所以，我会先从这个开始。"
    ],
-   "tip": "两三句就够，然后看下面的对照表，挑跟对方勾的那一项对得上的。"
+   "tip": "从 Part A 挑一两句讲，然后讲作息。挑跟对方勾的对得上的产品。"
   },
-  "map": [
-   ["忙过一阵、病过一场后开始掉", "有机植物蛋白粉、南非醉茄、双X", "给新头发原料，从压力下手，再按合理的量把营养的底铺好。怀孕、哺乳期不吃南非醉茄"],
-   ["生完孩子后掉发", "有机植物蛋白粉；铁质叶酸片，先查铁蛋白再补", "生孩子会失去不少铁。哺乳期吃任何新东西前，先问医生"],
-   ["减肥、常常少吃一顿", "有机植物蛋白粉，或者用一杯有机全能奶昔代替那一顿", "别让头发成了被省掉的那个。减慢一点，蛋白质别少"],
-   ["头发变少，人也没劲", "铁质叶酸片，先查铁蛋白再补；随餐吃维生素C", "血常规正常，也可能已经缺铁。茶和咖啡离开饭点一小时"],
-   ["发尾干枯分叉，染烫过、常用高温", "丝婷密集修护洗发水和护发素", "护住已经长出来的那段。护发素抹发尾，每次都要"],
-   ["饮食受限过，想补生物素", "秀发亮肤美甲片", "给新长出来的头发补生物素和胶原蛋白。抽血化验前要告诉化验室"],
-   ["头皮油、痒、头皮屑多", "丝婷去屑洗发水，其他日子用丝婷净化洗发水", "要勤洗，不是少洗。洗发水在头皮上停五分钟再冲"],
-   ["头皮和脸都又油又起屑", "B族维生素", "这是B2、B6不够的典型表现之一"]
-  ],
   "ask": "按你刚才说的，我建议先从植物蛋白粉和双X开始，再配一瓶适合你头皮的丝婷洗发水。今天要不要先带回去？",
-  "doctor": "如果头发成片或一把一把地掉，头皮疼、发红或留疤，发缝越来越宽，掉发超过六个月，或者同时伴随乏力、怕冷、经量很多，请先去看医生或皮肤科。"
- }
+  "doctor": "如果头发成片或一把一把地掉，头皮疼、发红或留疤，发缝越来越宽，掉发超过六个月，或者同时伴随乏力、怕冷、经量很多，请先去看医生或皮肤科。怀孕或哺乳期不吃南非醉茄，吃任何新东西前先问医生。",
+  "groups": [
+   "先顾头皮",
+   "卡住供应的地方",
+   "头发的原料",
+   "生物素和胶原蛋白，说实话",
+   "护住已经长出来的",
+   "每天坚持，按月来看"
+  ],
+  "know": [
+   [
+    "头发是按日历走的。",
+    "一段高压期、一场重感冒、一次手术、生孩子或者节食，会让很多头发同时进入休止期，两三个月后才一起掉。那时候早觉得事情过去了，所以根本想不到是它。"
+   ],
+   [
+    "这种掉发，通常是暂时的。",
+    "毛根没有受损。诱因过去以后，掉发就会停，多数人六到九个月能恢复原来的发量；产后掉发，一般到孩子一周岁就长回来了。"
+   ],
+   [
+    "下水口里的头发，不一定都是从根部掉的。",
+    "每天掉50到100根是正常的。掉下来的头发一头有个白色小球，断的没有。断发多半来自漂、染、天天用高温，还有扎得太紧的马尾。"
+   ],
+   [
+    "头发是蛋白质做的，也是身体最先省掉的。",
+    "蛋白质一不够，身体先留给器官和肌肉。实用的目标是每天每公斤体重1.2克，60公斤就是72克。一杯蛋白粉能补21克。"
+   ],
+   [
+    "铁是脱发研究里证据最多的营养素，而缺铁常常藏在正常的血常规后面。",
+    "要查铁蛋白，不只是血常规。一项研究里，吃饭时喝红茶，让植物来源的铁吸收下降了79%到94%，维生素C正好相反。所以茶和咖啡离开饭点一小时。"
+   ],
+   [
+    "头皮又油又起屑，要勤洗，不是少洗。",
+    "每个人头皮上都有一种靠油脂生存的酵母菌。洗发水揉在头皮上，停五分钟再冲，真正起作用的就是这几分钟。"
+   ],
+   [
+    "维生素不是越多越好。",
+    "维生素A每天超过3000微克、硒超过400微克，本身就会掉发；锌超过40毫克还会消耗铜。按合理的量打底，不要大剂量。生物素的证据很窄，还会干扰抽血化验。"
+   ],
+   [
+    "已经长出来的头发，只能护，不能修。",
+    "头发一离开头皮就是没有生命的纤维，新头发一个月大约长一厘米。洗发水洗头皮，护发素每次抹发尾，毛巾按干，吹风机调低温，其余的按月来看。"
+   ]
+  ],
+  "routine": [
+   [
+    "早餐，早上7到9点",
+    "一杯有机植物蛋白粉，加双X和维生素C缓释片；铁蛋白偏低的，再加铁质叶酸片"
+   ],
+   [
+    "茶和咖啡",
+    "离开饭点至少一小时"
+   ],
+   [
+    "晚饭",
+    "晚上那份双X、B族和镁片，压力大的那段时间加南非醉茄"
+   ],
+   [
+    "每次洗头",
+    "洗发水洗头皮（去屑洗发水停五分钟再冲），护发素抹发尾"
+   ],
+   [
+    "洗完以后",
+    "头皮精华抹在头皮上，不用冲；毛巾按干，吹风机调低温"
+   ]
+  ]
+ },
+ "groups": [
+  [
+   "satinique-anti-dandruff-shampoo",
+   "satinique-purifying-shampoo-280ml",
+   "satinique-purifying-conditioner",
+   "satinique-anti-hair-fall-scalp-tonic"
+  ],
+  [
+   "probiotic",
+   "prebiotic-fiber",
+   "vitamin-c-extended-release-180ct",
+   "organics-ashwagandha-capsules",
+   "magnesium"
+  ],
+  [
+   "plant-protein-powder",
+   "organics-all-in-one-shakes",
+   "iron-folic-acid",
+   "double-x-multivitamin-31-day-refill",
+   "vitamin-b-complex-120ct"
+  ],
+  [
+   "hair-skin-nail",
+   "collagen-peptides",
+   "collagen-gummies"
+  ],
+  [
+   "satinique-anti-hair-fall-shampoo",
+   "satinique-anti-hair-fall-conditioner",
+   "satinique-intensive-repair-shampoo",
+   "satinique-intensive-repair-conditioner",
+   "satinique-smooth-shampoo-280ml",
+   "satinique-smooth-conditioner"
+  ],
+  [
+   "everyday-nutrition-solution",
+   "advanced-omega"
+  ]
+ ]
 }

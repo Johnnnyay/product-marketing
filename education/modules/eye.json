@@ -1,71 +1,247 @@
 {
  "id": "eye",
  "area": "eye",
- "study": [["xzc52", "33"], ["xzc52", "36"], ["xzc52", "35"], ["xzc52", "29"], ["qtby", "14"], ["qtby", "17"]],
+ "study": [
+  [
+   "xzc52",
+   "33"
+  ],
+  [
+   "xzc52",
+   "36"
+  ],
+  [
+   "xzc52",
+   "35"
+  ],
+  [
+   "xzc52",
+   "29"
+  ],
+  [
+   "qtby",
+   "14"
+  ],
+  [
+   "qtby",
+   "17"
+  ]
+ ],
  "en": {
   "title": "Eye Health",
   "who": "Guests who mark tired eyes after screens all day, dry or gritty eyes, trouble seeing at night, worry about aging eyes, or kids on screens all day.",
-  "studyWhy": ["carotenoids, vitamin A and the eyes", "vitamin A in the eye, and taking it safely", "vitamin A and growth", "vitamin C", "the antioxidant trio", "the liver"],
+  "studyWhy": [
+   "carotenoids, vitamin A and the eyes",
+   "vitamin A in the eye, and taking it safely",
+   "vitamin A and growth",
+   "vitamin C",
+   "the antioxidant trio",
+   "the liver"
+  ],
+  "know": [
+   [
+    "Most tired eyes are overworked, not damaged.",
+    "At a screen the focusing muscle holds a close-up position for hours, like holding a dumbbell half-curled all afternoon, and blinking drops from about 15 times a minute to as few as 5. That's the heavy, dry feeling by 5 pm."
+   ],
+   [
+    "The habit comes first, and it's free.",
+    "Every 20 minutes, look about 20 feet (6 metres) away for 20 seconds, and blink properly a few times. Keep the screen an arm's length away, slightly below eye level, and about as bright as the room."
+   ],
+   [
+    "Dry eyes are a tear-film problem, and habits fix most of it.",
+    "Full blinks, a humidifier in heated or air-conditioned rooms, no fan or vent blowing at the face, and drops from the pharmacy. Be honest here: in a year-long trial of 535 people, fish oil did no better than olive oil for dry eyes, so don't offer it for that."
+   ],
+   [
+    "The centre of the eye runs on two pigments the body can't make.",
+    "Lutein and zeaxanthin sit in the macula, the part you read and recognise faces with, like a built-in pair of sunglasses that filters blue light. They only come from food, dark greens, corn and egg yolk, and most diets give far less than the studies use. For healthy eyes, preventing disease isn't proven, so think of it as keeping the pigment topped up."
+   ],
+   [
+    "Those pigments need fat to get in.",
+    "Adding avocado to a salad raised lutein absorption about five-fold in one study. So take it with the biggest meal that has some fat, not with black coffee on an empty stomach. The pigment builds slowly, so judge it over months."
+   ],
+   [
+    "Vitamin A is the raw material for seeing in dim light.",
+    "The eye uses up and rebuilds its night pigment every moment, so a shortfall shows first as poor night vision, then as a drying eye surface. Beta-carotene is the safest source. Night vision that's new or getting worse goes to the eye doctor first: often it's an old prescription or an early cataract."
+   ],
+   [
+    "Sun and smoke add up over years.",
+    "Sunglasses labelled UV400 and a brimmed hat outdoors, children included. Smoking is the biggest changeable risk for macular degeneration, two to four times the risk, and it burns through vitamin C. Quitting is the step that really counts."
+   ],
+   [
+    "For kids, daylight is the best-proven habit.",
+    "In a trial across 12 schools in Guangzhou, one extra 40-minute outdoor class a day lowered new short-sightedness over three years from 39.5 to 30.4 percent. Aim for about two hours outside a day, and check the age on any supplement label first."
+   ]
+  ],
+  "routine": [
+   [
+    "Breakfast",
+    "Double X, the morning half. Vitamin C Extended Release if they smoke or are outdoors a lot"
+   ],
+   [
+    "At the screen, every 20 minutes",
+    "Look 20 feet away for 20 seconds and blink properly. A gummy on the desk can be the cue"
+   ],
+   [
+    "Outdoors",
+    "UV400 sunglasses and a hat. For kids, about two hours outside a day"
+   ],
+   [
+    "The meal with the most fat",
+    "Vision Health (or Eye Mojo, not both), with Advanced Omega if they take it, and the evening half of Double X"
+   ],
+   [
+    "7:30 to 8:40 pm",
+    "Vitamin B and Liver Support, if tired eyes come with late nights, drinks or takeout"
+   ],
+   [
+    "The hour before bed",
+    "Night mode on and screens down, for the body clock"
+   ]
+  ],
+  "groups": [
+   "The light-filtering pigments",
+   "Vitamin A and the daily base",
+   "Sun, smoke and colour",
+   "The evening routine from the teaching"
+  ],
   "feel": {
-   "say": ["I totally get it. By the end of the day your eyes feel heavy and dry, and things start to blur a little. And you can't exactly stop looking at a screen for work, right?"],
+   "say": [
+    "I totally get it. By the end of the day your eyes feel heavy and dry, and things start to blur a little. And you can't exactly stop looking at a screen for work, right?"
+   ],
    "tip": "Say back what they marked, in their words. Then ask: \"When do you notice it most?\""
   },
   "felt": {
-   "say": ["Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"],
+   "say": [
+    "Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"
+   ],
    "tip": "Your own story, or someone close to you (\"my dad\", \"a friend from work\"). No story yet? \"A lot of the people I talk to say exactly the same thing.\" Never make one up."
   },
   "found": {
    "say": [
-    "What I learned is that most tired eyes aren't damaged, they're overworked. At a screen the focusing muscle stays tight for hours and you blink about a third as often, so the surface dries out. The habit comes first: every 20 minutes, look about 20 feet away for 20 seconds, and blink properly.",
-    "The centre of the eye, the part you read with, is protected by two yellow pigments, lutein and zeaxanthin. The body can't make them, they only come from food like dark greens, corn and egg yolk, and most of us eat far less than that. They need fat to absorb, so you take them with a real meal, not with black coffee.",
+    "What I learned is that most tired eyes aren't damaged, they're overworked, so the habit comes first. Then the centre of the eye needs two pigments the body can't make, and they only absorb with a meal that has some fat.",
     "So this is what I'd start with."
    ],
-   "tip": "Two or three sentences, then go to the map. Pick the row that matches what they marked."
+   "tip": "One or two sentences from Part A, then the routine. Pick the products that match what they marked."
   },
-  "map": [
-   ["Tired after screens all day", "Vision Health, with the biggest meal that has some fat", "The light-filtering pigments the body can't make"],
-   ["Wants a gummy, or works at a desk", "Eye Mojo Blue Light Gummies", "The same pigments. Keep it on the desk as a reminder to look away. Pick this or Vision Health, not both"],
-   ["Dry or gritty eyes", "Blinking, a humidifier and pharmacy drops first; Double X for the daily base", "Vitamin A keeps the eye surface moist. Fish oil didn't beat olive oil for dry eyes, so don't offer it for that"],
-   ["Hard to see at night", "Double X Multivitamin; Vision Health for glare", "Vitamin A is the raw material for seeing in dim light. New or getting worse? Eye check first"],
-   ["Worried about aging eyes", "Vision Health with Concentrated Fruits & Vegetables", "Keeps the pigment topped up, along with sunglasses and not smoking. Smokers ask a doctor first, it has beta-carotene"],
-   ["Smokes, or outdoors a lot", "Vitamin C Extended Release, plus UV400 sunglasses", "Sun and smoke burn through antioxidants. Quitting is the step that really counts"],
-   ["Kids on screens all day", "About two hours outside a day first; Eye Mojo or Concentrated Fruits & Vegetables", "Daylight is the best-proven habit. Check the age on the label before giving any of it to a child"],
-   ["Tired eyes with late nights, drinks or takeout", "Liver Support with Vitamin B Complex in the evening", "The liver stores most of the body's vitamin A. This is the evening routine from the teaching, not an eye claim"]
-  ],
   "ask": "Based on what you told me, I'd start with the Vision Health with dinner and the 20-20-20 break, with the Double X underneath. Do you want to take it home tonight?",
   "doctor": "Sudden change in vision, eye pain, a red eye that hurts, new flashes or a shower of floaters, or a shadow across their sight? See an eye doctor the same day, before anything else."
  },
  "zh": {
   "title": "眼睛健康",
   "who": "适合在问卷里勾了屏幕看久眼好累、眼睛干涩、晚上看不清、担心眼睛老化，或者孩子整天盯屏幕的客人。",
-  "studyWhy": ["类胡萝卜素、维生素A与视力", "维生素A在眼睛里怎么用、怎么安全地补", "维生素A与儿童发育", "维生素C", "抗氧化三剑客", "肝"],
+  "studyWhy": [
+   "类胡萝卜素、维生素A与视力",
+   "维生素A在眼睛里怎么用、怎么安全地补",
+   "维生素A与儿童发育",
+   "维生素C",
+   "抗氧化三剑客",
+   "肝"
+  ],
+  "know": [
+   [
+    "大多数眼睛累，不是坏了，是用得太狠了。",
+    "盯着屏幕的时候，负责对焦的肌肉几个小时一直绷在看近处的位置，就像一下午举着哑铃停在半空；眨眼也从每分钟15次左右掉到最少5次。下午五点那种又酸又干的感觉，就是这么来的。"
+   ],
+   [
+    "先改习惯，这一步不花钱。",
+    "每20分钟，看6米外的地方20秒，再好好眨几下眼。屏幕离眼睛一臂远，略低于视线，亮度和房间差不多。"
+   ],
+   [
+    "眼睛干涩是泪膜的问题，大部分靠习惯解决。",
+    "眨眼眨完整，开暖气、空调的房间放加湿器，风扇和出风口别对着脸吹，再配合药店的人工泪液。这里要说实话：一项535人、为期一年的研究里，鱼油改善干眼的效果和橄榄油差不多，所以别拿鱼油来推干眼。"
+   ],
+   [
+    "眼睛中心靠两种色素保护，身体自己造不出来。",
+    "叶黄素和玉米黄质在黄斑里，就是看字、认人脸的那块，像眼睛里自带的一副太阳镜，帮你过滤蓝光。它们只能从深绿色蔬菜、玉米、蛋黄里来，大多数人吃到的量比研究里少得多。健康的眼睛能不能靠它预防疾病，目前没有证据，所以就当成把色素补满。"
+   ],
+   [
+    "这两种色素要有油才吸收得进去。",
+    "一项研究里，沙拉加了牛油果，叶黄素的吸收提高到五倍左右。所以要跟一天里最丰盛、带点油的那顿一起吃，别配着黑咖啡空腹吞。色素是慢慢攒起来的，按月来看效果。"
+   ],
+   [
+    "维生素A是在暗处看东西的原料。",
+    "眼睛在暗处靠的感光物质，每时每刻都在用掉、再合成，所以缺了，最先变差的是夜间视力，接着是眼睛表面变干。β-胡萝卜素是最安全的来源。夜里看不清是最近才有、或者越来越明显，先去查眼睛，很多时候只是度数变了，或者是早期白内障。"
+   ],
+   [
+    "阳光和烟，是年复一年攒下来的负担。",
+    "出门戴标明UV400的太阳镜，再加一顶有帽檐的帽子，孩子也一样。抽烟是黄斑变性最大的可改变风险，风险高出两到四倍，还特别耗维生素C。真正算数的一步是戒烟。"
+   ],
+   [
+    "对孩子来说，晒太阳是最有证据的办法。",
+    "广州一项覆盖12所小学的研究里，每天多上一节40分钟的户外课，三年下来新发近视从39.5%降到30.4%。尽量每天户外两小时左右；给孩子任何补充剂之前，先看清标签上的适用年龄。"
+   ]
+  ],
+  "routine": [
+   [
+    "早餐",
+    "双X早上那一份。抽烟或常在户外的，加维生素C缓释片"
+   ],
+   [
+    "看屏幕时，每20分钟",
+    "看6米外的地方20秒，好好眨几下眼。桌上放一包软糖，正好当提醒"
+   ],
+   [
+    "出门",
+    "戴UV400太阳镜和帽子。孩子每天户外两小时左右"
+   ],
+   [
+    "一天里最有油水的那顿",
+    "护眼片（或蓝光护眼软糖，二选一），吃鱼油的一起吃，双X晚上那一份也放这顿"
+   ],
+   [
+    "晚上7点半到8点40",
+    "B族和护肝片，适合眼睛累、又常熬夜、喝酒、吃外卖的人"
+   ],
+   [
+    "睡前一小时",
+    "打开夜间模式，少看屏幕，为的是生物钟"
+   ]
+  ],
+  "groups": [
+   "过滤光线的色素",
+   "维生素A和每天的基础",
+   "阳光、烟和五颜六色的蔬果",
+   "课程里的晚间节奏"
+  ],
   "feel": {
-   "say": ["我特别懂。一到下午眼睛又酸又干，看东西还有点花。可是工作又离不开电脑，对吧？"],
+   "say": [
+    "我特别懂。一到下午眼睛又酸又干，看东西还有点花。可是工作又离不开电脑，对吧？"
+   ],
    "tip": "用对方自己的话，把问卷上勾的说回去。然后问一句：“一般什么时候最明显？”"
   },
   "felt": {
-   "say": ["说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"],
+   "say": [
+    "说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"
+   ],
    "tip": "讲你自己的，或者身边人的（“我爸爸”“我一个同事”）。还没有故事？就说：“我身边很多朋友也是这样。”千万别编。"
   },
   "found": {
    "say": [
-    "我后来学到，大多数眼睛累，不是眼睛坏了，是用得太狠了。盯着屏幕的时候，对焦的肌肉几个小时一直绷着，眨眼也只剩平时的三分之一，眼睛表面就干了。所以先改习惯：每20分钟，看6米外的地方20秒，再好好眨几下眼。",
-    "眼睛中间看字、认人脸的那块叫黄斑，靠两种黄色的色素保护，叫叶黄素和玉米黄质。身体自己造不出来，只能从深绿色蔬菜、玉米、蛋黄里来，大多数人吃得远远不够。它们要有油才吸收得进去，所以要跟正餐一起吃，别配着黑咖啡空腹吞。",
+    "我后来学到，大多数眼睛累，不是眼睛坏了，是用得太狠了，所以先改习惯。然后，眼睛中心需要两种身体自己造不出来的色素，而且要跟带点油的正餐一起吃才吸收得进去。",
     "所以，我会先从这个开始。"
    ],
-   "tip": "两三句就够，然后看下面的对照表，挑跟对方勾的那一项对得上的。"
+   "tip": "从 Part A 挑一两句讲，然后讲作息。挑跟对方勾的对得上的产品。"
   },
-  "map": [
-   ["屏幕看久眼好累", "护眼片，跟一天里最丰盛、带点油的那顿一起吃", "补上眼睛里过滤光线、身体又造不出来的色素"],
-   ["喜欢吃软糖，或者整天坐办公桌", "蓝光护眼软糖", "同样的色素。放在桌上，顺便提醒自己抬头看远处。和护眼片二选一就够"],
-   ["眼睛干涩", "先刻意眨眼、放加湿器、用人工泪液；双X打底", "维生素A让眼睛表面保持湿润。鱼油改善干眼和橄榄油差不多，别拿它来推干眼"],
-   ["晚上看不清", "双X综合营养片；怕车灯晃眼加护眼片", "维生素A是暗处看东西的原料。最近才出现或越来越明显，先去查眼睛"],
-   ["担心眼睛老化", "护眼片，配浓缩果蔬精华", "把色素补满，再加上戴太阳镜、不抽烟。抽烟的人先问医生，因为里面有β-胡萝卜素"],
-   ["抽烟，或者常在户外", "维生素C缓释片，出门戴UV400太阳镜", "阳光和烟都特别耗抗氧化剂。真正算数的一步是戒烟"],
-   ["孩子整天盯屏幕", "先保证每天户外两小时左右；蓝光护眼软糖或浓缩果蔬精华", "晒太阳是最有证据的办法。给孩子吃任何一样之前，先看清标签上的适用年龄"],
-   ["眼睛累，又常熬夜、喝酒、吃外卖", "护肝片，晚上和B族一起吃", "身体大部分的维生素A存在肝里。这是课程里的晚间调理节奏，不是护眼功效"]
-  ],
   "ask": "按你刚才说的，我建议先从护眼片开始，晚饭一起吃，用双X打底，再配合20-20-20的休息。今天要不要先带回去？",
   "doctor": "如果视力突然变化、眼睛疼、眼睛红而且痛、突然出现闪光或一大片飞蚊，或者视野里像有一块阴影挡着，请当天就去看眼科，其他的都先放一边。"
- }
+ },
+ "groups": [
+  [
+   "vision-health",
+   "eye-mojo-blue-light-gummies"
+  ],
+  [
+   "double-x-multivitamin-31-day-refill",
+   "everyday-nutrition-solution",
+   "advanced-omega"
+  ],
+  [
+   "vitamin-c-extended-release-180ct",
+   "concentrated-fruits-vegetables"
+  ],
+  [
+   "liver-support",
+   "vitamin-b-complex-120ct"
+  ]
+ ]
 }

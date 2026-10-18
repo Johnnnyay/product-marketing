@@ -1,67 +1,242 @@
 {
  "id": "hormone",
  "area": "hormone",
- "study": [["qtby", "17"], ["xzc52", "25"], ["xzc52", "27"], ["qtby", "13"], ["xzc52", "37"], ["xzc52", "52"]],
+ "study": [
+  [
+   "qtby",
+   "17"
+  ],
+  [
+   "xzc52",
+   "25"
+  ],
+  [
+   "xzc52",
+   "27"
+  ],
+  [
+   "qtby",
+   "13"
+  ],
+  [
+   "xzc52",
+   "37"
+  ],
+  [
+   "xzc52",
+   "52"
+  ]
+ ],
  "en": {
   "title": "Cycle Support",
   "who": "Women who mark jawline breakouts before their period, mood swings or PMS, cramps, heavy periods and feeling drained, or a cycle that's all over the place. If the breakouts aren't tied to the cycle, use Acne & Skin.",
-  "studyWhy": ["the liver, where used hormones are cleared", "B2 and women", "B6 and folate", "the B vitamins and mood", "minerals, including magnesium and iron", "easing stress"],
+  "studyWhy": [
+   "the liver, where used hormones are cleared",
+   "B2 and women",
+   "B6 and folate",
+   "the B vitamins and mood",
+   "minerals, including magnesium and iron",
+   "easing stress"
+  ],
   "feel": {
-   "say": ["I totally get it. It's the same thing every month, almost on schedule: the spots on your jaw, the mood, the cramps. And you're just expected to push through it."],
+   "say": [
+    "I totally get it. It's the same thing every month, almost on schedule: the spots on your jaw, the mood, the cramps. And you're just expected to push through it."
+   ],
    "tip": "Say back what they marked, in their words. Then ask: \"Which part of the month is hardest for you?\""
   },
   "felt": {
-   "say": ["Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"],
+   "say": [
+    "Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"
+   ],
    "tip": "Your own story, or a woman close to you (\"my sister\", \"a friend\"). No story yet? \"A lot of the people I talk to say exactly the same thing.\" Never make one up."
   },
   "found": {
    "say": [
-    "What I learned is that anything that follows your cycle runs on a monthly rhythm, and that rhythm is the clue. Every month your liver has to clear out the used hormones, and when it falls behind they back up. That's why the same spots come back on your jaw, no matter what you put on your face.",
-    "And every period carries minerals out, like magnesium and iron, so the gap opens again every month. Stress plays a part too: your stress hormone is made from the same raw materials, so the hardest months are usually the messiest cycles. That's why you take it all month and judge it over three cycles, not three weeks.",
+    "What I learned is that anything that follows your cycle runs on a monthly rhythm. The liver clears the used hormones and every period carries minerals out, so you support it all month and judge it over three cycles.",
     "So this is what I'd start with."
    ],
-   "tip": "Two or three sentences, then go to the map. Pick the row that matches what they marked."
+   "tip": "One or two sentences from Part A, then the routine. Pick the products that match what they marked."
   },
-  "map": [
-   ["Jawline breakouts before the period", "Liver Support, plus Vitamin B Complex", "Helps the liver clear used hormones; B2 keeps oil glands and pores working normally"],
-   ["The same thing at the same time every month", "Cycle Support, every day all month", "Chasteberry, the longest-studied plant for cycle comfort. Pregnant, trying, or on hormonal birth control? Ask the doctor first"],
-   ["Mood swings, PMS", "Vitamin B Complex every day, with Calcium Magnesium D", "B6 and magnesium help steady the messengers that set your mood"],
-   ["Cramps", "Calcium Magnesium D every day, not just on day one; Advanced Omega", "The minerals tell the muscle when to let go; omega-3 helps balance the inflammation signals"],
-   ["Heavy periods, drained, out of breath on the stairs", "Iron & Folic Acid, only after a ferritin test, with Vitamin C at the same meal", "Every period carries iron out. Never take iron blind"],
-   ["Cycle all over the place, under stress", "Organics Ashwagandha Capsules, in the evening", "Calms the stress response without sedating. Give it a few weeks. Pregnant or breastfeeding: no ashwagandha"]
-  ],
   "ask": "Based on what you told me, I'd start with Cycle Support, the Calcium Magnesium D and the Liver Support, every day through the month. Do you want to take it home tonight?",
-  "doctor": "Pain that stops her day, very heavy bleeding (soaking a pad every hour or two), bleeding between periods or a missed period? See a doctor first. Pregnant, trying to conceive or on hormonal birth control? Ask before taking Cycle Support, and keep taking anything the doctor prescribed."
+  "doctor": "Pain that stops your day, very heavy bleeding (soaking a pad every hour or two), bleeding between periods or a missed period? See a doctor first. Pregnant, trying to conceive or on hormonal birth control? Ask before taking Cycle Support, and keep taking anything the doctor prescribed. Pregnant or breastfeeding: no ashwagandha.",
+  "groups": [
+   "Help the liver clear",
+   "The monthly rhythm",
+   "Refill what each period takes",
+   "Mood, skin and cramps",
+   "The stress behind it"
+  ],
+  "know": [
+   [
+    "What follows your cycle runs on a monthly rhythm, and that rhythm is the clue.",
+    "The same spots on the jaw, the same mood the week before, the same cramps on day one. When it shows up on schedule, the cause is inside, not your face wash."
+   ],
+   [
+    "Used hormones are switched off by the liver before they can leave.",
+    "When the liver falls behind, they back up, and the same few spots appear along the jaw every month. That's why a spot cream flattens one round and the same spot is back next month."
+   ],
+   [
+    "Every period carries minerals out, so the gap reopens every month.",
+    "Magnesium and iron leave with every period. It's like an account with a fixed monthly withdrawal: one deposit doesn't fix it, a steady one does."
+   ],
+   [
+    "A cramp is a muscle squeezing too hard.",
+    "Calcium and magnesium tell muscles when to tighten and when to let go. Take them every day so you're already topped up on day one. The hot water bottle isn't just comfort: heat helps the muscle relax."
+   ],
+   [
+    "One bottle of B vitamins covers two lines.",
+    "B6 helps the brain make the messengers that steady your mood, and B2 keeps oil glands and pores working normally. B vitamins clear in about 24 hours, so it's every day."
+   ],
+   [
+    "Iron: test first, never blind.",
+    "Low iron often hides behind a normal blood count, so ask for haemoglobin and ferritin. Vitamin C at the same meal helps the body absorb it. In men high iron is fairly common, so this step isn't for everyone."
+   ],
+   [
+    "Your stress hormone and your cycle hormones share the same raw materials.",
+    "When pressure stays high for weeks, the body makes cortisol first. That's why the most stressful months are usually the messiest cycles."
+   ],
+   [
+    "Take it all month, judge it over three cycles.",
+    "Taking it only on the hard days misses the point: the rhythm you're supporting is monthly. So judge it over three cycles, not three weeks."
+   ]
+  ],
+  "routine": [
+   [
+    "Every day, all month",
+    "Cycle Support, at the same time each day"
+   ],
+   [
+    "With a meal, after a ferritin test",
+    "Iron & Folic Acid with Vitamin C Extended Release; tea and coffee an hour away"
+   ],
+   [
+    "Dinner",
+    "Calcium Magnesium D and Advanced Omega, plus Ashwagandha in stressful months"
+   ],
+   [
+    "7:30 to 8:40 pm",
+    "Vitamin B and Liver Support"
+   ],
+   [
+    "The hard days",
+    "A hot water bottle for cramps, and nothing skipped"
+   ]
+  ]
  },
  "zh": {
   "title": "女性周期调理",
   "who": "适合在问卷里勾了经前下巴冒痘、经前情绪起伏大、痛经、量多人被掏空，或者周期忽早忽晚的女性客人。如果痘痘跟周期没关系，用「皮肤与痘痘」。",
-  "studyWhy": ["肝，用过的激素在这里清掉", "女性与B2缺乏", "B6与叶酸", "B族与好心情", "矿物质，包括镁和铁", "舒压"],
+  "studyWhy": [
+   "肝，用过的激素在这里清掉",
+   "女性与B2缺乏",
+   "B6与叶酸",
+   "B族与好心情",
+   "矿物质，包括镁和铁",
+   "舒压"
+  ],
   "feel": {
-   "say": ["我特别懂。每个月差不多准时来一遍：下巴冒痘、情绪起伏、肚子疼。而且好像大家都觉得，忍一忍就过去了。"],
+   "say": [
+    "我特别懂。每个月差不多准时来一遍：下巴冒痘、情绪起伏、肚子疼。而且好像大家都觉得，忍一忍就过去了。"
+   ],
    "tip": "用对方自己的话，把问卷上勾的说回去。然后问一句：“一个月里，哪几天最难受？”"
   },
   "felt": {
-   "say": ["说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"],
+   "say": [
+    "说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"
+   ],
    "tip": "讲你自己的，或者身边女性的（“我姐姐”“我一个闺蜜”）。还没有故事？就说：“我身边很多朋友也是这样。”千万别编。"
   },
   "found": {
    "say": [
-    "我后来才知道，跟着月经走的问题，是按月的节律来的，这个节律本身就是线索。每个月用过的激素，都要靠肝来清掉，肝一忙不过来，激素就堆在身体里。所以下巴那几颗痘，脸上抹什么，下个月还是准时回来。",
-    "而且每次月经都会带走镁和铁这些矿物质，缺口每个月重新打开。压力也有关系：压力激素和周期激素用的是同一批原料，所以最累的那几个月，周期往往也最乱。这就是为什么要整个月都吃，看三个周期，而不是三个星期。",
+    "我后来学到，跟着月经走的问题，是按月的节律来的。用过的激素要靠肝来清，每次月经又会带走矿物质，所以要整个月都照顾，看三个周期。",
     "所以，我会先从这个开始。"
    ],
-   "tip": "两三句就够，然后看下面的对照表，挑跟对方勾的那一项对得上的。"
+   "tip": "从 Part A 挑一两句讲，然后讲作息。挑跟对方勾的对得上的产品。"
   },
-  "map": [
-   ["经前下巴冒痘", "护肝片，加维生素B族", "帮肝把用过的激素清走；B2帮皮脂腺和毛孔正常运作"],
-   ["每个月同一时间准时来", "女性周期支持，整个月每天吃", "圣洁莓，调理周期研究历史最久的植物。怀孕、备孕或用激素避孕药的，先问医生"],
-   ["经前情绪起伏大", "维生素B族每天吃，加钙镁D片", "B6和镁帮大脑稳住管情绪的“信使”"],
-   ["经期肚子疼", "钙镁D片每天吃，别等来了才补；加深海鱼油", "钙镁告诉肌肉什么时候放松；Omega-3帮炎症信号保持平衡"],
-   ["量多、人被掏空、爬几层楼就喘", "铁质叶酸片，先查铁蛋白再补，和维生素C缓释片同一餐吃", "每次月经都会带走铁。铁不要盲补"],
-   ["周期忽早忽晚、压力大", "有机南非醉茄胶囊，晚上吃", "把压力反应调稳，又不会让人昏沉，给它几周时间。怀孕或哺乳期不吃"]
-  ],
   "ask": "按你刚才说的，我建议先从女性周期支持、钙镁D片和护肝片开始，整个月每天吃。今天要不要先带回去？",
-  "doctor": "如果痛到影响正常生活、经量特别多（一两个小时就要换一片）、经期之间出血，或者月经没来，请先去看医生。怀孕、备孕或正在用激素类避孕药的，吃女性周期支持之前先问医生。医生开的药照常吃。"
- }
+  "doctor": "如果痛到影响正常生活、经量特别多（一两个小时就要换一片）、经期之间出血，或者月经没来，请先去看医生。怀孕、备孕或正在用激素类避孕药的，吃女性周期支持之前先问医生。医生开的药照常吃。怀孕或哺乳期不吃南非醉茄。",
+  "groups": [
+   "先帮肝清掉用过的激素",
+   "顺着月节律",
+   "补回每个月带走的",
+   "情绪、皮肤和痛经",
+   "背后的压力"
+  ],
+  "know": [
+   [
+    "跟着月经走的问题，是按月的节律来的，这个节律本身就是线索。",
+    "下巴那几颗痘、经前那一周的情绪、第一天的肚子疼，每个月准时报到。既然是准时来的，根源就在里面，不是脸没洗干净。"
+   ],
+   [
+    "用过的激素，要先经过肝“关掉”，才能排出去。",
+    "肝一忙不过来，激素就在体内堆着，下巴那几颗痘每个月准时回来。所以祛痘膏能压下这一轮，下个月同一个位置又冒出来。"
+   ],
+   [
+    "每次月经都会带走矿物质，缺口每个月重新打开。",
+    "镁和铁都会跟着月经流失。就像一个每月固定扣款的账户，存一次不够，得稳定地存。"
+   ],
+   [
+    "痛经，其实是肌肉收得太用力。",
+    "钙和镁负责告诉肌肉什么时候收、什么时候放。每天吃，月经来的那天矿物质已经是满的。暖水袋也不只是心理安慰，热真的能让肌肉松下来。"
+   ],
+   [
+    "一瓶B族，同时照顾两条线。",
+    "B6帮大脑制造稳住情绪的“信使”，B2让皮脂腺和毛孔正常运作。B族大约24小时就清空了，所以要每天补。"
+   ],
+   [
+    "铁要先查再补，不要盲补。",
+    "缺铁常常藏在“正常”的血常规后面，所以要查血红蛋白和铁蛋白。和维生素C同一餐吃，吸收更好。男性反而常见铁偏高，所以这一步不是人人都要。"
+   ],
+   [
+    "压力激素和周期激素，用的是同一批原料。",
+    "压力连着几周都很大，身体会优先去做皮质醇。所以最累的那几个月，周期往往也最乱。"
+   ],
+   [
+    "整个月都吃，看三个周期。",
+    "只在难受那几天吃，就错过了重点：要支持的是一个月的节律。所以要看三个周期，不是三个星期。"
+   ]
+  ],
+  "routine": [
+   [
+    "整个月每天",
+    "女性周期支持，每天同一时间吃"
+   ],
+   [
+    "查过铁蛋白之后，随餐",
+    "铁质叶酸片配维生素C缓释片；茶和咖啡离开饭点一小时"
+   ],
+   [
+    "晚饭",
+    "钙镁D片和深海鱼油，压力大的月份加南非醉茄"
+   ],
+   [
+    "晚上7点半到8点40",
+    "B族和护肝片"
+   ],
+   [
+    "难受的那几天",
+    "暖水袋敷肚子，平时吃的一样都别停"
+   ]
+  ]
+ },
+ "groups": [
+  [
+   "liver-support"
+  ],
+  [
+   "cycle-support"
+  ],
+  [
+   "calcium-magnesium-d",
+   "iron-folic-acid",
+   "vitamin-c-extended-release-180ct"
+  ],
+  [
+   "vitamin-b-complex-120ct",
+   "advanced-omega"
+  ],
+  [
+   "organics-ashwagandha-capsules"
+  ]
+ ]
 }

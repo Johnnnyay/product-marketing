@@ -1,67 +1,287 @@
 {
  "id": "skin",
  "area": "skin",
- "study": [["qtby", "07"], ["xzc52", "41"], ["xzc52", "42"], ["xzc52", "29"], ["xzc52", "24"], ["xzc52", "31"], ["qtby", "17"]],
+ "study": [
+  [
+   "qtby",
+   "07"
+  ],
+  [
+   "xzc52",
+   "41"
+  ],
+  [
+   "xzc52",
+   "42"
+  ],
+  [
+   "xzc52",
+   "29"
+  ],
+  [
+   "xzc52",
+   "24"
+  ],
+  [
+   "xzc52",
+   "31"
+  ],
+  [
+   "qtby",
+   "17"
+  ]
+ ],
  "en": {
   "title": "Acne & Skin",
   "who": "Guests who mark breakouts, oily skin, breakouts before their period, marks left after pimples, or breakouts when stressed. Ask Irene for her skin guide sheet too.",
-  "studyWhy": ["all illness starts in the gut", "fibre", "probiotics for clear skin", "vitamin C", "B2", "vitamin E", "the liver"],
+  "studyWhy": [
+   "all illness starts in the gut",
+   "fibre",
+   "probiotics for clear skin",
+   "vitamin C",
+   "B2",
+   "vitamin E",
+   "the liver"
+  ],
   "feel": {
-   "say": ["I totally get it. You do everything right on the outside, and it still keeps coming back. And it always shows up at the worst time."],
+   "say": [
+    "I totally get it. You do everything right on the outside, and it still keeps coming back. And it always shows up at the worst time."
+   ],
    "tip": "Say back what they marked, in their words. Then ask: \"When do you break out most, and where?\""
   },
   "felt": {
-   "say": ["Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"],
+   "say": [
+    "Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"
+   ],
    "tip": "Your own story, or someone close to you (\"my sister\", \"a friend from school\"). No story yet? \"A lot of the people I talk to say exactly the same thing.\" Never make one up."
   },
   "found": {
    "say": [
-    "What I learned is that a pimple needs four things: too much oil, a blocked pore, bacteria, and inflammation. Skincare only handles the last two. The oil and the inflammation are set from the inside, by sugar spikes, the gut, stress and sleep.",
-    "That's why washing harder doesn't work: stripped skin just makes more oil. And the marks are mostly pigment, not scars, so not picking and wearing sunscreen matter more than anything.",
-    "So I'd work on it from the inside and the outside together."
+    "What I learned is that a pimple needs four things, and skincare only handles two of them. The oil and the inflammation are set from the inside, by sugar spikes, the gut, stress and sleep.",
+    "So I'd work on it from the inside and the outside together, starting with this."
    ],
-   "tip": "Two or three sentences, then go to the map. Pick the row that matches what they marked."
+   "tip": "One or two sentences from Part A, then the routine. Pick the products that match what they marked."
   },
-  "map": [
-   ["Any breakout: inside", "Liver Support and Prebiotic Fiber", "Calms the inflammation from the inside, through the liver and the gut"],
-   ["Any breakout: outside", "Artistry anti-acne toner and Spot On Dots", "The toner clears the pore; patch it instead of picking"],
-   ["After sugar or takeout", "Carb Blocker", "Stops the sugar spike that turns the oil up"],
-   ["Before the period, on the jaw", "Cycle Support, all month", "Gets ahead of the monthly shift. Ask first if pregnant, trying, or on hormonal birth control"],
-   ["Marks, dull skin", "Vitamin C, Artistry Vitamin C serum, SPF 50", "Keeps the marks from getting darker"],
-   ["Oily by noon", "Artistry hydrating mousse cleanser", "Washes gentler, so the skin stops overcompensating"]
-  ],
   "ask": "From what you told me, I'd start with these, inside and outside together. Want to take it home tonight?",
-  "doctor": "Deep painful lumps, scarring, acne with irregular periods or extra hair growth, or breakouts affecting their mood? See a doctor or dermatologist first."
+  "doctor": "Deep painful lumps, scarring, acne with irregular periods or extra hair growth, or breakouts affecting their mood? See a doctor or dermatologist first. Pregnant, trying, or on hormonal birth control? Ask the doctor before Cycle Support. Pregnant or breastfeeding: no ashwagandha.",
+  "groups": [
+   "Stop the sugar spike",
+   "Calm the gut and the liver",
+   "Clean gently, clear the pore",
+   "Patch, don't pick",
+   "Repair from the inside",
+   "Fade the marks, block the sun",
+   "Period, stress and sleep"
+  ],
+  "know": [
+   [
+    "A pimple needs four things.",
+    "Too much oil, a blocked pore, bacteria and inflammation. Skincare handles the last two; the oil and the inflammation are set from the inside. That's why clearing the surface alone buys a few good weeks, then the same spots come back."
+   ],
+   [
+    "Sugar spikes turn the oil up.",
+    "Sweet drinks, white rice and takeout spike blood sugar, insulin raises IGF-1, and IGF-1 tells the oil glands to make more oil and inflames them. In trials, a low-sugar-load diet lowered IGF-1 in two weeks and cut spots by twelve. You don't quit rice, you stop the spike."
+   ],
+   [
+    "Your skin shows what your gut is doing.",
+    "When the gut tips out of balance, things that should leave the body get through, and inflammation rises everywhere, skin included. The same imbalance absorbs less zinc and omega-3, the nutrients repair depends on."
+   ],
+   [
+    "Washing harder makes it oilier.",
+    "Strip the skin and it thinks it's damaged, so it makes more oil. Dehydrated skin does the same. Wash gentler and keep it hydrated."
+   ],
+   [
+    "Next week's pimple is already clogged today.",
+    "Salicylic acid dissolves in oil, so it gets inside the pore and breaks the plug up. Use the toner on the whole face, not just the spot you can see."
+   ],
+   [
+    "Marks are mostly pigment, not scars.",
+    "They fade, but they outlast the pimple by months, and picking and sun make them darker. Patch instead of picking, and wear sunscreen every day. Vitamin C keeps marks from getting darker; it doesn't bleach the ones you have."
+   ],
+   [
+    "Where it shows is a clue.",
+    "Nose folds, T-zone and chin is the classic B2 pattern, and late nights burn B2 fast. Along the jaw before a period is the monthly hormone shift, and because it comes on schedule, you can get ahead of it."
+   ],
+   [
+    "Stress and short nights turn the oil up.",
+    "Oil glands carry receptors for the stress signal, and skin does most of its repair while you sleep. In the 72 assessments we have on file, 77% of acne cases also reported chronic late nights."
+   ]
+  ],
+  "routine": [
+   [
+    "Morning",
+    "Mousse cleanser, anti-acne toner over the whole face, Vitamin C serum, then SPF 50 (or the SPF 30 day lotion)"
+   ],
+   [
+    "Breakfast",
+    "Plant Protein instead of a sweet breakfast, with Vitamin C"
+   ],
+   [
+    "Rice or noodle meals",
+    "Carb Blocker before the meal, Prebiotic Fiber in water or coffee"
+   ],
+   [
+    "7:30 to 8:40 pm",
+    "Vitamin B and Liver Support"
+   ],
+   [
+    "Bedtime",
+    "Cleanse, toner, Spot On Dots on any new spot, Sleeping Mask, and bed early"
+   ],
+   [
+    "Once a week",
+    "Purifying Mask"
+   ]
+  ]
  },
  "zh": {
   "title": "皮肤与痘痘",
   "who": "适合在问卷里勾了爆痘、出油、经期前冒痘、痘印、压力一大就冒痘的客人。也可以找Irene要她的皮肤指南。",
-  "studyWhy": ["万病始于肠", "膳食纤维", "益生菌与好皮肤", "维生素C", "维生素B2", "维生素E", "肝"],
+  "studyWhy": [
+   "万病始于肠",
+   "膳食纤维",
+   "益生菌与好皮肤",
+   "维生素C",
+   "维生素B2",
+   "维生素E",
+   "肝"
+  ],
   "feel": {
-   "say": ["我特别懂。外面该用的都用了，还是反反复复。而且总在最不想冒的时候冒出来。"],
+   "say": [
+    "我特别懂。外面该用的都用了，还是反反复复。而且总在最不想冒的时候冒出来。"
+   ],
    "tip": "用对方自己的话，把问卷上勾的说回去。然后问一句：“一般什么时候最容易冒？长在哪里？”"
   },
   "felt": {
-   "say": ["说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"],
+   "say": [
+    "说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"
+   ],
    "tip": "讲你自己的，或者身边人的（“我姐姐”“我一个同学”）。还没有故事？就说：“我身边很多朋友也是这样。”千万别编。"
   },
   "found": {
    "say": [
-    "我后来学到，长一颗痘要四件事凑齐：油太多、毛孔堵住、细菌、发炎。护肤品只管得了后两件。出油和发炎是身体里面决定的：血糖冲高、肠道、压力、睡眠。",
-    "所以越洗越油，洗得太干净，皮肤反而出更多油。痘印大多是色素不是疤，不挤、做好防晒，比什么都重要。",
-    "所以我会建议里外一起调。"
+    "我后来学到，长一颗痘要四件事凑齐，护肤品只管得了其中两件。出油和发炎是身体里面决定的：血糖冲高、肠道、压力、睡眠。",
+    "所以我会建议里外一起调，先从这个开始。"
    ],
-   "tip": "两三句就够，然后看下面的对照表，挑跟对方勾的那一项对得上的。"
+   "tip": "从 Part A 挑一两句讲，然后讲作息。挑跟对方勾的对得上的产品。"
   },
-  "map": [
-   ["各种冒痘：内调", "护肝片、益生元纤维粉", "从肝和肠道入手，把身体里面的炎症降下来"],
-   ["各种冒痘：外护", "雅姿玫瑰控痘爽肤水、雅姿痘痘贴", "爽肤水疏通毛孔；冒出来就贴，不挤"],
-   ["吃甜的、吃外卖就冒", "阻碳片", "挡住把出油推高的血糖冲高"],
-   ["经期前下巴一圈冒", "女性周期支持，整个月都吃", "提前应对每个月的变化。怀孕、备孕或服用激素避孕药的先问医生"],
-   ["痘印、暗沉", "维生素C缓释片、雅姿维C精华、雅姿SPF50防晒", "不让痘印越来越深"],
-   ["中午就出油", "雅姿保湿慕斯洁面", "洗得温和，皮肤就不用拼命补油"]
-  ],
   "ask": "按你说的情况，我建议里外一起，先从这几样开始。今天要不要先带回去？",
-  "doctor": "如果是又深又痛的硬包、已经留疤、痘痘同时伴随月经不规律或毛发变多，或者痘痘让你情绪很低落，请先去看医生或皮肤科。"
- }
+  "doctor": "如果是又深又痛的硬包、已经留疤、痘痘同时伴随月经不规律或毛发变多，或者痘痘让你情绪很低落，请先去看医生或皮肤科。怀孕、备孕或在吃激素避孕药的，吃女性周期支持前先问医生。怀孕或哺乳期不吃南非醉茄。",
+  "groups": [
+   "别让血糖冲高",
+   "把肠道和肝照顾好",
+   "洗得温和，疏通毛孔",
+   "贴上，别挤",
+   "从里面补修复原料",
+   "淡痘印，挡太阳",
+   "经期、压力和睡眠"
+  ],
+  "know": [
+   [
+    "一颗痘，要四件事凑齐。",
+    "油太多、毛孔堵住、细菌、发炎。护肤品只管得了后两件，出油和发炎是身体里面决定的。所以只清表面，通常好上几周，同样的地方又冒出来。"
+   ],
+   [
+    "血糖冲高，油就被调大。",
+    "奶茶、白米饭、外卖让血糖冲高，胰岛素跟着升，又带高IGF-1，它让皮脂腺出更多油，也更容易发炎。试验里，低升糖饮食两周IGF-1就降了，十二周痘就少了。不用戒米饭，只要别让血糖冲那么高。"
+   ],
+   [
+    "肠道好不好，皮肤看得出来。",
+    "肠道菌群一失衡，本该排出去的东西漏进来，全身的炎症都会升高，皮肤也一样。同样的失衡还会让锌和Omega-3这些修复要用的营养吸收变差。"
+   ],
+   [
+    "越洗越油。",
+    "洗得太干净，皮肤以为自己受伤了，反而出更多油。缺水的皮肤也一样，越缺水越油。要洗得温和，把水补够。"
+   ],
+   [
+    "下周的痘，今天毛孔已经堵上了。",
+    "水杨酸溶于油，能钻进毛孔把堵塞化开。所以爽肤水要擦整张脸，不只点在看得见的那一颗上。"
+   ],
+   [
+    "痘印大多是色素，不是疤。",
+    "它会淡，只是比痘多留好几个月，挤和晒都会让它更深。冒出来就贴，别挤，每天擦防晒。维C是让印子不再变深，不是把已有的漂白。"
+   ],
+   [
+    "长在哪里，本身就是线索。",
+    "鼻翼、T区、下巴，是典型的缺B2，熬夜会把B2很快耗掉。经期前下巴一圈冒，是每个月的荷尔蒙变化，好在它很准时，可以提前准备。"
+   ],
+   [
+    "压力大、睡得少，油就出得多。",
+    "皮脂腺上有接收压力信号的受体，皮肤又主要在睡觉时修复。我们手上的72份评估里，77%的痘痘个案同时长期晚睡。"
+   ]
+  ],
+  "routine": [
+   [
+    "早上",
+    "保湿慕斯洁面，玫瑰控痘爽肤水擦全脸，维C精华，最后SPF50防晒（或SPF30日霜）"
+   ],
+   [
+    "早餐",
+    "把甜的早餐换成有机植物蛋白粉，配维生素C"
+   ],
+   [
+    "吃米饭面条的那顿",
+    "饭前吃阻碳片，益生元纤维粉加进水或咖啡"
+   ],
+   [
+    "晚上7点半到8点40",
+    "B族和护肝片"
+   ],
+   [
+    "睡前",
+    "洁面、爽肤水，新冒的痘贴上痘痘贴，涂睡眠面膜，早点睡"
+   ],
+   [
+    "每周一次",
+    "净澈面膜"
+   ]
+  ]
+ },
+ "groups": [
+  [
+   "carb-blocker",
+   "prebiotic-fiber",
+   "plant-protein-powder"
+  ],
+  [
+   "probiotic",
+   "green-superfood",
+   "liver-support",
+   "digestive-enzyme",
+   "begin-daily-gi-primer"
+  ],
+  [
+   "artistry-hydrating-mousse-cleanser",
+   "artistry-studio-glow-boss-cleanser-exfoliator",
+   "artistry-men-face-wash",
+   "artistry-studio-rose-all-day-anti-acne-toner",
+   "artistry-signature-select-purifying-mask"
+  ],
+  [
+   "artistry-studio-spot-on-dots",
+   "artistry-studio-done-with-zit"
+  ],
+  [
+   "vitamin-b-complex-120ct",
+   "vitamin-c-extended-release-180ct",
+   "vitamin-e-chewable",
+   "advanced-omega",
+   "immunity-defense-zinc-holy-basil",
+   "vitamin-d",
+   "concentrated-fruits-vegetables"
+  ],
+  [
+   "artistry-vitamin-c-ha3-daily-serum",
+   "artistry-multi-defense-uv-protect-spf50",
+   "artistry-hydrating-day-lotion-spf30",
+   "artistry-correcting-serum"
+  ],
+  [
+   "cycle-support",
+   "organics-ashwagandha-capsules",
+   "calcium-magnesium-d",
+   "sleep-gummies",
+   "artistry-sleeping-mask"
+  ]
+ ]
 }

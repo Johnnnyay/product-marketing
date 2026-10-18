@@ -57,56 +57,81 @@
   },
   "found": {
    "say": [
-    "What I learned is that for most people the pancreas is still sending insulin, often more than ever. What changed is that the cells stopped answering it well, so sugar stays in the blood longer. And the usual reason is fat in the wrong place: around the organs and inside the liver, not on the arms. That's why your waist tells you more than the scale.",
-    "The good news is you don't have to give up rice. Eat vegetables and protein first and the rice last, put protein into breakfast, and protect your sleep. Same plate, same person, a lower curve. And all of this goes alongside your doctor, never instead.",
+    "What I learned is that for most people the pancreas is still sending insulin, and the cells stopped answering it, usually because of fat around the organs and in the liver. And you don't have to give up rice: change the order you eat in, put protein into breakfast and protect your sleep, alongside your doctor.",
     "So this is what I'd start with."
    ],
-   "tip": "Two or three sentences, then go to the map. Pick the row that matches what they marked."
+   "tip": "One or two sentences from Part A, then the routine. Pick the products that match what they marked."
   },
-  "map": [
+  "ask": "Based on what you told me, I'd start with protein at breakfast and the Carb Blocker before your rice meals, and keep doing exactly what your doctor tells you. Do you want to take it home tonight?",
+  "doctor": "Very thirsty, peeing a lot, losing weight without trying, blurry vision or cuts that heal slowly? See a doctor first. Already on blood sugar medication? Keep taking it exactly as prescribed, never change it on your own, and tell the doctor before adding anything.",
+  "groups": [
+   "Flatten the spike",
+   "Protein at breakfast",
+   "The liver and inflammation",
+   "The gut",
+   "The raw materials",
+   "Sleep and stress"
+  ],
+  "know": [
    [
-    "Sleepy or hungry after meals",
-    "Carb Blocker, before a starch-heavy meal",
-    "Part of the starch passes through instead of arriving as sugar all at once"
+    "The pancreas is usually still sending the signal.",
+    "Insulin tells cells to take sugar out of the blood. For most adults over 40 the pancreas is still sending it, often more than ever. The cells stopped answering, like a doorbell nobody comes to, so it rings louder and louder."
    ],
    [
-    "Not a salad person, no vegetables today",
-    "Prebiotic Fiber or Green Superfood, before the meal",
-    "Slows the whole meal down, so the greens still come first"
+    "Fat in the wrong place is the usual reason.",
+    "Fat on the arms is fairly harmless. Fat around the organs and inside the liver drains straight into the liver and keeps it releasing sugar when it should stop. That's why someone a little overweight can have worse numbers than someone much heavier, and why the waist tells you more than the scale."
    ],
    [
-    "Sugar cravings mid-morning",
-    "Plant Protein, for breakfast",
-    "No spike at breakfast, so no crash and no craving after it"
+    "The order you eat in is free.",
+    "Rice and noodles turn into sugar fast, insulin rushes out, and the drop after is the sleepy, hungry-again feeling. Eat vegetables and protein first and the rice last: in trials, the same meal in that order gave a lower curve. Same plate, same person."
    ],
    [
-    "Told it's borderline",
-    "Magnesium and Double X",
-    "Magnesium is one of the best-studied nutrients for blood sugar, Double X covers the rest of the base. On medication? Tell the doctor before adding anything"
+    "You don't have to give up rice.",
+    "A plan that asks a family to stop eating rice gets dropped in a week. Flatten the curve on the food they already eat instead: fibre thickens the meal so it empties more slowly, and white kidney bean extract lets part of the starch pass through."
    ],
    [
-    "Belly fat, slim arms",
-    "Liver Support, Turmeric, Metabolic Pre & Postbiotic",
-    "The liver is what this whole area turns on, plus the background inflammation and the gut. Judge it in months. On blood thinners? Ask the doctor before turmeric"
+    "The craving is blood sugar, not willpower.",
+    "A carb-only breakfast spikes and then crashes, and when blood sugar drops the brain asks for the fastest fix: more sugar. Protein at breakfast is the single highest-return change in this area."
    ],
    [
-    "High blood sugar runs in the family",
-    "Advanced Omega and Concentrated Fruits & Vegetables",
-    "Works on the low-grade inflammation, and adds the colours the family plate misses. Check the numbers every year. On blood thinners? Ask the doctor first"
+    "Muscle is where the sugar goes.",
+    "From your 30s you slowly lose muscle unless you use it, and muscle takes up most of the sugar from a meal. Less muscle, less room for sugar. Two strength sessions a week, and enough protein to keep the muscle."
    ],
    [
-    "After 40, sleeping lighter",
-    "Cal Mag D in the evening, Stress Relief Probiotic",
-    "Short sleep pushes blood sugar up. These help you wind down, they don't replace going to bed earlier"
+    "Short sleep raises blood sugar.",
+    "Short sleep raises the stress hormone cortisol, cortisol raises blood sugar, and it pushes appetite toward the foods that make tomorrow's numbers worse. A capsule can help you wind down, but it doesn't replace going to bed earlier."
    ],
    [
-    "Lots of rice and noodles, low energy",
-    "Vitamin B Complex",
-    "A high-carb diet uses up the B vitamins that turn food into steady energy"
+    "Genes load the dice, they don't roll them.",
+    "A lot of what runs in families is shared habits: the same rice, the same late dinners, the same stress. You can't change your genes, but you can start earlier than your parents did and check your numbers every year."
    ]
   ],
-  "ask": "Based on what you told me, I'd start with protein at breakfast and the Carb Blocker before your rice meals, and keep doing exactly what your doctor tells you. Do you want to take it home tonight?",
-  "doctor": "Very thirsty, peeing a lot, losing weight without trying, blurry vision or cuts that heal slowly? See a doctor first. Already on blood sugar medication? Keep taking it exactly as prescribed, never change it on your own, and tell the doctor before adding anything."
+  "routine": [
+   [
+    "Breakfast",
+    "A Plant Protein shake, Double X (or the Men's or Women's Pack) and Advanced Omega"
+   ],
+   [
+    "Before a starchy meal",
+    "Carb Blocker; no vegetables today? Prebiotic Fiber or Green Superfood in water first"
+   ],
+   [
+    "Every meal",
+    "Vegetables and protein first, rice last"
+   ],
+   [
+    "Dinner",
+    "Magnesium or Cal Mag D, pick one"
+   ],
+   [
+    "7:30 to 8:40 pm",
+    "Liver Support and Vitamin B"
+   ],
+   [
+    "Every week",
+    "Two strength sessions, and the same bedtime every night"
+   ]
+  ]
  },
  "zh": {
   "title": "血糖管理",
@@ -134,55 +159,111 @@
   },
   "found": {
    "say": [
-    "我后来学到，大多数人的胰腺其实还在分泌胰岛素，甚至比以前还多。变的是细胞不怎么“听”它了，糖就在血里停得更久。原因通常是脂肪长错了地方：包在内脏周围、长在肝里，而不是胳膊腿上。所以腰围比体重更能说明问题。",
-    "好消息是，不用戒米饭。先吃菜和肉，最后吃饭，早餐把蛋白质吃够，再把觉睡好。同样一盘菜，同一个人，血糖曲线就低很多。而且这些都是配合医生，不是替代医生。",
+    "我后来学到，大多数人的胰腺其实还在分泌胰岛素，是细胞不怎么“听”它了，原因通常是脂肪长在了内脏周围和肝里。而且不用戒米饭：换个吃饭的顺序，早餐吃够蛋白质，把觉睡好，同时继续配合医生。",
     "所以，我会先从这个开始。"
    ],
-   "tip": "两三句就够，然后看下面的对照表，挑跟对方勾的那一项对得上的。"
+   "tip": "从 Part A 挑一两句讲，然后讲作息。挑跟对方勾的对得上的产品。"
   },
-  "map": [
+  "ask": "按你刚才说的，我建议先从早餐的蛋白粉和吃米饭前的阻碳片开始，医生那边该怎么做还是照做。今天要不要先带回去？",
+  "doctor": "如果口很渴、小便多、体重莫名下降、视力模糊，或者伤口好得很慢，请先去看医生。已经在吃降糖药的，一定按医嘱继续吃，不要自己调整，添加任何保健品之前先告诉医生。",
+  "groups": [
+   "把血糖峰值压平",
+   "早餐的蛋白质",
+   "肝和慢性炎症",
+   "肠道",
+   "补原料",
+   "睡眠与压力"
+  ],
+  "know": [
    [
-    "饭后犯困，又很快饿",
-    "阻碳片，碳水多的那顿饭前吃",
-    "一部分淀粉直接过去，不会一下子全变成糖"
+    "胰腺通常还在发信号。",
+    "胰岛素负责通知细胞把糖从血里搬走。四十岁以上的多数人，胰腺还在发这个信号，往往比以前发得更多，是细胞不再应答了。就像门铃按了没人开，只好越按越用力。"
    ],
    [
-    "不爱吃沙拉，今天没吃到菜",
-    "益生元纤维粉或绿色超级食物粉，饭前喝",
-    "让整顿饭消化得慢一点，绿色的东西还是排在最前面"
+    "原因通常是脂肪长错了地方。",
+    "胳膊腿上的脂肪相对无害；包在内脏周围、长在肝里的脂肪，会直接流进肝，让肝在该停的时候还在往血里放糖。所以有人只是微胖，血糖却比胖很多的人还差，腰围也比体重更能说明问题。"
    ],
    [
-    "早餐后一两个小时就想吃甜的",
-    "有机植物蛋白粉，当早餐",
-    "早餐没有冲高，就不会跌下来，也就不会嘴馋"
+    "吃饭的顺序是免费的。",
+    "米饭面条很快变成糖，胰岛素一下子涌出来，血糖一掉，人就犯困，或者又饿了。先吃菜和肉，最后吃饭：试验里，同一餐换个顺序，血糖曲线就低很多。同一盘菜，同一个人。"
    ],
    [
-    "体检说血糖临界",
-    "镁片和双X",
-    "镁是和血糖相关研究最多的营养素之一，双X把其他基础铺好。在吃药的，添加任何东西前先告诉医生"
+    "不用戒米饭。",
+    "要一家人戒掉米饭的方案，一周就会被放弃。不如在本来的饭上把曲线压平：纤维让一整餐变稠、消化得慢，白芸豆提取物让一部分淀粉直接通过。"
    ],
    [
-    "四肢不胖，肚子大",
-    "护肝片、有机姜黄胶囊、代谢益生元后生元",
-    "血糖的关键在肝，再加上慢性炎症和肠道一起调。按月看效果。在吃抗凝药的，吃姜黄前先问医生"
+    "想吃甜的是血糖，不是意志力。",
+    "只有碳水的早餐，血糖先冲高再跌下来，血糖一低，大脑就要最快的补救：再来点糖。早餐吃够蛋白质，是这一块回报最高的一个改变。"
    ],
    [
-    "家里有人血糖高",
-    "深海鱼油和浓缩果蔬精华",
-    "针对慢性炎症，再把家里饭桌上缺的颜色补上。每年查一次血糖。在吃抗凝药的，先问医生"
+    "饭后的糖，大部分是肌肉消化的。",
+    "三十岁以后，肌肉不用就会慢慢流失；肌肉少了，糖就没地方去。每周两次力量训练，再吃够蛋白质，把肌肉留住。"
    ],
    [
-    "过了40，睡得越来越浅",
-    "钙镁D片晚上吃，加舒压益生菌",
-    "睡不好血糖就往上走。它们帮你放松，但代替不了早点上床"
+    "睡不好，血糖就往上走。",
+    "睡得少，压力激素皮质醇就升高，血糖跟着升，食欲还会偏向那些让明天指标更难看的东西。胶囊能帮你放松，但代替不了早点上床。"
    ],
    [
-    "米饭面条吃得多，人没劲",
-    "B族维生素",
-    "碳水吃得多，B族消耗就快，而把食物变成稳定的能量靠的就是它"
+    "基因决定的是概率，不是结局。",
+    "一家人传下来的，还有生活习惯：一样的米饭，一样晚的晚饭，一样的压力。基因改不了，但你可以比父母早一步开始，每年查一次血糖。"
    ]
   ],
-  "ask": "按你刚才说的，我建议先从早餐的蛋白粉和吃米饭前的阻碳片开始，医生那边该怎么做还是照做。今天要不要先带回去？",
-  "doctor": "如果口很渴、小便多、体重莫名下降、视力模糊，或者伤口好得很慢，请先去看医生。已经在吃降糖药的，一定按医嘱继续吃，不要自己调整，添加任何保健品之前先告诉医生。"
- }
+  "routine": [
+   [
+    "早餐",
+    "一杯有机植物蛋白粉，加双X（或男士、女士营养包）和深海鱼油"
+   ],
+   [
+    "碳水多的那顿饭前",
+    "阻碳片；今天没吃到菜，先喝一杯益生元纤维粉或绿色超级食物粉"
+   ],
+   [
+    "每一餐",
+    "先吃菜和肉，最后吃饭"
+   ],
+   [
+    "晚饭",
+    "镁片或钙镁D片，二选一"
+   ],
+   [
+    "晚上7点半到8点40",
+    "护肝片和B族"
+   ],
+   [
+    "每周",
+    "两次力量训练，每天固定时间睡觉"
+   ]
+  ]
+ },
+ "groups": [
+  [
+   "carb-blocker",
+   "prebiotic-fiber",
+   "green-superfood"
+  ],
+  [
+   "plant-protein-powder"
+  ],
+  [
+   "liver-support",
+   "organics-turmeric-capsules",
+   "advanced-omega"
+  ],
+  [
+   "metabolic-pre-postbiotic",
+   "probiotic"
+  ],
+  [
+   "magnesium",
+   "double-x-multivitamin-31-day-refill",
+   "men-s-pack",
+   "women-s-pack",
+   "vitamin-b-complex-120ct",
+   "concentrated-fruits-vegetables"
+  ],
+  [
+   "calcium-magnesium-d",
+   "stress-relief-probiotic"
+  ]
+ ]
 }

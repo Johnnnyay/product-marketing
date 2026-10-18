@@ -1,71 +1,249 @@
 {
  "id": "digestion",
  "area": "digestion",
- "study": [["qtby", "07"], ["xzc52", "41"], ["xzc52", "42"], ["xzc52", "44"], ["xzc52", "37"], ["qtby", "15"]],
+ "study": [
+  [
+   "qtby",
+   "07"
+  ],
+  [
+   "xzc52",
+   "41"
+  ],
+  [
+   "xzc52",
+   "42"
+  ],
+  [
+   "xzc52",
+   "44"
+  ],
+  [
+   "xzc52",
+   "37"
+  ],
+  [
+   "qtby",
+   "15"
+  ]
+ ],
  "en": {
   "title": "Gut & Regularity",
   "who": "Guests who mark not going every day, loose stools, heavy or bloated after meals, stress going straight to the gut, being thrown off by travel, or lots of takeout and few vegetables.",
-  "studyWhy": ["most illness starts in the gut", "fibre", "probiotics", "the gut microbiome", "minerals, including magnesium", "the nourishing breakfast"],
+  "studyWhy": [
+   "most illness starts in the gut",
+   "fibre",
+   "probiotics",
+   "the gut microbiome",
+   "minerals, including magnesium",
+   "the nourishing breakfast"
+  ],
   "feel": {
-   "say": ["I totally get it. Some days nothing happens, other days you're running to the bathroom, and after a big meal you just feel heavy and puffy. And it's not something people really talk about, right?"],
+   "say": [
+    "I totally get it. Some days nothing happens, other days you're running to the bathroom, and after a big meal you just feel heavy and puffy. And it's not something people really talk about, right?"
+   ],
    "tip": "Say back what they marked, in their words. Then ask: \"Is it more too hard, too loose, or bloated after you eat?\""
   },
   "felt": {
-   "say": ["Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"],
+   "say": [
+    "Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"
+   ],
    "tip": "Your own story, or someone close to you (\"my mom\", \"a friend from work\"). No story yet? \"A lot of the people I talk to say exactly the same thing.\" Never make one up."
   },
   "found": {
    "say": [
-    "What I learned is that being constipated and having loose stools usually aren't opposite problems. It's the same one: the stool has the wrong amount of water in it. Fibre is what holds that water, and most of us eat about half of what we need. Drinking more water only helps once the fibre is there.",
-    "Then the good bacteria turn that fibre into what keeps things moving. And the gut runs on a clock: it pushes hardest after you wake up and after breakfast. So warm water first thing, a real breakfast, and ten unhurried minutes after it do more than people think.",
+    "What I learned is that being constipated and having loose stools are usually the same problem: the stool has the wrong amount of water in it. Fibre holds that water, most of us eat about half of what we need, and the good bacteria turn it into what keeps things moving.",
     "So this is what I'd start with."
    ],
-   "tip": "Two or three sentences, then go to the map. Pick the row that matches what they marked."
+   "tip": "One or two sentences from Part A, then the routine. Pick the products that match what they marked."
   },
-  "map": [
-   ["Not going every day", "Prebiotic Fiber, raised a little each week, with a full glass of water", "Holds water in the stool. A top-up, not a laxative"],
-   ["Still hard and slow", "Magnesium, in the evening with water", "A gentle form that covers a gap a lot of adults have, not a laxative. Kidney issues? Ask the doctor first"],
-   ["Loose stools", "Prebiotic Fiber, start small, with water", "Soaks up the extra water and gives it shape"],
-   ["Hard or loose, either way", "Probiotic, daily with food, alongside the fibre", "Good bacteria turn fibre into what keeps things moving. Judge it at four weeks"],
-   ["Heavy and bloated after big meals", "Digestive Enzyme with that meal, or Begin Daily GI Primer", "Helps break the meal down. Use it on the meals you feel it, not every day by default"],
-   ["Stress goes straight to the gut", "Stress Relief Probiotic, in place of the regular one", "The gut and the brain talk both ways. Pick one probiotic, not both"],
-   ["Thrown off by travel", "Prebiotic Fiber in the bag; Begin 30 Holistic Wellness Solution to reset at home", "Restaurant food is low in fibre. Keep the anchor: warm water, breakfast, ten minutes"],
-   ["Lots of takeout, few vegetables", "Plant Protein Powder at breakfast; Green Superfood on the no-vegetable days", "The gut lining is built from protein. Keep the vegetables, protein doesn't do fibre's job"]
-  ],
   "ask": "Based on what you told me, I'd start with the Prebiotic Fiber and the Probiotic, taken together. Do you want to take it home tonight?",
-  "doctor": "Blood in the stool, black stool, weight loss they can't explain, loose stools with fever or lasting more than a few days, or a change that doesn't go away, especially after 50? See a doctor first."
+  "doctor": "Blood in the stool, black stool, weight loss they can't explain, loose stools with fever or lasting more than a few days, or a change that doesn't go away, especially after 50? See a doctor first. Kidney disease, or already using a magnesium laxative? Ask the doctor before Magnesium.",
+  "groups": [
+   "Fibre and water first",
+   "The good bacteria",
+   "Heavy after big meals",
+   "Still hard and slow",
+   "A better breakfast",
+   "A 30-day reset"
+  ],
+  "know": [
+   [
+    "Hard and loose are often the same problem.",
+    "Both usually mean the stool has the wrong amount of water in it. Fibre is what holds that water, so it helps both ways."
+   ],
+   [
+    "Most of us eat about half the fibre we need.",
+    "Adults average about 16 g a day, against 25 g for women and 38 g for men. Raise it by about 5 g a week, vegetables first at each meal, with a full glass of water each time: water helps once the fibre is there."
+   ],
+   [
+    "Fibre is food for your good bacteria.",
+    "They turn it into acids that keep the bowel moving, so feed the bacteria you have before adding new ones. The strain matters: one in our probiotic cut gut transit from 49 hours to 21 in a two-week trial. On average the gain is modest, about one extra trip a week."
+   ],
+   [
+    "The gut runs on a clock.",
+    "Its strongest push comes after waking and after breakfast. Warm water first thing, breakfast between 7 and 9, then ten unhurried minutes. When you feel the urge, don't hold it, and keep the same time on weekends."
+   ],
+   [
+    "The gut lining is built from protein.",
+    "It renews every few days. A breakfast of white bread or congee brings little protein and little fibre. A protein shake fixes the first, but it doesn't do fibre's job."
+   ],
+   [
+    "Heavy and bloated is a different problem.",
+    "That's about breaking the meal down, not how often you go. The enzymes that digest protein decline with age. The evidence for enzyme supplements is thin, so use them on the meals you feel it."
+   ],
+   [
+    "Magnesium covers a gap; it isn't a laxative.",
+    "About half of US adults get less than they need from food. It draws water into the bowel and relaxes the muscle. Keep supplemental magnesium within 350 mg a day."
+   ],
+   [
+    "The gut and the brain talk both ways.",
+    "For some people it's clear: a deadline, a trip or an argument, and the stomach reacts first. That's when the stress probiotic replaces the regular one, not on top of it."
+   ]
+  ],
+  "routine": [
+   [
+    "On waking",
+    "A glass of warm water"
+   ],
+   [
+    "Breakfast, 7 to 9 am",
+    "Plant Protein or an All-in-One Shake instead of white bread or congee; Prebiotic Fiber with a full glass of water; the Probiotic"
+   ],
+   [
+    "After breakfast",
+    "Ten unhurried minutes. Feel the urge? Go."
+   ],
+   [
+    "Heavy meals",
+    "Digestive Enzyme with that meal"
+   ],
+   [
+    "Evening",
+    "Magnesium with water, if it's still hard and slow"
+   ]
+  ]
  },
  "zh": {
   "title": "肠胃与排便",
   "who": "适合在问卷里勾了几天才上一次、大便不成形、一吃饱就又撑又胀、一紧张就想跑厕所、一出门就不规律，或者外卖多蔬菜少的客人。",
-  "studyWhy": ["万病始于肠", "膳食纤维", "益生菌", "肠道菌群", "矿物质，包括镁", "营养早餐"],
+  "studyWhy": [
+   "万病始于肠",
+   "膳食纤维",
+   "益生菌",
+   "肠道菌群",
+   "矿物质，包括镁",
+   "营养早餐"
+  ],
   "feel": {
-   "say": ["我特别懂。有时候好几天都上不出来，有时候又一直跑厕所，吃顿大餐就撑得难受。而且这种事，也不太好意思跟别人说，对吧？"],
+   "say": [
+    "我特别懂。有时候好几天都上不出来，有时候又一直跑厕所，吃顿大餐就撑得难受。而且这种事，也不太好意思跟别人说，对吧？"
+   ],
    "tip": "用对方自己的话，把问卷上勾的说回去。然后问一句：“是偏干、偏稀，还是吃完就胀？”"
   },
   "felt": {
-   "say": ["说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"],
+   "say": [
+    "说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"
+   ],
    "tip": "讲你自己的，或者身边人的（“我妈妈”“我一个同事”）。还没有故事？就说：“我身边很多朋友也是这样。”千万别编。"
   },
   "found": {
    "say": [
-    "我后来才知道，便秘和拉稀，很多时候不是两个相反的问题，而是同一件事：大便里的水分不对。能把水留住的是纤维，可大多数人每天只吃到需要量的一半左右。纤维够了，多喝水才真的有用。",
-    "然后，肠道里的好菌会把纤维变成推着肠道走的东西。肠道还有自己的时钟，起床后和早饭后最想动。所以早上一杯温水、好好吃顿早饭、饭后留十分钟，比你想的管用。",
+    "我后来才知道，便秘和拉稀，很多时候是同一件事：大便里的水分不对。能把水留住的是纤维，大多数人只吃到需要量的一半左右，而好菌会把纤维变成推着肠道走的东西。",
     "所以，我会先从这个开始。"
    ],
-   "tip": "两三句就够，然后看下面的对照表，挑跟对方勾的那一项对得上的。"
+   "tip": "从 Part A 挑一两句讲，然后讲作息。挑跟对方勾的对得上的产品。"
   },
-  "map": [
-   ["几天才上一次", "益生元纤维粉，每周慢慢加量，每次配一大杯水", "把水分留在大便里。是补缺口，不是泻药"],
-   ["还是又干又硬", "镁片，晚上配水吃", "温和好吸收，补的是很多人都有的缺口，不是泻药。有肾脏问题的先问医生"],
-   ["大便不成形", "益生元纤维粉，从少量开始，配一杯水", "把多余的水分吸住，让它成形"],
-   ["偏干偏稀都适用", "益生菌，每天随餐，和纤维一起吃", "好菌把纤维变成推动肠道的东西。吃满四周再看"],
-   ["一吃饱就又撑又胀", "消化酶，大餐时随餐吃；或者Begin每日肠道启动粉", "帮忙把这顿饭分解掉。会胀的那几顿用，不用天天吃"],
-   ["一紧张就想跑厕所", "舒压益生菌，替换普通益生菌", "肠道和大脑是双向沟通的。二选一，不要叠加"],
-   ["一出门就不规律", "益生元纤维粉随身带；回家想重新调，用Begin 30全人健康方案", "外面的饭菜纤维少。守住起床温水、早餐、饭后十分钟"],
-   ["外卖多，蔬菜少", "早餐换成有机植物蛋白粉；吃不上蔬菜的日子用绿色超级食物粉", "肠道黏膜的原料是蛋白质。蔬菜还是要吃，蛋白质替代不了纤维"]
-  ],
   "ask": "按你刚才说的，我建议先从益生元纤维粉和益生菌开始，两样一起吃。今天要不要先带回去？",
-  "doctor": "如果大便带血或发黑、体重不明原因下降、拉肚子伴发烧或持续好几天，或者排便习惯变了一直没恢复，特别是50岁以上，请先去看医生。"
- }
+  "doctor": "如果大便带血或发黑、体重不明原因下降、拉肚子伴发烧或持续好几天，或者排便习惯变了一直没恢复，特别是50岁以上，请先去看医生。有肾脏疾病，或者已经在用含镁泻药的，吃镁片前先问医生。",
+  "groups": [
+   "先补纤维和水",
+   "肠道好菌",
+   "大餐后又撑又胀",
+   "还是又干又硬",
+   "换一顿好早餐",
+   "30天重新调"
+  ],
+  "know": [
+   [
+    "偏干和偏稀，常常是同一个问题。",
+    "两者通常都是大便里的水分不对。能把水留住的是纤维，所以干的稀的，纤维都有用。"
+   ],
+   [
+    "大多数人只吃到需要量一半左右的纤维。",
+    "成年人平均每天16克左右，女性需要25克，男性38克。每周慢慢加5克左右，每顿先吃蔬菜，每次配一大杯水：纤维够了，多喝水才真的有用。"
+   ],
+   [
+    "纤维是好菌的食物。",
+    "好菌把纤维变成推着肠道走的酸性物质，所以先喂饱已有的菌，再补新的。菌株很关键：我们益生菌里的一株，在两周的试验里把肠道通过时间从49小时缩到21小时。平均效果是温和的，每周多一次左右。"
+   ],
+   [
+    "肠道有自己的时钟。",
+    "起床后和早饭后蠕动最有力。起床一杯温水，7点到9点吃早餐，饭后给自己十分钟，别赶。有感觉了就去，别憋着，周末也守同一个时间。"
+   ],
+   [
+    "肠道黏膜是用蛋白质做的。",
+    "它几天就更新一轮。白面包、白粥当早餐，蛋白质和纤维都很少。蛋白奶昔补得了蛋白质，但替代不了纤维。"
+   ],
+   [
+    "吃完又撑又胀，是另一回事。",
+    "这是这顿饭有没有分解好，跟多久上一次无关。分解蛋白质的消化酶会随年龄变少。消化酶的研究证据不多，会胀的那几顿用就好。"
+   ],
+   [
+    "镁是补缺口，不是泻药。",
+    "美国一半左右的成年人从饭里吃到的镁不够。它把水分带进肠道，也让肠道肌肉放松。补充剂来源的镁，每天不超过350毫克。"
+   ],
+   [
+    "肠道和大脑是双向通话的。",
+    "有些人的规律特别明显：一赶截止日期、一出差、一吵架，肠胃先有反应。这种情况，把普通益生菌换成舒压益生菌，二选一，不要叠加。"
+   ]
+  ],
+  "routine": [
+   [
+    "起床",
+    "一杯温水"
+   ],
+   [
+    "早餐，7点到9点",
+    "用有机植物蛋白粉或有机全能奶昔换掉白面包、白粥；益生元纤维粉配一大杯水；益生菌"
+   ],
+   [
+    "早饭后",
+    "给自己十分钟，别赶。有感觉了就去。"
+   ],
+   [
+    "吃大餐的那顿",
+    "随餐吃消化酶"
+   ],
+   [
+    "晚上",
+    "如果还是又干又硬，镁片配水吃"
+   ]
+  ]
+ },
+ "groups": [
+  [
+   "prebiotic-fiber",
+   "green-superfood"
+  ],
+  [
+   "probiotic",
+   "stress-relief-probiotic"
+  ],
+  [
+   "digestive-enzyme",
+   "begin-daily-gi-primer"
+  ],
+  [
+   "magnesium",
+   "calcium-magnesium-d"
+  ],
+  [
+   "plant-protein-powder",
+   "organics-all-in-one-shakes"
+  ],
+  [
+   "begin-30-holistic-wellness-solution"
+  ]
+ ]
 }

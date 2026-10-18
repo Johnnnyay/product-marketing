@@ -1,71 +1,257 @@
 {
  "id": "rhinitis",
  "area": "rhinitis",
- "study": [["qtby", "07"], ["xzc52", "43"], ["qtby", "10"], ["xzc52", "30"], ["xzc52", "35"], ["qtby", "17"]],
+ "study": [
+  [
+   "qtby",
+   "07"
+  ],
+  [
+   "xzc52",
+   "43"
+  ],
+  [
+   "qtby",
+   "10"
+  ],
+  [
+   "xzc52",
+   "30"
+  ],
+  [
+   "xzc52",
+   "35"
+  ],
+  [
+   "qtby",
+   "17"
+  ]
+ ],
  "en": {
   "title": "Allergies",
   "who": "Guests who mark sneezing every spring, a stuffy nose every morning, flare-ups around pets or dust, itchy watery eyes, catching colds a lot, or being sensitive to everything.",
-  "studyWhy": ["all illness starts in the gut", "probiotics and immunity", "inflammation and plant compounds", "vitamin C and immunity", "vitamin A, immunity and the linings", "the liver"],
+  "studyWhy": [
+   "all illness starts in the gut",
+   "probiotics and immunity",
+   "inflammation and plant compounds",
+   "vitamin C and immunity",
+   "vitamin A, immunity and the linings",
+   "the liver"
+  ],
   "feel": {
-   "say": ["I know how miserable that is. It comes back every year, or every single morning, and you're sneezing and reaching for tissues before the day has even started."],
+   "say": [
+    "I know how miserable that is. It comes back every year, or every single morning, and you're sneezing and reaching for tissues before the day has even started."
+   ],
    "tip": "Say back what they marked, in their words. Then ask: \"When is it worst: a certain season, first thing in the morning, or around pets?\""
   },
   "felt": {
-   "say": ["Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"],
+   "say": [
+    "Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"
+   ],
    "tip": "Your own story, or someone close to you (\"my mom\", \"a friend from work\"). No story yet? \"A lot of the people I talk to say exactly the same thing.\" Never make one up."
   },
   "found": {
    "say": [
-    "What I learned is that an allergy is the immune system overreacting to harmless things like pollen, dust mites and pet dander. It releases histamine, and histamine is the sneezing, the runny nose and the itch. So the biggest win is cutting exposure, and the bedroom matters most, because you spend eight hours a night breathing right next to the dust mites.",
-    "The other half is on the inside. A lot of the immune system sits in the gut, and that's where it learns what to ignore. And timing matters: start a seasonal plan about two weeks before your season, not in the worst week.",
-    "So I'd work on the room and the inside together."
+    "What I learned is that an allergy is the immune system overreacting, so you work on both sides: cut down what you breathe in, starting with the bedroom, and help the gut, where the immune system learns what to ignore.",
+    "So this is what I'd start with."
    ],
-   "tip": "Two or three sentences, then go to the map. Pick the row that matches what they marked."
+   "tip": "One or two sentences from Part A, then the routine. Pick the products that match what they marked."
   },
-  "map": [
-   ["Sneezing every spring", "ClearGuard Allergy, starting two weeks before the season", "Two tablets three times a day with meals. Not in pregnancy, fever, ulcers or a cinnamon allergy"],
-   ["Stuffy every morning", "Atmosphere Mini Air Purifier, all night with the door shut", "Cleans the bedroom air. A hot wash of the bedding every week handles the rest"],
-   ["Worse around pets or dust", "Atmosphere Sky Air Purifier, in the living room", "Traps dander and fine dust. Keep pets out of the bedroom"],
-   ["Flares every season", "Probiotic, with Prebiotic Fiber", "Works through the gut, where the immune system learns what to ignore. Start before the season, give it two to three months"],
-   ["Itchy, watery eyes", "Concentrated Fruits & Vegetables", "Plant compounds like quercetin, a floor under the diet. Don't rub, use a cool compress"],
-   ["Always catching colds too", "Vitamin D, and Vitamin C with meals", "Vitamin D is often low if you're indoors all day, so test it first. Vitamin C makes colds a little shorter"],
-   ["Sensitive to everything", "Liver Support in the evening, Probiotic, Prebiotic Fiber", "Works from the inside, on the liver and the gut. Judge it in months, not days"],
-   ["Already has a purifier", "Atmosphere Carbon Filter Replacement", "An unchanged filter is just a fan. Swap it on schedule"]
-  ],
   "ask": "Based on what you told me, I'd start with a purifier for your bedroom and the Probiotic, and ClearGuard two weeks before your season. Do you want to take it home tonight?",
-  "doctor": "Wheezing, a tight chest or a cough at night, face pain or fever, or no relief from what they already use? See a doctor first. All of this goes alongside the sprays or tablets the doctor recommends, never instead of them."
+  "doctor": "Wheezing, a tight chest or a cough at night, face pain or fever, or no relief from what they already use? See a doctor first. All of this goes alongside the sprays or tablets the doctor recommends, never instead of them.",
+  "groups": [
+   "Clean the air",
+   "Train the gut",
+   "Ahead of the season",
+   "Plant compounds",
+   "Fill the gaps",
+   "The liver's clearing"
+  ],
+  "know": [
+   [
+    "An allergy is the immune system overreacting.",
+    "Pollen, dust mites and pet dander are harmless, but the body treats them as invaders and releases histamine. Histamine is the sneezing, the runny nose and the itch. Think of a car alarm that goes off every time a leaf lands on it."
+   ],
+   [
+    "The biggest lever is how much you breathe in, and the bedroom matters most.",
+    "Dust mites live in pillows, mattresses and blankets, and you spend eight hours a night breathing right next to them. Wash the bedding hot every week, keep the door shut and keep pets out."
+   ],
+   [
+    "Pollen comes home on your hair and clothes.",
+    "On high-pollen days keep the windows shut, shower and change when you get in, and rinse your nose with salt water. A review of 14 trials found salt-water rinses may ease symptoms, with rare, mild side effects."
+   ],
+   [
+    "The gut is where the immune system learns what to ignore.",
+    "Much of the body's immune tissue lines the gut, like a school where it learns friend from enemy. That's why probiotics are the most studied supplement for allergies. The effect is modest, so judge it over two to three months."
+   ],
+   [
+    "Timing matters more than strength.",
+    "Start a seasonal plan about two weeks before your season, not in the worst week. It's opening the umbrella before the rain, not after you're soaked."
+   ],
+   [
+    "A cold and an allergy are not the same thing.",
+    "A cold brings a sore throat and aches, sometimes a fever, and is gone in about a week. An allergy itches, and it lasts as long as you're around the trigger. Catching colds a lot and indoors all day? Check vitamin D, it's often low."
+   ],
+   [
+    "Sensitive to everything reads as a load problem.",
+    "The teaching I follow says that when the liver can't keep up with clearing and the gut is out of balance, the body overreacts to everything. Mainstream medicine doesn't explain allergy this way, so hold it as a lens. Liver cells take about six months to renew, so judge it in months."
+   ],
+   [
+    "This goes alongside the doctor, never instead.",
+    "Guidelines rank steroid nasal sprays as the most effective single treatment. Everything here sits alongside the sprays or tablets a doctor recommends."
+   ]
+  ],
+  "routine": [
+   [
+    "Breakfast",
+    "Probiotic with Prebiotic Fiber, Double X, and Vitamin D (with a meal that has some fat)"
+   ],
+   [
+    "Each meal, from two weeks before your season",
+    "ClearGuard Allergy, two tablets; Vitamin C too if you catch colds a lot"
+   ],
+   [
+    "Coming home",
+    "Shower and change, then rinse your nose with salt water"
+   ],
+   [
+    "Evening",
+    "Liver Support"
+   ],
+   [
+    "All night",
+    "Atmosphere Mini in the bedroom, door shut"
+   ],
+   [
+    "Once a week",
+    "Bedding in a hot wash, and a look at the purifier filter"
+   ]
+  ]
  },
  "zh": {
   "title": "过敏与鼻炎",
   "who": "适合在问卷里勾了每到春天打喷嚏、每天早上鼻子不通、碰到猫狗或灰尘就发作、眼睛痒流眼泪、老是感冒，或者什么都容易过敏的客人。",
-  "studyWhy": ["万病始于肠", "益生菌与免疫", "炎症与植物营养素", "维生素C与免疫", "维生素A、免疫与黏膜", "肝"],
+  "studyWhy": [
+   "万病始于肠",
+   "益生菌与免疫",
+   "炎症与植物营养素",
+   "维生素C与免疫",
+   "维生素A、免疫与黏膜",
+   "肝"
+  ],
   "feel": {
-   "say": ["我懂那种难受。每年一到那个时候就来，或者每天早上一睁眼就开始，喷嚏一个接一个，纸巾一盒一盒地用，一天还没开始人就先累了。"],
+   "say": [
+    "我懂那种难受。每年一到那个时候就来，或者每天早上一睁眼就开始，喷嚏一个接一个，纸巾一盒一盒地用，一天还没开始人就先累了。"
+   ],
    "tip": "用对方自己的话，把问卷上勾的说回去。然后问一句：“一般什么时候最严重？是某个季节、早上起床，还是碰到猫狗的时候？”"
   },
   "felt": {
-   "say": ["说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"],
+   "say": [
+    "说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"
+   ],
    "tip": "讲你自己的，或者身边人的（“我妈妈”“我一个同事”）。还没有故事？就说：“我身边很多朋友也是这样。”千万别编。"
   },
   "found": {
    "say": [
-    "我后来学到，过敏其实是免疫系统反应过度，把花粉、尘螨、宠物皮屑这些无害的东西当成了敌人。它一放出组胺，打喷嚏、流鼻涕、发痒就都来了。所以最大的一步是少接触，尤其是卧室，你每晚有八个小时就躺在尘螨旁边呼吸。",
-    "另一半在身体里面。免疫系统很大一部分在肠道，它就是在那里学会什么该放过。还有，时机很重要：季节性的过敏，要在换季前两周就开始准备，别等到最难受那一周。",
-    "所以我会建议环境和身体一起调。"
+    "我后来学到，过敏是免疫系统反应过度，所以要两边一起调：先把吸进去的过敏原减下来，从卧室开始；再照顾好肠道，免疫系统就是在那里学会什么该放过。",
+    "所以，我会先从这个开始。"
    ],
-   "tip": "两三句就够，然后看下面的对照表，挑跟对方勾的那一项对得上的。"
+   "tip": "从 Part A 挑一两句讲，然后讲作息。挑跟对方勾的对得上的产品。"
   },
-  "map": [
-   ["每到春天就打喷嚏", "畅爽呼吸片，换季前两周开始吃", "每次两片，一天三次，随餐。怀孕、发烧、有溃疡或对肉桂过敏的不吃"],
-   ["每天早上鼻子不通", "逸新空气净化器 Mini，关上门整晚开着", "卧室空气交给它，被子里的尘螨交给每周一次的热水洗"],
-   ["碰到猫狗、灰尘就发作", "逸新空气净化器 Sky，放在客厅", "拦住皮屑和细灰尘。别让宠物进卧室"],
-   ["年年换季就犯", "益生菌，配益生元纤维粉", "从肠道调免疫。最好换季前就开始，给它两三个月"],
-   ["眼睛痒、流眼泪", "浓缩果蔬精华", "槲皮素这类植物成分，给饮食托个底。别揉，冷敷一下"],
-   ["还老是感冒", "维生素D；维生素C缓释片，随餐吃", "整天待在室内的人常常缺D，先抽血查一下。维生素C能让感冒短一点"],
-   ["什么都容易过敏", "护肝片晚上吃，加益生菌、益生元纤维粉", "从肝和肠道慢慢调，按月看效果，不是按天"],
-   ["家里已经有净化器", "逸新碳滤网替换装", "滤网不换，净化器就只是一台风扇。按时换"]
-  ],
   "ask": "按你刚才说的，我建议先给卧室放一台净化器，再加益生菌，换季前两周开始吃畅爽呼吸片。今天要不要先带回去？",
-  "doctor": "如果有喘鸣、胸闷、夜里咳嗽，脸颊疼或发烧，或者现在用的药都不管用，请先去看医生。这些都是配合医生建议的喷鼻剂或药片一起用，不是替代。"
- }
+  "doctor": "如果有喘鸣、胸闷、夜里咳嗽，脸颊疼或发烧，或者现在用的药都不管用，请先去看医生。这些都是配合医生建议的喷鼻剂或药片一起用，不是替代。",
+  "groups": [
+   "把空气弄干净",
+   "从肠道调免疫",
+   "提前准备过敏季",
+   "植物营养素",
+   "补上缺口",
+   "肝的清理"
+  ],
+  "know": [
+   [
+    "过敏，是免疫系统反应过度了。",
+    "花粉、尘螨、宠物皮屑本来是无害的，身体却把它们当成入侵者，放出组胺。打喷嚏、流鼻涕、发痒，都是组胺闹的。就像一辆车，落片叶子上去警报就响。"
+   ],
+   [
+    "最大的杠杆是少吸进去，而卧室最关键。",
+    "尘螨住在枕头、床垫和被子里，你每晚有八个小时就躺在它们旁边呼吸。床品每周热水洗，卧室门关上，宠物别进卧室。"
+   ],
+   [
+    "花粉是跟着头发、衣服一起进门的。",
+    "花粉多的日子把窗关好，回家先洗澡换衣服，再用盐水洗洗鼻子。一篇汇总14项试验的综述发现，盐水洗鼻可能减轻症状，副作用少而且轻。"
+   ],
+   [
+    "免疫系统是在肠道里学会什么该放过的。",
+    "身体很大一部分免疫组织在肠道，就像一所学校，免疫系统在那里学会分辨敌友。所以在过敏这一块，研究最多的补充品是益生菌。效果不算大，按两三个月来看。"
+   ],
+   [
+    "时机比力度更重要。",
+    "季节性的过敏，在过敏季开始前两周左右就要准备，别等到最难受那周。就像下雨前先把伞撑开，而不是淋湿了才找伞。"
+   ],
+   [
+    "感冒和过敏不是一回事。",
+    "感冒会喉咙痛、身上酸，有时发烧，一周左右就过去；过敏是痒，只要还碰着过敏原，就一直不走。老是感冒、又整天待在室内的，查一下维生素D，常常偏低。"
+   ],
+   [
+    "什么都容易过敏，可以看成是负担太重。",
+    "我学的这套调理理论认为，肝清理不过来、肠道菌群又失衡，身体就对什么都反应过度。主流医学并不这样解释过敏，把它当作一个视角就好。肝细胞大约六个月更新一轮，所以按月看效果。"
+   ],
+   [
+    "这些都是配合医生，不是替代。",
+    "指南把激素喷鼻剂列为单用效果最好的治疗。这里的一切，都是配合医生建议的喷鼻剂或药片一起用。"
+   ]
+  ],
+  "routine": [
+   [
+    "早餐",
+    "益生菌配益生元纤维粉、双X，再加维生素D（跟带点油脂的一餐吃）"
+   ],
+   [
+    "每餐，从过敏季前两周开始",
+    "畅爽呼吸片，每次两片；也老感冒的，再加维生素C缓释片"
+   ],
+   [
+    "回到家",
+    "先洗澡换衣服，再用盐水洗洗鼻子"
+   ],
+   [
+    "晚上",
+    "护肝片"
+   ],
+   [
+    "整晚",
+    "逸新空气净化器 Mini 放在卧室，关上门开着"
+   ],
+   [
+    "每周一次",
+    "床品热水洗，顺便看一下净化器的滤网"
+   ]
+  ]
+ },
+ "groups": [
+  [
+   "atmosphere-mini-air-purifier",
+   "atmosphere-sky-air-purifier",
+   "atmosphere-carbon-filter-replacement"
+  ],
+  [
+   "probiotic",
+   "prebiotic-fiber"
+  ],
+  [
+   "clearguard-allergy"
+  ],
+  [
+   "concentrated-fruits-vegetables"
+  ],
+  [
+   "vitamin-d",
+   "vitamin-c-extended-release-180ct",
+   "double-x-multivitamin-31-day-refill"
+  ],
+  [
+   "liver-support"
+  ]
+ ]
 }

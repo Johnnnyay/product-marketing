@@ -67,62 +67,82 @@
   },
   "found": {
    "say": [
-    "What I learned is that being tired usually isn't about needing more sleep or more coffee. The body ran out of the raw materials that turn food into energy, like the B vitamins, minerals and protein, and a rushed lunch doesn't put them back.",
-    "And being sleepy after lunch is a sugar spike. You don't have to stop eating rice, you just slow the sugar down: vegetables and protein first, rice last.",
-    "The brain fog is usually the same story, not your brain. Add a body short on water and on omega-3, which the brain is built from and most of us barely eat.",
+    "What I learned is that being tired or foggy usually isn't about more sleep or more coffee. The day runs on sugar swings, and the body is short on the raw materials that turn food into energy, so you steady the meals and refill the materials.",
     "So this is what I'd start with."
    ],
-   "tip": "Two or three sentences, then go to the map. Pick the row that matches what they marked."
+   "tip": "One or two sentences from Part A, then the routine. Pick the products that match what they marked."
   },
-  "map": [
+  "ask": "Based on what you told me, I'd start with the Double X and the B vitamins. Do you want to take it home tonight?",
+  "doctor": "Tired for more than a few weeks, or with weight loss, breathlessness, very heavy periods or low mood? Memory loss that gets in the way of daily life, or sudden confusion? See a doctor first. On blood thinners or aspirin? Ask the doctor before Memory Builder. Pregnant: no ashwagandha. Iron only after a ferritin test.",
+  "groups": [
+   "Steady the sugar",
+   "Protein at breakfast",
+   "The raw materials",
+   "Focus and memory",
+   "Stress and the gut",
+   "The evening",
+   "Past 45, an add-on"
+  ],
+  "know": [
    [
-    "Tired all the time, drained after work",
-    "Double X",
-    "Fills the gaps a busy week of eating leaves"
+    "The raw materials run low without warning.",
+    "Your cells make energy from food all day, and they need protein, the B vitamins and iron to do it. Nothing tells you when those run low, and a standard blood count can look normal while iron stores are low. A woman who is tired all the time should ask for a ferritin test."
    ],
    [
-    "Running on coffee, foggy",
-    "Vitamin B Complex",
-    "Helps the body turn food into energy"
+    "Sleepy after lunch is a sugar swing.",
+    "Rice, noodles and sweet drinks turn into sugar fast, the body sends out a wave of insulin, and then blood sugar drops. That drop is the sleepy, foggy feeling. You don't have to stop eating rice: vegetables and protein first, rice last."
    ],
    [
-    "Sleepy after lunch",
-    "Carb Blocker, Prebiotic Fiber, or a Plant Protein shake",
-    "Slows the sugar spike"
+    "Coffee borrows energy, it doesn't give it.",
+    "It hides the tired signal for a few hours, and you pay it back later. Caffeine does sharpen attention, but timing matters: in one study, 400 mg six hours before bed still cut sleep by more than an hour. Keep it to the morning and early afternoon."
    ],
    [
-    "Late nights, drinks, takeout",
-    "Liver Support, in the evening with Vitamin B",
-    "Supports a liver that's been working overtime"
+    "Sleep debt hides itself.",
+    "Two weeks of six-hour nights left people as foggy as two nights with no sleep at all, while they felt only slightly sleepy. And the brain files what you learned while you sleep, so an all-nighter before an exam costs part of what you studied."
    ],
    [
-    "Stressed and wired",
-    "Ashwagandha, Vitamin C, Advanced Omega",
-    "Calms the stress system from the inside"
+    "Breakfast sets the energy for the day.",
+    "A practical target is about 1.2 g of protein per kilogram of body weight a day, so 72 g for someone who weighs 60 kg, with about a third of it at breakfast. Toast, cereal or congee gives a fraction of that."
    ],
    [
-    "A woman tired all the time, heavy periods",
-    "Iron & Folic Acid, only after a ferritin test",
-    "Low iron is a common hidden cause"
+    "Fading in a meeting is usually water and stress, not your brain.",
+    "Losing just 2 percent of your body water hurts attention before you even feel thirsty. And stress blocks recall: that's why a name vanishes in an interview and comes back in the car. It's retrieval, not lost memory."
    ],
    [
-    "Fading in afternoon meetings",
-    "XS Energy + Focus, early afternoon at the latest",
-    "Caffeine from green tea in one tablet; a big glass of water first"
+    "The gut is your second brain.",
+    "Hundreds of millions of nerve cells line the gut and talk to the brain all day, so a gut out of balance can add to the fog. It's a sound idea, but the evidence for focus is still early: say \"worth trying\", never \"it fixes it\"."
    ],
    [
-    "Words on the tip of the tongue, forgetful",
-    "Memory Builder, with Advanced Omega",
-    "Ginkgo for memory, DHA for the brain. On blood thinners or aspirin, ask the doctor first"
-   ],
-   [
-    "Studying for exams",
-    "Advanced Omega, a Plant Protein shake at breakfast",
-    "DHA if they rarely eat fish, protein to keep the morning steady. Kids: Brainiums DHA Jelly"
+    "DHA is the brain's building fat.",
+    "It comes almost only from fatty fish, and it helps most if you rarely eat fish. Salmon or sardines twice a week and you may not need it. Losing words after 40? Ask for a B12 test first: low B12 looks a lot like a memory problem."
    ]
   ],
-  "ask": "Based on what you told me, I'd start with the Double X and the B vitamins. Do you want to take it home tonight?",
-  "doctor": "Tired for more than a few weeks, or with weight loss, breathlessness, very heavy periods or low mood? Memory loss that gets in the way of daily life, or sudden confusion? See a doctor first."
+  "routine": [
+   [
+    "Breakfast, 7 to 9 am",
+    "A Plant Protein shake, Double X and Advanced Omega (the Everyday Nutrition Solution has all three)"
+   ],
+   [
+    "Lunch",
+    "Vegetables and protein first, rice last; Carb Blocker before a carb-heavy meal"
+   ],
+   [
+    "Early afternoon",
+    "A big glass of water and a 10-minute walk; XS Energy + Focus if you want caffeine, and no later"
+   ],
+   [
+    "3 pm snack",
+    "An All-in-One Bar or a Wellness Bar instead of the pastry or the sweet drink"
+   ],
+   [
+    "7:30 to 8:40 pm",
+    "Vitamin B and Liver Support"
+   ],
+   [
+    "Evening",
+    "Magnesium, and the same wake time every morning"
+   ]
+  ]
  },
  "zh": {
   "title": "精力与专注",
@@ -152,61 +172,124 @@
   },
   "found": {
    "say": [
-    "我后来才知道，累通常不是因为睡得不够、咖啡喝得不够，而是身体把那些把食物变成能量的原料用光了，像B族、矿物质、蛋白质。一顿匆忙的午饭是补不回来的。",
-    "还有，午饭后犯困其实是血糖冲高再掉下来。不用戒米饭，只要让糖慢下来：先吃菜和肉，最后吃饭。",
-    "脑子发懵通常也是同一回事，不是脑子本身出了问题。再加上水喝得不够、Omega-3吃得太少，而大脑本来就是靠它搭起来的，我们大多数人却几乎吃不到。",
+    "我后来才知道，累、脑子发懵，通常不是睡得不够、咖啡不够，而是一天都跟着血糖起起落落，身体又缺了把食物变成能量的原料。所以要把三餐稳住，把原料补上。",
     "所以，我会先从这个开始。"
    ],
-   "tip": "两三句就够，然后看下面的对照表，挑跟对方勾的那一项对得上的。"
+   "tip": "从 Part A 挑一两句讲，然后讲作息。挑跟对方勾的对得上的产品。"
   },
-  "map": [
+  "ask": "按你刚才说的，我建议先从双X和B族开始。今天要不要先带回去？",
+  "doctor": "如果累了已经好几周，或者同时有体重下降、气短、经量很多、情绪低落；或者健忘已经影响到日常生活、突然变得糊涂，请先去看医生。在吃抗凝药或阿司匹林的，吃记忆力支持片前先问医生。怀孕不吃南非醉茄。补铁之前先查铁蛋白。",
+  "groups": [
+   "让血糖稳下来",
+   "早餐的蛋白质",
+   "补原料",
+   "专注与记忆",
+   "压力与肠道",
+   "晚上的节奏",
+   "45岁以上的补充"
+  ],
+  "know": [
    [
-    "总是累、下班后被掏空",
-    "双X综合营养片",
-    "补上忙碌饮食留下的缺口"
+    "原料缺了，身体不会提醒你。",
+    "细胞一整天都在用食物造能量，靠的是蛋白质、B族和铁。这些缺了没有饥饿感提醒，血常规甚至可能完全正常，体内的铁储备却已经偏低。女生如果一直很累，先请医生查一下铁蛋白。"
    ],
    [
-    "全靠咖啡撑、脑子发懵",
-    "B族维生素",
-    "帮身体把食物变成能量"
+    "午饭后犯困，是血糖在坐过山车。",
+    "米饭、面条、甜饮料很快变成糖，身体放出一大波胰岛素，血糖随之掉下来。掉下来的那一刻，人就犯困、脑子发懵。不用戒米饭：先吃菜和肉，最后吃饭。"
    ],
    [
-    "午饭后犯困",
-    "阻碳片、益生元纤维粉，或一杯植物蛋白",
-    "让血糖慢下来"
+    "咖啡不是给你能量，是先借给你。",
+    "它把累的信号盖住几个小时，之后还得还回去。咖啡因确实能提神，但要看时间：一项研究里，睡前六小时喝下400毫克，睡眠还是少了一个多小时。咖啡因放在上午和午后早一点。"
    ],
    [
-    "熬夜、应酬、外卖多",
-    "护肝片，晚上和B族一起吃",
-    "给一直在加班的肝减负"
+    "睡眠债是悄悄欠下的。",
+    "连续两周每晚只睡六小时，脑子的状态相当于两晚完全没睡，自己却只觉得有点困。而且白天学的东西，是大脑在你睡觉时归档的，考前熬通宵，学过的会丢掉一部分。"
    ],
    [
-    "压力大、又累又亢奋",
-    "南非醉茄、维生素C、深海鱼油",
-    "从身体里面让压力系统平静下来"
+    "一天的精力，早餐就决定了一大半。",
+    "一个实用的目标是每天每公斤体重约1.2克蛋白质，60公斤就是72克，其中大约三分之一放在早餐。一顿吐司、麦片或白粥，只能提供其中一小部分。"
    ],
    [
-    "总是很累的女生、经量多",
-    "铁质叶酸片，先查铁蛋白再补",
-    "缺铁是很常见的隐藏原因"
+    "开会走神，多半是缺水和压力，不是脑子不行。",
+    "身体只要缺水2%，注意力就会下降，而你这时还没觉得渴。压力也会挡住回忆，所以面试时名字怎么都想不起来，一上车就想起来了。这是取不出来，不是记忆丢了。"
    ],
    [
-    "下午开会就走神",
-    "XS能量专注片，最晚午后早一点吃",
-    "一片里是来自绿茶的咖啡因；先喝一大杯水"
+    "肠道是人的第二个大脑。",
+    "肠道里有好几亿个神经细胞，整天都在跟大脑通话，所以肠道失衡，也可能让脑子更发懵。思路是成立的，但针对专注力的证据还在早期，要说“值得试试”，不要说“能解决”。"
    ],
    [
-    "话到嘴边想不起来、健忘",
-    "记忆力支持片，配深海鱼油",
-    "银杏帮记忆，DHA养大脑。在吃抗凝药或阿司匹林的，先问医生"
-   ],
-   [
-    "正在备考",
-    "深海鱼油，早餐一杯植物蛋白",
-    "不常吃鱼就补DHA，蛋白质让一上午都稳。孩子用儿童DHA果冻"
+    "DHA是大脑最主要的结构脂肪。",
+    "它几乎只能从深海鱼里来，平时很少吃鱼的人补了最有用；每周吃两次三文鱼或沙丁鱼，可能就不需要。过了40总是话到嘴边想不起来？先查一下B12，B12不够，表现出来很像记性变差。"
    ]
   ],
-  "ask": "按你刚才说的，我建议先从双X和B族开始。今天要不要先带回去？",
-  "doctor": "如果累了已经好几周，或者同时有体重下降、气短、经量很多、情绪低落；或者健忘已经影响到日常生活、突然变得糊涂，请先去看医生。"
- }
+  "routine": [
+   [
+    "早餐，早上7到9点",
+    "一杯有机植物蛋白粉，加双X和深海鱼油（每日基础营养方案三样都有）"
+   ],
+   [
+    "午饭",
+    "先吃菜和肉，最后吃饭；碳水多的那顿，饭前吃阻碳片"
+   ],
+   [
+    "午后早一点",
+    "一大杯水，走十分钟；想要咖啡因就吃XS能量专注片，别再晚"
+   ],
+   [
+    "下午三点加餐",
+    "有机全营养蛋白棒或全谷营养棒，代替点心和甜饮料"
+   ],
+   [
+    "晚上7点半到8点40",
+    "B族和护肝片"
+   ],
+   [
+    "晚上",
+    "镁片；每天早上同一时间起床"
+   ]
+  ]
+ },
+ "groups": [
+  [
+   "carb-blocker",
+   "prebiotic-fiber",
+   "organics-all-in-one-bars",
+   "wellness-bars"
+  ],
+  [
+   "plant-protein-powder",
+   "organics-all-in-one-shakes",
+   "everyday-nutrition-solution"
+  ],
+  [
+   "vitamin-b-complex-120ct",
+   "double-x-multivitamin-31-day-refill",
+   "women-s-daily-multivitamin",
+   "men-s-daily-multivitamin",
+   "women-s-pack",
+   "iron-folic-acid",
+   "vitamin-c-extended-release-180ct"
+  ],
+  [
+   "xs-energy-focus-30ct",
+   "xs-energy-focus-60ct",
+   "advanced-omega",
+   "kids-brainiums-dha-jelly",
+   "memory-builder",
+   "organics-lion-s-mane-capsules"
+  ],
+  [
+   "organics-ashwagandha-capsules",
+   "stress-relief-probiotic",
+   "probiotic",
+   "begin-daily-gi-primer"
+  ],
+  [
+   "liver-support",
+   "magnesium"
+  ],
+  [
+   "heart-health-coq10"
+  ]
+ ]
 }

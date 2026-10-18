@@ -1,71 +1,265 @@
 {
  "id": "weight",
  "area": "weight",
- "study": [["xzc52", "20"], ["xzc52", "21"], ["qtby", "12"], ["qtby", "06"], ["xzc52", "14"], ["xzc52", "41"], ["qtby", "15"]],
+ "study": [
+  [
+   "xzc52",
+   "20"
+  ],
+  [
+   "xzc52",
+   "21"
+  ],
+  [
+   "qtby",
+   "12"
+  ],
+  [
+   "qtby",
+   "06"
+  ],
+  [
+   "xzc52",
+   "14"
+  ],
+  [
+   "xzc52",
+   "41"
+  ],
+  [
+   "qtby",
+   "15"
+  ]
+ ],
  "en": {
   "title": "Weight Management",
   "who": "Guests who mark weight gain, a diet that worked then came back, snacking at night, stress eating, belly fat, or wanting to lose fat without losing muscle.",
-  "studyWhy": ["protein", "protein, part two", "protein, the source of life", "reading a body composition report", "why exercise is not the same as health", "fibre", "the nourishing breakfast"],
+  "studyWhy": [
+   "protein",
+   "protein, part two",
+   "protein, the source of life",
+   "reading a body composition report",
+   "why exercise is not the same as health",
+   "fibre",
+   "the nourishing breakfast"
+  ],
   "feel": {
-   "say": ["I know how frustrating that is. You try so hard, the weight comes off, and then it comes right back. Or you eat well all day and the evening undoes it."],
+   "say": [
+    "I know how frustrating that is. You try so hard, the weight comes off, and then it comes right back. Or you eat well all day and the evening undoes it."
+   ],
    "tip": "Say back what they marked, in their words. Then ask: \"What have you tried before, and what happened after?\""
   },
   "felt": {
-   "say": ["Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"],
+   "say": [
+    "Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"
+   ],
    "tip": "Your own story, or someone close to you (\"my mom\", \"a friend from work\"). No story yet? \"A lot of the people I talk to say exactly the same thing.\" Never make one up."
   },
   "found": {
    "say": [
-    "What I learned is that the scale can't tell fat from muscle. When you cut hard, a lot of what you lose is muscle, and muscle is what burns energy at rest. So you end up lighter but burning less, and what comes back is fat.",
-    "So the goal isn't eating less. It's eating enough protein to keep the muscle, and slowing the sugar down: vegetables and protein first, rice last. And night snacking usually starts at breakfast.",
+    "What I learned is that the scale can't tell fat from muscle. Cut hard and a lot of what you lose is muscle, so the goal isn't eating less, it's eating enough protein to keep the muscle and slowing the sugar down.",
     "So this is what I'd start with."
    ],
-   "tip": "Two or three sentences, then go to the map. Pick the row that matches what they marked."
+   "tip": "One or two sentences from Part A, then the routine. Pick the products that match what they marked."
   },
-  "map": [
-   ["Diet works, then it comes back", "Plant Protein", "Keeps the muscle, so what you lose is fat"],
-   ["Skips breakfast, snacks at night", "All-in-One Shake, for breakfast", "A real breakfast stops the evening chase"],
-   ["Eats well and still gains", "Prebiotic Fiber", "Slows the sugar and keeps you full"],
-   ["Eating less overall", "Double X", "Covers the vitamins and minerals a smaller plate misses"],
-   ["Rice and noodle meals", "Carb Blocker, before the meal", "Slows the carbs they won't give up"],
-   ["Trains", "XS Grass-Fed Whey, after training", "Protein when the muscle needs it most"],
-   ["Afternoon snacking", "Wellness Bars", "A better snack ready for 4 pm"],
-   ["Eats when stressed", "Ashwagandha", "Takes the edge off stress cravings"]
-  ],
   "ask": "The point is to lose fat and keep your muscle, so it starts with protein at breakfast. Want to start with this?",
-  "doctor": "Weight changing fast for no clear reason, or with constant tiredness, feeling cold, strong thirst or missed periods? See a doctor first, because thyroid and hormones can do this too."
+  "doctor": "Weight changing fast for no clear reason, or with constant tiredness, feeling cold, strong thirst or missed periods? See a doctor first, because thyroid and hormones can do this too. Pregnant or breastfeeding: no ashwagandha.",
+  "groups": [
+   "Keep the muscle",
+   "Breakfast and the 4 pm snack",
+   "Fuller for longer, slower sugar",
+   "Cover the gaps of eating less",
+   "Sleep and stress",
+   "Helpers at the margin"
+  ],
+  "know": [
+   [
+    "The scale can't tell fat from muscle.",
+    "Two people lose the same ten pounds. One loses mostly fat and keeps it off; the other loses a third of it as muscle, the tissue that burns energy at rest. They finish lighter but worse at staying light, and what comes back is fat."
+   ],
+   [
+    "Protein decides what you lose.",
+    "In trials where people lost the same weight, the higher-protein group lost about 1.5 kg of lean mass and the normal-protein group about 2.8 kg. Same number on the scale, nearly twice the muscle gone."
+   ],
+   [
+    "Night snacking usually starts at breakfast.",
+    "Skip breakfast, rush lunch, and by evening the body is chasing what it missed. Fix the morning, not the night, and keep one real snack ready for 4 pm."
+   ],
+   [
+    "A sugar spike is a \"store it\" signal.",
+    "Rice, noodles, bread and juice turn into sugar fast, and insulin, which clears it, also tells the body to store. You don't have to quit rice: vegetables and protein first, rice last. Same plate, slower sugar."
+   ],
+   [
+    "Fibre makes the same food fill you up more.",
+    "It thickens what's in the stomach and slows how fast it empties, so a meal with fibre doesn't feel like nothing twenty minutes later. Most adults get about half the fibre they need."
+   ],
+   [
+    "Eating less means fewer nutrients too.",
+    "Cut 500 calories a day and you cut about a fifth of every vitamin and mineral that came with them. Feeling flat, cold hands, more hair in the drain: often that's the gap, not the diet itself."
+   ],
+   [
+    "Short sleep makes a diet burn muscle.",
+    "In one trial, people on the same diet who slept less lost 55% less of their weight as fat. Short sleep also turns hunger up and points it at sweet food."
+   ],
+   [
+    "Protein is the material; training is the reason.",
+    "Without the signal that a muscle is being used, the body lets it go. Two strength sessions a week is enough. You can't pick where fat comes off, so check your waist with a tape measure, not only the scale."
+   ]
+  ],
+  "routine": [
+   [
+    "Breakfast",
+    "Plant Protein or an All-in-One Shake, plus Double X (or the Women's or Men's Pack)"
+   ],
+   [
+    "Lunch and dinner",
+    "Vegetables and protein first, rice last. Prebiotic Fiber in water or coffee; Carb Blocker before the rice or noodle meal you won't give up"
+   ],
+   [
+    "4 pm",
+    "A Wellness Bar or an XS Protein Bar, so you're not starving by dinner"
+   ],
+   [
+    "After training, twice a week",
+    "XS Grass-Fed Whey"
+   ],
+   [
+    "Evening",
+    "Cal Mag D to wind down, and bed on time"
+   ]
+  ]
  },
  "zh": {
   "title": "体重管理",
   "who": "适合在问卷里勾了体重增加、瘦了又反弹、晚上管不住嘴、一有压力就想吃、肚子瘦不下来，或者只想减脂不想掉肌肉的客人。",
-  "studyWhy": ["蛋白质", "蛋白质（下）", "蛋白质，生命之源", "读懂人体成分分析报告", "为什么运动不等于健康", "膳食纤维", "营养早餐"],
+  "studyWhy": [
+   "蛋白质",
+   "蛋白质（下）",
+   "蛋白质，生命之源",
+   "读懂人体成分分析报告",
+   "为什么运动不等于健康",
+   "膳食纤维",
+   "营养早餐"
+  ],
   "feel": {
-   "say": ["我懂那种挫败感。好不容易瘦下来，没多久又回去了。或者白天吃得好好的，一到晚上就前功尽弃。"],
+   "say": [
+    "我懂那种挫败感。好不容易瘦下来，没多久又回去了。或者白天吃得好好的，一到晚上就前功尽弃。"
+   ],
    "tip": "用对方自己的话，把问卷上勾的说回去。然后问一句：“以前试过什么方法？后来怎么样了？”"
   },
   "felt": {
-   "say": ["说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"],
+   "say": [
+    "说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"
+   ],
    "tip": "讲你自己的，或者身边人的（“我妈妈”“我一个同事”）。还没有故事？就说：“我身边很多朋友也是这样。”千万别编。"
   },
   "found": {
    "say": [
-    "我后来学到，体重秤分不出掉的是脂肪还是肌肉。节食太狠，掉的很多是肌肉，而肌肉正是躺着不动也在烧热量的地方。结果人轻了，消耗也少了，反弹回来的是脂肪。",
-    "所以重点不是吃得更少，而是蛋白质吃够、把肌肉留住，再让糖慢下来：先吃菜和肉，最后吃饭。晚上嘴馋，问题通常出在早餐。",
+    "我后来学到，体重秤分不出掉的是脂肪还是肌肉。节食太狠，掉的很多是肌肉。所以重点不是吃得更少，而是蛋白质吃够、把肌肉留住，再让糖慢下来。",
     "所以，我会先从这个开始。"
    ],
-   "tip": "两三句就够，然后看下面的对照表，挑跟对方勾的那一项对得上的。"
+   "tip": "从 Part A 挑一两句讲，然后讲作息。挑跟对方勾的对得上的产品。"
   },
-  "map": [
-   ["瘦了又反弹", "有机植物蛋白粉", "留住肌肉，减掉的才是脂肪"],
-   ["不吃早餐、晚上嘴馋", "有机全能奶昔，当早餐", "早餐吃对了，晚上就不会拼命找补"],
-   ["吃得不多，还是长肉", "益生元纤维粉", "让糖慢下来，也更耐饿"],
-   ["整体吃得少", "双X综合营养片", "补上吃少了容易缺的维生素和矿物质"],
-   ["离不开米饭面条", "阻碳片，饭前吃", "让躲不掉的那顿碳水慢下来"],
-   ["有在训练", "XS草饲乳清蛋白，练完喝", "在肌肉最需要的时候补蛋白"],
-   ["下午嘴馋", "全谷营养棒", "下午四点手边有个好一点的选择"],
-   ["一有压力就想吃", "南非醉茄", "压力带来的嘴馋没那么难扛"]
-  ],
   "ask": "我们的目标是减脂、留住肌肉，所以第一步是早餐的蛋白质。要不要从这个开始？",
-  "doctor": "如果体重在没什么原因的情况下变化很快，或者同时总是很累、怕冷、特别口渴、月经不规律，请先去看医生，甲状腺和激素问题也可能导致这些。"
- }
+  "doctor": "如果体重在没什么原因的情况下变化很快，或者同时总是很累、怕冷、特别口渴、月经不规律，请先去看医生，甲状腺和激素问题也可能导致这些。怀孕或哺乳期不吃南非醉茄。",
+  "groups": [
+   "留住肌肉",
+   "早餐和下午四点的加餐",
+   "更顶饱，糖慢一点",
+   "补上少吃的缺口",
+   "睡眠和压力",
+   "锦上添花的帮手"
+  ],
+  "know": [
+   [
+    "体重秤分不出掉的是脂肪还是肌肉。",
+    "两个人都减了十斤。一个掉的主要是脂肪，而且守住了；另一个有三分之一掉的是肌肉，而肌肉是躺着不动也在烧热量的地方。结果人轻了，却更难保持，反弹回来的是脂肪。"
+   ],
+   [
+    "减掉的是什么，由蛋白质决定。",
+    "在体重掉得一样多的对照试验里，高蛋白组瘦体重少了约1.5公斤，普通蛋白组少了约2.8公斤。秤上数字一样，一组掉的肌肉几乎是另一组的两倍。"
+   ],
+   [
+    "晚上嘴馋，往往是早上埋下的。",
+    "早餐不吃，午饭凑合，到了晚上身体就在找补白天欠的。要改的是早餐，不是晚上，再给下午四点备一份像样的加餐。"
+   ],
+   [
+    "血糖冲高，就是在叫身体“存起来”。",
+    "米饭、面条、面包、果汁很快变成糖，胰岛素出来处理，它同时也是储存的信号。不用戒米饭：先吃菜和肉，最后吃饭，同样一盘，糖进得慢多了。"
+   ],
+   [
+    "纤维让同样的饭更顶饱。",
+    "纤维让胃里的东西变稠、排空变慢，所以一顿有纤维的饭，不会二十分钟后就像没吃过。大多数人的纤维只吃到需要量的一半左右。"
+   ],
+   [
+    "少吃，营养素也跟着少了。",
+    "每天少吃500大卡，维生素和矿物质也少了大约五分之一。没精神、手脚冰、地漏里头发变多，很多时候是这个缺口，不是节食本身。"
+   ],
+   [
+    "睡不够，减掉的更多是肌肉。",
+    "一项试验里，大家吃同样的限制饮食，睡眠被削短的那组，减掉的重量里脂肪的比例低了55%。睡得少还会让人更饿，而且专门想吃甜的。"
+   ],
+   [
+    "蛋白质是原料，训练是理由。",
+    "没有“这块肌肉还在用”的信号，身体就会先把它省掉。每周两次力量训练就够了。脂肪从哪掉挑不了，所以拿软尺量腰围，别只看秤。"
+   ]
+  ],
+  "routine": [
+   [
+    "早餐",
+    "有机植物蛋白粉或有机全能奶昔，加双X（或女士、男士营养包）"
+   ],
+   [
+    "午饭和晚饭",
+    "先吃菜和肉，最后吃饭。益生元纤维粉加进水或咖啡；离不开的那顿米饭面条，饭前吃阻碳片"
+   ],
+   [
+    "下午四点",
+    "一根全谷营养棒或XS蛋白棒，晚饭前不会饿过头"
+   ],
+   [
+    "训练后，每周两次",
+    "XS草饲乳清蛋白"
+   ],
+   [
+    "晚上",
+    "钙镁D帮身体放松，按时睡觉"
+   ]
+  ]
+ },
+ "groups": [
+  [
+   "plant-protein-powder",
+   "xs-grass-fed-whey-protein",
+   "xs-muscle-multiplier-eaas"
+  ],
+  [
+   "organics-all-in-one-shakes",
+   "wellness-bars",
+   "xs-protein-bars-12-pack"
+  ],
+  [
+   "prebiotic-fiber",
+   "green-superfood",
+   "probiotic",
+   "metabolic-pre-postbiotic"
+  ],
+  [
+   "double-x-multivitamin-31-day-refill",
+   "women-s-pack",
+   "men-s-pack",
+   "vitamin-b-complex-120ct",
+   "advanced-omega"
+  ],
+  [
+   "calcium-magnesium-d",
+   "sleep-gummies",
+   "organics-ashwagandha-capsules"
+  ],
+  [
+   "carb-blocker",
+   "slimmetry",
+   "lean-muscle"
+  ]
+ ]
 }

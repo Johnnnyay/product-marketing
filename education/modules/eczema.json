@@ -1,69 +1,245 @@
 {
  "id": "eczema",
  "area": "eczema",
- "study": [["qtby", "07"], ["xzc52", "41"], ["xzc52", "42"], ["xzc52", "44"], ["qtby", "08"], ["qtby", "10"], ["qtby", "17"]],
+ "study": [
+  [
+   "qtby",
+   "07"
+  ],
+  [
+   "xzc52",
+   "41"
+  ],
+  [
+   "xzc52",
+   "42"
+  ],
+  [
+   "xzc52",
+   "44"
+  ],
+  [
+   "qtby",
+   "08"
+  ],
+  [
+   "qtby",
+   "10"
+  ],
+  [
+   "qtby",
+   "17"
+  ]
+ ],
  "en": {
   "title": "Eczema & Sensitive Skin",
   "who": "Guests who mark eczema or dry, itchy skin: worse in winter, itchy after showers, flares after certain foods or late nights, keeps coming back, or reacts to new products. If it's breakouts, use Acne & Skin. Eczema in a child goes to a doctor first.",
-  "studyWhy": ["all illness starts in the gut", "fibre", "probiotics", "the gut microbiome", "clean blood", "inflammation and plants", "the liver"],
+  "studyWhy": [
+   "all illness starts in the gut",
+   "fibre",
+   "probiotics",
+   "the gut microbiome",
+   "clean blood",
+   "inflammation and plants",
+   "the liver"
+  ],
+  "know": [
+   [
+    "The skin is a backup exit.",
+    "The main way out of the body is the gut, then the liver. When those are overloaded, whatever can't leave that way gets pushed to the skin. Think of a building with the front doors jammed: people start climbing out the windows. The rash is the window."
+   ],
+   [
+    "That's why creams calm it, and then it comes back.",
+    "The cream works on the exit, not the pressure behind it, so the relief is real but the pressure finds its way out again, often in the same spot. Keep using whatever the doctor prescribed. This works on the inside, alongside it."
+   ],
+   [
+    "Step one is the gut: bacteria, plus food for them.",
+    "Probiotics without fibre is like hiring staff and not feeding them. Most adults eat about half the fibre they need, which is why a probiotic on its own often feels like nothing."
+   ],
+   [
+    "Step two is the liver, and busy weeks are the clue.",
+    "Late nights, drinks and stressful stretches are exactly when the liver is busiest. If the skin flares after every busy patch, look after the liver before the next one, not after."
+   ],
+   [
+    "The barrier is a brick wall, and the mortar is fat.",
+    "Part of that fat comes from what you eat, and modern food is heavy on omega-6 and light on omega-3. Fish oil isn't one more nutrient, it pulls the ratio back. If they rarely eat oily fish, the gap is close to certain."
+   ],
+   [
+    "The body wash matters more than the lotion.",
+    "Hot water and a strong wash strip a layer of barrier every shower, and no lotion fully puts it back. Go lukewarm, keep it short, and put lotion on within three minutes while the skin is still a little damp."
+   ],
+   [
+    "Moisturise when the skin looks fine, not only when it flares.",
+    "Waiting for the flare means always fighting the fire instead of preventing it. Winter is the hard season: dry air and heating pull the water out, and less sun means less vitamin D, so ask the doctor to check it."
+   ],
+   [
+    "On sensitive skin, do less, and judge it in months.",
+    "A thin barrier lets everything in, so fewer products, a gentle cleanser, and anything new tested on the inner arm for a few days first. Skin renews about once a month, so give it a few months, not a few days."
+   ]
+  ],
+  "routine": [
+   [
+    "Breakfast",
+    "Probiotic, plus Prebiotic Fiber stirred into water or coffee"
+   ],
+   [
+    "Main meal",
+    "Advanced Omega. Vitamin D in winter, once a doctor has checked the level"
+   ],
+   [
+    "7:30 to 8:40 pm",
+    "Liver Support. On stressful weeks, Ashwagandha with dinner"
+   ],
+   [
+    "Shower",
+    "g&h Nourish Body Wash, lukewarm and short, then Body Lotion within three minutes"
+   ],
+   [
+    "Face, morning and night",
+    "Hydrating Mousse Cleanser, and as few other products as possible"
+   ]
+  ],
+  "groups": [
+   "Open the main exit: the gut",
+   "The second exit: the liver",
+   "Rebuild the barrier from the inside",
+   "Protect the barrier from the outside"
+  ],
   "feel": {
-   "say": ["I totally get it. The itch keeps you up at night, the cream calms it down, and a few weeks later it's back in the same spot."],
+   "say": [
+    "I totally get it. The itch keeps you up at night, the cream calms it down, and a few weeks later it's back in the same spot."
+   ],
    "tip": "Say back what they marked, in their words. Then ask: \"What usually sets it off?\""
   },
   "felt": {
-   "say": ["Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"],
+   "say": [
+    "Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"
+   ],
    "tip": "Your own story, or someone close to you (\"my mom\", \"a friend from work\"). No story yet? \"A lot of the people I talk to say exactly the same thing.\" Never make one up."
   },
   "found": {
    "say": [
-    "What I learned is that the skin is a backup exit. The main way out is the gut, then the liver. When those are overloaded, whatever can't leave that way gets pushed to the skin, and that's the flare. That's why creams calm it and then it comes back: they work on the exit, not the pressure behind it.",
-    "The other half is the barrier. Think of a brick wall where the mortar is fat, and part of that fat comes from what you eat. Hot showers and strong washes strip it, and dry air pulls the water out. So you moisturise every day while the skin looks fine, not only when it flares.",
+    "What I learned is that the skin is a backup exit. When the gut and the liver are overloaded, whatever can't leave that way gets pushed to the skin, which is why creams calm it and then it comes back.",
     "So I'd start on the inside, and look after the barrier at the same time."
    ],
-   "tip": "Two or three sentences, then go to the map. Pick the row that matches what they marked. If they use a cream from their doctor, tell them to keep using it."
+   "tip": "One or two sentences from Part A, then the routine. Pick the products that match what they marked. If they use a cream from their doctor, tell them to keep using it."
   },
-  "map": [
-   ["Worse in winter or dry air", "g&h Nourish Body Lotion, every day, even when the skin looks fine", "Keeps the water in before the itch starts"],
-   ["Itchy after showers", "g&h Nourish Body Wash, lukewarm water, lotion within three minutes", "Cleans without stripping a layer of barrier every day"],
-   ["Flares after takeout or certain foods", "Probiotic and Prebiotic Fiber", "Opens the main exit, the gut, so less gets pushed to the skin"],
-   ["Flares after late nights, drinks or stress", "Liver Support; Organics Ashwagandha Capsules in the evening", "Backs up the liver on its busiest weeks. No ashwagandha if pregnant, breastfeeding, or with thyroid or liver disease"],
-   ["Keeps coming back", "Probiotic, Liver Support, Advanced Omega, alongside their prescribed cream", "Gut, then liver, then barrier. Judge it over a few months, never stop a prescribed cream"],
-   ["Reacts to new products", "Artistry Hydrating Mousse Cleanser and Advanced Omega", "Fewer products, a gentle wash, a steadier barrier. Test anything new on the inner arm first"],
-   ["Rarely eats oily fish, or little sun in winter", "Advanced Omega; Vitamin D after a doctor checks their level", "The barrier is built from the fats you eat, and vitamin D drops in winter"]
-  ],
   "ask": "Based on what you told me, I'd start with the Probiotic and Prebiotic Fiber on the inside, and the g&h Nourish Body Lotion every day on the outside. Do you want to take it home tonight?",
   "doctor": "Skin that is weeping, crusting, hot or painful, a flare with fever, or eczema in a child? See a doctor or dermatologist first. And never stop a cream the doctor prescribed."
  },
  "zh": {
   "title": "湿疹与敏感肌",
   "who": "适合在问卷里勾了湿疹、皮肤干痒，一到秋冬就发、洗完澡就痒、吃错东西或熬夜就发、好了又反复、换护肤品就过敏的客人。如果是冒痘，用「皮肤与痘痘」。孩子的湿疹，先去看医生。",
-  "studyWhy": ["万病始于肠", "膳食纤维", "益生菌", "肠道菌群", "血净百病消", "抗炎与植物营养", "肝"],
+  "studyWhy": [
+   "万病始于肠",
+   "膳食纤维",
+   "益生菌",
+   "肠道菌群",
+   "血净百病消",
+   "抗炎与植物营养",
+   "肝"
+  ],
+  "know": [
+   [
+    "皮肤是身体的“备用出口”。",
+    "身体排东西，正门是肠道，然后是肝。这两个忙不过来，走不掉的东西就被挤到皮肤上。就像一栋楼大门堵住了，大家只好从窗户爬出去，起的疹子就是那扇窗。"
+   ],
+   [
+    "所以药膏一擦就好，一停又来。",
+    "药膏管的是出口，不是里面的压力。缓解是真的，可压力还在，它还会再找出口，而且常常就是老地方。医生开的药膏照常用，我们是从里面配合着一起做。"
+   ],
+   [
+    "第一步是肠道：补菌，也要给菌“口粮”。",
+    "只吃益生菌不补纤维，就像请了员工却不给饭吃。大多数人的纤维只吃到需要量的一半，所以单吃益生菌，常常觉得没什么感觉。"
+   ],
+   [
+    "第二步是肝，忙的那几周就是线索。",
+    "熬夜、喝酒、压力大的时候，正好是肝最忙的时候。如果每次忙完一阵皮肤就发，那就在下一次忙之前先把肝照顾好，而不是发了再说。"
+   ],
+   [
+    "皮肤屏障像一面砖墙，砖缝里的“水泥”是油脂。",
+    "这层油脂有一部分就是吃进去的油砌的，而现在的饮食Omega-6太多、Omega-3太少。补鱼油不是多吃一种营养，是把比例拉回来。很少吃深海鱼的人，这个缺口几乎一定有。"
+   ],
+   [
+    "沐浴露比身体乳更关键。",
+    "热水加上清洁力太强的沐浴露，每洗一次就剥掉一层屏障，再好的身体乳也补不全。水温调低一点，时间短一点，擦干后三分钟内、趁皮肤还微微湿的时候就擦身体乳。"
+   ],
+   [
+    "皮肤看起来没事的时候也要擦，不是发了才擦。",
+    "等发了才处理，就永远在救火，而不是防火。秋冬最难熬：空气干、暖气一开，水分就溜走；晒太阳少，维生素D也往下掉，可以请医生顺便查一下。"
+   ],
+   [
+    "敏感肌要做减法，按月来看。",
+    "屏障一薄，什么都容易进来，所以护肤品用少一点，洁面温和一点，新东西先在手臂内侧试几天。皮肤大约一个月更新一轮，给它几个月，不是几天。"
+   ]
+  ],
+  "routine": [
+   [
+    "早餐",
+    "益生菌，益生元纤维粉加进水或咖啡里"
+   ],
+   [
+    "正餐",
+    "深海鱼油。秋冬请医生查过水平后，再加维生素D"
+   ],
+   [
+    "晚上7点半到8点40",
+    "护肝片。压力大的那几周，晚饭时加有机南非醉茄胶囊"
+   ],
+   [
+    "洗澡",
+    "g&h滋养沐浴露，水温调低、时间短一点，三分钟内擦上g&h滋养身体乳"
+   ],
+   [
+    "早晚洗脸",
+    "雅姿保湿慕斯洁面，其他护肤品越少越好"
+   ]
+  ],
+  "groups": [
+   "先打通正门：肠道",
+   "第二道出口：肝",
+   "从里面把屏障修起来",
+   "从外面把屏障护住"
+  ],
   "feel": {
-   "say": ["我特别懂。晚上痒得睡不着，擦了药膏好一点，过几个礼拜又在老地方冒出来。"],
+   "say": [
+    "我特别懂。晚上痒得睡不着，擦了药膏好一点，过几个礼拜又在老地方冒出来。"
+   ],
    "tip": "用对方自己的话，把问卷上勾的说回去。然后问一句：“一般是什么情况下开始发的？”"
   },
   "felt": {
-   "say": ["说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"],
+   "say": [
+    "说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"
+   ],
    "tip": "讲你自己的，或者身边人的（“我妈妈”“我一个同事”）。还没有故事？就说：“我身边很多朋友也是这样。”千万别编。"
   },
   "found": {
    "say": [
-    "我后来学到，皮肤其实是身体的“备用出口”。正门是肠道，然后是肝。这两个忙不过来，走不掉的东西就被挤到皮肤上，于是就发了。所以药膏一擦就好、一停又来，因为它管的是出口，不是里面的压力。",
-    "另一半是屏障。皮肤像一面砖墙，砖缝里的“水泥”是油脂，有一部分就是你吃进去的油砌的。热水、清洁力太强的沐浴露会把它洗掉，空气一干水分又溜走。所以要在皮肤看起来没事的时候就天天擦，不是发了才擦。",
+    "我后来学到，皮肤其实是身体的“备用出口”。肠道和肝忙不过来，走不掉的东西就被挤到皮肤上，所以药膏一擦就好、一停又来。",
     "所以我会建议先从里面调，屏障同时照顾好。"
    ],
-   "tip": "两三句就够，然后看下面的对照表，挑跟对方勾的那一项对得上的。如果对方在用医生开的药膏，提醒他照常用。"
+   "tip": "从 Part A 挑一两句讲，然后讲作息。挑跟对方勾的对得上的产品。如果对方在用医生开的药膏，提醒他照常用。"
   },
-  "map": [
-   ["一到秋冬、空气一干就发", "g&h滋养身体乳，天天擦，没发的时候也擦", "趁还没痒，先把水分锁住"],
-   ["洗完澡就痒", "g&h滋养沐浴露，水温调低，擦干后三分钟内擦身体乳", "洗得干净，又不会每天洗掉一层屏障"],
-   ["吃外卖、吃错东西就发", "益生菌、益生元纤维粉", "先把正门肠道打通，挤到皮肤上的就少了"],
-   ["熬夜、喝酒、压力大就发", "护肝片；晚上吃有机南非醉茄胶囊", "肝最忙的那几周给它撑一把。怀孕、哺乳期，或有甲状腺、肝脏问题的，不吃南非醉茄"],
-   ["好了又反复", "益生菌、护肝片、深海鱼油，医生开的药膏照常用", "先肠道、再肝、最后屏障。按几个月来看，药膏千万别自己停"],
-   ["换个护肤品就过敏", "雅姿保湿慕斯洁面、深海鱼油", "护肤做减法，洗得温和，屏障养稳。新东西先在手臂内侧试几天"],
-   ["很少吃深海鱼，冬天晒太阳少", "深海鱼油；维生素D，先请医生查一下水平", "屏障是用吃进去的油脂砌的，冬天维生素D也会往下掉"]
-  ],
   "ask": "按你刚才说的，我建议里面先从益生菌和益生元纤维粉开始，外面每天擦g&h滋养身体乳。今天要不要先带回去？",
   "doctor": "如果皮肤渗液、结黄痂、发烫发疼，发作时还发烧，或者是孩子的湿疹，请先去看医生或皮肤科。医生开的药膏不要自己停。"
- }
+ },
+ "groups": [
+  [
+   "probiotic",
+   "prebiotic-fiber"
+  ],
+  [
+   "liver-support",
+   "organics-ashwagandha-capsules"
+  ],
+  [
+   "advanced-omega",
+   "vitamin-d"
+  ],
+  [
+   "g-h-nourish-body-wash",
+   "g-h-nourish-body-lotion",
+   "artistry-hydrating-mousse-cleanser"
+  ]
+ ]
 }

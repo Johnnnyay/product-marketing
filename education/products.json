@@ -4,7 +4,11 @@
   "en": {
    "what": "An herb that calms the stress system itself, instead of knocking you out.",
    "like": "Think of stress as a volume knob stuck on high. A sleeping pill just covers your ears; ashwagandha slowly turns the knob down.",
-   "who": ["I'm wired at night and flat in the afternoon", "I've been under pressure for weeks", "I'm tired, but my head won't stop"],
+   "who": [
+    "I'm wired at night and flat in the afternoon",
+    "I've been under pressure for weeks",
+    "I'm tired, but my head won't stop"
+   ],
    "how": "With the evening meal, every day.",
    "when": "It works over weeks, not tonight. Judge it at about eight weeks.",
    "watch": "Skip it if pregnant or breastfeeding, or with thyroid, autoimmune or liver disease. Dark urine or yellowing skin: stop and see a doctor."
@@ -12,7 +16,11 @@
   "zh": {
    "what": "一种草本，调的是压力系统本身，不是把人放倒。",
    "like": "压力像一个卡在最大声的音量旋钮。安眠药只是帮你捂住耳朵，南非醉茄是慢慢把旋钮拧小。",
-   "who": ["晚上特别精神，下午又没电", "压力已经扛了好几周", "人很累，脑子却停不下来"],
+   "who": [
+    "晚上特别精神，下午又没电",
+    "压力已经扛了好几周",
+    "人很累，脑子却停不下来"
+   ],
    "how": "每天随晚饭吃。",
    "when": "按周起作用，不是今晚吃今晚就好。大约八周再看效果。",
    "watch": "怀孕、哺乳，或者有甲状腺、自身免疫、肝脏方面问题的人不吃。如果尿色变深或皮肤发黄，马上停，去看医生。"
@@ -22,7 +30,10 @@
   "en": {
    "what": "A probiotic with strains picked for the gut-brain link, not for digestion in general.",
    "like": "The gut is your second brain: hundreds of millions of nerve cells, talking to your brain all day. That's why a deadline lands in your stomach. This probiotic works on that phone line.",
-   "who": ["When I'm stressed, my stomach goes first", "I lie awake with a busy head"],
+   "who": [
+    "When I'm stressed, my stomach goes first",
+    "I lie awake with a busy head"
+   ],
    "how": "One capsule a day with food, at the same time each day. Already on a standard probiotic? Swap, don't stack.",
    "when": "Give it five to eight weeks.",
    "watch": "The research is mixed and the effect modest. Say \"worth trying\", never \"it fixes stress\"."
@@ -30,7 +41,10 @@
   "zh": {
    "what": "一款益生菌，选的菌株针对的是肠脑连接，不是一般的助消化。",
    "like": "肠道是人的第二个大脑：里面有好几亿个神经细胞，整天都在跟大脑通话。所以事情一赶，胃先打结。这款益生菌照顾的就是这条电话线。",
-   "who": ["一紧张，胃先不舒服", "躺下了脑子还在转"],
+   "who": [
+    "一紧张，胃先不舒服",
+    "躺下了脑子还在转"
+   ],
    "how": "每天一粒，随餐吃，每天同一时间。已经在吃普通益生菌的，二选一，不要叠加。",
    "when": "给它五到八周。",
    "watch": "研究结论还不一致，效果偏温和。要说“值得试试”，不要说“能解决压力”。"
@@ -40,7 +54,10 @@
   "en": {
    "what": "The mineral that helps muscles and nerves let go at night.",
    "like": "Stress drains magnesium, and low magnesium makes stress hit harder, so the two feed each other. Magnesium breaks that loop from the body's side.",
-   "who": ["My body is tired but my mind is racing", "My muscles feel tight at night"],
+   "who": [
+    "My body is tired but my mind is racing",
+    "My muscles feel tight at night"
+   ],
    "how": "With dinner. Keep supplemental magnesium within 350 mg a day.",
    "when": "Steady, every evening; judge it over a few weeks.",
    "watch": "Loose stools are the first sign of too much. Eats little dairy? Choose Cal Mag D instead. Pick one, not both."
@@ -48,7 +65,10 @@
   "zh": {
    "what": "帮肌肉和神经在晚上放松下来的矿物质。",
    "like": "压力会把镁耗掉，镁一少，压力打过来就更重，两者互相加码。补镁是从身体这一边，把这个循环打断。",
-   "who": ["身体很累，脑子却停不下来", "晚上肌肉总是绷着"],
+   "who": [
+    "身体很累，脑子却停不下来",
+    "晚上肌肉总是绷着"
+   ],
    "how": "随晚饭吃。补充剂来源的镁，每天不超过350毫克。",
    "when": "每天晚上固定吃，几周后看效果。",
    "watch": "大便变稀是吃多了的第一个信号。平时奶制品吃得少的，换成钙镁D。两个选一个，不要一起吃。"
@@ -58,7 +78,11 @@
   "en": {
    "what": "Calcium, magnesium and vitamin D in one tablet, because they work as a team.",
    "like": "Calcium on its own is like bricks delivered with no one to unload them: vitamin D brings them in, magnesium puts them to use.",
-   "who": ["I don't eat much dairy", "My doctor told me to take calcium", "My muscles feel tight at night"],
+   "who": [
+    "I don't eat much dairy",
+    "My doctor told me to take calcium",
+    "My muscles feel tight at night"
+   ],
    "how": "With dinner, in place of Magnesium.",
    "when": "Steady, every evening.",
    "watch": "Pick this or Magnesium, not both."
@@ -66,7 +90,11 @@
   "zh": {
    "what": "钙、镁、维生素D三合一，因为它们本来就是一起干活的。",
    "like": "只补钙，就像砖运到了工地却没人卸货：维生素D负责把钙运进来，镁负责把钙用起来。",
-   "who": ["平时不怎么喝奶、吃奶制品", "医生让我补钙", "晚上肌肉总是绷着"],
+   "who": [
+    "平时不怎么喝奶、吃奶制品",
+    "医生让我补钙",
+    "晚上肌肉总是绷着"
+   ],
    "how": "随晚饭吃，代替镁片。",
    "when": "每天晚上固定吃。",
    "watch": "它和镁片选一个，不要一起吃。"
@@ -76,7 +104,11 @@
   "en": {
    "what": "The B vitamins, which the brain uses to make its calming signals.",
    "like": "Calm doesn't come from nowhere. The brain builds GABA and serotonin with the help of B6, and stress, drinking and white rice burn through the Bs fast. The body keeps them for hours, not days, so it needs a refill every day.",
-   "who": ["I'm stressed all the time", "I drink after work a few times a week", "My meals are mostly rice and noodles"],
+   "who": [
+    "I'm stressed all the time",
+    "I drink after work a few times a week",
+    "My meals are mostly rice and noodles"
+   ],
    "how": "Daily with food. In the evening routine, together with Liver Support around 7:30 to 8:40 pm. If it feels energising, move it to dinner rather than skipping it.",
    "when": "Every day: it's a refill, not a one-off. The 120-count lasts four months, one of the lowest daily costs in the line.",
    "watch": "Don't stack several products that each contain B6 (the limit is 100 mg a day)."
@@ -84,7 +116,11 @@
   "zh": {
    "what": "B族维生素，大脑用它来做让人平静下来的信号。",
    "like": "平静不是凭空来的。大脑合成GABA和血清素要靠B6帮忙，而压力、喝酒、白米白面都会很快把B族耗掉。身体只能存几个小时，存不了几天，所以要每天补。",
-   "who": ["压力一直很大", "下班后一周喝好几次酒", "三餐基本是米饭面条"],
+   "who": [
+    "压力一直很大",
+    "下班后一周喝好几次酒",
+    "三餐基本是米饭面条"
+   ],
    "how": "每天随餐吃。放进晚间节奏里，大约7点半到8点40，和护肝片一起吃。如果吃了反而精神，就改到晚饭时吃，别停。",
    "when": "每天都要补，不是吃一次就够。120粒能吃四个月，日均成本很低。",
    "watch": "不要同时吃好几种含B6的产品（B6每天上限100毫克）。"
@@ -94,7 +130,10 @@
   "en": {
    "what": "Milk thistle and botanicals that support the liver, the organ working the night shift.",
    "like": "A late dinner or a few drinks dumps a pile of work on the night shift. You fall asleep fine, but around 3 am, when it wears off, sleep turns light and you're wide awake.",
-   "who": ["I wake up at 3 am", "Late dinners, drinks, or a lot of takeout"],
+   "who": [
+    "I wake up at 3 am",
+    "Late dinners, drinks, or a lot of takeout"
+   ],
    "how": "In the evening with the B vitamins, around 7:30 to 8:40 pm, every night.",
    "when": "Liver cells take about six months to renew, so judge it in months, not a week.",
    "watch": "Not a substitute for medical care, especially for anyone on a lot of medication."
@@ -102,7 +141,10 @@
   "zh": {
    "what": "奶蓟草加植物萃取，支持肝脏，也就是那个上夜班的器官。",
    "like": "晚饭吃得晚、喝了几杯，就像给夜班塞了一大堆活。人是睡着了，可到了凌晨三点劲儿一过，睡眠变浅，人一下子就醒了。",
-   "who": ["半夜三点准时醒", "晚饭吃得晚、常喝酒，或者外卖多"],
+   "who": [
+    "半夜三点准时醒",
+    "晚饭吃得晚、常喝酒，或者外卖多"
+   ],
    "how": "晚上大约7点半到8点40，和B族一起吃，每天都吃。",
    "when": "肝细胞大约六个月更新一轮，所以按月看效果，不是看一周。",
    "watch": "不能代替看医生，尤其是平时吃药比较多的人。"
@@ -119,7 +161,10 @@
   "en": {
    "what": "An organic herbal tea of chamomile, hibiscus, lavender, echinacea and catnip, grown on Nutrilite's own farms.",
    "like": "It's the cue, not the cure. A warm cup at the same time every night tells your body the day is over, the same way dimming the lights does.",
-   "who": ["I can't wind down at night", "I want something to replace the evening snack or drink"],
+   "who": [
+    "I can't wind down at night",
+    "I want something to replace the evening snack or drink"
+   ],
    "how": "One cup in the evening as part of the wind-down. Hot or iced.",
    "when": "Tonight. It's the ritual that does the work.",
    "watch": "Chamomile and echinacea are in the daisy family: skip it with a ragweed or daisy allergy. Pregnant? Ask the doctor first."
@@ -127,7 +172,10 @@
   "zh": {
    "what": "有机草本茶，洋甘菊、洛神花、薰衣草、紫锥菊和猫薄荷，都来自纽崔莱自己的有机农场。",
    "like": "它是一个信号，不是药。每天晚上同一个时间来一杯热的，就像把灯调暗一样，告诉身体：今天结束了。",
-   "who": ["晚上怎么都放松不下来", "想找个东西代替晚上的零食或饮料"],
+   "who": [
+    "晚上怎么都放松不下来",
+    "想找个东西代替晚上的零食或饮料"
+   ],
    "how": "晚上放松的时候喝一杯，热的冰的都可以。",
    "when": "今晚就能开始，靠的是每天固定的这个习惯。",
    "watch": "洋甘菊和紫锥菊都属于菊科，对豚草或菊花过敏的人不喝。怀孕的先问医生。"
@@ -137,7 +185,11 @@
   "en": {
    "what": "3 mg of plant melatonin from tomato, with chamomile, in a capsule.",
    "like": "Melatonin isn't a sleeping pill. It's the announcement \"night has started\". After a long flight that announcement plays at the wrong time, and this puts it back on schedule.",
-   "who": ["Jet lag", "My schedule keeps drifting later", "I'm trying to get back to a fixed wake time"],
+   "who": [
+    "Jet lag",
+    "My schedule keeps drifting later",
+    "I'm trying to get back to a fixed wake time"
+   ],
    "how": "One, 30 to 60 minutes before bed, only on the nights you need it.",
    "when": "On average it gets people to sleep only about seven minutes sooner, so it's for the odd night, not every night.",
    "watch": "No driving or alcohol after. Pregnant, breastfeeding, or on sedatives or blood thinners? Ask the doctor first. Keep it away from children."
@@ -145,7 +197,11 @@
   "zh": {
    "what": "每粒含3毫克来自番茄的植物褪黑素，外加洋甘菊。",
    "like": "褪黑素不是安眠药，它是一句广播：“天黑了。”长途飞行之后，这句广播放错了时间，它帮你把时间调回来。",
-   "who": ["倒时差", "作息越来越晚", "想把起床时间调回来"],
+   "who": [
+    "倒时差",
+    "作息越来越晚",
+    "想把起床时间调回来"
+   ],
    "how": "需要的晚上，睡前30到60分钟吃一粒。",
    "when": "平均只能让人早七分钟左右睡着，所以是偶尔用，不是每晚吃。",
    "watch": "吃完不开车、不喝酒。怀孕、哺乳，或者在吃镇静类药物、抗凝药的，先问医生。放在孩子拿不到的地方。"
@@ -155,7 +211,10 @@
   "en": {
    "what": "Sweet Dreams: 3 mg of melatonin with passionflower and a little magnesium, as a gummy.",
    "like": "The same \"night has started\" signal as Sleep Health, in a gummy. Pick whichever one they'd rather take.",
-   "who": ["Jet lag, or a week of late nights", "I'd rather chew than swallow a capsule"],
+   "who": [
+    "Jet lag, or a week of late nights",
+    "I'd rather chew than swallow a capsule"
+   ],
    "how": "One, 30 to 60 minutes before bed, only on the nights you need it.",
    "when": "For occasional nights while the clock resets, then stop.",
    "watch": "Not for children, or in pregnancy or breastfeeding without a doctor. No driving or alcohol after. Not on the same night as Sleep Health."
@@ -163,7 +222,10 @@
   "zh": {
    "what": "甜梦软糖：3毫克褪黑素，加西番莲和少量镁。",
    "like": "和安睡片是同一个“天黑了”的信号，只是做成了软糖。客人喜欢哪种就选哪种。",
-   "who": ["倒时差，或者熬了一周夜", "不爱吞胶囊"],
+   "who": [
+    "倒时差，或者熬了一周夜",
+    "不爱吞胶囊"
+   ],
    "how": "需要的晚上，睡前30到60分钟吃一颗。",
    "when": "偶尔用，等生物钟调回来就停。",
    "watch": "儿童、孕期、哺乳期未经医生同意不要用。吃完不开车、不喝酒。不要和安睡片在同一晚一起吃。"
@@ -173,7 +235,10 @@
   "en": {
    "what": "Five products in one box: Sweet Dreams Sleep Gummies, Stress Relief Probiotic, Organics Ashwagandha, Organics Chamomile Tea and the Artistry Sleeping Mask.",
    "like": "The day-to-night routine already put together: the probiotic and ashwagandha work on the stress, the tea and the mask are the wind-down, and the gummies are for the odd night.",
-   "who": ["Just tell me what to take", "Stressed, wired at night, sleeping badly"],
+   "who": [
+    "Just tell me what to take",
+    "Stressed, wired at night, sleeping badly"
+   ],
    "how": "Follow the routine above. Even in the box, the gummies are for occasional nights.",
    "when": "Judge the ashwagandha and the probiotic at about eight weeks.",
    "watch": "It doesn't include magnesium or the B vitamins; add them if the evening calls for it. The ashwagandha cautions apply."
@@ -181,10 +246,2189 @@
   "zh": {
    "what": "一盒五样：甜梦睡眠软糖、舒压益生菌、有机南非醉茄、有机洋甘菊茶、雅姿睡眠面膜。",
    "like": "白天到晚上的整套节奏已经搭好了：益生菌和南非醉茄管压力，茶和面膜负责放松，软糖留给偶尔睡不着的晚上。",
-   "who": ["你直接告诉我吃什么就好", "压力大、晚上反而精神、睡不好"],
+   "who": [
+    "你直接告诉我吃什么就好",
+    "压力大、晚上反而精神、睡不好"
+   ],
    "how": "按上面的作息来吃。就算在套装里，软糖也是偶尔用。",
    "when": "南非醉茄和益生菌大约八周看效果。",
    "watch": "里面没有镁和B族，晚间需要的话另外加。南非醉茄的注意事项同样适用。"
+  }
+ },
+ "plant-protein-powder": {
+  "en": {
+   "what": "21 g of organic protein from three plants, pea, brown rice and chia, with no dairy.",
+   "like": "Muscle, skin, gut lining and hair are all rebuilt from protein, every day. A breakfast of toast or congee is a building site where no bricks arrived; one scoop brings most of what that meal was missing.",
+   "who": [
+    "I skip breakfast, or it's just toast",
+    "I lose weight and it comes back",
+    "Whey makes me bloated"
+   ],
+   "how": "One scoop at breakfast, in place of the sweet or carb-only meal. A practical daily target is about 1.2 g of protein per kilogram of body weight, a third of it at breakfast, so one scoop covers a good part of the morning.",
+   "when": "Every day. You'll notice the fullness the same morning; for muscle, skin and hair, judge it in months.",
+   "watch": "Protein supports training, it doesn't replace it, and it doesn't do fibre's job, so keep the vegetables. Kidney disease? Ask the doctor first."
+  },
+  "zh": {
+   "what": "21克有机植物蛋白，来自豌豆、糙米、奇亚籽三种植物，不含乳制品。",
+   "like": "肌肉、皮肤、肠道黏膜、头发，每天都在用蛋白质重新搭。早餐只吃面包或白粥，就像工地上砖没运到。一勺下去，那一餐缺的大部分就补上了。",
+   "who": [
+    "不吃早餐，或者早餐就一片面包",
+    "瘦了又反弹",
+    "喝乳清会胀气"
+   ],
+   "how": "早餐一勺，换掉甜的或纯碳水的那一餐。一个好记的目标是每公斤体重每天1.2克蛋白质，三分之一放在早餐，一勺就能补上早餐的一大半。",
+   "when": "每天都吃。饱腹感当天早上就感觉得到；肌肉、皮肤、头发要按月看。",
+   "watch": "蛋白质是配合训练，代替不了训练；它也替代不了纤维，蔬菜还是要吃。有肾脏疾病的先问医生。"
+  }
+ },
+ "organics-all-in-one-shakes": {
+  "en": {
+   "what": "A meal-replacement shake: protein, fibre, greens and micronutrients in one glass.",
+   "like": "A shake with only protein leaves you hungry ninety minutes later, which is why people give up on them. This one is built to actually be the meal, so the breakfast decision is already made.",
+   "who": [
+    "I never have time for breakfast",
+    "I'm fine all day, then I eat everything at night",
+    "Just tell me what to have in the morning"
+   ],
+   "how": "One glass in place of the meal you usually skip, most often breakfast.",
+   "when": "Every day, at the same meal. The win is that the decision is gone.",
+   "watch": "It replaces one meal, not all of them. Keep fibre and vegetables on the plate at the others."
+  },
+  "zh": {
+   "what": "代餐奶昔：蛋白质、纤维、绿色蔬菜和微量营养素，一杯都有。",
+   "like": "只有蛋白质的奶昔，九十分钟后就饿了，所以很多人坚持不下去。这一杯是真的当一顿饭来设计的，早餐吃什么，不用再想。",
+   "who": [
+    "早上从来没时间吃早餐",
+    "白天都还好，一到晚上就什么都想吃",
+    "你直接告诉我早上吃什么就好"
+   ],
+   "how": "用一杯换掉你最常跳过的那一餐，通常是早餐。",
+   "when": "每天固定在同一餐。好处就在于不用再做选择。",
+   "watch": "它换的是一餐，不是三餐。其他几顿，纤维和蔬菜还是要上桌。"
+  }
+ },
+ "slimmetry": {
+  "en": {
+   "what": "Green tea extract (GreenSelect Phytosome) to support a weight plan that already includes food and movement.",
+   "like": "A tailwind, not the engine. The green tea catechins are bound to a phospholipid so they absorb better, which is why the label shows only 20 mg of EGCG, where ordinary green tea extracts use 200 to 800 mg.",
+   "who": [
+    "My belly won't budge",
+    "I'm already eating better and moving, I want a little help"
+   ],
+   "how": "Daily, as the label directs, alongside the plan you're already following.",
+   "when": "The trial behind it ran 90 days, so give it about three months, and judge it by your waist, not only the scale.",
+   "watch": "It does not work on its own. The trial was open-label, not blinded, so trust the direction more than the size. The liver signals reported with green tea extract come from the high-dose end, so don't stack other green tea extracts on top."
+  },
+  "zh": {
+   "what": "绿茶提取物（GreenSelect Phytosome），给已经在调饮食、在运动的体重计划加一把力。",
+   "like": "它是顺风，不是发动机。绿茶儿茶素和磷脂结合在一起，吸收更好，所以标签上EGCG只有20毫克，而普通绿茶提取物用的是200到800毫克。",
+   "who": [
+    "肚子就是瘦不下来",
+    "饮食和运动都在做了，想再加一点帮助"
+   ],
+   "how": "按标签每天吃，配合你正在做的计划。",
+   "when": "背后的试验做了90天，所以给它三个月左右，看腰围，别只看秤。",
+   "watch": "单靠它没用。那项试验是开放标签，不是双盲，所以方向比幅度更可信。绿茶提取物的肝脏问题出现在高剂量那一端，所以不要再叠加别的绿茶提取物。"
+  }
+ },
+ "green-superfood": {
+  "en": {
+   "what": "Concentrated organic greens powder for the days vegetables don't happen.",
+   "like": "A bridge, not a replacement. Think of it as the spare tyre: glad it's in the car on a bad day, but you don't drive on it every day.",
+   "who": [
+    "I barely eat vegetables when I'm busy",
+    "It's been takeout all week",
+    "I know I should eat more greens"
+   ],
+   "how": "On the no-vegetable days, in water. Drink it before the meal so the greens still come first.",
+   "when": "On the days you need it. On the other days, the vegetables are on the plate.",
+   "watch": "It doesn't replace eating vegetables; five colours on the plate is still the goal. It's a floor under your diet, not a fix."
+  },
+  "zh": {
+   "what": "浓缩有机绿色蔬菜粉，给吃不上蔬菜的日子用。",
+   "like": "它是过渡，不是替代。就像车里的备胎：哪天爆胎了庆幸有它，但不会天天开着备胎跑。",
+   "who": [
+    "一忙起来几乎不吃菜",
+    "这一周都在吃外卖",
+    "知道自己该多吃绿叶菜"
+   ],
+   "how": "吃不上蔬菜的那几天，冲水喝。饭前喝，让绿色的东西还是先进肚子。",
+   "when": "需要的那几天用。其他日子，蔬菜照样上桌。",
+   "watch": "它代替不了吃蔬菜，餐盘上五种颜色还是目标。它是给饮食托个底，不是解决方案。"
+  }
+ },
+ "women-s-pack": {
+  "en": {
+   "what": "A daily sachet: the multivitamin base plus nutrients that matter for women, including iron and calcium support.",
+   "like": "Eat 500 calories less a day and you also eat about a fifth less of every vitamin and mineral. This covers that floor in one packet instead of four bottles.",
+   "who": [
+    "I'm eating less and I feel flat",
+    "I want one thing to take, not four bottles",
+    "Cold hands, more hair in the drain"
+   ],
+   "how": "One sachet a day with a meal.",
+   "when": "Every day. It's a floor, not a quick fix.",
+   "watch": "It contains iron: already on an iron tablet? Check with the doctor, and ask for a ferritin test before taking iron long term. Choose this or Double X, not both."
+  },
+  "zh": {
+   "what": "每日一小包：综合营养打底，再加上女性需要的营养素，包括铁和钙。",
+   "like": "每天少吃500大卡，维生素矿物质也跟着少了大约五分之一。这一包把这个底托住，不用摆四个瓶子。",
+   "who": [
+    "吃得少了，人也没精神",
+    "想吃一样就够，不想排一排瓶子",
+    "手脚冰，地漏里的头发变多"
+   ],
+   "how": "每天一包，随餐吃。",
+   "when": "每天吃。它是托底，不是速效。",
+   "watch": "里面含铁：已经在吃铁剂的先问医生；要长期补铁，先查铁蛋白。它和双X选一个，不要一起吃。"
+  }
+ },
+ "artistry-hydrating-mousse-cleanser": {
+  "en": {
+   "what": "A mousse cleanser that cleans without stripping the skin's barrier.",
+   "like": "Wash oily skin too hard and it reads that as damage and makes more oil to make up for it. The mousse spreads the cleanser out before it reaches your face, so you get clean without the rebound.",
+   "who": [
+    "I'm oily by noon",
+    "My face feels tight after washing",
+    "I'm using acids or retinol"
+   ],
+   "how": "Morning and night, in place of your current cleanser. More washing doesn't mean less oil.",
+   "when": "Every wash. If you only change one product in your routine, this is usually the one with the biggest return.",
+   "watch": "Gentle enough for skin that reacts to new products, but still try it on a small area first."
+  },
+  "zh": {
+   "what": "慕斯质地的洁面，洗得干净，又不伤皮肤屏障。",
+   "like": "油皮洗得太狠，皮肤以为自己受伤了，反而出更多油来补。慕斯在碰到脸之前就把清洁成分打散了，所以洗干净了，也不会反弹出油。",
+   "who": [
+    "中午就满脸油",
+    "洗完脸紧绷绷的",
+    "正在用酸类或A醇"
+   ],
+   "how": "早晚各一次，换掉你现在的洁面。洗得多不等于油得少。",
+   "when": "每次洗脸都用。整套护肤里如果只换一样，回报最高的通常就是它。",
+   "watch": "对新产品容易敏感的皮肤也够温和，但还是先在小范围试一下。"
+  }
+ },
+ "vitamin-c-extended-release-180ct": {
+  "en": {
+   "what": "Vitamin C from acerola cherries grown on Nutrilite's own farms, released slowly over eight hours.",
+   "like": "Your body can't store vitamin C, it flushes the extra. One big dose is watering the garden with a bucket; slow release is the drip line.",
+   "who": [
+    "I want my marks to stop getting darker",
+    "I'm always catching colds",
+    "I'm low on iron"
+   ],
+   "how": "Daily with meals. Take it with iron-rich food or an iron tablet, because it helps you absorb iron.",
+   "when": "Every day, all year. The benefit comes from steady use, not from starting once a cold begins. For skin, judge it in months.",
+   "watch": "Stay well under 2,000 mg a day, the upper limit. Taken daily it doesn't stop most colds, it shortens them a little, about 8 percent in adults. For marks it stops them getting darker; it doesn't bleach the ones you have."
+  },
+  "zh": {
+   "what": "维生素C，来自纽崔莱自有农场的针叶樱桃，8小时缓慢释放。",
+   "like": "身体存不住维C，多的会排掉。一次吃一大颗，就像拿水桶浇花；缓释是滴灌。",
+   "who": [
+    "想让痘印别再变深",
+    "动不动就感冒",
+    "铁偏低"
+   ],
+   "how": "每天随餐吃。和含铁的食物或铁剂一起吃，它能帮身体吸收铁。",
+   "when": "每天吃，一年四季都吃。好处来自天天吃，不是感冒了才开始。皮肤要按月看。",
+   "watch": "每天总量远低于2000毫克的上限。天天吃并不能让大多数人不感冒，只是让感冒短一点，成人大约短8%。对痘印，它是让印子不再变深，不是把已有的漂白。"
+  }
+ },
+ "digestive-enzyme": {
+  "en": {
+   "what": "Plant enzymes that help break down the protein, fat, carbs and fibre in a heavy meal.",
+   "like": "Enzymes work on the meal; probiotics work on the gut bacteria. With age the stomach makes less of its protein-digesting enzymes, so a big dinner just sits there. This lends a hand with that one meal.",
+   "who": [
+    "After a big dinner I feel heavy and puffy",
+    "I eat out most days"
+   ],
+   "how": "With the heavy meal, on the meals where you feel it. Not every day by default.",
+   "when": "That meal. Let your own body be the judge.",
+   "watch": "Honestly, the evidence is thin: small trials showing less bloating after single meals. Bloating with pain, weight loss or blood in the stool is a question for a doctor."
+  },
+  "zh": {
+   "what": "植物来源的消化酶，帮忙分解大餐里的蛋白质、脂肪、碳水和纤维。",
+   "like": "消化酶管的是这一顿饭，益生菌管的是肠道里的菌。年纪越大，胃里分解蛋白质的酶越少，一顿大餐就堵在那里。它是帮你处理这一顿的。",
+   "who": [
+    "晚饭吃多了，又撑又胀",
+    "几乎天天在外面吃"
+   ],
+   "how": "吃大餐时随餐吃，会胀的那几顿用，不用天天吃。",
+   "when": "就是那一顿。以你自己的感受为准。",
+   "watch": "老实说，研究证据不多，只有小型试验显示单餐后胀气减少。如果胀气还伴随疼痛、体重下降或大便带血，要去看医生。"
+  }
+ },
+ "immunity-defense-zinc-holy-basil": {
+  "en": {
+   "what": "Zinc, the mineral immune cells run out of first, with holy basil, an adaptogen for the stress side of immunity.",
+   "like": "Some people get sick at random. Others go down right after a deadline. This is for the second kind: short, high-stress stretches.",
+   "who": [
+    "I always get sick right after a big deadline",
+    "A few nights of bad sleep and I'm down"
+   ],
+   "how": "For the deadline weeks when sleep slips. Use it for the stretch, not all year.",
+   "when": "During the stretch, then stop.",
+   "watch": "Too much zinc over months causes a copper shortfall, so check labels and keep zinc from all sources under 40 mg a day. The evidence for zinc preventing colds is weak. Zinc runs low in many people with acne, but it's not an acne treatment."
+  },
+  "zh": {
+   "what": "锌，免疫细胞最先耗尽的矿物质；加上圣罗勒，一种照顾压力那一端的适应原。",
+   "like": "有些人生病没什么规律，有些人是一忙完项目就倒下。它是给第二种人的：压力特别大的那一小段时间。",
+   "who": [
+    "一赶完大项目就生病",
+    "连着几晚没睡好就扛不住"
+   ],
+   "how": "赶工、睡不够的那几周用。用在那一段，不是一年到头吃。",
+   "when": "那一段时间吃，过了就停。",
+   "watch": "连续几个月锌吃太多，会导致缺铜，所以看清标签，所有来源的锌加起来每天不超过40毫克。锌预防感冒的证据不强。很多长痘的人锌偏低，但它不是治痘的。"
+  }
+ },
+ "artistry-correcting-serum": {
+  "en": {
+   "what": "A serum for uneven tone and the marks left after breakouts.",
+   "like": "Most marks are pigment left behind after inflammation, not scars. That means they fade, given enough weeks. People give up too early because they think it's a scar.",
+   "who": [
+    "The pimple's gone, the mark is still there",
+    "My skin tone is uneven"
+   ],
+   "how": "Once the breakouts are under control and what's left is the marks. Every day, with sunscreen every morning.",
+   "when": "Weeks, not days. Stay with it.",
+   "watch": "Picking and sun make marks darker, so patch instead of picking and wear sunscreen. Deep, pitted scars are a question for a dermatologist."
+  },
+  "zh": {
+   "what": "针对肤色不均和痘后印记的精华。",
+   "like": "大部分痘印是发炎后留下的色素，不是疤。也就是说，给够几周，它会淡。很多人以为是疤，太早就放弃了。",
+   "who": [
+    "痘好了，印子还在",
+    "肤色不均匀"
+   ],
+   "how": "等痘痘控制住了、剩下的是印子再用。每天用，早上一定擦防晒。",
+   "when": "按周看，不是按天。坚持用。",
+   "watch": "挤和晒都会让印子更深，所以冒痘就贴，别挤，每天防晒。又深又凹的疤，要找皮肤科。"
+  }
+ },
+ "kids-toddler-immunity-drops": {
+  "en": {
+   "what": "Immune-support drops for toddlers who can't chew yet.",
+   "like": "Under about three, drops aren't a lesser format, they're the right one. You can match the amount to a small body instead of breaking up a tablet.",
+   "who": [
+    "My toddler just started daycare",
+    "The kids bring everything home"
+   ],
+   "how": "At the same time every morning, at the amount on the label for their age.",
+   "when": "Every day through the season. Judge it over a season, not a week.",
+   "watch": "Any fever in a baby under three months, or a fever that lasts more than three days, needs a doctor. Once they can chew, move up to a chewable."
+  },
+  "zh": {
+   "what": "给还不会咀嚼的幼儿用的免疫支持滴剂。",
+   "like": "大约三岁以下，滴剂不是将就，而是最合适的剂型。量可以按小身体来调，不用掰药片。",
+   "who": [
+    "孩子刚上托班",
+    "孩子一回家就把病毒带回来"
+   ],
+   "how": "每天早上同一时间，按标签上对应年龄的量给。",
+   "when": "整个季节每天给。按一季看，不是看一周。",
+   "watch": "三个月以下的宝宝只要发烧，或者发烧超过三天，都要看医生。会咀嚼了，就换成咀嚼片。"
+  }
+ },
+ "everyday-nutrition-solution": {
+  "en": {
+   "what": "The daily foundation in one order: Double X, Plant Protein and Advanced Omega.",
+   "like": "Like brushing your teeth: the same base every day, not a new plan every Monday. It covers the three most common gaps at once.",
+   "who": [
+    "Where do I even start?",
+    "I want one monthly order and not have to think about it"
+   ],
+   "how": "Double X morning and evening, Plant Protein at breakfast, Omega with a meal. Put it on a monthly auto-order so it doesn't lapse in the week you're run down.",
+   "when": "Every day. Judge it over a season, not a week.",
+   "watch": "Each product's own cautions apply. Already on a multivitamin? This replaces it, don't double up."
+  },
+  "zh": {
+   "what": "每日基础三件套，一单搞定：双X、有机植物蛋白粉、深海鱼油。",
+   "like": "就像刷牙：每天一样的底子，不是每个周一换一个新计划。最常见的三个缺口，一次补上。",
+   "who": [
+    "我到底该从哪里开始？",
+    "想每个月一单，不用再想"
+   ],
+   "how": "双X早晚各一次，蛋白粉放在早餐，鱼油随餐吃。设成每月自动下单，人最累的那一周也不会断。",
+   "when": "每天吃。按一季看，不是看一周。",
+   "watch": "每样产品各自的注意事项照样适用。已经在吃综合维生素的，用它替换，不要重复吃。"
+  }
+ },
+ "iron-folic-acid": {
+  "en": {
+   "what": "Iron plus folic acid, the pair your body uses to make red blood cells.",
+   "like": "A standard blood count can look normal while iron stores are low. In a trial of 198 menstruating women with low ferritin but no anaemia, twelve weeks of iron cut fatigue by 48 percent, against 29 percent on placebo.",
+   "who": [
+    "My periods are heavy and I'm always drained",
+    "I'm vegetarian",
+    "I get out of breath on the stairs"
+   ],
+   "how": "Only once you know your levels. Take it with vitamin C or a meal that has some, and keep tea and coffee at least an hour away.",
+   "when": "Recheck ferritin after about three months.",
+   "watch": "Never take iron long term blind: ask for a ferritin test first, because iron builds up and too much is harmful. High iron is fairly common in men, so men especially should test first. Breastfeeding? Ask before new supplements."
+  },
+  "zh": {
+   "what": "铁加叶酸，身体造红细胞要用的一对。",
+   "like": "普通血常规可能看起来正常，铁储备却已经偏低。一项198名铁蛋白偏低、但没有贫血的经期女性的试验里，补铁十二周，疲劳减少了48%，安慰剂组是29%。",
+   "who": [
+    "经量多，人总是没力气",
+    "我吃素",
+    "爬几层楼就喘"
+   ],
+   "how": "先知道自己的铁水平再吃。和维C或含维C的一餐一起吃，茶和咖啡至少隔开一小时。",
+   "when": "大约三个月后复查铁蛋白。",
+   "watch": "不要不查就长期补铁：先查铁蛋白，因为铁会在身体里累积，过量有害。男性铁偏高并不少见，男士尤其要先查。哺乳期的，吃新的营养品前先问医生。"
+  }
+ },
+ "satinique-anti-dandruff-shampoo": {
+  "en": {
+   "what": "A shampoo for flaking and an itchy scalp.",
+   "like": "Oily, yellowish flakes usually come from a yeast that lives on everyone's skin and feeds on oil. That scalp needs washing more often, not less, the opposite of what most people do.",
+   "who": [
+    "My scalp is itchy and flaky",
+    "It gets worse in winter"
+   ],
+   "how": "Lather it into the scalp and leave it on for about five minutes. Two or three times a week while it's bad, then once a week to keep it away.",
+   "when": "Through the flare, then drop to once a week.",
+   "watch": "Fine white flakes with a tight, dry scalp are a different problem and need gentler washing, not more."
+  },
+  "zh": {
+   "what": "针对头皮屑和头皮痒的洗发水。",
+   "like": "油腻发黄的头皮屑，通常来自一种人人皮肤上都有、靠油脂生长的真菌。这种头皮要洗得更勤，而不是更少，正好跟大多数人的做法相反。",
+   "who": [
+    "头皮又痒又掉屑",
+    "一到冬天就更严重"
+   ],
+   "how": "在头皮上揉出泡沫，停留五分钟左右再冲。严重的时候每周两三次，好了以后每周一次维持。",
+   "when": "发作期间照这个频率用，过了就减到每周一次。",
+   "watch": "如果是细白的屑，头皮又干又紧，那是另一回事，要洗得更温和，而不是更勤。"
+  }
+ },
+ "satinique-anti-hair-fall-conditioner": {
+  "en": {
+   "what": "The matching conditioner for the Anti-Hair Fall line, focused on strand strength.",
+   "like": "A lot of what's in the drain didn't come out at the root, it broke. Breakage happens along the mid-lengths and ends, exactly where conditioner sits.",
+   "who": [
+    "My hair breaks easily",
+    "My hair is fine, so I skip conditioner to keep it from going flat"
+   ],
+   "how": "After every shampoo, on the mid-lengths and ends.",
+   "when": "Every wash. Hair grows about a centimetre a month, so judge it in months.",
+   "watch": "A shed hair has a small white bulb at one end; a broken one doesn't. A widening part or thinning temples is usually inherited, and no conditioner reverses it; a dermatologist has proven treatments, best started early."
+  },
+  "zh": {
+   "what": "丝婷防脱系列的配套护发素，主打发丝强韧。",
+   "like": "地漏里的头发，很多不是从发根掉的，而是断的。断发发生在中段和发尾，正好是护发素停留的地方。",
+   "who": [
+    "头发很容易断",
+    "头发细软，怕塌就不用护发素"
+   ],
+   "how": "每次洗完头都用，抹在中段和发尾。",
+   "when": "每次洗头都用。头发一个月长一厘米左右，所以按月看。",
+   "watch": "掉下来的头发，一端有个小白点（毛囊）；断的没有。发缝变宽、两边太阳穴变稀，通常是遗传的，护发素逆转不了，皮肤科有验证过的治疗，越早开始越好。"
+  }
+ },
+ "satinique-smooth-shampoo-280ml": {
+  "en": {
+   "what": "A moisture-focused shampoo for dry, frizzy, straw-like hair.",
+   "like": "Once hair leaves the scalp it's dead fibre, and nothing you eat repairs the length you already have. Care protects it until new, better-fed hair grows through.",
+   "who": [
+    "My hair is frizzy and dry",
+    "I colour or heat-style a lot"
+   ],
+   "how": "Shampoo the scalp rather than the lengths, and follow with conditioner every time. Pat dry instead of rubbing, and turn the heat down.",
+   "when": "Every wash.",
+   "watch": "Pick the line by the problem: this one for dry or frizzy hair, Intensive Repair for bleached or badly heat-damaged hair. An oily, flaky scalp is a different problem."
+  },
+  "zh": {
+   "what": "主打保湿的洗发水，给干、毛躁、像稻草一样的头发。",
+   "like": "头发一离开头皮就是没有生命的纤维，吃什么都修不回已经长出来的那一段。护理是保护它，等新的、营养更好的头发长出来。",
+   "who": [
+    "头发又干又毛躁",
+    "经常染发或用吹风机、夹板"
+   ],
+   "how": "洗发水洗头皮，不是洗发梢，每次洗完都跟着用护发素。用毛巾按干别搓，热工具温度调低。",
+   "when": "每次洗头都用。",
+   "watch": "按问题选系列：干、毛躁用这款；漂过或热损伤严重的，用密集修护系列。头皮油、掉屑是另一回事。"
+  }
+ },
+ "xs-energy-focus-30ct": {
+  "en": {
+   "what": "The 30-count trial size of XS Energy + Focus: about 75 mg of caffeine from green tea in each tablet.",
+   "like": "About the caffeine of a small coffee, with no can to carry. Everyone handles caffeine differently, so the small bottle is how you find out how you do.",
+   "who": [
+    "I fade in afternoon meetings",
+    "I want to try it before buying the big bottle"
+   ],
+   "how": "One tablet in the morning or early afternoon, with water. Drink water through the day too.",
+   "when": "It sharpens alertness for a few hours. Use the 30 days to see how you handle it.",
+   "watch": "Not late in the day: in a study, caffeine taken six hours before bed still cut sleep by more than an hour. Count it together with your coffee."
+  },
+  "zh": {
+   "what": "XS能量专注片的30粒试用装：每片大约75毫克来自绿茶的咖啡因。",
+   "like": "大概相当于一小杯咖啡，不用随身带罐子。每个人对咖啡因的反应都不一样，先用小瓶试试自己的反应。",
+   "who": [
+    "下午开会就犯困",
+    "想先试试，再决定要不要买大瓶"
+   ],
+   "how": "早上或下午早些时候，配水吃一片。一天里也要记得喝水。",
+   "when": "能让人清醒几个小时。用这30天看看自己受不受得了。",
+   "watch": "别太晚吃：研究里，睡前六小时摄入咖啡因，睡眠还是少了一个多小时。要和你喝的咖啡一起算。"
+  }
+ },
+ "xs-energy-focus-60ct": {
+  "en": {
+   "what": "Caffeine plus focus ingredients in a tablet, about 75 mg of caffeine each, so you get the lift without a can.",
+   "like": "A small coffee that fits in your pocket: no 12 oz drink, no can to carry.",
+   "who": [
+    "Exam week",
+    "A long drive ahead",
+    "I want the energy without drinking a whole can"
+   ],
+   "how": "One tablet in the morning or early afternoon, with water. New to it? Start with the 30-count.",
+   "when": "It sharpens alertness for a few hours.",
+   "watch": "Keep caffeine to the morning and early afternoon, because it costs you sleep at night, and lost sleep is lost memory. Count it together with your coffee."
+  },
+  "zh": {
+   "what": "咖啡因加专注成分的片剂，每片大约75毫克咖啡因，不用喝一罐也能提神。",
+   "like": "一杯能装进口袋的小咖啡：不用喝下一大罐，也不用随身带罐子。",
+   "who": [
+    "考试周",
+    "要开长途",
+    "想提神，又不想喝一整罐"
+   ],
+   "how": "早上或下午早些时候，配水吃一片。第一次用的，先从30粒装开始。",
+   "when": "能让人清醒几个小时。",
+   "watch": "咖啡因只放在上午和下午早些时候，晚上它会偷走睡眠，睡眠少了记忆也跟着打折。要和你喝的咖啡一起算。"
+  }
+ },
+ "heart-health-coq10": {
+  "en": {
+   "what": "CoQ10, which the energy machinery inside every cell uses, above all in the heart muscle.",
+   "like": "Heart muscle has more mitochondria, the cell's power plants, than any other tissue, and CoQ10 is what they make energy with. The body makes less of it with age, and statins lower it further.",
+   "who": [
+    "I'm past 45 and tired more often",
+    "My doctor has me on a statin"
+   ],
+   "how": "Daily, at the same time each day.",
+   "when": "Every day. It's steady support, not a quick lift.",
+   "watch": "On a statin or a blood thinner? Talk to your doctor first. Its place is narrow: in a pooled analysis of 13 trials it reduced fatigue, mostly in people who were already unwell. An add-on for the right person, not a first step for everyone."
+  },
+  "zh": {
+   "what": "辅酶Q10，每个细胞的产能系统都要用到它，心肌用得最多。",
+   "like": "心肌里的线粒体，也就是细胞的发电厂，比全身任何组织都多，辅酶Q10就是它们发电要用的。年纪越大身体自己做得越少，他汀类药物还会让它更低。",
+   "who": [
+    "过了45岁，越来越容易累",
+    "医生给我开了他汀"
+   ],
+   "how": "每天固定时间吃。",
+   "when": "每天吃。它是稳稳的支持，不是马上提神。",
+   "watch": "在吃他汀或抗凝药的，先问医生。它的适用面窄：13项试验的汇总分析里，它减轻了疲劳，但主要是在本来就有病在身的人身上。是给对的人加的，不是每个人的第一步。"
+  }
+ },
+ "vision-health": {
+  "en": {
+   "what": "Lutein and zeaxanthin from marigolds, the light-filtering pigments at the centre of your eye, plus beta-carotene for vitamin A.",
+   "like": "The centre of your retina has its own built-in sunglasses made of these yellow pigments. The body can't make them, so they come from dark greens, corn, egg yolk, or this.",
+   "who": [
+    "My eyes are tired after screens all day",
+    "Glare bothers me when I drive at night",
+    "I worry about my eyes as I get older"
+   ],
+   "how": "With your biggest meal that has some fat in it, and together with fish oil if you take it. These pigments are fat-soluble, so with black coffee on an empty stomach it's mostly wasted.",
+   "when": "Macular pigment builds slowly. Judge it over six to twelve months.",
+   "watch": "It contains beta-carotene: if you smoke, ask your doctor first. There's no proof supplements prevent macular degeneration in healthy eyes. Screen strain is mostly blinking less, so keep the 20-20-20 break too. Pick one eye product, not two."
+  },
+  "zh": {
+   "what": "来自万寿菊的叶黄素和玉米黄质，眼睛中央负责过滤光线的色素，另外加了β-胡萝卜素补维生素A。",
+   "like": "视网膜中央自带一副墨镜，就是这些黄色色素。身体自己做不出来，只能靠深绿色蔬菜、玉米、蛋黄，或者靠它。",
+   "who": [
+    "整天对着屏幕，眼睛很累",
+    "晚上开车怕对面的灯晃眼",
+    "担心年纪大了眼睛变差"
+   ],
+   "how": "和一天里最丰盛、带点油脂的那一餐一起吃；在吃鱼油的，两样一起吃。这些色素是脂溶性的，空腹配黑咖啡吃，基本白吃。",
+   "when": "黄斑色素是慢慢累积的，按六到十二个月看。",
+   "watch": "里面有β-胡萝卜素：吸烟的人先问医生。没有证据显示营养品能让健康的眼睛不得黄斑变性。看屏幕眼累主要是眨眼变少，20-20-20的休息照样要做。护眼产品选一种，不要两种一起。"
+  }
+ },
+ "xs-cocowater-12-pack": {
+  "en": {
+   "what": "Coconut water with electrolytes, for rehydrating without a sports drink's sugar.",
+   "like": "Muscle is about three quarters water. Lose more than about 2 percent of your body weight in sweat and a session feels harder. In a trial of trained men, coconut water rehydrated about as well as a sports drink or water, with less sugar.",
+   "who": [
+    "Plain water is boring",
+    "I train in the heat",
+    "No energy for the gym after work"
+   ],
+   "how": "During or after a long or hot session. Weigh yourself before and after: each kilogram lost is roughly a litre to replace.",
+   "when": "On training days and hot days.",
+   "watch": "It's lower in sodium than a sports drink, so heavy sweaters also need salt from food."
+  },
+  "zh": {
+   "what": "含电解质的椰子水，补水，又没有运动饮料那么多糖。",
+   "like": "肌肉大约四分之三是水。出汗掉的体重超过2%左右，训练就会明显变吃力。一项针对训练男性的试验里，椰子水补水的效果和运动饮料、白水差不多，糖更少。",
+   "who": [
+    "白开水喝不下去",
+    "天热也在练",
+    "下班后去健身房没力气"
+   ],
+   "how": "长时间或高温训练时、练完后喝。练前练后称一下体重：每掉一公斤，大约要补一升。",
+   "when": "训练的日子、天热的日子。",
+   "watch": "它的钠比运动饮料低，出汗特别多的人，还要从饭菜里补盐。"
+  }
+ },
+ "xs-post-workout-recovery": {
+  "en": {
+   "what": "A recovery formula for the window right after training.",
+   "like": "After a hard session the muscle is ready to rebuild, and this is a convenient way to refuel then. But the window is looser than the marketing says: how much protein you get across the whole day matters more than the minute.",
+   "who": [
+    "I train four or more times a week and feel it adding up",
+    "I'm sore for days after a session"
+   ],
+   "how": "Right after training.",
+   "when": "On training days.",
+   "watch": "It fills gaps; it doesn't replace meals. In a meta-analysis, the benefit of timing disappeared once total daily protein was matched."
+  },
+  "zh": {
+   "what": "练完马上用的恢复配方。",
+   "like": "高强度训练后，肌肉正准备修复，这时候用它补充很方便。但这个窗口没有广告说的那么紧：一整天的蛋白质够不够，比是不是练完那一分钟更重要。",
+   "who": [
+    "每周练四次以上，感觉疲劳在累积",
+    "练完酸好几天"
+   ],
+   "how": "训练结束后马上喝。",
+   "when": "训练的日子用。",
+   "watch": "它是补缺口，不是代替正餐。一项荟萃分析里，只要全天蛋白质总量一样，吃的时间点带来的好处就没有了。"
+  }
+ },
+ "double-x-multivitamin-31-day-refill": {
+  "en": {
+   "what": "22 vitamins and minerals plus 22 plant concentrates, in one strip for morning and evening.",
+   "like": "Think of it as the floor under everything else. Zinc, selenium, iron, magnesium and the B vitamins each have a small job, and running short of any one slows the whole line. One base covers them all, instead of stacking five bottles.",
+   "who": [
+    "I eat at random times, when I eat at all",
+    "I'm dieting and I feel flat",
+    "I just want one thing that covers the basics"
+   ],
+   "how": "Morning and evening with food, every day. The 31-day refill is a standard month; the 10-day pack is for trying it first.",
+   "when": "Every day. It's a base, so judge it over a season, not a week.",
+   "watch": "More is not better. Keep zinc from all sources under 40 mg a day, and don't stack extra vitamin A or selenium on top: too much of either can itself cause hair loss. It sits under the targeted products, it doesn't replace them."
+  },
+  "zh": {
+   "what": "22种维生素矿物质，加22种植物浓缩，一条分早晚两次吃。",
+   "like": "把它当成地基。锌、硒、铁、镁、B族，每一样都有自己的小活儿，哪一样缺了，整条线都会慢下来。一份打底全照顾到，不用叠五瓶。",
+   "who": [
+    "吃饭有一顿没一顿",
+    "在减肥，人没精神",
+    "想要一样东西，把基本的都补上"
+   ],
+   "how": "早晚各一次，随餐吃，每天都吃。31天装是标准一个月的量，10天装适合先试试。",
+   "when": "每天吃。它是打底的，按一个季节看，不是看一周。",
+   "watch": "不是越多越好。所有来源加起来，锌每天不超过40毫克；也别再额外叠加维生素A或硒，吃多了本身就会掉发。它是垫在下面的底座，不能代替针对性的产品。"
+  }
+ },
+ "wellness-bars": {
+  "en": {
+   "what": "A whole-food bar that leads with nuts, fruit or oats, not sugar.",
+   "like": "Turn any bar over and read the first three ingredients. A candy bar with protein added starts with sugar; a whole-food bar starts with nuts, fruit or oats. That one line decides whether it helps or just moves the problem.",
+   "who": [
+    "I skip lunch, then raid the kitchen at night",
+    "I crash around 3 pm and grab a pastry",
+    "I need something in my bag"
+   ],
+   "how": "In the afternoon gap, in place of the pastry or the sweet drink, with a glass of water. Keep one in the bag, the car and the desk drawer.",
+   "when": "From the first afternoon. It works by being on hand when the gap hits.",
+   "watch": "It's a snack, not a meal. Nut allergy? Check the label first."
+  },
+  "zh": {
+   "what": "一根真食物营养棒，配料表排第一的是坚果、水果或燕麦，不是糖。",
+   "like": "随便拿一根棒子，翻过来看前三位配料。加了蛋白质的糖果棒，第一位是糖；真食物棒，第一位是坚果、水果或燕麦。就这一行字，决定了它是帮你，还是只是把问题挪了个地方。",
+   "who": [
+    "中午没吃，晚上翻冰箱",
+    "下午三点没电，顺手就拿块点心",
+    "包里想常备点吃的"
+   ],
+   "how": "下午那个空档吃，代替点心或甜饮料，配一杯水。包里、车上、办公桌抽屉各放一根。",
+   "when": "第一个下午就用得上，靠的是饿的时候它刚好在手边。",
+   "watch": "它是加餐，不是正餐。对坚果过敏的，先看清配料表。"
+  }
+ },
+ "xs-grass-fed-whey-protein": {
+  "en": {
+   "what": "25 g of grass-fed whey per scoop, third-party tested for banned substances.",
+   "like": "In sports supplements, testing is the exception, not the rule. Third-party tested means you know what's in the tub, which matters most if you compete. Whey is also rich in leucine, the amino acid that switches on muscle repair.",
+   "who": [
+    "I train hard and don't see results",
+    "I want to lose fat without losing muscle",
+    "I compete, so I need to know what's in it"
+   ],
+   "how": "One scoop after training, or at breakfast, the meal most people eat as pure carbs. A practical daily target is 1.2 g of protein per kilogram; above about 1.6 g, trials found no extra gain.",
+   "when": "Every day alongside training. Judge it over weeks of training, not one session.",
+   "watch": "Whey comes from milk, so with a milk allergy choose a plant protein; soy and whey gave equal gains in trials. Kidney disease? See a doctor before raising protein."
+  },
+  "zh": {
+   "what": "每勺25克草饲乳清蛋白，经过第三方禁药检测。",
+   "like": "运动补剂这一行，做检测的是少数。有第三方检测，罐子里装的是什么清清楚楚，参加比赛的人尤其在意。乳清还富含亮氨酸，就是启动肌肉修复的那个氨基酸。",
+   "who": [
+    "练得很拼，就是不见效果",
+    "想减脂，又不想掉肌肉",
+    "要参加比赛，得知道里面到底有什么"
+   ],
+   "how": "练完一勺，或者放在早餐，很多人的早餐几乎全是碳水。实用的目标是每天每公斤体重1.2克蛋白质；试验里超过1.6克左右就不再有额外的效果。",
+   "when": "跟着训练每天吃，按几周的训练来看，不是看一次。",
+   "watch": "乳清来自牛奶，对牛奶过敏的换成植物蛋白，试验里大豆蛋白和乳清的效果一样。有肾脏疾病的，加蛋白质之前先问医生。"
+  }
+ },
+ "probiotic": {
+  "en": {
+   "what": "6.3 billion live bacteria from clinically studied strains, with no fridge needed.",
+   "like": "Probiotics are the staff, fibre is their food. Hiring staff and not feeding them doesn't work, so this one goes with the fibre. And a big part of the immune system lives in the gut, which is why it comes up for colds, skin and digestion alike.",
+   "who": [
+    "I catch every cold going around",
+    "My stomach hasn't been right since the antibiotics",
+    "I'm bloated and not regular"
+   ],
+   "how": "One a day with food and cool water, not hot, alongside Prebiotic Fiber. Already on Stress Relief Probiotic? Swap, don't stack.",
+   "when": "Judge it after four weeks. For allergy season, give it two to three months.",
+   "watch": "The effects are modest and depend on the strain: about a quarter fewer colds in one review (low certainty), and about one extra trip to the bathroom a week. Say \"worth trying\", not \"it fixes it\"."
+  },
+  "zh": {
+   "what": "63亿活菌，用的是有临床研究的菌株，不用冷藏。",
+   "like": "益生菌是员工，纤维是它们的饭。招了员工不给饭吃，是干不了活的，所以它要跟纤维一起吃。免疫系统又有很大一部分在肠道里，所以感冒、皮肤、消化，都会聊到它。",
+   "who": [
+    "别人一感冒我就中招",
+    "吃完抗生素以后，肠胃一直不太对",
+    "肚子胀，排便也不规律"
+   ],
+   "how": "每天一粒，随餐，用凉白开送服，别用热水，和益生元纤维粉一起吃。已经在吃舒压益生菌的，二选一，不要叠加。",
+   "when": "四周后再判断。过敏季用的话，给它两三个月。",
+   "watch": "效果偏温和，而且看菌株：一篇综述里感冒少了大约四分之一（证据确定性较低），排便平均每周多一次左右。要说“值得试试”，不要说“能治好”。"
+  }
+ },
+ "cycle-support": {
+  "en": {
+   "what": "A chasteberry formula for monthly cycle comfort.",
+   "like": "Your cycle is a monthly rhythm, not a daily one. Taking it only on the bad days is like watering a plant only when it wilts: the support has to be there all month.",
+   "who": [
+    "The same spots on my jaw every month",
+    "The week before my period I'm a different person",
+    "My breasts get tender before my period"
+   ],
+   "how": "Every day through the whole month, not only on the hard days.",
+   "when": "Judge it over three cycles, not three weeks.",
+   "watch": "Pregnant, trying to conceive or on hormonal birth control? Ask the doctor first, and keep taking anything the doctor prescribed."
+  },
+  "zh": {
+   "what": "圣洁莓配方，照顾每个月的周期舒适。",
+   "like": "周期是按月走的，不是按天走的。只在难受那几天吃，就像花蔫了才浇水，支持得整个月都在。",
+   "who": [
+    "每个月下巴都准时冒那几颗痘",
+    "经前那一周，像换了个人",
+    "经前胸部胀痛"
+   ],
+   "how": "整个月每天吃，不是只在难受那几天吃。",
+   "when": "看三个周期，不是三个星期。",
+   "watch": "怀孕、备孕，或者正在用激素类避孕药的，先问医生。医生开的药照常吃。"
+  }
+ },
+ "artistry-vitamin-c-ha3-daily-serum": {
+  "en": {
+   "what": "A daily serum of topical vitamin C with three sizes of hyaluronic acid.",
+   "like": "Two different jobs in one bottle. The vitamin C lands right where pigment is made and slows it, so a mark left by a pimple stops getting darker. The hyaluronic acid holds water at different depths, and skin that isn't thirsty makes less oil, not more.",
+   "who": [
+    "The pimple's gone but the mark is still there",
+    "My skin is oily but feels tight after I wash it"
+   ],
+   "how": "Every day on clean skin. Use it alongside a vitamin C tablet, not instead of it: swallowed vitamin C reaches the outer skin poorly.",
+   "when": "Every day, once the breakouts are under control. Judge the marks over weeks, not days.",
+   "watch": "It's for the marks after the breakouts are handled, not for active spots. Sensitive skin? Try it on a small patch first."
+  },
+  "zh": {
+   "what": "每天用的精华，外用维C配三种分子量的玻尿酸。",
+   "like": "一瓶里做两件不同的事。维C直接落在色素生成的地方，把它减慢，痘印就不会越来越深。玻尿酸在不同深度锁水，皮肤不缺水了，出油反而少，不是更多。",
+   "who": [
+    "痘痘下去了，印子还在",
+    "明明是油皮，洗完脸却很紧绷"
+   ],
+   "how": "每天洁面后用。和维C片一起用，不是代替它：吃进去的维C很难到达皮肤表层。",
+   "when": "痘痘控制住以后每天用，印子按周来看，不是按天。",
+   "watch": "它是对付痘痘控制住之后的印子，不是对付正在长的痘。皮肤敏感的，先在一小块地方试一下。"
+  }
+ },
+ "vitamin-e-chewable": {
+  "en": {
+   "what": "Natural vitamin E with lecithin, in a chewable tablet.",
+   "like": "Vitamin E sits inside the oil in your skin and in cell membranes, and stops that oil going off, the way cooking oil turns rancid. Lecithin is what cell membranes are built from: an intact membrane holds water in and the cell stays a grape; a damaged one leaks and it becomes a raisin.",
+   "who": [
+    "My skin looks dull and uneven",
+    "I break out, and my skin feels dry at the same time",
+    "I want a long-term antioxidant base"
+   ],
+   "how": "Every day with a meal, usually alongside vitamin C and omega-3. The chewable is easier to keep up than a big softgel.",
+   "when": "Every day, as a base. Judge the skin over weeks.",
+   "watch": "It's fat-soluble, so don't stack several products that contain vitamin E. On blood thinners? Ask the doctor first."
+  },
+  "zh": {
+   "what": "天然维生素E加卵磷脂，做成咀嚼片。",
+   "like": "维生素E待在皮肤的油脂和细胞膜里，防止油脂被氧化，就像炒菜油放久了会变味一样。卵磷脂是细胞膜本身的材料：膜完整，水留得住，细胞像一颗饱满的葡萄；膜破了会漏，就变成葡萄干。",
+   "who": [
+    "皮肤暗沉，肤色不均",
+    "一边长痘，一边又觉得干",
+    "想打一个长期抗氧化的底"
+   ],
+   "how": "每天随餐吃，通常和维C、鱼油一起。咀嚼片比大颗软胶囊更容易坚持。",
+   "when": "每天吃，当作打底。皮肤按周来看。",
+   "watch": "它是脂溶性的，不要同时吃好几种含维生素E的产品。在吃抗凝药的，先问医生。"
+  }
+ },
+ "artistry-studio-done-with-zit": {
+  "en": {
+   "what": "A salicylic acid gel you dot onto a single spot.",
+   "like": "Salicylic acid dissolves in oil, so it can get down inside a pore where a water-based acid can't. That's why it's the standard for spot treatment, not something that just sounds stronger.",
+   "who": [
+    "I get the odd pimple right before a big day",
+    "I want something in my bag for one spot"
+   ],
+   "how": "Dot it on a spot that hasn't opened yet. Once it's open, a patch is the better choice, and keep your hands off.",
+   "when": "As needed, on single spots, not all over the face.",
+   "watch": "Don't pick: picking is the biggest cause of the mark left behind, and a mark outlasts the pimple by months. Not for broken skin."
+  },
+  "zh": {
+   "what": "水杨酸祛痘凝胶，点在单颗痘痘上。",
+   "like": "水杨酸是溶于油的，所以能钻进毛孔里面，水溶性的酸做不到。这就是它成为点涂标准成分的原因，而不是哪个听起来更猛的成分。",
+   "who": [
+    "一到重要日子前就冒一颗",
+    "包里想放一支，对付单颗痘"
+   ],
+   "how": "点在还没破的那颗痘上。已经破了的，改用痘痘贴，手别去碰。",
+   "when": "需要的时候用，点在单颗痘上，不要全脸涂。",
+   "watch": "别挤：挤痘是留下痘印的头号原因，而痘印比痘痘本身留得久好几个月。破皮的地方不要用。"
+  }
+ },
+ "vitamin-d": {
+  "en": {
+   "what": "The sunshine vitamin, for bones and normal immune function.",
+   "like": "Your skin makes vitamin D from sunlight, and office days and daily sunscreen are exactly what cut that. Spending the year indoors is like keeping a solar panel in the garage.",
+   "who": [
+    "I'm indoors all day",
+    "I wear sunscreen every day",
+    "Every winter I catch everything"
+   ],
+   "how": "Every day with a meal that has some fat. Steady daily or weekly doses, not a big one now and then.",
+   "when": "Every day. It helps most in people who were low, so judge it over a season.",
+   "watch": "Ask the doctor for a 25-hydroxy vitamin D test first, and stay under 4,000 IU a day from all sources unless the doctor says otherwise."
+  },
+  "zh": {
+   "what": "阳光维生素，支持骨骼和正常的免疫功能。",
+   "like": "维生素D是皮肤晒太阳时自己合成的，而坐办公室、天天擦防晒，正好把这条路堵住了。一年到头待在室内，就像把太阳能板收在车库里。",
+   "who": [
+    "整天待在室内",
+    "每天都擦防晒",
+    "一到冬天什么都中招"
+   ],
+   "how": "每天随一顿有点油脂的饭吃。要每天或每周稳定地吃，不是偶尔来一次大剂量。",
+   "when": "每天吃。本来就缺的人受益最大，按一个季节来看。",
+   "watch": "先请医生查一下25-羟基维生素D。所有来源加起来，每天不超过4000 IU，除非医生另有建议。"
+  }
+ },
+ "begin-30-holistic-wellness-solution": {
+  "en": {
+   "what": "Amway's 30-day gut-first program: GI Primer, two Plant Protein and a Probiotic, with the Wellbeing+ app to track it.",
+   "like": "A plan with an end date is far easier to finish than \"I'll eat better\". The box lays out the first month for you, and the app gives you a tick for every day.",
+   "who": [
+    "I've started and quit a dozen plans",
+    "I'm back from a trip and want a reset",
+    "Just tell me what to do for a month"
+   ],
+   "how": "Follow the 30 days as laid out and tick each day in the app. Warm water first thing, then breakfast between 7 and 9 am.",
+   "when": "Thirty days, roughly how long fibre and probiotics take to show.",
+   "watch": "It's a structure for the first month, not a treatment. Gut trouble that keeps coming back needs a doctor."
+  },
+  "zh": {
+   "what": "安利官方的30天肠道优先计划：肠道启动粉、两罐植物蛋白粉、益生菌，配合Wellbeing+ App打卡。",
+   "like": "有终点的计划，比“我以后要吃好一点”容易坚持得多。盒子里把第一个月都排好了，App让你每天打一个勾。",
+   "who": [
+    "试过好多计划，都半途而废",
+    "出差回来，想重新调一调",
+    "直接告诉我这个月该怎么做"
+   ],
+   "how": "按30天的安排走，每天在App里打卡。早上起来先喝温水，早餐在7到9点之间吃。",
+   "when": "三十天，差不多就是纤维和益生菌开始见效的时间。",
+   "watch": "它是第一个月的框架，不是治疗。肠胃问题反反复复的，要去看医生。"
+  }
+ },
+ "immunity-echinacea": {
+  "en": {
+   "what": "Echinacea, the most-studied immune herb, for short runs.",
+   "like": "Think of it as the umbrella for a rainy week, not something you carry all year. It's made for a trip, the peak of flu season, or the two weeks after a child brings something home.",
+   "who": [
+    "I have a big trip coming up",
+    "Flu season always gets me",
+    "My kid just brought something home from school"
+   ],
+   "how": "Every day through the stretch of extra exposure, then stop.",
+   "when": "Only for the stretch: a trip, the peak weeks, a fortnight.",
+   "watch": "The honest evidence is modest: pooled trials suggest a 10 to 20 percent lower risk, with no clear result in any single trial. Echinacea is in the daisy family, so skip it with a ragweed or daisy allergy. Pregnant? Ask the doctor first."
+  },
+  "zh": {
+   "what": "紫锥菊，研究最多的免疫植物，短期集中用。",
+   "like": "把它当成下雨那一周带的伞，不是一年到头背着。它就是为出差、流感高峰，或者孩子从学校带病回家之后的那两周准备的。",
+   "who": [
+    "马上要出远门",
+    "每年流感季都躲不过",
+    "孩子刚从学校带了感冒回来"
+   ],
+   "how": "接触病菌多的那段时间每天吃，过了就停。",
+   "when": "只用在那一段：一次出行、流感高峰那几周、两个星期左右。",
+   "watch": "老实说证据有限：合并分析显示风险可能低10%到20%，但没有一个单独的试验得出明确结果。紫锥菊属于菊科，对豚草或菊花过敏的不吃。怀孕的先问医生。"
+  }
+ },
+ "atmosphere-mini-air-purifier": {
+  "en": {
+   "what": "A compact HEPA air purifier for a bedroom or office up to 200 sq ft.",
+   "like": "You spend a third of your life in the bedroom, and that's where dust mites and pet dander pile up overnight. Running it all night with the door shut gives you at least eight hours a day of cleaner air.",
+   "who": [
+    "I wake up stuffy every morning",
+    "We have a cat and I sneeze all the time",
+    "We live on a busy road"
+   ],
+   "how": "In the bedroom, door closed, running all night. Wash the bedding in hot water every week too: the purifier catches what floats, the hot wash handles what sits in the bedding.",
+   "when": "From the first night. Keep it up, and replace the filter on the schedule the unit shows.",
+   "watch": "Buy it for the air, not the virus: there is no evidence a purifier prevents colds. An unchanged filter is just a fan."
+  },
+  "zh": {
+   "what": "小巧的HEPA空气净化器，适合200平方英尺以内的卧室或办公室。",
+   "like": "人一辈子有三分之一的时间在卧室，尘螨和宠物皮屑也是在这里堆一整夜。关上门整晚开着，一天至少有八个小时，呼吸的是更干净的空气。",
+   "who": [
+    "每天早上起来鼻子都是塞的",
+    "家里养猫，我一直打喷嚏",
+    "家住在大马路边"
+   ],
+   "how": "放在卧室，关上门，整晚开着。床单被套每周也用热水洗一次：空气里飘的它来抓，被子里的交给热水。",
+   "when": "第一晚就开始。要坚持开，按机器提示的时间换滤网。",
+   "watch": "买它是为了空气，不是为了病毒：没有证据表明净化器能预防感冒。滤网不换，它就只是一台风扇。"
+  }
+ },
+ "satinique-intensive-repair-shampoo": {
+  "en": {
+   "what": "A shampoo for colour-treated, bleached or heat-styled hair.",
+   "like": "Damaged hair has its outer layer lifted, like the scales of a pine cone opening up. Every wash either smooths them back down or lifts them further, which is why for coloured hair the shampoo matters more than the mask.",
+   "who": [
+    "My ends are dry and keep snapping",
+    "I colour or bleach my hair",
+    "I use a straightener or curler every day"
+   ],
+   "how": "Shampoo the scalp, not the lengths, then the Intensive Repair Conditioner on the ends, every wash. Pat dry, don't rub, and turn the heat down.",
+   "when": "Every wash. It protects the length you have while new hair grows through, about a centimetre a month.",
+   "watch": "Nothing repairs hair that has already grown out; this protects it. A hair with a white bulb at the end came out at the root, and that's worth looking at from the inside."
+  },
+  "zh": {
+   "what": "适合染过、漂过、常用高温的头发的洗发水。",
+   "like": "受损的头发，最外面那层是翘起来的，像松果的鳞片张开了一样。每洗一次，不是把它抚平，就是把它掀得更开。所以染过的头发，洗发水比发膜更关键。",
+   "who": [
+    "发尾又干又容易断",
+    "常染发、漂发",
+    "每天都用直板夹或卷发棒"
+   ],
+   "how": "洗发水洗头皮，不是洗发梢，然后每次都把密集修护护发素抹在发尾。毛巾按干，别来回搓，吹风机调低温。",
+   "when": "每次洗头都用。它护住已经长出来的那段，等新头发慢慢长出来，一个月大约一厘米。",
+   "watch": "已经长出来的头发，什么都修不回去，它是用来护的。掉下来的头发一头有个白色小球，说明是从根部掉的，那要从身体里面找原因。"
+  }
+ },
+ "satinique-purifying-shampoo-280ml": {
+  "en": {
+   "what": "A deep-cleaning shampoo without harsh sulfates, for oily roots.",
+   "like": "Oil and styling product build up on the scalp like grease on a pan, and the roots go flat by noon. This resets it. With an oily, flaky scalp, washing more often helps, not less.",
+   "who": [
+    "My hair goes flat by the afternoon",
+    "My scalp gets oily fast",
+    "I use a lot of styling product"
+   ],
+   "how": "On the days between the anti-dandruff washes, or as your regular shampoo for oily roots. Work it into the scalp, then the Purifying Conditioner.",
+   "when": "Every wash.",
+   "watch": "Fine white flakes with a tight, dry scalp are a different problem and need gentler washing. Itchy flakes on an oily scalp: use the Anti-Dandruff Shampoo on flare days."
+  },
+  "zh": {
+   "what": "不含刺激性硫酸盐的深层清洁洗发水，给油性头皮用。",
+   "like": "油脂和造型产品堆在头皮上，就像锅上的一层油垢，头发一到中午就塌。它就是把头皮重新洗清爽。头皮又油又起屑的，要勤洗，不是少洗。",
+   "who": [
+    "头发一到下午就塌",
+    "头皮出油特别快",
+    "平时造型产品用得多"
+   ],
+   "how": "在两次去屑洗发之间的日子用，或者油头皮平时就用它。揉在头皮上，之后用净化护发素。",
+   "when": "每次洗头都用。",
+   "watch": "如果是细小发白的屑、头皮又干又紧，那是另一种问题，要洗得温和一些。油头皮上又痒又起屑的，发作的日子用去屑洗发水。"
+  }
+ },
+ "satinique-anti-hair-fall-scalp-tonic": {
+  "en": {
+   "what": "A leave-in tonic that goes on the scalp, not the hair.",
+   "like": "A shampoo sits on your scalp for about thirty seconds before you rinse it off. A tonic stays there. If the scalp is the problem, that contact time is the whole point.",
+   "who": [
+    "My part looks wider than it used to",
+    "My temples are getting thin",
+    "I want care that stays on my scalp"
+   ],
+   "how": "Apply it to the scalp and leave it on, don't rinse.",
+   "when": "As part of the routine, judged in months: hair grows about a centimetre a month.",
+   "watch": "A widening part or thinning temples is usually inherited pattern loss, which no tonic or shampoo reverses. A dermatologist has proven treatments, and they work best started early."
+  },
+  "zh": {
+   "what": "免洗的头皮精华，涂在头皮上，不是头发上。",
+   "like": "洗发水在头皮上停大约三十秒就冲掉了，精华是留在上面的。如果问题真的在头皮，这段停留的时间就是全部的道理。",
+   "who": [
+    "发缝好像比以前宽了",
+    "两边鬓角越来越稀",
+    "想要能留在头皮上的护理"
+   ],
+   "how": "涂在头皮上，不用冲。",
+   "when": "放进日常护理里，按月来看：头发一个月大约长一厘米。",
+   "watch": "发缝越来越宽、两鬓变稀，多半是遗传性脱发，精华和洗发水都逆转不了。皮肤科有经过验证的治疗，越早开始越好。"
+  }
+ },
+ "satinique-smooth-conditioner": {
+  "en": {
+   "what": "A detangling conditioner for dry or frizzy hair, without the heavy silicone that builds up.",
+   "like": "Shampoo opens the hair, conditioner closes it. This one smooths and detangles without a heavy coating, so hair doesn't feel greasy by day two.",
+   "who": [
+    "My hair is dry and frizzy",
+    "Long hair, always tangled",
+    "Most conditioners make my hair greasy by the next day"
+   ],
+   "how": "After every shampoo, on the ends, not the scalp. Goes with the Satinique Smooth Shampoo.",
+   "when": "Every wash.",
+   "watch": "Coloured, bleached or heat-styled? Intensive Repair is the better line. Conditioner protects the length you have; it can't regrow it."
+  },
+  "zh": {
+   "what": "顺滑护发素，给干、毛躁的头发，不含会堆积的厚重硅油。",
+   "like": "洗发水把头发打开，护发素把它合上。它让头发顺滑、好梳，又不会糊上一层厚膜，第二天也不会发油。",
+   "who": [
+    "头发又干又毛躁",
+    "长头发，老是打结",
+    "大部分护发素用完，第二天头发就油了"
+   ],
+   "how": "每次洗完头都用，抹在发尾，不抹头皮。搭配丝婷柔润洗发水。",
+   "when": "每次洗头都用。",
+   "watch": "染过、漂过、常用高温的，选密集修护系列更合适。护发素护的是已经长出来的那段，长不出新头发。"
+  }
+ },
+ "memory-builder": {
+  "en": {
+   "what": "Ginkgo leaf with cistanche, a root long used in Chinese tradition, for memory.",
+   "like": "It's aimed at the word on the tip of your tongue: you know it, you just can't pull it up. That's a narrower claim than a general brain blend, and a narrower claim is easier to test.",
+   "who": [
+    "The word is on the tip of my tongue",
+    "I walk into a room and forget why",
+    "It runs in my family and I want to start early"
+   ],
+   "how": "Every day, as a steady habit.",
+   "when": "The trials ran 30 to 90 days, so give it about three months.",
+   "watch": "On blood thinners or aspirin, or having surgery? Ask the doctor first: ginkgo can add to bleeding risk. The honest picture: the memory trials were run by researchers linked to the maker, and independent ginkgo research in healthy people is less encouraging."
+  },
+  "zh": {
+   "what": "银杏叶加管花肉苁蓉，一种在中国传统里用了很久的根，针对记忆力。",
+   "like": "它针对的是“话到嘴边想不起来”：明明知道，就是提不出来。这比泛泛的健脑配方说得更窄，说得窄，才更好验证。",
+   "who": [
+    "话到嘴边就是想不起来",
+    "走进房间，忘了要拿什么",
+    "家里有人有这个问题，想早点开始"
+   ],
+   "how": "每天吃，当成固定的习惯。",
+   "when": "试验做的是30到90天，所以给它三个月左右。",
+   "watch": "在吃抗凝药、阿司匹林，或者准备做手术的，先问医生：银杏可能增加出血风险。老实说，这几项记忆力试验是和厂家有关的研究人员做的，而独立的银杏研究，在健康人身上的结果没那么乐观。"
+  }
+ },
+ "women-s-daily-multivitamin": {
+  "en": {
+   "what": "One tablet a day, with the iron, folate and calcium a woman's body needs more of.",
+   "like": "Women's formulas differ mainly in iron, folate and calcium, and that's real biology, not marketing: every period carries iron out. It's a simple floor under the day, in a format you can keep up for a year.",
+   "who": [
+    "I just want somewhere simple to start",
+    "I want one tablet, not five",
+    "I'm tired and I eat at random times"
+   ],
+   "how": "One tablet a day with a meal.",
+   "when": "Every day. A year is the timescale that matters.",
+   "watch": "It's the base, not the targeted fix. Pick one multivitamin, not this and Double X both. Pregnant or trying to conceive? Ask the doctor first."
+  },
+  "zh": {
+   "what": "每天一片，铁、叶酸和钙按女性的需要来配。",
+   "like": "女性配方的差别，主要就在铁、叶酸和钙，这是真实的生理差异，不是营销话术：每次月经都会带走铁。它给每天的营养垫一个简单的底，一片的剂型也最容易坚持一年。",
+   "who": [
+    "想从最简单的开始",
+    "只想吃一片，不想吃五瓶",
+    "人容易累，吃饭也不规律"
+   ],
+   "how": "每天一片，随餐吃。",
+   "when": "每天吃。按一年来看才有意义。",
+   "watch": "它是打底的，不是针对性的方案。综合营养片选一种就好，不要和双X一起吃。怀孕或备孕的，先问医生。"
+  }
+ },
+ "organics-turmeric-capsules": {
+  "en": {
+   "what": "Organic turmeric capsules for the body's background inflammation.",
+   "like": "Inflammation is the body's repair crew. Belly fat, hard training and poor food can keep a small crew working all day long. Turmeric is background support for turning that down, not a pill before a hard day.",
+   "who": [
+    "I'm stiff in the morning",
+    "My belly is growing but my arms are thin",
+    "I'm still sore days after training"
+   ],
+   "how": "Every day with a meal. With turmeric, absorption is the old problem, so the form matters more than the milligram number on the front.",
+   "when": "It's a background process, so judge it in months, not days.",
+   "watch": "The curcumin trials are smaller and less consistent than for omega-3, so call it support, not a fix. On blood thinners or other regular medication, or pregnant? Ask the doctor first."
+  },
+  "zh": {
+   "what": "有机姜黄胶囊，针对身体里的慢性背景炎症。",
+   "like": "炎症是身体的修理队。肚子上的脂肪、高强度训练、吃得不好，都会让一小队人整天加班。姜黄是在背后帮忙把它调下来，不是练前吃一粒就管用。",
+   "who": [
+    "早上起来身体发僵",
+    "肚子越来越大，胳膊却很细",
+    "练完好几天还在酸痛"
+   ],
+   "how": "每天随餐吃。姜黄老大难的问题是吸收，所以要看剂型工艺，不是正面标的毫克数。",
+   "when": "它是后台慢慢起作用的，按月看效果，不是按天。",
+   "watch": "姜黄素的试验规模小、结果也不太一致，所以要说是“支持”，不是“能解决”。在吃抗凝药或其他长期用药、或者怀孕的，先问医生。"
+  }
+ },
+ "eye-mojo-blue-light-gummies": {
+  "en": {
+   "what": "Lutein and zeaxanthin in a gummy, for screen-heavy days.",
+   "like": "Lutein and zeaxanthin are the yellow pigments at the centre of the retina. They filter blue light, and the body can't make them. A gummy on the desk is also a handy cue: when you reach for it, look 20 feet away for 20 seconds.",
+   "who": [
+    "My eyes are tired after screens all day",
+    "My teenager is on a screen all day",
+    "I'll never open a bottle of capsules"
+   ],
+   "how": "Every day, kept on the desk. Pair it with the 20-20-20 break: every 20 minutes, look 20 feet away for 20 seconds.",
+   "when": "Every day. In studies of these pigments, the benefit for glare took about a year; the gummy itself was not the product tested.",
+   "watch": "Check the age on the label before giving it to a younger child, and keep gummies out of reach: they look like sweets. Pick one lutein product, not two. Most screen strain is fewer blinks, not damage, so the break matters most."
+  },
+  "zh": {
+   "what": "叶黄素和玉米黄质做成的软糖，给整天盯屏幕的人。",
+   "like": "叶黄素和玉米黄质，是视网膜中心那块黄色的色素，能过滤蓝光，而身体自己做不出来。放一包在桌上，还是个提醒：伸手拿的时候，顺便看看六米外，看二十秒。",
+   "who": [
+    "盯了一天屏幕，眼睛特别累",
+    "家里青少年整天抱着屏幕",
+    "胶囊瓶子我是永远不会打开的"
+   ],
+   "how": "每天吃，就放在办公桌上。配合20-20-20的习惯：每20分钟，看6米外20秒。",
+   "when": "每天吃。研究这类色素的试验里，改善眩光大约要一年；不过试验用的不是这款软糖本身。",
+   "watch": "给年纪更小的孩子吃之前，先看清标签上的适用年龄；软糖放在孩子拿不到的地方，它们看起来就像糖果。叶黄素产品选一种，不要两种一起吃。看屏幕眼累，大多是眨眼变少了，不是眼睛受损，所以休息最重要。"
+  }
+ },
+ "xs-pre-workout-boost": {
+  "en": {
+   "what": "A pre-workout drink with about 115 mg of caffeine per serving, roughly a cup of coffee.",
+   "like": "It's the push that gets you out the door on a tired evening, not rocket fuel. Caffeine is one of the best-supported training aids, and this is a modest dose without the jittery crash of high-stimulant products.",
+   "who": [
+    "I have no energy for the gym after work",
+    "I train early and need a push",
+    "Strong pre-workouts make my heart race"
+   ],
+   "how": "About an hour before training, and not within six hours of bed.",
+   "when": "Each session, on the days you need it.",
+   "watch": "Count it with your coffee for the day. The beta-alanine can cause a harmless tingling. Pregnant, sensitive to caffeine or with a heart condition? Ask the doctor first. Sleep does more for recovery than the boost does."
+  },
+  "zh": {
+   "what": "训练前激活粉，每份咖啡因约115毫克，差不多一杯咖啡。",
+   "like": "它是累了一天的晚上，把你推出门的那一下，不是火箭燃料。咖啡因是训练里证据最充分的帮手之一，这个量很温和，没有高刺激产品那种心慌和之后的崩溃感。",
+   "who": [
+    "下班后根本没力气去健身房",
+    "早上训练，需要推一把",
+    "劲大的训练前产品喝了心慌"
+   ],
+   "how": "训练前一小时左右喝，睡前六小时内别喝。",
+   "when": "需要的那天，每次训练前喝。",
+   "watch": "要跟当天喝的咖啡算在一起。里面的β-丙氨酸可能让皮肤有点刺刺麻麻，是无害的。怀孕、对咖啡因敏感或者有心脏问题的，先问医生。睡好觉对恢复的帮助，比它大得多。"
+  }
+ },
+ "carb-blocker": {
+  "en": {
+   "what": "White kidney bean extract, taken before a starch-heavy meal so part of the starch passes through instead of turning into sugar.",
+   "like": "Starch is a long chain that an enzyme cuts into sugar, like scissors. This slows the scissors down, so part of the bowl of rice goes through without arriving as sugar all at once.",
+   "who": [
+    "I can't give up rice or noodles",
+    "I'm sleepy an hour after lunch",
+    "Big dinners out with the family"
+   ],
+   "how": "Before the meal you know will be heavy on rice, noodles or bread. The label is 500 mg of white kidney bean extract.",
+   "when": "Meal by meal. It's a tool for the meals you won't give up, not a daily supplement.",
+   "watch": "It's not permission to eat more. On blood sugar medication? Keep taking it exactly as prescribed, and tell the doctor before adding this."
+  },
+  "zh": {
+   "what": "白芸豆提取物，碳水多的那顿饭前吃，让一部分淀粉直接通过，不一下子全变成糖。",
+   "like": "淀粉是一长串，要靠一种酶像剪刀一样剪成糖。阻碳片让剪刀慢下来，一碗米饭里就有一部分直接过去了，不会一下子全变成糖。",
+   "who": [
+    "米饭面条戒不掉",
+    "午饭后一小时就犯困",
+    "常和家人朋友在外面吃大餐"
+   ],
+   "how": "知道这顿米饭、面条、面包多，就饭前吃。标签上是每份500毫克白芸豆提取物。",
+   "when": "按餐用。它是给那几顿躲不掉的饭准备的工具，不是每天必补的营养品。",
+   "watch": "它不是可以多吃的理由。已经在吃降糖药的，一定照医嘱继续吃，加之前先告诉医生。"
+  }
+ },
+ "xs-protein-bars-12-pack": {
+  "en": {
+   "what": "A protein bar made to replace a snack, not a candy bar with protein added.",
+   "like": "Most plans don't fail at dinner. They fail at 4 pm, when there's nothing on hand and the chips are right there. This is the thing on hand.",
+   "who": [
+    "I skip meals on long days",
+    "No energy for the gym after work",
+    "I snack when I'm stressed"
+   ],
+   "how": "Keep a few in the desk drawer, the gym bag or the car. Training after work? Eat one around 5 pm.",
+   "when": "Whenever the gap between meals runs long.",
+   "watch": "It fills the gap between meals; it doesn't replace them."
+  },
+  "zh": {
+   "what": "定位是代替零食的蛋白棒，不是加了蛋白质的糖果棒。",
+   "like": "计划很少是在晚饭失败的，多半是下午四点，手边什么都没有，薯片就在旁边。它就是那个手边的东西。",
+   "who": [
+    "忙起来就不吃饭",
+    "下班后想去健身却没力气",
+    "一有压力就想吃零食"
+   ],
+   "how": "办公桌抽屉、健身包、车里各放几根。下班要训练的，下午五点左右吃一根。",
+   "when": "两餐之间隔得太久的时候。",
+   "watch": "它是填两餐之间的空当，不是用来代替正餐的。"
+  }
+ },
+ "xs-muscle-multiplier-eaas": {
+  "en": {
+   "what": "The nine essential amino acids, the ones your body can't make, without a full protein shake.",
+   "like": "Protein is a necklace of amino acids. This is the nine beads your body can't make itself, already off the string, so it sits light in the stomach.",
+   "who": [
+    "I train before I eat",
+    "A full shake is too heavy during a workout",
+    "I'm cutting and want to keep my muscle"
+   ],
+   "how": "During or after training, when you train fasted or a full shake feels too heavy.",
+   "when": "On training days, to fill gaps. How much protein you get across the whole day matters more than the exact minute after the workout.",
+   "watch": "Not better than whole protein, and not a meal. It only helps on top of the training itself."
+  },
+  "zh": {
+   "what": "九种必需氨基酸，也就是身体自己造不出来的那几种，不用喝一整杯蛋白粉。",
+   "like": "蛋白质像一串氨基酸串成的项链。这款是身体自己做不出来的那九颗珠子，已经从线上拆下来了，所以喝下去很轻，不撑胃。",
+   "who": [
+    "空腹去训练",
+    "练的时候喝不下一整杯蛋白粉",
+    "在减脂，又想留住肌肉"
+   ],
+   "how": "训练中或训练后，空腹练、或者觉得一整杯蛋白粉太沉的时候喝。",
+   "when": "训练日用来补空当。一整天蛋白质吃够没有，比练完后哪一分钟喝更重要。",
+   "watch": "它不比完整的蛋白质更好，也不能当饭。前提是你真的在练。"
+  }
+ },
+ "metabolic-pre-postbiotic": {
+  "en": {
+   "what": "A prebiotic that feeds your gut bacteria, plus postbiotics: what those bacteria make.",
+   "like": "Your gut bacteria turn fibre into compounds that play a part in blood sugar. Postbiotics are those compounds handed to you directly, so it doesn't matter whether the bacteria survive the trip.",
+   "who": [
+    "I eat fairly well, but my waist keeps growing",
+    "Belly fat, slim arms",
+    "I want the gut side covered too"
+   ],
+   "how": "Every day, alongside fibre. If they'll only add one thing for the gut, fibre comes first: feeding the bacteria you have is cheaper than importing new ones.",
+   "when": "Judge it in months, along with your waist, not by next week's reading.",
+   "watch": "On blood sugar medication? Keep taking it as prescribed, and tell the doctor before adding anything."
+  },
+  "zh": {
+   "what": "益生元喂养肠道菌，再加上后生元，也就是这些菌产出的东西。",
+   "like": "肠道细菌会把纤维变成参与血糖调节的物质。后生元就是把这些物质直接给你，所以菌能不能活着走到肠道，都不影响。",
+   "who": [
+    "吃得还算规律，腰围却一直涨",
+    "四肢不胖，肚子大",
+    "想把肠道这一环也补上"
+   ],
+   "how": "每天吃，配上纤维。肠道这块只加一样的话，先加纤维：喂饱你本来就有的菌，比引进一批新的划算。",
+   "when": "按月看效果，连同腰围一起看，别盯着下周的数字。",
+   "watch": "已经在吃降糖药的，照医嘱继续吃，添加任何东西前先告诉医生。"
+  }
+ },
+ "artistry-studio-rose-all-day-anti-acne-toner": {
+  "en": {
+   "what": "A salicylic acid toner for the whole face, not just the spot.",
+   "like": "Salicylic acid dissolves in oil, so it travels down into the pore and breaks the plug up from the inside. The pore that becomes next week's pimple is already clogged today.",
+   "who": [
+    "My breakouts come in waves",
+    "Oily by noon, and still breaking out",
+    "I break out on my jaw before my period"
+   ],
+   "how": "After cleansing, across the whole face, or the whole jaw, not only on the spot you can see.",
+   "when": "Every day. It's about the next pimple, not today's.",
+   "watch": "Don't over-wash on top of it: stripping the skin makes it produce more oil. Wear sunscreen in the day while you use acids."
+  },
+  "zh": {
+   "what": "水杨酸爽肤水，管的是全脸，不只是那一颗痘。",
+   "like": "水杨酸是溶于油的，能钻进毛孔里，从里面把堵塞化开。下周要冒出来的那颗痘，今天毛孔其实已经堵上了。",
+   "who": [
+    "痘痘一片一片地冒",
+    "中午就出油，还一直长痘",
+    "经期前下巴就长痘"
+   ],
+   "how": "洁面后擦全脸，或者整个下巴，不只点在看得见的那颗上。",
+   "when": "每天用。它针对的是下一颗痘，不是今天这颗。",
+   "watch": "别再拼命洗脸，洗得太干净，皮肤反而出更多油。用酸类的期间，白天记得擦防晒。"
+  }
+ },
+ "artistry-multi-defense-uv-protect-spf50": {
+  "en": {
+   "what": "An SPF 50 sunscreen light enough to wear every day, under makeup.",
+   "like": "People don't skip sunscreen because they don't believe in it. They skip it because it feels heavy. This one layers under makeup without pilling, so it actually gets worn.",
+   "who": [
+    "Marks after pimples that won't fade",
+    "I use retinol, acids or brightening products",
+    "Sunscreen always feels greasy on me"
+   ],
+   "how": "Every morning, as the last skincare step before makeup.",
+   "when": "Every day, all year.",
+   "watch": "Sun darkens marks and oxidises the oil in your pores, so skipping it undoes the rest of the routine. Acne-prone skin needs a light formula, because a heavy sunscreen can clog pores."
+  },
+  "zh": {
+   "what": "SPF50防晒，够轻薄，天天擦，上妆也不搓泥。",
+   "like": "大家不擦防晒，不是不信，是嫌厚重。这款能叠在妆前不搓泥，所以才真的会每天擦。",
+   "who": [
+    "痘印一直退不掉",
+    "在用A醇、酸类或美白产品",
+    "防晒擦上去总觉得油"
+   ],
+   "how": "每天早上，护肤最后一步，上妆之前擦。",
+   "when": "每天擦，一年四季都擦。",
+   "watch": "紫外线会让印子变深，还会让毛孔里的油脂氧化，不擦，前面的护肤就白做了。容易长痘的皮肤要选轻薄的，厚重的防晒会堵毛孔。"
+  }
+ },
+ "artistry-signature-select-purifying-mask": {
+  "en": {
+   "what": "A deep-cleaning mask that draws excess oil and congestion out of the pores.",
+   "like": "Daily washing is tidying up; this is the weekly deep clean for what builds up in between.",
+   "who": [
+    "Blackheads on my nose",
+    "My pores clog all the time",
+    "Oily or combination skin"
+   ],
+   "how": "Once a week, on clean skin.",
+   "when": "Once a week is enough.",
+   "watch": "More is not better: over-cleansing makes skin produce more oil."
+  },
+  "zh": {
+   "what": "深层清洁面膜，把毛孔里多余的油脂和堵塞物吸出来。",
+   "like": "每天洗脸是日常收拾，它是每周一次的大扫除，清掉平时积下来的东西。",
+   "who": [
+    "鼻子上有黑头",
+    "毛孔老是堵",
+    "油性或混合性皮肤"
+   ],
+   "how": "每周一次，洁面后用。",
+   "when": "一周一次就够了。",
+   "watch": "不是越多越好，清洁过度，皮肤反而出更多油。"
+  }
+ },
+ "artistry-studio-glow-boss-cleanser-exfoliator": {
+  "en": {
+   "what": "A cleanser and gentle exfoliator in one step.",
+   "like": "Most people who own a separate scrub use it far less than they should. Two steps in one means it actually happens, gently, every day, instead of a hard scrub once a week.",
+   "who": [
+    "My skin feels rough and congested",
+    "I'm not doing a five-step routine",
+    "I want one product at the sink"
+   ],
+   "how": "In place of your usual cleanser, with a light hand. Choose this one only if your skin is genuinely congested.",
+   "when": "Every day. Gentle and daily beats harsh and weekly.",
+   "watch": "Don't scrub hard or wash four times a day: stripping the skin's barrier makes it produce more oil. Not congested? A gentle cleanser is enough."
+  },
+  "zh": {
+   "what": "洁面加温和去角质，一步完成。",
+   "like": "单独买了磨砂膏的人，大多数用得远比该用的少。两步合一，才会真的每天温和地做，而不是一周猛搓一次。",
+   "who": [
+    "皮肤粗糙、毛孔堵",
+    "五步护肤我坚持不下来",
+    "洗手台上只想放一样"
+   ],
+   "how": "代替平时的洁面，手法轻一点。只有皮肤真的堵的时候才选这款。",
+   "when": "每天用。每天温和，好过每周猛搓。",
+   "watch": "别用力搓，也别一天洗四次，屏障被洗掉，皮肤反而出更多油。皮肤不堵的，温和洁面就够了。"
+  }
+ },
+ "concentrated-fruits-vegetables": {
+  "en": {
+   "what": "Plant compounds from five colour groups of fruit and vegetables, in capsules.",
+   "like": "Each colour on your plate carries a different family of plant compounds, and almost nobody eats all five colours in a week. This is a floor under your diet for the weeks you don't, not a replacement for it.",
+   "who": [
+    "Honestly, I eat the same two or three vegetables",
+    "I travel a lot for work",
+    "My eyes itch in allergy season"
+   ],
+   "how": "With a meal, every day.",
+   "when": "Every day, as a base. It's a floor under the diet, not something you feel tomorrow.",
+   "watch": "Human evidence is early: for allergies only a few small trials, so it's not an antihistamine. Eat the colours first. For children, check the age on the label."
+  },
+  "zh": {
+   "what": "五种颜色蔬果的植物营养素，浓缩在胶囊里。",
+   "like": "盘子里每一种颜色，代表一类不同的植物营养素，而几乎没有人能一周把五种颜色吃全。没吃够的那几周，它给饮食托个底，但不是代替吃菜。",
+   "who": [
+    "老实说，蔬菜就那两三样来回吃",
+    "经常出差",
+    "一到过敏季眼睛就痒"
+   ],
+   "how": "每天随餐吃。",
+   "when": "每天吃，当作底座。它是给饮食托底，不是明天就能感觉到的东西。",
+   "watch": "人体证据还在早期，过敏方面只有几项小型试验，所以它不是抗过敏药。先把五颜六色吃起来。给孩子吃的，先看标签上的适用年龄。"
+  }
+ },
+ "g-h-protect-hand-soap": {
+  "en": {
+   "what": "An everyday hand soap that cleans without drying your hands out.",
+   "like": "Washing your hands is the cheapest immune step there is, but people cut it short once their hands crack, and cracked skin is a broken barrier of its own. A soap that doesn't strip keeps everyone washing.",
+   "who": [
+    "The kids bring every bug home",
+    "My hands crack from all the washing",
+    "I wash my hands twenty times a day"
+   ],
+   "how": "Twenty seconds when you get home, before eating, and after the school run.",
+   "when": "Every time. Community handwashing programmes cut colds and similar illnesses by 16 to 21 percent.",
+   "watch": "Hand sanitiser is for when there's no soap, not instead of it."
+  },
+  "zh": {
+   "what": "日常洗手液，洗得干净，手又不干。",
+   "like": "洗手是最便宜的一步免疫，可手一干裂，大家就开始敷衍，而裂开的皮肤本身就是破了的屏障。洗了不干的洗手液，全家才愿意一直好好洗。",
+   "who": [
+    "孩子什么病菌都往家里带",
+    "手洗得都裂了",
+    "一天要洗二十次手"
+   ],
+   "how": "回到家、吃饭前、接完孩子回来，每次洗二十秒。",
+   "when": "每一次都洗。社区推广洗手，感冒这类呼吸道疾病少了16%到21%。",
+   "watch": "免洗洗手液是没有肥皂时用的，不能代替洗手。"
+  }
+ },
+ "twist-tubes": {
+  "en": {
+   "what": "A single serving you twist and shake into water, in immunity, joint or antioxidant versions.",
+   "like": "Your routine in your pocket. Twist the cap, shake it into a bottle of water and drink: nothing to measure, nothing to carry home.",
+   "who": [
+    "I'm always travelling",
+    "Flu season is coming",
+    "I want something for the office drawer"
+   ],
+   "how": "Twist, shake into water, drink. Keep a few in the bag for the stretch you need them.",
+   "when": "For the high-exposure weeks: a trip, the peak of flu season, or the fortnight after a child brings something home. Then stop.",
+   "watch": "It keeps the routine going, it doesn't stop you getting sick. The evidence for short-run immune support is modest."
+  },
+  "zh": {
+   "what": "单份装，一拧一摇倒进水里就能喝，有免疫、关节、抗氧化几种。",
+   "like": "随身带着的日常习惯。拧开瓶盖，摇进一瓶水里喝掉，不用量，也没有东西要带回家。",
+   "who": [
+    "经常出差",
+    "流感季快到了",
+    "想在办公室抽屉里放点东西"
+   ],
+   "how": "一拧一摇倒进水里喝。需要的那段时间，包里放几支。",
+   "when": "用在接触多的那几周：出门旅行、流感高峰，或者孩子把病带回家后的两周。过了就停。",
+   "watch": "它让习惯不断档，但不能保证不生病。短期免疫支持的证据只是中等。"
+  }
+ },
+ "atmosphere-sky-air-purifier": {
+  "en": {
+   "what": "A three-stage air purifier with a HEPA layer, for living spaces up to 465 sq ft, that adjusts itself to the air.",
+   "like": "Pet dander and fine dust are so light they float for hours, then settle on the sofa and the carpet. The purifier catches what's in the air, so there's less to breathe and less to settle.",
+   "who": [
+    "I sneeze around the cat",
+    "It's worse every pollen season",
+    "Our city has bad air days"
+   ],
+   "how": "In the living room, where you spend the day. Keep windows shut on high-pollen days, and change the filter on the schedule the unit shows.",
+   "when": "Every day, running in the background. Across eight air-filter trials, day and night symptoms dropped a little.",
+   "watch": "There's no evidence a purifier prevents colds: buy it for the air, not the virus. It works alongside a hot wash of the bedding and pets out of the bedroom, not instead."
+  },
+  "zh": {
+   "what": "三重滤净、带HEPA滤网的空气净化器，适合465平方英尺以内的空间，会自己根据空气调档。",
+   "like": "宠物皮屑和细灰尘很轻，能在空气里飘好几个小时，再落到沙发和地毯上。净化器把空气里飘的抓住，吸进去的少了，落下来的也少了。",
+   "who": [
+    "一碰到猫就打喷嚏",
+    "每年花粉季都更严重",
+    "住的城市空气常常不好"
+   ],
+   "how": "放在客厅，白天待的地方。花粉多的日子关好窗，按机器提示的时间换滤网。",
+   "when": "每天开着，在背景里一直工作。汇总八个空气过滤试验，白天和夜里的症状都有小幅下降。",
+   "watch": "没有证据说净化器能防感冒，买它是为了空气，不是为了病毒。它要配合床品热水洗、宠物不进卧室一起做，不是替代。"
+  }
+ },
+ "satinique-intensive-repair-conditioner": {
+  "en": {
+   "what": "The matching conditioner for damaged hair: colour-treated, bleached or heat-styled.",
+   "like": "Shampoo opens the outer layer of the hair, conditioner closes it. Use the repair shampoo without this and that layer is left open.",
+   "who": [
+    "My ends are dry and keep breaking",
+    "I colour or bleach my hair",
+    "I use a straightener or hairdryer every day"
+   ],
+   "how": "After every shampoo, on the ends, where the breaking happens.",
+   "when": "Every wash. Hair that's already grown is dead fibre, so this protects it until new hair grows through.",
+   "watch": "Pair it with the Intensive Repair shampoo: mixing lines often works worse than either line used properly. Pat dry instead of rubbing, and turn the heat down."
+  },
+  "zh": {
+   "what": "受损发质的配套护发素，适合染过、漂过或经常热烫造型的头发。",
+   "like": "洗发水把头发表面那层打开，护发素把它合上。只用修护洗发水、不用这瓶，那层就一直开着。",
+   "who": [
+    "发尾干，一直断",
+    "染发或漂发",
+    "每天用直板夹或吹风机"
+   ],
+   "how": "每次洗完头都用，抹在发尾，那里最容易断。",
+   "when": "每次洗头都用。长出来的头发已经是没有生命的纤维，护发素是在新头发长出来之前把它护住。",
+   "watch": "和密集修护洗发水配套用，混用不同系列，效果常常不如一个系列用完整。头发拍干，别用力搓，吹风机温度调低一点。"
+  }
+ },
+ "satinique-purifying-conditioner": {
+  "en": {
+   "what": "A conditioner for the lengths that leaves the roots clean and light.",
+   "like": "Fine hair goes flat when conditioner reaches the roots. This one is made to stop that, so the formula does the work, not how carefully you rinse.",
+   "who": [
+    "My hair is flat by noon",
+    "My scalp gets oily fast",
+    "Regular conditioner weighs my hair down"
+   ],
+   "how": "After shampooing, from mid-lengths to ends, away from the scalp.",
+   "when": "Every wash.",
+   "watch": "An oily, flaky scalp needs washing more often, not less: use a dandruff shampoo on the scalp and leave it on for about five minutes."
+  },
+  "zh": {
+   "what": "滋养发丝中下段、让发根保持清爽的护发素。",
+   "like": "细软发会塌，是因为护发素碰到了发根。这款就是为了避免这个，靠的是配方，不是你冲得多仔细。",
+   "who": [
+    "头发到中午就塌了",
+    "头皮很容易出油",
+    "普通护发素用了头发太压"
+   ],
+   "how": "洗完头，从发中抹到发尾，避开头皮。",
+   "when": "每次洗头都用。",
+   "watch": "头皮又油又有头屑，要洗得更勤，不是更少：用去屑洗发水洗头皮，停留五分钟左右再冲。"
+  }
+ },
+ "collagen-peptides": {
+  "en": {
+   "what": "Unflavoured collagen peptides you stir into coffee, soup or a smoothie.",
+   "like": "It rides on a habit you already have. You don't build a new routine: your morning coffee becomes the routine.",
+   "who": [
+    "I drink coffee every morning",
+    "I'd rather control my own dose",
+    "My hair is getting thinner"
+   ],
+   "how": "Stir it into your morning coffee, a soup or a smoothie, every day.",
+   "when": "Give it months. In one small trial, women on 2.5 g of specific peptides a day grew thicker strands over 16 weeks.",
+   "watch": "For hair, the evidence is one small trial, so say \"worth trying\", not \"it fixes thinning\"."
+  },
+  "zh": {
+   "what": "无味的胶原蛋白肽粉，加进咖啡、汤或奶昔里都行。",
+   "like": "它挂在你本来就有的习惯上。不用新建一个习惯，早上那杯咖啡就是习惯。",
+   "who": [
+    "每天早上都喝咖啡",
+    "想自己控制剂量",
+    "头发越来越细"
+   ],
+   "how": "每天加进早上的咖啡、汤或奶昔里。",
+   "when": "按月来看。一项小型试验里，女性每天吃2.5克特定的胶原肽，16周后发丝变粗了。",
+   "watch": "头发方面的证据只有一项小试验，要说“值得试试”，不要说“能解决头发变细”。"
+  }
+ },
+ "clearguard-allergy": {
+  "en": {
+   "what": "A plant blend of cinnamon bark, acerola cherry and Spanish needles, for the allergy season.",
+   "like": "It's an umbrella, not a towel: you put it up before the rain. It supports rather than blocks symptoms, so it works best started before your season, not in the worst week.",
+   "who": [
+    "I sneeze every spring",
+    "My allergies come at the same time every year",
+    "I want to get ahead of it this year"
+   ],
+   "how": "Two tablets three times a day with meals, starting about two weeks before your season, for up to 12 weeks at a time.",
+   "when": "Through the season, starting before it.",
+   "watch": "Not in pregnancy, with a fever or ulcers, or with a cinnamon allergy. Its one published trial was small, 20 adults, and partly run by the maker. It goes alongside what the doctor recommends, not instead."
+  },
+  "zh": {
+   "what": "肉桂皮、针叶樱桃和鬼针草的植物组合，给过敏季用的。",
+   "like": "它是伞，不是毛巾：要在下雨前撑开。它是支持型的，不是把症状挡掉，所以要在过敏季开始前就吃，不是等最难受那周。",
+   "who": [
+    "每到春天就打喷嚏",
+    "每年同一个时候就过敏",
+    "今年想提前准备"
+   ],
+   "how": "每次两片，一天三次，随餐吃。过敏季开始前两周左右开始，一次最多连续12周。",
+   "when": "整个过敏季吃，提前开始。",
+   "watch": "孕期、发烧、胃溃疡或对肉桂过敏的人不吃。它唯一发表的试验规模很小，20位成人，还有厂商参与。配合医生的建议一起用，不是替代。"
+  }
+ },
+ "kids-brainiums-dha-jelly": {
+  "en": {
+   "what": "DHA in a jelly, for kids who won't eat fish.",
+   "like": "About 60 percent of the brain's dry weight is fat, and DHA is the main one. Kids are building that now, from what they eat, and fish twice a week is what most families don't manage.",
+   "who": [
+    "My kid won't touch fish",
+    "It's an exam year",
+    "I want something they'll actually eat"
+   ],
+   "how": "Every day, as the label directs for your child's age.",
+   "when": "Every day, as part of the routine. It matters most for kids who rarely eat fish.",
+   "watch": "Check the age on the label before giving it to a child. Eats salmon or sardines twice a week? They may not need it. And for exams, sleep is part of studying."
+  },
+  "zh": {
+   "what": "做成果冻的DHA，给不爱吃鱼的孩子。",
+   "like": "大脑干重大约60%是脂肪，DHA是其中最主要的。孩子现在正在搭这个结构，原料来自吃进去的东西，而每周两次鱼，多数家庭都做不到。",
+   "who": [
+    "孩子一口鱼都不吃",
+    "孩子今年要考试",
+    "想找个孩子自己愿意吃的"
+   ],
+   "how": "每天吃，按标签上孩子年龄的用量。",
+   "when": "每天吃，当作日常习惯。最适合平时很少吃鱼的孩子。",
+   "watch": "给孩子吃之前，先看标签上的适用年龄。每周吃两次三文鱼或沙丁鱼的，可能不需要。备考的话，睡觉本身就是复习的一部分。"
+  }
+ },
+ "men-s-daily-multivitamin": {
+  "en": {
+   "what": "One tablet a day, with a nutrient profile for men.",
+   "like": "A dose you actually take every day beats a stronger one you give up in week two. This is the simple start.",
+   "who": [
+    "Just give me one pill",
+    "Double X was too much to keep up with",
+    "I'm new to supplements"
+   ],
+   "how": "One tablet a day, with food.",
+   "when": "Every day. One base taken daily does more than five bottles taken now and then.",
+   "watch": "Lower doses than Double X. Pick one multivitamin, don't stack them."
+  },
+  "zh": {
+   "what": "每天一片，按男性需要配比的综合营养片。",
+   "like": "一个你天天吃得下去的剂量，胜过一个第二周就放弃的更强剂量。这是最简单的开始。",
+   "who": [
+    "给我一片就好",
+    "双X我坚持不下来",
+    "刚开始吃营养品"
+   ],
+   "how": "每天一片，随餐吃。",
+   "when": "每天吃。一个底座每天吃，比五个瓶子有一顿没一顿地吃更有用。",
+   "watch": "剂量比双X低。综合营养素选一种，不要叠着吃。"
+  }
+ },
+ "g-h-nourish-body-lotion": {
+  "en": {
+   "what": "A body lotion with 24-hour moisture that sinks in fast enough to get dressed right after.",
+   "like": "Skin straight out of the shower is like a wet towel drying in the sun. Lotion right away locks the water in before it evaporates.",
+   "who": [
+    "I itch after showers",
+    "My skin gets worse every winter",
+    "I own body lotion but never use it, it's sticky"
+   ],
+   "how": "Right after the shower, while the skin is still damp. Every day, even when the skin looks fine.",
+   "when": "Every day, not only during a flare. Moisturising daily prevents the fire instead of fighting it.",
+   "watch": "The body wash matters as much as the lotion: a harsh wash strips the barrier every day, and no lotion fully replaces that."
+  },
+  "zh": {
+   "what": "24小时保湿的身体乳，吸收快，擦完马上能穿衣服。",
+   "like": "刚洗完澡的皮肤，就像一条晾在太阳下的湿毛巾。马上擦身体乳，趁水分还没蒸发，把它锁住。",
+   "who": [
+    "洗完澡就痒",
+    "一到冬天皮肤就更差",
+    "买了身体乳嫌黏，一直没用"
+   ],
+   "how": "洗完澡马上擦，趁皮肤还有点湿。每天都擦，皮肤看起来没事也擦。",
+   "when": "每天擦，不是发作了才擦。天天保湿是防火，等发作了就只能救火。",
+   "watch": "沐浴露和身体乳一样重要：洗得太猛，每天都在洗掉一层屏障，再好的身体乳也补不全。"
+  }
+ },
+ "xs-rtd-protein-shakes-12-pack": {
+  "en": {
+   "what": "A ready-to-drink protein shake: no powder, no shaker, no prep.",
+   "like": "Muscle can't bank protein, so spreading it through the day matters. Most people eat a light breakfast and a big dinner; a shake on the way out the door evens that out without cooking.",
+   "who": [
+    "I'm not washing a shaker bottle",
+    "I train hard and don't see results",
+    "No time for breakfast"
+   ],
+   "how": "Grab one on the way out in the morning, or after the gym.",
+   "when": "On the days the morning or mid-afternoon would otherwise be short on protein.",
+   "watch": "Aim for about 20 to 40 g of protein at each meal from all sources. This tops up a meal, it doesn't replace eating."
+  },
+  "zh": {
+   "what": "开盖即饮的蛋白奶昔，不用冲粉，不用摇摇杯，什么都不用准备。",
+   "like": "肌肉存不住蛋白质，所以一天里怎么分配很重要。多数人早餐吃得少、晚餐吃得多，出门顺手拿一瓶，不用做饭就把这个差距补平了。",
+   "who": [
+    "懒得洗摇摇杯",
+    "练得很努力，却看不到效果",
+    "早上没时间吃早餐"
+   ],
+   "how": "早上出门顺手拿一瓶，或者练完喝。",
+   "when": "早上或下午蛋白质不够的那些天。",
+   "watch": "每餐的蛋白质，各种来源加起来大约20到40克。它是给一餐补量的，不是代替吃饭。"
+  }
+ },
+ "joint-health": {
+  "en": {
+   "what": "Glucosamine and collagen: raw material for cartilage and the tissue around it.",
+   "like": "A joint is a repair project measured in months, like fixing a road while the traffic keeps running. Most people stop at week three, before it's had a chance.",
+   "who": [
+    "My knees complain on the stairs",
+    "I've been running for years",
+    "I'm over 40 and I feel it in my joints"
+   ],
+   "how": "Every day, as the label directs.",
+   "when": "Give it a few months, and stop if nothing changes.",
+   "watch": "Trials of glucosamine for joint comfort are mixed. It doesn't build muscle: training, protein and sleep come first."
+  },
+  "zh": {
+   "what": "氨糖加胶原蛋白，给软骨和周围的结缔组织补原料。",
+   "like": "关节是一个按月计算的修复工程，就像一边通车一边修路。多数人第三周就停了，根本没给它机会。",
+   "who": [
+    "上下楼梯膝盖就不舒服",
+    "跑了好多年步",
+    "过了40，关节开始有感觉"
+   ],
+   "how": "每天吃，按标签用量。",
+   "when": "给它几个月时间，没变化就停。",
+   "watch": "氨糖改善关节舒适度的试验结果并不一致。它不会帮你长肌肉，训练、蛋白质和睡眠排在前面。"
+  }
+ },
+ "prebiotic-fiber": {
+  "en": {
+   "what": "A fibre powder that feeds the good bacteria you already have.",
+   "like": "Probiotics add staff, fibre is their lunch. Hiring staff and not feeding them is why a probiotic on its own often feels like nothing.",
+   "who": [
+    "I tried a probiotic and felt nothing",
+    "I eat out most days",
+    "I don't go every day"
+   ],
+   "how": "Stir it into water or coffee; it dissolves clear with no grit. Start small, raise it a little each week, and drink a full glass of water with each serving.",
+   "when": "Every day. In trials, it took at least four weeks of extra fibre to change how often people went.",
+   "watch": "A top-up, not a laxative. Raise fibre by about 5 g a week, or it can bloat. Vegetables, beans and oats still carry most of it; the powder fills the gap."
+  },
+  "zh": {
+   "what": "一种纤维粉，喂的是你肠道里本来就有的好菌。",
+   "like": "益生菌是招人，纤维是给他们的饭。招了人不给饭吃，所以单吃益生菌，很多人觉得没什么感觉。",
+   "who": [
+    "吃过益生菌，没什么感觉",
+    "基本天天在外面吃",
+    "不是每天都上大号"
+   ],
+   "how": "加进水或咖啡里，冲开无色无渣。从少量开始，每周慢慢加一点，每次配一大杯水。",
+   "when": "每天吃。研究里，多补纤维至少四周，排便次数才有变化。",
+   "watch": "它是把缺口补上，不是泻药。纤维每周加5克左右就好，加太快容易胀气。大头还是靠蔬菜、豆类、燕麦，纤维粉只是补差的那部分。"
+  }
+ },
+ "advanced-omega": {
+  "en": {
+   "what": "Concentrated fish-oil omega-3, EPA and DHA, in a smaller softgel than most triple-strength ones.",
+   "like": "Modern food is loaded with omega-6 and short on omega-3, and the balance between the two sets how inflamed the body runs. Fish oil isn't one more nutrient, it pulls the ratio back.",
+   "who": [
+    "I hardly ever eat salmon or sardines",
+    "My skin is dry and reacts to everything",
+    "I'm sore for days after training"
+   ],
+   "how": "Daily with a meal. With Vision Health, take the two together at the meal that has some fat.",
+   "when": "Background support: judge it over months, not by next week.",
+   "watch": "Be honest about dry eyes: in the biggest trial, fish oil did no better than olive oil, so don't offer it for that. For soreness after training the effect is real but modest. Someone who eats oily fish twice a week may not need it. On blood thinners? Ask the doctor first."
+  },
+  "zh": {
+   "what": "浓缩深海鱼油，EPA和DHA，软胶囊比多数三倍浓缩的更小颗。",
+   "like": "现在的饮食Omega-6太多、Omega-3太少，这两个的比例决定了身体的“炎症底色”。补鱼油不是多吃一种营养，是把比例拉回来。",
+   "who": [
+    "很少吃三文鱼、沙丁鱼",
+    "皮肤又干又敏感",
+    "练完酸好几天"
+   ],
+   "how": "每天随餐吃。如果也吃护眼片，两个放在带点油的那顿一起吃。",
+   "when": "它是底层的支持，按月来看，别指望下周就有变化。",
+   "watch": "干眼要说实话：最大的一项研究里，鱼油的效果和橄榄油差不多，所以别拿它来推干眼。练完的酸痛，效果是真的，但不大。每周吃两次深海鱼的人，可能就不需要了。在吃抗凝药的，先问医生。"
+  }
+ },
+ "lean-muscle": {
+  "en": {
+   "what": "CLA, for people already training who want support on the body-composition side.",
+   "like": "A helper on top of the work, not the work. In long-term trials CLA gave a small loss of body fat, and the reviewers called the practical value uncertain.",
+   "who": [
+    "I already train a few times a week",
+    "I want to lose fat and keep the muscle"
+   ],
+   "how": "Daily, as the label says, alongside real strength training, enough protein and enough sleep.",
+   "when": "Only worth judging once training, protein and sleep are already steady.",
+   "watch": "Modest evidence. It doesn't build muscle on its own and it doesn't replace training. Offer it last, never first."
+  },
+  "zh": {
+   "what": "CLA配方，给已经在规律训练、想在体成分上加点支持的人。",
+   "like": "它是锦上添花，不是主菜。长期试验里，CLA让体脂小幅下降，但研究者自己也说，实际意义不确定。",
+   "who": [
+    "我每周已经在练几次了",
+    "想减脂，又不想掉肌肉"
+   ],
+   "how": "按标签每天吃，同时要有真正的力量训练、够的蛋白质和够的睡眠。",
+   "when": "训练、蛋白质、睡眠都稳了之后，再来看它有没有用。",
+   "watch": "证据一般。它自己长不出肌肉，也代替不了训练。最后才推它，不要第一个推。"
+  }
+ },
+ "men-s-pack": {
+  "en": {
+   "what": "A daily sachet for men: the multivitamin base plus nutrients relevant to men, in one pack.",
+   "like": "Instead of a shelf of bottles and a decision every morning, it's one packet. Eating less, or eating badly, also means fewer nutrients, and this covers a wide floor in one go.",
+   "who": [
+    "Just tell me what to take",
+    "I'm not managing five bottles",
+    "I'm dieting and I feel flat"
+   ],
+   "how": "One pack a day, with a meal.",
+   "when": "Every day. It's a floor under the diet, not a quick fix.",
+   "watch": "If they ask about chromium: it's involved in how cells respond to insulin, but the trials are mixed, so it isn't the reason to buy. Don't stack it with another multivitamin."
+  },
+  "zh": {
+   "what": "男士每日营养包：综合营养打底，再加男性需要的营养素，一包搞定。",
+   "like": "不用一排瓶子、每天早上还要想开哪几瓶，撕开一包就好。吃得少、吃得乱，营养也跟着少，它一次把底子铺满。",
+   "who": [
+    "你直接告诉我吃什么就好",
+    "我管不了五个瓶子",
+    "在减肥，整个人没精神"
+   ],
+   "how": "每天一包，随餐吃。",
+   "when": "每天吃。它是给饮食垫底的，不是吃几天就见效的东西。",
+   "watch": "如果问到铬：它跟细胞对胰岛素的反应有关，但研究结果不一致，不是买它的理由。不要再叠加别的综合维生素。"
+  }
+ },
+ "artistry-studio-spot-on-dots": {
+  "en": {
+   "what": "Hydrocolloid patches that seal a spot overnight.",
+   "like": "A plaster for a pimple. It keeps the spot closed and moist, keeps bacteria and air off it, and keeps your fingers off it, and picking is what leaves the mark.",
+   "who": [
+    "I can't stop touching my spots",
+    "My pimples leave marks",
+    "I break out before my period"
+   ],
+   "how": "At night after cleansing, one patch on each new spot.",
+   "when": "Overnight. In a controlled trial, patched spots did better on crusting, redness, size and how raised they were.",
+   "watch": "One spot at a time; it doesn't clear acne. For a spot that hasn't opened yet, the spot gel is the better pick."
+  },
+  "zh": {
+   "what": "水胶体痘痘贴，晚上贴一片，把痘封起来。",
+   "like": "就像给痘痘贴个创可贴：把它封在湿润、封闭的环境里，挡住外面的细菌和空气，也挡住你的手。留印子最大的原因，就是用手挤。",
+   "who": [
+    "老是忍不住去摸痘",
+    "痘痘好了总留印",
+    "每次来例假前就冒痘"
+   ],
+   "how": "晚上洗完脸，新冒的痘各贴一片。",
+   "when": "贴一晚。有对照研究发现，贴过的痘结痂、发红、大小和凸起都更轻。",
+   "watch": "它是一颗一颗处理，不是治痘。还没冒头的痘，用祛痘凝胶更合适。"
+  }
+ },
+ "artistry-sleeping-mask": {
+  "en": {
+   "what": "A leave-on overnight mask, no rinsing.",
+   "like": "Skin does most of its repair while you sleep, so this works in the window the skin is already repairing. And dry skin doesn't make less oil, it makes more, so hydration is part of oil control.",
+   "who": [
+    "My skin feels tight by the afternoon",
+    "I'm in air-conditioning all day",
+    "I fly a lot"
+   ],
+   "how": "Last step at night, then bed. No rinse, so it still happens at 11 pm when you're tired.",
+   "when": "Every night, as part of the bedtime routine.",
+   "watch": "It's a hydration step, not an acne treatment. Sensitive skin? Try it on the inner arm for a few days first."
+  },
+  "zh": {
+   "what": "免洗的睡眠面膜，涂完直接睡。",
+   "like": "皮肤晚上修复最旺，它正好用上这段时间。而且皮肤缺水不会少出油，反而出更多，所以补水本来就是控油的一部分。",
+   "who": [
+    "一到下午脸就紧绷",
+    "整天待在空调房",
+    "经常坐飞机"
+   ],
+   "how": "晚上护肤最后一步，涂完就睡。不用洗，晚上11点再累也能坚持。",
+   "when": "每天晚上，放进睡前的固定流程里。",
+   "watch": "它是补水，不是治痘。敏感肌先在手臂内侧试几天。"
+  }
+ },
+ "begin-daily-gi-primer": {
+  "en": {
+   "what": "A 6-in-1 gut drink: fermented greens, prebiotics, fibre, digestive enzymes, alkaline spices and postbiotics.",
+   "like": "For people who'd rather take one thing than three. It folds clearing the gut and helping digestion into one glass, and it's the core of the Begin 30 plan.",
+   "who": [
+    "I feel heavy and bloated after meals",
+    "I eat out most days",
+    "I want one thing, not a pile of bottles"
+   ],
+   "how": "Once a day, as part of a structured gut reset.",
+   "when": "Judge it over the 30 days of the reset.",
+   "watch": "The evidence for enzymes is thin: small trials show less bloating after single meals. If the tiredness comes with gut trouble, it's about getting the order right, not an energy product. Don't double up with a separate fibre and enzyme."
+  },
+  "zh": {
+   "what": "六合一肠道饮：发酵绿蔬、益生元、纤维、消化酶、碱性香料和后生元。",
+   "like": "给不想吃一堆瓶瓶罐罐的人。清肠道、帮消化，一杯全有。它也是Begin 30计划的核心。",
+   "who": [
+    "吃完饭总是胀、很沉",
+    "基本天天在外面吃",
+    "想要一样就够，不要一堆瓶子"
+   ],
+   "how": "每天一次，当作一个有步骤的肠道重启。",
+   "when": "按重启的30天来看效果。",
+   "watch": "消化酶的证据不多，只有小型研究显示单餐后没那么胀。累又伴着肠胃问题的，它是把顺序做对，不是提神的产品。别再另外叠加纤维和消化酶。"
+  }
+ },
+ "artistry-men-face-wash": {
+  "en": {
+   "what": "A face wash made for men's oilier, thicker skin that cleans without stripping it.",
+   "like": "Bar soap strips the oil, the skin reads that as damage and makes more. That's why the guy who washes four times a day to control oil ends up with more of it.",
+   "who": [
+    "I just use bar soap",
+    "My face is oily by noon"
+   ],
+   "how": "Morning and night, instead of bar soap.",
+   "when": "Every day.",
+   "watch": "Gentle beats aggressive, so no scrubbing. The easiest first step for a man with no routine."
+  },
+  "zh": {
+   "what": "男士洁面，针对通常更油、角质更厚的男性皮肤，洗干净又不过度清洁。",
+   "like": "香皂把油洗光了，皮肤以为受伤了，就出更多油来补。所以一天洗四次脸想控油的人，反而越洗越油。",
+   "who": [
+    "我一直用香皂洗脸",
+    "一到中午脸就油"
+   ],
+   "how": "早晚各一次，代替香皂。",
+   "when": "每天用。",
+   "watch": "温和比用力好，别使劲搓。对还没有护肤习惯的男生，这是最容易的第一步。"
+  }
+ },
+ "artistry-hydrating-day-lotion-spf30": {
+  "en": {
+   "what": "A lightweight day lotion with SPF 30 for skin that feels tight by the afternoon.",
+   "like": "UV does more than leave marks: it oxidises the oil on your skin into by-products that clog pores. And texture decides whether sunscreen gets worn at all; a heavy one clogs.",
+   "who": [
+    "My skin feels tight by the afternoon",
+    "I'm in air-conditioning all day",
+    "Sunscreen always feels heavy"
+   ],
+   "how": "The last step every morning.",
+   "when": "Every morning.",
+   "watch": "Pick this or the SPF 50, not both. On acne-prone skin, keep the layer light."
+  },
+  "zh": {
+   "what": "轻盈的日霜，带SPF30防晒，适合一到下午就紧绷的皮肤。",
+   "like": "紫外线不只是留印子，它还会把皮肤上的油氧化成堵毛孔的东西。防晒用不用得下去，全看质地，太厚重的反而会堵。",
+   "who": [
+    "一到下午脸就紧绷",
+    "整天待在空调房",
+    "防晒总觉得很厚重"
+   ],
+   "how": "每天早上护肤的最后一步。",
+   "when": "每天早上。",
+   "watch": "它和SPF50防晒二选一，不要叠。痘痘肌薄薄一层就够。"
+  }
+ },
+ "kids-daily-chewable-multivitamin": {
+  "en": {
+   "what": "A chewable multivitamin for kids.",
+   "like": "With children, the format is the whole strategy. A chewable that gets eaten every morning does more than a better tablet that turns into a daily fight.",
+   "who": [
+    "My kid is a picky eater",
+    "He's growing so fast",
+    "The kids bring every cold home"
+   ],
+   "how": "At the same time every morning, at the label's amount for their age.",
+   "when": "Every day through the growing years.",
+   "watch": "Check the age on the label, and store it out of reach. A fever in a baby under three months, or one that lasts more than three days, goes to a doctor."
+  },
+  "zh": {
+   "what": "儿童咀嚼型综合营养片。",
+   "like": "给孩子补营养，剂型就是全部。每天早上真被吃掉的咀嚼片，比一片更好、但天天要哄半天的药片管用多了。",
+   "who": [
+    "孩子挑食",
+    "孩子长个子长得特别快",
+    "孩子一感冒全家都中招"
+   ],
+   "how": "每天早上同一时间，按标签上对应年龄的量吃。",
+   "when": "长身体的这几年，每天吃。",
+   "watch": "先看清标签上的适用年龄，放在孩子拿不到的地方。三个月以下的宝宝发烧，或者发烧超过三天，要去看医生。"
+  }
+ },
+ "g-h-protect-hand-sanitizer": {
+  "en": {
+   "what": "A portable hand sanitiser for when there's no soap and water.",
+   "like": "The best sanitiser is the one you have on you. A bottle in the car and one in the school bag beats a better one left at home.",
+   "who": [
+    "We travel a lot",
+    "Something for the school bag",
+    "I eat out most days"
+   ],
+   "how": "Whenever there's no sink: before eating, after the commute, on the plane.",
+   "when": "Every day it's needed, more on trips and in flu season.",
+   "watch": "For when there's no soap, not instead of it. Keep it out of small children's reach."
+  },
+  "zh": {
+   "what": "随身免洗洗手液，找不到肥皂和水的时候用。",
+   "like": "最好用的洗手液，是你身上带着的那瓶。车里一瓶、书包里一瓶，胜过家里放一瓶更好的。",
+   "who": [
+    "经常出门旅行",
+    "想给孩子书包里放一瓶",
+    "基本天天在外面吃"
+   ],
+   "how": "找不到洗手池的时候用：吃东西前、通勤后、飞机上。",
+   "when": "需要的时候就用，出门和流感季用得更勤。",
+   "watch": "它是没有肥皂时用的，不是用来代替洗手。放在小孩拿不到的地方。"
+  }
+ },
+ "go-shield": {
+  "en": {
+   "what": "Elderberry and vitamin C in a gummy.",
+   "like": "A gummy actually gets eaten. When nobody will swallow the tablet, sticking with it beats a perfect formula.",
+   "who": [
+    "My kids won't swallow pills",
+    "We're travelling soon",
+    "I just can't do capsules"
+   ],
+   "how": "At the same time every morning.",
+   "when": "Every day through the season you need it. In the Cochrane review, regular vitamin C shortened children's colds by about 14 percent.",
+   "watch": "It looks like candy, so store it where a child can't help themselves, and check the age on the label. A fever in a baby under three months, or one lasting more than three days, goes to a doctor."
+  },
+  "zh": {
+   "what": "接骨木莓加维生素C的软糖。",
+   "like": "软糖是真的会被吃掉的。没人愿意吞药片的时候，能坚持比配方完美更重要。",
+   "who": [
+    "孩子不肯吞药片",
+    "马上要出门旅行",
+    "我真的咽不下胶囊"
+   ],
+   "how": "每天早上同一时间吃。",
+   "when": "需要的那段时间每天吃。Cochrane综述里，规律补维生素C，孩子感冒的时间短了大约14%。",
+   "watch": "它长得像糖果，要放在孩子自己拿不到的地方，先看清标签上的适用年龄。三个月以下的宝宝发烧，或者发烧超过三天，要去看医生。"
+  }
+ },
+ "hair-skin-nail": {
+  "en": {
+   "what": "Biotin, collagen and silicon for hair, skin and nails, which are built from the same raw materials.",
+   "like": "Hair grows about a centimetre a month, so this feeds the hair that's coming in, not the hair you already have.",
+   "who": [
+    "My hair and nails got brittle after a stressful year",
+    "I've been on a strict diet",
+    "My ends keep breaking"
+   ],
+   "how": "Daily.",
+   "when": "In months. Hair needs time to grow out before you can see a difference.",
+   "watch": "Be honest about biotin: real deficiency is uncommon, and the case for it in healthy people with hair loss is weak. Biotin can throw off lab tests, including a heart-attack test, so tell the doctor and the lab before any blood test."
+  },
+  "zh": {
+   "what": "生物素、胶原蛋白加硅，照顾头发、皮肤和指甲，因为这三样是同一批原料做的。",
+   "like": "头发一个月大约长一厘米，所以它养的是正在长出来的新头发，不是你现在头上已经有的。",
+   "who": [
+    "压力大了一年，头发指甲都变脆了",
+    "节食节了好一阵",
+    "发尾老是断"
+   ],
+   "how": "每天吃。",
+   "when": "按月来看，新头发长出来了才看得到差别。",
+   "watch": "生物素要说实话：真正缺的人不多，健康人靠它防脱发，证据很弱。生物素还会干扰化验结果，包括心梗的检测，所以抽血前一定要告诉医生和化验室。"
+  }
+ },
+ "satinique-anti-hair-fall-shampoo": {
+  "en": {
+   "what": "A shampoo made to cut breakage-related hair fall.",
+   "like": "Most hair in the drain broke part-way down; it didn't fall out at the root. A shed hair has a small white bulb at one end, a broken one doesn't, and breakage responds to stronger strands.",
+   "who": [
+    "There's more hair in the drain",
+    "I colour, bleach or heat-style a lot",
+    "My long hair keeps breaking"
+   ],
+   "how": "In place of the usual shampoo, every wash. Loosen tight ponytails too.",
+   "when": "Every wash, judged over a few months.",
+   "watch": "Losing 50 to 100 hairs a day is normal. A widening part or thinning temples is usually inherited pattern loss, which no shampoo reverses: send them to a dermatologist early."
+  },
+  "zh": {
+   "what": "防脱洗发水，针对的是头发断裂造成的掉发。",
+   "like": "地漏里的头发，大多数是中间断掉的，不是从根部掉的。掉的头发一头有个白色的小球，断的没有。断发靠把发丝养结实，是有用的。",
+   "who": [
+    "地漏里的头发越来越多",
+    "常染、常漂、常用卷发棒",
+    "长头发老是断"
+   ],
+   "how": "代替平时的洗发水，每次洗头都用。太紧的马尾也松一松。",
+   "when": "每次洗头都用，按几个月来看。",
+   "watch": "每天掉50到100根是正常的。如果发缝越来越宽、两边太阳穴越来越稀，多半是遗传性的脱发，什么洗发水都逆转不了，要早点去看皮肤科。"
+  }
+ },
+ "collagen-gummies": {
+  "en": {
+   "what": "Collagen in a gummy, the format people actually finish.",
+   "like": "Skin collagen renews on roughly a twelve-week cycle, so this is a three-month product. The gummy is there so you're still taking it in week twelve.",
+   "who": [
+    "I want to try collagen for the first time",
+    "I never finish a tub of powder",
+    "I hate swallowing pills"
+   ],
+   "how": "Daily.",
+   "when": "Judge it at three months, not three weeks.",
+   "watch": "For hair, the evidence is one small trial of specific peptides at 2.5 g a day, so hold it lightly. It looks like sweets: keep it away from children."
+  },
+  "zh": {
+   "what": "软糖型的胶原蛋白，真的吃得完的那种。",
+   "like": "皮肤胶原大约十二周更新一轮，所以这是一个三个月的产品。做成软糖，就是为了第十二周你还在吃。",
+   "who": [
+    "第一次想试试胶原蛋白",
+    "粉剂从来没吃完过一罐",
+    "最怕吞药片"
+   ],
+   "how": "每天吃。",
+   "when": "三个月再看效果，不是三周。",
+   "watch": "对头发的证据，只有一项小研究，用的是特定的胶原肽，每天2.5克，所以别说太满。它长得像糖，放在孩子拿不到的地方。"
+  }
+ },
+ "atmosphere-carbon-filter-replacement": {
+  "en": {
+   "what": "The replacement carbon filter for Atmosphere air purifiers.",
+   "like": "An unchanged filter is just a fan. The purifier only keeps working if the filter does.",
+   "who": [
+    "I have an Atmosphere at home",
+    "I'm stuffy every morning"
+   ],
+   "how": "Swap it on the schedule the unit shows.",
+   "when": "On the unit's schedule. Pick one day a week for bedding and filters, so it doesn't slip.",
+   "watch": "The routine counts more than any one purchase: wash bedding weekly in hot water and keep indoor humidity below about 50 percent."
+  },
+  "zh": {
+   "what": "逸新空气净化器的替换碳滤网。",
+   "like": "滤网不换，净化器就只是一台风扇。滤网在工作，净化器才在工作。",
+   "who": [
+    "家里有逸新净化器",
+    "每天早上起来鼻子都塞"
+   ],
+   "how": "按机器上显示的周期换。",
+   "when": "按机器的周期。每周固定一天换床单、看滤网，就不会忘。",
+   "watch": "习惯比任何一样东西都重要：床单每周用热水洗，室内湿度保持在50%左右以下。"
+  }
+ },
+ "organics-all-in-one-bars": {
+  "en": {
+   "what": "An organic, real-food protein bar, made to replace the vending-machine snack.",
+   "like": "Muscle can't bank protein. Most people eat a light breakfast, a modest lunch and a big dinner, and a bar mid-morning or mid-afternoon evens that out with no cooking.",
+   "who": [
+    "My 3 pm snack is a pastry",
+    "I train after work and I'm starving by 5",
+    "I've got no time to cook"
+   ],
+   "how": "Mid-morning or mid-afternoon, in place of the sweet snack, with a glass of water.",
+   "when": "Every busy day.",
+   "watch": "A snack replacement, not dessert and not a full meal. Check the ingredients if there's a food allergy."
+  },
+  "zh": {
+   "what": "有机原料做的真食物蛋白棒，用来代替自动贩卖机里的零食。",
+   "like": "肌肉存不住蛋白质。大多数人早餐很少、午餐一般、晚餐一大顿，上午或下午来一根，不用做饭就把一天的蛋白质分匀了。",
+   "who": [
+    "下午三点的零食是面包甜点",
+    "下班去练，五点就饿得不行",
+    "根本没时间做饭"
+   ],
+   "how": "上午或下午，代替甜的零食，再配一杯水。",
+   "when": "忙的日子每天一根。",
+   "watch": "它是代替零食，不是甜点，也不是一顿正餐。有食物过敏的，先看配料表。"
+  }
+ },
+ "organics-lion-s-mane-capsules": {
+  "en": {
+   "what": "Organic lion's mane mushroom extract, studied for nerve growth factor, not as a stimulant.",
+   "like": "It won't feel like coffee, and it shouldn't. What people report is fewer word-finding pauses and steadier focus over weeks.",
+   "who": [
+    "Words are on the tip of my tongue",
+    "I'm studying for exams",
+    "My memory slipped after 40"
+   ],
+   "how": "Daily.",
+   "when": "Treat it as an experiment: give it a month, and keep it only if you notice a difference.",
+   "watch": "The least tested option in the area: small trials, mixed results, and in one study the benefit faded once people stopped. Never say it fixes memory."
+  },
+  "zh": {
+   "what": "有机猴头菇萃取，研究的方向是神经生长因子，不是提神。",
+   "like": "它吃起来不会像咖啡，也不该期待它像。大家反馈的是，几周后想词卡壳少了，专注更稳了。",
+   "who": [
+    "话到嘴边就是想不起来",
+    "在准备考试",
+    "过了40岁，记性变差了"
+   ],
+   "how": "每天吃。",
+   "when": "当成一个小实验：给它一个月，有感觉再继续。",
+   "watch": "这是这一类里证据最少的：研究规模小、结果不一致，有一项研究停了之后效果就没了。千万别说它能治记性差。"
+  }
+ },
+ "g-h-nourish-body-wash": {
+  "en": {
+   "what": "A honey and shea body wash that cleans without stripping the skin barrier.",
+   "like": "With dry, itchy skin the bigger variable is usually the wash, not the lotion. A harsh wash strips a layer of barrier every day, and no lotion fully puts it back.",
+   "who": [
+    "I'm itchy after every shower",
+    "My skin feels tight when I get out",
+    "I have eczema"
+   ],
+   "how": "Every shower, lukewarm and short, then lotion within three minutes while the skin is still a little damp.",
+   "when": "Every day, including the days the skin looks fine.",
+   "watch": "It's a gentle wash, not an eczema treatment. Weeping, crusting, hot or painful skin goes to a doctor, and keep using any cream the doctor prescribed."
+  },
+  "zh": {
+   "what": "蜂蜜加乳木果的沐浴露，洗得干净，又不破坏皮肤屏障。",
+   "like": "皮肤干痒，关键往往不在身体乳，而在沐浴露。清洁力太强的，每天剥掉一层屏障，再好的身体乳也补不全。",
+   "who": [
+    "每次洗完澡就痒",
+    "一出浴室皮肤就紧绷",
+    "我有湿疹"
+   ],
+   "how": "每次洗澡用，水温调低、时间短一点，擦干后三分钟内、趁皮肤还微微湿就擦身体乳。",
+   "when": "每天用，皮肤看起来没事的时候也一样。",
+   "watch": "它是温和的沐浴露，不是治湿疹的。皮肤渗液、结痂、发烫发疼，要去看医生；医生开的药膏照常用。"
+  }
+ },
+ "xs-cbd-cream": {
+  "en": {
+   "what": "A topical cream for a sore spot after training.",
+   "like": "It works where you rub it and doesn't go round the body like a pill. That limits what it can do, and it also removes most of the worries people have about this kind of product.",
+   "who": [
+    "My shoulder is sore after the gym",
+    "My lower back aches after training",
+    "My knees are sore after a long run"
+   ],
+   "how": "Rub it on the sore spot after training.",
+   "when": "As needed, for comfort.",
+   "watch": "Comfort, not repair: it won't speed recovery. Sleep, enough protein and no drinks after training do that. Sore for days every time means the load is going up too fast."
+  },
+  "zh": {
+   "what": "外用舒缓膏，涂在训练后酸痛的地方。",
+   "like": "涂哪里就作用在哪里，不像口服那样进到全身。所以它能做的有限，但大家对这类产品的顾虑，大部分也就不存在了。",
+   "who": [
+    "练完肩膀很酸",
+    "练完下背酸痛",
+    "跑完长跑膝盖酸"
+   ],
+   "how": "练完涂在酸痛的地方。",
+   "when": "需要的时候用，让它舒服一点。",
+   "watch": "它是舒缓，不是修复，不会让你恢复得更快。真正帮恢复的是睡够、蛋白质吃够、练完不喝酒。如果每次都酸好几天，说明加量加得太快了。"
+  }
+ },
+ "xs-fitness-jump-start-solution": {
+  "en": {
+   "what": "XS protein plus workout support in one box, for starting a training habit.",
+   "like": "Most beginners go all in during week one and quit by week three, because training burns through nutrients and nothing changed in what they eat. This handles the nutrition side, so the only job left is showing up.",
+   "who": [
+    "I just joined a gym",
+    "I'm getting back into it after a long break",
+    "Just tell me what to take"
+   ],
+   "how": "Follow the routine above: protein at breakfast, the workout support around training.",
+   "when": "Judge it after the first month of steady sessions.",
+   "watch": "Protein supports training, it doesn't replace it. Kidney or liver disease, or a heart condition: see a doctor before adding protein or training harder."
+  },
+  "zh": {
+   "what": "XS蛋白加训练支持，一盒打包，给刚开始养成健身习惯的人。",
+   "like": "大多数新手第一周拼尽全力，第三周就放弃了，因为训练很耗营养，可吃的东西一点没变。它把营养这一半先安排好，你只管按时去练。",
+   "who": [
+    "刚办了健身卡",
+    "停了很久，想重新开始练",
+    "你直接告诉我吃什么就好"
+   ],
+   "how": "按上面的作息来：早餐吃蛋白，训练支持放在训练前后。",
+   "when": "规律练满第一个月，再来看效果。",
+   "watch": "蛋白质是支持训练，不是代替训练。有肾病、肝病或心脏问题的，加蛋白质或加大训练强度之前先去看医生。"
   }
  }
 }
