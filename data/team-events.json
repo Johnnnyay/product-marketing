@@ -1,7 +1,29 @@
 {
  "about": "HY team night agendas for team-event.html, newest first. Edited on the page after the admin login (··· → /api/save-functions?doc=team-events) or by Claude. Each agenda is a list of sections (intro, calendar, volume, growth, leadership); each item has a topic (t), speakers (who), a panel lead (by), minutes (min), bullets (pts) and, in the calendar, events (cal).",
- "savedAt": "2026-10-15T15:28:52.000Z",
+ "savedAt": "2026-10-18T15:08:39.000Z",
  "events": [
+  {
+   "id": "2026-10-25",
+   "date": "2026-10-25",
+   "kind": "Online sharing",
+   "title": "人生修炼局",
+   "sub": "找准自己，把钱和人生想明白",
+   "time": "8:00 to 9:00 AM ET",
+   "where": "腾讯会议 Tencent Meeting",
+   "whereNote": "Beijing time Sunday 8:00 to 9:00 PM · the meeting link shows after you sign up",
+   "signup": "https://f.kdocs.cn/g/EENhFudz",
+   "roles": [
+    [
+     "Speakers",
+     "Jerry & Leann"
+    ],
+    [
+     "Speakers",
+     "Johnny & Irene"
+    ]
+   ],
+   "agenda": []
+  },
   {
    "id": "2026-10-17",
    "date": "2026-10-17",

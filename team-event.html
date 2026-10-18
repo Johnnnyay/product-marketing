@@ -33,32 +33,34 @@ a{color:var(--sage)}
 button{font-family:inherit}
 :focus-visible{outline:3px solid var(--blue);outline-offset:2px}
 
-/* ---- left: every event, collapsed by default ----
-   Johnny, 2026-10-15: a shared link should open on just that event's page. The list of every event
-   is a drawer on every screen, opened by "All events" in the top bar. */
-.side{position:fixed;inset:0 auto 0 0;width:min(86vw,var(--nav));background:var(--ground);border-right:1px solid var(--line);
-  display:flex;flex-direction:column;z-index:30;transform:translateX(-102%);visibility:hidden;transition:transform .22s ease,visibility .22s}
-body.navopen .side{transform:none;visibility:visible;box-shadow:0 0 40px rgba(20,26,22,.25)}
-body.navopen .scrim{display:block;position:fixed;inset:0;background:rgba(20,26,22,.35);z-index:25}
-.brand{padding:22px 20px 14px}
-.brand .e{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.brand .n{font-size:21px;font-weight:800;letter-spacing:-.02em;margin-top:1px}
-.brand .n span{color:var(--sage)}
-.navlist{flex:1;overflow-y:auto;padding:0 10px 14px}
-.ng{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:16px 10px 6px}
-.ni{display:block;text-decoration:none;color:var(--ink);border-radius:9px;padding:8px 10px;border-left:3px solid transparent}
-.ni:hover{background:rgba(52,80,67,.07)}
-.ni[aria-current="true"]{background:var(--page);border-left-color:var(--sage);box-shadow:0 1px 3px rgba(20,26,22,.08)}
-.ni .d{display:block;font-size:12.5px;font-weight:700;color:var(--sage);font-variant-numeric:tabular-nums}
-.ni .t{display:block;font-size:14.5px;font-weight:600;line-height:1.3}
-.ni .s{display:block;font-size:12.5px;color:var(--muted);line-height:1.3;margin-top:1px}
-button.ni{width:100%;text-align:left;background:none;border:0;border-left:3px solid transparent;font:inherit;cursor:pointer}
-.sidefoot{border-top:1px solid var(--line);padding:10px 14px;display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted)}
-.sidefoot .sp{flex:1}
+/* ---- the front page: every event, by date ----
+   Johnny, 2026-10-18: the page opens on the full list of events sorted by date, not on one event.
+   Each event is its own page with its own link (#<date>), reached from the list. */
+.evg{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:30px 0 8px}
+.evl{display:flex;flex-direction:column;gap:8px}
+.evc{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;text-decoration:none;color:var(--ink);
+  border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--page)}
+.evc:hover{border-color:var(--sage);background:var(--sage-light)}
+button.evc{width:100%;text-align:left;font:inherit;cursor:pointer}
+.evd{text-align:center;border-right:1px solid var(--line);padding-right:12px;font-variant-numeric:tabular-nums;line-height:1.15}
+.evd b{display:block;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sage)}
+.evd span{display:block;font-size:22px;font-weight:800;letter-spacing:-.02em}
+.evd i{display:block;font-style:normal;font-size:12px;font-weight:600;color:var(--muted)}
+.evm{min-width:0}
+.evm .t{display:block;font-size:16.5px;font-weight:700;line-height:1.3}
+.evm .s{display:block;font-size:14px;color:var(--ink-2);line-height:1.35;margin-top:1px}
+.evm .w{display:block;font-size:13px;color:var(--muted);line-height:1.35;margin-top:2px}
+.evx{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);white-space:nowrap}
+.evc.past .evd b,.evc.past .evx{color:var(--muted)}
+.back{display:inline-block;font-size:14px;font-weight:600;text-decoration:none;margin:0 0 6px}
+.back:hover{text-decoration:underline}
 .dots{background:none;border:0;color:var(--muted);font:inherit;font-size:20px;font-weight:800;letter-spacing:.06em;line-height:1;
   padding:4px 8px;border-radius:8px;cursor:pointer}
 .dots:hover{background:rgba(52,80,67,.08);color:var(--ink)}
-.newbtn{display:block;width:calc(100% - 20px);margin:0 10px 4px;text-align:left}
+.mbar a.n{text-decoration:none;color:var(--ink)}
+a.btn{text-decoration:none}
+a.btn[hidden]{display:none}
+@media (max-width:520px){ .evc{grid-template-columns:54px 1fr;gap:12px} .evx{display:none} .evd span{font-size:19px} }
 
 /* ---- right: the agenda as a page ---- */
 .main{min-height:100vh}
@@ -140,12 +142,13 @@ button.ni{width:100%;text-align:left;background:none;border:0;border-left:3px so
 .flk:hover{color:var(--sage-2)}
 .foot{margin-top:46px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
 .ver{font-size:12px;color:var(--muted);margin:4px 0 0}
+.who{font-size:12.5px;color:var(--muted);margin:6px 0 0}
 .ver.old{color:var(--amber);font-weight:700}
 .note{background:var(--amber-light);color:var(--amber);border-radius:9px;padding:9px 12px;font-size:14px;font-weight:600;margin:0 0 16px}
 .empty{color:var(--muted);padding:40px 0}
 
 /* ---- phone: the list becomes a drawer ---- */
-.scrim{display:none}
+
 .mbar{display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);
   border-bottom:1px solid var(--line);padding:10px max(16px,calc((100% - 720px) / 2 + 40px))}
 .mbar .n{font-weight:800;font-size:16px;flex:1}
@@ -231,18 +234,13 @@ button.ni{width:100%;text-align:left;background:none;border:0;border-left:3px so
   background:var(--ink);color:#fff;border-radius:999px;padding:8px 10px 8px 18px;font-size:14px;font-weight:600;max-width:calc(100% - 24px)}
 #upd[hidden]{display:none}
 #upd button{font:inherit;font-size:13px;font-weight:800;background:#FFD166;color:var(--ink);border:0;border-radius:999px;padding:7px 14px;cursor:pointer;white-space:nowrap}
-@media print{ .side,.mbar,#upd,.toast,.dtop .btn,.zl{display:none !important} .main{margin:0} .doc{padding:0} }
+@media print{ .mbar,#upd,.toast,.dtop .btn,.zl{display:none !important} .main{margin:0} .doc{padding:0} }
 </style>
 
-<aside class="side" id="side" aria-label="All events">
-  <div class="brand"><div class="e">HY Team</div><div class="n">Team <span>Event</span></div></div>
-  <div id="adminTop"></div>
-  <nav class="navlist" id="nav"></nav>
-  <div class="sidefoot"><span class="sp" id="who"></span><button type="button" class="dots" id="dots" title="Admin" aria-label="Admin login">···</button></div>
-</aside>
-<div class="scrim" id="scrim"></div>
 <div class="main">
-  <div class="mbar"><div class="n">Team <span>Event</span></div><button type="button" class="btn" id="navbtn" aria-controls="side" aria-expanded="false">All events</button></div>
+  <div class="mbar"><a class="n" href="#" id="home">Team <span>Event</span></a>
+    <a class="btn" href="#" id="navbtn" hidden>All events</a>
+    <button type="button" class="dots" id="dots" title="Admin" aria-label="Admin login">···</button></div>
   <main class="doc" id="doc" aria-live="polite"></main>
 </div>
 <div id="upd" hidden><span id="updt"></span><button type="button" id="updgo">Reload now</button></div>
@@ -253,7 +251,7 @@ button.ni{width:100%;text-align:left;background:none;border:0;border-left:3px so
 /* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this
    file. The version check at the bottom reads it, and the script text, to tell an old copy of
    this page from the newest one (DiamondA70/_skills/app-qa/references/self-update.md). */
-const BUILD = "2026-10-15T19:01:20Z";
+const BUILD = "2026-10-18T15:11:21Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 /* The agendas: data/team-events.json next to this page, read fresh through the API (GitHub Pages
@@ -388,9 +386,12 @@ function defaultEvent(){
   const ahead = EVENTS.filter(function(e){ return e.date >= t; }).sort(function(a, b){ return -byDateDesc(a, b); });
   return ahead[0] || EVENTS.slice().sort(byDateDesc)[0] || null;
 }
+/* The page opens on the list of every event (Johnny, 2026-10-18). An event shows only when the link
+   names it (#<id>); a link to an event that is gone falls back to the list with a note. */
+function wantedId(){ return decodeURIComponent(location.hash.slice(1)); }
 function current(){
-  const want = decodeURIComponent(location.hash.slice(1));
-  return EVENTS.filter(function(x){ return x.id === want; })[0] || defaultEvent();
+  const want = wantedId();
+  return want ? EVENTS.filter(function(x){ return x.id === want; })[0] || null : null;
 }
 function statusOf(e){
   const t = todayET(), d = defaultEvent();
@@ -426,32 +427,55 @@ function loadData(){
   });
 }
 
-/* ---------------- the left bar ---------------- */
+/* ---------------- the top bar ----------------
+   "All events" shows on an event's page and goes back to the list. Hidden while an edit is open. */
 function renderNav(){
-  const t = todayET(), cur = EDIT ? null : current();
+  $("navbtn").hidden = !!EDIT || CHOOSING || !current();
+}
+function whoHTML(){ return admin() ? 'Admin ✓ · <button type="button" class="linkbtn" data-act="signout">Sign out</button>' : ""; }
+
+/* ---------------- the front page: every event, by date ----------------
+   Upcoming first, soonest at the top, then flyers, then past events, newest first, by year. */
+function cardHTML(e){
+  const st = statusOf(e), d = asDate(e.date);
+  const when = [e.time, e.where].filter(Boolean).join(" · ");
+  return '<a class="evc' + (st[1] ? " past" : "") + '" href="#' + esc(e.id) + '">'
+    + '<span class="evd"><b>' + esc(d.toLocaleDateString("en-US", { weekday: "short" })) + '</b>'
+    + '<span>' + esc(d.toLocaleDateString("en-US", { month: "short", day: "numeric" })) + '</span>'
+    + '<i>' + esc(e.date.slice(0, 4)) + '</i></span>'
+    + '<span class="evm"><span class="t">' + esc(e.title) + '</span>'
+    + (e.sub || e.kind ? '<span class="s">' + esc([e.sub, e.kind].filter(Boolean).join(" · ")) + '</span>' : '')
+    + (when ? '<span class="w">' + esc(when) + '</span>' : '') + '</span>'
+    + '<span class="evx">' + esc(st[0]) + '</span></a>';
+}
+function homeHTML(missing){
+  const t = todayET();
   const up = EVENTS.filter(function(e){ return e.date >= t; }).sort(function(a, b){ return -byDateDesc(a, b); });
   const past = EVENTS.filter(function(e){ return e.date < t; }).sort(byDateDesc);
-  const item = function(e){
-    return '<a class="ni" href="#' + esc(e.id) + '"' + (cur && e.id === cur.id ? ' aria-current="true"' : '') + '>'
-      + '<span class="d">' + esc(navDate(e.date)) + '</span><span class="t">' + esc(e.title) + '</span>'
-      + (e.sub || e.kind ? '<span class="s">' + esc([e.sub, e.kind].filter(Boolean).join(" · ")) + '</span>' : '') + '</a>';
-  };
-  let html = "";
-  if(up.length) html += '<div class="ng">Upcoming</div>' + up.map(item).join("");
-  if(FLYERS.length) html += '<div class="ng">Flyers</div>' + FLYERS.map(function(f){
-    return '<button type="button" class="ni" data-flyer="' + esc(f.id) + '">'
-      + (f.when ? '<span class="d">' + esc(f.when) + '</span>' : '') + '<span class="t">' + esc(f.title) + '</span></button>';
-  }).join("");
+  let html = (KEPT_AT ? '<p class="note">Offline: showing the copy saved on this phone. It updates when you are back online.</p>' : '')
+    + (missing ? '<p class="note">That event isn\'t on the list any more. Here are all the events.</p>' : '')
+    + '<div class="dtop"><span class="stat">All events</span><span class="sp"></span>'
+    + (admin() ? '<button type="button" class="btn" data-act="new">+ New event</button>' : '') + '</div>'
+    + '<h1>HY Team Events</h1>'
+    + '<p class="dsub">Every team night and event by date. Open one for its agenda and its own link to share.</p>';
+  if(!EVENTS.length) return html + '<p class="empty">No events yet.' + (admin() ? ' Tap <b>+ New event</b>.' : '') + '</p>';
+  if(up.length) html += '<h2 class="evg">Upcoming</h2><div class="evl">' + up.map(cardHTML).join("") + '</div>';
+  if(FLYERS.length) html += '<h2 class="evg">Flyers</h2><div class="evl">' + FLYERS.map(function(f){
+    return '<button type="button" class="evc" data-flyer="' + esc(f.id) + '"><span class="evd">'
+      + (f.date ? '<b>' + esc(asDate(f.date).toLocaleDateString("en-US", { weekday: "short" })) + '</b><span>'
+        + esc(asDate(f.date).toLocaleDateString("en-US", { month: "short", day: "numeric" })) + '</span><i>' + esc(f.date.slice(0, 4)) + '</i>'
+        : '<b>Flyer</b>') + '</span>'
+      + '<span class="evm"><span class="t">' + esc(f.title) + '</span>' + (f.when && !f.date ? '<span class="w">' + esc(f.when) + '</span>' : '') + '</span>'
+      + '<span class="evx">Flyer</span></button>';
+  }).join("") + '</div>';
   let year = "";
-  past.forEach(function(e){
+  past.forEach(function(e, i){
     const y = e.date.slice(0, 4);
-    if(y !== year){ year = y; html += '<div class="ng">Past · ' + y + '</div>'; }
-    html += item(e);
+    if(y !== year){ html += (year ? '</div>' : '') + '<h2 class="evg">Past · ' + y + '</h2><div class="evl">'; year = y; }
+    html += cardHTML(e);
+    if(i === past.length - 1) html += '</div>';
   });
-  if(!EVENTS.length && LOADED) html = '<div class="ng">No events yet</div>';
-  $("nav").innerHTML = html;
-  $("adminTop").innerHTML = admin() ? '<button type="button" class="btn newbtn" data-act="new">+ New event</button>' : "";
-  $("who").innerHTML = admin() ? 'Admin ✓ · <button type="button" class="linkbtn" data-act="signout">Sign out</button>' : "";
+  return html;
 }
 
 /* ---------------- time zones ----------------
@@ -542,6 +566,7 @@ function agendaText(e){
   L.push("📅 " + longDate(e.date));
   if(e.time){ L.push("⏰ " + e.time); const z = otherZones(e.time); if(z) L.push("      " + z); }
   if(e.where) L.push("📍 " + e.where + (e.whereNote ? " (" + e.whereNote + ")" : ""));
+  if(e.signup) L.push("📝 Sign up: " + e.signup);
   if(e.zoom) L.push("💻 Zoom " + e.zoom + (e.pass ? ", passcode " + e.pass : "") + ": https://zoom.us/j/" + e.zoom.replace(/\D/g, ""));
   if(e.dress) L.push("👔 " + e.dress + " (guide: " + DRESS_URL() + ")");
   if(e.flow && e.flow.length){
@@ -694,7 +719,9 @@ function viewHTML(e){
   const total = secs.reduce(function(n, x){ return n + minsOf(x.items); }, 0);
   const rs = roleSlots(e);
   const roles = STD_ROLES.filter(function(r){ return isFNH(e) || rs.std[r[0]]; }).map(function(r){ return [r[1], rs.std[r[0]] || ""]; }).concat(rs.extra);
+  const fl = flyerFor(e.title);
   return (KEPT_AT ? '<p class="note">Offline: showing the copy saved on this phone. It updates when you are back online.</p>' : '')
+    + '<a class="back" href="#">← All events</a>'
     + '<div class="dtop"><span class="stat ' + st[1] + '">' + esc(st[0]) + '</span><span class="sp"></span>'
     + '<button type="button" class="btn" data-act="copy" title="Copy this agenda as text for WhatsApp or a message">Copy agenda</button>'
     + (admin() ? '<button type="button" class="btn" data-act="edit">Edit</button>' : '') + '</div>'
@@ -704,6 +731,9 @@ function viewHTML(e){
     +   '<div><dt>When</dt><dd>' + esc(longDate(e.date)) + (e.time ? '<small>' + esc(e.time) + '</small>'
           + (otherZones(e.time) ? '<small class="tz">' + esc(otherZones(e.time)) + '</small>' : '') : '') + '</dd></div>'
     +   (e.where ? '<div><dt>Where</dt><dd>' + esc(e.where) + (e.whereNote ? '<small>' + esc(e.whereNote) + '</small>' : '') + '</dd></div>' : '')
+    +   (e.signup ? '<div><dt>Sign up</dt><dd><a href="' + esc(e.signup) + '" target="_blank" rel="noopener">Register here</a>'
+          + (fl ? '<span class="zl"><button type="button" class="linkbtn" data-flyer="' + esc(fl.id) + '">See the flyer</button></span>' : '')
+          + '<small>' + esc(e.signup) + '</small></dd></div>' : '')
     +   (zoom ? '<div><dt>Zoom</dt><dd>' + esc(zoom)
           + '<span class="zl"><a href="https://zoom.us/j/' + zid + '" target="_blank" rel="noopener">Join</a> · <button type="button" class="linkbtn" data-copy="' + esc(zoom) + '">Copy ID</button></span>'
           + (e.pass ? '<small>Passcode ' + esc(e.pass) + '</small>' : '') + '</dd></div>' : '')
@@ -725,7 +755,7 @@ function viewHTML(e){
         return '<li><h3>' + esc(SEC[x.k].name) + (m ? '<span>' + fmtMin(m) + ' min</span>' : '') + '</h3>' + x.items.map(itemHTML).join("") + pdf + '</li>';
       }).join("") + '</ol>' : '<p class="empty">The agenda is coming.</p>');
 }
-function footHTML(){ return '<div class="foot">Questions about an event? Ask your coach and mentor.<p class="ver"></p></div>'; }
+function footHTML(){ return '<div class="foot">Questions about an event? Ask your coach and mentor.' + (admin() ? '<p class="who">' + whoHTML() + '</p>' : '') + '<p class="ver"></p></div>'; }
 
 function render(){
   renderNav();
@@ -738,8 +768,8 @@ function render(){
     : '<p class="empty">Loading the agenda…</p>';
   else {
     const e = current();
-    html = e ? viewHTML(e) : '<p class="empty">No events yet.' + (admin() ? ' Tap <b>+ New event</b> on the left.' : '') + '</p>';
-    document.title = e ? e.title + " · " + navDate(e.date) : "HY Team Event";
+    html = e ? viewHTML(e) : homeHTML(!!wantedId());
+    document.title = e ? e.title + " · " + navDate(e.date) : "HY Team Events";
   }
   $("doc").innerHTML = html + footHTML();
   paintVer();
@@ -813,6 +843,7 @@ function renderEditor(){
     +   field("time", "Time", d.time, { ph: "7:30 to 9:00 PM ET" }) + field("where", "Where", d.where)
     +   field("whereNote", "Where, second line", d.whereNote) + field("zoom", "Zoom ID", d.zoom, { attr: ' inputmode="numeric"' })
     +   field("pass", "Zoom passcode <i>(shown on the page)</i>", d.pass) + field("dress", "Dress code", d.dress)
+    +   field("signup", "Sign-up link <i>(optional, https://…)</i>", d.signup, { full: true, ph: "https://f.kdocs.cn/g/…" })
     +   field("agendaTitle", "Agenda heading <i>(blank = Agenda)</i>", d.agendaTitle)
     + '</div>'
     + '<h2>Overview</h2>' + field("flow", "One per line: time | what", fmtRows(d.flow), { area: true, full: true, rows: (d.flow || []).length + 1, ph: "7:30 to 9:00 PM | All partners" })
@@ -839,7 +870,7 @@ function collect(){
   const f = $("edf"); if(!f || !EDIT) return;
   const v = function(n, root){ const el = (root || f).querySelector('[name="' + n + '"]'); return el ? el.value : ""; };
   const d = EDIT.draft;
-  ["title", "sub", "kind", "date", "time", "where", "whereNote", "zoom", "pass", "dress", "agendaTitle"].forEach(function(k){ d[k] = v(k).trim(); });
+  ["title", "sub", "kind", "date", "time", "where", "whereNote", "zoom", "pass", "signup", "dress", "agendaTitle"].forEach(function(k){ d[k] = v(k).trim(); });
   d.flow = parseRows(v("flow"), 2);
   d.roles = STD_ROLES.map(function(r){ return [r[1], v("role_" + r[0]).trim()]; }).filter(function(r){ return r[1]; })
     .concat(parseRows(v("rolesx"), 2));
@@ -867,7 +898,7 @@ function nextDay(dow){
 }
 function startNew(){
   if(EDIT && DIRTY){ toast("Save or cancel the event you are editing first."); return; }
-  EDIT = null; CHOOSING = true; closeNav(); render(); scrollTo(0, 0);
+  EDIT = null; CHOOSING = true; render(); scrollTo(0, 0);
 }
 function chooserHTML(){
   return '<div class="dtop"><span class="stat">New event</span></div><h1>What kind of night?</h1>'
@@ -972,14 +1003,14 @@ function arm(btn, label, fn){
 }
 
 /* ---------------- clicks ---------------- */
-function closeNav(){ document.body.classList.remove("navopen"); $("navbtn").setAttribute("aria-expanded", "false"); }
-$("navbtn").addEventListener("click", function(){ const o = document.body.classList.toggle("navopen"); this.setAttribute("aria-expanded", String(o)); });
-$("scrim").addEventListener("click", closeNav);
-$("nav").addEventListener("click", function(ev){
-  const a = ev.target.closest("a.ni"); if(!a) return;
+/* Links to the list ("Team Event", "All events", "← All events") and to an event. While an edit is
+   open they wait for Save or Cancel; from the New event chooser they leave it. A link to the page
+   already showing just redraws it (no hashchange fires). */
+document.addEventListener("click", function(ev){
+  const a = ev.target.closest('a[href^="#"]'); if(!a) return;
   if(EDIT){ ev.preventDefault(); toast("Save or cancel your edit first."); return; }
-  if(CHOOSING){ CHOOSING = false; if(location.hash === a.getAttribute("href")) render(); }
-  closeNav();
+  const same = (a.getAttribute("href") === "#" ? "" : a.getAttribute("href").slice(1)) === wantedId();
+  if(CHOOSING || same){ CHOOSING = false; if(same){ ev.preventDefault(); if(!wantedId()) history.replaceState(null, "", location.pathname + location.search); render(); scrollTo({ top: 0 }); } }
 });
 $("dots").addEventListener("click", function(){
   if(admin()){ toast("Signed in as admin. Use Edit on an event, or + New event."); return; }
