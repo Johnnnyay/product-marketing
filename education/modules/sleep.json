@@ -1,69 +1,254 @@
 {
  "id": "sleep",
  "area": "sleep",
- "study": [["xzc52", "03"], ["xzc52", "13"], ["xzc52", "12"], ["xzc52", "22"], ["xzc52", "37"], ["xzc52", "52"], ["qtby", "17"]],
+ "study": [
+  [
+   "xzc52",
+   "03"
+  ],
+  [
+   "xzc52",
+   "13"
+  ],
+  [
+   "xzc52",
+   "12"
+  ],
+  [
+   "xzc52",
+   "22"
+  ],
+  [
+   "xzc52",
+   "37"
+  ],
+  [
+   "xzc52",
+   "52"
+  ],
+  [
+   "qtby",
+   "17"
+  ]
+ ],
  "en": {
   "title": "Sleep & Stress",
   "who": "Guests who mark trouble falling asleep, waking at 3 am, waking up unrefreshed, stressed all day and wired at night, jet lag, or stress that goes to the stomach.",
-  "studyWhy": ["how sleep debt adds up", "sleep cycles and repair", "state of mind", "the B vitamins", "minerals, including magnesium", "easing stress", "the liver, and why sleep routes through it"],
+  "studyWhy": [
+   "how sleep debt adds up",
+   "sleep cycles and repair",
+   "state of mind",
+   "the B vitamins",
+   "minerals, including magnesium",
+   "easing stress",
+   "the liver, and why sleep routes through it"
+  ],
   "feel": {
-   "say": ["I know that feeling. You're exhausted, you lie down, and your head just won't switch off. Or you finally fall asleep and you're up again at 3 am."],
+   "say": [
+    "Do you ever have a day so stressful that you can't fall asleep, and then the bad night makes the next day even worse?"
+   ],
    "tip": "Say back what they marked, in their words. Then ask: \"Is it falling asleep, staying asleep, or waking up tired?\""
   },
   "felt": {
-   "say": ["Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"],
+   "say": [
+    "Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"
+   ],
    "tip": "Your own story, or someone close to you (\"my mom\", \"a friend from work\"). No story yet? \"A lot of the people I talk to say exactly the same thing.\" Never make one up."
   },
   "found": {
    "say": [
-    "What I learned is that the body has a stress alarm that's supposed to switch off at night. When stress stays high all day, it's still on at bedtime, so you're tired but your brain is on watch.",
-    "The calming signals are built from nutrients like magnesium and the B vitamins, and stress burns through them faster. So it's not only in your head: your body is short on what it needs to calm down.",
+    "What I learned is that stress and sleep feed each other, so you work on both: calm the stress during the day, and give the body what it needs to switch off at night.",
     "So this is what I'd start with."
    ],
-   "tip": "Two or three sentences, then go to the map. Pick the row that matches what they marked."
+   "tip": "One or two sentences from Part A, then the routine. Pick the products that match what they marked."
   },
-  "map": [
-   ["Can't switch off at night", "Cal Mag D (or Magnesium), with dinner", "Raw material for the calming signals"],
-   ["Stressed all day, wired at night", "Ashwagandha, with the evening meal", "Calms the stress system; judge it at about eight weeks"],
-   ["Under pressure, running low", "Vitamin B Complex, with food", "Stress uses up the B vitamins faster"],
-   ["Wakes at 3 am, late dinners or drinks", "Liver Support, in the evening with Vitamin B", "Eases the work the body does through the night"],
-   ["Stress goes to the stomach", "Stress Relief Probiotic", "The gut and the brain talk both ways; give it five to eight weeks"],
-   ["Jet lag, a shifted schedule", "Sleep Gummies (3 mg melatonin), the odd night only", "A clock signal, not a sleeping pill. Not for children, pregnancy or anyone on blood thinners"],
-   ["Wants it all in one box", "Sleep + Stress Solution", "The core set in one pack"]
-  ],
   "ask": "Based on what you told me, I'd start with the magnesium, the ashwagandha and the B vitamins. Do you want to take it home tonight?",
-  "doctor": "Loud snoring, pauses in breathing, or trouble sleeping most nights for three months? See a doctor first. Never change sleeping pills or antidepressants without the doctor. Pregnant or breastfeeding: no ashwagandha."
+  "doctor": "Loud snoring, pauses in breathing, or trouble sleeping most nights for three months? See a doctor first. Never change sleeping pills or antidepressants without the doctor. Pregnant or breastfeeding: no ashwagandha.",
+  "groups": [
+   "Calm the stress",
+   "The raw materials",
+   "The liver's night shift",
+   "The wind-down",
+   "The clock, odd nights only",
+   "All in one box"
+  ],
+  "know": [
+   [
+    "Stress and sleep feed each other.",
+    "A stressful day makes it hard to fall asleep, and the bad night makes the next day even more stressful. That's why you work on both sides at once."
+   ],
+   [
+    "Your stress alarm should switch off at night.",
+    "Cortisol is meant to be high in the morning and low at bedtime. When it's still on, you're tired but your head keeps going, like a smoke alarm still beeping after the toast is out."
+   ],
+   [
+    "Calm is made from nutrients.",
+    "The brain builds its calming signals, GABA and serotonin, with magnesium and the B vitamins, and stress burns through both. It's not only in your head: the body runs short on what it needs to calm down."
+   ],
+   [
+    "The gut is your second brain.",
+    "Hundreds of millions of nerve cells line the gut and talk to the brain all day, in both directions. That's why a deadline lands in your stomach, and why a stressed gut can keep you up."
+   ],
+   [
+    "Waking at 3 am usually starts at dinner.",
+    "A late, heavy dinner or a few drinks keep the liver on the night shift. You drop off fine, but as it wears off, sleep turns light."
+   ],
+   [
+    "Melatonin is a clock signal, not a sleeping pill.",
+    "It tells the body night has started. On average it gets people to sleep about seven minutes sooner, so it's for jet lag and a shifted schedule, not every night."
+   ],
+   [
+    "Sleep runs in 90-minute cycles.",
+    "Wake in the middle of deep sleep and you feel awful even after a full night. A 7 am alarm means aiming to be asleep around 11:30 pm."
+   ],
+   [
+    "The free half of the plan.",
+    "Last coffee before 2 pm, phone out of the bedroom, dinner three hours before bed, and the same wake time seven days a week."
+   ]
+  ],
+  "routine": [
+   [
+    "Daytime, with a meal",
+    "Stress Relief Probiotic"
+   ],
+   [
+    "Dinner",
+    "Ashwagandha, plus Magnesium (or Cal Mag D)"
+   ],
+   [
+    "7:30 to 8:40 pm",
+    "Vitamin B and Liver Support"
+   ],
+   [
+    "Winding down",
+    "A cup of Chamomile Tea, lights down, phone out of the bedroom"
+   ],
+   [
+    "Odd nights only",
+    "Sleep Health or Sleep Gummies, 30 to 60 minutes before bed"
+   ]
+  ]
  },
  "zh": {
   "title": "睡眠与压力",
   "who": "适合在问卷里勾了入睡难、半夜三点醒、睡够了还是没精神、白天发蔫晚上精神、倒时差，或者一紧张胃就不舒服的客人。",
-  "studyWhy": ["睡眠债是怎么欠下的", "睡眠周期与修复", "心态对健康的影响", "B族维生素", "矿物质，包括镁", "舒压", "肝，以及为什么睡眠问题要从肝入手"],
+  "studyWhy": [
+   "睡眠债是怎么欠下的",
+   "睡眠周期与修复",
+   "心态对健康的影响",
+   "B族维生素",
+   "矿物质，包括镁",
+   "舒压",
+   "肝，以及为什么睡眠问题要从肝入手"
+  ],
   "feel": {
-   "say": ["我懂那种感觉。明明累得不行，躺下了脑子却停不下来。或者好不容易睡着了，半夜三点又醒。"],
+   "say": [
+    "你有没有过这种时候：白天压力特别大，晚上怎么都睡不着，结果没睡好，第二天更难熬？"
+   ],
    "tip": "用对方自己的话，把问卷上勾的说回去。然后问一句：“是睡不着、睡不稳，还是醒来还很累？”"
   },
   "felt": {
-   "say": ["说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"],
+   "say": [
+    "说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"
+   ],
    "tip": "讲你自己的，或者身边人的（“我妈妈”“我一个同事”）。还没有故事？就说：“我身边很多朋友也是这样。”千万别编。"
   },
   "found": {
    "say": [
-    "我后来学到，身体里有一个压力警报，到了晚上本该关掉。可是压力一整天都很大，睡前它还开着，所以人很累，大脑却还在值班。",
-    "让人平静下来的信号，是用镁、B族这些营养素做出来的，压力越大用得越快。所以不只是想太多，身体里让你静下来的原料也不够了。",
+    "我后来学到，压力和睡眠是互相加码的，所以要两边一起调：白天把压力降下来，晚上给身体它关机需要的东西。",
     "所以，我会先从这个开始。"
    ],
-   "tip": "两三句就够，然后看下面的对照表，挑跟对方勾的那一项对得上的。"
+   "tip": "从 Part A 挑一两句讲，然后讲作息。挑跟对方勾的对得上的产品。"
   },
-  "map": [
-   ["躺下了脑子停不下来", "钙镁D（或镁片），随晚饭吃", "让人平静下来的原料"],
-   ["白天压力大，晚上反而精神", "南非醉茄，随晚饭吃", "让压力系统平静下来，大约八周看效果"],
-   ["压力大、总觉得被掏空", "B族维生素，随餐吃", "压力越大，B族消耗越快"],
-   ["半夜三点醒、晚饭晚或常喝酒", "护肝片，晚上和B族一起吃", "减轻身体夜里的负担"],
-   ["一紧张胃就不舒服", "舒压益生菌", "肠道和大脑是双向沟通的，给它五到八周"],
-   ["倒时差、作息乱了", "甜梦睡眠软糖（含3毫克褪黑素），偶尔用", "是时钟信号，不是安眠药。儿童、孕期、服用抗凝药的人不用"],
-   ["想一盒搞定", "睡眠减压方案", "核心几样装在一盒里"]
-  ],
   "ask": "按你刚才说的，我建议先从镁、南非醉茄和B族这三样开始。今天要不要先带回去？",
-  "doctor": "打鼾很响、睡眠中有呼吸暂停，或者连续三个月大多数晚上都睡不好？请先去看医生。安眠药、抗抑郁药一定要在医生指导下调整。怀孕或哺乳期不吃南非醉茄。"
- }
+  "doctor": "打鼾很响、睡眠中有呼吸暂停，或者连续三个月大多数晚上都睡不好？请先去看医生。安眠药、抗抑郁药一定要在医生指导下调整。怀孕或哺乳期不吃南非醉茄。",
+  "groups": [
+   "把压力降下来",
+   "补原料",
+   "肝的夜班",
+   "睡前放松",
+   "调生物钟（只在偶尔的晚上）",
+   "一盒搞定"
+  ],
+  "know": [
+   [
+    "压力和睡眠会互相加码。",
+    "白天压力大，晚上就难睡着；晚上没睡好，第二天压力更大。所以要两边一起调。"
+   ],
+   [
+    "身体的压力警报，晚上本该关掉。",
+    "皮质醇应该早上高、睡前低。睡前它还开着，人很累，脑子却停不下来，就像吐司早就拿出来了，烟雾报警器还在响。"
+   ],
+   [
+    "平静是用营养素做出来的。",
+    "大脑靠镁和B族，合成GABA、血清素这些让人平静的信号，而压力会把这两样都耗掉。所以不只是想太多，身体里平静下来的原料也不够了。"
+   ],
+   [
+    "肠道是人的第二个大脑。",
+    "肠道里有好几亿个神经细胞，整天跟大脑双向通话。所以事情一赶胃就先打结，肠胃不舒服也会让人睡不好。"
+   ],
+   [
+    "半夜三点醒，问题常常出在晚饭。",
+    "晚饭吃得太晚太重、喝了几杯，肝就得上夜班。刚开始睡得着，等劲儿过去，睡眠就变浅了。"
+   ],
+   [
+    "褪黑素是时钟信号，不是安眠药。",
+    "它告诉身体“天黑了”。平均只能让人早七分钟左右睡着，所以适合倒时差、作息乱了的时候，不是每晚吃。"
+   ],
+   [
+    "睡眠是90分钟一个周期。",
+    "闹钟正好响在深睡中间，睡够了起来也难受。早上7点的闹钟，最好晚上11点半左右就睡着。"
+   ],
+   [
+    "方案里免费的那一半。",
+    "咖啡下午两点前喝完，手机不进卧室，晚饭离睡觉三小时，一周七天同一时间起床。"
+   ]
+  ],
+  "routine": [
+   [
+    "白天随餐",
+    "舒压益生菌"
+   ],
+   [
+    "晚饭",
+    "南非醉茄，加镁片（或钙镁D）"
+   ],
+   [
+    "晚上7点半到8点40",
+    "B族和护肝片"
+   ],
+   [
+    "睡前放松",
+    "一杯洋甘菊茶，灯调暗，手机不进卧室"
+   ],
+   [
+    "只在偶尔的晚上",
+    "安睡片或甜梦软糖，睡前30到60分钟"
+   ]
+  ]
+ },
+ "groups": [
+  [
+   "organics-ashwagandha-capsules",
+   "stress-relief-probiotic"
+  ],
+  [
+   "magnesium",
+   "calcium-magnesium-d",
+   "vitamin-b-complex-120ct"
+  ],
+  [
+   "liver-support"
+  ],
+  [
+   "organics-chamomile-tea"
+  ],
+  [
+   "sleep-health",
+   "sleep-gummies"
+  ],
+  [
+   "sleep-stress-solution"
+  ]
+ ]
 }

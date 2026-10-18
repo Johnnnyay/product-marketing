@@ -460,6 +460,35 @@
     .pm-map-row span { display: block; color: var(--gray-500); font-size: 14px; line-height: 1.5; margin-top: 2px; }
     .pm-map-head { border-bottom: 0 !important; padding-bottom: 0 !important; }
     .pm-map-head > div { font-size: 11.5px !important; font-weight: 700 !important; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-500) !important; }
+    .pm-part { margin-top: 38px; font-size: 12px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); }
+    .pm-part-h { font-size: 24px; font-weight: 800; color: var(--gray-800); margin: 2px 0 12px; }
+    .pm-know { list-style: none; padding: 0; margin: 0; counter-reset: k; }
+    .pm-know li { counter-increment: k; position: relative; padding: 12px 0 12px 40px; border-top: 1px solid var(--gray-200); }
+    .pm-know li::before { content: counter(k); position: absolute; left: 0; top: 13px; width: 28px; height: 28px; border-radius: 8px; background: var(--green-light); color: var(--green); font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+    .pm-know b { display: block; font-size: 16.5px; color: var(--navy); }
+    .pm-know p { margin: 3px 0 0; font-size: 15px; line-height: 1.6; color: var(--gray-600, #4B5563); }
+    .pm-routine { background: var(--green-light); border-radius: 14px; padding: 14px 16px; margin-bottom: 8px; }
+    .pm-routine > b { display: block; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 6px; }
+    .pm-rt { display: grid; grid-template-columns: 38% 1fr; gap: 10px; padding: 6px 0; border-top: 1px solid rgba(0,0,0,0.06); }
+    .pm-rt:first-of-type { border-top: 0; }
+    .pm-rt span { font-weight: 700; font-size: 14.5px; color: var(--gray-800); }
+    .pm-rt p { margin: 0; font-size: 14.5px; line-height: 1.5; }
+    .pm-group { font-size: 13px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-500); margin: 22px 0 8px; }
+    .pc { background: #fff; border: 1px solid var(--gray-200); border-radius: 14px; margin: 8px 0; overflow: hidden; }
+    .pc summary { display: flex; gap: 12px; align-items: center; padding: 10px 14px; cursor: pointer; list-style: none; }
+    .pc summary::-webkit-details-marker { display: none; }
+    .pc summary::after { content: '+'; margin-left: auto; flex: none; font-size: 22px; font-weight: 600; color: var(--green); }
+    .pc[open] summary::after { content: '−'; }
+    .pc summary img, .pc-ph { flex: none; width: 56px; height: 56px; object-fit: contain; border-radius: 10px; background: var(--gray-50, #F7F8F7); }
+    .pc-head { display: flex; flex-direction: column; min-width: 0; }
+    .pc-head b { font-size: 15.5px; color: var(--navy); }
+    .pc-head span { font-size: 14px; color: var(--gray-600, #4B5563); line-height: 1.45; }
+    .pc-head i { font-style: normal; font-size: 12.5px; color: var(--gray-500); margin-top: 2px; }
+    .pc-body { padding: 2px 16px 12px; border-top: 1px solid var(--gray-100); }
+    .pc-row { padding: 9px 0 0; }
+    .pc-row b { display: block; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-500); }
+    .pc-row p { margin: 2px 0 0; font-size: 15px; line-height: 1.6; }
+    .pc-quote { display: inline-block; background: var(--green-light); color: var(--green); border-radius: 8px; padding: 2px 8px; margin: 3px 4px 0 0; font-size: 14px; font-weight: 600; }
     .pm-more { margin-top: 30px; border-top: 1px solid var(--gray-200); padding-top: 12px; }
     .pm-more summary { cursor: pointer; font-weight: 700; font-size: 15px; color: var(--gray-800); }
     @media (max-width: 760px) { .edu-cards-sm { grid-template-columns: 1fr 1fr; } .pm-level h2 { font-size: 19px; } .pm-tbl td:first-child { width: 40%; } .pm-map-row { grid-template-columns: 40% 1fr; gap: 10px; } }
@@ -2849,7 +2878,33 @@ function eduHomeHtml() {
 
 /* One pain-point module, from education/modules/<id>.json. Each file holds a whole English block
    and a whole Chinese block (written as its own text, not a line-by-line translation); the
-   lesson links (study) are shared. */
+   lesson links (study) are shared.
+   Two shapes (Johnny, 2026-10-17). A module with `groups` is the learning layout: Part A, the
+   knowledge points in plain words with an example each; Part B, the products, each a teaching card
+   from education/products.json (one card per product, shared by every module that lists it); then
+   the short three-step talk track. A module without `groups` is the earlier draft: three steps and
+   a product map. Learning goes by product (cards repeat across areas), the conversation by pain. */
+let eduCards = null;
+function eduCardHtml(id) {
+  const C = eduCards && eduCards[id]; if (!C) return '';
+  const T = (currentLang === 'zh' && C.zh) ? C.zh : C.en;
+  const P = findP(id);
+  const name = P ? t(P.name, P.nameZh || P.name) : t(C.name, C.nameZh || C.name);
+  const img = P ? P.imageUrl : C.img;
+  const price = P ? `$${P.retailPrice} · IBO $${P.iboPrice} · ${P.pv} PV` : (C.retail ? `$${C.retail}${C.size ? ' · ' + t(C.size, C.sizeZh || C.size) : ''}` : '');
+  const row = (k, v) => v ? `<div class="pc-row"><b>${k}</b><p>${eduEsc(v)}</p></div>` : '';
+  return `<details class="pc">
+    <summary>${img ? `<img src="${img}" alt="" loading="lazy">` : '<span class="pc-ph"></span>'}
+      <span class="pc-head"><b>${eduEsc(name)}</b><span>${eduEsc(T.what)}</span>${price ? `<i>${price}</i>` : ''}</span></summary>
+    <div class="pc-body">
+      ${row(t('Think of it this way', '打个比方'), T.like)}
+      ${T.who && T.who.length ? `<div class="pc-row"><b>${t('Who it is for, in their words', '适合谁（客人会这样说）')}</b><p>${T.who.map(x => `<span class="pc-quote">“${eduEsc(x)}”</span>`).join(' ')}</p></div>` : ''}
+      ${row(t('How to take it', '怎么吃'), T.how)}
+      ${row(t('When to judge it', '多久看效果'), T.when)}
+      ${row(t('Watch out', '注意'), T.watch)}
+    </div></details>`;
+}
+
 function eduPainHtml(F) {
   const M = (currentLang === 'zh' && F.zh) ? F.zh : F.en;
   const why = M.studyWhy || [];
@@ -2860,16 +2915,48 @@ function eduPainHtml(F) {
   const step = (n, title, S) => `<section class="pm-level"><h2><span class="pm-n">${n}</span>${title}</h2>
     <div class="pm-say">${S.say.map(x => `<p>${eduEsc(x)}</p>`).join('')}</div>
     ${S.tip ? `<p class="pm-tip">${eduEsc(S.tip)}</p>` : ''}</section>`;
-  return `
-    <div class="edu-wrap pm">
+  const talk = `
+      ${step(1, t('I know how you feel', '我懂你的感受'), M.feel)}
+      ${step(2, t('I felt the same (or someone I know did)', '我也有过（或我身边的人有过）'), M.felt)}
+      ${step(3, t("Here's what I found, and you should know", '我后来学到的，你也该知道'), M.found)}`;
+  const deeper = `
+      <details class="pm-more"><summary>${t('Want to go deeper?', '想了解更多？')}</summary>
+        <div class="pm-box">
+          <button class="pm-link" onclick="homeOpenArea('${F.area}')">${t('The quick guide (what the guest sees)', '快速了解（客户看到的版本）')} ›</button>
+          <button class="pm-link" onclick="areaMode['${F.area}']='full';homeOpenArea('${F.area}')">${t('The full 4-step plan (the science)', '完整四步方案（背后的原理）')} ›</button>
+          ${F.study.map(([sid, lid], i) => `<button class="pm-link" onclick="eduStudy('${F.id}','${sid}','${lid}')">${lessonTitle(sid, lid)} <span class="pm-why">· ${eduEsc(why[i] || '')}</span> ›</button>`).join('')}
+        </div>
+      </details>`;
+  const head = `
       <button class="edu-back" onclick="eduBack()">‹ ${t('Education', '培训')}</button>
       <div class="edu-eyebrow">${t('Pain-point module', '痛点课程')}</div>
       <h1 class="edu-h1">${eduEsc(M.title)}</h1>
-      <p class="edu-sub">${eduEsc(M.who)}</p>
+      <p class="edu-sub">${eduEsc(M.who)}</p>`;
 
-      ${step(1, t('I know how you feel', '我懂你的感受'), M.feel)}
-      ${step(2, t('I felt the same (or someone I know did)', '我也有过（或我身边的人有过）'), M.felt)}
-      ${step(3, t("Here's what I found, and you should know", '我后来学到的，你也该知道'), M.found)}
+  if (F.groups) return `
+    <div class="edu-wrap pm">${head}
+      <div class="pm-part">Part A</div>
+      <h2 class="pm-part-h">${t('What to know', '需要知道的')}</h2>
+      <ol class="pm-know">${M.know.map(([k, ex]) => `<li><b>${eduEsc(k)}</b><p>${eduEsc(ex)}</p></li>`).join('')}</ol>
+
+      <div class="pm-part">Part B</div>
+      <h2 class="pm-part-h">${t('The products', '相关产品')}</h2>
+      ${M.routine ? `<div class="pm-routine"><b>${t('From day to night', '从白天到晚上')}</b>
+        ${M.routine.map(([w, x]) => `<div class="pm-rt"><span>${eduEsc(w)}</span><p>${eduEsc(x)}</p></div>`).join('')}</div>` : ''}
+      ${F.groups.map((ids, i) => `<h3 class="pm-group">${eduEsc((M.groups || [])[i] || '')}</h3>${ids.map(eduCardHtml).join('')}`).join('')}
+      <p class="pm-tip">${t('Prices are from the catalogue on this site; check amway.com before quoting.', '价格来自本站产品目录，报价前请先在 amway.com 核对。')}</p>
+
+      <div class="pm-part">${t('With a guest', '跟客人聊')}</div>
+      <h2 class="pm-part-h">${t('The three steps', '三步聊法')}</h2>
+      ${talk}
+      <div class="pm-say"><b>${t('The ask', '开口')}</b>${eduEsc(M.ask)}</div>
+      <p class="edu-note">${eduEsc(M.doctor)}</p>
+      ${deeper}
+    </div>`;
+
+  return `
+    <div class="edu-wrap pm">${head}
+      ${talk}
 
       <section class="pm-level"><h2><span class="pm-n">→</span>${t('Product map', '产品对照')}</h2>
         <div class="pm-map">
@@ -2880,14 +2967,7 @@ function eduPainHtml(F) {
       </section>
 
       <p class="edu-note">${eduEsc(M.doctor)}</p>
-
-      <details class="pm-more"><summary>${t('Want to go deeper?', '想了解更多？')}</summary>
-        <div class="pm-box">
-          <button class="pm-link" onclick="homeOpenArea('${F.area}')">${t('The quick guide (what the guest sees)', '快速了解（客户看到的版本）')} ›</button>
-          <button class="pm-link" onclick="areaMode['${F.area}']='full';homeOpenArea('${F.area}')">${t('The full 4-step plan (the science)', '完整四步方案（背后的原理）')} ›</button>
-          ${F.study.map(([sid, lid], i) => `<button class="pm-link" onclick="eduStudy('${F.id}','${sid}','${lid}')">${lessonTitle(sid, lid)} <span class="pm-why">· ${eduEsc(why[i] || '')}</span> ›</button>`).join('')}
-        </div>
-      </details>
+      ${deeper}
     </div>`;
 }
 
@@ -2993,6 +3073,12 @@ async function renderEducationView() {
     if (!eduMods[eduModule]) {
       loading();
       try { const r = await fetch('education/modules/' + eduModule + '.json'); if (!r.ok) throw 0; eduMods[eduModule] = await r.json(); }
+      catch (e) { if (tok === eduTok) failed(); return; }
+      if (tok !== eduTok || viewMode !== 'education') return;
+    }
+    if (eduMods[eduModule].groups && !eduCards) {
+      loading();
+      try { const r = await fetch('education/products.json'); if (!r.ok) throw 0; eduCards = await r.json(); }
       catch (e) { if (tok === eduTok) failed(); return; }
       if (tok !== eduTok || viewMode !== 'education') return;
     }

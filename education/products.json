@@ -1,0 +1,190 @@
+{
+ "_note": "One teaching card per product, shared by every Education module that lists it. Name, image, price and PV come from the product catalogue; a product not in the catalogue carries its own name, item and price here.",
+ "organics-ashwagandha-capsules": {
+  "en": {
+   "what": "An herb that calms the stress system itself, instead of knocking you out.",
+   "like": "Think of stress as a volume knob stuck on high. A sleeping pill just covers your ears; ashwagandha slowly turns the knob down.",
+   "who": ["I'm wired at night and flat in the afternoon", "I've been under pressure for weeks", "I'm tired, but my head won't stop"],
+   "how": "With the evening meal, every day.",
+   "when": "It works over weeks, not tonight. Judge it at about eight weeks.",
+   "watch": "Skip it if pregnant or breastfeeding, or with thyroid, autoimmune or liver disease. Dark urine or yellowing skin: stop and see a doctor."
+  },
+  "zh": {
+   "what": "一种草本，调的是压力系统本身，不是把人放倒。",
+   "like": "压力像一个卡在最大声的音量旋钮。安眠药只是帮你捂住耳朵，南非醉茄是慢慢把旋钮拧小。",
+   "who": ["晚上特别精神，下午又没电", "压力已经扛了好几周", "人很累，脑子却停不下来"],
+   "how": "每天随晚饭吃。",
+   "when": "按周起作用，不是今晚吃今晚就好。大约八周再看效果。",
+   "watch": "怀孕、哺乳，或者有甲状腺、自身免疫、肝脏方面问题的人不吃。如果尿色变深或皮肤发黄，马上停，去看医生。"
+  }
+ },
+ "stress-relief-probiotic": {
+  "en": {
+   "what": "A probiotic with strains picked for the gut-brain link, not for digestion in general.",
+   "like": "The gut is your second brain: hundreds of millions of nerve cells, talking to your brain all day. That's why a deadline lands in your stomach. This probiotic works on that phone line.",
+   "who": ["When I'm stressed, my stomach goes first", "I lie awake with a busy head"],
+   "how": "One capsule a day with food, at the same time each day. Already on a standard probiotic? Swap, don't stack.",
+   "when": "Give it five to eight weeks.",
+   "watch": "The research is mixed and the effect modest. Say \"worth trying\", never \"it fixes stress\"."
+  },
+  "zh": {
+   "what": "一款益生菌，选的菌株针对的是肠脑连接，不是一般的助消化。",
+   "like": "肠道是人的第二个大脑：里面有好几亿个神经细胞，整天都在跟大脑通话。所以事情一赶，胃先打结。这款益生菌照顾的就是这条电话线。",
+   "who": ["一紧张，胃先不舒服", "躺下了脑子还在转"],
+   "how": "每天一粒，随餐吃，每天同一时间。已经在吃普通益生菌的，二选一，不要叠加。",
+   "when": "给它五到八周。",
+   "watch": "研究结论还不一致，效果偏温和。要说“值得试试”，不要说“能解决压力”。"
+  }
+ },
+ "magnesium": {
+  "en": {
+   "what": "The mineral that helps muscles and nerves let go at night.",
+   "like": "Stress drains magnesium, and low magnesium makes stress hit harder, so the two feed each other. Magnesium breaks that loop from the body's side.",
+   "who": ["My body is tired but my mind is racing", "My muscles feel tight at night"],
+   "how": "With dinner. Keep supplemental magnesium within 350 mg a day.",
+   "when": "Steady, every evening; judge it over a few weeks.",
+   "watch": "Loose stools are the first sign of too much. Eats little dairy? Choose Cal Mag D instead. Pick one, not both."
+  },
+  "zh": {
+   "what": "帮肌肉和神经在晚上放松下来的矿物质。",
+   "like": "压力会把镁耗掉，镁一少，压力打过来就更重，两者互相加码。补镁是从身体这一边，把这个循环打断。",
+   "who": ["身体很累，脑子却停不下来", "晚上肌肉总是绷着"],
+   "how": "随晚饭吃。补充剂来源的镁，每天不超过350毫克。",
+   "when": "每天晚上固定吃，几周后看效果。",
+   "watch": "大便变稀是吃多了的第一个信号。平时奶制品吃得少的，换成钙镁D。两个选一个，不要一起吃。"
+  }
+ },
+ "calcium-magnesium-d": {
+  "en": {
+   "what": "Calcium, magnesium and vitamin D in one tablet, because they work as a team.",
+   "like": "Calcium on its own is like bricks delivered with no one to unload them: vitamin D brings them in, magnesium puts them to use.",
+   "who": ["I don't eat much dairy", "My doctor told me to take calcium", "My muscles feel tight at night"],
+   "how": "With dinner, in place of Magnesium.",
+   "when": "Steady, every evening.",
+   "watch": "Pick this or Magnesium, not both."
+  },
+  "zh": {
+   "what": "钙、镁、维生素D三合一，因为它们本来就是一起干活的。",
+   "like": "只补钙，就像砖运到了工地却没人卸货：维生素D负责把钙运进来，镁负责把钙用起来。",
+   "who": ["平时不怎么喝奶、吃奶制品", "医生让我补钙", "晚上肌肉总是绷着"],
+   "how": "随晚饭吃，代替镁片。",
+   "when": "每天晚上固定吃。",
+   "watch": "它和镁片选一个，不要一起吃。"
+  }
+ },
+ "vitamin-b-complex-120ct": {
+  "en": {
+   "what": "The B vitamins, which the brain uses to make its calming signals.",
+   "like": "Calm doesn't come from nowhere. The brain builds GABA and serotonin with the help of B6, and stress, drinking and white rice burn through the Bs fast. The body keeps them for hours, not days, so it needs a refill every day.",
+   "who": ["I'm stressed all the time", "I drink after work a few times a week", "My meals are mostly rice and noodles"],
+   "how": "Daily with food. In the evening routine, together with Liver Support around 7:30 to 8:40 pm. If it feels energising, move it to dinner rather than skipping it.",
+   "when": "Every day: it's a refill, not a one-off. The 120-count lasts four months, one of the lowest daily costs in the line.",
+   "watch": "Don't stack several products that each contain B6 (the limit is 100 mg a day)."
+  },
+  "zh": {
+   "what": "B族维生素，大脑用它来做让人平静下来的信号。",
+   "like": "平静不是凭空来的。大脑合成GABA和血清素要靠B6帮忙，而压力、喝酒、白米白面都会很快把B族耗掉。身体只能存几个小时，存不了几天，所以要每天补。",
+   "who": ["压力一直很大", "下班后一周喝好几次酒", "三餐基本是米饭面条"],
+   "how": "每天随餐吃。放进晚间节奏里，大约7点半到8点40，和护肝片一起吃。如果吃了反而精神，就改到晚饭时吃，别停。",
+   "when": "每天都要补，不是吃一次就够。120粒能吃四个月，日均成本很低。",
+   "watch": "不要同时吃好几种含B6的产品（B6每天上限100毫克）。"
+  }
+ },
+ "liver-support": {
+  "en": {
+   "what": "Milk thistle and botanicals that support the liver, the organ working the night shift.",
+   "like": "A late dinner or a few drinks dumps a pile of work on the night shift. You fall asleep fine, but around 3 am, when it wears off, sleep turns light and you're wide awake.",
+   "who": ["I wake up at 3 am", "Late dinners, drinks, or a lot of takeout"],
+   "how": "In the evening with the B vitamins, around 7:30 to 8:40 pm, every night.",
+   "when": "Liver cells take about six months to renew, so judge it in months, not a week.",
+   "watch": "Not a substitute for medical care, especially for anyone on a lot of medication."
+  },
+  "zh": {
+   "what": "奶蓟草加植物萃取，支持肝脏，也就是那个上夜班的器官。",
+   "like": "晚饭吃得晚、喝了几杯，就像给夜班塞了一大堆活。人是睡着了，可到了凌晨三点劲儿一过，睡眠变浅，人一下子就醒了。",
+   "who": ["半夜三点准时醒", "晚饭吃得晚、常喝酒，或者外卖多"],
+   "how": "晚上大约7点半到8点40，和B族一起吃，每天都吃。",
+   "when": "肝细胞大约六个月更新一轮，所以按月看效果，不是看一周。",
+   "watch": "不能代替看医生，尤其是平时吃药比较多的人。"
+  }
+ },
+ "organics-chamomile-tea": {
+  "name": "Nutrilite Organics Chamomile Tea",
+  "nameZh": "纽崔莱有机洋甘菊茶",
+  "item": "308636",
+  "retail": 20.25,
+  "size": "20 servings",
+  "sizeZh": "20份",
+  "img": "https://www.amway.com/medias/308636-en-US-150px-01?context=bWFzdGVyfGltYWdlc3wxMDAxOHxpbWFnZS9wbmd8c3lzLW1hc3Rlci9pbWFnZXMvaGQxL2hlZS85NjY1MjM5OTA4MzgyLzMwODYzNi1lbi1VUy0xNTBweC0wMXw4NjRhNTJlYTIwNTcyZTA2MmIwOTFkY2UxNDMwYzczZDNlNWZhNGUwOTBlNzBkMzA3ODA4NTZhNGVkN2I4N2Fi",
+  "en": {
+   "what": "An organic herbal tea of chamomile, hibiscus, lavender, echinacea and catnip, grown on Nutrilite's own farms.",
+   "like": "It's the cue, not the cure. A warm cup at the same time every night tells your body the day is over, the same way dimming the lights does.",
+   "who": ["I can't wind down at night", "I want something to replace the evening snack or drink"],
+   "how": "One cup in the evening as part of the wind-down. Hot or iced.",
+   "when": "Tonight. It's the ritual that does the work.",
+   "watch": "Chamomile and echinacea are in the daisy family: skip it with a ragweed or daisy allergy. Pregnant? Ask the doctor first."
+  },
+  "zh": {
+   "what": "有机草本茶，洋甘菊、洛神花、薰衣草、紫锥菊和猫薄荷，都来自纽崔莱自己的有机农场。",
+   "like": "它是一个信号，不是药。每天晚上同一个时间来一杯热的，就像把灯调暗一样，告诉身体：今天结束了。",
+   "who": ["晚上怎么都放松不下来", "想找个东西代替晚上的零食或饮料"],
+   "how": "晚上放松的时候喝一杯，热的冰的都可以。",
+   "when": "今晚就能开始，靠的是每天固定的这个习惯。",
+   "watch": "洋甘菊和紫锥菊都属于菊科，对豚草或菊花过敏的人不喝。怀孕的先问医生。"
+  }
+ },
+ "sleep-health": {
+  "en": {
+   "what": "3 mg of plant melatonin from tomato, with chamomile, in a capsule.",
+   "like": "Melatonin isn't a sleeping pill. It's the announcement \"night has started\". After a long flight that announcement plays at the wrong time, and this puts it back on schedule.",
+   "who": ["Jet lag", "My schedule keeps drifting later", "I'm trying to get back to a fixed wake time"],
+   "how": "One, 30 to 60 minutes before bed, only on the nights you need it.",
+   "when": "On average it gets people to sleep only about seven minutes sooner, so it's for the odd night, not every night.",
+   "watch": "No driving or alcohol after. Pregnant, breastfeeding, or on sedatives or blood thinners? Ask the doctor first. Keep it away from children."
+  },
+  "zh": {
+   "what": "每粒含3毫克来自番茄的植物褪黑素，外加洋甘菊。",
+   "like": "褪黑素不是安眠药，它是一句广播：“天黑了。”长途飞行之后，这句广播放错了时间，它帮你把时间调回来。",
+   "who": ["倒时差", "作息越来越晚", "想把起床时间调回来"],
+   "how": "需要的晚上，睡前30到60分钟吃一粒。",
+   "when": "平均只能让人早七分钟左右睡着，所以是偶尔用，不是每晚吃。",
+   "watch": "吃完不开车、不喝酒。怀孕、哺乳，或者在吃镇静类药物、抗凝药的，先问医生。放在孩子拿不到的地方。"
+  }
+ },
+ "sleep-gummies": {
+  "en": {
+   "what": "Sweet Dreams: 3 mg of melatonin with passionflower and a little magnesium, as a gummy.",
+   "like": "The same \"night has started\" signal as Sleep Health, in a gummy. Pick whichever one they'd rather take.",
+   "who": ["Jet lag, or a week of late nights", "I'd rather chew than swallow a capsule"],
+   "how": "One, 30 to 60 minutes before bed, only on the nights you need it.",
+   "when": "For occasional nights while the clock resets, then stop.",
+   "watch": "Not for children, or in pregnancy or breastfeeding without a doctor. No driving or alcohol after. Not on the same night as Sleep Health."
+  },
+  "zh": {
+   "what": "甜梦软糖：3毫克褪黑素，加西番莲和少量镁。",
+   "like": "和安睡片是同一个“天黑了”的信号，只是做成了软糖。客人喜欢哪种就选哪种。",
+   "who": ["倒时差，或者熬了一周夜", "不爱吞胶囊"],
+   "how": "需要的晚上，睡前30到60分钟吃一颗。",
+   "when": "偶尔用，等生物钟调回来就停。",
+   "watch": "儿童、孕期、哺乳期未经医生同意不要用。吃完不开车、不喝酒。不要和安睡片在同一晚一起吃。"
+  }
+ },
+ "sleep-stress-solution": {
+  "en": {
+   "what": "Five products in one box: Sweet Dreams Sleep Gummies, Stress Relief Probiotic, Organics Ashwagandha, Organics Chamomile Tea and the Artistry Sleeping Mask.",
+   "like": "The day-to-night routine already put together: the probiotic and ashwagandha work on the stress, the tea and the mask are the wind-down, and the gummies are for the odd night.",
+   "who": ["Just tell me what to take", "Stressed, wired at night, sleeping badly"],
+   "how": "Follow the routine above. Even in the box, the gummies are for occasional nights.",
+   "when": "Judge the ashwagandha and the probiotic at about eight weeks.",
+   "watch": "It doesn't include magnesium or the B vitamins; add them if the evening calls for it. The ashwagandha cautions apply."
+  },
+  "zh": {
+   "what": "一盒五样：甜梦睡眠软糖、舒压益生菌、有机南非醉茄、有机洋甘菊茶、雅姿睡眠面膜。",
+   "like": "白天到晚上的整套节奏已经搭好了：益生菌和南非醉茄管压力，茶和面膜负责放松，软糖留给偶尔睡不着的晚上。",
+   "who": ["你直接告诉我吃什么就好", "压力大、晚上反而精神、睡不好"],
+   "how": "按上面的作息来吃。就算在套装里，软糖也是偶尔用。",
+   "when": "南非醉茄和益生菌大约八周看效果。",
+   "watch": "里面没有镁和B族，晚间需要的话另外加。南非醉茄的注意事项同样适用。"
+  }
+ }
+}
