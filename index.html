@@ -3555,6 +3555,14 @@ function init() {
   // ?area=<id> opens that area directly, so a shared link lands on the page it is about.
   const qArea = new URLSearchParams(location.search).get('area');
   if (qArea && AREAS.some(a => a.id === qArea)) homeOpenArea(qArea);
+  // ?edu=<module> opens a pain-point module (the expo training page links here). Education is
+  // admin-only, so a reader who isn't signed in gets the code prompt first.
+  const qEdu = new URLSearchParams(location.search).get('edu');
+  if (qEdu && EDU_PAIN.some(p => p.id === qEdu && p.ready)) {
+    const go = () => { setViewMode('education'); eduOpenModule(qEdu); };
+    if (bizMode === 'ibo') go();
+    else AdminSession.login(function () { bizMode = 'ibo'; applyBizMode(); go(); });
+  }
 }
 
 // Try live data first (GitHub Pages); fall back to inline snapshot (file://)
