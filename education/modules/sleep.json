@@ -1,20 +1,12 @@
 {
  "id": "sleep",
- "title": "Sleep & Stress",
- "titleZh": "睡眠与压力",
  "area": "sleep",
- "who": "Guests who mark trouble falling asleep, waking at 3 am, waking up unrefreshed, stressed all day and wired at night, jet lag or a shifted schedule, or stress that goes to the stomach.",
- "study": [
-  ["xzc52", "03", "How sleep debt adds up"],
-  ["xzc52", "13", "Sleep cycles and repair"],
-  ["xzc52", "12", "State of mind"],
-  ["xzc52", "22", "The B vitamins"],
-  ["xzc52", "37", "Minerals, including magnesium"],
-  ["xzc52", "52", "Easing stress"],
-  ["qtby", "17", "The liver, and why sleep routes through it"]
- ],
- "levels": [
-  {"title": "Know it", "items": [
+ "study": [["xzc52", "03"], ["xzc52", "13"], ["xzc52", "12"], ["xzc52", "22"], ["xzc52", "37"], ["xzc52", "52"], ["qtby", "17"]],
+ "en": {
+  "title": "Sleep & Stress",
+  "who": "Guests who mark trouble falling asleep, waking at 3 am, waking up unrefreshed, stressed all day and wired at night, jet lag or a shifted schedule, or stress that goes to the stomach.",
+  "studyWhy": ["how sleep debt adds up", "sleep cycles and repair", "state of mind", "the B vitamins", "minerals, including magnesium", "easing stress", "the liver, and why sleep routes through it"],
+  "know": [
    "The body has a stress alarm that is meant to switch off at night. If cortisol is still high at bedtime, the brain stays on watch: tired, but the head keeps going.",
    "Weeks of pressure flip the rhythm: flat all afternoon, wide awake at midnight. Short nights then push stress up the next day, and the loop keeps going.",
    "Sleep debt adds up quietly. Two weeks of six-hour nights leaves people as impaired as two nights with no sleep, and they don't notice.",
@@ -22,54 +14,108 @@
    "Sleep runs in cycles of about 90 minutes. Waking in the middle of deep sleep is why a full night can still feel awful.",
    "In the teaching we follow, trouble falling asleep and waking at 3 am route through the liver first: a late heavy dinner or drinks keep it working through the night.",
    "Melatonin is a clock signal, not a sleeping pill. On average it gets people to sleep only a few minutes sooner, so it fits jet lag and shifted schedules, not long-term insomnia."
-  ]},
-  {"title": "Manage it", "items": [
+  ],
+  "manage": [
    "Clear: last coffee before 2 pm; phone out of the bedroom; dinner about three hours before bed; go easy on evening drinks.",
    "Regulate: calm the stress system from the inside (ashwagandha, judged at about eight weeks); the stress probiotic if stress lands in the stomach (evidence is mixed); melatonin only for the odd night while the clock resets.",
    "Replenish: magnesium (or Cal Mag D) with dinner, supplemental magnesium within 350 mg a day; B vitamins daily with food, without stacking several B6 products (B6 limit 100 mg a day).",
    "Sustain: the evening anchor, B vitamins and Liver Support at the same time every night around 7:30 to 8:40 pm, judged over months; the same wake time seven days a week; count back from the alarm in 90-minute steps.",
    "Doctor first: loud snoring, pauses in breathing, daytime sleepiness, trouble sleeping most nights for three months, low mood or panic. Pregnant or breastfeeding: no ashwagandha. Never suggest changing sleeping pills or antidepressants."
-  ]}
- ],
- "ask": [
-  "Is it falling asleep, staying asleep, or waking up tired?",
-  "What time do you go to bed and get up, weekends too?",
-  "What's on your mind at night?"
- ],
- "consult": [
-  ["Can't switch off at night", "Your stress alarm is still on at bedtime. You don't have to empty your head, just stop feeding the alarm: last coffee before 2 pm, phone out of the bedroom."],
-  ["Wake up at 3 am", "A drink or a late, heavy dinner keeps your body working through the night. As it wears off, sleep turns light. Don't check the clock."],
-  ["Stressed all day, wired at night", "Your stress rhythm flipped. You don't have to fix your job first: calm the stress system from the inside, and give it weeks."],
-  ["Jet lag or a shifted schedule", "That's when melatonin makes sense. It's a clock signal, for the odd night, not every night."],
-  ["Wake up unrefreshed", "Your alarm is cutting into deep sleep. Count back in 90-minute steps, and keep the same wake time on weekends."],
-  ["Stress goes to my stomach", "Your gut and your brain talk both ways. Worth trying the stress probiotic for five to eight weeks."]
- ],
- "demo": "The quick guide on your phone, opened to their moment. Let them read the one line themselves.",
- "bundle": {
-  "core": ["Cal Mag D (or Magnesium), with dinner", "Ashwagandha, with the evening meal", "Vitamin B Complex, with food"],
-  "addons": [
-   "Wakes at 3 am, late dinners or drinks: Liver Support, taken with the B vitamins in the evening",
-   "Stress lands in the stomach: Stress Relief Probiotic",
-   "Jet lag or a shifted week: Sleep Gummies (3 mg melatonin; not for children, pregnancy or anyone on blood thinners; no driving after)",
-   "Wants it in one box: the Sleep + Stress Solution"
   ],
-  "ask": "Based on what you told me, I'd start with these three, and add the liver support for those 3 am wake-ups. Do you want to take it home tonight?"
+  "ask": ["Is it falling asleep, staying asleep, or waking up tired?", "What time do you go to bed and get up, weekends too?", "What's on your mind at night?"],
+  "consult": [
+   ["Can't switch off at night", "Your stress alarm is still on at bedtime. You don't have to empty your head, just stop feeding the alarm: last coffee before 2 pm, phone out of the bedroom."],
+   ["Wake up at 3 am", "A drink or a late, heavy dinner keeps your body working through the night. As it wears off, sleep turns light. Don't check the clock."],
+   ["Stressed all day, wired at night", "Your stress rhythm flipped. You don't have to fix your job first: calm the stress system from the inside, and give it weeks."],
+   ["Jet lag or a shifted schedule", "That's when melatonin makes sense. It's a clock signal, for the odd night, not every night."],
+   ["Wake up unrefreshed", "Your alarm is cutting into deep sleep. Count back in 90-minute steps, and keep the same wake time on weekends."],
+   ["Stress goes to my stomach", "Your gut and your brain talk both ways. Worth trying the stress probiotic for five to eight weeks."]
+  ],
+  "demo": "The quick guide on your phone, opened to their moment. Let them read the one line themselves.",
+  "bundle": {
+   "core": ["Cal Mag D (or Magnesium), with dinner", "Ashwagandha, with the evening meal", "Vitamin B Complex, with food"],
+   "addons": [
+    "Wakes at 3 am, late dinners or drinks: Liver Support, taken with the B vitamins in the evening",
+    "Stress lands in the stomach: Stress Relief Probiotic",
+    "Jet lag or a shifted week: Sleep Gummies (3 mg melatonin; not for children, pregnancy or anyone on blood thinners; no driving after)",
+    "Wants it in one box: the Sleep + Stress Solution"
+   ],
+   "ask": "Based on what you told me, I'd start with these three, and add the liver support for those 3 am wake-ups. Do you want to take it home tonight?"
+  },
+  "followup": [
+   ["Day 7", "Are you keeping the same wake time? Taking the magnesium with dinner?"],
+   ["Day 28", "The ashwagandha needs about eight weeks, so this is halfway. How's falling asleep now? Let's set up next month so you don't run out."]
+  ],
+  "quiz": [
+   ["What is going on when someone is tired but can't switch off?", "The stress alarm (cortisol) is still on at bedtime, so the brain stays on watch."],
+   ["Name two habits that stop feeding the alarm.", "Last coffee before 2 pm; phone out of the bedroom; dinner three hours before bed; fewer evening drinks."],
+   ["Why do people wake at 3 am after drinks or a late dinner?", "The body is still working on it through the night; as it wears off, sleep turns light."],
+   ["Which nutrients build the calming signals, and why does stress matter?", "Magnesium and the B vitamins (B6 especially); stress uses them up faster."],
+   ["How long until ashwagandha is judged?", "About eight weeks. It works on the stress system over weeks, not tonight."],
+   ["What is melatonin, and when does it fit?", "A clock signal, not a sleeping pill: jet lag, a shifted schedule, the odd night. Only a few minutes faster on average."],
+   ["What is in Sleep Gummies, and who shouldn't take them?", "3 mg melatonin with passionflower. Not for children, pregnancy, breastfeeding or anyone on blood thinners; no driving after."],
+   ["A 7 am alarm: when should they aim to be asleep, and why?", "Around 11:30 pm, five 90-minute cycles, so the alarm doesn't land in deep sleep."],
+   ["What is the evening anchor?", "B vitamins and Liver Support at the same time every night around 7:30 to 8:40 pm, judged over months."],
+   ["When do you send them to a doctor first?", "Loud snoring, pauses in breathing, trouble sleeping most nights for three months, low mood or panic."]
+  ],
+  "doctor": "Loud snoring, pauses in breathing, or trouble sleeping most nights for three months? See a doctor first. Never change sleeping pills or antidepressants without the doctor."
  },
- "followup": [
-  ["Day 7", "Are you keeping the same wake time? Taking the magnesium with dinner?"],
-  ["Day 28", "The ashwagandha needs about eight weeks, so this is halfway. How's falling asleep now? Let's set up next month so you don't run out."]
- ],
- "quiz": [
-  ["What is going on when someone is tired but can't switch off?", "The stress alarm (cortisol) is still on at bedtime, so the brain stays on watch."],
-  ["Name two habits that stop feeding the alarm.", "Last coffee before 2 pm; phone out of the bedroom; dinner three hours before bed; fewer evening drinks."],
-  ["Why do people wake at 3 am after drinks or a late dinner?", "The body is still working on it through the night; as it wears off, sleep turns light."],
-  ["Which nutrients build the calming signals, and why does stress matter?", "Magnesium and the B vitamins (B6 especially); stress uses them up faster."],
-  ["How long until ashwagandha is judged?", "About eight weeks. It works on the stress system over weeks, not tonight."],
-  ["What is melatonin, and when does it fit?", "A clock signal, not a sleeping pill: jet lag, a shifted schedule, the odd night. About a few minutes faster on average."],
-  ["What is in Sleep Gummies, and who shouldn't take them?", "3 mg melatonin with passionflower. Not for children, pregnancy, breastfeeding or anyone on blood thinners; no driving after."],
-  ["A 7 am alarm: when should they aim to be asleep, and why?", "Around 11:30 pm, five 90-minute cycles, so the alarm doesn't land in deep sleep."],
-  ["What is the evening anchor?", "B vitamins and Liver Support at the same time every night around 7:30 to 8:40 pm, judged over months."],
-  ["When do you send them to a doctor first?", "Loud snoring, pauses in breathing, trouble sleeping most nights for three months, low mood or panic."]
- ],
- "doctor": "Loud snoring, pauses in breathing, or trouble sleeping most nights for three months? See a doctor first. Never change sleeping pills or antidepressants without the doctor."
+ "zh": {
+  "title": "睡眠与压力",
+  "who": "适合在问卷里勾了入睡难、半夜三点醒、睡够了还是没精神、白天发蔫晚上精神、倒时差或作息乱、一紧张胃就不舒服的客人。",
+  "studyWhy": ["睡眠债是怎么欠下的", "睡眠周期与修复", "心态对健康的影响", "B族维生素", "矿物质，包括镁", "舒压", "肝，以及为什么睡眠问题要从肝入手"],
+  "know": [
+   "身体里有一个压力警报，到了晚上本该关掉。如果睡前皮质醇还很高，大脑就一直在值班：人很累，脑子却停不下来。",
+   "压力持续几周，节律就会颠倒：下午整个人没电，半夜反而精神。睡不够又让第二天压力更大，形成一个循环。",
+   "睡眠债是悄悄欠下的。连续两周每晚只睡六小时，状态相当于两晚完全没睡，自己却察觉不到。",
+   "让人平静下来的信号（GABA、血清素）是用营养素合成的：镁和B族，尤其是B6。压力越大，消耗越快。",
+   "睡眠大约90分钟一个周期。闹钟正好响在深睡中间，所以明明睡够了，起来还是很难受。",
+   "按我们的调理思路，入睡难和半夜三点醒，先从肝入手：晚饭太晚太重、晚上喝酒，肝整晚都在加班。",
+   "褪黑素是时钟信号，不是安眠药。平均只能让人早几分钟睡着，适合倒时差、作息被打乱，不适合长期失眠。"
+  ],
+  "manage": [
+   "清：咖啡下午两点前喝完；手机不进卧室；晚饭离睡觉至少三小时；晚上少喝酒。",
+   "调：从身体内部让压力系统平静下来（南非醉茄，大约八周再看效果）；压力一来就胃不舒服的，可以试舒压益生菌（证据还不一致）；褪黑素只在偶尔需要调生物钟的晚上用。",
+   "补：晚饭时补镁（或钙镁D），补充剂来源的镁每天不超过350毫克；B族每天随餐吃，别同时吃好几种含B6的产品（B6每天上限100毫克）。",
+   "养：晚间固定节奏，每晚大约7点半到8点40，B族和护肝片一起吃，按月看效果；一周七天同一时间起床；从闹钟往回按90分钟倒推入睡时间。",
+   "先看医生：打鼾很响、睡眠中有呼吸暂停、白天总犯困、连续三个月大多数晚上睡不好、情绪低落或恐慌。怀孕或哺乳期不吃南非醉茄。绝不建议客人自己调整安眠药或抗抑郁药。"
+  ],
+  "ask": ["是睡不着、睡不稳，还是醒来还很累？", "平时几点睡、几点起？周末呢？", "晚上躺下的时候，脑子里一般在想什么？"],
+  "consult": [
+   ["躺下了脑子停不下来", "你的压力警报到睡前还开着。不用逼自己把脑子放空，只要别再给它加油：咖啡两点前喝完，手机不进卧室。"],
+   ["半夜三点醒", "喝了酒或者晚饭吃得太晚太重，身体整晚都在处理。等劲儿过去，睡眠就变浅了。醒了别看时间。"],
+   ["白天发蔫，晚上精神", "你的压力节律颠倒了。不用先换工作，先从身体里面让压力系统平静下来，给它几周时间。"],
+   ["倒时差、作息乱了", "这种时候褪黑素才派得上用场。它是时钟信号，偶尔用，不是天天吃。"],
+   ["睡够了还是没精神", "闹钟打断了你的深睡。按90分钟往回推入睡时间，周末也同一时间起床。"],
+   ["一紧张胃就打结", "肠道和大脑是双向沟通的。可以试试舒压益生菌，给它五到八周。"]
+  ],
+  "demo": "用手机打开快速了解页，翻到对方的情况，让客人自己读那一句。",
+  "bundle": {
+   "core": ["钙镁D（或镁片），随晚饭吃", "南非醉茄，随晚饭吃", "B族维生素，随餐吃"],
+   "addons": [
+    "半夜三点醒、晚饭晚或常喝酒：加护肝片，晚上和B族一起吃",
+    "压力一大就胃不舒服：加舒压益生菌",
+    "倒时差、作息乱了一周：加甜梦睡眠软糖（含3毫克褪黑素；儿童、孕期、服用抗凝药的人不用；吃完不开车）",
+    "想一盒搞定：睡眠减压方案"
+   ],
+   "ask": "按你刚才说的，我建议先从这三样开始，再加上护肝片，专门对付半夜三点醒。今天要不要先带回去？"
+  },
+  "followup": [
+   ["第7天", "起床时间固定下来了吗？镁有没有随晚饭吃？"],
+   ["第28天", "南非醉茄大约要八周，现在走了一半。入睡比之前容易了吗？下个月的先帮你安排好，别断了。"]
+  ],
+  "quiz": [
+   ["人很累但脑子停不下来，是怎么回事？", "睡前压力警报（皮质醇）还开着，大脑一直在值班。"],
+   ["说出两个不再给压力警报加油的习惯。", "咖啡两点前喝完；手机不进卧室；晚饭离睡觉三小时；晚上少喝酒。"],
+   ["为什么喝酒或晚饭太晚，会半夜三点醒？", "身体整晚都在处理它，劲儿一过，睡眠就变浅了。"],
+   ["哪些营养素合成让人平静的信号？压力有什么影响？", "镁和B族（尤其B6）；压力会加快它们的消耗。"],
+   ["南非醉茄多久看效果？", "大约八周。它是逐周调理压力系统，不是今晚吃了今晚就好。"],
+   ["褪黑素是什么？什么时候适合用？", "时钟信号，不是安眠药：倒时差、作息乱了、偶尔的晚上。平均只能早几分钟睡着。"],
+   ["甜梦睡眠软糖里有什么？哪些人不该吃？", "3毫克褪黑素加西番莲。儿童、孕期、哺乳期、服用抗凝药的人不吃；吃完不开车。"],
+   ["早上7点的闹钟，几点睡着最好？为什么？", "大约晚上11点半，正好五个90分钟周期，闹钟不会落在深睡中间。"],
+   ["晚间固定节奏指什么？", "每晚大约7点半到8点40，B族和护肝片同一时间一起吃，按月看效果。"],
+   ["什么情况要先让客人去看医生？", "打鼾很响、睡眠中呼吸暂停、连续三个月大多数晚上睡不好、情绪低落或恐慌。"]
+  ],
+  "doctor": "打鼾很响、睡眠中有呼吸暂停，或者连续三个月大多数晚上都睡不好？请先去看医生。安眠药、抗抑郁药一定要在医生指导下调整。"
+ }
 }

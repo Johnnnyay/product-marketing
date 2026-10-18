@@ -1,0 +1,117 @@
+{
+ "id": "weight",
+ "area": "weight",
+ "study": [["xzc52", "20"], ["xzc52", "21"], ["qtby", "12"], ["qtby", "06"], ["xzc52", "14"], ["xzc52", "41"], ["qtby", "15"]],
+ "en": {
+  "title": "Weight Management",
+  "who": "Guests who mark weight gain, a diet that worked then came back, snacking at night, stress eating, belly fat, or wanting to lose fat without losing muscle.",
+  "studyWhy": ["protein", "protein, part two", "protein, the source of life", "reading a body composition report", "why exercise is not the same as health", "fibre", "the nourishing breakfast"],
+  "know": [
+   "The scale can't tell fat from muscle. Cut hard and up to a third of what you lose can be muscle, and muscle is what burns energy at rest. So people finish lighter but burning less, and what comes back is fat.",
+   "Carbs alone spike insulin, and insulin is also the signal to store. Small portions of rice, noodles or juice still add up, spike after spike.",
+   "Night snacking starts in the morning: skip breakfast, rush lunch, and the body chases it at night. Short sleep turns hunger up and points it at sweet things.",
+   "Stress pushes cravings toward sugar and fat. By the end of a hard day there's nothing left for good decisions. It's not a willpower problem.",
+   "You can't choose where fat comes off, so sit-ups alone won't move the belly. Belly fat is active and keeps a low inflammation going."
+  ],
+  "manage": [
+   "Clear: slow the sugar. Vegetables and protein first, rice last; fibre with the meal; Carb Blocker before the rice or noodle meal they won't give up.",
+   "Regulate: fix breakfast, not the night; keep one real snack ready for 4 pm; sleep and stress, because both turn hunger up.",
+   "Replenish: enough protein that the body has no reason to touch muscle, about 1.2 g per kg a day, more for people who train; a multivitamin when eating less.",
+   "Sustain: two strength sessions a week; measure the waist and the body composition, not just the scale.",
+   "Doctor first: weight changing fast for no clear reason, or with constant tiredness, feeling cold, strong thirst or missed periods (thyroid and hormones can do this)."
+  ],
+  "ask": ["What have you tried before, and what happened after?", "What's breakfast usually?", "Any strength training during the week?"],
+  "consult": [
+   ["Diet works, then it comes back", "You lost muscle along with the fat, so you burn less. Eat enough protein so your body keeps the muscle, and judge by your waist, not just the scale."],
+   ["I eat well and still gain", "Spike after spike adds up. You don't have to stop eating rice: vegetables and protein first, rice last. Same plate, slower sugar."],
+   ["Snacking at night", "Fix breakfast, not the night. And keep one real snack ready for 4 pm."],
+   ["I eat when I'm stressed", "It's not willpower. Put a better option within reach before the moment comes: your bag, your car, your desk drawer."],
+   ["Belly that won't budge", "Sit-ups won't melt it. Protein, fibre, sleep and two strength sessions a week will."],
+   ["Lose fat, keep muscle", "Protein gives your body the material, training gives it the reason. Two sessions a week is enough."]
+  ],
+  "demo": "A taste of the protein shake, made in front of them, and a Wellness Bar as the afternoon swap. If there's a body composition scale, show muscle and fat, not just weight.",
+  "bundle": {
+   "core": ["Plant Protein (or the All-in-One Shake for breakfast)", "Prebiotic Fiber", "Double X"],
+   "addons": [
+    "Rice and noodle meals: Carb Blocker",
+    "Trains: XS Grass-Fed Whey after training",
+    "Afternoon snacking: Wellness Bars",
+    "Stress eating: Ashwagandha"
+   ],
+   "ask": "The point is to lose fat and keep your muscle, so it starts with protein at breakfast. Want to start with this?"
+  },
+  "followup": [
+   ["Day 7", "Are you having the shake every morning? How's the afternoon and the evening snacking?"],
+   ["Day 28", "Let's check your waist and your body composition, not just the scale. Then set up next month."]
+  ],
+  "quiz": [
+   ["Why does weight come back after a crash diet?", "Up to a third of the loss can be muscle; muscle burns energy at rest, so you finish lighter but burning less, and what returns is fat."],
+   ["How do you slow the sugar without giving up rice?", "Vegetables and protein first, rice last; fibre; Carb Blocker before a rice meal."],
+   ["Protein target for someone who weighs 70 kg?", "About 84 g a day (1.2 g per kg), more if they strength-train."],
+   ["Where does night snacking usually start?", "At breakfast: skipping it or eating carbs only leaves the body chasing it at night."],
+   ["Why isn't stress eating a willpower problem?", "Stress hormones push cravings toward sugar and fat, and a hard day leaves nothing for decisions. Plan the better option ahead."],
+   ["Why won't sit-ups fix belly fat?", "You can't choose where fat comes off; it moves with the whole routine."],
+   ["How many strength sessions a week to keep muscle?", "Two."],
+   ["What tells you more than the scale?", "The waist measurement and body composition (muscle versus fat)."],
+   ["What is the core bundle, and why protein first?", "Plant Protein, Prebiotic Fiber, Double X. Protein protects muscle so the weight loss is fat."],
+   ["When do you send them to a doctor first?", "Fast weight change for no clear reason, or with constant tiredness, feeling cold, strong thirst or missed periods."]
+  ],
+  "doctor": "Weight changing fast for no clear reason, or with constant tiredness, feeling cold, strong thirst or missed periods? See a doctor first, because thyroid and hormones can do this too."
+ },
+ "zh": {
+  "title": "体重管理",
+  "who": "适合在问卷里勾了体重增加、瘦了又反弹、晚上管不住嘴、一有压力就想吃、肚子瘦不下来，或者只想减脂不想掉肌肉的客人。",
+  "studyWhy": ["蛋白质", "蛋白质（下）", "蛋白质，生命之源", "读懂人体成分分析报告", "为什么运动不等于健康", "膳食纤维", "营养早餐"],
+  "know": [
+   "体重秤分不出掉的是脂肪还是肌肉。节食太狠，掉的体重里可能三分之一是肌肉，而肌肉正是躺着不动也在烧热量的地方。结果人轻了，消耗也少了，反弹回来的全是脂肪。",
+   "只吃碳水会让胰岛素冲高，而胰岛素同时也是叫身体“存起来”的信号。米饭、面条、果汁就算吃得不多，一顿一顿冲高，也会慢慢攒下来。",
+   "晚上嘴馋，往往是早上埋下的：早餐不吃、午饭凑合，到了晚上身体就在找补。睡得少，饿感更强，而且专想吃甜的。",
+   "压力大的时候，身体特别想吃甜的、油的。忙了一整天已经没力气做选择，这不是意志力的问题。",
+   "脂肪从哪里掉，不是你能挑的，光做仰卧起坐瘦不了肚子。肚子上的脂肪很活跃，会让身体一直低度发炎。"
+  ],
+  "manage": [
+   "清：让糖慢下来。先吃菜和肉，最后吃饭；配上纤维；躲不掉的那顿米饭面条，饭前吃阻碳片。",
+   "调：要改的是早餐，不是晚上；下午四点备好一份像样的加餐；睡眠和压力都要管，它们都会让人更饿。",
+   "补：蛋白质吃够，身体就没理由去拆肌肉，每天约每公斤体重1.2克，有训练的要更多；吃得少的时候加一份综合营养片。",
+   "养：每周两次力量训练；看腰围和人体成分，别只盯着体重秤。",
+   "先看医生：体重莫名变化很快，或者同时总是很累、怕冷、特别口渴、月经不规律（甲状腺和激素问题也会这样）。"
+  ],
+  "ask": ["以前试过什么方法？后来怎么样了？", "早餐通常吃什么？", "平时有没有做力量训练？"],
+  "consult": [
+   ["瘦了又反弹", "你掉的不只是脂肪，还有肌肉，所以消耗变少了。蛋白质吃够，肌肉才留得住。看腰围，别只看体重秤。"],
+   ["吃得不多，还是长肉", "一顿一顿冲高，就这样攒下来了。不用戒米饭：先吃菜和肉，最后吃饭。同样一盘菜，糖进得慢多了。"],
+   ["晚上管不住嘴", "要改的是早餐，不是晚上。下午四点备好一份像样的加餐。"],
+   ["一有压力就想吃", "这不是意志力的问题。在那个时刻来之前，先把好一点的选择放在手边：包里、车上、办公桌抽屉里。"],
+   ["肚子就是瘦不下来", "仰卧起坐瘦不了肚子。蛋白质、纤维、睡眠，加上每周两次力量训练，才能让它动起来。"],
+   ["只想减脂，不想掉肌肉", "蛋白质给身体留住肌肉的原料，训练给它留住肌肉的理由。每周两次就够。"]
+  ],
+  "demo": "当场冲一杯蛋白奶昔让客人尝，再拿全谷营养棒当下午加餐的替代。现场如果有人体成分秤，让客人看肌肉和脂肪，不只是体重。",
+  "bundle": {
+   "core": ["有机植物蛋白粉（或早餐用有机全能奶昔）", "益生元纤维粉", "双X综合营养片"],
+   "addons": [
+    "离不开米饭面条：阻碳片",
+    "有在训练：练完喝XS草饲乳清蛋白",
+    "下午嘴馋：全谷营养棒",
+    "压力一大就想吃：南非醉茄"
+   ],
+   "ask": "我们的目标是减脂、留住肌肉，所以第一步是早餐的蛋白质。要不要从这个开始？"
+  },
+  "followup": [
+   ["第7天", "早上的奶昔每天都有喝吗？下午和晚上嘴馋好点了吗？"],
+   ["第28天", "我们量一下腰围、看看人体成分，不只看体重。然后把下个月的安排好。"]
+  ],
+  "quiz": [
+   ["为什么节食之后会反弹？", "掉的体重里可能三分之一是肌肉；肌肉负责静止时烧热量，人轻了消耗也少了，反弹回来的是脂肪。"],
+   ["不戒米饭，怎么让糖慢下来？", "先吃菜和肉、最后吃饭；加纤维；吃米饭前用阻碳片。"],
+   ["体重70公斤的人每天需要多少蛋白质？", "约84克（每公斤1.2克），有力量训练的要更多。"],
+   ["晚上嘴馋，问题通常出在哪？", "早餐：不吃或只吃碳水，身体到了晚上就在找补。"],
+   ["为什么压力性进食不是意志力问题？", "压力激素让人想吃甜的油的，累了一天也没力气做选择。要提前把好的选择放在手边。"],
+   ["为什么仰卧起坐瘦不了肚子？", "脂肪从哪里掉没法挑，要靠整套习惯。"],
+   ["每周几次力量训练能留住肌肉？", "两次。"],
+   ["什么比体重秤更说明问题？", "腰围和人体成分（肌肉和脂肪）。"],
+   ["核心组合是什么？为什么先补蛋白质？", "植物蛋白粉、益生元纤维粉、双X。蛋白质保住肌肉，减掉的才是脂肪。"],
+   ["什么情况先让客人去看医生？", "体重莫名变化很快，或者同时总是很累、怕冷、特别口渴、月经不规律。"]
+  ],
+  "doctor": "如果体重在没什么原因的情况下变化很快，或者同时总是很累、怕冷、特别口渴、月经不规律，请先去看医生，甲状腺和激素问题也可能导致这些。"
+ }
+}

@@ -1,0 +1,119 @@
+{
+ "id": "energy",
+ "area": "energy",
+ "study": [["xzc52", "16"], ["xzc52", "17"], ["xzc52", "22"], ["xzc52", "23"], ["xzc52", "20"], ["xzc52", "21"], ["qtby", "15"], ["qtby", "17"]],
+ "en": {
+  "title": "Energy & Fatigue",
+  "who": "Guests who mark tired all the time, an afternoon crash, sleepy after meals, drained after work, running on coffee, or tired after late nights, drinks and takeout. If sleep itself is the problem, use the Sleep module.",
+  "studyWhy": ["hidden hunger", "hungry cells need food, not medicine", "the B vitamins", "B1 and energy", "protein", "protein, part two", "the nourishing breakfast", "the liver"],
+  "know": [
+   "Sleepy after lunch is a sugar spike and crash: carbs alone turn into sugar fast, insulin rushes out, blood sugar drops, and the drop is the sleepy feeling.",
+   "Drained after work is a body that burned through its raw materials. B vitamins, iron, magnesium and protein turn food into energy, and running short sends no hunger signal.",
+   "Coffee borrows energy. It hides the tired signal for a few hours, and the bill comes in the afternoon or at night.",
+   "Two weeks of six-hour nights leaves people as foggy as two nights awake, without noticing.",
+   "Late nights, takeout and drinks keep the liver working overtime, which leaves people heavy and tired even after a full night.",
+   "Stress, sugar and processed food keep a low inflammation running all day, and fighting it is exhausting."
+  ],
+  "manage": [
+   "Clear: stop eating carbs alone. You don't have to stop eating rice, just slow the sugar down: vegetables and protein first, rice last, fibre with the meal.",
+   "Regulate: same wake time seven days a week and seven hours of sleep; coffee and tea an hour away from meals, because they block iron.",
+   "Replenish: protein, a third of it at breakfast (60 kg means about 72 g a day); B vitamins daily; magnesium; iron only after a ferritin test.",
+   "Sustain: the same breakfast between 7 and 9 am; the evening routine of Liver Support and Vitamin B around 7:30 to 8:40 pm, judged over months.",
+   "Doctor first: tired for more than a few weeks, or with weight loss, breathlessness, very heavy periods or low mood."
+  ],
+  "ask": ["When does it hit you most?", "What's breakfast usually?", "How many hours do you sleep, and how much coffee?"],
+  "consult": [
+   ["Sleepy after lunch", "That's a sugar spike. You don't have to stop eating rice, I don't eat salad either. You just slow the sugar down."],
+   ["Drained after work", "Your day burns through vitamins faster than a rushed lunch puts them back. Refill the tank every morning instead of waiting for the weekend."],
+   ["Running on coffee", "Coffee borrows energy. B vitamins help your body pull energy out of the food you already eat, which is why a lot of athletes take them."],
+   ["Eat out, drink or stay up late", "Your liver is your body's filter, and it's been working overtime. Give it an evening routine."],
+   ["Wake up tired", "That's usually sleep debt. Same wake time every day, aim for seven hours."],
+   ["Stressed and wired", "Stress and sugar keep a low inflammation going all day. Calm the fire from the inside."]
+  ],
+  "demo": "The XS mocktail as the swap for the afternoon sugar drink, and the sugar-spike chart in the quick guide.",
+  "bundle": {
+   "core": ["Double X", "Vitamin B Complex"],
+   "addons": [
+    "Sleepy after lunch: Carb Blocker, Prebiotic Fiber or a Plant Protein shake",
+    "Late nights, drinks, takeout: Liver Support, taken with the B vitamins in the evening",
+    "Stressed and wired: Vitamin C, Advanced Omega, Ashwagandha",
+    "A woman tired all the time: Iron & Folic Acid, only after a ferritin test"
+   ],
+   "ask": "Based on what you told me, I'd start with the Double X and the B vitamins, and add the protein for your afternoons. Do you want to take it home tonight?"
+  },
+  "followup": [
+   ["Day 7", "How's your afternoon energy? Are you taking the B vitamins every day?"],
+   ["Day 28", "Has the afternoon crash eased? Let's set up next month so you don't run out."]
+  ],
+  "quiz": [
+   ["Someone gets sleepy after lunch. What's going on, in one sentence?", "A sugar spike and crash: carbs alone turn into sugar fast, insulin rises, blood sugar drops."],
+   ["Two ways to slow the sugar down without giving up rice?", "Vegetables and protein first, rice last; fibre; Carb Blocker before the meal; a protein shake for one meal."],
+   ["Why doesn't coffee fix tiredness?", "It borrows energy and hides the tired signal; the debt is still there."],
+   ["Which raw materials turn food into energy?", "B vitamins, iron, magnesium and protein."],
+   ["Protein target for someone who weighs 60 kg?", "About 72 g a day, a third of it at breakfast."],
+   ["Who should get ferritin checked before taking iron?", "Women tired all the time, especially with heavy periods; vegetarians; frequent blood donors."],
+   ["What is the evening liver routine?", "Liver Support and Vitamin B together around 7:30 to 8:40 pm, every night, judged over months."],
+   ["Why take vitamin C with meals?", "It helps the body absorb iron from food. Coffee and tea do the opposite."],
+   ["What does the XS mocktail demo show?", "A zero-sugar swap for the afternoon sweet drink that causes the spike."],
+   ["When do you send them to a doctor first?", "Tired for weeks, or with weight loss, breathlessness, very heavy periods or low mood."]
+  ],
+  "doctor": "Tired for more than a few weeks, or with weight loss, breathlessness, very heavy periods or low mood? See a doctor first."
+ },
+ "zh": {
+  "title": "精力与疲劳",
+  "who": "适合在问卷里勾了总是很累、下午犯困、饭后想睡、下班后被掏空、全靠咖啡撑，或者熬夜应酬外卖多的客人。如果主要是睡不好，用睡眠模块。",
+  "studyWhy": ["隐性饥饿", "细胞饿了需要的是食物，不是药", "B族维生素", "B1与能量代谢", "蛋白质", "蛋白质（下）", "营养早餐", "肝"],
+  "know": [
+   "午饭后犯困是血糖在坐过山车：只吃碳水，很快变成糖，胰岛素一下子涌出来，血糖再掉下来，掉下来的那一刻就犯困。",
+   "下班后被掏空，是身体把原料用光了。B族、铁、镁和蛋白质负责把食物变成能量，缺了也不会有饥饿感提醒你。",
+   "咖啡不是给你能量，是先借给你。它把累的信号盖住几个小时，下午或晚上就得还。",
+   "连续两周每晚只睡六小时，脑子的状态相当于两晚没睡，自己还察觉不到。",
+   "熬夜、外卖、应酬喝酒，让肝一直在加班，就算睡够了，人也觉得沉、没精神。",
+   "压力、糖和加工食品让身体整天处在低度发炎的状态，一直在对抗它，人当然累。"
+  ],
+  "manage": [
+   "清：别让碳水单独出现。不用戒米饭，只要让糖慢下来：先吃菜和肉，最后吃饭，配上纤维。",
+   "调：一周七天同一时间起床，睡够七小时；咖啡和茶离开饭点一小时，因为它们会挡住铁的吸收。",
+   "补：蛋白质，其中三分之一放在早餐（体重60公斤，每天约72克）；B族每天补；补镁；铁要先查了铁蛋白再补。",
+   "养：每天早上7到9点吃同一份营养早餐；晚上大约7点半到8点40，护肝片和B族一起吃，按月看效果。",
+   "先看医生：累了好几周，或者同时有体重下降、气短、经量很多、情绪低落。"
+  ],
+  "ask": ["一般什么时候最累？", "早餐通常吃什么？", "每天睡几个小时？喝几杯咖啡？"],
+  "consult": [
+   ["午饭后犯困", "这是血糖冲高再掉下来。不用戒米饭，我自己也不爱吃沙拉。只要让糖进血液的速度慢下来。"],
+   ["下班后被掏空", "忙一整天，身体消耗营养的速度比一顿匆忙的午饭补回来的快。每天早上把油加满，别等周末才回血。"],
+   ["全靠咖啡撑着", "咖啡是先借给你的能量。B族帮身体从你本来就吃的食物里把能量提出来，这也是很多运动员会补B族的原因。"],
+   ["应酬多、外卖多、常熬夜", "肝是身体的过滤器，它一直在加班。给它一个晚间的固定节奏。"],
+   ["睡醒了还是累", "这通常是睡眠债。每天同一时间起床，争取睡够七小时。"],
+   ["压力大，又累又亢奋", "压力和糖让身体一直低度发炎。从身体里面把火降下来。"]
+  ],
+  "demo": "用XS无酒精特调代替下午那杯甜饮料，再给客人看快速了解里的血糖曲线图。",
+  "bundle": {
+   "core": ["双X综合营养片", "B族维生素"],
+   "addons": [
+    "午饭后犯困：阻碳片、益生元纤维粉，或者一杯植物蛋白",
+    "熬夜、应酬、外卖多：护肝片，晚上和B族一起吃",
+    "压力大、又累又亢奋：维生素C、深海鱼油、南非醉茄",
+    "总是很累的女生：铁质叶酸片，先查铁蛋白再补"
+   ],
+   "ask": "按你刚才说的，我建议先从双X和B族开始，下午那段再加一杯蛋白。今天要不要先带回去？"
+  },
+  "followup": [
+   ["第7天", "下午的精神怎么样？B族有没有每天吃？"],
+   ["第28天", "下午犯困好点了吗？下个月的先帮你安排好，别断了。"]
+  ],
+  "quiz": [
+   ["客人午饭后犯困，一句话说清是怎么回事。", "血糖冲高再掉下来：只吃碳水很快变成糖，胰岛素升高，血糖再跌。"],
+   ["不戒米饭，让糖慢下来的两个办法？", "先吃菜和肉、最后吃饭；加纤维；饭前吃阻碳片；用蛋白奶昔换一顿。"],
+   ["为什么咖啡解决不了累？", "它只是借能量、盖住累的信号，欠的还在。"],
+   ["哪些原料负责把食物变成能量？", "B族、铁、镁和蛋白质。"],
+   ["体重60公斤的人每天需要多少蛋白质？", "约72克，三分之一放在早餐。"],
+   ["哪些人补铁前要先查铁蛋白？", "总是很累的女生，尤其经量多的；素食者；经常献血的人。"],
+   ["晚间护肝节奏指什么？", "每晚大约7点半到8点40，护肝片和B族一起吃，按月看效果。"],
+   ["维C为什么要随餐吃？", "它帮身体吸收食物里的铁。咖啡和茶正好相反。"],
+   ["XS特调演示想说明什么？", "用零糖饮料代替下午那杯让血糖冲高的甜饮料。"],
+   ["什么情况先让客人去看医生？", "累了好几周，或者同时有体重下降、气短、经量很多、情绪低落。"]
+  ],
+  "doctor": "如果累了已经好几周，或者同时有体重下降、气短、经量很多、情绪低落，请先去看医生。"
+ }
+}

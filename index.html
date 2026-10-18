@@ -2741,9 +2741,9 @@ let eduModule = null, eduReturn = null;
 const eduMods = {};
 const EDU_PAIN = [
   { id: 'sleep',  en: 'Sleep & Stress',      zh: '睡眠与压力', ready: true },
-  { id: 'energy', en: 'Energy & Fatigue',    zh: '精力与疲劳', ready: false },
-  { id: 'skin',   en: 'Acne & Skin',         zh: '皮肤与痘痘', ready: false },
-  { id: 'weight', en: 'Weight Management',   zh: '体重管理',   ready: false },
+  { id: 'energy', en: 'Energy & Fatigue',    zh: '精力与疲劳', ready: true },
+  { id: 'skin',   en: 'Acne & Skin',         zh: '皮肤与痘痘', ready: true },
+  { id: 'weight', en: 'Weight Management',   zh: '体重管理',   ready: true },
 ];
 const eduText = {};                   // lesson text already fetched, keyed 'series/id'
 const EDU_VIDEO_NOTE = '（此处播放了一段视频，录音无法准确转写。）';
@@ -2835,8 +2835,12 @@ function eduHomeHtml() {
     </div>`;
 }
 
-/* One pain-point module, from education/modules/<id>.json. */
-function eduPainHtml(M) {
+/* One pain-point module, from education/modules/<id>.json. Each file holds a whole English block
+   and a whole Chinese block (written as its own text, not a line-by-line translation); the
+   lesson links (study) are shared. */
+function eduPainHtml(F) {
+  const M = Object.assign({ id: F.id, area: F.area, study: F.study }, (currentLang === 'zh' && F.zh) ? F.zh : F.en);
+  M.study = F.study.map((s, i) => [s[0], s[1], (M.studyWhy || [])[i] || '']);
   const li = (arr) => arr.map(x => `<li>${eduEsc(x)}</li>`).join('');
   const lessonTitle = (sid, lid) => {
     const s = EDU_INDEX.series.find(x => x.id === sid); const l = s && s.lessons.find(x => x.id === lid);
@@ -2847,9 +2851,8 @@ function eduPainHtml(M) {
     <div class="edu-wrap pm">
       <button class="edu-back" onclick="eduBack()">‹ ${t('Education', '培训')}</button>
       <div class="edu-eyebrow">${t('Pain-point module', '痛点课程')}</div>
-      <h1 class="edu-h1">${eduEsc(t(M.title, M.titleZh))}</h1>
+      <h1 class="edu-h1">${eduEsc(M.title)}</h1>
       <p class="edu-sub">${eduEsc(M.who)}</p>
-      ${currentLang === 'zh' ? `<div class="edu-fallback">中文版正在编写，以下内容暂为英文。</div>` : ''}
 
       <div class="pm-box">
         <b>${t('Study first', '先学习')}</b>
@@ -2858,13 +2861,13 @@ function eduPainHtml(M) {
         ${M.study.map(([sid, lid, why]) => `<button class="pm-link" onclick="eduStudy('${M.id}','${sid}','${lid}')">${lessonTitle(sid, lid)} <span class="pm-why">· ${eduEsc(why)}</span> ›</button>`).join('')}
       </div>
 
-      ${level(1, t('Know it', '懂它'), `<ul>${li(M.levels[0].items)}</ul>`)}
-      ${level(2, t('Manage it', '管理它'), `<ul>${li(M.levels[1].items)}</ul>`)}
+      ${level(1, t('Know it', '懂它'), `<ul>${li(M.know)}</ul>`)}
+      ${level(2, t('Manage it', '管理它'), `<ul>${li(M.manage)}</ul>`)}
       ${level(3, t('Consult it', '咨询'), `
-        <p><b>${t('Ask', '先问')}:</b></p><ul>${li(M.ask)}</ul>
+        <p><b>${t('Ask:', '先问：')}</b></p><ul>${li(M.ask)}</ul>
         <table class="pm-tbl"><tr><th>${t('When they say', '客户说')}</th><th>${t('You explain', '你这样讲')}</th></tr>
         ${M.consult.map(([a, b]) => `<tr><td>${eduEsc(a)}</td><td>${eduEsc(b)}</td></tr>`).join('')}</table>
-        <p><b>${t('Show', '展示')}:</b> ${eduEsc(M.demo)}</p>`)}
+        <p><b>${t('Show:', '展示：')}</b> ${eduEsc(M.demo)}</p>`)}
       ${level(4, t('Recommend and ask', '推荐与开口') + ` <span class="pm-draft">${t('Bundle draft', '组合草案')}</span>`, `
         <div class="pm-cards">
           <div class="pm-card"><b>${t('Core', '核心组合')}</b><ul>${li(M.bundle.core)}</ul></div>
@@ -2953,7 +2956,7 @@ function eduLessonHtml(series, idx, text, isEn) {
     : t('Transcribed automatically from the recording. A few words may be wrong.', '根据录音自动转写，个别用字可能有误。'));
   return `
     <article class="edu-wrap edu-read">
-      <button class="edu-back" onclick="eduBack()">‹ ${eduEsc(eduSeriesTitle(series))}</button>
+      <button class="edu-back" onclick="eduBack()">‹ ${eduEsc((P => P ? t(P.en, P.zh) : eduSeriesTitle(series))(eduReturn && EDU_PAIN.find(p => p.id === eduReturn)))}</button>
       <div class="edu-head">
         <div class="edu-kicker">${t(`Lesson ${l.n} · ${eduMins(l)} min read`, `第${l.n}课 · 约${l.mins}分钟`)}</div>
         <h1 class="edu-lesson-title">${eduEsc(isEn ? l.titleEn : l.title)}</h1>
