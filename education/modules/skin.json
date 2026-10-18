@@ -4,114 +4,64 @@
  "study": [["qtby", "07"], ["xzc52", "41"], ["xzc52", "42"], ["xzc52", "29"], ["xzc52", "24"], ["xzc52", "31"], ["qtby", "17"]],
  "en": {
   "title": "Acne & Skin",
-  "who": "Guests who mark breakouts, oily skin, breakouts before their period, marks left after pimples, or breakouts when stressed. Ask for Irene's skin guide sheet too.",
+  "who": "Guests who mark breakouts, oily skin, breakouts before their period, marks left after pimples, or breakouts when stressed. Ask Irene for her skin guide sheet too.",
   "studyWhy": ["all illness starts in the gut", "fibre", "probiotics for clear skin", "vitamin C", "B2", "vitamin E", "the liver"],
-  "know": [
-   "A pore becomes a pimple when four things line up: too much oil, a plug, bacteria in the trapped oil, and inflammation. Skincare handles the last two.",
-   "The first two are set inside: sugar spikes raise insulin and IGF-1, which turn the oil up; a gut out of balance adds inflammation; stress and short sleep turn the oil up too.",
-   "Before the period, hormones shift and breakouts show up along the jaw and chin, right on schedule.",
-   "Marks are mostly pigment left after inflammation, not scars. Picking and sun make them darker.",
-   "Washing harder backfires. Stripped skin makes more oil, and dehydrated skin gets oilier, not drier."
-  ],
-  "manage": [
-   "Clear: stop the sugar spike (don't quit rice, slow it down); fibre and probiotics for the gut; Liver Support for the load.",
-   "Regulate: a gentle cleanser; salicylic acid toner on the whole area, not just the spot; patch it, don't pick.",
-   "Replenish: protein (skin rebuilds with it), vitamin C, the B vitamins.",
-   "Sustain: SPF every day; sleep; skin renews about once a month, so judge it over two or three months.",
-   "Doctor first: deep painful lumps, scarring, acne with irregular periods or extra hair growth, or breakouts that affect their mood."
-  ],
-  "ask": ["When do you break out most?", "Where on your face?", "What do you use on your skin now?"],
-  "consult": [
-   ["After sugar or takeout", "That's a sugar spike turning your oil up. You don't have to quit rice, you just stop the spike."],
-   ["Before my period, on the jaw", "It comes on schedule, so you can get ahead of it. Start before it shows, and don't pick, patch it."],
-   ["Oily by noon and still breaking out", "Washing harder makes it worse. Wash gentler and keep the skin hydrated."],
-   ["Marks that won't fade", "Those are pigment, not scars. Don't pick, and wear sunscreen every day so they don't get darker."],
-   ["When I'm stressed", "Your oil glands listen to stress. Sleep is the free half of this plan."],
-   ["Dull, uneven skin", "Skin rebuilds itself with protein, and vitamin C turns that protein into collagen. The glow comes from what you feed it every day."]
-  ],
-  "demo": "The vitamin C apple for marks and dull skin: plain slices brown, the vitamin C ones stay fresh. Have the toner and Spot On Dots in hand.",
-  "bundle": {
-   "core": ["Inside: Liver Support and Prebiotic Fiber", "Outside: Artistry anti-acne toner and Spot On Dots"],
-   "addons": [
-    "After sugar and takeout: Carb Blocker",
-    "Before the period: Cycle Support (take it all month; ask first if pregnant, trying, or on hormonal birth control)",
-    "Marks: Vitamin C, Artistry Vitamin C serum, SPF 50",
-    "Oily: the Artistry hydrating mousse cleanser"
-   ],
-   "ask": "From what you told me, I'd work on it from the inside and the outside together. This is where I'd start. Want to take it home tonight?"
+  "feel": {
+   "say": ["I totally get it. You do everything right on the outside, and it still keeps coming back. And it always shows up at the worst time."],
+   "tip": "Say back what they marked, in their words. Then ask: \"When do you break out most, and where?\""
   },
-  "followup": [
-   ["Day 7", "Are you using the toner on the whole area, not just the spot?"],
-   ["Day 28", "Skin renews about once a month, so this is the first real check. What's changed?"]
+  "felt": {
+   "say": ["Honestly, I've been there. [Your story in a line or two: when it was, what it felt like, what you tried that didn't work.]"],
+   "tip": "Your own story, or someone close to you (\"my sister\", \"a friend from school\"). No story yet? \"A lot of the people I talk to say exactly the same thing.\" Never make one up."
+  },
+  "found": {
+   "say": [
+    "What I learned is that a pimple needs four things: too much oil, a blocked pore, bacteria, and inflammation. Skincare only handles the last two. The oil and the inflammation are set from the inside, by sugar spikes, the gut, stress and sleep.",
+    "That's why washing harder doesn't work: stripped skin just makes more oil. And the marks are mostly pigment, not scars, so not picking and wearing sunscreen matter more than anything.",
+    "So I'd work on it from the inside and the outside together."
+   ],
+   "tip": "Two or three sentences, then go to the map. Pick the row that matches what they marked."
+  },
+  "map": [
+   ["Any breakout: inside", "Liver Support and Prebiotic Fiber", "Calms the inflammation from the inside, through the liver and the gut"],
+   ["Any breakout: outside", "Artistry anti-acne toner and Spot On Dots", "The toner clears the pore; patch it instead of picking"],
+   ["After sugar or takeout", "Carb Blocker", "Stops the sugar spike that turns the oil up"],
+   ["Before the period, on the jaw", "Cycle Support, all month", "Gets ahead of the monthly shift. Ask first if pregnant, trying, or on hormonal birth control"],
+   ["Marks, dull skin", "Vitamin C, Artistry Vitamin C serum, SPF 50", "Keeps the marks from getting darker"],
+   ["Oily by noon", "Artistry hydrating mousse cleanser", "Washes gentler, so the skin stops overcompensating"]
   ],
-  "quiz": [
-   ["What four things turn a pore into a pimple?", "Too much oil, a plug, bacteria in the trapped oil, inflammation."],
-   ["Which of them are set inside the body?", "Oil (sugar spikes, insulin and IGF-1, stress and sleep) and inflammation (gut, liver load)."],
-   ["Why salicylic acid in the toner?", "It dissolves in oil, so it gets inside the pore and breaks the plug up."],
-   ["Why patch instead of pick?", "Picking is the main cause of marks, and marks last months longer than the pimple."],
-   ["Breakouts before the period: what helps, and how is it taken?", "Cycle Support every day through the month, judged over about three cycles."],
-   ["What stops marks from getting darker?", "Not picking, sunscreen every day, and vitamin C."],
-   ["Oily skin: wash more?", "No. Stripped skin makes more oil. Wash gentler and hydrate."],
-   ["Why is the liver in an acne plan?", "In the teaching we follow, the liver and gut clear what the skin would otherwise show; the liver also clears used hormones."],
-   ["The one line for breakouts after takeout?", "You don't have to quit rice, you just stop the spike."],
-   ["When do you send them to a doctor or dermatologist first?", "Deep painful lumps, scarring, acne with irregular periods or extra hair growth, or breakouts affecting their mood."]
-  ],
+  "ask": "From what you told me, I'd start with these, inside and outside together. Want to take it home tonight?",
   "doctor": "Deep painful lumps, scarring, acne with irregular periods or extra hair growth, or breakouts affecting their mood? See a doctor or dermatologist first."
  },
  "zh": {
   "title": "皮肤与痘痘",
   "who": "适合在问卷里勾了爆痘、出油、经期前冒痘、痘印、压力一大就冒痘的客人。也可以找Irene要她的皮肤指南。",
   "studyWhy": ["万病始于肠", "膳食纤维", "益生菌与好皮肤", "维生素C", "维生素B2", "维生素E", "肝"],
-  "know": [
-   "一个毛孔变成痘，要四件事凑齐：油太多、毛孔堵住、细菌在闷住的油里繁殖、发炎。护肤品管的是后两件。",
-   "前两件是身体里面决定的：血糖冲高会推高胰岛素和IGF-1，让皮脂腺出更多油；肠道失衡会加重炎症；压力大、睡得少，出油也会变多。",
-   "经期前激素变化，痘痘常长在下巴和下颌线一带，而且很准时。",
-   "痘印大多是发炎后留下的色素，不是疤。挤和晒，都会让它更深。",
-   "越洗越油。洗得太干净，皮肤会出更多油来补偿；缺水的皮肤也是越缺越油。"
-  ],
-  "manage": [
-   "清：别让血糖冲高（不用戒米饭，让糖慢下来）；用纤维和益生菌照顾肠道；用护肝片减轻负担。",
-   "调：换温和的洁面；水杨酸爽肤水整片擦，不只点在痘上；冒出来就贴，别挤。",
-   "补：蛋白质（皮肤更新的原料）、维生素C、B族。",
-   "养：每天防晒；睡够；皮肤大约一个月更新一轮，按两三个月看效果。",
-   "先看医生：又深又痛的硬包、已经留疤、痘痘同时伴随月经不规律或毛发变多，或者痘痘让人情绪很低落。"
-  ],
-  "ask": ["一般什么时候最容易冒痘？", "主要长在脸上哪里？", "现在皮肤上都用些什么？"],
-  "consult": [
-   ["吃甜的、吃外卖就冒痘", "这是血糖冲高，把出油量推上去了。不用戒米饭，只要别让它冲那么高。"],
-   ["经期前，下巴一圈冒痘", "它很准时，所以你可以提前准备。在冒出来之前就开始，冒出来了也别挤，贴上。"],
-   ["中午就出油，还一直冒痘", "越洗越油。洗得温和一点，把水补够。"],
-   ["痘好了，印子还在", "那是色素，不是疤。别挤，每天防晒，印子才不会越来越深。"],
-   ["压力一大就爆痘", "皮脂腺会听压力的指挥。睡眠是这套方案里免费的那一半。"],
-   ["气色差、肤色不均", "皮肤靠蛋白质更新，维C把蛋白质变成胶原蛋白。好气色来自你每天喂给皮肤的东西。"]
-  ],
-  "demo": "维C苹果演示，针对痘印和暗沉：没涂的苹果片变黄，涂了维C的还是新鲜的。手边备好控痘爽肤水和痘痘贴。",
-  "bundle": {
-   "core": ["内调：护肝片 + 益生元纤维粉", "外护：雅姿玫瑰控痘爽肤水 + 雅姿痘痘贴"],
-   "addons": [
-    "吃甜的、外卖后冒痘：阻碳片",
-    "经期前冒痘：女性周期支持（整个月都吃；怀孕、备孕或服用激素避孕药的先问医生）",
-    "痘印：维生素C缓释片、雅姿维C精华、雅姿SPF50防晒",
-    "出油多：雅姿保湿慕斯洁面"
-   ],
-   "ask": "按你说的情况，我建议里外一起调：这几样是我会先从这里开始的。今天要不要先带回去？"
+  "feel": {
+   "say": ["我特别懂。外面该用的都用了，还是反反复复。而且总在最不想冒的时候冒出来。"],
+   "tip": "用对方自己的话，把问卷上勾的说回去。然后问一句：“一般什么时候最容易冒？长在哪里？”"
   },
-  "followup": [
-   ["第7天", "爽肤水是整片擦，还是只点在痘上？"],
-   ["第28天", "皮肤大约一个月更新一轮，现在是第一次真正看效果的时候。有什么变化？"]
+  "felt": {
+   "say": ["说实话，我也经历过。[你的故事，一两句就好：什么时候、什么感觉、试过什么没用。]"],
+   "tip": "讲你自己的，或者身边人的（“我姐姐”“我一个同学”）。还没有故事？就说：“我身边很多朋友也是这样。”千万别编。"
+  },
+  "found": {
+   "say": [
+    "我后来学到，长一颗痘要四件事凑齐：油太多、毛孔堵住、细菌、发炎。护肤品只管得了后两件。出油和发炎是身体里面决定的：血糖冲高、肠道、压力、睡眠。",
+    "所以越洗越油，洗得太干净，皮肤反而出更多油。痘印大多是色素不是疤，不挤、做好防晒，比什么都重要。",
+    "所以我会建议里外一起调。"
+   ],
+   "tip": "两三句就够，然后看下面的对照表，挑跟对方勾的那一项对得上的。"
+  },
+  "map": [
+   ["各种冒痘：内调", "护肝片、益生元纤维粉", "从肝和肠道入手，把身体里面的炎症降下来"],
+   ["各种冒痘：外护", "雅姿玫瑰控痘爽肤水、雅姿痘痘贴", "爽肤水疏通毛孔；冒出来就贴，不挤"],
+   ["吃甜的、吃外卖就冒", "阻碳片", "挡住把出油推高的血糖冲高"],
+   ["经期前下巴一圈冒", "女性周期支持，整个月都吃", "提前应对每个月的变化。怀孕、备孕或服用激素避孕药的先问医生"],
+   ["痘印、暗沉", "维生素C缓释片、雅姿维C精华、雅姿SPF50防晒", "不让痘印越来越深"],
+   ["中午就出油", "雅姿保湿慕斯洁面", "洗得温和，皮肤就不用拼命补油"]
   ],
-  "quiz": [
-   ["毛孔变成痘，需要哪四件事凑齐？", "油太多、毛孔堵住、细菌在闷住的油里繁殖、发炎。"],
-   ["其中哪些是身体里面决定的？", "出油（血糖冲高、胰岛素和IGF-1、压力和睡眠）和炎症（肠道、肝的负担）。"],
-   ["爽肤水为什么用水杨酸？", "它溶于油，能钻进毛孔把堵塞化开。"],
-   ["为什么要贴不要挤？", "挤是留痘印的主要原因，痘印比痘本身多留好几个月。"],
-   ["经期前冒痘，用什么、怎么吃？", "女性周期支持，整个月每天吃，大约三个周期看效果。"],
-   ["怎样不让痘印变深？", "不挤、每天防晒、补维C。"],
-   ["出油多，要不要多洗几次？", "不要。洗太干净反而出更多油，要洗得温和、补够水。"],
-   ["为什么痘痘方案里有护肝？", "按我们的调理思路，肝和肠道负责清理，不然就会表现在皮肤上；肝也负责清除用过的激素。"],
-   ["吃外卖后冒痘，那一句怎么说？", "不用戒米饭，只要别让血糖冲那么高。"],
-   ["什么情况先让客人去看医生或皮肤科？", "又深又痛的硬包、已经留疤、痘痘伴随月经不规律或毛发变多，或者痘痘影响情绪。"]
-  ],
+  "ask": "按你说的情况，我建议里外一起，先从这几样开始。今天要不要先带回去？",
   "doctor": "如果是又深又痛的硬包、已经留疤、痘痘同时伴随月经不规律或毛发变多，或者痘痘让你情绪很低落，请先去看医生或皮肤科。"
  }
 }

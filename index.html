@@ -449,19 +449,20 @@
     .pm-tbl th { text-align: left; font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-500); padding: 0 10px 6px 0; }
     .pm-tbl td { border-top: 1px solid var(--gray-200); padding: 9px 10px 9px 0; vertical-align: top; line-height: 1.55; }
     .pm-tbl td:first-child { font-weight: 600; width: 34%; color: var(--gray-800); }
-    .pm-draft { font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; background: #FFF3E0; color: #8A4B08; border-radius: 6px; padding: 2px 8px; }
-    .pm-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .pm-card { background: var(--green-light); border-radius: 14px; padding: 14px 16px; }
-    .pm-card b { font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); }
-    .pm-say { margin-top: 12px; background: #fff; border-left: 4px solid var(--green); border-radius: 0 12px 12px 0; padding: 12px 16px; font-size: 16px; line-height: 1.5; font-weight: 600; color: var(--navy); }
+    .pm-say { margin-top: 12px; background: #fff; border-left: 4px solid var(--green); border-radius: 0 12px 12px 0; padding: 12px 16px; font-size: 16px; line-height: 1.55; font-weight: 600; color: var(--navy); }
     .pm-say b { display: block; font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-500); font-weight: 700; margin-bottom: 2px; }
-    .pm-check { list-style: none; padding-left: 0 !important; }
-    .pm-check li { position: relative; padding-left: 26px; }
-    .pm-check li::before { content: ''; position: absolute; left: 0; top: 4px; width: 15px; height: 15px; border: 2px solid var(--gray-300, #C9CFCC); border-radius: 4px; }
-    .pm-q { border-top: 1px solid var(--gray-200); padding: 10px 0; }
-    .pm-q summary { cursor: pointer; font-weight: 600; font-size: 15.5px; color: var(--gray-800); }
-    .pm-q p { margin: 8px 0 2px; color: var(--gray-600); }
-    @media (max-width: 760px) { .edu-cards-sm { grid-template-columns: 1fr 1fr; } .pm-cards { grid-template-columns: 1fr; } .pm-level h2 { font-size: 19px; } .pm-tbl td:first-child { width: 40%; } }
+    .pm-say p { margin: 0; font-size: 16px; } .pm-say p + p { margin-top: 10px; }
+    .pm-tip { margin: 8px 0 0; font-size: 14.5px !important; color: var(--gray-500); }
+    .pm-map { margin-top: 6px; border-top: 1px solid var(--gray-200); }
+    .pm-map-row { display: grid; grid-template-columns: 36% 1fr; gap: 14px; padding: 11px 0; border-bottom: 1px solid var(--gray-200); }
+    .pm-map-row > div:first-child { font-weight: 600; color: var(--gray-800); font-size: 15px; }
+    .pm-map-row b { display: block; color: var(--navy); font-size: 15.5px; }
+    .pm-map-row span { display: block; color: var(--gray-500); font-size: 14px; line-height: 1.5; margin-top: 2px; }
+    .pm-map-head { border-bottom: 0 !important; padding-bottom: 0 !important; }
+    .pm-map-head > div { font-size: 11.5px !important; font-weight: 700 !important; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-500) !important; }
+    .pm-more { margin-top: 30px; border-top: 1px solid var(--gray-200); padding-top: 12px; }
+    .pm-more summary { cursor: pointer; font-weight: 700; font-size: 15px; color: var(--gray-800); }
+    @media (max-width: 760px) { .edu-cards-sm { grid-template-columns: 1fr 1fr; } .pm-level h2 { font-size: 19px; } .pm-tbl td:first-child { width: 40%; } .pm-map-row { grid-template-columns: 40% 1fr; gap: 10px; } }
     .edu-back { background: none; border: 0; padding: 0; margin-bottom: 18px; font: inherit; font-size: 14px; font-weight: 600; color: var(--green); cursor: pointer; }
     .edu-back:hover { text-decoration: underline; }
     .edu-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--gray-200); }
@@ -2734,8 +2735,9 @@ let EDU_INDEX = null;                 // education/index.json, loaded the first 
 let eduSeries = null, eduLesson = null, eduTok = 0;
 /* The tab is organised as modules (Johnny, 2026-10-17): one "Holistic Health Management Knowledge
    Materials" module holding the two lecture series, then one course module per pain point, each
-   built the same way (know it, manage it, consult it, recommend and ask, follow up, graduate).
-   Sleep is the template. A module's content is education/modules/<id>.json, fetched only when an
+   a draft built the same way: three steps (I know how you feel, I or someone I know felt the same,
+   here's what I found) and a map from what the guest marked to the product. Johnny cut an earlier
+   five-level version with a quiz and graduation as too complex: people just need the draft. A module's content is education/modules/<id>.json, fetched only when an
    admin opens it, like the lessons. */
 let eduModule = null, eduReturn = null;
 const eduMods = {};
@@ -2819,7 +2821,7 @@ function eduHomeHtml() {
         </button>
       </div>
       <div class="edu-sec">${t('Pain-point modules', '痛点课程')}</div>
-      <p class="edu-sub" style="margin-top:-4px">${t('Each module takes you from the knowledge to guiding a guest on your own: know it, manage it, consult it, recommend and ask, follow up.', '每个模块带你从知识一路走到独立带客户：懂它、管理它、咨询、推荐与开口、跟进。')}</p>
+      <p class="edu-sub" style="margin-top:-4px">${t('Each module is a draft for the conversation in three steps, plus a map of which product goes with what the guest marked.', '每个模块是一份三步聊天草稿，再加一张对照表：客人勾了什么，对应推荐什么产品。')}</p>
       <div class="edu-cards edu-cards-sm">
         ${EDU_PAIN.map(m => m.ready ? `
         <button class="edu-card edu-card-pain" onclick="eduOpenModule('${m.id}')">
@@ -2839,14 +2841,15 @@ function eduHomeHtml() {
    and a whole Chinese block (written as its own text, not a line-by-line translation); the
    lesson links (study) are shared. */
 function eduPainHtml(F) {
-  const M = Object.assign({ id: F.id, area: F.area, study: F.study }, (currentLang === 'zh' && F.zh) ? F.zh : F.en);
-  M.study = F.study.map((s, i) => [s[0], s[1], (M.studyWhy || [])[i] || '']);
-  const li = (arr) => arr.map(x => `<li>${eduEsc(x)}</li>`).join('');
+  const M = (currentLang === 'zh' && F.zh) ? F.zh : F.en;
+  const why = M.studyWhy || [];
   const lessonTitle = (sid, lid) => {
     const s = EDU_INDEX.series.find(x => x.id === sid); const l = s && s.lessons.find(x => x.id === lid);
     return l ? `${eduEsc(eduSeriesTitle(s))} ${l.n}: ${eduEsc(eduTitle(l))}` : '';
   };
-  const level = (n, title, body) => `<section class="pm-level"><h2><span class="pm-n">${n}</span>${title}</h2>${body}</section>`;
+  const step = (n, title, S) => `<section class="pm-level"><h2><span class="pm-n">${n}</span>${title}</h2>
+    <div class="pm-say">${S.say.map(x => `<p>${eduEsc(x)}</p>`).join('')}</div>
+    ${S.tip ? `<p class="pm-tip">${eduEsc(S.tip)}</p>` : ''}</section>`;
   return `
     <div class="edu-wrap pm">
       <button class="edu-back" onclick="eduBack()">‹ ${t('Education', '培训')}</button>
@@ -2854,43 +2857,27 @@ function eduPainHtml(F) {
       <h1 class="edu-h1">${eduEsc(M.title)}</h1>
       <p class="edu-sub">${eduEsc(M.who)}</p>
 
-      <div class="pm-box">
-        <b>${t('Study first', '先学习')}</b>
-        <button class="pm-link" onclick="homeOpenArea('${M.area}')">${t('The quick guide (what the guest sees)', '快速了解（客户看到的版本）')} ›</button>
-        <button class="pm-link" onclick="areaMode['${M.area}']='full';homeOpenArea('${M.area}')">${t('The full 4-step plan (the science)', '完整四步方案（背后的原理）')} ›</button>
-        ${M.study.map(([sid, lid, why]) => `<button class="pm-link" onclick="eduStudy('${M.id}','${sid}','${lid}')">${lessonTitle(sid, lid)} <span class="pm-why">· ${eduEsc(why)}</span> ›</button>`).join('')}
-      </div>
+      ${step(1, t('I know how you feel', '我懂你的感受'), M.feel)}
+      ${step(2, t('I felt the same (or someone I know did)', '我也有过（或我身边的人有过）'), M.felt)}
+      ${step(3, t("Here's what I found, and you should know", '我后来学到的，你也该知道'), M.found)}
 
-      ${level(1, t('Know it', '懂它'), `<ul>${li(M.know)}</ul>`)}
-      ${level(2, t('Manage it', '管理它'), `<ul>${li(M.manage)}</ul>`)}
-      ${level(3, t('Consult it', '咨询'), `
-        <p><b>${t('Ask:', '先问：')}</b></p><ul>${li(M.ask)}</ul>
-        <table class="pm-tbl"><tr><th>${t('When they say', '客户说')}</th><th>${t('You explain', '你这样讲')}</th></tr>
-        ${M.consult.map(([a, b]) => `<tr><td>${eduEsc(a)}</td><td>${eduEsc(b)}</td></tr>`).join('')}</table>
-        <p><b>${t('Show:', '展示：')}</b> ${eduEsc(M.demo)}</p>`)}
-      ${level(4, t('Recommend and ask', '推荐与开口') + ` <span class="pm-draft">${t('Bundle draft', '组合草案')}</span>`, `
-        <div class="pm-cards">
-          <div class="pm-card"><b>${t('Core', '核心组合')}</b><ul>${li(M.bundle.core)}</ul></div>
-          <div class="pm-card"><b>${t('Add one, by their moment', '按情况加一样')}</b><ul>${li(M.bundle.addons)}</ul></div>
+      <section class="pm-level"><h2><span class="pm-n">→</span>${t('Product map', '产品对照')}</h2>
+        <div class="pm-map">
+          <div class="pm-map-row pm-map-head"><div>${t('What they marked', '对方勾的')}</div><div>${t('Product, and why', '产品和原因')}</div></div>
+          ${M.map.map(([ptr, prod, w]) => `<div class="pm-map-row"><div>${eduEsc(ptr)}</div><div><b>${eduEsc(prod)}</b><span>${eduEsc(w)}</span></div></div>`).join('')}
         </div>
-        <div class="pm-say"><b>${t('The ask', '开口')}</b>${eduEsc(M.bundle.ask)}</div>`)}
-      ${level(5, t('Follow up', '跟进'), `<table class="pm-tbl">${M.followup.map(([a, b]) => `<tr><td>${eduEsc(a)}</td><td>${eduEsc(b)}</td></tr>`).join('')}</table>`)}
-
-      <section class="pm-level"><h2><span class="pm-n">✓</span>${t('Graduate', '结业')}</h2>
-        <p>${t('You own this pain point, and guide guests through it on your own, when you have done all five:', '完成以下五项，你就能独立负责这个痛点、自己带客户：')}</p>
-        <ul class="pm-check">
-          <li>${t('Quiz: 8 of 10 without looking', '测验：不看资料答对8题以上')}</li>
-          <li>${t('Teach-back: explain the module to your mentor in 3 minutes', '回讲：3分钟内把这个模块讲给你的导师听')}</li>
-          <li>${t('Role-play: under 20 minutes, used the check-in, plain words, one bundle, asked out loud, ended at checkout', '角色扮演：20分钟内、用到问卷、讲得通俗、只推一个组合、开口要单、带到结账')}</li>
-          <li>${t('Two real consultations, using the person\'s check-in', '两次真实咨询，使用对方的问卷')}</li>
-          <li>${t('Know the bundle and its price by heart', '组合和价格熟记于心')}</li>
-        </ul>
+        <div class="pm-say"><b>${t('The ask', '开口')}</b>${eduEsc(M.ask)}</div>
       </section>
 
-      <section class="pm-level"><h2><span class="pm-n">?</span>${t('Quiz', '测验')}</h2>
-        ${M.quiz.map(([q, a]) => `<details class="pm-q"><summary>${eduEsc(q)}</summary><p>${eduEsc(a)}</p></details>`).join('')}
-      </section>
       <p class="edu-note">${eduEsc(M.doctor)}</p>
+
+      <details class="pm-more"><summary>${t('Want to go deeper?', '想了解更多？')}</summary>
+        <div class="pm-box">
+          <button class="pm-link" onclick="homeOpenArea('${F.area}')">${t('The quick guide (what the guest sees)', '快速了解（客户看到的版本）')} ›</button>
+          <button class="pm-link" onclick="areaMode['${F.area}']='full';homeOpenArea('${F.area}')">${t('The full 4-step plan (the science)', '完整四步方案（背后的原理）')} ›</button>
+          ${F.study.map(([sid, lid], i) => `<button class="pm-link" onclick="eduStudy('${F.id}','${sid}','${lid}')">${lessonTitle(sid, lid)} <span class="pm-why">· ${eduEsc(why[i] || '')}</span> ›</button>`).join('')}
+        </div>
+      </details>
     </div>`;
 }
 
