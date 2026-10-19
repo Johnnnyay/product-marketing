@@ -74,6 +74,14 @@ a.btn[hidden]{display:none}
 
 .doc h1{font-size:32px;line-height:1.12;font-weight:800;letter-spacing:-.025em;margin:6px 0 4px;text-wrap:balance}
 .dsub{font-size:18px;color:var(--ink-2);margin:0}
+/* An event's flyer, as a banner above its title; tap it for the whole flyer (2026-10-19). */
+.hero{display:block;position:relative;width:100%;height:230px;margin:12px 0 18px;padding:0;border:1px solid var(--line);
+  border-radius:14px;overflow:hidden;background:var(--ground);cursor:zoom-in}
+.hero img{display:block;width:100%;height:100%;object-fit:cover}
+.hero span{position:absolute;right:10px;bottom:10px;background:rgba(20,26,22,.74);color:#fff;font-size:13px;font-weight:700;
+  border-radius:999px;padding:6px 13px}
+.hero:hover span{background:var(--sage)}
+@media (max-width:520px){ .hero{height:170px} }
 .meta{margin:24px 0 0;border-top:1px solid var(--line)}
 .meta div{display:grid;grid-template-columns:120px 1fr;gap:14px;padding:10px 0;border-bottom:1px solid var(--line)}
 .meta dt{font-size:13px;font-weight:600;color:var(--muted);padding-top:1px}
@@ -234,7 +242,7 @@ a.btn[hidden]{display:none}
   background:var(--ink);color:#fff;border-radius:999px;padding:8px 10px 8px 18px;font-size:14px;font-weight:600;max-width:calc(100% - 24px)}
 #upd[hidden]{display:none}
 #upd button{font:inherit;font-size:13px;font-weight:800;background:#FFD166;color:var(--ink);border:0;border-radius:999px;padding:7px 14px;cursor:pointer;white-space:nowrap}
-@media print{ .mbar,#upd,.toast,.dtop .btn,.zl{display:none !important} .main{margin:0} .doc{padding:0} }
+@media print{ .mbar,#upd,.toast,.dtop .btn,.zl,.hero span{display:none !important} .main{margin:0} .doc{padding:0} }
 
 /* ---- The moving background (2026-10-16, shipped 2026-10-19): a silk sky in mint, sage and aqua with
    clouds, stars and a drifting New York skyline, on fixed canvases behind the page. The content
@@ -274,7 +282,7 @@ html.nofx{background:radial-gradient(120% 80% at 15% 10%,#DCEBE1 0%,rgba(220,235
 /* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this
    file. The version check at the bottom reads it, and the script text, to tell an old copy of
    this page from the newest one (DiamondA70/_skills/app-qa/references/self-update.md). */
-const BUILD = "2026-10-19T12:14:47Z";
+const BUILD = "2026-10-19T12:23:59Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 /* The agendas: data/team-events.json next to this page, read fresh through the API (GitHub Pages
@@ -458,7 +466,8 @@ function renderNav(){
 function whoHTML(){ return admin() ? 'Admin ✓ · <button type="button" class="linkbtn" data-act="signout">Sign out</button>' : ""; }
 
 /* ---------------- the front page: every event, by date ----------------
-   Upcoming first, soonest at the top, then flyers, then past events, newest first, by year. */
+   Upcoming first, soonest at the top, then past events, newest first, by year. Flyers are not
+   listed on their own (Johnny, 2026-10-19): each one sits at the top of its event's page. */
 function cardHTML(e){
   const st = statusOf(e), d = asDate(e.date);
   const when = [e.time, e.where].filter(Boolean).join(" · ");
@@ -483,14 +492,6 @@ function homeHTML(missing){
     + '<p class="dsub">Every team night and event by date. Open one for its agenda and its own link to share.</p>';
   if(!EVENTS.length) return html + '<p class="empty">No events yet.' + (admin() ? ' Tap <b>+ New event</b>.' : '') + '</p>';
   if(up.length) html += '<h2 class="evg">Upcoming</h2><div class="evl">' + up.map(cardHTML).join("") + '</div>';
-  if(FLYERS.length) html += '<h2 class="evg">Flyers</h2><div class="evl">' + FLYERS.map(function(f){
-    return '<button type="button" class="evc" data-flyer="' + esc(f.id) + '"><span class="evd">'
-      + (f.date ? '<b>' + esc(asDate(f.date).toLocaleDateString("en-US", { weekday: "short" })) + '</b><span>'
-        + esc(asDate(f.date).toLocaleDateString("en-US", { month: "short", day: "numeric" })) + '</span><i>' + esc(f.date.slice(0, 4)) + '</i>'
-        : '<b>Flyer</b>') + '</span>'
-      + '<span class="evm"><span class="t">' + esc(f.title) + '</span>' + (f.when && !f.date ? '<span class="w">' + esc(f.when) + '</span>' : '') + '</span>'
-      + '<span class="evx">Flyer</span></button>';
-  }).join("") + '</div>';
   let year = "";
   past.forEach(function(e, i){
     const y = e.date.slice(0, 4);
@@ -590,6 +591,7 @@ function agendaText(e){
   if(e.time){ L.push("⏰ " + e.time); const z = otherZones(e.time); if(z) L.push("      " + z); }
   if(e.where) L.push("📍 " + e.where + (e.whereNote ? " (" + e.whereNote + ")" : ""));
   if(e.signup) L.push("📝 Sign up: " + e.signup);
+  const fl = flyerOf(e); if(fl) L.push("🖼 Flyer: " + siteURL(fl.img));
   if(e.zoom) L.push("💻 Zoom " + e.zoom + (e.pass ? ", passcode " + e.pass : "") + ": https://zoom.us/j/" + e.zoom.replace(/\D/g, ""));
   if(e.dress) L.push("👔 " + e.dress + " (guide: " + DRESS_URL() + ")");
   if(e.flow && e.flow.length){
@@ -685,6 +687,9 @@ function flyerFor(text){
   const s = String(text || "").toLowerCase();
   return FLYERS.find(function(f){ return (f.match || []).some(function(w){ return w && s.indexOf(String(w).toLowerCase()) > -1; }); }) || null;
 }
+function flyerOf(e){
+  return FLYERS.find(function(f){ return f.event === e.id; }) || flyerFor(e.title);
+}
 function showFlyer(id){
   const f = FLYERS.find(function(x){ return x.id === id; });
   if(f) showImg(f.img, f.alt || f.title);
@@ -742,12 +747,15 @@ function viewHTML(e){
   const total = secs.reduce(function(n, x){ return n + minsOf(x.items); }, 0);
   const rs = roleSlots(e);
   const roles = STD_ROLES.filter(function(r){ return isFNH(e) || rs.std[r[0]]; }).map(function(r){ return [r[1], rs.std[r[0]] || ""]; }).concat(rs.extra);
-  const fl = flyerFor(e.title);
+  const fl = flyerOf(e);
   return (KEPT_AT ? '<p class="note">Offline: showing the copy saved on this phone. It updates when you are back online.</p>' : '')
     + '<a class="back" href="#">← All events</a>'
     + '<div class="dtop"><span class="stat ' + st[1] + '">' + esc(st[0]) + '</span><span class="sp"></span>'
     + '<button type="button" class="btn" data-act="copy" title="Copy this agenda as text for WhatsApp or a message">Copy agenda</button>'
     + (admin() ? '<button type="button" class="btn" data-act="edit">Edit</button>' : '') + '</div>'
+    + (fl ? '<button type="button" class="hero" data-flyer="' + esc(fl.id) + '" title="See the whole flyer">'
+        + '<img src="' + esc(fl.img) + '" alt="' + esc(fl.alt || fl.title) + '" style="object-position:' + esc(fl.pos || "center 25%") + '">'
+        + '<span>See the flyer</span></button>' : '')
     + '<h1>' + esc(e.title) + '</h1>'
     + (e.sub ? '<p class="dsub">' + esc(e.sub) + '</p>' : '')
     + '<dl class="meta">'
@@ -755,7 +763,6 @@ function viewHTML(e){
           + (otherZones(e.time) ? '<small class="tz">' + esc(otherZones(e.time)) + '</small>' : '') : '') + '</dd></div>'
     +   (e.where ? '<div><dt>Where</dt><dd>' + esc(e.where) + (e.whereNote ? '<small>' + esc(e.whereNote) + '</small>' : '') + '</dd></div>' : '')
     +   (e.signup ? '<div><dt>Sign up</dt><dd><a href="' + esc(e.signup) + '" target="_blank" rel="noopener">Register here</a>'
-          + (fl ? '<span class="zl"><button type="button" class="linkbtn" data-flyer="' + esc(fl.id) + '">See the flyer</button></span>' : '')
           + '<small>' + esc(e.signup) + '</small></dd></div>' : '')
     +   (zoom ? '<div><dt>Zoom</dt><dd>' + esc(zoom)
           + '<span class="zl"><a href="https://zoom.us/j/' + zid + '" target="_blank" rel="noopener">Join</a> · <button type="button" class="linkbtn" data-copy="' + esc(zoom) + '">Copy ID</button></span>'

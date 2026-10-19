@@ -1,5 +1,5 @@
 {
- "about": "Flyers for team dates, archived from the JL 3/6, JL Phase B+ and NYC Elite WhatsApp groups, and the JL monthly team calendars (PDF). team-event.html lists the flyers under Flyers in the event list, and a calendar row whose text contains one of a flyer's match words links to that flyer. date sorts the list (blank = no fixed date, listed last). A calendar shows as a link under the Calendar section of every event in its month (and of the month before).",
+ "about": "Flyers for team dates, archived from the JL 3/6, JL Phase B+ and NYC Elite WhatsApp groups, and the JL monthly team calendars (PDF). A flyer is not an event of its own (Johnny, 2026-10-19): `event` names the event page in team-events.json it belongs to, and that page shows the flyer as a banner at the top (`pos` is the part of the image the banner shows). A flyer with no event yet (no date) opens only from a calendar row: a calendar row whose text contains one of a flyer's match words links to that flyer. A calendar shows as a link under the Calendar section of every event in its month (and of the month before).",
  "flyers": [
   {
    "id": "go-6x15",
@@ -11,7 +11,9 @@
    "match": [
     "6x15"
    ],
-   "from": "JL Phase B+ Info Group, Jerry, 2026-10-06"
+   "from": "JL Phase B+ Info Group, Jerry, 2026-10-06",
+   "event": "2026-10-24",
+   "pos": "center 18%"
   },
   {
    "id": "glow-halloween-2026",
@@ -24,7 +26,9 @@
     "product expo",
     "glow from within"
    ],
-   "from": "NYC Elite Networking Circle, Wendy, 2026-10-11"
+   "from": "NYC Elite Networking Circle, Wendy, 2026-10-11",
+   "event": "2026-10-30",
+   "pos": "center 12%"
   },
   {
    "id": "year-end-trip-2026",
@@ -37,7 +41,9 @@
     "year end trip",
     "scottsdale"
    ],
-   "from": "JL 3/6 group, Johnny, 2026-10-06"
+   "from": "JL 3/6 group, Johnny, 2026-10-06",
+   "event": "2026-12-28",
+   "pos": "center 48%"
   },
   {
    "id": "bbi-puerto-rico",
@@ -61,7 +67,9 @@
    "match": [
     "人生修炼局"
    ],
-   "from": "Johnny, 2026-10-18"
+   "from": "Johnny, 2026-10-18",
+   "event": "2026-10-25",
+   "pos": "center 20%"
   }
  ],
  "calendars": [
