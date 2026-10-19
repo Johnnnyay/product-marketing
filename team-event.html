@@ -282,7 +282,7 @@ html.nofx{background:radial-gradient(120% 80% at 15% 10%,#DCEBE1 0%,rgba(220,235
 /* The pre-commit hook in the pm-final clone rewrites this time on every commit that touches this
    file. The version check at the bottom reads it, and the script text, to tell an old copy of
    this page from the newest one (DiamondA70/_skills/app-qa/references/self-update.md). */
-const BUILD = "2026-10-19T12:23:59Z";
+const BUILD = "2026-10-19T12:31:47Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
 /* The agendas: data/team-events.json next to this page, read fresh through the API (GitHub Pages
@@ -407,6 +407,11 @@ function todayET(){ return new Date().toLocaleDateString("en-CA", { timeZone: "A
 function asDate(d){ return new Date(d + "T12:00:00"); }
 function longDate(d){ return asDate(d).toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" }); }
 function navDate(d){ return asDate(d).toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" }); }
+/* A date not fixed yet (Johnny, 2026-10-19: the Puerto Rico trip is "roughly Nov 2027"): put the 1st of
+   the month in Date and "Dates to be announced" in Time, and the page shows only the month. */
+function tba(e){ return /to be announced|\bTBA\b|待定/i.test(e.time || ""); }
+function monthYear(d){ return asDate(d).toLocaleDateString("en-US", { month: "long", year: "numeric" }); }
+function whenLong(e){ return tba(e) ? monthYear(e.date) : longDate(e.date); }
 function ymd(t){ return t.getFullYear() + "-" + String(t.getMonth() + 1).padStart(2, "0") + "-" + String(t.getDate()).padStart(2, "0"); }
 function byDateDesc(a, b){ return a.date < b.date ? 1 : a.date > b.date ? -1 : 0; }
 function toast(t){ const el = $("toast"); el.textContent = t; el.hidden = false; clearTimeout(el._h); el._h = setTimeout(function(){ el.hidden = true; }, 3200); }
@@ -472,8 +477,8 @@ function cardHTML(e){
   const st = statusOf(e), d = asDate(e.date);
   const when = [e.time, e.where].filter(Boolean).join(" · ");
   return '<a class="evc' + (st[1] ? " past" : "") + '" href="#' + esc(e.id) + '">'
-    + '<span class="evd"><b>' + esc(d.toLocaleDateString("en-US", { weekday: "short" })) + '</b>'
-    + '<span>' + esc(d.toLocaleDateString("en-US", { month: "short", day: "numeric" })) + '</span>'
+    + '<span class="evd"><b>' + esc(tba(e) ? "TBA" : d.toLocaleDateString("en-US", { weekday: "short" })) + '</b>'
+    + '<span>' + esc(d.toLocaleDateString("en-US", tba(e) ? { month: "short" } : { month: "short", day: "numeric" })) + '</span>'
     + '<i>' + esc(e.date.slice(0, 4)) + '</i></span>'
     + '<span class="evm"><span class="t">' + esc(e.title) + '</span>'
     + (e.sub || e.kind ? '<span class="s">' + esc([e.sub, e.kind].filter(Boolean).join(" · ")) + '</span>' : '')
@@ -587,7 +592,7 @@ function agendaText(e){
   const L = [], secs = sectionsOf(e), rs = roleSlots(e);
   L.push("*" + e.title + "*" + (e.sub ? " · " + e.sub : ""));
   L.push("");
-  L.push("📅 " + longDate(e.date));
+  L.push("📅 " + whenLong(e));
   if(e.time){ L.push("⏰ " + e.time); const z = otherZones(e.time); if(z) L.push("      " + z); }
   if(e.where) L.push("📍 " + e.where + (e.whereNote ? " (" + e.whereNote + ")" : ""));
   if(e.signup) L.push("📝 Sign up: " + e.signup);
@@ -759,7 +764,7 @@ function viewHTML(e){
     + '<h1>' + esc(e.title) + '</h1>'
     + (e.sub ? '<p class="dsub">' + esc(e.sub) + '</p>' : '')
     + '<dl class="meta">'
-    +   '<div><dt>When</dt><dd>' + esc(longDate(e.date)) + (e.time ? '<small>' + esc(e.time) + '</small>'
+    +   '<div><dt>When</dt><dd>' + esc(whenLong(e)) + (e.time ? '<small>' + esc(e.time) + '</small>'
           + (otherZones(e.time) ? '<small class="tz">' + esc(otherZones(e.time)) + '</small>' : '') : '') + '</dd></div>'
     +   (e.where ? '<div><dt>Where</dt><dd>' + esc(e.where) + (e.whereNote ? '<small>' + esc(e.whereNote) + '</small>' : '') + '</dd></div>' : '')
     +   (e.signup ? '<div><dt>Sign up</dt><dd><a href="' + esc(e.signup) + '" target="_blank" rel="noopener">Register here</a>'
@@ -799,7 +804,7 @@ function render(){
   else {
     const e = current();
     html = e ? viewHTML(e) : homeHTML(!!wantedId());
-    document.title = e ? e.title + " · " + navDate(e.date) : "HY Team Events";
+    document.title = e ? e.title + " · " + (tba(e) ? monthYear(e.date) : navDate(e.date)) : "HY Team Events";
   }
   $("doc").innerHTML = html + footHTML();
   paintVer();

@@ -1,6 +1,6 @@
 {
  "about": "HY team night agendas for team-event.html, newest first. Edited on the page after the admin login (··· → /api/save-functions?doc=team-events) or by Claude. Each agenda is a list of sections (intro, calendar, volume, growth, leadership); each item has a topic (t), speakers (who), a panel lead (by), minutes (min), bullets (pts) and, in the calendar, events (cal).",
- "savedAt": "2026-10-19T12:22:52.000Z",
+ "savedAt": "2026-10-19T12:31:22.000Z",
  "events": [
   {
    "id": "2026-10-25",
@@ -1319,6 +1319,16 @@
    "time": "Dec 28 to Jan 1 · 4 nights · arrive around 6 PM MT",
    "where": "Scottsdale, Arizona",
    "whereNote": "Five-star hotel downtown · Jerry has prepaid the room block",
+   "agenda": []
+  },
+  {
+   "id": "2027-11-01",
+   "date": "2027-11-01",
+   "kind": "Leadership 1 trip",
+   "title": "BBI Trip to Puerto Rico",
+   "sub": "Qualify in 2026-27 · 2 months pays 1 night, 3 months pays 2 nights",
+   "time": "Dates to be announced",
+   "where": "Puerto Rico",
    "agenda": []
   }
  ]
