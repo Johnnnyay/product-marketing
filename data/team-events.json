@@ -1307,8 +1307,99 @@
    "time": "5:00 to 7:00 PM ET",
    "where": "Cre8ive Studio, 134 W 29th St, Floor 2, Space 1-1",
    "whereNote": "New York, NY 10001",
-   "signup": "https://johnnnyay.github.io/product-marketing/glow.html",
-   "agenda": []
+   "signup": "https://www.eventbrite.com/e/glow-from-within-tickets-2003327892655",
+   "agenda": [
+    {
+     "k": "volume",
+     "items": [
+      {
+       "t": "Invite before Friday",
+       "pts": [
+        "Most guests sign up in the last day or two, so push now",
+        "Share the Eventbrite link; Johnny is adding Luma and Meetup",
+        "Invite everyone, even people who just want to hang out",
+        "Guests can book a station on the guest page: johnnnyay.github.io/product-marketing/glow.html"
+       ]
+      },
+      {
+       "t": "Flow at the door",
+       "pts": [
+        "Booked slots go first, like a restaurant reservation; walk-ins go to whichever station is open",
+        "Greeters: small talk (comment on their costume), ask if they booked a station, walk them over",
+        "If every table is busy, chat for no more than 3 minutes",
+        "Need help closing a sale? Flag Irene"
+       ]
+      },
+      {
+       "t": "Demos",
+       "pts": [
+        "Vitamin C apple with dye (skin)",
+        "Immunity Twist Tube",
+        "XS next to milk, Red Bull and Monster, labeled and left out on the table",
+        "Nail these, don't spread thin"
+       ]
+      },
+      {
+       "t": "Drinks",
+       "pts": [
+        "$2 a cup: XS energy mocktail, or an antioxidant or detox mocktail",
+        "XS bundle: 2 cans with lime and lemon, price set by Eunice and Annice",
+        "Drink money goes to them; they make the drinks flyer"
+       ]
+      }
+     ]
+    },
+    {
+     "k": "leadership",
+     "items": [
+      {
+       "t": "Why we do this",
+       "pts": [
+        "Get comfortable inviting, so the Christmas event next month feels easy",
+        "Anyone you shared your story with who didn't partner is a customer: invite them",
+        "Get good at one table, health or skin; not on a table this time? Aim to be on one next time",
+        "The more no's you collect, the faster you get good at sales"
+       ]
+      }
+     ]
+    }
+   ],
+   "flow": [
+    [
+     "5:00 to 7:00 PM",
+     "Product Expo"
+    ],
+    [
+     "7:30 to 9:00 PM",
+     "FNH Halloween, right after"
+    ]
+   ],
+   "roles": [
+    [
+     "Check-in, line & checkout",
+     "Irene"
+    ],
+    [
+     "Health analysis",
+     "Johnny, Raymond, Tenzin"
+    ],
+    [
+     "Skin & hair analysis",
+     "Wendy, Eunice, Annice"
+    ],
+    [
+     "Drinks & XS bundle",
+     "Eunice, Annice"
+    ],
+    [
+     "XS demo display",
+     "Martin"
+    ],
+    [
+     "Greeters",
+     "Martin, Lister, William"
+    ]
+   ]
   },
   {
    "id": "2026-12-28",
