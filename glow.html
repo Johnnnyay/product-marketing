@@ -279,10 +279,10 @@
 
 <script src="admin-session.js"></script>
 <script>
-const BUILD = "2026-10-31T18:38:28Z";
+const BUILD = "2026-10-31T19:09:14Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
-/* Nov 27, 2026 (the HY Product Expo, holiday edition). Wendy's flyer QR opens glow.html, so the newest
+/* Nov 27, 2026 (the HY Product Expo, Thanksgiving edition). Wendy's flyer QR opens glow.html, so the newest
    event always lives here; past pages and their answers are glow-<date>.html. Skill: product-expo.
    Changes from the Oct 11 brainstorm: health and skin only (no hair), booking optional with a
    waitlist at the door, one specialist per guest through both. */
@@ -300,9 +300,9 @@ const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&":
 let L = EventI18n.current();
 const tx = (a) => Array.isArray(a) ? (a[L] || a[0]) : a;
 const T = {
-  kicker: ['Holiday edition', '节日特别场'],
+  kicker: ['Thanksgiving edition', '感恩节特别场'],
   tagline: ['Feel good. Look good. Live well.', '身心舒展，容光焕发，好好生活。'],
-  invite: ['Take an evening for yourself before the holidays: clean beauty, personalized wellness, and try-outs and tastings all night.', '节前给自己留一个晚上：看看皮肤，聊聊营养，现场随手试用、试饮。'],
+  invite: ['The day after Thanksgiving, take an evening for yourself: clean beauty, personalized wellness, and try-outs and tastings all night.', '感恩节第二天，给自己留一个晚上：看看皮肤，聊聊营养，现场随手试用、试饮。'],
   date: ['Friday, November 27', '11月27日 周五'],
   time: ['5:00 to 7:00 PM', '下午 5:00–7:00'],
   place: ['Cre8ive Studio, 134 W 29th St, New York', '纽约 Cre8ive Studio（134 W 29th St）'],
