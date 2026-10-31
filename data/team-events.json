@@ -1431,7 +1431,7 @@
    "date": "2026-11-27",
    "kind": "HY Product Expo",
    "title": "Glow From Within, Holiday",
-   "sub": "Personalized nutrition · Blue light skin analysis",
+   "sub": "Personalized nutrition · Blue light skin and hair analysis",
    "time": "5:00 to 7:00 PM ET",
    "where": "Cre8ive Studio, 134 W 29th St, Floor 2",
    "whereNote": "New York, NY 10001. Room to be confirmed.",
@@ -1440,6 +1440,150 @@
     {
      "k": "volume",
      "items": [
+      {
+       "t": "Check-in + check-out booth",
+       "who": "Irene",
+       "pts": [
+        [
+         "On the table",
+         [
+          "Guest list and waitlist",
+          "Price lists",
+          "Order sheet for anything not in the room"
+         ]
+        ],
+        [
+         "How to run it",
+         [
+          "Sign every guest in and ask who invited them",
+          "Booked slots go first, walk-ins take the waitlist, a missed time rejoins it",
+          "New guests hear what is on tonight and get walked to a booth. Nobody wanders",
+          "No check-in yet? They fill it out on their phone while they wait",
+          "Every sale ends here, even items not in the room. Write down the item, the guest and who invited them, so the follow-up happens"
+         ]
+        ]
+       ]
+      },
+      {
+       "t": "Skin + hair booth",
+       "who": "Wendy, Eunice, Annice",
+       "pts": [
+        "Draft. Wendy writes the final skin version, Annice the hair version. Irene's two cheat sheets are the base",
+        [
+         "On display, skin",
+         [
+          "Everyday: Hydrating Mousse Cleanser, Glow Boss Cleanser, Hydrating Smoothing Toner, Hydrating Gel Cream",
+          "Dark spots and lines, the top concerns on past check-ins: Vitamin C + HA3, Correcting Serum, Defying Serum",
+          "Oily: Balancing Jelly Cleanser, Balancing Fresh Shake Toner, Balancing Matte Gel Lotion",
+          "Breakouts: Rosé All Day Anti-Acne Toner, Salicylic Gel Treatment, Purifying Mask",
+          "Dry: Hydrating Mask",
+          "Sunscreen: Hydrating Day Lotion SPF 30, Balancing Matte Day Lotion SPF 30, Multi-Defense UV Protect SPF 50+"
+         ]
+        ],
+        [
+         "On display, hair (Satinique)",
+         [
+          "Oily scalp, the most common: Purifying Shampoo + Conditioner",
+          "Flakes: Anti-Dandruff Shampoo",
+          "Redness: Smooth Moisture",
+          "Thinning: Anti-Hair Fall Shampoo + Conditioner + Scalp Tonic",
+          "Damage: Intensive Repair Shampoo + Conditioner + Hair Treatment"
+         ]
+        ],
+        [
+         "How to run skin",
+         [
+          "Read their check-in first, so you already know their routine",
+          "Hat and sunglasses off, hair back, eyes closed while the light is on. It is safe and non-invasive, and they see what you see in the mirror",
+          "Ask if they are wearing sunscreen or makeup. Sunscreen on? Test ours on half the face",
+          "Read the colors: even blue is balanced, yellow is oil, white is dry, tiny orange dots are congestion, dark patches are pigmentation. Compare with the sides of the face",
+          "Dark spot? Ask if they used to have acne there",
+          "Match what you see on the sheet. No routine at all? One Hydrating Mask, once or twice a week"
+         ]
+        ],
+        [
+         "How to run hair",
+         [
+          "Offer it after skin",
+          "Blue light magnifier on the front, top, sides and back. Lift long hair",
+          "Look for oil or yellow buildup, flakes, redness, a single thin strand per pore, split ends",
+          "Recommend by what you see. It does not have to be one line",
+          "Split ends: dip them in the Intensive Repair Hair Treatment and let them feel the difference"
+         ]
+        ]
+       ]
+      },
+      {
+       "t": "Health + XS booth",
+       "who": "Tenzin, Raymond, Johnson, Johnny",
+       "pts": [
+        "Draft. Tenzin writes the final health version",
+        [
+         "On display, health: what past reports recommend most",
+         [
+          "Energy and focus: Vitamin B Complex, Double X Multivitamin, Plant Protein Powder",
+          "Gut and skin: Prebiotic Fiber, Probiotic",
+          "Sleep and stress: Magnesium, Sleep Health",
+          "Everyday base: Advanced Omega, Concentrated Fruits & Vegetables, Vitamin C Extended Release"
+         ]
+        ],
+        [
+         "On display, XS",
+         [
+          "Two cans tied together with a price tag, so nobody thinks they have to buy a case (two for $5 last time)",
+          "XS next to milk, Red Bull and Monster, labeled and left out on the table",
+          "XS Grass-Fed Whey Protein, XS Protein Bars"
+         ]
+        ],
+        [
+         "How to run it",
+         [
+          "Read their check-in first and pick the one or two things they care about most",
+          "Don't walk through the full report, it overwhelms. Use the quick guide in Areas of Support",
+          "Three steps: relate (I felt the same way, or I know someone who did), share what you found out, then the product",
+          "For example: coffee doesn't give you energy, it borrows it. Then protein and B vitamins",
+          "Low on protein? Turn to the XS side right there",
+          "Say support, never cure",
+          "A pain point you haven't studied? Bring in Johnny or Irene",
+          "10 to 15 minutes a guest, then ask for the sale and walk them to check-out with the product in hand"
+         ]
+        ]
+       ]
+      },
+      {
+       "t": "Demo booth",
+       "who": "Lister, Martin, William",
+       "pts": [
+        "Draft. Vemon writes the final version",
+        [
+         "On the table",
+         [
+          "Vitamin C + HA3, apples, dye, a fruit knife",
+          "Twist Tubes",
+          "Hydrating Mask"
+         ]
+        ],
+        [
+         "How to run it",
+         [
+          "Guests who came just to look start here",
+          "Vitamin C apple: dye the apple, apply the vitamin C, and let them watch the color change. Cut big pieces, last time the slices were too small to see",
+          "Announce each demo so people nearby gather. Then go back to what you were doing",
+          "A specialist brings a guest over? Run it for that guest right then, so the specialist can close",
+          "Ask for the sale: did you want to take one today? Yes goes to check-out"
+         ]
+        ]
+       ]
+      },
+      {
+       "t": "Every booth",
+       "pts": [
+        "Stay with your guest and walk them over: next booth, then check-out",
+        "Ask for the sale. Irene: there is no strategy, just ask. A no is fine, next guest",
+        "Don't spend 20 minutes on one person",
+        "Everything goes through check-out, even items not in the room"
+       ]
+      },
       {
        "t": "Invite",
        "pts": [
@@ -1457,15 +1601,6 @@
         "Inventory order by Tue, Nov 17",
         "Role-play in pairs: Sat, Nov 21",
         "Health and skin check-ins go to everyone registered: Tue, Nov 24"
-       ]
-      },
-      {
-       "t": "On the night",
-       "pts": [
-        "One specialist stays with each guest through health and skin, then walks them to checkout",
-        "Booked slots go first, walk-ins take the waitlist, a missed time rejoins it",
-        "Ask for the sale. Everything goes through checkout, even items not in the room",
-        "Run demos with your own guest: vitamin C apple (bring a fruit knife), Twist Tube, XS next to Red Bull and Monster"
        ]
       }
      ]
@@ -1491,28 +1626,20 @@
    ],
    "roles": [
     [
-     "Check-in, line & checkout",
-     "To be confirmed"
+     "Check-in + check-out",
+     "Irene"
     ],
     [
-     "Health analysis",
-     "To be confirmed"
+     "Skin + hair",
+     "Wendy, Eunice, Annice"
     ],
     [
-     "Skin analysis",
-     "To be confirmed"
+     "Health + XS",
+     "Tenzin, Raymond, Johnson, Johnny"
     ],
     [
-     "Drinks",
-     "To be confirmed"
-    ],
-    [
-     "Demos",
-     "To be confirmed"
-    ],
-    [
-     "Greeters",
-     "To be confirmed"
+     "Demo",
+     "Lister, Martin, William"
     ]
    ]
   }
