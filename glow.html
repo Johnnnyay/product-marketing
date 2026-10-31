@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Glow From Within</title>
-<meta name="description" content="Friday, October 30, 5:00 to 7:00 PM, New York. Two short check-ins before your consultations.">
+<meta name="description" content="Friday, November 27, 5:00 to 7:00 PM, New York. Two short check-ins before your consultations.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <style>
@@ -248,7 +248,7 @@
         <div class="card-title" data-t="detailsT"></div>
         <dl class="kv">
           <dt data-t="whenK"></dt><dd><span data-t="date"></span><br><span data-t="time"></span></dd>
-          <dt data-t="whereK"></dt><dd>Cre8ive Studio<br>134 W 29th St, Floor 2, Space 1-1<br>New York, NY 10001<br><a href="https://maps.google.com/?q=134+W+29th+St,+New+York,+NY+10001" target="_blank" rel="noopener" data-t="maps"></a></dd>
+          <dt data-t="whereK"></dt><dd>Cre8ive Studio<br>134 W 29th St, Floor 2<br>New York, NY 10001<br><a href="https://maps.google.com/?q=134+W+29th+St,+New+York,+NY+10001" target="_blank" rel="noopener" data-t="maps"></a></dd>
         </dl>
         <a class="book" href="https://unityhy.setmore.com/" target="_blank" rel="noopener" data-t="book"></a>
         <p class="note" data-t="bookNote"></p>
@@ -279,14 +279,14 @@
 
 <script src="admin-session.js"></script>
 <script>
-const BUILD = "2026-10-18T01:56:46Z";
+const BUILD = "2026-10-31T18:38:28Z";
 const SELF = document.currentScript ? document.currentScript.textContent : "";
 
-/* Oct 30, 2026 (the HY Product Expo, before FNH). Wendy's flyer QR opens glow.html, so the newest
-   event always lives here; the Sept 25 page and its answers moved to glow-2026-09-25.html.
+/* Nov 27, 2026 (the HY Product Expo, holiday edition). Wendy's flyer QR opens glow.html, so the newest
+   event always lives here; past pages and their answers are glow-<date>.html. Skill: product-expo.
    Changes from the Oct 11 brainstorm: health and skin only (no hair), booking optional with a
    waitlist at the door, one specialist per guest through both. */
-const EVENT = "glow-2026-10-30";
+const EVENT = "glow-2026-11-27";
 const PAGE = "glow.html";
 const API = AdminSession.API + "/api/event";
 const DONE = "event-done:" + EVENT;
@@ -300,10 +300,10 @@ const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&":
 let L = EventI18n.current();
 const tx = (a) => Array.isArray(a) ? (a[L] || a[0]) : a;
 const T = {
-  kicker: ['Halloween edition', '万圣节特别场'],
+  kicker: ['Holiday edition', '节日特别场'],
   tagline: ['Feel good. Look good. Live well.', '身心舒展，容光焕发，好好生活。'],
-  invite: ['Trick or treat yourself to an evening of clean beauty and personalized wellness, with try-outs and tastings all night.', '万圣节前夜，好好犒劳一下自己：纯净美妆加上量身定制的健康建议，现场还能随时试用、试饮。'],
-  date: ['Friday, October 30', '10月30日 周五'],
+  invite: ['Take an evening for yourself before the holidays: clean beauty, personalized wellness, and try-outs and tastings all night.', '节前给自己留一个晚上：看看皮肤，聊聊营养，现场随手试用、试饮。'],
+  date: ['Friday, November 27', '11月27日 周五'],
   time: ['5:00 to 7:00 PM', '下午 5:00–7:00'],
   place: ['Cre8ive Studio, 134 W 29th St, New York', '纽约 Cre8ive Studio（134 W 29th St）'],
   beforeH: ['Before you arrive', '到场之前'],
