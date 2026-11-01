@@ -16,11 +16,11 @@
   var KEY = 'pv_admin_token';
 
   var STR = {
-    en: { title: 'Admin login', label: 'Admin passcode', go: 'Sign in', cancel: 'Cancel', wrong: 'Incorrect passcode',
+    en: { title: 'Admin login', label: 'Admin passcode', go: 'Sign in', cancel: 'Cancel', wrong: 'Incorrect passcode', many: 'Too many wrong tries. Wait 10 minutes and try again.',
           fail: 'Could not sign in. Check the connection and try again.', all: 'All reports', admin: 'Admin ✓', out: 'Sign out of admin' },
-    zh: { title: '管理员登录', label: '管理员密码', go: '登录', cancel: '取消', wrong: '密码不正确',
+    zh: { title: '管理员登录', label: '管理员密码', go: '登录', cancel: '取消', wrong: '密码不正确', many: '错误次数太多，请等 10 分钟再试。',
           fail: '登录失败，请检查网络后重试。', all: '全部报告', admin: '管理员 ✓', out: '退出管理员登录' },
-    es: { title: 'Acceso de administrador', label: 'Código de administrador', go: 'Entrar', cancel: 'Cancelar', wrong: 'Código incorrecto',
+    es: { title: 'Acceso de administrador', label: 'Código de administrador', go: 'Entrar', cancel: 'Cancelar', wrong: 'Código incorrecto', many: 'Demasiados intentos. Espera 10 minutos e inténtalo de nuevo.',
           fail: 'No se pudo iniciar sesión. Revisa la conexión e inténtalo de nuevo.', all: 'Todos los informes', admin: 'Admin ✓', out: 'Salir de administrador' },
     hi: { title: 'एडमिन लॉगिन', label: 'एडमिन पासकोड', go: 'साइन इन', cancel: 'रद्द करें', wrong: 'गलत पासकोड',
           fail: 'साइन इन नहीं हो सका। कनेक्शन जाँचकर फिर कोशिश करें।', all: 'सभी रिपोर्ट', admin: 'एडमिन ✓', out: 'एडमिन से साइन आउट' }
@@ -84,7 +84,7 @@
       .then(function (x) {
         go.disabled = false;
         if (x.ok && x.j.token) { set(x.j.token); close(); if (onOk) onOk(); return; }
-        err.textContent = x.status === 401 ? t('wrong') : t('fail'); input.value = ''; input.focus();
+        err.textContent = x.status === 401 ? t('wrong') : x.status === 429 ? t('many') : t('fail'); input.value = ''; input.focus();
       })
       .catch(function () { go.disabled = false; err.textContent = t('fail'); });
   }
