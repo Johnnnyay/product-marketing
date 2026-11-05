@@ -1271,7 +1271,7 @@
     .hero-stack-btn:hover { background: var(--green-mid); transform: translateY(-1px); }
 
     /* Starter kit: a clean list meant to be screenshotted */
-    .kit-sum { display: flex; gap: 28px; margin-top: 12px; flex-wrap: wrap; }
+    .kit-sum { display: flex; gap: 28px; margin-top: 22px; flex-wrap: wrap; }
     .kit-sum div { display: flex; flex-direction: column; }
     .kit-sum b { font-size: 26px; line-height: 1.1; color: var(--gray-800); }
     .kit-sum span { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--gray-600); }
@@ -2779,13 +2779,14 @@ function renderKitView(s) {
   const pv = rows.reduce((a, r) => a + (r.p.pv || 0) * r.it.qty, 0);
   const cost = rows.reduce((a, r) => a + (r.p.iboPrice || 0) * r.it.qty, 0);
   const units = rows.reduce((a, r) => a + r.it.qty, 0);
-  const sum = `<div class="kit-sum">
+  // The button sits above the totals so a screenshot can start at the numbers and leave it out (Johnny).
+  const sum = `<button class="hero-stack-btn" onclick="loadStack('${s.id}')">${t('⊕ Add all to calculator', '⊕ 全部加入计算器')}</button>
+    <div class="kit-sum">
       <div><b>${pv.toFixed(2)}</b><span>PV</span></div>
       <div><b>${fmtPrice(cost)}</b><span>${t('IBO cost', 'IBO 价')}</span></div>
       <div><b>${units}</b><span>${t('items', '件')}</span></div>
     </div>
-    <div class="kit-note">${t('Before tax and shipping. Prices from amway.com, November 2026.', '未含税和运费。价格来自 amway.com，2026 年 11 月。')}</div>
-    <button class="hero-stack-btn" onclick="loadStack('${s.id}')">${t('⊕ Add all to calculator', '⊕ 全部加入计算器')}</button>`;
+    <div class="kit-note">${t('Before tax and shipping. Prices from amway.com, November 2026.', '未含税和运费。价格来自 amway.com，2026 年 11 月。')}</div>`;
   heroSet(t('Suggested starter kit', '建议启动套装'), t(s.title, s.titleZh), t(s.situation, s.situationZh), 'nutrition', sum);
   narrative([]);
   setSensitiveNote(false);
