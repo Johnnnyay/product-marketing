@@ -3159,7 +3159,19 @@ function eduCardsHtml() {
     </div>`;
 }
 
+function eduListenHtml(l) {
+  return l.listen ? `<a class="edu-listen" href="${eduEsc(l.listen)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>${t('Listen to the original (Chinese)', '听原课')}</a>` : '';
+}
 function eduItemHtml(series, l) {
+  /* A lesson still being transcribed opens when its recording can already be played */
+  if (l.pending && l.listen) return `
+        <li><button class="edu-item" onclick="eduOpenLesson('${series.id}','${l.id}')">
+          <span class="edu-item-n">${l.n}</span>
+          <span class="edu-item-main">
+            <span class="edu-item-title">${eduEsc(eduTitle(l))}<span class="edu-tag">${t('Coming', '待补')}</span></span>
+            <span class="edu-item-meta">${t('Transcript on its way · audio available', '逐字稿整理中 · 可听原课')}</span>
+          </span>
+        </button></li>`;
   if (l.pending) return `
         <li><div class="edu-item pending">
           <span class="edu-item-n">${l.n}</span>
@@ -3246,7 +3258,7 @@ function eduLessonHtml(series, idx, text, isEn) {
       ${fallback}
       ${custom ? `<div class="edu-fallback">${eduEsc(custom)}</div>` : ''}
       ${eduKeyHtml(l)}
-      ${l.listen ? `<a class="edu-listen" href="${eduEsc(l.listen)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>${t('Listen to the original (Chinese)', '听原课')}</a>` : ''}
+      ${eduListenHtml(l)}
       <div class="edu-text${isEn ? ' en' : ''}" lang="${isEn ? 'en' : 'zh-CN'}">${body}</div>
       <p class="edu-note">${note}</p>
       <nav class="edu-pn">${nav(prev, 'prev', t('Previous', '上一课'))}${nav(next, 'next', t('Next', '下一课'))}</nav>
@@ -3299,7 +3311,8 @@ async function renderEducationView() {
     const l = series.lessons[idx];
     host.innerHTML = `<article class="edu-wrap edu-read"><button class="edu-back" onclick="eduBack()">‹ ${eduEsc(eduSeriesTitle(series))}</button>
       <div class="edu-head"><div class="edu-kicker">${t(`Lesson ${l.n}`, `第${l.n}课`)}</div><h1 class="edu-lesson-title">${eduEsc(eduTitle(l))}</h1></div>
-      <div class="edu-fallback">${t('This lesson is being transcribed and will appear here soon.', '这一课的逐字稿正在整理，整理好会放在这里。')}</div></article>`;
+      ${eduListenHtml(l)}
+      <div class="edu-fallback">${t('This lesson is being transcribed and will appear here soon.', '这一课的逐字稿正在整理，整理好会放在这里。')}${l.listen ? t(' You can listen to the recording now.', '现在可以先听原课。') : ''}</div></article>`;
     return;
   }
   const isEn = eduWantsEn() && eduHasEn(series.lessons[idx]);
