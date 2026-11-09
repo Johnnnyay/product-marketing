@@ -2894,11 +2894,14 @@ let eduQuery = '', eduHit = null, eduSearchT = 0, eduSearchTok = 0;
 const eduPlain = s => String(s).replace(/\[\[([^\]|]+)\|[^\]]*\]\]/g, '$1');
 function eduParas(text, isEn) { let p = text.trim().split(/\n\s*\n/); if (isEn && p[0] && p[0].startsWith('# ')) p = p.slice(1); return p; }
 function eduSearchSoon(q) { eduQuery = q; clearTimeout(eduSearchT); eduSearchT = setTimeout(() => eduSearch(q), 250); }
+const eduIsZh = q => /[\u3400-\u9fff]/.test(q || '');
 async function eduSearch(q) {
   const box = document.getElementById('eduResults'); if (!box) return;
   q = (q || '').trim(); const tok = ++eduSearchTok;
   if (q.length < 1 || (q.length < 2 && /^[\x00-\x7F]$/.test(q))) { box.innerHTML = ''; return; }
-  const all = EDU_INDEX.series.flatMap(sr => sr.lessons.filter(l => !l.pending).map(l => ({ sr, l, isEn: eduWantsEn() && eduHasEn(l) })));
+  /* A Chinese query searches the Chinese text even on the English site; opening a hit then switches to 中文 */
+  const zhQ = eduIsZh(q);
+  const all = EDU_INDEX.series.flatMap(sr => sr.lessons.filter(l => !l.pending).map(l => ({ sr, l, isEn: !zhQ && eduWantsEn() && eduHasEn(l) })));
   const keyOf = x => x.sr.id + '/' + x.l.id + (x.isEn ? '.en' : '');
   const missing = all.filter(x => !(keyOf(x) in eduText));
   if (missing.length) {
@@ -2912,7 +2915,7 @@ async function eduSearch(q) {
     const text = eduText[keyOf(x)] || ''; if (!text) continue;
     const hits = [];
     eduParas(text, x.isEn).forEach((p, i) => { const plain = eduPlain(p); const at = plain.toLowerCase().indexOf(ql); if (at >= 0) hits.push({ i, plain, at }); });
-    const inKey = ((x.isEn && x.l.keyEn) || x.l.key || []).some(k => k.toLowerCase().includes(ql)) || eduTitle(x.l).toLowerCase().includes(ql);
+    const inKey = ((x.isEn && x.l.keyEn) || x.l.key || []).some(k => k.toLowerCase().includes(ql)) || eduTitle(x.l).toLowerCase().includes(ql) || x.l.title.toLowerCase().includes(ql);
     if (hits.length || inKey) { groups.push({ x, hits, key: keyOf(x) }); total += hits.length; }
   }
   groups.sort((a, b) => b.hits.length - a.hits.length);
@@ -2926,6 +2929,7 @@ async function eduSearch(q) {
 }
 function eduGoHit(sid, lid, i) {
   const sr = EDU_INDEX.series.find(s => s.id === sid), l = sr && sr.lessons.find(x => x.id === lid); if (!l) return;
+  if (eduIsZh(eduQuery) && currentLang !== 'zh') setLang('zh');
   eduHit = { key: sid + '/' + lid + (eduWantsEn() && eduHasEn(l) ? '.en' : ''), i, q: eduQuery.trim() };
   eduModule = 'holistic'; eduOpenLesson(sid, lid);
 }
