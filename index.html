@@ -495,6 +495,43 @@
     .edu-back { background: none; border: 0; padding: 0; margin-bottom: 18px; font: inherit; font-size: 14px; font-weight: 600; color: var(--green); cursor: pointer; }
     .edu-back:hover { text-decoration: underline; }
     .edu-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--gray-200); }
+    /* Knowledge, 2026-11-09: topic contents, key points, the original recording, search */
+    .edu-toc { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin: 6px 0 26px; }
+    .edu-toc-part { background: var(--green-light); border-radius: 14px; padding: 14px 14px 10px; }
+    .edu-toc-part b { display: block; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray-500); margin-bottom: 8px; }
+    .edu-toc-part button { display: flex; justify-content: space-between; gap: 10px; width: 100%; background: none; border: 0; padding: 6px 0; font: inherit; font-size: 15px; font-weight: 600; color: var(--navy); cursor: pointer; text-align: left; border-top: 1px solid rgba(61,90,76,0.12); }
+    .edu-toc-part button:first-of-type { border-top: 0; }
+    .edu-toc-part button span { flex: none; font-size: 12.5px; font-weight: 500; color: var(--gray-500); }
+    .edu-group { scroll-margin-top: 150px; margin: 30px 0 0; }
+    .edu-group-part { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin: 0 0 4px; }
+    .edu-group-h { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 0 0 8px; }
+    .edu-group-h h2 { margin: 0; font-size: 20px; color: var(--navy); }
+    .edu-group-h span { font-size: 12.5px; color: var(--gray-500); white-space: nowrap; }
+    .edu-item.pending { cursor: default; opacity: 0.55; }
+    .edu-item.pending:hover { background: none; }
+    .edu-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 999px; background: var(--gray-100); color: var(--gray-600); margin-left: 6px; vertical-align: 2px; }
+    .edu-key { background: var(--green-light); border-radius: 14px; padding: 16px 18px 14px; margin: 0 0 18px; }
+    .edu-key b { display: block; font-size: 12.5px; letter-spacing: 0.08em; color: var(--green); margin-bottom: 8px; }
+    .edu-key ol { margin: 0; padding-left: 20px; display: grid; gap: 7px; }
+    .edu-key li { font-size: 15.5px; line-height: 1.55; color: var(--navy); font-weight: 600; }
+    .edu-dated { margin: 0 0 18px; font-size: 13.5px; color: var(--gray-600); padding-left: 12px; border-left: 3px solid var(--gray-300, #cfd6d2); }
+    .edu-listen { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 26px; padding: 10px 18px; border-radius: 999px; background: var(--navy); color: #fff; text-decoration: none; font-weight: 600; font-size: 14.5px; }
+    .edu-listen svg { width: 15px; height: 15px; fill: currentColor; }
+    .edu-searchbox { display: flex; align-items: center; gap: 10px; margin: 4px 0 6px; padding: 0 16px; height: 50px; border-radius: 999px; border: 1.5px solid var(--gray-200); background: #fff; }
+    .edu-searchbox:focus-within { border-color: var(--navy); }
+    .edu-searchbox input { flex: 1; min-width: 0; border: 0; outline: none; font: inherit; font-size: 16px; background: none; color: var(--gray-800); }
+    .edu-searchbox svg { width: 18px; height: 18px; stroke: var(--gray-500); fill: none; flex: none; }
+    .edu-results { margin: 10px 0 8px; }
+    .edu-results-meta { font-size: 13px; color: var(--gray-500); margin: 0 0 8px; }
+    .edu-hitlesson { border-bottom: 1px solid var(--gray-200); padding: 12px 2px; }
+    .edu-hitlesson > b { display: block; font-size: 15.5px; color: var(--navy); margin-bottom: 4px; }
+    .edu-hitlesson > b span { font-size: 12.5px; font-weight: 500; color: var(--gray-500); margin-left: 6px; }
+    .edu-hit { display: block; width: 100%; text-align: left; background: none; border: 0; padding: 6px 8px; margin: 2px -8px; border-radius: 8px; font: inherit; font-size: 14.5px; line-height: 1.55; color: var(--gray-700, #4a5550); cursor: pointer; }
+    .edu-hit:hover { background: var(--green-light); }
+    mark.edu-mark { background: #DDEBE2; color: var(--navy); font-weight: 700; padding: 0 1px; border-radius: 3px; }
+    .edu-text p.edu-target { background: var(--green-light); border-radius: 10px; padding: 10px 12px; margin-left: -12px; margin-right: -12px; transition: background 1.2s ease; }
+    @media (max-width: 640px) { .edu-toc { grid-template-columns: 1fr 1fr; } .edu-group-h h2 { font-size: 18px; } }
+
     .edu-item { display: flex; align-items: center; gap: 16px; width: 100%; padding: 16px 6px; background: none; border: 0; border-bottom: 1px solid var(--gray-200); text-align: left; cursor: pointer; font: inherit; color: inherit; }
     .edu-item:hover { background: var(--green-light); }
     .edu-item-n { flex: 0 0 38px; font-size: 14px; font-weight: 700; color: var(--green); text-align: right; }
@@ -2850,12 +2887,65 @@ const EDU_PAIN = [
   { id: 'muscle',    en: 'Muscle & Fitness',        zh: '增肌与运动表现', ready: true },
 ];
 const eduText = {};                   // lesson text already fetched, keyed 'series/id'
+/* Search across every lesson (Johnny, 2026-11-09: type 叶酸 or GABA, land on the lesson and paragraph).
+   The first search fetches each lesson's text in the reading language (Chinese for a lesson with no
+   English edition yet); later searches run on what is already loaded. */
+let eduQuery = '', eduHit = null, eduSearchT = 0, eduSearchTok = 0;
+const eduPlain = s => String(s).replace(/\[\[([^\]|]+)\|[^\]]*\]\]/g, '$1');
+function eduParas(text, isEn) { let p = text.trim().split(/\n\s*\n/); if (isEn && p[0] && p[0].startsWith('# ')) p = p.slice(1); return p; }
+function eduSearchSoon(q) { eduQuery = q; clearTimeout(eduSearchT); eduSearchT = setTimeout(() => eduSearch(q), 250); }
+async function eduSearch(q) {
+  const box = document.getElementById('eduResults'); if (!box) return;
+  q = (q || '').trim(); const tok = ++eduSearchTok;
+  if (q.length < 1 || (q.length < 2 && /^[\x00-\x7F]$/.test(q))) { box.innerHTML = ''; return; }
+  const all = EDU_INDEX.series.flatMap(sr => sr.lessons.filter(l => !l.pending).map(l => ({ sr, l, isEn: eduWantsEn() && eduHasEn(l) })));
+  const keyOf = x => x.sr.id + '/' + x.l.id + (x.isEn ? '.en' : '');
+  const missing = all.filter(x => !(keyOf(x) in eduText));
+  if (missing.length) {
+    box.innerHTML = `<p class="edu-results-meta">${t('Loading the lessons for search…', '正在载入课程文字…')}</p>`;
+    await Promise.all(missing.map(x => fetch('education/' + keyOf(x) + '.txt').then(r => r.ok ? r.text() : '').then(tx => { eduText[keyOf(x)] = tx; }).catch(() => {})));
+    if (tok !== eduSearchTok) return;
+  }
+  const ql = q.toLowerCase(), groups = [];
+  let total = 0;
+  for (const x of all) {
+    const text = eduText[keyOf(x)] || ''; if (!text) continue;
+    const hits = [];
+    eduParas(text, x.isEn).forEach((p, i) => { const plain = eduPlain(p); const at = plain.toLowerCase().indexOf(ql); if (at >= 0) hits.push({ i, plain, at }); });
+    const inKey = ((x.isEn && x.l.keyEn) || x.l.key || []).some(k => k.toLowerCase().includes(ql)) || eduTitle(x.l).toLowerCase().includes(ql);
+    if (hits.length || inKey) { groups.push({ x, hits, key: keyOf(x) }); total += hits.length; }
+  }
+  groups.sort((a, b) => b.hits.length - a.hits.length);
+  const mark = s => eduEsc(s).replace(new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/&/g, '&amp;').replace(/</g, '&lt;'), 'gi'), m => `<mark class="edu-mark">${m}</mark>`);
+  const snip = h => { const a = Math.max(0, h.at - 40), b = Math.min(h.plain.length, h.at + q.length + 70); return (a ? '…' : '') + h.plain.slice(a, b) + (b < h.plain.length ? '…' : ''); };
+  box.innerHTML = groups.length ? `<p class="edu-results-meta">${t(`${groups.length} lessons · ${total} passages`, `${groups.length}课 · ${total}处提到`)}</p>` + groups.slice(0, 30).map(g => `
+    <div class="edu-hitlesson"><b>${eduEsc(eduTitle(g.x.l))}<span>${eduEsc(eduSeriesTitle(g.x.sr))} · ${t(`Lesson ${g.x.l.n}`, `第${g.x.l.n}课`)}</span></b>
+      ${(g.hits.length ? g.hits.slice(0, 3) : [{ i: -1 }]).map(h => `<button class="edu-hit" onclick="eduGoHit('${g.x.sr.id}','${g.x.l.id}',${h.i})">${h.i >= 0 ? mark(snip(h)) : t('Open the lesson', '打开这一课')}</button>`).join('')}
+      ${g.hits.length > 3 ? `<button class="edu-hit" onclick="eduGoHit('${g.x.sr.id}','${g.x.l.id}',${g.hits[3].i})">${t(`${g.hits.length - 3} more in this lesson ›`, `这一课还有${g.hits.length - 3}处 ›`)}</button>` : ''}
+    </div>`).join('') : `<p class="edu-results-meta">${t('No lesson mentions that yet.', '没有找到提到这个词的课。')}</p>`;
+}
+function eduGoHit(sid, lid, i) {
+  const sr = EDU_INDEX.series.find(s => s.id === sid), l = sr && sr.lessons.find(x => x.id === lid); if (!l) return;
+  eduHit = { key: sid + '/' + lid + (eduWantsEn() && eduHasEn(l) ? '.en' : ''), i, q: eduQuery.trim() };
+  eduModule = 'holistic'; eduOpenLesson(sid, lid);
+}
+function eduShowHit(host, h) {
+  if (h.i < 0) return;
+  const p = host.querySelector(`.edu-text p[data-i="${h.i}"]`); if (!p) return;
+  if (h.q) { const walk = document.createTreeWalker(p, NodeFilter.SHOW_TEXT); const nodes = []; while (walk.nextNode()) if (!walk.currentNode.parentElement.closest('.term-pop')) nodes.push(walk.currentNode);
+    const ql = h.q.toLowerCase();
+    nodes.forEach(n => { const v = n.nodeValue, at = v.toLowerCase().indexOf(ql); if (at < 0) return; const r = document.createRange(); r.setStart(n, at); r.setEnd(n, at + h.q.length); const m = document.createElement('mark'); m.className = 'edu-mark'; r.surroundContents(m); }); }
+  p.classList.add('edu-target');
+  requestAnimationFrame(() => p.scrollIntoView({ block: 'center' }));
+}
 const EDU_VIDEO_NOTE = '（此处播放了一段视频，录音无法准确转写。）';
 
 function eduEsc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 /* English editions exist for some lessons (NN.en.txt, see education/TRANSLATION_SPEC.md).
    Any language other than Chinese reads the English edition when there is one. */
 function eduWantsEn() { return currentLang !== 'zh'; }
+/* An English title alone does not mean an English edition exists (the liver course is Chinese only for now) */
+function eduHasEn(l) { return !!l.titleEn && !l.noEn; }
 function eduTitle(l) { return eduWantsEn() && l.titleEn ? l.titleEn : l.title; }
 function eduMins(l) { return eduWantsEn() && l.minsEn ? l.minsEn : l.mins; }
 function eduSeriesTitle(sr) { return eduWantsEn() && sr.titleEn ? sr.titleEn : sr.title; }
@@ -2892,7 +2982,8 @@ function eduPlaceBubbles() {
 window.addEventListener('resize', eduPlaceBubbles);
 function eduTop() { window.scrollTo({ top: 0, behavior: 'auto' }); }
 function eduOpenModule(id) { eduModule = id; eduSeries = eduLesson = null; eduReturn = null; renderEducationView(); eduTop(); }
-function eduOpenSeries(id) { eduModule = 'holistic'; eduSeries = id; eduLesson = null; renderEducationView(); eduTop(); }
+function eduOpenSeries(id) { eduHit = null; eduOpenSeries0(id); }
+function eduOpenSeries0(id) { eduModule = 'holistic'; eduSeries = id; eduLesson = null; renderEducationView(); eduTop(); }
 function eduOpenLesson(sid, lid) { eduSeries = sid; eduLesson = lid; renderEducationView(); eduTop(); }
 /* A lesson opened from a pain-point module's study list comes back to that module. */
 function eduStudy(mod, sid, lid) { eduReturn = mod; eduOpenLesson(sid, lid); }
@@ -2918,7 +3009,7 @@ function eduHomeHtml() {
         <button class="edu-card" onclick="eduOpenModule('holistic')">
           <span class="edu-card-kicker">${t(`${EDU_INDEX.series.length} courses · ${lessons} lessons`, `${EDU_INDEX.series.length}门课 · 共${lessons}课`)}</span>
           <span class="edu-card-title">${t('Holistic Health Management Knowledge Materials', '整体健康管理知识')}</span>
-          <span class="edu-card-sub">${t('Family Health Management (肖子程) and Clear, Regulate, Replenish, Nourish (清调补养)', '肖子程52健康课 与 清调补养')}</span>
+          <span class="edu-card-sub">${t('Family Health Management (肖子程), Clear, Regulate, Replenish, Nourish (清调补养) and Liver Care, East and West (护肝)', '肖子程52健康课、清调补养、中西精粹护肝')}</span>
           <span class="edu-card-go">${t('Open', '打开')} ›</span>
         </button>
       </div>
@@ -3037,6 +3128,7 @@ function eduPainHtml(F) {
 function eduCardsHtml() {
   const blurb = (s) => s.id === 'xzc52'
     ? t('Family health management, taught by 肖子程', '肖子程主讲的家庭健康管理线上课程')
+    : s.id === 'hg' ? t('Liver care through Chinese and Western medicine', '中西医结合，讲透护肝')
     : (n => t(`Talks from ${n} teachers`, `${n}位老师的分享`))(new Set(s.lessons.map(l => l.speaker).filter(Boolean)).size);
   return `
     <div class="edu-wrap">
@@ -3044,12 +3136,16 @@ function eduCardsHtml() {
       <div class="edu-eyebrow">${t('Knowledge', '知识基础')}</div>
       <h1 class="edu-h1">${t('Holistic Health Management Knowledge Materials', '整体健康管理知识')}</h1>
       <p class="edu-sub">${t('The foundation every pain-point module draws on. Read at your own pace.', '所有痛点课程的知识来源。按自己的节奏阅读。')}</p>
+      <label class="edu-searchbox"><svg viewBox="0 0 24 24" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        <input id="eduQ" type="search" value="${eduEsc(eduQuery)}" placeholder="${t('Search every lesson, e.g. folate, GABA', '搜索所有课程，比如 叶酸、GABA')}" oninput="eduSearchSoon(this.value)" autocomplete="off"></label>
+      <div class="edu-results" id="eduResults"></div>
       <div class="edu-cards">
         ${EDU_INDEX.series.map(s => {
-          const hrs = Math.max(1, Math.round(s.lessons.reduce((a, l) => a + l.mins, 0) / 60));
+          const hrs = Math.max(1, Math.round(s.lessons.reduce((a, l) => a + (l.mins || 0), 0) / 60));
+          const waiting = s.lessons.filter(l => l.pending).length;
           return `
         <button class="edu-card" onclick="eduOpenSeries('${s.id}')">
-          <span class="edu-card-kicker">${t(`${s.lessons.length} lessons · about ${hrs} hours`, `共${s.lessons.length}课 · 约${hrs}小时`)}</span>
+          <span class="edu-card-kicker">${t(`${s.lessons.length} lessons · about ${hrs} hours`, `共${s.lessons.length}课 · 约${hrs}小时`)}${waiting ? t(` · ${waiting} coming`, ` · ${waiting}课待补`) : ''}</span>
           <span class="edu-card-title">${eduEsc(eduSeriesTitle(s))}</span>${eduWantsEn() && s.titleEn ? `<span class="edu-card-kicker">${eduEsc(s.title)}</span>` : ''}
           <span class="edu-card-sub">${blurb(s)}</span>
           <span class="edu-card-go">${t('Start reading', '开始阅读')} ›</span>
@@ -3059,31 +3155,72 @@ function eduCardsHtml() {
     </div>`;
 }
 
-function eduListHtml(series) {
+function eduItemHtml(series, l) {
+  if (l.pending) return `
+        <li><div class="edu-item pending">
+          <span class="edu-item-n">${l.n}</span>
+          <span class="edu-item-main">
+            <span class="edu-item-title">${eduEsc(eduTitle(l))}<span class="edu-tag">${t('Coming', '待补')}</span></span>
+            <span class="edu-item-meta">${t('Transcript on its way', '逐字稿整理中')}</span>
+          </span>
+        </div></li>`;
   return `
-    <div class="edu-wrap">
-      <button class="edu-back" onclick="eduBack()">‹ ${t('Holistic Health Management', '整体健康管理知识')}</button>
-      <h1 class="edu-h1">${eduEsc(eduSeriesTitle(series))}</h1>
-      <p class="edu-sub">${t(`${series.lessons.length} lessons`, `共${series.lessons.length}课`)}${eduWantsEn() ? ` · ${series.lessons.filter(l => l.titleEn).length} ${t('in English', '')}` : ''}</p>
-      <ol class="edu-list">
-        ${series.lessons.map(l => `
         <li><button class="edu-item" onclick="eduOpenLesson('${series.id}','${l.id}')">
           <span class="edu-item-n">${l.n}</span>
           <span class="edu-item-main">
             <span class="edu-item-title">${eduEsc(eduTitle(l))}</span>
-            <span class="edu-item-meta">${l.speaker ? eduEsc(l.speaker) + ' · ' : ''}${t(`${eduMins(l)} min read`, `约${l.mins}分钟`)}${eduWantsEn() && !l.titleEn ? ' · ' + t('Chinese only for now', '') : ''}</span>
+            <span class="edu-item-meta">${l.speaker ? eduEsc(l.speaker) + ' · ' : ''}${t(`${eduMins(l)} min read`, `约${l.mins}分钟`)}${l.listen ? ' · ' + t('recording', '可听原课') : ''}${eduWantsEn() && !eduHasEn(l) ? ' · ' + t('Chinese only for now', '') : ''}</span>
           </span>
           <span class="edu-item-chev" aria-hidden="true">›</span>
-        </button></li>`).join('')}
-      </ol>
+        </button></li>`;
+}
+/* Lessons grouped by topic (Johnny, 2026-11-09), topics gathered into a few parts, with a contents
+   block on top that jumps to each topic. Lesson numbers never change. */
+function eduListHtml(series) {
+  const byId = Object.fromEntries(series.lessons.map(l => [l.id, l]));
+  const groups = (series.groups || []).map((g, i) => ({ ...g, i, items: g.ids.map(id => byId[id]).filter(Boolean) }));
+  const placed = new Set(groups.flatMap(g => g.ids));
+  const rest = series.lessons.filter(l => !placed.has(l.id));
+  const gt = g => eduWantsEn() ? g.titleEn || g.title : g.title, gp = g => eduWantsEn() ? g.partEn || g.part : g.part;
+  const mins = g => g.items.reduce((a, l) => a + (eduMins(l) || 0), 0);
+  const range = g => { const ns = g.items.map(l => l.n); const a = Math.min(...ns), b = Math.max(...ns); return a === b ? t(`Lesson ${a}`, `第${a}课`) : t(`Lessons ${a}–${b}`, `第${a}–${b}课`); };
+  const parts = [];
+  groups.forEach(g => { const p = parts.find(x => x.name === gp(g)); if (p) p.groups.push(g); else parts.push({ name: gp(g), groups: [g] }); });
+  const toc = groups.length ? `<nav class="edu-toc" aria-label="${t('Contents', '目录')}">${parts.map(p => `
+        <div class="edu-toc-part"><b>${eduEsc(p.name)}</b>${p.groups.map(g => `<button onclick="document.getElementById('g-${series.id}-${g.i}').scrollIntoView({behavior:'smooth'})">${eduEsc(gt(g))}<span>${t(`${g.items.length}`, `${g.items.length}课`)}</span></button>`).join('')}</div>`).join('')}
+      </nav>` : '';
+  let lastPart = null;
+  const sections = groups.map(g => {
+    const partHead = gp(g) !== lastPart && gp(g) !== gt(g) ? `<div class="edu-group-part">${eduEsc(gp(g))}</div>` : '';
+    lastPart = gp(g);
+    return `
+      <section class="edu-group" id="g-${series.id}-${g.i}">${partHead}
+        <div class="edu-group-h"><h2>${eduEsc(gt(g))}</h2><span>${range(g)} · ${t(`about ${mins(g)} min`, `约${mins(g)}分钟`)}</span></div>
+        <ol class="edu-list">${g.items.map(l => eduItemHtml(series, l)).join('')}</ol>
+      </section>`;
+  }).join('');
+  return `
+    <div class="edu-wrap">
+      <button class="edu-back" onclick="eduBack()">‹ ${t('Holistic Health Management', '整体健康管理知识')}</button>
+      <h1 class="edu-h1">${eduEsc(eduSeriesTitle(series))}</h1>
+      <p class="edu-sub">${t(`${series.lessons.length} lessons`, `共${series.lessons.length}课`)}${eduWantsEn() ? ` · ${series.lessons.filter(l => eduHasEn(l) && !l.pending).length} ${t('in English', '')}` : ''}</p>
+      ${toc}${sections}
+      ${rest.length ? `<ol class="edu-list" style="margin-top:${groups.length ? 30 : 0}px">${rest.map(l => eduItemHtml(series, l)).join('')}</ol>` : ''}
     </div>`;
 }
 
+/* Three key points to read in the minute before a meeting, and a note when part of a lesson is dated */
+function eduKeyHtml(l) {
+  const key = eduWantsEn() && l.keyEn ? l.keyEn : l.key;
+  const dated = l.dated ? (eduWantsEn() ? l.dated.en : l.dated.zh) : '';
+  return (key && key.length ? `<div class="edu-key"><b>${t('KEY POINTS', '三句话要点')}</b><ol>${key.map(k => `<li>${eduEsc(k)}</li>`).join('')}</ol></div>` : '')
+    + (dated ? `<p class="edu-dated">${eduEsc(dated)}</p>` : '');
+}
 function eduLessonHtml(series, idx, text, isEn) {
   const l = series.lessons[idx], prev = series.lessons[idx - 1], next = series.lessons[idx + 1];
   let paras = text.trim().split(/\n\s*\n/);
   if (isEn && paras[0] && paras[0].startsWith('# ')) paras = paras.slice(1);
-  const body = paras.map(p => `<p${p === EDU_VIDEO_NOTE ? ' class="edu-aside"' : ''}>${isEn ? eduPara(p) : eduEsc(p)}</p>`).join('');
+  const body = paras.map((p, i) => `<p data-i="${i}"${p === EDU_VIDEO_NOTE ? ' class="edu-aside"' : ''}>${isEn ? eduPara(p) : eduEsc(p)}</p>`).join('');
   const nav = (x, dir, label) => x ? `
     <button class="edu-pn-btn ${dir}" onclick="eduOpenLesson('${series.id}','${x.id}')">
       <span class="edu-pn-dir">${dir === 'next' ? label + ' ›' : '‹ ' + label}</span>
@@ -3104,6 +3241,8 @@ function eduLessonHtml(series, idx, text, isEn) {
       </div>
       ${fallback}
       ${custom ? `<div class="edu-fallback">${eduEsc(custom)}</div>` : ''}
+      ${eduKeyHtml(l)}
+      ${l.listen ? `<a class="edu-listen" href="${eduEsc(l.listen)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>${t('Listen to the original (Chinese)', '听原课')}</a>` : ''}
       <div class="edu-text${isEn ? ' en' : ''}" lang="${isEn ? 'en' : 'zh-CN'}">${body}</div>
       <p class="edu-note">${note}</p>
       <nav class="edu-pn">${nav(prev, 'prev', t('Previous', '上一课'))}${nav(next, 'next', t('Next', '下一课'))}</nav>
@@ -3132,7 +3271,7 @@ async function renderEducationView() {
   if (!series) {
     eduSeries = eduLesson = null;
     if (!eduModule) { host.innerHTML = eduHomeHtml(); return; }
-    if (eduModule === 'holistic') { host.innerHTML = eduCardsHtml(); return; }
+    if (eduModule === 'holistic') { host.innerHTML = eduCardsHtml(); if (eduQuery.trim()) eduSearch(eduQuery); return; }
     if (!eduMods[eduModule]) {
       loading();
       try { const r = await fetch('education/modules/' + eduModule + '.json'); if (!r.ok) throw 0; eduMods[eduModule] = await r.json(); }
@@ -3152,7 +3291,14 @@ async function renderEducationView() {
 
   const idx = series.lessons.findIndex(l => l.id === eduLesson);
   if (idx < 0) { eduLesson = null; host.innerHTML = eduListHtml(series); return; }
-  const isEn = eduWantsEn() && !!series.lessons[idx].titleEn;
+  if (series.lessons[idx].pending) {
+    const l = series.lessons[idx];
+    host.innerHTML = `<article class="edu-wrap edu-read"><button class="edu-back" onclick="eduBack()">‹ ${eduEsc(eduSeriesTitle(series))}</button>
+      <div class="edu-head"><div class="edu-kicker">${t(`Lesson ${l.n}`, `第${l.n}课`)}</div><h1 class="edu-lesson-title">${eduEsc(eduTitle(l))}</h1></div>
+      <div class="edu-fallback">${t('This lesson is being transcribed and will appear here soon.', '这一课的逐字稿正在整理，整理好会放在这里。')}</div></article>`;
+    return;
+  }
+  const isEn = eduWantsEn() && eduHasEn(series.lessons[idx]);
   const key = series.id + '/' + eduLesson + (isEn ? '.en' : '');
   if (!(key in eduText)) {
     loading();
@@ -3162,6 +3308,7 @@ async function renderEducationView() {
   }
   host.innerHTML = eduLessonHtml(series, idx, eduText[key], isEn);
   if (isEn) { eduPlaceBubbles(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(eduPlaceBubbles); }
+  if (eduHit && eduHit.key === key) { eduShowHit(host, eduHit); eduHit = null; }
 }
 
 /* ════════════════════════════════════════════════
