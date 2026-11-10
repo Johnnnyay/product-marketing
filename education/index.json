@@ -1267,8 +1267,20 @@
      "id": "03",
      "n": 3,
      "title": "健康之路 从建立个人档案开始",
+     "mins": 10,
+     "speaker": "李玲",
      "titleEn": "Start With a Personal Health Record",
-     "pending": true,
+     "minsEn": 11,
+     "key": [
+      "影响健康的因素：医疗只占8%，遗传15%，环境17%，可控的生活方式占60%，三分治七分养。",
+      "健康链条五环节中，诊断治疗交给医院，预防、保健、康复靠自己，贯穿整个生命过程。",
+      "建议每年做一份体检报告，不恐惧也不回避，与另两项工具备齐，组成完整的个人健康档案。"
+     ],
+     "keyEn": [
+      "What shapes health: medical care is only 8%, genetics 15%, environment 17%, and the lifestyle you control 60%. Treatment does 30%, nourishment 70%.",
+      "Of the five links in the health chain, diagnosis and treatment belong to the hospital; prevention, maintenance and recovery are yours, for life.",
+      "Get a physical exam every year, neither fearing it nor avoiding it, and keep it with the other two tools as one complete personal health record."
+     ],
      "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1783792&linkId=kBxCy7"
     },
     {
@@ -1962,6 +1974,441 @@
       "12",
       "13"
      ]
+    }
+   ]
+  },
+  {
+   "id": "dj",
+   "title": "大健康管理",
+   "titleEn": "Whole-Body Health Management",
+   "groups": [
+    {
+     "part": "肝脏",
+     "partEn": "The liver",
+     "title": "探索肝脏的奥秘",
+     "titleEn": "Inside the liver",
+     "ids": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08"
+     ]
+    },
+    {
+     "part": "肝脏",
+     "partEn": "The liver",
+     "title": "肝与女性疾病",
+     "titleEn": "The liver and women's health",
+     "ids": [
+      "09",
+      "10"
+     ]
+    },
+    {
+     "part": "肠道",
+     "partEn": "The gut",
+     "title": "肠道健康管理",
+     "titleEn": "Gut health",
+     "ids": [
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+     ]
+    },
+    {
+     "part": "体重",
+     "partEn": "Weight",
+     "title": "人体体重体能管理",
+     "titleEn": "Weight and fitness",
+     "ids": [
+      "17",
+      "18"
+     ]
+    }
+   ],
+   "lessons": [
+    {
+     "id": "01",
+     "n": 1,
+     "title": "从这里带你认识肝脏",
+     "mins": 5,
+     "speaker": "肖子程",
+     "titleEn": "Getting to Know Your Liver",
+     "noEn": true,
+     "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629374722_ksivleyr0zt2.mp3",
+     "key": [
+      "肝脏是合成血浆蛋白的主要场所，蛋白合成能力下降，身体的自我修复和免疫力一定跟着下降。",
+      "肥胖、高血脂、血糖高先别急着压症状，肝负责脂肪代谢和肝糖原储存释放，要先调肝。",
+      "肝负责激素灭活和解毒：雌激素灭活障碍致月经不调，毒素分解不掉可能表现为过敏。"
+     ],
+     "keyEn": [
+      "The liver is the main site where plasma proteins are made. When that capacity drops, the body's repair and immunity drop with it.",
+      "With obesity, high lipids or high blood sugar, don't just suppress the numbers: the liver runs fat metabolism and glycogen storage, so start with the liver.",
+      "The liver deactivates hormones and clears toxins. Poor estrogen clearance shows up as irregular periods; toxins it cannot break down may show up as allergies."
+     ]
+    },
+    {
+     "id": "02",
+     "n": 2,
+     "title": "神奇的肝脏是这样工作的",
+     "mins": 6,
+     "speaker": "肖子程",
+     "titleEn": "How the Liver Does Its Work",
+     "noEn": true,
+     "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629374939_ksivqmzp0lp6.mp3",
+     "key": [
+      "肝脏实质内没有痛觉神经，只有肝包膜有感觉，转氨酶要等肝细胞破裂到一定数量才会升高。",
+      "肝脏有临界点：失去60%效能仍感觉正常、指标正常，有感觉时往往已坏掉80%。",
+      "肝脏早期信号可以看五点：厌油食欲差、情绪不稳、粉刺增多、红鼻头、面色突然发黑。"
+     ],
+     "keyEn": [
+      "The liver itself has no pain nerves, only its capsule does, and liver enzymes rise only after enough liver cells have already burst.",
+      "The liver has a tipping point: at 60% lost function you still feel fine and test normal; by the time you feel it, 80% is often gone.",
+      "Five early signs to watch: aversion to greasy food and poor appetite, mood swings, more acne, a red nose, and a face that suddenly darkens."
+     ]
+    },
+    {
+     "id": "03",
+     "n": 3,
+     "title": "肝脏代谢蛋白质是门大学问",
+     "mins": 6,
+     "speaker": "肖子程",
+     "titleEn": "The Liver and Protein Metabolism",
+     "noEn": true,
+     "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629375212_ksivv9u30tow.mp3",
+     "key": [
+      "人体近一半蛋白质在肝脏合成，肝受损后合成能力下降，修复力和整体免疫力随之降低。",
+      "肝分解能力下降会导致嘌呤代谢异常、尿酸升高，尿酸盐沉积关节，白细胞反复吞噬破裂，形成痛风。",
+      "尿酸结晶伤肾不痛不痒，还牵连血压和血糖；指标稳住后要回到调肝，从根源做体质管理。"
+     ],
+     "keyEn": [
+      "Nearly half the body's protein is made in the liver. Once it is damaged, protein synthesis falls, and repair and overall immunity fall with it.",
+      "A weaker liver disrupts purine metabolism and raises uric acid; urate crystals settle in joints, white cells keep engulfing them and bursting, and gout follows.",
+      "Uric acid crystals harm the kidneys silently and drag in blood pressure and blood sugar. Once the numbers are stable, go back to the liver and manage the root."
+     ]
+    },
+    {
+     "id": "04",
+     "n": 4,
+     "title": "心脑血管疾病也是肝脏惹的祸",
+     "mins": 5,
+     "speaker": "肖子程",
+     "titleEn": "How the Liver Drives Heart and Brain Disease",
+     "noEn": true,
+     "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629375293_ksivyma607mt.mp3",
+     "key": [
+      "血脂不高也会血压高：胆固醇被自由基氧化成过氧化脂质，免疫系统攻击它，血管壁发炎变窄，血压随之升高。",
+      "打针吃药是外力扩张，血压降了血脂却没降，长期依赖会让血管加速老化，脂质堆积成粥样斑块。",
+      "硬化的脑血管像老化车胎，易鼓出微动脉瘤而破裂；冠心病与血脂直接相关，根源都在肝脏脂肪代谢。"
+     ],
+     "keyEn": [
+      "Normal lipids can still mean high blood pressure: free radicals oxidize cholesterol, the immune system attacks it, and inflamed vessel walls narrow.",
+      "Medication widens vessels from the outside. Pressure falls but lipids do not, and long-term reliance ages vessels faster as lipids build into plaque.",
+      "Hardened brain arteries are like an old tire that bulges into tiny aneurysms and bursts. Heart disease tracks lipids, and both trace back to liver fat metabolism."
+     ]
+    },
+    {
+     "id": "05",
+     "n": 5,
+     "title": "血糖高低控制权竟然在于肝脏",
+     "mins": 5,
+     "speaker": "肖子程",
+     "titleEn": "The Liver Controls Your Blood Sugar",
+     "noEn": true,
+     "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629375402_ksiw11bu0sti.mp3",
+     "key": [
+      "肝脏像银行活期存款：血糖高时存成肝糖原，饥饿劳累时再分解成葡萄糖放回血液，维持血糖恒定。",
+      "肝是糖异生的主要器官，肾的能力只有肝的10%；肝不干活就由肾顶上，所以护肝也是护肾。",
+      "血糖高不等于糖尿病：肝对胰岛素不敏感时不吃饭也照样放糖，糖尿病和脂肪肝互为危险因素。"
+     ],
+     "keyEn": [
+      "The liver works like a checking account: it stores surplus blood sugar as glycogen and releases it as glucose when you are hungry or tired.",
+      "The liver is the main organ that makes new glucose; the kidneys manage only 10% as much. When the liver slacks, the kidneys cover, so liver care is kidney care.",
+      "High blood sugar is not the same as diabetes. A liver deaf to insulin keeps releasing sugar even when you have not eaten; diabetes and fatty liver feed each other."
+     ]
+    },
+    {
+     "id": "06",
+     "n": 6,
+     "title": "几大常见疾病都和肝脏有关",
+     "mins": 6,
+     "speaker": "肖子程",
+     "titleEn": "Common Diseases That Trace Back to the Liver",
+     "noEn": true,
+     "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629375483_ksiw2qpg02rv.mp3",
+     "key": [
+      "肝脏负责把多余激素灭活，灭活能力一下降，甲亢、甲减、子宫肌瘤和自身免疫性疾病就可能找上门。",
+      "雌激素在肝中灭活后经尿排出；灭活不足雌激素偏高，子宫肌瘤、妇科病和乳腺癌风险随之上升。",
+      "体检指标正常不等于肝功能正常，就像一次考得好不等于好学生；肝还合成急性期蛋白，修复靠蛋白质。"
+     ],
+     "keyEn": [
+      "The liver deactivates surplus hormones. When it can't keep up, overactive or underactive thyroid, fibroids and autoimmune disease can follow.",
+      "Estrogen is deactivated in the liver and leaves in urine. When that falls short, estrogen runs high and the risk of fibroids, gynecological problems and breast cancer rises.",
+      "Normal test results do not mean a healthy liver, just as one good exam does not make a good student. The liver also makes acute-phase proteins; repair runs on protein."
+     ]
+    },
+    {
+     "id": "07",
+     "n": 7,
+     "title": "我们是如何伤害肝脏的",
+     "mins": 9,
+     "speaker": "肖子程",
+     "titleEn": "How We Damage the Liver",
+     "noEn": true,
+     "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629375551_ksiw46a60f6j.mp3",
+     "key": [
+      "酒精靠乙醇脱氢酶和乙醛脱氢酶代谢，喝多了酶跟不上，乙醛堆积，肝细胞带病工作就是肝损伤。",
+      "晚上11点到1点是肝胆经排毒养血的时间，必须入睡；久坐、情志郁结、油腻辛辣和过度用眼都伤肝。",
+      "肝内脂质超过肝重5%就是脂肪肝，再往下是纤维化、肝硬化、肝癌；肝不会喊疼，查出来多已晚期。"
+     ],
+     "keyEn": [
+      "Alcohol is cleared by two liver enzymes. Drink more than they can handle and acetaldehyde builds up; liver cells working while sick is liver damage.",
+      "11 pm to 1 am is the liver and gallbladder's time to detox and restore blood, so be asleep. Sitting all day, pent-up emotion, greasy spicy food and eye strain all hurt the liver.",
+      "Fat above 5% of liver weight is fatty liver; next come fibrosis, cirrhosis and cancer. The liver never complains, so by diagnosis it is often late."
+     ]
+    },
+    {
+     "id": "08",
+     "n": 8,
+     "title": "爱护肝脏才是健康的正确打开姿势",
+     "mins": 10,
+     "speaker": "肖子程",
+     "titleEn": "Caring for the Liver Is Where Health Starts",
+     "noEn": true,
+     "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629375629_ksiw5yzs0hry.mp3",
+     "key": [
+      "生活方式养肝：规律作息不熬夜，睡眠时才大量分泌生长激素，饭后闭目养神10到20分钟，常敲肝经胆经。",
+      "饮食四原则：控热量少吃碳水，选植物蛋白（动物蛋白在肠道分解会产氨），补足多种维生素，多吃膳食纤维。",
+      "情绪也伤肝：情绪低落时杀灭癌细胞的能力下降20%以上，想发火先冷静6秒；健康的顶层是营养素之上的健康管理。"
+     ],
+     "keyEn": [
+      "Lifestyle: keep regular hours, since growth hormone surges only in sleep; rest with eyes closed 10 to 20 minutes after meals; tap along the liver and gallbladder meridians.",
+      "Four diet rules: control calories and carbs, choose plant protein (animal protein releases ammonia in the gut), cover all the vitamins, and eat plenty of fiber.",
+      "Emotions hurt the liver too: low mood cuts the body's ability to kill cancer cells by over 20%. Before losing your temper, wait six seconds."
+     ]
+    },
+    {
+     "id": "09",
+     "n": 9,
+     "title": "肝与女性疾病（上）",
+     "mins": 3,
+     "speaker": "丁尕秀",
+     "titleEn": "The Liver and Women's Health, Part 1",
+     "noEn": true,
+     "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629167886_ksfgfze60zj6.mp3",
+     "key": [
+      "妇科病比感冒还普遍：炎性疾病占56.4%，乳腺类42.18%，月经类21.55%，子宫卵巢类21.37%。",
+      "根源在肝：多余激素靠肝脏灭活，肝功能受损就出现雌激素灭活障碍，肝气郁滞形成血瘀肿块，引发痛经闭经和肿瘤。",
+      "打针、消炎、手术只治标，切除后半年到一年常复发；关键是补足营养素，疏通肝经，恢复肝的激素灭活能力。"
+     ],
+     "keyEn": [
+      "Gynecological problems are more common than colds: inflammatory conditions 56.4%, breast 42.18%, menstrual 21.55%, uterus and ovaries 21.37%.",
+      "The root is the liver: when it can't deactivate surplus estrogen and liver qi stagnates, blood stasis forms lumps, leading to painful or missed periods and tumors.",
+      "Injections, anti-inflammatories and surgery treat the surface, and problems often return within a year. Rebuild nutrition and restore the liver's hormone clearance."
+     ]
+    },
+    {
+     "id": "10",
+     "n": 10,
+     "title": "肝与女性疾病（下）",
+     "mins": 3,
+     "speaker": "丁尕秀",
+     "titleEn": "The Liver and Women's Health, Part 2",
+     "noEn": true,
+     "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629168061_ksfgkbhi0fqc.mp3",
+     "key": [
+      "健康餐基础：多种植物蛋白粉、代餐粉、果蔬纤维素、卵磷脂打粉分装，早晚各两勺，倍立健早晚各一对。",
+      "睡前4+9护肝：晚上9:30到10:00一次服四粒护肝片加九粒B族维生素，11点前入睡，帮肝恢复三大营养素代谢。",
+      "案例：17岁多囊少女配合营养素、运动和早睡，18天月经恢复，7个月后B超复查双侧卵巢多囊状态消失。"
+     ],
+     "keyEn": [
+      "The base health meal: blended plant protein, meal-replacement powder, fruit and vegetable fiber and lecithin, two scoops morning and night, plus a multivitamin pair.",
+      "The 4+9 liver routine: at 9:30 to 10 pm take four liver tablets with nine B-complex tablets, and sleep before 11, so the liver can restore its metabolism.",
+      "A case: a 17-year-old with PCOS combined nutrients, exercise and early nights; her period returned in 18 days, and seven months later the ultrasound was clear."
+     ]
+    },
+    {
+     "id": "11",
+     "n": 11,
+     "title": "所有的疾病都始于肠道",
+     "mins": 4,
+     "speaker": "凌敏",
+     "titleEn": "Most Disease Begins in the Gut",
+     "noEn": true,
+     "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1623751850_kpxvw9sj00mi.mp3",
+     "key": [
+      "肠道是第二大脑，也是人体最大的免疫器官，体内78%的微生物都在肠道，食物靠它分解吸收再排出。",
+      "希波克拉底说所有疾病始于肠道，梅契尼科夫证实死亡始于结肠，高达90%的疾病可追溯到不健康的肠道。",
+      "肠漏后毒素经门静脉进肝、穿过屏障入脑，可引发肝病、偏头痛、失眠、抑郁乃至老年痴呆。"
+     ],
+     "keyEn": [
+      "The gut is the second brain and the body's largest immune organ, home to 78% of its microbes, and it breaks down, absorbs and clears what we eat.",
+      "Hippocrates said all disease begins in the gut; Metchnikoff held that death begins in the colon. Up to 90% of disease can be traced to an unhealthy gut.",
+      "With a leaky gut, toxins reach the liver through the portal vein and cross into the brain, linked to liver disease, migraine, insomnia, depression and dementia."
+     ]
+    },
+    {
+     "id": "12",
+     "n": 12,
+     "title": "你的肠道健康吗？",
+     "mins": 3,
+     "speaker": "凌敏",
+     "titleEn": "Is Your Gut Healthy?",
+     "noEn": true,
+     "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1623751965_kpxvyvp60n18.mp3",
+     "key": [
+      "肠道自测：剖腹产、奶粉喂养、母亲孕期用抗生素、常服抑酸药、易过敏、常便秘腹泻都是信号。",
+      "肠道有四道屏障：菌群、化学、免疫、机械，菌群一失衡就层层击穿，通透性增加形成肠漏。",
+      "肠漏通过肠脑轴和肠肝轴影响全身：脑部炎症致失眠抑郁，肝脏解毒负担加重，代谢问题随之而来。"
+     ],
+     "keyEn": [
+      "Gut self-check: C-section birth, formula feeding, antibiotics in pregnancy, regular antacids, allergies, frequent constipation or diarrhea are all signals.",
+      "The gut has four barriers: microbial, chemical, immune and physical. Once the flora tips out of balance they fall one by one and the gut becomes leaky.",
+      "A leaky gut reaches the whole body through the gut-brain and gut-liver axes: brain inflammation brings insomnia and depression, and the liver's detox load grows."
+     ]
+    },
+    {
+     "id": "13",
+     "n": 13,
+     "title": "肠道健康与心脑血管疾病",
+     "mins": 3,
+     "speaker": "张丽",
+     "titleEn": "Gut Health and Heart and Brain Disease",
+     "noEn": true,
+     "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1623906407_kq0fxdcd0f56.mp3",
+     "key": [
+      "心脑血管病已是国内发病率最高的疾病并趋于年轻化，可控根源是吸烟、熬夜和三高一低的饮食。",
+      "发病链条：菌群失衡致肠壁渗漏，毒素经门静脉入血，血管内膜发炎长斑块，堵在心是心梗，堵在脑是脑梗。",
+      "预防先改观念，车子职位都是身外之物，再守健康四大基石：乐观心态、适量运动、充足睡眠、均衡营养。"
+     ],
+     "keyEn": [
+      "Heart and brain vascular disease is now China's most common disease and is striking younger; the controllable causes are smoking, late nights and a poor diet.",
+      "The chain: imbalanced flora makes the gut wall leak, toxins enter the blood through the portal vein, vessel linings inflame and form plaque, ending in heart attack or stroke.",
+      "Prevention starts with priorities, since cars and titles are external things, then the four cornerstones: optimism, moderate exercise, enough sleep, balanced nutrition."
+     ],
+     "dated": {
+      "zh": "课中心脑血管病人数（2.9亿，其中高血压2.7亿）引自录制时的统计，数字会更新，但发病率高、趋于年轻化的判断不变。",
+      "en": "The patient counts (290 million with cardiovascular disease, 270 million of them with hypertension) are statistics from the time of recording and will have changed; the point that these diseases are widespread and striking younger people still stands."
+     }
+    },
+    {
+     "id": "14",
+     "n": 14,
+     "title": "肠道健康与高血压",
+     "mins": 3,
+     "speaker": "张丽",
+     "titleEn": "Gut Health and High Blood Pressure",
+     "noEn": true,
+     "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1623906457_kq0fyvua0a8c.mp3",
+     "key": [
+      "降压药只能治标，一停药血压就反弹，吃着药仍中风的比比皆是，必须从生活方式上治本。",
+      "肠道垃圾毒素增多、菌群失衡后，清肠毒、稳血压、排胆固醇的能力下降，最终动脉硬化、血压升高。",
+      "案例：60岁男士从饮食、睡眠、运动、心态入手，先清肠道再清血管，六个月后血压血脂恢复正常。"
+     ],
+     "keyEn": [
+      "Blood pressure medicine treats the surface: stop it and pressure rebounds, and many still have strokes while on it. The root fix is lifestyle.",
+      "As gut toxins build and flora tips out of balance, the body clears toxins and cholesterol less well and steadies pressure less well, ending in hardened arteries.",
+      "A case: a 60-year-old man changed diet, sleep, exercise and outlook, cleared his gut and then his blood vessels, and in six months his pressure and lipids were normal."
+     ],
+     "dated": {
+      "zh": "课中高血压人数（2013年1.7亿到2020年2.7亿）引自录制时的数据，数字会变，但逐年上升的趋势和治本的思路不变。",
+      "en": "The hypertension figures (170 million in 2013 rising to 270 million in 2020) reflect data at the time of recording and will have changed; the rising trend and the treat-the-root approach still stand."
+     }
+    },
+    {
+     "id": "15",
+     "n": 15,
+     "title": "肠道健康之营养素的搭配",
+     "mins": 3,
+     "speaker": "凌敏",
+     "titleEn": "Pairing Nutrients for Gut Health",
+     "noEn": true,
+     "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1623752208_kpxw425l0l60.mp3",
+     "key": [
+      "膳食纤维每天应吃25到30克，国人实际只有10.8克，不到一半；有三高或便秘的人吃得比推荐量多也没问题。",
+      "肠道菌群里有益菌占30%、有害菌10%、中性菌60%，中性菌是墙头草，有益菌一弱就倒向有害菌。",
+      "调肠分两步：益生菌加膳食纤维先排毒，再用蛋白质、胶原蛋白肽、B族、维生素A和卵磷脂修复肠黏膜。"
+     ],
+     "keyEn": [
+      "Adults need 25 to 30 g of fiber a day but average only 10.8 g, under half. People with the 'three highs' or constipation can safely eat more.",
+      "Gut flora is about 30% beneficial, 10% harmful and 60% neutral. The neutral ones side with whoever is winning, so weak good bacteria hand them to the bad.",
+      "Two steps: probiotics plus fiber to clear first, then protein, collagen peptides, B vitamins, vitamin A and lecithin to repair the gut lining."
+     ]
+    },
+    {
+     "id": "16",
+     "n": 16,
+     "title": "肠道健康管理实施方案",
+     "mins": 3,
+     "speaker": "凌敏",
+     "titleEn": "A Gut Health Plan You Can Follow",
+     "noEn": true,
+     "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1636475273_kvsb4bv40tn0.mp3",
+     "key": [
+      "清肠排毒每月一次，天数按年龄定，20岁两天、30岁三天；每天20粒果蔬纤维片分两次泡水，小口慢喝。",
+      "20天菌群替换每半年一次：前7天三种益生菌各10条加胶原蛋白肽，后14天减量并加卵磷脂20粒。",
+      "效果看便便：香蕉色、香蕉状、微臭、5分钟左右排完、约300克、每天一次；日常再靠纤维粉和健康餐维护。"
+     ],
+     "keyEn": [
+      "Clear the gut once a month, the number of days set by age (two days at 20, three at 30); 20 fruit and vegetable fiber tablets a day in water, sipped slowly.",
+      "Reset the flora every six months over 20 days: first 7 days three probiotics, 10 sachets each, with collagen peptides; next 14 days less, plus 20 lecithin.",
+      "Judge by the stool: banana color and shape, mild odor, done in about 5 minutes, about 300 g, once a day. Keep it up with fiber powder and a healthy meal."
+     ]
+    },
+    {
+     "id": "17",
+     "n": 17,
+     "title": "人体体重体能管理（一）",
+     "mins": 7,
+     "speaker": "翟志强",
+     "titleEn": "Managing Weight and Fitness, Part 1",
+     "noEn": true,
+     "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629168538_ksfgt9pz05qz.mp3",
+     "key": [
+      "肥胖本身就是病，分看得见的皮下脂肪和看不见的内脏脂肪，中度肥胖者患高血压的概率是常人的五倍。",
+      "抽脂、节食、减肥药都以伤身为代价，酵素只是普通蛋白质，吃进去就被消化分解，起不到减脂作用。",
+      "高蛋白低碳水的体管不挨饿、保住肌肉、先动员内脏脂肪，配合每天2000毫升水，一个月可减8到10斤。"
+     ],
+     "keyEn": [
+      "Obesity is a disease in itself, as visible fat under the skin and hidden fat around the organs; moderate obesity carries five times the risk of high blood pressure.",
+      "Liposuction, crash diets and diet pills all cost your health. Enzyme drinks are ordinary protein, digested like any food, and do nothing for fat.",
+      "High-protein, low-carb weight management means no hunger, keeps muscle, burns organ fat first, and with 2,000 ml of water a day can take off 4 to 5 kg in a month."
+     ],
+     "dated": {
+      "zh": "课中网红抽脂身亡事件是录制时的新闻，细节会过时，但抽脂和极端减肥伤身的道理不变。",
+      "en": "The influencer liposuction death is news from the time of recording; the point that liposuction and extreme dieting carry real risks still stands."
+     }
+    },
+    {
+     "id": "18",
+     "n": 18,
+     "title": "人体体重体能管理（二）",
+     "mins": 13,
+     "speaker": "翟志强",
+     "titleEn": "Managing Weight and Fitness, Part 2",
+     "noEn": true,
+     "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629168730_ksfgxdno03fn.mp3",
+     "key": [
+      "代餐控能量，蛋白质增饱腹：大豆分离蛋白PDCAAS为1，胃排空超过4小时，几乎不会转化为甘油三酯。",
+      "挡糖挡脂：无糖义的腰豆精华和大豆精华最好餐前30分钟吃，千脂乐的EGCG用磷脂包裹专利提高吸收。",
+      "鱼油选深海鲑鱼，每粒加20毫克维生素E防氧化；体管用量按体重换算，还可加益生菌、护肝配方升级。"
+     ],
+     "keyEn": [
+      "Meal replacements control calories and protein keeps you full: soy protein isolate scores a PDCAAS of 1, stays in the stomach over 4 hours, and barely turns into fat.",
+      "Block sugar and fat: take the white kidney bean and soy extracts 30 minutes before meals; the EGCG product wraps green tea extract in phospholipid for better absorption.",
+      "Fish oil from deep-sea salmon, with 20 mg vitamin E per capsule against oxidation. Doses scale with body weight, and probiotics or liver support can be added."
+     ],
+     "dated": {
+      "zh": "课中案例提到2020年疫情宅家期间体重没有反弹等细节，属于录制当时的情况，但体管方法和营养素原理不变。",
+      "en": "The case study cites details from the 2020 pandemic lockdown at the time of recording; the weight-management method and nutrient rationale still stand."
+     }
     }
    ]
   }

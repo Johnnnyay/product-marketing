@@ -3133,6 +3133,7 @@ function eduCardsHtml() {
   const blurb = (s) => s.id === 'xzc52'
     ? t('Family health management, taught by 肖子程', '肖子程主讲的家庭健康管理线上课程')
     : s.id === 'hg' ? t('Liver care through Chinese and Western medicine', '中西医结合，讲透护肝')
+    : s.id === 'dj' ? t('The liver, women’s health, the gut and weight, in short talks', '肝脏、女性健康、肠道和体重，一节一个主题')
     : (n => t(`Talks from ${n} teachers`, `${n}位老师的分享`))(new Set(s.lessons.map(l => l.speaker).filter(Boolean)).size);
   return `
     <div class="edu-wrap">
