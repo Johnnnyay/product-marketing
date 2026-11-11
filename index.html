@@ -3336,6 +3336,9 @@ async function renderEducationView() {
 /* glow.html is always the next Glow evening: the flyer's QR code opens it. A past one moves to
    glow-<date>.html, where its guest answers stay. */
 const EVENTS = [
+  /* The Seattle team's own event, on its own page (glow.html stays New York's next one). */
+  { title: 'Glow From Within · Seattle', date: '2026-11-21', time: '10:00 AM to 12:00 PM PST', place: 'Spratlen Hall, Room 303, University of Washington, Seattle',
+    page: 'glow-seattle.html', blurb: 'Seattle team: health and wellness analysis and skin analysis, 30 minutes each, booked on SignUpGenius.' },
   { title: 'Glow From Within · Thanksgiving', date: '2026-11-20', time: '5:00 to 7:00 PM', place: 'Cre8ive Studio, 134 W 29th St, New York',
     page: 'glow.html', blurb: 'HY Product Expo, Thanksgiving edition: health and skin check-ins, one specialist per guest through both, demos and tastings.' },
   { title: 'Glow From Within · Halloween', date: '2026-10-30', time: '5:00 to 7:00 PM', place: 'Cre8ive Studio, 134 W 29th St, New York',
