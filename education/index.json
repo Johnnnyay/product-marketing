@@ -1733,7 +1733,7 @@
      "title": "为什么养肝刻不容缓",
      "titleEn": "Why Liver Care Cannot Wait",
      "mins": 11,
-     "noEn": true,
+     "noEn": false,
      "key": [
       "人人都需要护肝：柴米油盐柴为首，柴属木，木养肝，现代生活少了木气，肝缺少扶持。",
       "从“肝”字看身体：月代表肌肉，干代表躯干，躯干过瘦或脂肪过多都提示肝已受损。",
@@ -1748,7 +1748,8 @@
       "zh": "本系列以“春天护肝”开讲，带有季节框架，人人都需护肝的核心观点四季适用。",
       "en": "The series opens framed as spring liver care; its core point that everyone needs liver care applies year-round."
      },
-     "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1178664&linkId=Sohtab"
+     "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1178664&linkId=Sohtab",
+     "minsEn": 13
     },
     {
      "id": "02",
@@ -1756,7 +1757,7 @@
      "title": "为什么治病从肝起",
      "titleEn": "Why Healing Starts With the Liver",
      "mins": 10,
-     "noEn": true,
+     "noEn": false,
      "key": [
       "肾司二便，便秘光清肠一停就复发；肝脾相生、脾为后天之本，要先养肝再养脾，才养得回肾。",
       "肝为魂之处、筋之宗：睡不好次日没魄力、易起床气；静脉曲张、痔疮、痛经都属筋的问题。",
@@ -1771,7 +1772,8 @@
       "zh": "课中“立春了大家养肝”是录制时的季节背景，先肝后脾再肾的调养顺序四季适用。",
       "en": "The 'spring has begun, start liver care' framing reflects the recording season; the liver, spleen, kidney order applies year-round."
      },
-     "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1178665&linkId=pVcaif"
+     "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1178665&linkId=pVcaif",
+     "minsEn": 14
     },
     {
      "id": "03",
@@ -1779,7 +1781,7 @@
      "title": "传统医学对肝的解读",
      "titleEn": "The Liver in Traditional Chinese Medicine",
      "mins": 10,
-     "noEn": true,
+     "noEn": false,
      "key": [
       "嘴唇、牙龈、脸色发暗是肝藏不住血；男性多见发暗、铁偏高，女性多见嘴唇泛白、缺铁。",
       "舌下两根青筋突出，提示心肝要同护：肝为心之母，还有肝肾同源、肝肺调畅、肝脾相生。",
@@ -1790,7 +1792,8 @@
       "Raised veins under the tongue call for caring for heart and liver together: the liver is the heart's mother, and links to kidney, lung, spleen.",
       "The damage path runs healthy liver, fatty liver, fibrosis, cirrhosis. Reported reversals are individual cases and must never be promoted."
      ],
-     "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1178666&linkId=pyLaNg"
+     "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1178666&linkId=pyLaNg",
+     "minsEn": 13
     },
     {
      "id": "04",
@@ -1798,7 +1801,7 @@
      "title": "护肝路线图",
      "titleEn": "A Roadmap for Liver Care",
      "mins": 9,
-     "noEn": true,
+     "noEn": false,
      "key": [
       "最好的影响力是讲自己的感受；不许诺结果，个案逆转千万不要大范围宣传。",
       "细胞更新周期：胃7天、皮肤黏膜28天、血液120天、肝细胞180天，骨细胞约7年。",
@@ -1809,70 +1812,155 @@
       "Renewal cycles: stomach 7 days, skin and mucosa 28, blood 120, liver cells 180 (over 90% renewed), bone about 7 years.",
       "Liver care's base version is 180 days. Stomach lining repair takes 120 days of plant dual-peptide protein; 2 scoops give about 40 mg hyaluronic acid."
      ],
-     "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1178667&linkId=pD15x0"
+     "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1178667&linkId=pD15x0",
+     "minsEn": 13
     },
     {
      "id": "05",
      "n": 5,
      "title": "肝脏是能干的多面手",
      "titleEn": "The Liver, a Many-Skilled Organ",
-     "pending": true,
-     "noEn": true,
-     "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1178668&wechat-step=3&linkId=qkbZrO"
+     "noEn": false,
+     "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1178668&wechat-step=3&linkId=qkbZrO",
+     "mins": 15,
+     "speaker": "肖子程",
+     "key": [
+      "肝几乎无痛觉神经，肝功能损失七到八成才有感觉，所以护肝要关口前移，不能等出事再护。",
+      "肝脏每天工作20到22小时，只在凌晨两点到四点休息；夜宵、喝酒、毒素多的人夜里盗汗，是肝肾两虚。",
+      "买回来的瓜果蔬菜先用碟新泡洗去农残，是护肝第一步；人要吃食物，不要吃食品。"
+     ],
+     "keyEn": [
+      "The liver has almost no pain nerves; you only feel it after 70 to 80 percent of function is lost, so liver care must start early, not after trouble.",
+      "The liver works 20 to 22 hours a day, resting only from 2 to 4 a.m. Late-night eating, drinking, or heavy toxins cause night sweats, a sign of liver-kidney deficiency.",
+      "Washing produce with Dish Drops to remove pesticide residue is step one of liver care. Eat real food, not processed food products."
+     ],
+     "minsEn": 11
     },
     {
      "id": "06",
      "n": 6,
      "title": "西方人如何看待肝的功能",
      "titleEn": "How Western Medicine Sees the Liver",
-     "pending": true,
-     "noEn": true,
-     "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1178669&linkId=Ewapl1"
+     "noEn": false,
+     "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1178669&linkId=Ewapl1",
+     "mins": 16,
+     "speaker": "肖子程",
+     "key": [
+      "西医看肝永远强调功能：解毒、代谢、合成，而功能通过数据呈现，数据有局限，不能盲目依赖。",
+      "肝脏天生亲近脂肪，用脂肪做缓冲垫保护自己；好坏脂肪要分清，好的超级脂肪如橄榄油、椰子油不会伤肠。",
+      "新冠中后期重症死亡的关键是肝脏扛不住全身炎症风暴，肝受损导致免疫崩溃，所以护肝就是护免疫。"
+     ],
+     "keyEn": [
+      "Western medicine always stresses function, detox, metabolism, synthesis, shown through data. Data is useful but limited; never blindly trust it.",
+      "The liver naturally favors fat, using it as a cushion to protect itself. Distinguish good from bad fat; super fats like olive and coconut oil do not harm the gut.",
+      "In late COVID, severe deaths came from the liver failing under the whole-body inflammatory storm; a damaged liver collapses immunity, so caring for the liver is caring for immunity."
+     ],
+     "minsEn": 13
     },
     {
      "id": "07",
      "n": 7,
      "title": "全面解读肝脏功能",
      "titleEn": "Everything the Liver Does",
-     "pending": true,
-     "noEn": true,
-     "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1178659&linkId=y588LQ"
+     "noEn": false,
+     "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1178659&linkId=y588LQ",
+     "mins": 15,
+     "speaker": "肖子程",
+     "key": [
+      "反复牙龈出血不是缺维C，是肝凝血机制出问题、心也受累，属母病及子，护肝加辅酶Q10（每日200毫克以上）可改善。",
+      "胆汁是肝脏分泌、胆囊只负责储存；不吃早餐胆汁过浓，遇游离钙就形成胆结石，所以要吃对早餐。",
+      "怒伤肝，肝开窍于目、其华在爪：眼底红血丝、近视是血不养精，指甲竖纹、手干硬都提示要养肝。"
+     ],
+     "keyEn": [
+      "Recurring gum bleeding is not a vitamin C shortage but a liver clotting problem that also involves the heart, the mother's illness reaching the child. Liver care plus coenzyme Q10 (200 mg daily or more) helps.",
+      "Bile is made by the liver; the gallbladder only stores it. Skipping breakfast leaves bile too thick, and meeting free calcium it forms gallstones, so eat the right breakfast.",
+      "Anger harms the liver. The liver opens to the eyes and shows in the nails: red eyes and nearsightedness are blood failing to nourish the essence; nail ridges and dry, hard hands both point to needing liver care."
+     ],
+     "minsEn": 13
     },
     {
      "id": "08",
      "n": 8,
      "title": "护肝理念的起源",
      "titleEn": "Where Liver Care Ideas Come From",
-     "pending": true,
-     "noEn": true,
-     "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1178660&linkId=Dqu4Mq"
+     "noEn": false,
+     "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1178660&linkId=Dqu4Mq",
+     "mins": 8,
+     "speaker": "肖子程",
+     "key": [
+      "黄帝内经、山海经、易经是上古三大奇书，中国人最早认识肝靠黄帝内经，懂得护肝靠山海经。",
+      "东汉张仲景《伤寒杂病论》率先提出芍药甘草汤养肝护肝，距今两千多年，中国人护肝走在世界前面。",
+      "芍药甘草汤调和肝脾、酸甘化阴；但不要急着买芍药甘草汤，中西精粹的完整护肝方案下节课再讲。"
+     ],
+     "keyEn": [
+      "The Yellow Emperor's Inner Canon, the Classic of Mountains and Seas, and the Book of Changes are the three great ancient books. The Chinese first knew the liver through the Inner Canon and learned to protect it through the Mountains and Seas.",
+      "Zhang Zhongjing's Treatise on Cold Damage in the Eastern Han, over two thousand years ago, first proposed the peony-licorice decoction for liver care, putting China ahead of the world.",
+      "The peony-licorice formula harmonizes the liver and spleen. But do not rush to buy it; the complete East-West liver care plan comes in the next lesson."
+     ],
+     "minsEn": 8
     },
     {
      "id": "09",
      "n": 9,
      "title": "护肝历史传承",
      "titleEn": "The History of Liver Care",
-     "pending": true,
-     "noEn": true,
-     "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1178661&linkId=D0eqZe"
+     "noEn": false,
+     "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1178661&linkId=D0eqZe",
+     "mins": 13,
+     "speaker": "肖子程",
+     "key": [
+      "养藏善衡片主成分芍药甘草，传承自《伤寒杂病论》的经典护肝方案，是传承而非发明。",
+      "白芍在前提高肝蛋白和抗氧化酶，甘草在后补脾益气、调和药性；两者配伍可清除自由基、抑制炎症因子和肝细胞凋亡。",
+      "护肝从三个维度：基础营养素（抗炎早餐）、功能性食品（芍药甘草）、药食同源，缺一不可。"
+     ],
+     "keyEn": [
+      "The Yangzang Shanheng tablets are built on peony and licorice, passed down from the Treatise on Cold Damage, an inheritance, not an invention.",
+      "Peony comes first to raise liver protein and antioxidant enzymes; licorice follows to nourish the spleen and soften the blend. Together they clear free radicals and curb inflammatory factors and liver cell death.",
+      "Liver care works on three levels: basic nutrients (the anti-inflammatory breakfast), functional foods (peony and licorice), and medicine-food same origin. None can be skipped."
+     ],
+     "minsEn": 11
     },
     {
      "id": "10",
      "n": 10,
      "title": "萝卜硫苷的护肝机理",
      "titleEn": "How Glucoraphanin Protects the Liver",
-     "pending": true,
-     "noEn": true,
-     "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1178662&linkId=DmXk30"
+     "noEn": false,
+     "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1178662&linkId=DmXk30",
+     "mins": 11,
+     "speaker": "肖子程",
+     "key": [
+      "萝卜硫苷三大功能：减少自由基损伤、促进脱毒酶产生、提高抗氧化酶基因表达，能从根子上护肝。",
+      "未氧化的萝卜硫苷对酒精性肝损伤有逆转作用，被黑芥子酶氧化成的萝卜硫素对非酒精性肝损伤有逆转作用。",
+      "现代西兰花大量杂交，萝卜硫苷含量极低；纽崔莱在地中海溯源纯正西兰花，法国提取后运无锡研发中心。"
+     ],
+     "keyEn": [
+      "Glucoraphanin has three powers: reducing free radical damage, promoting detoxifying enzymes, and raising antioxidant enzyme gene expression, protecting the liver at the root.",
+      "Unexidized glucoraphanin can reverse alcoholic liver damage; once oxidized by myrosinase into sulforaphane, it can reverse non-alcoholic liver damage.",
+      "Modern broccoli is heavily hybridized and nearly empty of glucoraphanin. Nutrilite traced pure broccoli to the Mediterranean, extracts it in France, and ships it to the Wuxi research center."
+     ],
+     "minsEn": 9
     },
     {
      "id": "11",
      "n": 11,
      "title": "葡萄籽（原花青素）的护肝机理",
      "titleEn": "How Grape Seed (OPC) Protects the Liver",
-     "pending": true,
-     "noEn": true,
-     "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1178663&wechat-step=3&linkId=Afi9if"
+     "noEn": false,
+     "listen": "https://radar-static.amway.com.cn/material_landing/index.html#/home?materialid=1178663&wechat-step=3&linkId=Afi9if",
+     "mins": 14,
+     "speaker": "肖子程",
+     "key": [
+      "葡萄籽是自然界抗氧化明星，强烈清除自由基、抗突变、减少丙二醇（内毒素），还能提高谷胱甘肽和肝蛋白含量。",
+      "葡萄紫中含红（入心经）与黑（入肾经），葡萄籽精华让心肝宝贝儿、肝肾同源、肝脾相生、肝肺调畅四者同调。",
+      "护肝方案就两个平面：白天抗炎早餐（6+1）做基础，晚上七点半用养藏善衡片加纽崔莱B族，B族开道、善衡片调肝。"
+     ],
+     "keyEn": [
+      "Grape seed is nature's antioxidant star, strongly clearing free radicals, resisting mutation, and lowering malondialdehyde (an endotoxin), while raising glutathione and liver protein.",
+      "Grape purple holds red (heart meridian) and black (kidney meridian), so grape seed extract tunes all four links: heart-liver, liver-kidney, liver-spleen, and liver-lung.",
+      "The liver care plan has just two planes: the daytime anti-inflammatory breakfast (6 plus 1) as the base, and at 7:30 p.m. the Yangzang Shanheng tablets with Nutrilite B complex, B clearing the road and the tablets tuning the liver."
+     ],
+     "minsEn": 12
     },
     {
      "id": "12",
@@ -1881,7 +1969,7 @@
      "titleEn": "Liver Basics, Part 1",
      "mins": 8,
      "speaker": "营养健康公益学堂",
-     "noEn": true,
+     "noEn": false,
      "key": [
       "正常肝摸起来像嘴唇，脂肪肝或炎症像鼻尖，肝硬化晚期硬如额头；硬化不可逆，只能延缓。",
       "中西精粹护肝：张仲景芍药甘草汤，白芍养血柔肝、甘草健脾，再加葡萄籽原花青素和萝卜硫苷。",
@@ -1891,7 +1979,8 @@
       "Healthy liver feels soft like a lip, fatty or inflamed like a nose tip, late cirrhosis hard as a forehead. Cirrhosis can only be slowed.",
       "East-West liver care: Zhang Zhongjing's peony-licorice formula, peony to nourish blood and soften the liver, licorice for the spleen, plus grape seed OPC and glucoraphanin.",
       "Liver harms: alcohol, all oral drugs, benzopyrene from reheated charred or fried food, aflatoxin from damp-stored grain, carbon tetrachloride in dry-cleaning fluid."
-     ]
+     ],
+     "minsEn": 10
     },
     {
      "id": "13",
@@ -1900,7 +1989,7 @@
      "titleEn": "Liver Basics, Part 2",
      "mins": 7,
      "speaker": "营养健康公益学堂",
-     "noEn": true,
+     "noEn": false,
      "key": [
       "萝卜硫苷像垃圾转运车，帮肝把毒物运出体外，避免焚烧式解毒产生自由基二次伤害。",
       "转氨酶像饺子馅：血里测出来说明肝细胞破了，越高损伤越重，升高时问题已不轻。",
@@ -1910,7 +1999,8 @@
       "Glucoraphanin works like a garbage truck, hauling toxins out instead of 'burning' them, which would release free radicals and cause secondary damage.",
       "Transaminases are like dumpling filling: found in the blood, liver cells have broken. Higher means more damage, and by then it is already serious.",
       "Along the liver meridian: cheekbone melasma, early gray temples, dry eyes or tearing in wind, ridged brittle nails all point to the liver."
-     ]
+     ],
+     "minsEn": 9
     }
    ],
    "groups": [
@@ -2041,7 +2131,7 @@
      "mins": 5,
      "speaker": "肖子程",
      "titleEn": "Getting to Know Your Liver",
-     "noEn": true,
+     "noEn": false,
      "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629374722_ksivleyr0zt2.mp3",
      "key": [
       "肝脏是合成血浆蛋白的主要场所，蛋白合成能力下降，身体的自我修复和免疫力一定跟着下降。",
@@ -2052,7 +2142,8 @@
       "The liver is the main site where plasma proteins are made. When that capacity drops, the body's repair and immunity drop with it.",
       "With obesity, high lipids or high blood sugar, don't just suppress the numbers: the liver runs fat metabolism and glycogen storage, so start with the liver.",
       "The liver deactivates hormones and clears toxins. Poor estrogen clearance shows up as irregular periods; toxins it cannot break down may show up as allergies."
-     ]
+     ],
+     "minsEn": 6
     },
     {
      "id": "02",
@@ -2061,7 +2152,7 @@
      "mins": 6,
      "speaker": "肖子程",
      "titleEn": "How the Liver Does Its Work",
-     "noEn": true,
+     "noEn": false,
      "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629374939_ksivqmzp0lp6.mp3",
      "key": [
       "肝脏实质内没有痛觉神经，只有肝包膜有感觉，转氨酶要等肝细胞破裂到一定数量才会升高。",
@@ -2072,7 +2163,8 @@
       "The liver itself has no pain nerves, only its capsule does, and liver enzymes rise only after enough liver cells have already burst.",
       "The liver has a tipping point: at 60% lost function you still feel fine and test normal; by the time you feel it, 80% is often gone.",
       "Five early signs to watch: aversion to greasy food and poor appetite, mood swings, more acne, a red nose, and a face that suddenly darkens."
-     ]
+     ],
+     "minsEn": 6
     },
     {
      "id": "03",
@@ -2081,7 +2173,7 @@
      "mins": 6,
      "speaker": "肖子程",
      "titleEn": "The Liver and Protein Metabolism",
-     "noEn": true,
+     "noEn": false,
      "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629375212_ksivv9u30tow.mp3",
      "key": [
       "人体近一半蛋白质在肝脏合成，肝受损后合成能力下降，修复力和整体免疫力随之降低。",
@@ -2092,7 +2184,8 @@
       "Nearly half the body's protein is made in the liver. Once it is damaged, protein synthesis falls, and repair and overall immunity fall with it.",
       "A weaker liver disrupts purine metabolism and raises uric acid; urate crystals settle in joints, white cells keep engulfing them and bursting, and gout follows.",
       "Uric acid crystals harm the kidneys silently and drag in blood pressure and blood sugar. Once the numbers are stable, go back to the liver and manage the root."
-     ]
+     ],
+     "minsEn": 6
     },
     {
      "id": "04",
@@ -2101,7 +2194,7 @@
      "mins": 5,
      "speaker": "肖子程",
      "titleEn": "How the Liver Drives Heart and Brain Disease",
-     "noEn": true,
+     "noEn": false,
      "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629375293_ksivyma607mt.mp3",
      "key": [
       "血脂不高也会血压高：胆固醇被自由基氧化成过氧化脂质，免疫系统攻击它，血管壁发炎变窄，血压随之升高。",
@@ -2112,7 +2205,8 @@
       "Normal lipids can still mean high blood pressure: free radicals oxidize cholesterol, the immune system attacks it, and inflamed vessel walls narrow.",
       "Medication widens vessels from the outside. Pressure falls but lipids do not, and long-term reliance ages vessels faster as lipids build into plaque.",
       "Hardened brain arteries are like an old tire that bulges into tiny aneurysms and bursts. Heart disease tracks lipids, and both trace back to liver fat metabolism."
-     ]
+     ],
+     "minsEn": 6
     },
     {
      "id": "05",
@@ -2121,7 +2215,7 @@
      "mins": 5,
      "speaker": "肖子程",
      "titleEn": "The Liver Controls Your Blood Sugar",
-     "noEn": true,
+     "noEn": false,
      "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629375402_ksiw11bu0sti.mp3",
      "key": [
       "肝脏像银行活期存款：血糖高时存成肝糖原，饥饿劳累时再分解成葡萄糖放回血液，维持血糖恒定。",
@@ -2132,7 +2226,8 @@
       "The liver works like a checking account: it stores surplus blood sugar as glycogen and releases it as glucose when you are hungry or tired.",
       "The liver is the main organ that makes new glucose; the kidneys manage only 10% as much. When the liver slacks, the kidneys cover, so liver care is kidney care.",
       "High blood sugar is not the same as diabetes. A liver deaf to insulin keeps releasing sugar even when you have not eaten; diabetes and fatty liver feed each other."
-     ]
+     ],
+     "minsEn": 6
     },
     {
      "id": "06",
@@ -2141,7 +2236,7 @@
      "mins": 6,
      "speaker": "肖子程",
      "titleEn": "Common Diseases That Trace Back to the Liver",
-     "noEn": true,
+     "noEn": false,
      "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629375483_ksiw2qpg02rv.mp3",
      "key": [
       "肝脏负责把多余激素灭活，灭活能力一下降，甲亢、甲减、子宫肌瘤和自身免疫性疾病就可能找上门。",
@@ -2152,7 +2247,8 @@
       "The liver deactivates surplus hormones. When it can't keep up, overactive or underactive thyroid, fibroids and autoimmune disease can follow.",
       "Estrogen is deactivated in the liver and leaves in urine. When that falls short, estrogen runs high and the risk of fibroids, gynecological problems and breast cancer rises.",
       "Normal test results do not mean a healthy liver, just as one good exam does not make a good student. The liver also makes acute-phase proteins; repair runs on protein."
-     ]
+     ],
+     "minsEn": 6
     },
     {
      "id": "07",
@@ -2161,7 +2257,7 @@
      "mins": 9,
      "speaker": "肖子程",
      "titleEn": "How We Damage the Liver",
-     "noEn": true,
+     "noEn": false,
      "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629375551_ksiw46a60f6j.mp3",
      "key": [
       "酒精靠乙醇脱氢酶和乙醛脱氢酶代谢，喝多了酶跟不上，乙醛堆积，肝细胞带病工作就是肝损伤。",
@@ -2172,7 +2268,8 @@
       "Alcohol is cleared by two liver enzymes. Drink more than they can handle and acetaldehyde builds up; liver cells working while sick is liver damage.",
       "11 pm to 1 am is the liver and gallbladder's time to detox and restore blood, so be asleep. Sitting all day, pent-up emotion, greasy spicy food and eye strain all hurt the liver.",
       "Fat above 5% of liver weight is fatty liver; next come fibrosis, cirrhosis and cancer. The liver never complains, so by diagnosis it is often late."
-     ]
+     ],
+     "minsEn": 9
     },
     {
      "id": "08",
@@ -2181,7 +2278,7 @@
      "mins": 10,
      "speaker": "肖子程",
      "titleEn": "Caring for the Liver Is Where Health Starts",
-     "noEn": true,
+     "noEn": false,
      "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629375629_ksiw5yzs0hry.mp3",
      "key": [
       "生活方式养肝：规律作息不熬夜，睡眠时才大量分泌生长激素，饭后闭目养神10到20分钟，常敲肝经胆经。",
@@ -2192,7 +2289,8 @@
       "Lifestyle: keep regular hours, since growth hormone surges only in sleep; rest with eyes closed 10 to 20 minutes after meals; tap along the liver and gallbladder meridians.",
       "Four diet rules: control calories and carbs, choose plant protein (animal protein releases ammonia in the gut), cover all the vitamins, and eat plenty of fiber.",
       "Emotions hurt the liver too: low mood cuts the body's ability to kill cancer cells by over 20%. Before losing your temper, wait six seconds."
-     ]
+     ],
+     "minsEn": 11
     },
     {
      "id": "09",
@@ -2201,7 +2299,7 @@
      "mins": 3,
      "speaker": "丁尕秀",
      "titleEn": "The Liver and Women's Health, Part 1",
-     "noEn": true,
+     "noEn": false,
      "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629167886_ksfgfze60zj6.mp3",
      "key": [
       "妇科病比感冒还普遍：炎性疾病占56.4%，乳腺类42.18%，月经类21.55%，子宫卵巢类21.37%。",
@@ -2212,7 +2310,8 @@
       "Gynecological problems are more common than colds: inflammatory conditions 56.4%, breast 42.18%, menstrual 21.55%, uterus and ovaries 21.37%.",
       "The root is the liver: when it can't deactivate surplus estrogen and liver qi stagnates, blood stasis forms lumps, leading to painful or missed periods and tumors.",
       "Injections, anti-inflammatories and surgery treat the surface, and problems often return within a year. Rebuild nutrition and restore the liver's hormone clearance."
-     ]
+     ],
+     "minsEn": 4
     },
     {
      "id": "10",
@@ -2221,7 +2320,7 @@
      "mins": 3,
      "speaker": "丁尕秀",
      "titleEn": "The Liver and Women's Health, Part 2",
-     "noEn": true,
+     "noEn": false,
      "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629168061_ksfgkbhi0fqc.mp3",
      "key": [
       "健康餐基础：多种植物蛋白粉、代餐粉、果蔬纤维素、卵磷脂打粉分装，早晚各两勺，倍立健早晚各一对。",
@@ -2232,7 +2331,8 @@
       "The base health meal: blended plant protein, meal-replacement powder, fruit and vegetable fiber and lecithin, two scoops morning and night, plus a multivitamin pair.",
       "The 4+9 liver routine: at 9:30 to 10 pm take four liver tablets with nine B-complex tablets, and sleep before 11, so the liver can restore its metabolism.",
       "A case: a 17-year-old with PCOS combined nutrients, exercise and early nights; her period returned in 18 days, and seven months later the ultrasound was clear."
-     ]
+     ],
+     "minsEn": 4
     },
     {
      "id": "11",
@@ -2241,7 +2341,7 @@
      "mins": 4,
      "speaker": "凌敏",
      "titleEn": "Most Disease Begins in the Gut",
-     "noEn": true,
+     "noEn": false,
      "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1623751850_kpxvw9sj00mi.mp3",
      "key": [
       "肠道是第二大脑，也是人体最大的免疫器官，体内78%的微生物都在肠道，食物靠它分解吸收再排出。",
@@ -2252,7 +2352,8 @@
       "The gut is the second brain and the body's largest immune organ, home to 78% of its microbes, and it breaks down, absorbs and clears what we eat.",
       "Hippocrates said all disease begins in the gut; Metchnikoff held that death begins in the colon. Up to 90% of disease can be traced to an unhealthy gut.",
       "With a leaky gut, toxins reach the liver through the portal vein and cross into the brain, linked to liver disease, migraine, insomnia, depression and dementia."
-     ]
+     ],
+     "minsEn": 4
     },
     {
      "id": "12",
@@ -2261,7 +2362,7 @@
      "mins": 3,
      "speaker": "凌敏",
      "titleEn": "Is Your Gut Healthy?",
-     "noEn": true,
+     "noEn": false,
      "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1623751965_kpxvyvp60n18.mp3",
      "key": [
       "肠道自测：剖腹产、奶粉喂养、母亲孕期用抗生素、常服抑酸药、易过敏、常便秘腹泻都是信号。",
@@ -2272,7 +2373,8 @@
       "Gut self-check: C-section birth, formula feeding, antibiotics in pregnancy, regular antacids, allergies, frequent constipation or diarrhea are all signals.",
       "The gut has four barriers: microbial, chemical, immune and physical. Once the flora tips out of balance they fall one by one and the gut becomes leaky.",
       "A leaky gut reaches the whole body through the gut-brain and gut-liver axes: brain inflammation brings insomnia and depression, and the liver's detox load grows."
-     ]
+     ],
+     "minsEn": 4
     },
     {
      "id": "13",
@@ -2281,7 +2383,7 @@
      "mins": 3,
      "speaker": "张丽",
      "titleEn": "Gut Health and Heart and Brain Disease",
-     "noEn": true,
+     "noEn": false,
      "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1623906407_kq0fxdcd0f56.mp3",
      "key": [
       "心脑血管病已是国内发病率最高的疾病并趋于年轻化，可控根源是吸烟、熬夜和三高一低的饮食。",
@@ -2296,7 +2398,8 @@
      "dated": {
       "zh": "课中心脑血管病人数（2.9亿，其中高血压2.7亿）引自录制时的统计，数字会更新，但发病率高、趋于年轻化的判断不变。",
       "en": "The patient counts (290 million with cardiovascular disease, 270 million of them with hypertension) are statistics from the time of recording and will have changed; the point that these diseases are widespread and striking younger people still stands."
-     }
+     },
+     "minsEn": 4
     },
     {
      "id": "14",
@@ -2305,7 +2408,7 @@
      "mins": 3,
      "speaker": "张丽",
      "titleEn": "Gut Health and High Blood Pressure",
-     "noEn": true,
+     "noEn": false,
      "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1623906457_kq0fyvua0a8c.mp3",
      "key": [
       "降压药只能治标，一停药血压就反弹，吃着药仍中风的比比皆是，必须从生活方式上治本。",
@@ -2320,7 +2423,8 @@
      "dated": {
       "zh": "课中高血压人数（2013年1.7亿到2020年2.7亿）引自录制时的数据，数字会变，但逐年上升的趋势和治本的思路不变。",
       "en": "The hypertension figures (170 million in 2013 rising to 270 million in 2020) reflect data at the time of recording and will have changed; the rising trend and the treat-the-root approach still stand."
-     }
+     },
+     "minsEn": 4
     },
     {
      "id": "15",
@@ -2329,7 +2433,7 @@
      "mins": 3,
      "speaker": "凌敏",
      "titleEn": "Pairing Nutrients for Gut Health",
-     "noEn": true,
+     "noEn": false,
      "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1623752208_kpxw425l0l60.mp3",
      "key": [
       "膳食纤维每天应吃25到30克，国人实际只有10.8克，不到一半；有三高或便秘的人吃得比推荐量多也没问题。",
@@ -2340,7 +2444,8 @@
       "Adults need 25 to 30 g of fiber a day but average only 10.8 g, under half. People with the 'three highs' or constipation can safely eat more.",
       "Gut flora is about 30% beneficial, 10% harmful and 60% neutral. The neutral ones side with whoever is winning, so weak good bacteria hand them to the bad.",
       "Two steps: probiotics plus fiber to clear first, then protein, collagen peptides, B vitamins, vitamin A and lecithin to repair the gut lining."
-     ]
+     ],
+     "minsEn": 4
     },
     {
      "id": "16",
@@ -2349,7 +2454,7 @@
      "mins": 3,
      "speaker": "凌敏",
      "titleEn": "A Gut Health Plan You Can Follow",
-     "noEn": true,
+     "noEn": false,
      "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1636475273_kvsb4bv40tn0.mp3",
      "key": [
       "清肠排毒每月一次，天数按年龄定，20岁两天、30岁三天；每天20粒果蔬纤维片分两次泡水，小口慢喝。",
@@ -2360,7 +2465,8 @@
       "Clear the gut once a month, the number of days set by age (two days at 20, three at 30); 20 fruit and vegetable fiber tablets a day in water, sipped slowly.",
       "Reset the flora every six months over 20 days: first 7 days three probiotics, 10 sachets each, with collagen peptides; next 14 days less, plus 20 lecithin.",
       "Judge by the stool: banana color and shape, mild odor, done in about 5 minutes, about 300 g, once a day. Keep it up with fiber powder and a healthy meal."
-     ]
+     ],
+     "minsEn": 4
     },
     {
      "id": "17",
@@ -2369,7 +2475,7 @@
      "mins": 7,
      "speaker": "翟志强",
      "titleEn": "Managing Weight and Fitness, Part 1",
-     "noEn": true,
+     "noEn": false,
      "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629168538_ksfgt9pz05qz.mp3",
      "key": [
       "肥胖本身就是病，分看得见的皮下脂肪和看不见的内脏脂肪，中度肥胖者患高血压的概率是常人的五倍。",
@@ -2384,7 +2490,8 @@
      "dated": {
       "zh": "课中网红抽脂身亡事件是录制时的新闻，细节会过时，但抽脂和极端减肥伤身的道理不变。",
       "en": "The influencer liposuction death is news from the time of recording; the point that liposuction and extreme dieting carry real risks still stands."
-     }
+     },
+     "minsEn": 8
     },
     {
      "id": "18",
@@ -2393,7 +2500,7 @@
      "mins": 13,
      "speaker": "翟志强",
      "titleEn": "Managing Weight and Fitness, Part 2",
-     "noEn": true,
+     "noEn": false,
      "listen": "https://wechatapppro-1252524126.file.myqcloud.com/appejnqe1vq2881/audio_compressed/1629168730_ksfgxdno03fn.mp3",
      "key": [
       "代餐控能量，蛋白质增饱腹：大豆分离蛋白PDCAAS为1，胃排空超过4小时，几乎不会转化为甘油三酯。",
@@ -2408,7 +2515,8 @@
      "dated": {
       "zh": "课中案例提到2020年疫情宅家期间体重没有反弹等细节，属于录制当时的情况，但体管方法和营养素原理不变。",
       "en": "The case study cites details from the 2020 pandemic lockdown at the time of recording; the weight-management method and nutrient rationale still stand."
-     }
+     },
+     "minsEn": 13
     }
    ]
   }
