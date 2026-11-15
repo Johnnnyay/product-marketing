@@ -2519,6 +2519,173 @@
      "minsEn": 13
     }
    ]
+  },
+  {
+   "id": "yyjc",
+   "title": "营养健康公益学堂21天",
+   "titleEn": "Nutrition Basics, 21 Days",
+   "lessons": [
+    {
+     "id": "04",
+     "n": 4,
+     "title": "我们一日三餐到底在吃什么？（中）",
+     "titleEn": "What Are We Really Eating? Nutrition Basics, Part 2",
+     "mins": 9,
+     "minsEn": 10,
+     "speaker": "营养健康公益学堂",
+     "noEn": false,
+     "key": [
+      "蛋白质四大作用：构成结构、调节（酶）、运输、供能；必需氨基酸有8种，限制性氨基酸决定吸收率。",
+      "脂肪代谢四步：摄入、吸收、合成、囤积；好脂肪欧米伽3（EPA、DHA）降血脂护血管，坏脂肪沉积成斑块。",
+      "大豆分离蛋白PDCAAS评分达1，吸收利用率最高、对肝肾压力最小；鱼油被氧化后肉眼难分辨。"
+     ],
+     "keyEn": [
+      "Protein has four roles: structure, regulation (enzymes), transport, and energy. There are eight essential amino acids, and the limiting amino acid caps absorption.",
+      "Fat metabolism has four steps: intake, absorption, synthesis, storage. Good omega-3 fats (EPA and DHA) protect vessels, while bad fats build plaque.",
+      "Soy protein isolate scores a perfect PDCAAS of 1, the highest absorption with the least strain on the liver and kidneys; oxidized fish oil is hard to spot by eye."
+     ]
+    },
+    {
+     "id": "05",
+     "n": 5,
+     "title": "我们是怎样胖起来的？（下）",
+     "titleEn": "How We Gain Weight: Nutrition Basics, Part 3",
+     "mins": 8,
+     "minsEn": 8,
+     "speaker": "营养健康公益学堂",
+     "noEn": false,
+     "key": [
+      "碳水化合物供能占人体总能量60%；膳食纤维吸水吸油、增加饱腹感、促排便助消化。",
+      "矿物质分常量与微量，不能在体内合成，缺钙骨质疏松、缺铁贫血；浓茶咖啡、失血、怀孕都会加剧缺乏。",
+      "维生素缺乏是隐性饥饿，没有明显感觉；水溶性易缺乏需及时补，脂溶性（如维生素D）储存在脂肪、缺了说明长期没补。"
+     ],
+     "keyEn": [
+      "Carbohydrates supply 60 percent of the body's energy. Fiber absorbs water and oil, increases fullness, and aids digestion and elimination.",
+      "Minerals come as major and trace, cannot be made in the body; low calcium causes osteoporosis and low iron anemia. Strong tea, coffee, blood loss, and pregnancy worsen deficiency.",
+      "Vitamin deficiency is a hidden hunger with no clear sensation. Water-soluble vitamins need frequent replenishing, while fat-soluble ones like vitamin D are stored in fat, so a shortage means long neglect."
+     ]
+    },
+    {
+     "id": "08",
+     "n": 8,
+     "title": "身体最基础的原材料——蛋白质（下）",
+     "titleEn": "The Body's Most Basic Building Block: Protein, Part 2",
+     "mins": 10,
+     "minsEn": 11,
+     "speaker": "营养健康公益学堂",
+     "noEn": false,
+     "key": [
+      "肿瘤患者不补蛋白等于消耗自身供养肿瘤；肝肾功能不良者按每公斤0.5到0.6克控制，选吸收率最高的大豆分离蛋白。",
+      "痛风是尿酸排不出去，啤酒、海鲜、种子类、肉汤四类高嘌呤；肉汤嘌呤溶汤、肉渣可吃，大豆分离蛋白嘌呤极低。",
+      "大豆异黄酮双向调节雌激素，更年期既补雌激素风险又用抑制药两难；蛋白粉口味差是因蛋白质高、香味来自脂肪。"
+     ],
+     "keyEn": [
+      "A tumor patient who skips protein only consumes themselves to feed the tumor. Those with poor liver or kidney function should control intake at 0.5 to 0.6 grams per kilogram and choose the highest-absorption soy protein isolate.",
+      "Gout is the failure to excrete uric acid. Beer, seafood, seeds, and meat broth are high in purine; purine dissolves into the broth so the meat is safer, and soy protein isolate is very low in purine.",
+      "Soy isoflavones adjust estrogen in both directions, sparing women the dilemma of supplementing or suppressing estrogen. Protein powder tastes plain because protein has no aroma; the aroma is fat's."
+     ]
+    },
+    {
+     "id": "09",
+     "n": 9,
+     "title": "营养缺乏病与慢性病的不同——多种维生素矿物质",
+     "titleEn": "Deficiency vs. Chronic Disease: Multivitamins and Minerals",
+     "mins": 6,
+     "minsEn": 7,
+     "speaker": "营养健康公益学堂",
+     "noEn": false,
+     "key": [
+      "彗星实验证明多维多矿保护DNA免受氧化攻击，减少衰老、肿瘤等根源问题。",
+      "补维生素要从防缺乏病上升到防慢性病：B族降同型半胱氨酸，美国面粉强化叶酸是为降心脏病发病率。",
+      "饭后吃、尿液变黄是维生素B2代谢产物属正常；多维多矿水溶性充足、脂溶性（维生素E、铁）不足需额外补，含硒铬。"
+     ],
+     "keyEn": [
+      "The comet assay shows multivitamins and minerals protect DNA from oxidative attack, addressing aging and tumors at the root.",
+      "Supplementing vitamins must rise from preventing deficiency to preventing chronic disease: B vitamins lower homocysteine, and the US fortifies flour with folic acid to cut heart disease.",
+      "Take them after meals, and yellow urine is just vitamin B2's metabolite. Multivitamins are rich in water-soluble nutrients but short on fat-soluble ones like vitamin E and iron, and contain selenium and chromium."
+     ]
+    },
+    {
+     "id": "11",
+     "n": 11,
+     "title": "对抗自由基，抗氧化三剑客",
+     "titleEn": "Fighting Free Radicals: The Antioxidant Trio",
+     "mins": 9,
+     "minsEn": 9,
+     "speaker": "营养健康公益学堂",
+     "noEn": false,
+     "key": [
+      "自由基攻击蛋白质、DNA、脂肪酸，是衰老和多种疾病的罪魁祸首，吸烟饮酒、雾霾、煎炸、添加剂都产生自由基。",
+      "维生素C水溶性抗氧化、促胶原合成、还原亚硝胺，每日至少200毫克；天然维C含生物类黄酮优于合成。",
+      "维生素E护细胞膜、类胡萝卜素护黄斑并双向转化维生素A；三者1+1+1大于三，含氧多靠维E、含氧少靠类胡萝卜素。"
+     ],
+     "keyEn": [
+      "Free radicals attack protein, DNA, and fatty acids, driving aging and many diseases; smoking, drinking, haze, frying, and additives all produce them.",
+      "Vitamin C is the water-soluble antioxidant that builds collagen and reduces nitrosamines, at least 200 milligrams daily; natural vitamin C with bioflavonoids beats synthetic.",
+      "Vitamin E guards cell membranes and carotenoids guard the macula while converting to vitamin A as needed; the three together exceed the sum of their parts."
+     ]
+    },
+    {
+     "id": "13",
+     "n": 13,
+     "title": "多喝骨头汤能不能补钙？钙（下）",
+     "titleEn": "Does Bone Broth Really Build Calcium? Calcium, Part 2",
+     "mins": 8,
+     "minsEn": 9,
+     "speaker": "营养健康公益学堂",
+     "noEn": false,
+     "key": [
+      "补钙效果在长期坚持，不发生骨折体会不到；健康的观念比健康的产品更重要。",
+      "骨头汤几乎不含钙，与自来水无异，营养在氨基酸和脂肪；连骨小鱼含钙高，奶因乳糖促进吸收最好。",
+      "儿童补钙不能按体型折算，青春期与孕期同水平；骨质增生无法刮除只能延缓，日照不足维生素D影响钙吸收。"
+     ],
+     "keyEn": [
+      "Calcium works only over the long term, and you feel it only when you never fracture; a healthy mindset matters more than any product.",
+      "Bone broth has almost no calcium, no better than tap water, its value being amino acids and fat. Small fish eaten with bones are high in calcium, and milk is best because lactose boosts absorption.",
+      "Do not scale a child's calcium by body size; adolescence needs as much as pregnancy. Bone spurs cannot be scraped away, only slowed, and too little sun means too little vitamin D to absorb calcium."
+     ]
+    },
+    {
+     "id": "14",
+     "n": 14,
+     "title": "维生素能减少心血管疾病吗？B族维生素",
+     "titleEn": "Can Vitamins Reduce Heart Disease? The B Vitamins",
+     "mins": 6,
+     "minsEn": 6,
+     "speaker": "营养健康公益学堂",
+     "noEn": false,
+     "key": [
+      "B族是能量代谢辅酶、水溶性易缺乏；B1缺脚气病、B2口角炎、烟酸赖皮病、泛酸代谢不足，需复合补充协同作用。",
+      "B族护神经绝缘皮防串电，缺了耳后刺痛、睡眠抽动；B12和叶酸缺了红细胞长不大成巨幼红细胞贫血。",
+      "B6、B12、叶酸降同型半胱氨酸护血管防心脑血管意外；美国面粉强化叶酸、中国盐强化碘。"
+     ],
+     "keyEn": [
+      "The B vitamins are energy-metabolism coenzymes, water-soluble and easily deficient; B1 beriberi, B2 angular cheilitis, niacin pellagra, pantothenic acid metabolism, all needing a combined supplement.",
+      "The B vitamins insulate nerve fibers to prevent shorting; a lack causes stabbing pain behind the ear and sleep twitches. Low B12 and folate leave red blood cells immature, a megaloblastic anemia.",
+      "B6, B12, and folate lower homocysteine to protect vessels and prevent heart and brain events; the US fortifies flour with folic acid and China fortifies salt with iodine."
+     ]
+    },
+    {
+     "id": "19",
+     "n": 19,
+     "title": "儿童成长中的两大关键营养素",
+     "titleEn": "The Two Key Nutrients for Growing Children",
+     "mins": 9,
+     "minsEn": 9,
+     "speaker": "营养健康公益学堂",
+     "noEn": false,
+     "key": [
+      "儿童肥胖或豆芽菜都靠调三大产能营养素，小胖墩减脂增蛋白、豆芽菜补蛋白，儿童要关注口味。",
+      "儿童钙量接近成人、青春期超成人；缺维生素D夜惊、枕秃、O/X型腿、鸡胸漏斗胸，佝偻病遗终身。",
+      "缺铁靠圆形小车转运、铅同形抢占致铅超标，补铁占位、维C排铅促铁吸收；纠正挑食靠母亲口味、不强迫、剁碎食物。"
+     ],
+     "keyEn": [
+      "Childhood obesity or thinness both come down to the three energy nutrients: cut fat and add protein for the chubby child, add protein for the thin one, and mind the child's taste.",
+      "A child's calcium need is near an adult's and exceeds it in adolescence; low vitamin D brings night crying, occipital baldness, bow legs, and pigeon chest, with lifelong rickets damage.",
+      "Iron rides a round cart that lead, being the same shape, hijacks, so supplement iron to block lead and vitamin C to excrete it. Correct picky eating through the mother's diet, no forcing, and finely chopped food."
+     ]
+    }
+   ]
   }
  ]
 }
