@@ -1,6 +1,6 @@
 {
  "about": "HY team night agendas for team-event.html, newest first. Edited on the page after the admin login (··· → /api/save-functions?doc=team-events) or by Claude. Each agenda is a list of sections (intro, calendar, volume, growth, leadership); each item has a topic (t), speakers (who), a panel lead (by), minutes (min), bullets (pts) and, in the calendar, events (cal).",
- "savedAt": "2026-11-16T02:28:48.000Z",
+ "savedAt": "2026-11-16T08:43:25.000Z",
  "events": [
   {
    "id": "2026-10-25",
@@ -1495,6 +1495,14 @@
      ""
     ],
     [
+     "2026-12-31",
+     "New Year's Eve",
+     "Team shows: our three acts",
+     "Comedy remake, singing group and dance group. To be finalized at the next team call",
+     "",
+     "# Where we are\nProposed on the team call in mid-November: three shows from our team. We finalize at the next team call. Come with your ideas and which show you want to join. Have a new show idea, like a magic act? Propose it and Johnny submits it.\n\n# 1. Comedy remake (partners outside New York)\n- We remake a classic story with business and product jokes, the way the Chinese conferences and the Chinese New Year gala do their skits\n- A video of about 10 minutes carries the whole show: the scenes, the voices, the music and the subtitles, all recorded ahead of time\n- On stage we act it out in costume and lip-sync to the video. Nobody has to memorize lines\n- Starting idea: Snow White. \"Mirror, mirror, who is the most beautiful?\" sets up Artistry, and the poisoned apple becomes our Vitamin C apple demo\n- Any other story works too if it fits more jokes, products and business\n- The real work is the script: remaking the story so it is funny. Prep happens remotely before the trip\n- Bring a costume for your role. Your Halloween costume works\n- New York partners who love the idea can join too\n\n# 2. Singing group\n- Raymond, Johnson, Ding and William (to confirm)\n- Something hype and exciting, in English. No slow love songs\n- Starting idea: a Bruno Mars song\n\n# 3. Dance group (New York partners)\n- A mashup of the 2026 TikTok dances, done in one shot\n- We live close, so we meet up in person to practice\n- Needed: someone to collect the dances, someone to plan the practices, and someone to mix the music into one track\n- The bar is good and cool, not cringe. If it is not good, we don't do it\n\n# Keep it in proportion\nShow prep is not productive time. Keep your DTMs going every week, and get your minimum game plan done this month."
+    ],
+    [
      "2027-01-01",
      "Morning",
      "Fly home",
@@ -1524,7 +1532,7 @@
      "Desert days are mild and the nights get cold, so bring layers and a jacket, plus shoes you can hike in and sunscreen."
     ]
    ],
-   "at": "2026-11-16T02:28:48.000Z"
+   "at": "2026-11-16T08:43:25.000Z"
   },
   {
    "id": "2027-11-01",
