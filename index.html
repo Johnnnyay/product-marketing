@@ -3000,22 +3000,31 @@ function eduBack() {
   renderEducationView(); eduTop();
 }
 
-/* The front of the tab: the knowledge module, then the pain-point course modules. */
+/* The front of the tab: every knowledge course, then the pain-point course modules.
+   The courses sit right here in the same grid as the modules (Johnny, 2026-11-16: no extra click
+   through a "整体健康管理知识" card). Search across every lesson moved here with them. */
 function eduHomeHtml() {
-  const lessons = EDU_INDEX.series.reduce((a, s) => a + s.lessons.length, 0);
   return `
     <div class="edu-wrap">
       <div class="edu-eyebrow">${t('Admin only', '仅限管理员')}</div>
       <h1 class="edu-h1">${t('Education', '培训')}</h1>
       <p class="edu-sub">${t('Start with the knowledge, then master one pain point at a time.', '先打好知识基础，再一次吃透一个痛点。')}</p>
       <div class="edu-sec">${t('Knowledge', '知识基础')}</div>
-      <div class="edu-cards">
-        <button class="edu-card" onclick="eduOpenModule('holistic')">
-          <span class="edu-card-kicker">${t(`${EDU_INDEX.series.length} courses · ${lessons} lessons`, `${EDU_INDEX.series.length}门课 · 共${lessons}课`)}</span>
-          <span class="edu-card-title">${t('Holistic Health Management Knowledge Materials', '整体健康管理知识')}</span>
-          <span class="edu-card-sub">${t('Family Health Management (肖子程), Clear, Regulate, Replenish, Nourish (清调补养) and Liver Care, East and West (护肝)', '肖子程52健康课、清调补养、中西精粹护肝')}</span>
-          <span class="edu-card-go">${t('Open', '打开')} ›</span>
-        </button>
+      <p class="edu-sub" style="margin-top:-4px">${t('The foundation every pain-point module draws on. Read at your own pace.', '所有痛点课程的知识来源。按自己的节奏阅读。')}</p>
+      <label class="edu-searchbox"><svg viewBox="0 0 24 24" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        <input id="eduQ" type="search" value="${eduEsc(eduQuery)}" placeholder="${t('Search every lesson, e.g. folate, GABA', '搜索所有课程，比如 叶酸、GABA')}" oninput="eduSearchSoon(this.value)" autocomplete="off"></label>
+      <div class="edu-results" id="eduResults"></div>
+      <div class="edu-cards edu-cards-sm edu-cards-know">
+        ${EDU_INDEX.series.map(s => {
+          const hrs = Math.max(1, Math.round(s.lessons.reduce((a, l) => a + (l.mins || 0), 0) / 60));
+          const waiting = s.lessons.filter(l => l.pending).length;
+          return `
+        <button class="edu-card edu-card-pain" onclick="eduOpenSeries('${s.id}')">
+          <span class="edu-card-kicker">${t(`${s.lessons.length} lessons · about ${hrs} hour${hrs === 1 ? '' : 's'}`, `共${s.lessons.length}课 · 约${hrs}小时`)}${waiting ? t(` · ${waiting} coming`, ` · ${waiting}课待补`) : ''}</span>
+          <span class="edu-card-title">${eduEsc(eduSeriesTitle(s))}</span>
+          <span class="edu-card-go">${t('Start reading', '开始阅读')} ›</span>
+        </button>`;
+        }).join('')}
       </div>
       <div class="edu-sec">${t('Pain-point modules', '痛点课程')}</div>
       <p class="edu-sub" style="margin-top:-4px">${t('Each module is a draft for the conversation in three steps, plus a map of which product goes with what the guest marked.', '每个模块是一份三步聊天草稿，再加一张对照表：客人勾了什么，对应推荐什么产品。')}</p>
@@ -3129,37 +3138,6 @@ function eduPainHtml(F) {
     </div>`;
 }
 
-function eduCardsHtml() {
-  const blurb = (s) => s.id === 'xzc52'
-    ? t('Family health management, taught by 肖子程', '肖子程主讲的家庭健康管理线上课程')
-    : s.id === 'hg' ? t('Liver care through Chinese and Western medicine', '中西医结合，讲透护肝')
-    : s.id === 'dj' ? t('The liver, women’s health, the gut and weight, in short talks', '肝脏、女性健康、肠道和体重，一节一个主题')
-    : (n => t(`Talks from ${n} teachers`, `${n}位老师的分享`))(new Set(s.lessons.map(l => l.speaker).filter(Boolean)).size);
-  return `
-    <div class="edu-wrap">
-      <button class="edu-back" onclick="eduBack()">‹ ${t('Education', '培训')}</button>
-      <div class="edu-eyebrow">${t('Knowledge', '知识基础')}</div>
-      <h1 class="edu-h1">${t('Holistic Health Management Knowledge Materials', '整体健康管理知识')}</h1>
-      <p class="edu-sub">${t('The foundation every pain-point module draws on. Read at your own pace.', '所有痛点课程的知识来源。按自己的节奏阅读。')}</p>
-      <label class="edu-searchbox"><svg viewBox="0 0 24 24" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
-        <input id="eduQ" type="search" value="${eduEsc(eduQuery)}" placeholder="${t('Search every lesson, e.g. folate, GABA', '搜索所有课程，比如 叶酸、GABA')}" oninput="eduSearchSoon(this.value)" autocomplete="off"></label>
-      <div class="edu-results" id="eduResults"></div>
-      <div class="edu-cards">
-        ${EDU_INDEX.series.map(s => {
-          const hrs = Math.max(1, Math.round(s.lessons.reduce((a, l) => a + (l.mins || 0), 0) / 60));
-          const waiting = s.lessons.filter(l => l.pending).length;
-          return `
-        <button class="edu-card" onclick="eduOpenSeries('${s.id}')">
-          <span class="edu-card-kicker">${t(`${s.lessons.length} lessons · about ${hrs} hours`, `共${s.lessons.length}课 · 约${hrs}小时`)}${waiting ? t(` · ${waiting} coming`, ` · ${waiting}课待补`) : ''}</span>
-          <span class="edu-card-title">${eduEsc(eduSeriesTitle(s))}</span>${eduWantsEn() && s.titleEn ? `<span class="edu-card-kicker">${eduEsc(s.title)}</span>` : ''}
-          <span class="edu-card-sub">${blurb(s)}</span>
-          <span class="edu-card-go">${t('Start reading', '开始阅读')} ›</span>
-        </button>`;
-        }).join('')}
-      </div>
-    </div>`;
-}
-
 function eduListenHtml(l) {
   return l.listen ? `<a class="edu-listen" href="${eduEsc(l.listen)}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>${t('Listen to the original (Chinese)', '听原课')}</a>` : '';
 }
@@ -3218,7 +3196,7 @@ function eduListHtml(series) {
   }).join('');
   return `
     <div class="edu-wrap">
-      <button class="edu-back" onclick="eduBack()">‹ ${t('Holistic Health Management', '整体健康管理知识')}</button>
+      <button class="edu-back" onclick="eduBack()">‹ ${t('Education', '培训')}</button>
       <h1 class="edu-h1">${eduEsc(eduSeriesTitle(series))}</h1>
       <p class="edu-sub">${t(`${series.lessons.length} lessons`, `共${series.lessons.length}课`)}${eduWantsEn() ? ` · ${series.lessons.filter(l => eduHasEn(l) && !l.pending).length} ${t('in English', '')}` : ''}</p>
       ${toc}${sections}
@@ -3287,8 +3265,8 @@ async function renderEducationView() {
   const series = EDU_INDEX.series.find(s => s.id === eduSeries);
   if (!series) {
     eduSeries = eduLesson = null;
-    if (!eduModule) { host.innerHTML = eduHomeHtml(); return; }
-    if (eduModule === 'holistic') { host.innerHTML = eduCardsHtml(); if (eduQuery.trim()) eduSearch(eduQuery); return; }
+    /* 'holistic' was the old in-between page of courses; the courses now live on the front */
+    if (!eduModule || eduModule === 'holistic') { eduModule = null; host.innerHTML = eduHomeHtml(); if (eduQuery.trim()) eduSearch(eduQuery); return; }
     if (!eduMods[eduModule]) {
       loading();
       try { const r = await fetch('education/modules/' + eduModule + '.json'); if (!r.ok) throw 0; eduMods[eduModule] = await r.json(); }
