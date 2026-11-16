@@ -1,6 +1,6 @@
 {
  "about": "HY team night agendas for team-event.html, newest first. Edited on the page after the admin login (··· → /api/save-functions?doc=team-events) or by Claude. Each agenda is a list of sections (intro, calendar, volume, growth, leadership); each item has a topic (t), speakers (who), a panel lead (by), minutes (min), bullets (pts) and, in the calendar, events (cal).",
- "savedAt": "2026-11-16T08:43:25.000Z",
+ "savedAt": "2026-11-16T15:01:56.000Z",
  "events": [
   {
    "id": "2026-10-25",
@@ -1415,7 +1415,7 @@
    "where": "Scottsdale, Arizona",
    "whereNote": "Five-star hotel downtown · Jerry has prepaid the room block",
    "agenda": [],
-   "about": "Our year-end trip is four nights in Scottsdale, Arizona, at a five-star hotel downtown. We arrive Monday, Dec 28 around 6 PM and fly home on New Year's Day.\n\nJerry has prepaid the room block, so the first 60 people get his rate: $550 for a single, $1,500 for a couple, for all four nights. The rate goes up after the first 60. Pay Jerry by Zelle or Venmo to hold your spot, then book your flight into Phoenix Sky Harbor (PHX).\n\nEvery activity below is optional and you pay your own. Prices are per person.",
+   "about": "Our year-end trip is four nights in Scottsdale, Arizona, at a five-star hotel downtown. We arrive Monday, Dec 28 around 6 PM and fly home on New Year's Day.\n\nTo qualify: bring 3 prospects to a BP, or launch 1 partner, by year end. Qualifiers get special activities on the trip, and 3/6 and above also get dinner with JL leadership. Qualifiers who can't make the trip get a special Q&A with our upline instead.\n\nJerry has prepaid the room block, so the first 60 people get his rate: $550 for a single, $1,500 for a couple, for all four nights. The rate goes up after the first 60. Pay Jerry by Zelle or Venmo to hold your spot, then book your flight into Phoenix Sky Harbor (PHX).\n\nEvery activity below is optional and you pay your own. Prices are per person.",
    "days": [
     [
      "2026-12-28",
@@ -1512,6 +1512,10 @@
    ],
    "faq": [
     [
+     "How do I qualify?",
+     "Bring 3 prospects to a BP, or launch 1 partner, by year end. Qualifiers get special activities on the trip, and if you are 3/6 or above, dinner with JL leadership. If you qualify but can't come, we add a special Q&A with our upline for you."
+    ],
+    [
      "How do I hold my spot?",
      "Pay Jerry by Zelle or Venmo: $550 single or $1,500 a couple, for all 4 nights. Jerry prepaid the room block, so you pay him, not the hotel."
     ],
@@ -1532,7 +1536,7 @@
      "Desert days are mild and the nights get cold, so bring layers and a jacket, plus shoes you can hike in and sunscreen."
     ]
    ],
-   "at": "2026-11-16T08:43:25.000Z"
+   "at": "2026-11-16T15:01:56.000Z"
   },
   {
    "id": "2027-11-01",
@@ -1785,6 +1789,29 @@
     ]
    ],
    "at": "2026-11-16T02:28:48.000Z"
+  },
+  {
+   "id": "2026-12-12",
+   "date": "2026-12-12",
+   "kind": "BAM training",
+   "title": "Business Attitude & Mindset (BAM)",
+   "sub": "Spartans BAM · New Jersey · Mason & Ali Eddy",
+   "time": "Saturday, time to be announced",
+   "where": "New Jersey",
+   "whereNote": "Venue and tickets to be announced",
+   "agenda": [],
+   "about": "Our December BAM: build the right mindset, lead with attitude, grow your business. Mason & Ali Eddy speak at the New Jersey BAM on Saturday, Dec 12, the closest city for the New York team.\n\nThe venue, the start time and the ticket link are not out yet. This page updates once they are.\n\nBring a guest. A BAM is the best place for a new partner to feel what this team is about.",
+   "faq": [
+    [
+     "Can't make Dec 12?",
+     "BAM runs in 13 cities this December. Phoenix Sat, Dec 5 and Los Angeles Sun, Dec 6 (Vijay & Keya Subramanyan). Dallas Sun, Dec 6 and Houston Sat, Dec 5 (Craig & Carrie Clickner). Milwaukee Sat, Dec 5 (Mason & Ali Eddy). Atlanta Sat, Dec 12 (Jwalant & Asha Vakil). Seattle Sat, Dec 12 and the Bay Area Sun, Dec 13 (Anand & Pushpa Savulgay). Toronto Sat, Dec 12 and Detroit Sun, Dec 13 (Prashant & Vaneeta Aggarwal). Vancouver Sat, Dec 5 and Edmonton Sun, Dec 6 (J P & Ritu Kapoor). No BAM in Orlando."
+    ],
+    [
+     "Where do I get a ticket?",
+     "The ticket link isn't out yet. Ask your upline, and check back here."
+    ]
+   ],
+   "at": "2026-11-16T15:01:56.000Z"
   }
  ]
 }
