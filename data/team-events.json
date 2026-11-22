@@ -1793,6 +1793,136 @@
    ]
   },
   {
+   "id": "2026-11-22",
+   "date": "2026-11-22",
+   "kind": "Orientation",
+   "title": "New IBO Orientation",
+   "sub": "For new apprentices, and what everyone needs to hear in their first 30 days",
+   "time": "9:00 to 10:00 PM ET",
+   "where": "Zoom only",
+   "dress": "Business casual, camera on",
+   "zoom": "708-033-8832",
+   "flow": [
+    [
+     "8:55 to 9:00 PM",
+     "Log in early, camera on"
+    ],
+    [
+     "9:00 to 10:00 PM",
+     "All new partners and their uplines"
+    ]
+   ],
+   "roles": [
+    [
+     "Host and timekeeper",
+     "To be confirmed"
+    ]
+   ],
+   "agendaTitle": "New IBO Orientation",
+   "agenda": [
+    {
+     "k": "intro",
+     "items": [
+      {
+       "t": "Welcome and new apprentices",
+       "who": "To be confirmed",
+       "min": 5,
+       "pts": [
+        [
+         "Each new apprentice, one line",
+         [
+          "Name · City · Who you are building with · What you are excited about"
+         ]
+        ],
+        "Each speaker introduces the next speaker"
+       ]
+      }
+     ]
+    },
+    {
+     "k": "growth",
+     "items": [
+      {
+       "t": "Getting the most out of books, audios and events",
+       "who": "To be confirmed",
+       "min": 7,
+       "pts": [
+        "“The audios all feel the same”",
+        "How do I stay consistent?",
+        "How do I get the most out of online and in-person events?"
+       ]
+      },
+      {
+       "t": "PHP and working with your upline",
+       "who": "To be confirmed",
+       "min": 8,
+       "pts": [
+        "What is a good PHP, and why?",
+        "哪些常见误区？",
+        "Why mentorship and PHP matter",
+        "Why 30, 60 and 90 DCR",
+        "Communication pitfalls: thinking your mentor is too busy, not following up"
+       ]
+      }
+     ]
+    },
+    {
+     "k": "volume",
+     "items": [
+      {
+       "t": "Volume: from 100% personal use to your first customer",
+       "who": "To be confirmed",
+       "min": 10,
+       "pts": [
+        "如何从日常生活、产品体验和真实需求中自然地创造顾客？",
+        "Growing core volume to 150 PV, and the other bonuses: SSI, BFI and BBI",
+        "面对「产品价格高」「我喜欢其他品牌」等疑虑，如何调整自己的思维？"
+       ]
+      }
+     ]
+    },
+    {
+     "k": "leadership",
+     "items": [
+      {
+       "t": "建立社群过程中常见的误区｜如何走过低谷与拒绝",
+       "who": "To be confirmed",
+       "min": 10,
+       "pts": [
+        "Approach and expectations: A and B list vs C list",
+        "❌ 预先判断别人（Prejudge）",
+        "❌ 把拒绝看得太个人化（Take rejection personally）",
+        "❌ 用少量样本就快速下结论"
+       ]
+      },
+      {
+       "t": "When family and friends push back",
+       "who": "To be confirmed",
+       "min": 8,
+       "pts": [
+        "Friends who don't join, or who quit",
+        "“They say it's a pyramid”",
+        "“Will this hurt my friendships?”"
+       ]
+      },
+      {
+       "t": "Building belief and self-image",
+       "who": "To be confirmed",
+       "min": 12,
+       "pts": [
+        "The emotional roller coaster",
+        "Can I do it? What if I fall off track?",
+        "“I'm just a student” · “I just got started” · the international market",
+        "如何经历低谷、掉队甚至自我怀疑后，再次站起来？",
+        "❌ 做了很多工作，因为暂时看不到结果而停止学习、停止行动，开始怀疑自己"
+       ]
+      }
+     ]
+    }
+   ],
+   "about": "Our orientation for new apprentices, and everything people need to hear in their first 30 days.\n\nLog in a few minutes early and keep your camera on the whole time. One host keeps time, and each speaker introduces the next one."
+  },
+  {
    "id": "2026-11-20",
    "date": "2026-11-20",
    "kind": "HY Product Expo",
