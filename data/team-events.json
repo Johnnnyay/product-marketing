@@ -1858,7 +1858,7 @@
        "min": 8,
        "pts": [
         "What is a good PHP, and why?",
-        "哪些常见误区？",
+        "The most common PHP mistakes",
         "Why mentorship and PHP matter",
         "Why 30, 60 and 90 DCR",
         "Communication pitfalls: thinking your mentor is too busy, not following up"
@@ -1874,9 +1874,9 @@
        "who": "To be confirmed",
        "min": 10,
        "pts": [
-        "如何从日常生活、产品体验和真实需求中自然地创造顾客？",
+        "How customers come naturally from everyday life, your own product experience and real needs",
         "Growing core volume to 150 PV, and the other bonuses: SSI, BFI and BBI",
-        "面对「产品价格高」「我喜欢其他品牌」等疑虑，如何调整自己的思维？"
+        "How to think about “the products are expensive” and “I like another brand”"
        ]
       }
      ]
@@ -1885,14 +1885,14 @@
      "k": "leadership",
      "items": [
       {
-       "t": "建立社群过程中常见的误区｜如何走过低谷与拒绝",
+       "t": "Building your network: common mistakes, and getting through lows and rejection",
        "who": "To be confirmed",
        "min": 10,
        "pts": [
         "Approach and expectations: A and B list vs C list",
-        "❌ 预先判断别人（Prejudge）",
-        "❌ 把拒绝看得太个人化（Take rejection personally）",
-        "❌ 用少量样本就快速下结论"
+        "❌ Prejudging people",
+        "❌ Taking rejection personally",
+        "❌ Drawing conclusions from just a few conversations"
        ]
       },
       {
@@ -1913,8 +1913,8 @@
         "The emotional roller coaster",
         "Can I do it? What if I fall off track?",
         "“I'm just a student” · “I just got started” · the international market",
-        "如何经历低谷、掉队甚至自我怀疑后，再次站起来？",
-        "❌ 做了很多工作，因为暂时看不到结果而停止学习、停止行动，开始怀疑自己"
+        "How to get back up after a low, falling behind, or doubting yourself",
+        "❌ Putting in a lot of work, not seeing results yet, then stopping, and starting to doubt yourself"
        ]
       }
      ]
