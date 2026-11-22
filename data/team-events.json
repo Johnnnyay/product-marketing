@@ -1800,22 +1800,15 @@
    "sub": "For new apprentices, and what everyone needs to hear in their first 30 days",
    "time": "9:00 to 10:00 PM ET",
    "where": "Zoom only",
-   "dress": "Business casual, camera on",
    "zoom": "708-033-8832",
-   "flow": [
-    [
-     "8:55 to 9:00 PM",
-     "Log in early, camera on"
-    ],
-    [
-     "9:00 to 10:00 PM",
-     "All new partners and their uplines"
-    ]
-   ],
    "roles": [
     [
-     "Host and timekeeper",
-     "To be confirmed"
+     "Host",
+     ""
+    ],
+    [
+     "Timekeeper",
+     ""
     ]
    ],
    "agendaTitle": "New IBO Orientation",
@@ -1833,8 +1826,7 @@
          [
           "Name · City · Who you are building with · What you are excited about"
          ]
-        ],
-        "Each speaker introduces the next speaker"
+        ]
        ]
       }
      ]
@@ -1920,7 +1912,7 @@
      ]
     }
    ],
-   "about": "Our orientation for new apprentices, and everything people need to hear in their first 30 days.\n\nLog in a few minutes early and keep your camera on the whole time. One host keeps time, and each speaker introduces the next one."
+   "about": "Our orientation for new apprentices, and everything people need to hear in their first 30 days.\n\nPlease log in a few minutes early and keep your camera on the whole time. The host keeps time, and each speaker introduces the next one, so come prepared."
   },
   {
    "id": "2026-11-20",
