@@ -1827,7 +1827,7 @@
         [
          "Each new apprentice, one line",
          [
-          "Name · City · Who you are building with · What you are excited about"
+          "Name · City · Who you are building with · What you are excited about · Fun fact about yourself"
          ]
         ]
        ]
@@ -1904,10 +1904,13 @@
         "Can I do it? What if I fall off track?",
         "“I'm just a student” · “I just got started” · the international market",
         "How to get back up after a low, falling behind, or doubting yourself",
-        "Putting in a lot of work, not seeing results yet, then stopping, and starting to doubt yourself",
-        "--",
-        "OPEN Q&A"
+        "Putting in a lot of work, not seeing results yet, then stopping, and starting to doubt yourself"
        ]
+      },
+      {
+       "t": "OPEN Q&A",
+       "who": "Jerry & Leann",
+       "min": 10
       }
      ]
     }
