@@ -1800,15 +1800,19 @@
    "sub": "For new apprentices, and what everyone needs to hear in their first 30 days",
    "time": "9:00 to 10:00 PM ET",
    "where": "Zoom only",
-   "zoom": "708-033-8832",
+   "zoom": "515-333-3193",
    "roles": [
     [
      "Host",
-     ""
+     "Huansong"
+    ],
+    [
+     "Online CEO (Chief Energy Officer)",
+     "Huansong"
     ],
     [
      "Timekeeper",
-     ""
+     "Huansong"
     ]
    ],
    "agendaTitle": "New IBO Orientation",
@@ -1818,13 +1822,12 @@
      "items": [
       {
        "t": "Welcome and new apprentices",
-       "who": "To be confirmed",
        "min": 5,
        "pts": [
         [
          "Each new apprentice, one line",
          [
-          "Name · City · Who you are building with · What you are excited about"
+          "Name · City · Who you are building with · What you are excited about · 1 fun fact"
          ]
         ]
        ]
@@ -1836,7 +1839,7 @@
      "items": [
       {
        "t": "Getting the most out of books, audios and events",
-       "who": "To be confirmed",
+       "who": "Johnny",
        "min": 7,
        "pts": [
         "“The audios all feel the same”",
@@ -1846,7 +1849,7 @@
       },
       {
        "t": "PHP and working with your upline",
-       "who": "To be confirmed",
+       "who": "Shirley",
        "min": 8,
        "pts": [
         "What is a good PHP, and why?",
@@ -1863,7 +1866,7 @@
      "items": [
       {
        "t": "Volume: from 100% personal use to your first customer",
-       "who": "To be confirmed",
+       "who": "Wendy",
        "min": 10,
        "pts": [
         "How customers come naturally from everyday life, your own product experience and real needs",
@@ -1878,18 +1881,18 @@
      "items": [
       {
        "t": "Building your network: common mistakes, and getting through lows and rejection",
-       "who": "To be confirmed",
+       "who": "Irene",
        "min": 10,
        "pts": [
         "Approach and expectations: A and B list vs C list",
-        "❌ Prejudging people",
-        "❌ Taking rejection personally",
-        "❌ Drawing conclusions from just a few conversations"
+        "Prejudging people",
+        "Taking rejection personally",
+        "Drawing conclusions from just a few conversations"
        ]
       },
       {
        "t": "When family and friends push back",
-       "who": "To be confirmed",
+       "who": "Irene",
        "min": 8,
        "pts": [
         "Friends who don't join, or who quit",
@@ -1899,14 +1902,14 @@
       },
       {
        "t": "Building belief and self-image",
-       "who": "To be confirmed",
+       "who": "Jerry & Leann",
        "min": 12,
        "pts": [
         "The emotional roller coaster",
         "Can I do it? What if I fall off track?",
         "“I'm just a student” · “I just got started” · the international market",
         "How to get back up after a low, falling behind, or doubting yourself",
-        "❌ Putting in a lot of work, not seeing results yet, then stopping, and starting to doubt yourself"
+        "Putting in a lot of work, not seeing results yet, then stopping, and starting to doubt yourself"
        ]
       }
      ]
